@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308880_34285_5543"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FloatBuffer" refid="_9_5_f720368_1110473546659_742353_8079"/></annotatedElement><body humanName="Body" mode="s,e">A float buffer.
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_841774062.jpg" id="_10_5_622020d_1132928308880_34285_5543" refElementId="_10_5_622020d_1132928308880_34285_5543"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_795627831.jpg" name="FloatBuffer" refElementId="_9_5_f720368_1110473546659_742353_8079" refid="_9_5_f720368_1110473546659_742353_8079"/></annotatedElement><body humanName="Body" mode="s,e">A float buffer.
 
 &lt;p&gt; This class defines four categories of operations upon
 float buffers:
@@ -57,4 +57,4 @@ method invocations to be chained.
 @author JSR-51 Expert Group
 @version 1.56, 04/07/16
 @since 1.4
-</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="FloatBuffer" refid="_9_5_f720368_1110473546659_742353_8079"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FloatBuffer" refid="_9_5_f720368_1110473546659_742353_8079"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_795627831.jpg" mode="s,e" name="FloatBuffer" refElementId="_9_5_f720368_1110473546659_742353_8079" refid="_9_5_f720368_1110473546659_742353_8079"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_795627831.jpg" name="FloatBuffer" refElementId="_9_5_f720368_1110473546659_742353_8079" refid="_9_5_f720368_1110473546659_742353_8079"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

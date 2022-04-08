@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306687_219585_4284"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MenuItem" refid="_9_5_f720368_1110473546581_480588_7085"/></annotatedElement><body humanName="Body" mode="s,e">All items in a menu must belong to the class
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_841774062.jpg" id="_10_5_622020d_1132928306687_219585_4284" refElementId="_10_5_622020d_1132928306687_219585_4284"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="MenuItem" refElementId="_9_5_f720368_1110473546581_480588_7085" refid="_9_5_f720368_1110473546581_480588_7085"/></annotatedElement><body humanName="Body" mode="s,e">All items in a menu must belong to the class
 &lt;code&gt;MenuItem&lt;/code&gt;, or one of its subclasses.
 &lt;p&gt;
 The default &lt;code&gt;MenuItem&lt;/code&gt; object embodies
@@ -32,4 +32,4 @@ selected.
 
 @version 1.88, 05/18/04
 @author Sami Shaio
-</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MenuItem" refid="_9_5_f720368_1110473546581_480588_7085"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MenuItem" refid="_9_5_f720368_1110473546581_480588_7085"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_555864569.jpg" mode="s,e" name="MenuItem" refElementId="_9_5_f720368_1110473546581_480588_7085" refid="_9_5_f720368_1110473546581_480588_7085"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="MenuItem" refElementId="_9_5_f720368_1110473546581_480588_7085" refid="_9_5_f720368_1110473546581_480588_7085"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

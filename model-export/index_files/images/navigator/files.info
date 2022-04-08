@@ -1,14 +1,14 @@
 #
-#Thu Jun 10 10:00:49 CEST 2021
-minimize.gif=1621588597708
-containment_left.gif=1621588597708
-containment_right.gif=1621588597661
-dock_over.gif=1621588597677
-undock_over.gif=1621588597661
-maximize.gif=1621588597661
-undock.gif=1621588597677
-containment_left_over.gif=1621588597677
-minimize_over.gif=1621588597677
-dock.gif=1621588597708
-maximize_over.gif=1621588597661
-containment_right_over.gif=1621588597661
+#Fri Apr 08 05:14:22 CEST 2022
+dock_over.gif=1608577342000
+minimize.gif=1608577342000
+containment_right_over.gif=1608577342000
+undock.gif=1608577342000
+minimize_over.gif=1608577342000
+containment_left_over.gif=1608577342000
+maximize.gif=1608577342000
+containment_left.gif=1608577342000
+undock_over.gif=1608577342000
+maximize_over.gif=1608577342000
+dock.gif=1608577342000
+containment_right.gif=1608577342000

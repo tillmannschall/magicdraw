@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308830_869812_5485"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ByteBuffer" refid="_9_5_f720368_1110473546659_818813_7971"/></annotatedElement><body humanName="Body" mode="s,e">A byte buffer.
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_841774062.jpg" id="_10_5_622020d_1132928308830_869812_5485" refElementId="_10_5_622020d_1132928308830_869812_5485"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_795627831.jpg" name="ByteBuffer" refElementId="_9_5_f720368_1110473546659_818813_7971" refid="_9_5_f720368_1110473546659_818813_7971"/></annotatedElement><body humanName="Body" mode="s,e">A byte buffer.
 
 &lt;p&gt; This class defines six categories of operations upon
 byte buffers:
@@ -168,4 +168,4 @@ bb.putInt(0xCAFEBABE).putShort(3).putShort(45);&lt;/pre&gt;&lt;/blockquote&gt;
 @author JSR-51 Expert Group
 @version 1.56, 04/07/16
 @since 1.4
-</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ByteBuffer" refid="_9_5_f720368_1110473546659_818813_7971"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ByteBuffer" refid="_9_5_f720368_1110473546659_818813_7971"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_795627831.jpg" mode="s,e" name="ByteBuffer" refElementId="_9_5_f720368_1110473546659_818813_7971" refid="_9_5_f720368_1110473546659_818813_7971"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_795627831.jpg" name="ByteBuffer" refElementId="_9_5_f720368_1110473546659_818813_7971" refid="_9_5_f720368_1110473546659_818813_7971"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

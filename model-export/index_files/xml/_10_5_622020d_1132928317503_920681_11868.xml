@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317503_920681_11868"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HTMLFactory" refid="_9_5_f720368_1110473548190_988284_21861"/></annotatedElement><body humanName="Body" mode="s,e">A factory to build views for HTML.  The following
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_841774062.jpg" id="_10_5_622020d_1132928317503_920681_11868" refElementId="_10_5_622020d_1132928317503_920681_11868"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="HTMLFactory" refElementId="_9_5_f720368_1110473548190_988284_21861" refid="_9_5_f720368_1110473548190_988284_21861"/></annotatedElement><body humanName="Body" mode="s,e">A factory to build views for HTML.  The following
 table describes what this factory will build by
 default.
 
@@ -77,4 +77,4 @@ default.
 &lt;td&gt;HTML.Tag.FRAME&lt;td&gt;FrameView
 &lt;/tr&gt;
 &lt;/table&gt;
-</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="HTMLFactory" refid="_9_5_f720368_1110473548190_988284_21861"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HTMLFactory" refid="_9_5_f720368_1110473548190_988284_21861"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_555864569.jpg" mode="s,e" name="HTMLFactory" refElementId="_9_5_f720368_1110473548190_988284_21861" refid="_9_5_f720368_1110473548190_988284_21861"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="HTMLFactory" refElementId="_9_5_f720368_1110473548190_988284_21861" refid="_9_5_f720368_1110473548190_988284_21861"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

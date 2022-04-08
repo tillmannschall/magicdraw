@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314739_612947_9071"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HandlerBase" refid="_9_5_f720368_1110473546940_378985_13292"/></annotatedElement><body humanName="Body" mode="s,e">Default base class for handlers.
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_841774062.jpg" id="_10_5_622020d_1132928314739_612947_9071" refElementId="_10_5_622020d_1132928314739_612947_9071"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="HandlerBase" refElementId="_9_5_f720368_1110473546940_378985_13292" refid="_9_5_f720368_1110473546940_378985_13292"/></annotatedElement><body humanName="Body" mode="s,e">Default base class for handlers.
 
 &lt;blockquote&gt;
 &lt;em&gt;This module, both source code and documentation, is in the
@@ -33,4 +33,4 @@ class.
 @see org.xml.sax.DTDHandler
 @see org.xml.sax.DocumentHandler
 @see org.xml.sax.ErrorHandler
-</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="HandlerBase" refid="_9_5_f720368_1110473546940_378985_13292"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HandlerBase" refid="_9_5_f720368_1110473546940_378985_13292"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_555864569.jpg" mode="s,e" name="HandlerBase" refElementId="_9_5_f720368_1110473546940_378985_13292" refid="_9_5_f720368_1110473546940_378985_13292"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="HandlerBase" refElementId="_9_5_f720368_1110473546940_378985_13292" refid="_9_5_f720368_1110473546940_378985_13292"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

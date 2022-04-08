@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309191_826183_5878"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ECPublicKey" refid="_10_5_622020d_1132928309191_670969_5876"/></annotatedElement><body humanName="Body" mode="s,e">The interface to an elliptic curve (EC) public key.
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_841774062.jpg" id="_10_5_622020d_1132928309191_826183_5878" refElementId="_10_5_622020d_1132928309191_826183_5878"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_1046467249.jpg" name="ECPublicKey" refElementId="_10_5_622020d_1132928309191_670969_5876" refid="_10_5_622020d_1132928309191_670969_5876"/></annotatedElement><body humanName="Body" mode="s,e">The interface to an elliptic curve (EC) public key.
 
 @author Valerie Peng
 
@@ -9,4 +9,4 @@
 @see java.security.spec.ECPoint
 
 @since 1.5
-</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ECPublicKey" refid="_10_5_622020d_1132928309191_670969_5876"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ECPublicKey" refid="_10_5_622020d_1132928309191_670969_5876"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_1046467249.jpg" mode="s,e" name="ECPublicKey" refElementId="_10_5_622020d_1132928309191_670969_5876" refid="_10_5_622020d_1132928309191_670969_5876"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_1046467249.jpg" name="ECPublicKey" refElementId="_10_5_622020d_1132928309191_670969_5876" refid="_10_5_622020d_1132928309191_670969_5876"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

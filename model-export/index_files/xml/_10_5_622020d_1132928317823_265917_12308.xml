@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317823_265917_12308"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Box" refid="_9_5_f720368_1110473546784_301877_10633"/></annotatedElement><body humanName="Body" mode="s,e">A lightweight container
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_841774062.jpg" id="_10_5_622020d_1132928317823_265917_12308" refElementId="_10_5_622020d_1132928317823_265917_12308"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="Box" refElementId="_9_5_f720368_1110473546784_301877_10633" refid="_9_5_f720368_1110473546784_301877_10633"/></annotatedElement><body humanName="Body" mode="s,e">A lightweight container
 that uses a BoxLayout object as its layout manager.
 Box provides several class methods
 that are useful for containers using BoxLayout --
@@ -40,4 +40,4 @@ Please see {@link java.beans.XMLEncoder}.
 
 @author  Timothy Prinzing
 @version 1.43 12/19/03
-</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Box" refid="_9_5_f720368_1110473546784_301877_10633"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Box" refid="_9_5_f720368_1110473546784_301877_10633"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_555864569.jpg" mode="s,e" name="Box" refElementId="_9_5_f720368_1110473546784_301877_10633" refid="_9_5_f720368_1110473546784_301877_10633"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="Box" refElementId="_9_5_f720368_1110473546784_301877_10633" refid="_9_5_f720368_1110473546784_301877_10633"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

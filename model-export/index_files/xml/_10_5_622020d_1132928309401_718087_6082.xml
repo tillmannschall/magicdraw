@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309401_718087_6082"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PermissionsHash" refid="_9_5_f720368_1110473546690_424330_8499"/></annotatedElement><body humanName="Body" mode="s,e">A PermissionsHash stores a homogeneous set of permissions in a hashtable.
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_841774062.jpg" id="_10_5_622020d_1132928309401_718087_6082" refElementId="_10_5_622020d_1132928309401_718087_6082"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="PermissionsHash" refElementId="_9_5_f720368_1110473546690_424330_8499" refid="_9_5_f720368_1110473546690_424330_8499"/></annotatedElement><body humanName="Body" mode="s,e">A PermissionsHash stores a homogeneous set of permissions in a hashtable.
 
 @see Permission
 @see Permissions
@@ -8,4 +8,4 @@
 @author Roland Schemers
 
 @serial include
-</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PermissionsHash" refid="_9_5_f720368_1110473546690_424330_8499"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PermissionsHash" refid="_9_5_f720368_1110473546690_424330_8499"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_555864569.jpg" mode="s,e" name="PermissionsHash" refElementId="_9_5_f720368_1110473546690_424330_8499" refid="_9_5_f720368_1110473546690_424330_8499"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="PermissionsHash" refElementId="_9_5_f720368_1110473546690_424330_8499" refid="_9_5_f720368_1110473546690_424330_8499"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

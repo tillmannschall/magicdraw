@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309211_932080_5927"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InvalidKeySpecException" refid="_9_5_f720368_1110473546674_526918_8387"/></annotatedElement><body humanName="Body" mode="s,e">This is the exception for invalid key specifications.
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_841774062.jpg" id="_10_5_622020d_1132928309211_932080_5927" refElementId="_10_5_622020d_1132928309211_932080_5927"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="InvalidKeySpecException" refElementId="_9_5_f720368_1110473546674_526918_8387" refid="_9_5_f720368_1110473546674_526918_8387"/></annotatedElement><body humanName="Body" mode="s,e">This is the exception for invalid key specifications.
 
 @author Jan Luehe
 
@@ -7,4 +7,4 @@
 @see KeySpec
 
 @since 1.2
-</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InvalidKeySpecException" refid="_9_5_f720368_1110473546674_526918_8387"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InvalidKeySpecException" refid="_9_5_f720368_1110473546674_526918_8387"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_555864569.jpg" mode="s,e" name="InvalidKeySpecException" refElementId="_9_5_f720368_1110473546674_526918_8387" refid="_9_5_f720368_1110473546674_526918_8387"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="InvalidKeySpecException" refElementId="_9_5_f720368_1110473546674_526918_8387" refid="_9_5_f720368_1110473546674_526918_8387"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

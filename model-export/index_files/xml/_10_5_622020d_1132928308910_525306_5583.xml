@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308910_525306_5583"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ShortBuffer" refid="_9_5_f720368_1110473546659_549192_8119"/></annotatedElement><body humanName="Body" mode="s,e">A short buffer.
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_841774062.jpg" id="_10_5_622020d_1132928308910_525306_5583" refElementId="_10_5_622020d_1132928308910_525306_5583"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_795627831.jpg" name="ShortBuffer" refElementId="_9_5_f720368_1110473546659_549192_8119" refid="_9_5_f720368_1110473546659_549192_8119"/></annotatedElement><body humanName="Body" mode="s,e">A short buffer.
 
 &lt;p&gt; This class defines four categories of operations upon
 short buffers:
@@ -57,4 +57,4 @@ method invocations to be chained.
 @author JSR-51 Expert Group
 @version 1.56, 04/07/16
 @since 1.4
-</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ShortBuffer" refid="_9_5_f720368_1110473546659_549192_8119"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ShortBuffer" refid="_9_5_f720368_1110473546659_549192_8119"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_795627831.jpg" mode="s,e" name="ShortBuffer" refElementId="_9_5_f720368_1110473546659_549192_8119" refid="_9_5_f720368_1110473546659_549192_8119"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_795627831.jpg" name="ShortBuffer" refElementId="_9_5_f720368_1110473546659_549192_8119" refid="_9_5_f720368_1110473546659_549192_8119"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

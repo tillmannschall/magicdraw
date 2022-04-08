@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309331_96187_6039"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyRep" refid="_10_5_622020d_1132928309331_387002_6034"/></annotatedElement><body humanName="Body" mode="s,e">Standardized representation for serialized Key objects.
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_841774062.jpg" id="_10_5_622020d_1132928309331_96187_6039" refElementId="_10_5_622020d_1132928309331_96187_6039"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="KeyRep" refElementId="_10_5_622020d_1132928309331_387002_6034" refid="_10_5_622020d_1132928309331_387002_6034"/></annotatedElement><body humanName="Body" mode="s,e">Standardized representation for serialized Key objects.
 
 &lt;p&gt;
 
@@ -16,4 +16,4 @@ of the Serialization Specification for more information.
 
 @version 1.7, 04/04/20
 @since 1.5
-</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="KeyRep" refid="_10_5_622020d_1132928309331_387002_6034"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyRep" refid="_10_5_622020d_1132928309331_387002_6034"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_555864569.jpg" mode="s,e" name="KeyRep" refElementId="_10_5_622020d_1132928309331_387002_6034" refid="_10_5_622020d_1132928309331_387002_6034"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_555864569.jpg" name="KeyRep" refElementId="_10_5_622020d_1132928309331_387002_6034" refid="_10_5_622020d_1132928309331_387002_6034"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
