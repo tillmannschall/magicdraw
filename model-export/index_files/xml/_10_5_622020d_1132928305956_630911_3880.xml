@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305956_630911_3880"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="InputMethod" refid="_9_5_f720368_1110473546565_880176_6715"/></annotatedElement><body humanName="Body" mode="s,e">Defines the interface for an input method that supports complex text input.
+Input methods traditionally support text input for languages that have
+more characters than can be represented on a standard-size keyboard,
+such as Chinese, Japanese, and Korean. However, they may also be used to
+support phonetic text input for English or character reordering for Thai.
+&lt;p&gt;
+Subclasses of InputMethod can be loaded by the input method framework; they
+can then be selected either through the API
+({@link java.awt.im.InputContext#selectInputMethod InputContext.selectInputMethod})
+or the user interface (the input method selection menu).
+
+@since 1.3
+
+@version 	1.29, 12/19/03
+@author JavaSoft International
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="InputMethod" refid="_9_5_f720368_1110473546565_880176_6715"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="InputMethod" refid="_9_5_f720368_1110473546565_880176_6715"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

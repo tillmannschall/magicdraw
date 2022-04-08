@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309331_754026_6043"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ProtectionParameter" refid="_10_5_622020d_1132928309331_869672_6042"/></annotatedElement><body humanName="Body" mode="s,e">A marker interface for keystore protection parameters.
+
+&lt;p&gt; The information stored in a &lt;code&gt;ProtectionParameter&lt;/code&gt;
+object protects the contents of a keystore.
+For example, protection parameters may be used to check
+the integrity of keystore data, or to protect the
+confidentiality of sensitive keystore data
+(such as a &lt;code&gt;PrivateKey&lt;/code&gt;).
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ProtectionParameter" refid="_10_5_622020d_1132928309331_869672_6042"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ProtectionParameter" refid="_10_5_622020d_1132928309331_869672_6042"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

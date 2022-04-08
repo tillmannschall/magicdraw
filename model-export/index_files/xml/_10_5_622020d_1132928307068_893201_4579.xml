@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307068_893201_4579"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FileNotFoundException" refid="_9_5_f720368_1110473546596_935147_7393"/></annotatedElement><body humanName="Body" mode="s,e">Signals that an attempt to open the file denoted by a specified pathname
+has failed.
+
+&lt;p&gt; This exception will be thrown by the {@link FileInputStream}, {@link
+FileOutputStream}, and {@link RandomAccessFile} constructors when a file
+with the specified pathname does not exist.  It will also be thrown by these
+constructors if the file does exist but for some reason is inaccessible, for
+example when an attempt is made to open a read-only file for writing.
+
+@author  unascribed
+@version 1.23, 12/19/03
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FileNotFoundException" refid="_9_5_f720368_1110473546596_935147_7393"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FileNotFoundException" refid="_9_5_f720368_1110473546596_935147_7393"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

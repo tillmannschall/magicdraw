@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316842_537920_10738"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="JoinRowSet" refid="_10_5_622020d_1132928316791_409032_10736"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;JoinRowSet&lt;/code&gt; interface provides a mechanism for combining related
+data from different &lt;code&gt;RowSet&lt;/code&gt; objects into one &lt;code&gt;JoinRowSet&lt;/code&gt;
+object, which represents an SQL &lt;code&gt;JOIN&lt;/code&gt;.
+In other words, a &lt;code&gt;JoinRowSet&lt;/code&gt; object acts as a
+container for the data from &lt;code&gt;RowSet&lt;/code&gt; objects that form an SQL
+&lt;code&gt;JOIN&lt;/code&gt; relationship.
+&lt;P&gt;
+The &lt;code&gt;Joinable&lt;/code&gt; interface provides the methods for setting,
+retrieving, and unsetting a match column, the basis for
+establishing an SQL &lt;code&gt;JOIN&lt;/code&gt; relationship. The match column may
+alternatively be set by supplying it to the appropriate version of the
+&lt;code&gt;JointRowSet&lt;/code&gt; method &lt;code&gt;addRowSet&lt;/code&gt;.
+&lt;P&gt;
+&lt;p&gt;
+&lt;h3&gt;1.0 Overview&lt;/h3&gt;
+Disconnected &lt;code&gt;RowSet&lt;/code&gt; objects (&lt;code&gt;CachedRowSet&lt;/code&gt; objects
+and implementations extending the &lt;code&gt;CachedRowSet&lt;/code&gt; interface)
+do not have a standard way to establish an SQL &lt;code&gt;JOIN&lt;/code&gt; between
+&lt;code&gt;RowSet&lt;/code&gt; objects without the expensive operation of
+reconnecting to the data source. The &lt;code&gt;JoinRowSet&lt;/code&gt;
+interface is specifically designed to address this need.
+&lt;P&gt;
+Any &lt;code&gt;RowSet&lt;/code&gt; object
+can be added to a &lt;code&gt;JoinRowSet&lt;/code&gt; object to become
+part of an SQL &lt;code&gt;JOIN&lt;/code&gt; relationship. This means that both connected
+and disconnected &lt;code&gt;RowSet&lt;/code&gt; objects can be part of a &lt;code&gt;JOIN&lt;/code&gt;.
+&lt;code&gt;RowSet&lt;/code&gt; objects operating in a connected environment
+(&lt;code&gt;JdbcRowSet&lt;/code&gt; objects) are
+encouraged to use the database to which they are already
+connected to establish SQL &lt;code&gt;JOIN&lt;/code&gt; relationships between
+tables directly. However, it is possible for a
+&lt;code&gt;JdbcRowSet&lt;/code&gt; object to be added to a &lt;code&gt;JoinRowSet&lt;/code&gt; object
+if necessary.
+&lt;P&gt;
+Any number of &lt;code&gt;RowSet&lt;/code&gt; objects can be added to an
+instance of &lt;code&gt;JoinRowSet&lt;/code&gt; provided that they
+can be related in an SQL &lt;code&gt;JOIN&lt;/code&gt;.
+By definition, the SQL &lt;code&gt;JOIN&lt;/code&gt; statement is used to
+combine the data contained in two or more relational database tables based
+upon a common attribute. The &lt;code&gt;Joinable&lt;/code&gt; interface provides the methods
+for establishing a common attribute, which is done by setting a
+&lt;i&gt;match column&lt;/i&gt;. The match column commonly coincides with
+the primary key, but there is
+no requirement that the match column be the same as the primary key.
+By establishing and then enforcing column matches,
+a &lt;code&gt;JoinRowSet&lt;/code&gt; object establishes &lt;code&gt;JOIN&lt;/code&gt; relationships
+between &lt;code&gt;RowSet&lt;/code&gt; objects without the assistance of an available
+relational database.
+&lt;P&gt;
+The type of &lt;code&gt;JOIN&lt;/code&gt; to be established is determined by setting
+one of the &lt;code&gt;JoinRowSet&lt;/code&gt; constants using the method
+&lt;code&gt;setJoinType&lt;/code&gt;. The following SQL &lt;code&gt;JOIN&lt;/code&gt; types can be set:
+&lt;UL&gt;
+&lt;LI&gt;&lt;code&gt;CROSS_JOIN&lt;/code&gt;
+&lt;LI&gt;&lt;code&gt;FULL_JOIN&lt;/code&gt;
+&lt;LI&gt;&lt;code&gt;INNER_JOIN&lt;/code&gt; - the default if no &lt;code&gt;JOIN&lt;/code&gt; type has been set
+&lt;LI&gt;&lt;code&gt;LEFT_OUTER_JOIN&lt;/code&gt;
+&lt;LI&gt;&lt;code&gt;RIGHT_OUTER_JOIN&lt;/code&gt;
+&lt;/UL&gt;
+Note that if no type is set, the &lt;code&gt;JOIN&lt;/code&gt; will automatically be an
+inner join. The comments for the fields in the
+&lt;code&gt;JoinRowSet&lt;/code&gt; interface explain these &lt;code&gt;JOIN&lt;/code&gt; types, which are
+standard SQL &lt;code&gt;JOIN&lt;/code&gt; types.
+&lt;P&gt;
+&lt;h3&gt;2.0 Using a &lt;code&gt;JoinRowSet&lt;/code&gt; Object for Creating a &lt;code&gt;JOIN&lt;/code&gt;&lt;/h3&gt;
+When a &lt;code&gt;JoinRowSet&lt;/code&gt; object is created, it is empty.
+The first &lt;code&gt;RowSet&lt;/code&gt; object to be added becomes the basis for the
+&lt;code&gt;JOIN&lt;/code&gt; relationship.
+Applications must determine which column in each of the
+&lt;code&gt;RowSet&lt;/code&gt; objects to be added to the &lt;code&gt;JoinRowSet&lt;/code&gt; object
+should be the match column. All of the
+&lt;code&gt;RowSet&lt;/code&gt; objects must contain a match column, and the values in
+each match column must be ones that can be compared to values in the other match
+columns. The columns do not have to have the same name, though they often do,
+and they do not have to store the exact same data type as long as the data types
+can be compared.
+&lt;P&gt;
+A match column can be be set in two ways:
+&lt;ul&gt;
+&lt;li&gt;By calling the &lt;code&gt;Joinable&lt;/code&gt; method &lt;code&gt;setMatchColumn&lt;/code&gt;&lt;br&gt;
+This is the only method that can set the match column before a &lt;code&gt;RowSet&lt;/code&gt;
+object is added to a &lt;code&gt;JoinRowSet&lt;/code&gt; object. The &lt;code&gt;RowSet&lt;/code&gt; object
+must have implemented the &lt;code&gt;Joinable&lt;/code&gt; interface in order to use the method
+&lt;code&gt;setMatchColumn&lt;/code&gt;. Once the match column value
+has been set, this method can be used to reset the match column at any time.
+&lt;li&gt;By calling one of the versions of the &lt;code&gt;JoinRowSet&lt;/code&gt; method
+&lt;code&gt;addRowSet&lt;/code&gt; that takes a column name or number (or an array of
+column names or numbers)&lt;BR&gt;
+Four of the five &lt;code&gt;addRowSet&lt;/code&gt; methods take a match column as a parameter.
+These four methods set or reset the match column at the time a &lt;code&gt;RowSet&lt;/code&gt;
+object is being added to a &lt;code&gt;JoinRowSet&lt;/code&gt; object.
+&lt;/ul&gt;
+&lt;h3&gt;3.0 Sample Usage&lt;/h3&gt;
+&lt;p&gt;
+The following code fragment adds two &lt;code&gt;CachedRowSet&lt;/code&gt;
+objects to a &lt;code&gt;JoinRowSet&lt;/code&gt; object. Note that in this example,
+no SQL &lt;code&gt;JOIN&lt;/code&gt; type is set, so the default &lt;code&gt;JOIN&lt;/code&gt; type,
+which is &lt;i&gt;INNER_JOIN&lt;/i&gt;, is established.
+&lt;p&gt;
+In the following code fragment, the table &lt;code&gt;EMPLOYEES&lt;/code&gt;, whose match
+column is set to the first column (&lt;code&gt;EMP_ID&lt;/code&gt;), is added to the
+&lt;code&gt;JoinRowSet&lt;/code&gt; object &lt;i&gt;jrs&lt;/i&gt;. Then
+the table &lt;code&gt;ESSP_BONUS_PLAN&lt;/code&gt;, whose match column is likewise
+the &lt;code&gt;EMP_ID&lt;/code&gt; column, is added. When this second
+table is added to &lt;i&gt;jrs&lt;/i&gt;, only the rows in
+&lt;code&gt;ESSP_BONUS_PLAN&lt;/code&gt; whose &lt;code&gt;EMP_ID&lt;/code&gt; value matches an
+&lt;code&gt;EMP_ID&lt;/code&gt; value in the &lt;code&gt;EMPLOYEES&lt;/code&gt; table are added.
+In this case, everyone in the bonus plan is an employee, so all of the rows
+in the table &lt;code&gt;ESSP_BONUS_PLAN&lt;/code&gt; are added to the &lt;code&gt;JoinRowSet&lt;/code&gt;
+object.  In this example, both &lt;code&gt;CachedRowSet&lt;/code&gt; objects being added
+have implemented the &lt;code&gt;Joinable&lt;/code&gt; interface and can therefore call
+the &lt;code&gt;Joinable&lt;/code&gt; method &lt;code&gt;setMatchColumn&lt;/code&gt;.
+&lt;PRE&gt;
+JoinRowSet jrs = new JoinRowSetImpl();
+
+ResultSet rs1 = stmt.executeQuery("SELECT * FROM EMPLOYEES");
+CachedRowSet empl = new CachedRowSetImpl();
+empl.populate(rs1);
+empl.setMatchColumn(1);
+jrs.addRowSet(empl);
+
+ResultSet rs2 = stmt.executeQuery("SELECT * FROM ESSP_BONUS_PLAN");
+CachedRowSet bonus = new CachedRowSetImpl();
+bonus.populate(rs2);
+bonus.setMatchColumn(1); // EMP_ID is the first column
+jrs.addRowSet(bonus);
+&lt;/PRE&gt;
+&lt;P&gt;
+At this point, &lt;i&gt;jrs&lt;/i&gt; is an inside JOIN of the two &lt;code&gt;RowSet&lt;/code&gt; objects
+based on their &lt;code&gt;EMP_ID&lt;/code&gt; columns. The application can now browse the
+combined data as if it were browsing one single &lt;code&gt;RowSet&lt;/code&gt; object.
+Because &lt;i&gt;jrs&lt;/i&gt; is itself a &lt;code&gt;RowSet&lt;/code&gt; object, an application can
+navigate or modify it using &lt;code&gt;RowSet&lt;/code&gt; methods.
+&lt;PRE&gt;
+jrs.first();
+int employeeID = jrs.getInt(1);
+String employeeName = jrs.getString(2);
+&lt;/PRE&gt;
+&lt;P&gt;
+Note that because the SQL &lt;code&gt;JOIN&lt;/code&gt; must be enforced when an application
+adds a second or subsequent &lt;code&gt;RowSet&lt;/code&gt; object, there
+may be an initial degradation in performance while the &lt;code&gt;JOIN&lt;/code&gt; is
+being performed.
+&lt;P&gt;
+The following code fragment adds an additional &lt;code&gt;CachedRowSet&lt;/code&gt; object.
+In this case, the match column (&lt;code&gt;EMP_ID&lt;/code&gt;) is set when the
+&lt;code&gt;CachedRowSet&lt;/code&gt; object is added to the &lt;code&gt;JoinRowSet&lt;/code&gt; object.
+&lt;PRE&gt;
+ResultSet rs3 = stmt.executeQuery("SELECT * FROM 401K_CONTRIB");
+CachedRowSet fourO1k = new CachedRowSetImpl();
+four01k.populate(rs3);
+jrs.addRowSet(four01k, 1);
+&lt;/PRE&gt;
+&lt;P&gt;
+The &lt;code&gt;JoinRowSet&lt;/code&gt; object &lt;i&gt;jrs&lt;/i&gt; now contains values from all three
+tables. The data in each row in &lt;i&gt;four01k&lt;/i&gt; in which the value for the
+&lt;code&gt;EMP_ID&lt;/code&gt; column matches a value for the &lt;code&gt;EMP_ID&lt;/code&gt; column
+in &lt;i&gt;jrs&lt;/i&gt; has been added to &lt;i&gt;jrs&lt;/i&gt;.
+&lt;P&gt;
+&lt;h3&gt;4.0 &lt;code&gt;JoinRowSet&lt;/code&gt; Methods&lt;/h3&gt;
+The &lt;code&gt;JoinRowSet&lt;/code&gt; interface supplies several methods for adding
+&lt;code&gt;RowSet&lt;/code&gt; objects and for getting information about the
+&lt;code&gt;JoinRowSet&lt;/code&gt; object.
+&lt;UL&gt;
+&lt;LI&gt;Methods for adding one or more &lt;code&gt;RowSet&lt;/code&gt; objects&lt;BR&gt;
+These methods allow an application to add one &lt;code&gt;RowSet&lt;/code&gt; object
+at a time or to add multiple &lt;code&gt;RowSet&lt;/code&gt; objects at one time. In
+either case, the methods may specify the match column for each
+&lt;code&gt;RowSet&lt;/code&gt; object being added.
+&lt;LI&gt;Methods for getting information&lt;BR&gt;
+One method retrieves the &lt;code&gt;RowSet&lt;/code&gt; objects in the
+&lt;code&gt;JoinRowSet&lt;/code&gt; object, and another method retrieves the
+&lt;code&gt;RowSet&lt;/code&gt; names.  A third method retrieves either the SQL
+&lt;code&gt;WHERE&lt;/code&gt; clause used behind the scenes to form the
+&lt;code&gt;JOIN&lt;/code&gt; or a text description of what the &lt;code&gt;WHERE&lt;/code&gt;
+clause does.
+&lt;LI&gt;Methods related to the type of &lt;code&gt;JOIN&lt;/code&gt;&lt;BR&gt;
+One method sets the &lt;code&gt;JOIN&lt;/code&gt; type, and five methods find out whether
+the &lt;code&gt;JoinRowSet&lt;/code&gt; object supports a given type.
+&lt;LI&gt;A method to make a separate copy of the &lt;code&gt;JoinRowSet&lt;/code&gt; object&lt;BR&gt;
+This method creates a copy that can be persisted to the data source.
+&lt;/UL&gt;
+&lt;P&gt;
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="JoinRowSet" refid="_10_5_622020d_1132928316791_409032_10736"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="JoinRowSet" refid="_10_5_622020d_1132928316791_409032_10736"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

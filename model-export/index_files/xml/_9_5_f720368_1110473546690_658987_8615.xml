@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_658987_8615"><documentation humanName="Documentation" mode="standard">This class implements the Unicode Bidirectional Algorithm.
+&lt;p&gt;
+A Bidi object provides information on the bidirectional reordering of the text
+used to create it.  This is required, for example, to properly display Arabic
+or Hebrew text.  These languages are inherently mixed directional, as they order
+numbers from left-to-right while ordering most other text from right-to-left.
+&lt;p&gt;
+Once created, a Bidi object can be queried to see if the text it represents is
+all left-to-right or all right-to-left.  Such objects are very lightweight and
+this text is relatively easy to process.
+&lt;p&gt;
+If there are multiple runs of text, information about the runs can be accessed
+by indexing to get the start, limit, and level of a run.  The level represents
+both the direction and the 'nesting level' of a directional run.  Odd levels
+are right-to-left, while even levels are left-to-right.  So for example level
+0 represents left-to-right text, while level 1 represents right-to-left text, and
+level 2 represents left-to-right text embedded in a right-to-left run.
+
+@since 1.4
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">Bidi</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309551_537016_6216"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309551_537016_6216"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::text::Bidi</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

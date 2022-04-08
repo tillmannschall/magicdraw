@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306397_310095_4172"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultFocusTraversalPolicy" refid="_9_5_f720368_1110473546581_3616_6983"/></annotatedElement><body humanName="Body" mode="s,e">A FocusTraversalPolicy that determines traversal order based on the order
+of child Components in a Container. From a particular focus cycle root, the
+policy makes a pre-order traversal of the Component hierarchy, and traverses
+a Container's children according to the ordering of the array returned by
+&lt;code&gt;Container.getComponents()&lt;/code&gt;. Portions of the hierarchy that are
+not visible and displayable will not be searched.
+&lt;p&gt;
+If client code has explicitly set the focusability of a Component by either
+overriding &lt;code&gt;Component.isFocusTraversable()&lt;/code&gt; or
+&lt;code&gt;Component.isFocusable()&lt;/code&gt;, or by calling
+&lt;code&gt;Component.setFocusable()&lt;/code&gt;, then a DefaultFocusTraversalPolicy
+behaves exactly like a ContainerOrderFocusTraversalPolicy. If, however, the
+Component is relying on default focusability, then a
+DefaultFocusTraversalPolicy will reject all Components with non-focusable
+peers. This is the default FocusTraversalPolicy for all AWT Containers.
+&lt;p&gt;
+The focusability of a peer is implementation-dependent. Sun recommends that
+all implementations for a particular native platform construct peers with
+the same focusability. The recommendations for Windows and Unix are that
+Canvases, Labels, Panels, Scrollbars, ScrollPanes, Windows, and lightweight
+Components have non-focusable peers, and all other Components have focusable
+peers. These recommendations are used in the Sun AWT implementations. Note
+that the focusability of a Component's peer is different from, and does not
+impact, the focusability of the Component itself.
+&lt;p&gt;
+Please see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/focus.html"&gt;
+How to Use the Focus Subsystem&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;, and the
+&lt;a href="../../java/awt/doc-files/FocusSpec.html"&gt;Focus Specification&lt;/a&gt;
+for more information.
+
+@author David Mendenhall
+@version 1.5, 12/19/03
+
+@see Container#getComponents
+@see Component#isFocusable
+@see Component#setFocusable
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DefaultFocusTraversalPolicy" refid="_9_5_f720368_1110473546581_3616_6983"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultFocusTraversalPolicy" refid="_9_5_f720368_1110473546581_3616_6983"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317823_826578_12293"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ActionMap" refid="_9_5_f720368_1110473546784_735162_10623"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;ActionMap&lt;/code&gt; provides mappings from
+&lt;code&gt;Object&lt;/code&gt;s
+(called &lt;em&gt;keys&lt;/em&gt; or &lt;em&gt;&lt;code&gt;Action&lt;/code&gt; names&lt;/em&gt;)
+to &lt;code&gt;Action&lt;/code&gt;s.
+An &lt;code&gt;ActionMap&lt;/code&gt; is usually used with an &lt;code&gt;InputMap&lt;/code&gt;
+to locate a particular action
+when a key is pressed. As with &lt;code&gt;InputMap&lt;/code&gt;,
+an &lt;code&gt;ActionMap&lt;/code&gt; can have a parent
+that is searched for keys not defined in the &lt;code&gt;ActionMap&lt;/code&gt;.
+&lt;p&gt;As with &lt;code&gt;InputMap&lt;/code&gt; if you create a cycle, eg:
+&lt;pre&gt;
+ActionMap am = new ActionMap();
+ActionMap bm = new ActionMap():
+am.setParent(bm);
+bm.setParent(am);
+&lt;/pre&gt;
+some of the methods will cause a StackOverflowError to be thrown.
+
+@see InputMap
+
+@version 1.14 12/19/03
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ActionMap" refid="_9_5_f720368_1110473546784_735162_10623"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ActionMap" refid="_9_5_f720368_1110473546784_735162_10623"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

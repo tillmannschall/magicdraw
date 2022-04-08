@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928315109_135236_9642"><documentation humanName="Documentation" mode="standard">Provides definitions of the attribute change notifications sent by MBeans.
+&lt;P&gt;
+It's up to the MBean owning the attribute of interest to create and send
+attribute change notifications when the attribute change occurs.
+So the &lt;CODE&gt;NotificationBroadcaster&lt;/CODE&gt; interface has to be implemented
+by any MBean for which an attribute change is of interest.
+&lt;P&gt;
+Example:
+If an MBean called &lt;CODE&gt;myMbean&lt;/CODE&gt; needs to notify registered listeners
+when its attribute:
+&lt;BLOCKQUOTE&gt;&lt;CODE&gt;
+String myString
+&lt;/CODE&gt;&lt;/BLOCKQUOTE&gt;
+is modified, &lt;CODE&gt;myMbean&lt;/CODE&gt; creates and emits the following notification:
+&lt;BLOCKQUOTE&gt;&lt;CODE&gt;
+new AttributeChangeNotification(myMbean, sequenceNumber, timeStamp, msg,
+"myString", "String", oldValue, newValue);
+&lt;/CODE&gt;&lt;/BLOCKQUOTE&gt;
+
+@since 1.5
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323071_826777_16016"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">AttributeChangeNotification</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315109_319214_9644"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323071_826777_16016"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315109_319214_9644"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::management::AttributeChangeNotification</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Notification" refid="_10_5_622020d_1132928315229_108856_9799"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

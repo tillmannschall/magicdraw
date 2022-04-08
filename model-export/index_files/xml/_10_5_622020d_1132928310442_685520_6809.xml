@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310442_685520_6809"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Matcher" refid="_9_5_f720368_1110473546690_556568_8777"/></annotatedElement><body humanName="Body" mode="s,e">An engine that performs match operations on a {@link java.lang.CharSequence
+&lt;/code&gt;character sequence&lt;code&gt;} by interpreting a {@link Pattern}.
+
+&lt;p&gt; A matcher is created from a pattern by invoking the pattern's {@link
+Pattern#matcher matcher} method.  Once created, a matcher can be used to
+perform three different kinds of match operations:
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; The {@link #matches matches} method attempts to match the entire
+input sequence against the pattern.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The {@link #lookingAt lookingAt} method attempts to match the
+input sequence, starting at the beginning, against the pattern.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The {@link #find find} method scans the input sequence looking for
+the next subsequence that matches the pattern.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt; Each of these methods returns a boolean indicating success or failure.
+More information about a successful match can be obtained by querying the
+state of the matcher.
+
+&lt;p&gt; A matcher finds matches in a subset of its input called the
+&lt;i&gt;region&lt;/i&gt;. By default, the region contains all of the matcher's input.
+The region can be modified via the{@link #region region} method and queried
+via the {@link #regionStart regionStart} and {@link #regionEnd regionEnd}
+methods. The way that the region boundaries interact with some pattern
+constructs can be changed. See {@link #useAnchoringBounds
+useAnchoringBounds} and {@link #useTransparentBounds useTransparentBounds}
+for more details.
+
+&lt;p&gt; This class also defines methods for replacing matched subsequences with
+new strings whose contents can, if desired, be computed from the match
+result.  The {@link #appendReplacement appendReplacement} and {@link
+#appendTail appendTail} methods can be used in tandem in order to collect
+the result into an existing string buffer, or the more convenient {@link
+#replaceAll replaceAll} method can be used to create a string in which every
+matching subsequence in the input sequence is replaced.
+
+&lt;p&gt; The explicit state of a matcher includes the start and end indices of
+the most recent successful match.  It also includes the start and end
+indices of the input subsequence captured by each &lt;a
+href="Pattern.html#cg"&gt;capturing group&lt;/a&gt; in the pattern as well as a total
+count of such subsequences.  As a convenience, methods are also provided for
+returning these captured subsequences in string form.
+
+&lt;p&gt; The explicit state of a matcher is initially undefined; attempting to
+query any part of it before a successful match will cause an {@link
+IllegalStateException} to be thrown.  The explicit state of a matcher is
+recomputed by every match operation.
+
+&lt;p&gt; The implicit state of a matcher includes the input character sequence as
+well as the &lt;i&gt;append position&lt;/i&gt;, which is initially zero and is updated
+by the {@link #appendReplacement appendReplacement} method.
+
+&lt;p&gt; A matcher may be reset explicitly by invoking its {@link #reset()}
+method or, if a new input sequence is desired, its {@link
+#reset(java.lang.CharSequence) reset(CharSequence)} method.  Resetting a
+matcher discards its explicit state information and sets the append position
+to zero.
+
+&lt;p&gt; Instances of this class are not safe for use by multiple concurrent
+threads. &lt;/p&gt;
+
+
+@author      Mike McCloskey
+@author	Mark Reinhold
+@author	JSR-51 Expert Group
+@version 	1.58, 04/06/28
+@since	1.4
+@spec        JSR-51
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Matcher" refid="_9_5_f720368_1110473546690_556568_8777"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Matcher" refid="_9_5_f720368_1110473546690_556568_8777"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

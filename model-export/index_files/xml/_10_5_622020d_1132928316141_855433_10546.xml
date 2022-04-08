@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316141_855433_10546"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Instrument" refid="_9_5_f720368_1110473546737_868152_9653"/></annotatedElement><body humanName="Body" mode="s,e">An instrument is a sound-synthesis algorithm with certain parameter
+settings, usually designed to emulate a specific real-world
+musical instrument or to achieve a specific sort of sound effect.
+Instruments are typically stored in collections called soundbanks.
+Before the instrument can be used to play notes, it must first be loaded
+onto a synthesizer, and then it must be selected for use on
+one or more channels, via a program-change command.  MIDI notes
+that are subsequently received on those channels will be played using
+the sound of the selected instrument.
+
+@see Soundbank
+@see Soundbank#getInstruments
+@see Patch
+@see Synthesizer#loadInstrument(Instrument)
+@see MidiChannel#programChange(int, int)
+@version 1.16, 04/05/05
+@author Kara Kytle
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Instrument" refid="_9_5_f720368_1110473546737_868152_9653"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Instrument" refid="_9_5_f720368_1110473546737_868152_9653"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

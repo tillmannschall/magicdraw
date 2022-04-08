@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314959_235637_9411"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OpenMBeanConstructorInfoSupport" refid="_10_5_622020d_1132928314959_161224_9409"/></annotatedElement><body humanName="Body" mode="s,e">Describes a constructor of an Open MBean.
+
+@version     3.22  03/12/19
+@author      Sun Microsystems, Inc.
+
+@since 1.5
+@since.unbundled JMX 1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="OpenMBeanConstructorInfoSupport" refid="_10_5_622020d_1132928314959_161224_9409"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OpenMBeanConstructorInfoSupport" refid="_10_5_622020d_1132928314959_161224_9409"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

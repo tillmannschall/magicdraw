@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546799_608100_10929"><documentation humanName="Documentation" mode="standard">&lt;p&gt;To provide customized error handling, implement this interface and
+use the &lt;code&gt;setErrorListener&lt;/code&gt; method to register an instance of the
+implmentation with the {@link javax.xml.transform.Transformer}.  The
+&lt;code&gt;Transformer&lt;/code&gt; then reports all errors and warnings through this
+interface.&lt;/p&gt;
+
+&lt;p&gt;If an application does &lt;em&gt;not&lt;/em&gt; register its own custom
+&lt;code&gt;ErrorListener&lt;/code&gt;, the default &lt;code&gt;ErrorListener&lt;/code&gt;
+is used which reports all warnings and errors to &lt;code&gt;System.err&lt;/code&gt;
+and does not throw any &lt;code&gt;Exception&lt;/code&gt;s.
+Applications are &lt;em&gt;strongly&lt;/em&gt; encouraged to register and use
+&lt;code&gt;ErrorListener&lt;/code&gt;s that insure proper behavior for warnings and
+errors.&lt;/p&gt;
+
+&lt;p&gt;For transformation errors, a &lt;code&gt;Transformer&lt;/code&gt; must use this
+interface instead of throwing an &lt;code&gt;Exception&lt;/code&gt;: it is up to the
+application to decide whether to throw an &lt;code&gt;Exception&lt;/code&gt; for
+different types of errors and warnings.  Note however that the
+&lt;code&gt;Transformer&lt;/code&gt; is not required to continue with the transformation
+after a call to {@link #fatalError(TransformerException exception)}.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Transformer&lt;/code&gt;s may use this mechanism to report XML parsing
+errors as well as transformation errors.&lt;/p&gt;
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ErrorListener</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="transform" refid="_9_5_f720368_1110473548581_560851_25050"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318354_647129_12772"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318354_647129_12772"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="transform" refid="_9_5_f720368_1110473548581_560851_25050"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="transform" refid="_9_5_f720368_1110473548581_560851_25050"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="transform" refid="_9_5_f720368_1110473548581_560851_25050"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::xml::transform::ErrorListener</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

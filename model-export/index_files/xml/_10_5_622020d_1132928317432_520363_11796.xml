@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317432_520363_11796"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ElementInfo" refid="_9_5_f720368_1110473548299_454007_22877"/></annotatedElement><body humanName="Body" mode="s,e">ElementInfo provides a slim down view of an Element.  Each ElementInfo
+can have any number of child ElementInfos that are not necessarily
+direct children of the Element. As the Document changes various
+ElementInfos become invalidated. Before accessing a particular portion
+of an ElementInfo you should make sure it is valid by invoking
+&lt;code&gt;validateIfNecessary&lt;/code&gt;, this will return true if
+successful, on the other hand a false return value indicates the
+ElementInfo is not valid and can never become valid again (usually
+the result of the Element the ElementInfo encapsulates being removed).
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ElementInfo" refid="_9_5_f720368_1110473548299_454007_22877"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ElementInfo" refid="_9_5_f720368_1110473548299_454007_22877"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

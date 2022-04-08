@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546690_710577_8575"><documentation humanName="Documentation" mode="standard">An object that represents a precompiled SQL statement.
+&lt;P&gt;A SQL statement is precompiled and stored in a
+&lt;code&gt;PreparedStatement&lt;/code&gt; object. This object can then be used to
+efficiently execute this statement multiple times.
+
+&lt;P&gt;&lt;B&gt;Note:&lt;/B&gt; The setter methods (&lt;code&gt;setShort&lt;/code&gt;, &lt;code&gt;setString&lt;/code&gt;,
+and so on) for setting IN parameter values
+must specify types that are compatible with the defined SQL type of
+the input parameter. For instance, if the IN parameter has SQL type
+&lt;code&gt;INTEGER&lt;/code&gt;, then the method &lt;code&gt;setInt&lt;/code&gt; should be used.
+
+&lt;p&gt;If arbitrary parameter type conversions are required, the method
+&lt;code&gt;setObject&lt;/code&gt; should be used with a target SQL type.
+&lt;P&gt;
+In the following example of setting a parameter, &lt;code&gt;con&lt;/code&gt; represents
+an active connection:
+&lt;PRE&gt;
+PreparedStatement pstmt = con.prepareStatement("UPDATE EMPLOYEES
+SET SALARY = ? WHERE ID = ?");
+pstmt.setBigDecimal(1, 153833.00)
+pstmt.setInt(2, 110592)
+&lt;/PRE&gt;
+
+@see Connection#prepareStatement
+@see ResultSet
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Statement" refid="_9_5_f720368_1110473546690_539553_8597"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321909_464610_14256"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">PreparedStatement</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309501_331884_6176"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321909_464610_14256"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309501_331884_6176"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::sql::PreparedStatement</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

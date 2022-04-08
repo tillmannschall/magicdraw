@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473547487_811522_17631"><UMLClass classType="Class" humanName="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectInputStream" refid="_9_5_f720368_1110473546596_774585_7437"/><documentation humanName="Documentation" mode="standard">Unsynchronized table which tracks wire handle to object mappings, as
+well as ClassNotFoundExceptions associated with deserialized objects.
+This class implements an exception-propagation algorithm for
+determining which objects should have ClassNotFoundExceptions associated
+with them, taking into account cycles and discontinuities (e.g., skipped
+fields) in the object graph.
+
+&lt;p&gt;General use of the table is as follows: during deserialization, a
+given object is first assigned a handle by calling the assign method.
+This method leaves the assigned handle in an "open" state, wherein
+dependencies on the exception status of other handles can be registered
+by calling the markDependency method, or an exception can be directly
+associated with the handle by calling markException.  When a handle is
+tagged with an exception, the HandleTable assumes responsibility for
+propagating the exception to any other objects which depend
+(transitively) on the exception-tagged object.
+
+&lt;p&gt;Once all exception information/dependencies for the handle have been
+registered, the handle should be "closed" by calling the finish method
+on it.  The act of finishing a handle allows the exception propagation
+algorithm to aggressively prune dependency links, lessening the
+performance/memory impact of exception tracking.
+
+&lt;p&gt;Note that the exception propagation algorithm used depends on handles
+being assigned/finished in LIFO order; however, for simplicity as well
+as memory conservation, it does not enforce this constraint.
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HandleList" refid="_9_5_f720368_1110473547487_964519_17634"/></member><name humanName="Name" mode="s,e">HandleTable</name><namespace classType="Class" humanName="Namespace" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectInputStream" refid="_9_5_f720368_1110473546596_774585_7437"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HandleList" refid="_9_5_f720368_1110473547487_964519_17634"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307308_731446_4634"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307308_731446_4634"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HandleList" refid="_9_5_f720368_1110473547487_964519_17634"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HandleList" refid="_9_5_f720368_1110473547487_964519_17634"/></ownedMember><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ObjectInputStream" refid="_9_5_f720368_1110473546596_774585_7437"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::io::ObjectInputStream::HandleTable</qualifiedName><redefinitionContext humanName="Redefinition Context"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectInputStream" refid="_9_5_f720368_1110473546596_774585_7437"/></redefinitionContext><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">private</visibility></class></magicdraw>

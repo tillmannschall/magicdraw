@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305966_736570_3896"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParameterBlock" refid="_9_5_f720368_1110473546565_804695_6731"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;ParameterBlock&lt;/code&gt; encapsulates all the information about sources and
+parameters (Objects) required by a RenderableImageOp, or other
+classes that process images.
+
+&lt;p&gt; Although it is possible to place arbitrary objects in the
+source Vector, users of this class may impose semantic constraints
+such as requiring all sources to be RenderedImages or
+RenderableImage.  &lt;code&gt;ParameterBlock&lt;/code&gt; itself is merely a container and
+performs no checking on source or parameter types.
+
+&lt;p&gt; All parameters in a &lt;code&gt;ParameterBlock&lt;/code&gt; are objects; convenience
+add and set methods are available that take arguments of base type and
+construct the appropriate subclass of Number (such as
+Integer or Float).  Corresponding get methods perform a
+downward cast and have return values of base type; an exception
+will be thrown if the stored values do not have the correct type.
+There is no way to distinguish between the results of
+"short s; add(s)" and "add(new Short(s))".
+
+&lt;p&gt; Note that the get and set methods operate on references.
+Therefore, one must be careful not to share references between
+&lt;code&gt;ParameterBlock&lt;/code&gt;s when this is inappropriate.  For example, to create
+a new &lt;code&gt;ParameterBlock&lt;/code&gt; that is equal to an old one except for an
+added source, one might be tempted to write:
+
+&lt;pre&gt;
+ParameterBlock addSource(ParameterBlock pb, RenderableImage im) {
+ParameterBlock pb1 = new ParameterBlock(pb.getSources());
+pb1.addSource(im);
+return pb1;
+}
+&lt;/pre&gt;
+
+&lt;p&gt; This code will have the side effect of altering the original
+&lt;code&gt;ParameterBlock&lt;/code&gt;, since the getSources operation returned a reference
+to its source Vector.  Both pb and pb1 share their source Vector,
+and a change in either is visible to both.
+
+&lt;p&gt; A correct way to write the addSource function is to clone
+the source Vector:
+
+&lt;pre&gt;
+ParameterBlock addSource (ParameterBlock pb, RenderableImage im) {
+ParameterBlock pb1 = new ParameterBlock(pb.getSources().clone());
+pb1.addSource(im);
+return pb1;
+}
+&lt;/pre&gt;
+
+&lt;p&gt; The clone method of &lt;code&gt;ParameterBlock&lt;/code&gt; has been defined to
+perform a clone of both the source and parameter Vectors for
+this reason.  A standard, shallow clone is available as
+shallowClone.
+
+&lt;p&gt; The addSource, setSource, add, and set methods are
+defined to return 'this' after adding their argument.  This allows
+use of syntax like:
+
+&lt;pre&gt;
+ParameterBlock pb = new ParameterBlock();
+op = new RenderableImageOp("operation", pb.add(arg1).add(arg2));
+&lt;/pre&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ParameterBlock" refid="_9_5_f720368_1110473546565_804695_6731"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParameterBlock" refid="_9_5_f720368_1110473546565_804695_6731"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

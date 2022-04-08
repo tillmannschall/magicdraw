@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309982_555597_6384"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Condition" refid="_10_5_622020d_1132928309972_294559_6382"/></annotatedElement><body humanName="Body" mode="s,e">&lt;tt&gt;Condition&lt;/tt&gt; factors out the &lt;tt&gt;Object&lt;/tt&gt; monitor
+methods ({@link Object#wait() wait}, {@link Object#notify notify}
+and {@link Object#notifyAll notifyAll}) into distinct objects to
+give the effect of having multiple wait-sets per object, by
+combining them with the use of arbitrary {@link Lock} implementations.
+Where a &lt;tt&gt;Lock&lt;/tt&gt; replaces the use of &lt;tt&gt;synchronized&lt;/tt&gt; methods
+and statements, a &lt;tt&gt;Condition&lt;/tt&gt; replaces the use of the Object
+monitor methods.
+
+&lt;p&gt;Conditions (also known as &lt;em&gt;condition queues&lt;/em&gt; or
+&lt;em&gt;condition variables&lt;/em&gt;) provide a means for one thread to
+suspend execution (to "wait") until notified by another
+thread that some state condition may now be true.  Because access
+to this shared state information occurs in different threads, it
+must be protected, so a lock of some form is associated with the
+condition. The key property that waiting for a condition provides
+is that it &lt;em&gt;atomically&lt;/em&gt; releases the associated lock and
+suspends the current thread, just like &lt;tt&gt;Object.wait&lt;/tt&gt;.
+
+&lt;p&gt;A &lt;tt&gt;Condition&lt;/tt&gt; instance is intrinsically bound to a lock.
+To obtain a &lt;tt&gt;Condition&lt;/tt&gt; instance for a particular {@link Lock}
+instance use its {@link Lock#newCondition newCondition()} method.
+
+&lt;p&gt;As an example, suppose we have a bounded buffer which supports
+&lt;tt&gt;put&lt;/tt&gt; and &lt;tt&gt;take&lt;/tt&gt; methods.  If a
+&lt;tt&gt;take&lt;/tt&gt; is attempted on an empty buffer, then the thread will block
+until an item becomes available; if a &lt;tt&gt;put&lt;/tt&gt; is attempted on a
+full buffer, then the thread will block until a space becomes available.
+We would like to keep waiting &lt;tt&gt;put&lt;/tt&gt; threads and &lt;tt&gt;take&lt;/tt&gt;
+threads in separate wait-sets so that we can use the optimization of
+only notifying a single thread at a time when items or spaces become
+available in the buffer. This can be achieved using two
+{@link Condition} instances.
+&lt;pre&gt;
+class BoundedBuffer {
+&lt;b&gt;final Lock lock = new ReentrantLock();&lt;/b&gt;
+final Condition notFull  = &lt;b&gt;lock.newCondition(); &lt;/b&gt;
+final Condition notEmpty = &lt;b&gt;lock.newCondition(); &lt;/b&gt;
+
+final Object[] items = new Object[100];
+int putptr, takeptr, count;
+
+public void put(Object x) throws InterruptedException {
+&lt;b&gt;lock.lock();
+try {&lt;/b&gt;
+while (count == items.length)
+&lt;b&gt;notFull.await();&lt;/b&gt;
+items[putptr] = x;
+if (++putptr == items.length) putptr = 0;
+++count;
+&lt;b&gt;notEmpty.signal();&lt;/b&gt;
+&lt;b&gt;} finally {
+lock.unlock();
+}&lt;/b&gt;
+}
+
+public Object take() throws InterruptedException {
+&lt;b&gt;lock.lock();
+try {&lt;/b&gt;
+while (count == 0)
+&lt;b&gt;notEmpty.await();&lt;/b&gt;
+Object x = items[takeptr];
+if (++takeptr == items.length) takeptr = 0;
+--count;
+&lt;b&gt;notFull.signal();&lt;/b&gt;
+return x;
+&lt;b&gt;} finally {
+lock.unlock();
+}&lt;/b&gt;
+}
+}
+&lt;/pre&gt;
+
+(The {@link java.util.concurrent.ArrayBlockingQueue} class provides
+this functionality, so there is no reason to implement this
+sample usage class.)
+
+&lt;p&gt;A &lt;tt&gt;Condition&lt;/tt&gt; implementation can provide behavior and semantics
+that is
+different from that of the &lt;tt&gt;Object&lt;/tt&gt; monitor methods, such as
+guaranteed ordering for notifications, or not requiring a lock to be held
+when performing notifications.
+If an implementation provides such specialized semantics then the
+implementation must document those semantics.
+
+&lt;p&gt;Note that &lt;tt&gt;Condition&lt;/tt&gt; instances are just normal objects and can
+themselves be used as the target in a &lt;tt&gt;synchronized&lt;/tt&gt; statement,
+and can have their own monitor {@link Object#wait wait} and
+{@link Object#notify notification} methods invoked.
+Acquiring the monitor lock of a &lt;tt&gt;Condition&lt;/tt&gt; instance, or using its
+monitor methods, has no specified relationship with acquiring the
+{@link Lock} associated with that &lt;tt&gt;Condition&lt;/tt&gt; or the use of its
+{@link #await waiting} and {@link #signal signalling} methods.
+It is recommended that to avoid confusion you never use &lt;tt&gt;Condition&lt;/tt&gt;
+instances in this way, except perhaps within their own implementation.
+
+&lt;p&gt;Except where noted, passing a &lt;tt&gt;null&lt;/tt&gt; value for any parameter
+will result in a {@link NullPointerException} being thrown.
+
+&lt;h3&gt;Implementation Considerations&lt;/h3&gt;
+
+&lt;p&gt;When waiting upon a &lt;tt&gt;Condition&lt;/tt&gt;, a "&lt;em&gt;spurious
+wakeup&lt;/em&gt;" is permitted to occur, in
+general, as a concession to the underlying platform semantics.
+This has little practical impact on most application programs as a
+&lt;tt&gt;Condition&lt;/tt&gt; should always be waited upon in a loop, testing
+the state predicate that is being waited for.  An implementation is
+free to remove the possibility of spurious wakeups but it is
+recommended that applications programmers always assume that they can
+occur and so always wait in a loop.
+
+&lt;p&gt;The three forms of condition waiting
+(interruptible, non-interruptible, and timed) may differ in their ease of
+implementation on some platforms and in their performance characteristics.
+In particular, it may be difficult to provide these features and maintain
+specific semantics such as ordering guarantees.
+Further, the ability to interrupt the actual suspension of the thread may
+not always be feasible to implement on all platforms.
+&lt;p&gt;Consequently, an implementation is not required to define exactly the
+same guarantees or semantics for all three forms of waiting, nor is it
+required to support interruption of the actual suspension of the thread.
+&lt;p&gt;An implementation is required to
+clearly document the semantics and guarantees provided by each of the
+waiting methods, and when an implementation does support interruption of
+thread suspension then it must obey the interruption semantics as defined
+in this interface.
+&lt;p&gt;As interruption generally implies cancellation, and checks for
+interruption are often infrequent, an implementation can favor responding
+to an interrupt over normal method return. This is true even if it can be
+shown that the interrupt occurred after another action may have unblocked
+the thread. An implementation should document this behavior.
+
+
+@since 1.5
+@author Doug Lea
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Condition" refid="_10_5_622020d_1132928309972_294559_6382"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Condition" refid="_10_5_622020d_1132928309972_294559_6382"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

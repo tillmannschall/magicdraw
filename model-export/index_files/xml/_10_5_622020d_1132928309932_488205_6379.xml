@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309932_488205_6379"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ConditionObject" refid="_10_5_622020d_1132928309932_722530_6378"/></annotatedElement><body humanName="Body" mode="s,e">Condition implementation for a {@link
+AbstractQueuedSynchronizer} serving as the basis of a {@link
+Lock} implementation.
+
+&lt;p&gt; Method documentation for this class describes mechanics,
+not behavioral specifications from the point of view of Lock
+and Condition users. Exported versions of this class will in
+general need to be accompanied by documentation describing
+condition semantics that rely on those of the associated
+&lt;tt&gt;AbstractQueuedSynchronizer&lt;/tt&gt;.
+
+&lt;p&gt; This class is Serializable, but all fields are transient,
+so deserialized conditions have no waiters.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ConditionObject" refid="_10_5_622020d_1132928309932_722530_6378"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ConditionObject" refid="_10_5_622020d_1132928309932_722530_6378"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

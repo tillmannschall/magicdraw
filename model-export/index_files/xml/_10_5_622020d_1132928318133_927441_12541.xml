@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318133_927441_12541"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JTextArea" refid="_9_5_f720368_1110473546799_112798_10779"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;JTextArea&lt;/code&gt; is a multi-line area that displays plain text.
+It is intended to be a lightweight component that provides source
+compatibility with the &lt;code&gt;java.awt.TextArea&lt;/code&gt; class where it can
+reasonably do so.
+You can find information and examples of using all the text components in
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/text.html"&gt;Using Text Components&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+
+&lt;p&gt;
+This component has capabilities not found in the
+&lt;code&gt;java.awt.TextArea&lt;/code&gt; class.  The superclass should be
+consulted for additional capabilities.
+Alternative multi-line text classes with
+more capabilities are &lt;code&gt;JTextPane&lt;/code&gt; and &lt;code&gt;JEditorPane&lt;/code&gt;.
+&lt;p&gt;
+The &lt;code&gt;java.awt.TextArea&lt;/code&gt; internally handles scrolling.
+&lt;code&gt;JTextArea&lt;/code&gt; is different in that it doesn't manage scrolling,
+but implements the swing &lt;code&gt;Scrollable&lt;/code&gt; interface.  This allows it
+to be placed inside a &lt;code&gt;JScrollPane&lt;/code&gt; if scrolling
+behavior is desired, and used directly if scrolling is not desired.
+&lt;p&gt;
+The &lt;code&gt;java.awt.TextArea&lt;/code&gt; has the ability to do line wrapping.
+This was controlled by the horizontal scrolling policy.  Since
+scrolling is not done by &lt;code&gt;JTextArea&lt;/code&gt; directly, backward
+compatibility must be provided another way.  &lt;code&gt;JTextArea&lt;/code&gt; has
+a bound property for line wrapping that controls whether or
+not it will wrap lines.  By default, the line wrapping property
+is set to false (not wrapped).
+&lt;p&gt;
+&lt;code&gt;java.awt.TextArea&lt;/code&gt; has two properties &lt;code&gt;rows&lt;/code&gt;
+and &lt;code&gt;columns&lt;/code&gt; that are used to determine the preferred size.
+&lt;code&gt;JTextArea&lt;/code&gt; uses these properties to indicate the
+preferred size of the viewport when placed inside a &lt;code&gt;JScrollPane&lt;/code&gt;
+to match the functionality provided by &lt;code&gt;java.awt.TextArea&lt;/code&gt;.
+&lt;code&gt;JTextArea&lt;/code&gt; has a preferred size of what is needed to
+display all of the text, so that it functions properly inside of
+a &lt;code&gt;JScrollPane&lt;/code&gt;.  If the value for &lt;code&gt;rows&lt;/code&gt;
+or &lt;code&gt;columns&lt;/code&gt; is equal to zero,
+the preferred size along that axis is used for
+the viewport preferred size along the same axis.
+&lt;p&gt;
+The &lt;code&gt;java.awt.TextArea&lt;/code&gt; could be monitored for changes by adding
+a &lt;code&gt;TextListener&lt;/code&gt; for &lt;code&gt;TextEvent&lt;/code&gt;s.
+In the &lt;code&gt;JTextComponent&lt;/code&gt; based
+components, changes are broadcasted from the model via a
+&lt;code&gt;DocumentEvent&lt;/code&gt; to &lt;code&gt;DocumentListeners&lt;/code&gt;.
+The &lt;code&gt;DocumentEvent&lt;/code&gt; gives
+the location of the change and the kind of change if desired.
+The code fragment might look something like:
+&lt;pre&gt;
+DocumentListener myListener = ??;
+JTextArea myArea = ??;
+myArea.getDocument().addDocumentListener(myListener);
+&lt;/pre&gt;
+&lt;p&gt;
+&lt;dt&gt;&lt;b&gt;&lt;font size=+1&gt;Newlines&lt;/font&gt;&lt;/b&gt;
+&lt;dd&gt;
+For a discussion on how newlines are handled, see
+&lt;a href="text/DefaultEditorKit.html"&gt;DefaultEditorKit&lt;/a&gt;.
+&lt;/dl&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@beaninfo
+attribute: isContainer false
+description: A multi-line area that displays plain text.
+
+@author  Timothy Prinzing
+@version 1.92 12/19/03
+@see JTextPane
+@see JEditorPane
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JTextArea" refid="_9_5_f720368_1110473546799_112798_10779"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JTextArea" refid="_9_5_f720368_1110473546799_112798_10779"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

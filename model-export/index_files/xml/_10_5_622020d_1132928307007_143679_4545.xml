@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307007_143679_4545"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ByteArrayOutputStream" refid="_9_5_f720368_1110473546596_809909_7361"/></annotatedElement><body humanName="Body" mode="s,e">This class implements an output stream in which the data is
+written into a byte array. The buffer automatically grows as data
+is written to it.
+The data can be retrieved using &lt;code&gt;toByteArray()&lt;/code&gt; and
+&lt;code&gt;toString()&lt;/code&gt;.
+&lt;p&gt;
+Closing a &lt;tt&gt;ByteArrayOutputStream&lt;/tt&gt; has no effect. The methods in
+this class can be called after the stream has been closed without
+generating an &lt;tt&gt;IOException&lt;/tt&gt;.
+
+@author  Arthur van Hoff
+@version 1.49, 05/18/04
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ByteArrayOutputStream" refid="_9_5_f720368_1110473546596_809909_7361"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ByteArrayOutputStream" refid="_9_5_f720368_1110473546596_809909_7361"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308189_820967_5190"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ThreadLocal" refid="_9_5_f720368_1110473546612_346971_7709"/></annotatedElement><body humanName="Body" mode="s,e">This class provides thread-local variables.  These variables differ from
+their normal counterparts in that each thread that accesses one (via its
+&lt;tt&gt;get&lt;/tt&gt; or &lt;tt&gt;set&lt;/tt&gt; method) has its own, independently initialized
+copy of the variable.  &lt;tt&gt;ThreadLocal&lt;/tt&gt; instances are typically private
+static fields in classes that wish to associate state with a thread (e.g.,
+a user ID or Transaction ID).
+
+&lt;p&gt;For example, in the class below, the private static &lt;tt&gt;ThreadLocal&lt;/tt&gt;
+instance (&lt;tt&gt;serialNum&lt;/tt&gt;) maintains a "serial number" for each thread
+that invokes the class's static &lt;tt&gt;SerialNum.get()&lt;/tt&gt; method, which
+returns the current thread's serial number.  (A thread's serial number is
+assigned the first time it invokes &lt;tt&gt;SerialNum.get()&lt;/tt&gt;, and remains
+unchanged on subsequent calls.)
+&lt;pre&gt;
+public class SerialNum {
+The next serial number to be assigned
+private static int nextSerialNum = 0;
+
+private static ThreadLocal serialNum = new ThreadLocal() {
+protected synchronized Object initialValue() {
+return new Integer(nextSerialNum++);
+}
+};
+
+public static int get() {
+return ((Integer) (serialNum.get())).intValue();
+}
+}
+&lt;/pre&gt;
+
+&lt;p&gt;Each thread holds an implicit reference to its copy of a thread-local
+variable as long as the thread is alive and the &lt;tt&gt;ThreadLocal&lt;/tt&gt;
+instance is accessible; after a thread goes away, all of its copies of
+thread-local instances are subject to garbage collection (unless other
+references to these copies exist).
+
+@author  Josh Bloch and Doug Lea
+@version 1.33, 02/19/04
+@since   1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ThreadLocal" refid="_9_5_f720368_1110473546612_346971_7709"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ThreadLocal" refid="_9_5_f720368_1110473546612_346971_7709"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

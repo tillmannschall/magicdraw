@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546784_185658_10719"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JComponent -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928324072_265412_18318"/></clientDependency><documentation humanName="Documentation" mode="standard">The base class for all Swing components except top-level containers.
+To use a component that inherits from &lt;code&gt;JComponent&lt;/code&gt;,
+you must place the component in a containment hierarchy
+whose root is a top-level Swing container.
+Top-level Swing containers --
+such as &lt;code&gt;JFrame&lt;/code&gt;, &lt;code&gt;JDialog&lt;/code&gt;,
+and &lt;code&gt;JApplet&lt;/code&gt; --
+are specialized components
+that provide a place for other Swing components to paint themselves.
+For an explanation of containment hierarchies, see
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/overview/hierarchy.html"&gt;Swing Components and the Containment Hierarchy&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+
+&lt;p&gt;
+The &lt;code&gt;JComponent&lt;/code&gt; class provides:
+&lt;ul&gt;
+&lt;li&gt;The base class for both standard and custom components
+that use the Swing architecture.
+&lt;li&gt;A "pluggable look and feel" (L&amp;F) that can be specified by the
+programmer or (optionally) selected by the user at runtime.
+The look and feel for each component is provided by a
+&lt;em&gt;UI delegate&lt;/em&gt; -- an object that descends from
+{@link javax.swing.plaf.ComponentUI}.
+See &lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/misc/plaf.html"&gt;How
+to Set the Look and Feel&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt;
+for more information.
+&lt;li&gt;Comprehensive keystroke handling.
+See the document &lt;a
+href="http://java.sun.com/products/jfc/tsc/special_report/kestrel/keybindings.html"&gt;Keyboard
+Bindings in Swing&lt;/a&gt;,
+an article in &lt;em&gt;The Swing Connection&lt;/em&gt;,
+for more information.
+&lt;li&gt;Support for tool tips --
+short descriptions that pop up when the cursor lingers
+over a component.
+See &lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/tooltip.html"&gt;How
+to Use Tool Tips&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt;
+for more information.
+&lt;li&gt;Support for accessibility.
+&lt;code&gt;JComponent&lt;/code&gt; contains all of the methods in the
+&lt;code&gt;Accessible&lt;/code&gt; interface,
+but it doesn't actually implement the interface.  That is the
+responsibility of the individual classes
+that extend &lt;code&gt;JComponent&lt;/code&gt;.
+&lt;li&gt;Support for component-specific properties.
+With the {@link #putClientProperty}
+and {@link #getClientProperty} methods,
+you can associate name-object pairs
+with any object that descends from &lt;code&gt;JComponent&lt;/code&gt;.
+&lt;li&gt;An infrastructure for painting
+that includes double buffering and support for borders.
+For more information see &lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/overview/draw.html"&gt;Painting&lt;/a&gt; and
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/border.html"&gt;How
+to Use Borders&lt;/a&gt;,
+both of which are sections in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;/ul&gt;
+For more information on these subjects, see the
+&lt;a href="package-summary.html#package_description"&gt;Swing package description&lt;/a&gt;
+and &lt;em&gt;The Java Tutorial&lt;/em&gt; section
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/jcomponent.html"&gt;The JComponent Class&lt;/a&gt;.
+&lt;p&gt;
+&lt;code&gt;JComponent&lt;/code&gt; and its subclasses document default values
+for certain properties.  For example, &lt;code&gt;JTable&lt;/code&gt; documents the
+default row height as 16.  Each &lt;code&gt;JComponent&lt;/code&gt; subclass
+that has a &lt;code&gt;ComponentUI&lt;/code&gt; will create the
+&lt;code&gt;ComponentUI&lt;/code&gt; as part of its constructor.  In order
+to provide a particular look and feel each
+&lt;code&gt;ComponentUI&lt;/code&gt; may set properties back on the
+&lt;code&gt;JComponent&lt;/code&gt; that created it.  For example, a custom
+look and feel may require &lt;code&gt;JTable&lt;/code&gt;s to have a row
+height of 24. The documented defaults are the value of a property
+BEFORE the &lt;code&gt;ComponentUI&lt;/code&gt; has been installed.  If you
+need a specific value for a particular property you should
+explicitly set it.
+&lt;p&gt;
+In release 1.4, the focus subsystem was rearchitected.
+For more information, see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/focus.html"&gt;
+How to Use the Focus Subsystem&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see KeyStroke
+@see Action
+@see #setBorder
+@see #registerKeyboardAction
+@see JOptionPane
+@see #setDebugGraphicsOptions
+@see #setToolTipText
+@see #setAutoscrolls
+
+@version 2.130 07/09/99
+@author Hans Muller
+@author Arnaud Weber
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928324072_626649_18319"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleAWTComponent" refid="_9_5_f720368_1110473547378_128539_16940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTContainer" refid="_9_5_f720368_1110473547378_351073_16957"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTTreeLock" refid="_9_5_f720368_1110473547378_254209_16930"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BltBufferStrategy" refid="_9_5_f720368_1110473547378_697224_16934"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetEventTargetFilter" refid="_9_5_f720368_1110473547378_301053_16955"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="EventTargetFilter" refid="_9_5_f720368_1110473547378_222743_16951"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlipBufferStrategy" refid="_9_5_f720368_1110473547378_178907_16932"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MouseEventTargetFilter" refid="_9_5_f720368_1110473547378_805902_16953"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeInLightFixer" refid="_9_5_f720368_1110473547378_946319_16938"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SingleBufferStrategy" refid="_9_5_f720368_1110473547378_190538_16936"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WakingRunnable" refid="_10_5_622020d_1132928306387_890973_4158"/></inheritedMember><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JComponent -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928324072_265412_18318"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleAWTComponent" refid="_9_5_f720368_1110473547378_128539_16940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTContainer" refid="_9_5_f720368_1110473547378_351073_16957"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleJComponent" refid="_9_5_f720368_1110473548284_820453_22824"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ActionStandin" refid="_9_5_f720368_1110473548424_437924_24127"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTTreeLock" refid="_9_5_f720368_1110473547378_254209_16930"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BltBufferStrategy" refid="_9_5_f720368_1110473547378_697224_16934"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetEventTargetFilter" refid="_9_5_f720368_1110473547378_301053_16955"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="EventTargetFilter" refid="_9_5_f720368_1110473547378_222743_16951"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlipBufferStrategy" refid="_9_5_f720368_1110473547378_178907_16932"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IntVector" refid="_9_5_f720368_1110473548424_160466_24129"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyboardState" refid="_9_5_f720368_1110473548424_79807_24131"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MouseEventTargetFilter" refid="_9_5_f720368_1110473547378_805902_16953"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeInLightFixer" refid="_9_5_f720368_1110473547378_946319_16938"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReadObjectCallback" refid="_9_5_f720368_1110473548424_745921_24140"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SingleBufferStrategy" refid="_9_5_f720368_1110473547378_190538_16936"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WakingRunnable" refid="_10_5_622020d_1132928306387_890973_4158"/></member><name humanName="Name" mode="s,e">JComponent</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleJComponent" refid="_9_5_f720368_1110473548284_820453_22824"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ActionStandin" refid="_9_5_f720368_1110473548424_437924_24127"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IntVector" refid="_9_5_f720368_1110473548424_160466_24129"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyboardState" refid="_9_5_f720368_1110473548424_79807_24131"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReadObjectCallback" refid="_9_5_f720368_1110473548424_745921_24140"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317893_696767_12407"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928324072_626649_18319"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317893_696767_12407"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleJComponent" refid="_9_5_f720368_1110473548284_820453_22824"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ActionStandin" refid="_9_5_f720368_1110473548424_437924_24127"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JComponent -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928324072_265412_18318"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IntVector" refid="_9_5_f720368_1110473548424_160466_24129"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyboardState" refid="_9_5_f720368_1110473548424_79807_24131"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReadObjectCallback" refid="_9_5_f720368_1110473548424_745921_24140"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleJComponent" refid="_9_5_f720368_1110473548284_820453_22824"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ActionStandin" refid="_9_5_f720368_1110473548424_437924_24127"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IntVector" refid="_9_5_f720368_1110473548424_160466_24129"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyboardState" refid="_9_5_f720368_1110473548424_79807_24131"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReadObjectCallback" refid="_9_5_f720368_1110473548424_745921_24140"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::JComponent</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Container" refid="_9_5_f720368_1110473546581_715876_6975"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

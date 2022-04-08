@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546690_911762_8493"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::PermissionCollection -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321899_889828_14221"/></clientDependency><documentation humanName="Documentation" mode="standard">Abstract class representing a collection of Permission objects.
+
+&lt;p&gt;With a PermissionCollection, you can:
+&lt;UL&gt;
+&lt;LI&gt; add a permission to the collection using the &lt;code&gt;add&lt;/code&gt; method.
+&lt;LI&gt; check to see if a particular permission is implied in the
+collection, using the &lt;code&gt;implies&lt;/code&gt; method.
+&lt;LI&gt; enumerate all the permissions, using the &lt;code&gt;elements&lt;/code&gt; method.
+&lt;/UL&gt;
+&lt;P&gt;
+
+&lt;p&gt;When it is desirable to group together a number of Permission objects
+of the same type, the &lt;code&gt;newPermissionCollection&lt;/code&gt; method on that
+particular type of Permission object should first be called. The default
+behavior (from the Permission class) is to simply return null.
+Subclasses of class Permission override the method if they need to store
+their permissions in a particular PermissionCollection object in order
+to provide the correct semantics when the
+&lt;code&gt;PermissionCollection.implies&lt;/code&gt; method is called.
+If a non-null value is returned, that PermissionCollection must be used.
+If null is returned, then the caller of &lt;code&gt;newPermissionCollection&lt;/code&gt;
+is free to store permissions of the
+given type in any PermissionCollection they choose
+(one that uses a Hashtable, one that uses a Vector, etc).
+
+&lt;p&gt;The PermissionCollection returned by the
+&lt;code&gt;Permission.newPermissionCollection&lt;/code&gt;
+method is a homogeneous collection, which stores only Permission objects
+for a given Permission type.  A PermissionCollection may also be
+heterogeneous.  For example, Permissions is a PermissionCollection
+subclass that represents a collection of PermissionCollections.
+That is, its members are each a homogeneous PermissionCollection.
+For example, a Permissions object might have a FilePermissionCollection
+for all the FilePermission objects, a SocketPermissionCollection for all the
+SocketPermission objects, and so on. Its &lt;code&gt;add&lt;/code&gt; method adds a
+permission to the appropriate collection.
+
+&lt;p&gt;Whenever a permission is added to a heterogeneous PermissionCollection
+such as Permissions, and the PermissionCollection doesn't yet contain a
+PermissionCollection of the specified permission's type, the
+PermissionCollection should call
+the &lt;code&gt;newPermissionCollection&lt;/code&gt; method on the permission's class
+to see if it requires a special PermissionCollection. If
+&lt;code&gt;newPermissionCollection&lt;/code&gt;
+returns null, the PermissionCollection
+is free to store the permission in any type of PermissionCollection it
+desires (one using a Hashtable, one using a Vector, etc.). For example,
+the Permissions object uses a default PermissionCollection implementation
+that stores the permission objects in a Hashtable.
+
+&lt;p&gt; Subclass implementations of PermissionCollection should assume
+that they may be called simultaneously from multiple threads,
+and therefore should be synchronized properly.  Furthermore,
+Enumerations returned via the &lt;code&gt;elements&lt;/code&gt; method are
+not &lt;em&gt;fail-fast&lt;/em&gt;.  Modifications to a collection should not be
+performed while enumerating over that collection.
+
+@see Permission
+@see Permissions
+
+@version 1.35 04/05/05
+
+@author Roland Schemers
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::PermissionCollection -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321899_889828_14221"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">PermissionCollection</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309401_978359_6077"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309401_978359_6077"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::PermissionCollection -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321899_889828_14221"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::PermissionCollection</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

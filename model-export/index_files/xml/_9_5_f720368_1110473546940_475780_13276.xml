@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546940_475780_13276"><documentation humanName="Documentation" mode="standard">Factory for creating an XML reader.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This class contains static methods for creating an XML reader
+from an explicit class name, or based on runtime defaults:&lt;/p&gt;
+
+&lt;pre&gt;
+try {
+XMLReader myReader = XMLReaderFactory.createXMLReader();
+} catch (SAXException e) {
+System.err.println(e.getMessage());
+}
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Note to Distributions bundled with parsers:&lt;/strong&gt;
+You should modify the implementation of the no-arguments
+&lt;em&gt;createXMLReader&lt;/em&gt; to handle cases where the external
+configuration mechanisms aren't set up.  That method should do its
+best to return a parser when one is in the class path, even when
+nothing bound its class name to &lt;code&gt;org.xml.sax.driver&lt;/code&gt; so
+those configuration mechanisms would see it.&lt;/p&gt;
+
+@since SAX 2.0
+@author David Megginson, David Brownell
+@version 2.0.1 (sax2r2)
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">XMLReaderFactory</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314698_407718_9055"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314698_407718_9055"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::xml::sax::helpers::XMLReaderFactory</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

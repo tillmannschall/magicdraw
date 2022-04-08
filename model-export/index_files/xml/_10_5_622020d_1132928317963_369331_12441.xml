@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317963_369331_12441"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JInternalFrame" refid="_9_5_f720368_1110473546799_849061_10733"/></annotatedElement><body humanName="Body" mode="s,e">A lightweight object that provides many of the features of
+a native frame, including dragging, closing, becoming an icon,
+resizing, title display, and support for a menu bar.
+For task-oriented documentation and examples of using internal frames,
+see &lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/internalframe.html" target="_top"&gt;How to Use Internal Frames&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+
+&lt;p&gt;
+
+Generally,
+you add &lt;code&gt;JInternalFrame&lt;/code&gt;s to a &lt;code&gt;JDesktopPane&lt;/code&gt;. The UI
+delegates the look-and-feel-specific actions to the
+&lt;code&gt;DesktopManager&lt;/code&gt;
+object maintained by the &lt;code&gt;JDesktopPane&lt;/code&gt;.
+&lt;p&gt;
+The &lt;code&gt;JInternalFrame&lt;/code&gt; content pane
+is where you add child components.
+As a conveniance &lt;code&gt;add&lt;/code&gt; and its variants, &lt;code&gt;remove&lt;/code&gt; and
+&lt;code&gt;setLayout&lt;/code&gt; have been overridden to forward to the
+&lt;code&gt;contentPane&lt;/code&gt; as necessary. This means you can write:
+&lt;pre&gt;
+internalFrame.add(child);
+&lt;/pre&gt;
+And the child will be added to the contentPane.
+The content pane is actually managed by an instance of
+&lt;code&gt;JRootPane&lt;/code&gt;,
+which also manages a layout pane, glass pane, and
+optional menu bar for the internal frame. Please see the
+&lt;code&gt;JRootPane&lt;/code&gt;
+documentation for a complete description of these components.
+Refer to {@link javax.swing.RootPaneContainer}
+for details on adding, removing and setting the &lt;code&gt;LayoutManager&lt;/code&gt;
+of a &lt;code&gt;JInternalFrame&lt;/code&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see InternalFrameEvent
+@see JDesktopPane
+@see DesktopManager
+@see JInternalFrame.JDesktopIcon
+@see JRootPane
+@see javax.swing.RootPaneContainer
+
+@version 1.147 05/18/04
+@author David Kloba
+@author Rich Schiavi
+@beaninfo
+attribute: isContainer true
+attribute: containerDelegate getContentPane
+description: A frame container which is contained within
+another window.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JInternalFrame" refid="_9_5_f720368_1110473546799_849061_10733"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JInternalFrame" refid="_9_5_f720368_1110473546799_849061_10733"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

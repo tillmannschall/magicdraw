@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928310172_766214_6561"><documentation humanName="Documentation" mode="standard">An object that executes submitted {@link Runnable} tasks. This
+interface provides a way of decoupling task submission from the
+mechanics of how each task will be run, including details of thread
+use, scheduling, etc.  An &lt;tt&gt;Executor&lt;/tt&gt; is normally used
+instead of explicitly creating threads. For example, rather than
+invoking &lt;tt&gt;new Thread(new(RunnableTask())).start()&lt;/tt&gt; for each
+of a set of tasks, you might use:
+
+&lt;pre&gt;
+Executor executor = &lt;em&gt;anExecutor&lt;/em&gt;;
+executor.execute(new RunnableTask1());
+executor.execute(new RunnableTask2());
+...
+&lt;/pre&gt;
+
+However, the &lt;tt&gt;Executor&lt;/tt&gt; interface does not strictly
+require that execution be asynchronous. In the simplest case, an
+executor can run the submitted task immediately in the caller's
+thread:
+
+&lt;pre&gt;
+class DirectExecutor implements Executor {
+public void execute(Runnable r) {
+r.run();
+}
+}&lt;/pre&gt;
+
+More typically, tasks are executed in some thread other
+than the caller's thread.  The executor below spawns a new thread
+for each task.
+
+&lt;pre&gt;
+class ThreadPerTaskExecutor implements Executor {
+public void execute(Runnable r) {
+new Thread(r).start();
+}
+}&lt;/pre&gt;
+
+Many &lt;tt&gt;Executor&lt;/tt&gt; implementations impose some sort of
+limitation on how and when tasks are scheduled.  The executor below
+serializes the submission of tasks to a second executor,
+illustrating a composite executor.
+
+&lt;pre&gt;
+class SerialExecutor implements Executor {
+final Queue&lt;Runnable&gt; tasks = new LinkedBlockingQueue&lt;Runnable&gt;();
+final Executor executor;
+Runnable active;
+
+SerialExecutor(Executor executor) {
+this.executor = executor;
+}
+
+public synchronized void execute(final Runnable r) {
+tasks.offer(new Runnable() {
+public void run() {
+try {
+r.run();
+} finally {
+scheduleNext();
+}
+}
+});
+if (active == null) {
+scheduleNext();
+}
+}
+
+protected synchronized void scheduleNext() {
+if ((active = tasks.poll()) != null) {
+executor.execute(active);
+}
+}
+}&lt;/pre&gt;
+
+The &lt;tt&gt;Executor&lt;/tt&gt; implementations provided in this package
+implement {@link ExecutorService}, which is a more extensive
+interface.  The {@link ThreadPoolExecutor} class provides an
+extensible thread pool implementation. The {@link Executors} class
+provides convenient factory methods for these Executors.
+
+@since 1.5
+@author Doug Lea
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Executor</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310182_846214_6563"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310182_846214_6563"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::concurrent::Executor</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

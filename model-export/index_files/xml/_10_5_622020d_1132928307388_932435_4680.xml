@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307388_932435_4680"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PushbackInputStream" refid="_9_5_f720368_1110473546612_233254_7471"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;PushbackInputStream&lt;/code&gt; adds
+functionality to another input stream, namely
+the  ability to "push back" or "unread"
+one byte. This is useful in situations where
+it is  convenient for a fragment of code
+to read an indefinite number of data bytes
+that  are delimited by a particular byte
+value; after reading the terminating byte,
+the  code fragment can "unread" it, so that
+the next read operation on the input stream
+will reread the byte that was pushed back.
+For example, bytes representing the  characters
+constituting an identifier might be terminated
+by a byte representing an  operator character;
+a method whose job is to read just an identifier
+can read until it  sees the operator and
+then push the operator back to be re-read.
+
+@author  David Connelly
+@author  Jonathan Payne
+@version 1.36, 02/19/04
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PushbackInputStream" refid="_9_5_f720368_1110473546612_233254_7471"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PushbackInputStream" refid="_9_5_f720368_1110473546612_233254_7471"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

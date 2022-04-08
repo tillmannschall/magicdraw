@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308580_330710_5366"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="URLStreamHandler" refid="_9_5_f720368_1110473546643_526798_7855"/></annotatedElement><body humanName="Body" mode="s,e">The abstract class &lt;code&gt;URLStreamHandler&lt;/code&gt; is the common
+superclass for all stream protocol handlers. A stream protocol
+handler knows how to make a connection for a particular protocol
+type, such as &lt;code&gt;http&lt;/code&gt;, &lt;code&gt;ftp&lt;/code&gt;, or
+&lt;code&gt;gopher&lt;/code&gt;.
+&lt;p&gt;
+In most cases, an instance of a &lt;code&gt;URLStreamHandler&lt;/code&gt;
+subclass is not created directly by an application. Rather, the
+first time a protocol name is encountered when constructing a
+&lt;code&gt;URL&lt;/code&gt;, the appropriate stream protocol handler is
+automatically loaded.
+
+@author  James Gosling
+@version 1.68, 05/18/04
+@see     java.net.URL#URL(java.lang.String, java.lang.String, int, java.lang.String)
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="URLStreamHandler" refid="_9_5_f720368_1110473546643_526798_7855"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="URLStreamHandler" refid="_9_5_f720368_1110473546643_526798_7855"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

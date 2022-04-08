@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317543_279786_11973"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractDocument" refid="_9_5_f720368_1110473546784_322991_10417"/></annotatedElement><body humanName="Body" mode="s,e">An implementation of the document interface to serve as a
+basis for implementing various kinds of documents.  At this
+level there is very little policy, so there is a corresponding
+increase in difficulty of use.
+&lt;p&gt;
+This class implements a locking mechanism for the document.  It
+allows multiple readers or one writer, and writers must wait until
+all observers of the document have been notified of a previous
+change before beginning another mutation to the document.  The
+read lock is acquired and released using the &lt;code&gt;render&lt;/code&gt;
+method.  A write lock is aquired by the methods that mutate the
+document, and are held for the duration of the method call.
+Notification is done on the thread that produced the mutation,
+and the thread has full read access to the document for the
+duration of the notification, but other readers are kept out
+until the notification has finished.  The notification is a
+beans event notification which does not allow any further
+mutations until all listeners have been notified.
+&lt;p&gt;
+Any models subclassed from this class and used in conjunction
+with a text component that has a look and feel implementation
+that is derived from BasicTextUI may be safely updated
+asynchronously, because all access to the View hierarchy
+is serialized by BasicTextUI if the document is of type
+&lt;code&gt;AbstractDocument&lt;/code&gt;.  The locking assumes that an
+independant thread will access the View hierarchy only from
+the DocumentListener methods, and that there will be only
+one event thread active at a time.
+&lt;p&gt;
+If concurrency support is desired, there are the following
+additional implications.  The code path for any DocumentListener
+implementation and any UndoListener implementation must be threadsafe,
+and not access the component lock if trying to be safe from deadlocks.
+The &lt;code&gt;repaint&lt;/code&gt; and &lt;code&gt;revalidate&lt;/code&gt; methods
+on JComponent are safe.
+&lt;p&gt;
+AbstractDocument models an implied break at the end of the document.
+Among other things this allows you to position the caret after the last
+character. As a result of this, &lt;code&gt;getLength&lt;/code&gt; returns one less
+than the length of the Content. If you create your own Content, be
+sure and initialize it to have an additional character. Refer to
+StringContent and GapContent for examples of this. Another implication
+of this is that Elements that model the implied end character will have
+an endOffset == (getLength() + 1). For example, in DefaultStyledDocument
+&lt;code&gt;getParagraphElement(getLength()).getEndOffset() == getLength() + 1
+&lt;/code&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@author  Timothy Prinzing
+@version 1.151 07/13/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AbstractDocument" refid="_9_5_f720368_1110473546784_322991_10417"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractDocument" refid="_9_5_f720368_1110473546784_322991_10417"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

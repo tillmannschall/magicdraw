@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315009_273347_9534"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RMIConnection" refid="_10_5_622020d_1132928315009_921607_9532"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;RMI object used to forward an MBeanServer request from a client
+to its MBeanServer implementation on the server side.  There is one
+Remote object implementing this interface for each remote client
+connected to an RMI connector.&lt;/p&gt;
+
+&lt;p&gt;User code does not usually refer to this interface.  It is
+specified as part of the public API so that different
+implementations of that API will interoperate.&lt;/p&gt;
+
+&lt;p&gt;To ensure that client parameters will be deserialized at the
+server side with the correct classloader, client parameters such as
+parameters used to invoke a method are wrapped in a {@link
+MarshalledObject}.  An implementation of this interface must first
+get the appropriate class loader for the operation and its target,
+then deserialize the marshalled parameters with this classloader.
+Except as noted, a parameter that is a
+&lt;code&gt;MarshalledObject&lt;/code&gt; or &lt;code&gt;MarshalledObject[]&lt;/code&gt;
+must not be null; the behavior is unspecified if it is.&lt;/p&gt;
+
+&lt;p&gt;Class loading aspects are detailed in the companion document
+&lt;em&gt;JMX Remote API&lt;/em&gt;, which completes this documentation.
+It should be available as a PDF document in the same place as this
+Javadoc specification.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+&lt;p&gt;Most methods in this interface parallel methods in the {@link
+MBeanServerConnection} interface.  Where an aspect of the behavior
+of a method is not specified here, it is the same as in the
+corresponding &lt;code&gt;MBeanServerConnection&lt;/code&gt; method.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="RMIConnection" refid="_10_5_622020d_1132928315009_921607_9532"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RMIConnection" refid="_10_5_622020d_1132928315009_921607_9532"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307668_730395_4815"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MemoryPoolMXBean" refid="_10_5_622020d_1132928307598_83865_4813"/></annotatedElement><body humanName="Body" mode="s,e">The management interface for a memory pool.  A memory pool
+represents the memory resource managed by the Java virtual machine
+and is managed by one or more {@link MemoryManagerMXBean memory managers}.
+
+&lt;p&gt; A Java virtual machine has one or more instances of the
+implementation class of this interface.  An instance
+implementing this interface is
+an &lt;a href="ManagementFactory.html#MXBean"&gt;MXBean&lt;/a&gt;
+that can be obtained by calling
+the {@link ManagementFactory#getMemoryPoolMXBeans} method or
+from the {@link ManagementFactory#getPlatformMBeanServer
+platform &lt;tt&gt;MBeanServer&lt;/tt&gt;} method.
+
+&lt;p&gt;The &lt;tt&gt;ObjectName&lt;/tt&gt; for uniquely identifying the MXBean for
+a memory pool within an &lt;tt&gt;MBeanServer&lt;/tt&gt; is:
+&lt;blockquote&gt;
+{@link ManagementFactory#MEMORY_POOL_MXBEAN_DOMAIN_TYPE
+&lt;tt&gt;java.lang:type=MemoryPool&lt;/tt&gt;}&lt;tt&gt;,name=&lt;/tt&gt;&lt;i&gt;pool's name&lt;/i&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;Memory Type&lt;/h4&gt;
+&lt;p&gt;The Java virtual machine has a heap for object allocation and also
+maintains non-heap memory for the method area and the Java virtual
+machine execution.  The Java virtual machine can have one or more
+memory pools.  Each memory pool represents a memory area
+of one of the following types:
+&lt;ul&gt;
+&lt;li&gt;{@link MemoryType#HEAP heap}&lt;/li&gt;
+&lt;li&gt;{@link MemoryType#NON_HEAP non-heap}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Memory Usage Monitoring&lt;/h4&gt;
+
+A memory pool has the following attributes:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="Usage"&gt;Memory usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="PeakUsage"&gt;Peak memory usage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="UsageThreshold"&gt;Usage Threshold&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="CollectionThreshold"&gt;Collection Usage Threshold&lt;/a&gt;
+(only supported by some &lt;em&gt;garbage-collected&lt;/em&gt; memory pools)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;&lt;a name="Usage"&gt;1. Memory Usage&lt;/a&gt;&lt;/h4&gt;
+
+The {@link #getUsage} method provides an estimate
+of the current usage of a memory pool.
+For a garbage-collected memory pool, the amount of used memory
+includes the memory occupied by all objects in the pool
+including both &lt;em&gt;reachable&lt;/em&gt; and &lt;em&gt;unreachable&lt;/em&gt; objects.
+
+&lt;p&gt;In general, this method is a lightweight operation for getting
+an approximate memory usage.  For some memory pools, for example,
+when objects are not packed contiguously, this method may be
+an expensive operation that requires some computation to determine
+the current memory usage.  An implementation should document when
+this is the case.
+
+&lt;h4&gt;&lt;a name="PeakUsage"&gt;2. Peak Memory Usage&lt;/a&gt;&lt;/h4&gt;
+
+The Java virtual machine maintains the peak memory usage of a memory
+pool since the virtual machine was started or the peak was reset.
+The peak memory usage is returned by the {@link #getPeakUsage} method
+and reset by calling the {@link #resetPeakUsage} method.
+
+&lt;h4&gt;&lt;a name="UsageThreshold"&gt;3. Usage Threshold&lt;/a&gt;&lt;/h4&gt;
+
+Each memory pool has a manageable attribute
+called the &lt;i&gt;usage threshold&lt;/i&gt; which has a default value supplied
+by the Java virtual machine.  The default value is platform-dependent.
+The usage threshold can be set via the
+{@link #setUsageThreshold setUsageThreshold} method.
+If the threshold is set to a positive value, the usage threshold crossing
+checking is enabled in this memory pool.
+If the usage threshold is set to zero, usage
+threshold crossing checking on this memory pool is disabled.
+The {@link MemoryPoolMXBean#isUsageThresholdSupported} method can
+be used to determine if this functionality is supported.
+&lt;p&gt;
+A Java virtual machine performs usage threshold crossing checking on a
+memory pool basis at its best appropriate time, typically,
+at garbage collection time.
+Each memory pool maintains a {@link #getUsageThresholdCount
+usage threshold count} that will get incremented
+every time when the Java virtual machine
+detects that the memory pool usage is crossing the threshold.
+&lt;p&gt;
+This manageable usage threshold attribute is designed for monitoring the
+increasing trend of memory usage with low overhead.
+Usage threshold may not be appropriate for some memory pools.
+For example, a generational garbage collector, a common garbage collection
+algorithm used in many Java virtual machine implementations,
+manages two or more generations segregating objects by age.
+Most of the objects are allocated in
+the &lt;em&gt;youngest generation&lt;/em&gt; (say a nursery memory pool).
+The nursery memory pool is designed to be filled up and
+collecting the nursery memory pool will free most of its memory space
+since it is expected to contain mostly short-lived objects
+and mostly are unreachable at garbage collection time.
+In this case, it is more appropriate for the nursery memory pool
+not to support a usage threshold.  In addition,
+if the cost of an object allocation
+in one memory pool is very low (for example, just atomic pointer exchange),
+the Java virtual machine would probably not support the usage threshold
+for that memory pool since the overhead in comparing the usage with
+the threshold is higher than the cost of object allocation.
+
+&lt;p&gt;
+The memory usage of the system can be monitored using
+&lt;a href="#Polling"&gt;polling&lt;/a&gt; or
+&lt;a href="#Notification"&gt;threshold notification&lt;/a&gt; mechanisms.
+
+&lt;ol type="a"&gt;
+&lt;li&gt;&lt;a name="Polling"&gt;&lt;b&gt;Polling&lt;/b&gt;&lt;/a&gt;
+&lt;p&gt;
+An application can continuously monitor its memory usage
+by calling either the {@link #getUsage} method for all
+memory pools or the {@link #isUsageThresholdExceeded} method
+for those memory pools that support a usage threshold.
+Below is example code that has a thread delicated for
+task distribution and processing.  At every interval,
+it will determine if it should receive and process new tasks based
+on its memory usage.  If the memory usage exceeds its usage threshold,
+it will redistribute all outstanding tasks to other VMs and
+stop receiving new tasks until the memory usage returns
+below its usage threshold.
+
+&lt;pre&gt;
+Assume the usage threshold is supported for this pool.
+Set the threshold to myThreshold above which no new tasks
+should be taken.
+pool.setUsageThreshold(myThreshold);
+....
+
+boolean lowMemory = false;
+while (true) {
+if (pool.isUsageThresholdExceeded()) {
+potential low memory, so redistribute tasks to other VMs
+lowMemory = true;
+redistributeTasks();
+stop receiving new tasks
+stopReceivingTasks();
+} else {
+if (lowMemory) {
+resume receiving tasks
+lowMemory = false;
+resumeReceivingTasks();
+}
+processing outstanding task
+...
+}
+sleep for sometime
+try {
+Thread.sleep(sometime);
+} catch (InterruptedException e) {
+...
+}
+}
+&lt;/pre&gt;
+
+&lt;hr&gt;
+The above example does not differentiate the case where
+the memory usage has temporarily dropped below the usage threshold
+from the case where the memory usage remains above the threshould
+between two iterations.  The usage threshold count returned by
+the {@link #getUsageThresholdCount} method
+can be used to determine
+if the memory usage has returned below the threshold
+between two polls.
+&lt;p&gt;
+Below shows another example that takes some action if a
+memory pool is under low memory and ignores the memory usage
+changes during the action processing time.
+
+&lt;pre&gt;
+Assume the usage threshold is supported for this pool.
+Set the threshold to myThreshold which determines if
+the application will take some action under low memory condition.
+pool.setUsageThreshold(myThreshold);
+
+int prevCrossingCount = 0;
+while (true) {
+A busy loop to detect when the memory usage
+has exceeded the threshold.
+while (!pool.isUsageThresholdExceeded() ||
+pool.getUsageThresholdCount() == prevCrossingCount) {
+try {
+Thread.sleep(sometime)
+} catch (InterruptException e) {
+....
+}
+}
+
+Do some processing such as check for memory usage
+and issue a warning
+....
+
+Gets the current threshold count. The busy loop will then
+ignore any crossing of threshold happens during the processing.
+prevCrossingCount = pool.getUsageThresholdCount();
+}
+&lt;/pre&gt;&lt;hr&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a name="ThresholdNotification"&gt;&lt;b&gt;Usage Threshold Notifications&lt;/b&gt;&lt;/a&gt;
+&lt;p&gt;
+Usage threshold notification will be emitted by {@link MemoryMXBean}.
+When the Java virtual machine detects that the memory usage of
+a memory pool has reached or exceeded the usage threshold
+the virtual machine will trigger the &lt;tt&gt;MemoryMXBean&lt;/tt&gt; to emit an
+{@link MemoryNotificationInfo#MEMORY_THRESHOLD_EXCEEDED
+usage threshold exceeded notification}.
+Another usage threshold exceeded notification will not be
+generated until the usage has fallen below the threshold and
+then exceeded it again.
+&lt;p&gt;
+Below is an example code implementing the same logic as the
+first example above but using the usage threshold notification
+mechanism to detect low memory conditions instead of polling.
+In this example code, upon receiving notification, the notification
+listener notifies another thread to perform the actual action
+such as to redistribute outstanding tasks, stop receiving tasks,
+or resume receiving tasks.
+The &lt;tt&gt;handleNotification&lt;/tt&gt; method should be designed to
+do a very minimal amount of work and return without delay to avoid
+causing delay in delivering subsequent notifications.  Time-consuming
+actions should be performed by a separate thread.
+The notification listener may be invoked by multiple threads
+concurrently; so the tasks performed by the listener
+should be properly synchronized.
+
+&lt;pre&gt;
+class MyListener implements javax.management.NotificationListener {
+public void handleNotification(Notification notification, Object handback)  {
+String notifType = notification.getType();
+if (notifType.equals(MemoryNotificationInfo.MEMORY_THRESHOLD_EXCEEDED)) {
+potential low memory, notify another thread
+to redistribute outstanding tasks to other VMs
+and stop receiving new tasks.
+lowMemory = true;
+notifyAnotherThread(lowMemory);
+}
+}
+}
+
+Register MyListener with MemoryMXBean
+MemoryMXBean mbean = ManagementFactory.getMemoryMXBean();
+NotificationEmitter emitter = (NotificationEmitter) mbean;
+MyListener listener = new MyListener();
+emitter.addNotificationListener(listener, null, null);
+
+Assume this pool supports a usage threshold.
+Set the threshold to myThreshold above which no new tasks
+should be taken.
+pool.setUsageThreshold(myThreshold);
+
+Usage threshold detection is enabled and notification will be
+handled by MyListener.  Continue for other processing.
+....
+
+&lt;/pre&gt;
+&lt;hr&gt;
+&lt;p&gt;
+There is no guarantee about when the &lt;tt&gt;MemoryMXBean&lt;/tt&gt; will emit
+a threshold notification and when the notification will be delivered.
+When a notification listener is invoked, the memory usage of
+the memory pool may have crossed the usage threshold more
+than once.
+The {@link MemoryNotificationInfo#getCount} method returns the number
+of times that the memory usage has crossed the usage threshold
+at the point in time when the notification was constructed.
+It can be compared with the current usage threshold count returned
+by the {@link #getUsageThresholdCount} method to determine if
+such situation has occurred.
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4&gt;&lt;a name="CollectionThreshold"&gt;4. Collection Usage Threshold&lt;/a&gt;&lt;/h4&gt;
+
+Collection usage threshold is a manageable attribute only applicable
+to some garbage-collected memory pools.
+After a Java virtual machine has expended effort in reclaiming memory
+space by recycling unused objects in a memory pool at garbage collection
+time, some number of bytes in the memory pools that are garbaged
+collected will still be in use.  The collection usage threshold
+allows a value to be set for this number of bytes such
+that if the threshold is exceeded,
+a {@link MemoryNotificationInfo#MEMORY_THRESHOLD_EXCEEDED
+collection usage threshold exceeded notification}
+will be emitted by the {@link MemoryMXBean}.
+In addition, the {@link #getCollectionUsageThresholdCount
+collection usage threshold count} will then be incremented.
+
+&lt;p&gt;
+The {@link MemoryPoolMXBean#isCollectionUsageThresholdSupported} method can
+be used to determine if this functionality is supported.
+
+&lt;p&gt;
+A Java virtual machine performs collection usage threshold checking
+on a memory pool basis.  This checking is enabled if the collection
+usage threshold is set to a positive value.
+If the collection usage threshold is set to zero, this checking
+is disabled on this memory pool.  Default value is zero.
+The Java virtual machine performs the collection usage threshold
+checking at garbage collection time.
+
+&lt;p&gt;
+Some garbage-collected memory pools may
+choose not to support the collection usage threshold.  For example,
+a memory pool is only managed by a continuous concurrent garbage
+collector.  Objects can be allocated in this memory pool by some thread
+while the unused objects are reclaimed by the concurrent garbage
+collector simultaneously.  Unless there is a well-defined
+garbage collection time which is the best appropriate time
+to check the memory usage, the collection usage threshold should not
+be supported.
+
+&lt;p&gt;
+The collection usage threshold is designed for monitoring the memory usage
+after the Java virtual machine has expended effort in reclaiming
+memory space.  The collection usage could also be monitored
+by the polling and threshold notification mechanism
+described above for the &lt;a href="#UsageThreshold"&gt;usage threshold&lt;/a&gt;
+in a similar fashion.
+
+@see &lt;a href="../../../javax/management/package-summary.html"&gt;
+JMX Specification.&lt;/a&gt;
+@see &lt;a href="package-summary.html#examples"&gt;
+Ways to Access MXBeans&lt;/a&gt;
+
+@author  Mandy Chung
+@version 1.18, 04/20/04
+@since   1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="MemoryPoolMXBean" refid="_10_5_622020d_1132928307598_83865_4813"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MemoryPoolMXBean" refid="_10_5_622020d_1132928307598_83865_4813"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309050_977463_5723"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Naming" refid="_9_5_f720368_1110473546674_50294_8227"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Naming&lt;/code&gt; class provides methods for storing and obtaining
+references to remote objects in a remote object registry.  Each method of
+the &lt;code&gt;Naming&lt;/code&gt; class takes as one of its arguments a name that
+is a &lt;code&gt;java.lang.String&lt;/code&gt; in URL format (without the
+scheme component) of the form:
+
+&lt;PRE&gt;
+host:port/name
+&lt;/PRE&gt;
+
+&lt;P&gt;where &lt;code&gt;host&lt;/code&gt; is the host (remote or local) where the registry
+is located, &lt;code&gt;port&lt;/code&gt; is the port number on which the registry
+accepts calls, and where &lt;code&gt;name&lt;/code&gt; is a simple string uninterpreted
+by the registry. Both &lt;code&gt;host&lt;/code&gt; and &lt;code&gt;port&lt;/code&gt; are optional.
+If &lt;code&gt;host&lt;/code&gt; is omitted, the host defaults to the local host. If
+&lt;code&gt;port&lt;/code&gt; is omitted, then the port defaults to 1099, the
+"well-known" port that RMI's registry, &lt;code&gt;rmiregistry&lt;/code&gt;, uses.
+
+&lt;P&gt;&lt;em&gt;Binding&lt;/em&gt; a name for a remote object is associating or
+registering a name for a remote object that can be used at a later time to
+look up that remote object.  A remote object can be associated with a name
+using the &lt;code&gt;Naming&lt;/code&gt; class's &lt;code&gt;bind&lt;/code&gt; or
+&lt;code&gt;rebind&lt;/code&gt; methods.
+
+&lt;P&gt;Once a remote object is registered (bound) with the RMI registry on the
+local host, callers on a remote (or local) host can lookup the remote
+object by name, obtain its reference, and then invoke remote methods on the
+object.  A registry may be shared by all servers running on a host or an
+individual server process may create and use its own registry if desired
+(see &lt;code&gt;java.rmi.registry.LocateRegistry.createRegistry&lt;/code&gt; method
+for details).
+
+@version 1.13, 09/05/99
+@author  Ann Wollrath
+@author  Roger Riggs
+@since   JDK1.1
+@see     java.rmi.registry.Registry
+@see     java.rmi.registry.LocateRegistry
+@see     java.rmi.registry.LocateRegistry#createRegistry(int)
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Naming" refid="_9_5_f720368_1110473546674_50294_8227"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Naming" refid="_9_5_f720368_1110473546674_50294_8227"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

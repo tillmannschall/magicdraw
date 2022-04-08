@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307358_12966_4654"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectStreamClass" refid="_9_5_f720368_1110473546596_416449_7445"/></annotatedElement><body humanName="Body" mode="s,e">Serialization's descriptor for classes.  It contains the name and
+serialVersionUID of the class.  The ObjectStreamClass for a specific class
+loaded in this Java VM can be found/created using the lookup method.
+
+&lt;p&gt;The algorithm to compute the SerialVersionUID is described in
+&lt;a href="../../../guide/serialization/spec/class.doc4.html"&gt;Object
+Serialization Specification, Section 4.4, Stream Unique Identifiers&lt;/a&gt;.
+
+@author	Mike Warres
+@author	Roger Riggs
+@version 1.98 02/02/00
+@see ObjectStreamField
+@see &lt;a href="../../../guide/serialization/spec/class.doc.html"&gt;Object Serialization Specification, Section 4, Class Descriptors&lt;/a&gt;
+@since   JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ObjectStreamClass" refid="_9_5_f720368_1110473546596_416449_7445"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectStreamClass" refid="_9_5_f720368_1110473546596_416449_7445"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317903_754668_12418"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LogicalView" refid="_9_5_f720368_1110473548424_227464_24165"/></annotatedElement><body humanName="Body" mode="s,e">This class can be used to represent a logical view for
+a flow.  It keeps the children updated to reflect the state
+of the model, gives the logical child views access to the
+view hierarchy, and calculates a preferred span.  It doesn't
+do any rendering, layout, or model/view translation.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="LogicalView" refid="_9_5_f720368_1110473548424_227464_24165"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LogicalView" refid="_9_5_f720368_1110473548424_227464_24165"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

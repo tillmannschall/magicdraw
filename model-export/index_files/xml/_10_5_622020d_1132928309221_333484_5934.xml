@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309221_333484_5934"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MGF1ParameterSpec" refid="_10_5_622020d_1132928309221_408515_5932"/></annotatedElement><body humanName="Body" mode="s,e">This class specifies the set of parameters used with mask generation
+function MGF1 in OAEP Padding and RSA-PSS signature scheme, as
+defined in the
+&lt;a href="http://www.rsa.com/rsalabs/pubs/PKCS/html/pkcs-1.html"&gt;
+PKCS #1 v2.1&lt;/a&gt; standard.
+
+&lt;p&gt;Its ASN.1 definition in PKCS#1 standard is described below:
+&lt;pre&gt;
+MGF1Parameters ::= OAEP-PSSDigestAlgorthms
+&lt;/pre&gt;
+where
+&lt;pre&gt;
+OAEP-PSSDigestAlgorithms    ALGORITHM-IDENTIFIER ::= {
+{ OID id-sha1 PARAMETERS NULL   }|
+{ OID id-sha256 PARAMETERS NULL }|
+{ OID id-sha384 PARAMETERS NULL }|
+{ OID id-sha512 PARAMETERS NULL },
+...  -- Allows for future expansion --
+}
+&lt;/pre&gt;
+@see PSSParameterSpec
+@see javax.crypto.spec.OAEPParameterSpec
+
+@author Valerie Peng
+
+@version 1.3, 01/27/04
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MGF1ParameterSpec" refid="_10_5_622020d_1132928309221_408515_5932"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MGF1ParameterSpec" refid="_10_5_622020d_1132928309221_408515_5932"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

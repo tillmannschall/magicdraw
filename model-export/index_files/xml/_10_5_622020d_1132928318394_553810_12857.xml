@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928318394_553810_12857"><documentation humanName="Documentation" mode="standard">&lt;p&gt;&lt;code&gt;XPathFunctionResolver&lt;/code&gt; provides access to the set of user defined &lt;code&gt;XPathFunction&lt;/code&gt;s.&lt;/p&gt;
+
+&lt;p&gt;XPath functions are resolved by name and arity.
+The resolver is not needed for XPath built-in functions and the resolver
+&lt;strong&gt;&lt;em&gt;cannot&lt;/em&gt;&lt;/strong&gt; be used to override those functions.&lt;/p&gt;
+
+&lt;p&gt;In particular, the resolver is only called for functions in an another
+namespace (functions with an explicit prefix). This means that you cannot
+use the &lt;code&gt;XPathFunctionResolver&lt;/code&gt; to implement specifications
+like &lt;a href="http://www.w3.org/TR/xmldsig-core/"&gt;XML-Signature Syntax
+and Processing&lt;/a&gt; which extend the function library of XPath 1.0 in the
+same namespace. This is a consequence of the design of the resolver.&lt;/p&gt;
+
+&lt;p&gt;If you wish to implement additional built-in functions, you will have to
+extend the underlying implementation directly.&lt;/p&gt;
+
+@author  &lt;a href="mailto:Norman.Walsh@Sun.com"&gt;Norman Walsh&lt;/a&gt;
+@author  &lt;a href="mailto:Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+@version $Revision: 1.7 $, $Date: 2004/04/01 16:07:17 $
+@see &lt;a href="http://www.w3.org/TR/xpath#corelib"&gt;XML Path Language (XPath) Version 1.0, Core Function Library&lt;/a&gt;
+@since 1.5
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">XPathFunctionResolver</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="xpath" refid="_10_5_622020d_1132928318384_215100_12824"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318404_479497_12859"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318404_479497_12859"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="xpath" refid="_10_5_622020d_1132928318384_215100_12824"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="xpath" refid="_10_5_622020d_1132928318384_215100_12824"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="xpath" refid="_10_5_622020d_1132928318384_215100_12824"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::xml::xpath::XPathFunctionResolver</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

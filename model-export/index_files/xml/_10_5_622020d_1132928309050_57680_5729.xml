@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309050_57680_5729"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Remote" refid="_9_5_f720368_1110473546674_219881_8233"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Remote&lt;/code&gt; interface serves to identify interfaces whose
+methods may be invoked from a non-local virtual machine.  Any object that
+is a remote object must directly or indirectly implement this interface.
+Only those methods specified in a "remote interface", an interface that
+extends &lt;code&gt;java.rmi.Remote&lt;/code&gt; are available remotely.
+
+&lt;p&gt;Implementation classes can implement any number of remote interfaces and
+can extend other remote implementation classes.  RMI provides some
+convenience classes that remote object implementations can extend which
+facilitate remote object creation.  These classes are
+&lt;code&gt;java.rmi.server.UnicastRemoteObject&lt;/code&gt; and
+&lt;code&gt;java.rmi.activation.Activatable&lt;/code&gt;.
+
+&lt;p&gt;For complete details on RMI, see the &lt;a
+href=../../../guide/rmi/spec/rmiTOC.html&gt;RMI Specification&lt;/a&gt; which describes the RMI API and system.
+
+@version 1.15, 12/19/03
+@since   JDK1.1
+@author  Ann Wollrath
+@see	    java.rmi.server.UnicastRemoteObject
+@see     java.rmi.activation.Activatable
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Remote" refid="_9_5_f720368_1110473546674_219881_8233"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Remote" refid="_9_5_f720368_1110473546674_219881_8233"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

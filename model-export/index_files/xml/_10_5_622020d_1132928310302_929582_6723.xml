@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310302_929582_6723"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JarFile" refid="_9_5_f720368_1110473546690_893058_8705"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;JarFile&lt;/code&gt; class is used to read the contents of a jar file
+from any file that can be opened with &lt;code&gt;java.io.RandomAccessFile&lt;/code&gt;.
+It extends the class &lt;code&gt;java.util.zip.ZipFile&lt;/code&gt; with support
+for reading an optional &lt;code&gt;Manifest&lt;/code&gt; entry. The
+&lt;code&gt;Manifest&lt;/code&gt; can be used to specify meta-information about the
+jar file and its entries.
+
+&lt;p&gt; Unless otherwise noted, passing a &lt;tt&gt;null&lt;/tt&gt; argument to a constructor
+or method in this class will cause a {@link NullPointerException} to be
+thrown.
+
+@author  David Connelly
+@version 1.58, 05/05/04
+@see	    Manifest
+@see     java.util.zip.ZipFile
+@see     java.util.jar.JarEntry
+@since   1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JarFile" refid="_9_5_f720368_1110473546690_893058_8705"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JarFile" refid="_9_5_f720368_1110473546690_893058_8705"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

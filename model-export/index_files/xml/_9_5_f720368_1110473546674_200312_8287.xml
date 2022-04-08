@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546674_200312_8287"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::CertPath -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321849_265866_14113"/></clientDependency><documentation humanName="Documentation" mode="standard">An immutable sequence of certificates (a certification path).
+&lt;p&gt;
+This is an abstract class that defines the methods common to all
+&lt;code&gt;CertPath&lt;/code&gt;s. Subclasses can handle different kinds of
+certificates (X.509, PGP, etc.).
+&lt;p&gt;
+All &lt;code&gt;CertPath&lt;/code&gt; objects have a type, a list of
+&lt;code&gt;Certificate&lt;/code&gt;s, and one or more supported encodings. Because the
+&lt;code&gt;CertPath&lt;/code&gt; class is immutable, a &lt;code&gt;CertPath&lt;/code&gt; cannot
+change in any externally visible way after being constructed. This
+stipulation applies to all public fields and methods of this class and any
+added or overridden by subclasses.
+&lt;p&gt;
+The type is a &lt;code&gt;String&lt;/code&gt; that identifies the type of
+&lt;code&gt;Certificate&lt;/code&gt;s in the certification path. For each
+certificate &lt;code&gt;cert&lt;/code&gt; in a certification path &lt;code&gt;certPath&lt;/code&gt;,
+&lt;code&gt;cert.getType().equals(certPath.getType())&lt;/code&gt; must be
+&lt;code&gt;true&lt;/code&gt;.
+&lt;p&gt;
+The list of &lt;code&gt;Certificate&lt;/code&gt;s is an ordered &lt;code&gt;List&lt;/code&gt; of
+zero or more &lt;code&gt;Certificate&lt;/code&gt;s. This &lt;code&gt;List&lt;/code&gt; and all
+of the &lt;code&gt;Certificate&lt;/code&gt;s contained in it must be immutable.
+&lt;p&gt;
+Each &lt;code&gt;CertPath&lt;/code&gt; object must support one or more encodings
+so that the object can be translated into a byte array for storage or
+transmission to other parties. Preferably, these encodings should be
+well-documented standards (such as PKCS#7). One of the encodings supported
+by a &lt;code&gt;CertPath&lt;/code&gt; is considered the default encoding. This
+encoding is used if no encoding is explicitly requested (for the
+{@link #getEncoded() getEncoded()} method, for instance).
+&lt;p&gt;
+All &lt;code&gt;CertPath&lt;/code&gt; objects are also &lt;code&gt;Serializable&lt;/code&gt;.
+&lt;code&gt;CertPath&lt;/code&gt; objects are resolved into an alternate
+{@link CertPathRep CertPathRep} object during serialization. This allows
+a &lt;code&gt;CertPath&lt;/code&gt; object to be serialized into an equivalent
+representation regardless of its underlying implementation.
+&lt;p&gt;
+&lt;code&gt;CertPath&lt;/code&gt; objects can be created with a
+&lt;code&gt;CertificateFactory&lt;/code&gt; or they can be returned by other classes,
+such as a &lt;code&gt;CertPathBuilder&lt;/code&gt;.
+&lt;p&gt;
+By convention, X.509 &lt;code&gt;CertPath&lt;/code&gt;s (consisting of
+&lt;code&gt;X509Certificate&lt;/code&gt;s), are ordered starting with the target
+certificate and ending with a certificate issued by the trust anchor. That
+is, the issuer of one certificate is the subject of the following one. The
+certificate representing the {@link TrustAnchor TrustAnchor} should not be
+included in the certification path. Unvalidated X.509 &lt;code&gt;CertPath&lt;/code&gt;s
+may not follow these conventions. PKIX &lt;code&gt;CertPathValidator&lt;/code&gt;s will
+detect any departure from these conventions that cause the certification
+path to be invalid and throw a &lt;code&gt;CertPathValidatorException&lt;/code&gt;.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+All &lt;code&gt;CertPath&lt;/code&gt; objects must be thread-safe. That is, multiple
+threads may concurrently invoke the methods defined in this class on a
+single &lt;code&gt;CertPath&lt;/code&gt; object (or more than one) with no
+ill effects. This is also true for the &lt;code&gt;List&lt;/code&gt; returned by
+&lt;code&gt;CertPath.getCertificates&lt;/code&gt;.
+&lt;p&gt;
+Requiring &lt;code&gt;CertPath&lt;/code&gt; objects to be immutable and thread-safe
+allows them to be passed around to various pieces of code without worrying
+about coordinating access.  Providing this thread-safety is
+generally not difficult, since the &lt;code&gt;CertPath&lt;/code&gt; and
+&lt;code&gt;List&lt;/code&gt; objects in question are immutable.
+
+@see CertificateFactory
+@see CertPathBuilder
+
+@version 1.9 12/19/03
+@author	Yassir Elley
+@since	1.4
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::CertPath -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321849_265866_14113"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertPathRep" refid="_9_5_f720368_1110473547706_985342_18606"/></member><name humanName="Name" mode="s,e">CertPath</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertPathRep" refid="_9_5_f720368_1110473547706_985342_18606"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309100_972228_5791"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309100_972228_5791"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertPathRep" refid="_9_5_f720368_1110473547706_985342_18606"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::CertPath -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321849_265866_14113"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertPathRep" refid="_9_5_f720368_1110473547706_985342_18606"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::cert::CertPath</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

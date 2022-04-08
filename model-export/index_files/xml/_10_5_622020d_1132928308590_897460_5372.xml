@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308590_897460_5372"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractSelectableChannel" refid="_9_5_f720368_1110473546643_94013_7861"/></annotatedElement><body humanName="Body" mode="s,e">Base implementation class for selectable channels.
+
+&lt;p&gt; This class defines methods that handle the mechanics of channel
+registration, deregistration, and closing.  It maintains the current
+blocking mode of this channel as well as its current set of selection keys.
+It performs all of the synchronization required to implement the {@link
+java.nio.channels.SelectableChannel} specification.  Implementations of the
+abstract protected methods defined in this class need not synchronize
+against other threads that might be engaged in the same operations.  &lt;/p&gt;
+
+
+@author Mark Reinhold
+@author Mike McCloskey
+@author JSR-51 Expert Group
+@version 1.25, 03/12/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AbstractSelectableChannel" refid="_9_5_f720368_1110473546643_94013_7861"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractSelectableChannel" refid="_9_5_f720368_1110473546643_94013_7861"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

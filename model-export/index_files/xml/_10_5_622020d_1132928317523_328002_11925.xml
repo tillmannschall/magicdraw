@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317523_328002_11925"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SelectorMapping" refid="_9_5_f720368_1110473548315_658508_23099"/></annotatedElement><body humanName="Body" mode="s,e">SelectorMapping contains a specifitiy, as an integer, and an associated
+Style. It can also reference children &lt;code&gt;SelectorMapping&lt;/code&gt;s,
+so that it behaves like a tree.
+&lt;p&gt;
+This is not thread safe, it is assumed the caller will take the
+necessary precations if this is to be used in a threaded environment.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SelectorMapping" refid="_9_5_f720368_1110473548315_658508_23099"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SelectorMapping" refid="_9_5_f720368_1110473548315_658508_23099"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

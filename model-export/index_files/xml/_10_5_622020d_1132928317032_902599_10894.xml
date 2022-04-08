@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317032_902599_10894"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TableColumnModelListener" refid="_9_5_f720368_1110473546753_977241_9891"/></annotatedElement><body humanName="Body" mode="s,e">TableColumnModelListener defines the interface for an object that listens
+to changes in a TableColumnModel.
+
+@version 1.13 12/19/03
+@author Alan Chung
+@see TableColumnModelEvent
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="TableColumnModelListener" refid="_9_5_f720368_1110473546753_977241_9891"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TableColumnModelListener" refid="_9_5_f720368_1110473546753_977241_9891"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

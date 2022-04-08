@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307308_731446_4634"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HandleTable" refid="_9_5_f720368_1110473547487_811522_17631"/></annotatedElement><body humanName="Body" mode="s,e">Unsynchronized table which tracks wire handle to object mappings, as
+well as ClassNotFoundExceptions associated with deserialized objects.
+This class implements an exception-propagation algorithm for
+determining which objects should have ClassNotFoundExceptions associated
+with them, taking into account cycles and discontinuities (e.g., skipped
+fields) in the object graph.
+
+&lt;p&gt;General use of the table is as follows: during deserialization, a
+given object is first assigned a handle by calling the assign method.
+This method leaves the assigned handle in an "open" state, wherein
+dependencies on the exception status of other handles can be registered
+by calling the markDependency method, or an exception can be directly
+associated with the handle by calling markException.  When a handle is
+tagged with an exception, the HandleTable assumes responsibility for
+propagating the exception to any other objects which depend
+(transitively) on the exception-tagged object.
+
+&lt;p&gt;Once all exception information/dependencies for the handle have been
+registered, the handle should be "closed" by calling the finish method
+on it.  The act of finishing a handle allows the exception propagation
+algorithm to aggressively prune dependency links, lessening the
+performance/memory impact of exception tracking.
+
+&lt;p&gt;Note that the exception propagation algorithm used depends on handles
+being assigned/finished in LIFO order; however, for simplicity as well
+as memory conservation, it does not enforce this constraint.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="HandleTable" refid="_9_5_f720368_1110473547487_811522_17631"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HandleTable" refid="_9_5_f720368_1110473547487_811522_17631"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

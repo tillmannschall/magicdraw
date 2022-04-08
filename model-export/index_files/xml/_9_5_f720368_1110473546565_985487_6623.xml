@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546565_985487_6623"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;FontRenderContext&lt;/code&gt; class is a container for the
+information needed to correctly measure text.  The measurement of text
+can vary because of rules that map outlines to pixels, and rendering
+hints provided by an application.
+&lt;p&gt;
+One such piece of information is a transform that scales
+typographical points to pixels. (A point is defined to be exactly 1/72
+of an inch, which is slightly different than
+the traditional mechanical measurement of a point.)  A character that
+is rendered at 12pt on a 600dpi device might have a different size
+than the same character rendered at 12pt on a 72dpi device because of
+such factors as rounding to pixel boundaries and hints that the font
+designer may have specified.
+&lt;p&gt;
+Anti-aliasing and Fractional-metrics specified by an application can also
+affect the size of a character because of rounding to pixel
+boundaries.
+&lt;p&gt;
+Typically, instances of &lt;code&gt;FontRenderContext&lt;/code&gt; are
+obtained from a {@link java.awt.Graphics2D Graphics2D} object.  A
+&lt;code&gt;FontRenderContext&lt;/code&gt; which is directly constructed will
+most likely not represent any actual graphics device, and may lead
+to unexpected or incorrect results.
+&lt;p&gt;
+@see java.awt.RenderingHints#KEY_TEXT_ANTIALIASING
+@see java.awt.RenderingHints#KEY_FRACTIONALMETRICS
+@see java.awt.Graphics2D#getFontRenderContext()
+@see java.awt.font.LineMetrics
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">FontRenderContext</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305776_750458_3773"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305776_750458_3773"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::font::FontRenderContext</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

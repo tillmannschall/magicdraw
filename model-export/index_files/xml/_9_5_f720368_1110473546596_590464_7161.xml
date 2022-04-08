@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546596_590464_7161"><documentation humanName="Documentation" mode="standard">A &lt;code&gt;BeanContextMembershipEvent&lt;/code&gt; encapsulates
+the list of children added to, or removed from,
+the membership of a particular &lt;code&gt;BeanContext&lt;/code&gt;.
+An instance of this event is fired whenever a successful
+add(), remove(), retainAll(), removeAll(), or clear() is
+invoked on a given &lt;code&gt;BeanContext&lt;/code&gt; instance.
+Objects interested in receiving events of this type must
+implement the &lt;code&gt;BeanContextMembershipListener&lt;/code&gt;
+interface, and must register their intent via the
+&lt;code&gt;BeanContext&lt;/code&gt;'s
+&lt;code&gt;addBeanContextMembershipListener(BeanContextMembershipListener bcml)
+&lt;/code&gt; method.
+
+@author	Laurence P. G. Cable
+@version	1.15
+@since	1.2
+@see		java.beans.beancontext.BeanContext
+@see		java.beans.beancontext.BeanContextEvent
+@see		java.beans.beancontext.BeanContextMembershipListener
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321528_776946_13385"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">BeanContextMembershipEvent</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beancontext" refid="_9_5_f720368_1110473547440_320146_17399"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306777_499316_4378"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321528_776946_13385"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306777_499316_4378"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="beancontext" refid="_9_5_f720368_1110473547440_320146_17399"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beancontext" refid="_9_5_f720368_1110473547440_320146_17399"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beancontext" refid="_9_5_f720368_1110473547440_320146_17399"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::beans::beancontext::BeanContextMembershipEvent</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BeanContextEvent" refid="_9_5_f720368_1110473546596_725071_7159"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

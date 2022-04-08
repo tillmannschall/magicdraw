@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306977_503033_4523"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="VetoableChangeListenerProxy" refid="_9_5_f720368_1110473546596_609346_7335"/></annotatedElement><body humanName="Body" mode="s,e">A class which extends the &lt;code&gt;EventListenerProxy&lt;/code&gt; specifically
+for associating a &lt;code&gt;VetoableChangeListener&lt;/code&gt; with a "constrained"
+property. Instances of this class can be added as a
+&lt;code&gt;VetoableChangeListener&lt;/code&gt; to a bean which supports firing
+VetoableChange events.
+&lt;p&gt;
+If the object has a &lt;code&gt;getVetoableChangeListeners()&lt;/code&gt;
+method then the array returned could be a mixture of
+&lt;code&gt;VetoableChangeListener&lt;/code&gt; and
+&lt;code&gt;VetoableChangeListenerProxy&lt;/code&gt; objects.
+&lt;p&gt;
+@see java.util.EventListenerProxy
+@see VetoableChangeListener
+@see VetoableChangeSupport#getVetoableChangeListeners
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="VetoableChangeListenerProxy" refid="_9_5_f720368_1110473546596_609346_7335"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="VetoableChangeListenerProxy" refid="_9_5_f720368_1110473546596_609346_7335"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

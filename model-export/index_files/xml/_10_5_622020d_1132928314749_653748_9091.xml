@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314749_653748_9091"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Accessible" refid="_9_5_f720368_1110473546706_827345_8951"/></annotatedElement><body humanName="Body" mode="s,e">Interface Accessible is the main interface for the accessibility package.
+All components that support
+the accessibility package must implement this interface.
+It contains a single method, {@link #getAccessibleContext}, which
+returns an instance of the class {@link AccessibleContext}.
+
+@version     1.1 11/24/97 20:34:48
+@author	Peter Korn
+@author      Hans Muller
+@author      Willie Walker
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Accessible" refid="_9_5_f720368_1110473546706_827345_8951"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Accessible" refid="_9_5_f720368_1110473546706_827345_8951"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

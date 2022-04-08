@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308049_125459_5111"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Process" refid="_9_5_f720368_1110473546612_907356_7667"/></annotatedElement><body humanName="Body" mode="s,e">The {@link ProcessBuilder#start()} and
+{@link Runtime#exec(String[],String[],File) Runtime.exec}
+methods create a native process and
+return an instance of a subclass of &lt;code&gt;Process&lt;/code&gt; that can
+be used to control the process and obtain information about it.
+The class &lt;code&gt;Process&lt;/code&gt; provides methods for performing
+input from the process, performing output to the process, waiting
+for the process to complete, checking the exit status of the process,
+and destroying (killing) the process.
+
+&lt;p&gt;
+The methods that create processes may not work well for special
+processes on certain native platforms, such as native windowing
+processes, daemon processes, Win16/DOS processes on Microsoft Windows, or shell
+scripts. The created subprocess does not have its own terminal or
+console. All its standard io (i.e. stdin, stdout, stderr)  operations
+will be redirected to the parent process through three streams
+({@link #getOutputStream()},
+{@link #getInputStream()},
+{@link #getErrorStream()}).
+The parent process uses these streams to feed input to and get output
+from the subprocess. Because some native platforms only provide
+limited buffer size for standard input and output streams, failure
+to promptly write the input stream or read the output stream of
+the subprocess may cause the subprocess to block, and even deadlock.
+
+&lt;p&gt;
+The subprocess is not killed when there are no more references to
+the &lt;code&gt;Process&lt;/code&gt; object, but rather the subprocess
+continues executing asynchronously.
+
+&lt;p&gt;
+There is no requirement that a process represented by a &lt;code&gt;Process&lt;/code&gt;
+object execute asynchronously or concurrently with respect to the Java
+process that owns the &lt;code&gt;Process&lt;/code&gt; object.
+
+@author  unascribed
+@version 1.23, 12/19/03
+@see     ProcessBuilder
+@see     Runtime#exec(String[], String[], File)
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Process" refid="_9_5_f720368_1110473546612_907356_7667"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Process" refid="_9_5_f720368_1110473546612_907356_7667"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546940_673522_13282"><documentation humanName="Documentation" mode="standard">Receive notification of the logical content of a document.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is the main interface that most SAX applications
+implement: if the application needs to be informed of basic parsing
+events, it implements this interface and registers an instance with
+the SAX parser using the {@link org.xml.sax.XMLReader#setContentHandler
+setContentHandler} method.  The parser uses the instance to report
+basic document-related events like the start and end of elements
+and character data.&lt;/p&gt;
+
+&lt;p&gt;The order of events in this interface is very important, and
+mirrors the order of information in the document itself.  For
+example, all of an element's content (character data, processing
+instructions, and/or subelements) will appear, in order, between
+the startElement event and the corresponding endElement event.&lt;/p&gt;
+
+&lt;p&gt;This interface is similar to the now-deprecated SAX 1.0
+DocumentHandler interface, but it adds support for Namespaces
+and for reporting skipped entities (in non-validating XML
+processors).&lt;/p&gt;
+
+&lt;p&gt;Implementors should note that there is also a
+&lt;code&gt;ContentHandler&lt;/code&gt; class in the &lt;code&gt;java.net&lt;/code&gt;
+package; that means that it's probably a bad idea to do&lt;/p&gt;
+
+&lt;pre&gt;import java.net.*;
+import org.xml.sax.*;
+&lt;/pre&gt;
+
+&lt;p&gt;In fact, "import ...*" is usually a sign of sloppy programming
+anyway, so the user should consider this a feature rather than a
+bug.&lt;/p&gt;
+
+@since SAX 2.0
+@author David Megginson
+@version 2.0.1+ (sax2r3pre1)
+@see org.xml.sax.XMLReader
+@see org.xml.sax.DTDHandler
+@see org.xml.sax.ErrorHandler
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ContentHandler</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314698_620550_9061"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314698_620550_9061"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::xml::sax::ContentHandler</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::xml::validation::ValidatorHandler -&gt; JDK 5.0 Classes::org::xml::sax::ContentHandler]" refid="_10_5_622020d_1132928324192_959511_18735"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::helpers::DefaultHandler -&gt; JDK 5.0 Classes::org::xml::sax::ContentHandler]" refid="_10_5_622020d_1132928322900_889983_15735"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::helpers::XMLFilterImpl -&gt; JDK 5.0 Classes::org::xml::sax::ContentHandler]" refid="_10_5_622020d_1132928322900_933949_15744"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::helpers::XMLReaderAdapter -&gt; JDK 5.0 Classes::org::xml::sax::ContentHandler]" refid="_10_5_622020d_1132928322900_727746_15747"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546659_359793_7925"><documentation humanName="Documentation" mode="standard">A token representing the registration of a {@link SelectableChannel} with a
+{@link Selector}.
+
+&lt;p&gt; A selection key is created each time a channel is registered with a
+selector.  A key remains valid until it is &lt;i&gt;cancelled&lt;/i&gt; by invoking its
+{@link #cancel cancel} method, by closing its channel, or by closing its
+selector.  Cancelling a key does not immediately remove it from its
+selector; it is instead added to the selector's &lt;a
+href="Selector.html#ks"&gt;&lt;i&gt;cancelled-key set&lt;/i&gt;&lt;/a&gt; for removal during the
+next selection operation.  The validity of a key may be tested by invoking
+its {@link #isValid isValid} method.
+
+&lt;a name="opsets"&gt;
+
+&lt;p&gt; A selection key contains two &lt;i&gt;operation sets&lt;/i&gt; represented as
+integer values.  Each bit of an operation set denotes a category of
+selectable operations that are supported by the key's channel.
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; The &lt;i&gt;interest set&lt;/i&gt; determines which operation categories will
+be tested for readiness the next time one of the selector's selection
+methods is invoked.  The interest set is initialized with the value given
+when the key is created; it may later be changed via the {@link
+#interestOps(int)} method. &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The &lt;i&gt;ready set&lt;/i&gt; identifies the operation categories for which
+the key's channel has been detected to be ready by the key's selector.
+The ready set is initialized to zero when the key is created; it may later
+be updated by the selector during a selection operation, but it cannot be
+updated directly. &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt; That a selection key's ready set indicates that its channel is ready for
+some operation category is a hint, but not a guarantee, that an operation in
+such a category may be performed by a thread without causing the thread to
+block.  A ready set is most likely to be accurate immediately after the
+completion of a selection operation.  It is likely to be made inaccurate by
+external events and by I/O operations that are invoked upon the
+corresponding channel.
+
+&lt;p&gt; This class defines all known operation-set bits, but precisely which
+bits are supported by a given channel depends upon the type of the channel.
+Each subclass of {@link SelectableChannel} defines an {@link
+SelectableChannel#validOps() validOps()} method which returns a set
+identifying just those operations that are supported by the channel.  An
+attempt to set or test an operation-set bit that is not supported by a key's
+channel will result in an appropriate run-time exception.
+
+&lt;p&gt; It is often necessary to associate some application-specific data with a
+selection key, for example an object that represents the state of a
+higher-level protocol and handles readiness notifications in order to
+implement that protocol.  Selection keys therefore support the
+&lt;i&gt;attachment&lt;/i&gt; of a single arbitrary object to a key.  An object can be
+attached via the {@link #attach attach} method and then later retrieved via
+the {@link #attachment attachment} method.
+
+&lt;p&gt; Selection keys are safe for use by multiple concurrent threads.  The
+operations of reading and writing the interest set will, in general, be
+synchronized with certain operations of the selector.  Exactly how this
+synchronization is performed is implementation-dependent: In a naive
+implementation, reading or writing the interest set may block indefinitely
+if a selection operation is already in progress; in a high-performance
+implementation, reading or writing the interest set may block briefly, if at
+all.  In any case, a selection operation will always use the interest-set
+value that was current at the moment that the operation began.  &lt;/p&gt;
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.24, 03/12/19
+@since 1.4
+
+@see SelectableChannel
+@see Selector
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SelectionKey</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308650_569469_5439"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308650_569469_5439"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::nio::channels::SelectionKey</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

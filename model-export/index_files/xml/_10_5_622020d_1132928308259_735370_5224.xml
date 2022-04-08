@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308259_735370_5224"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RoundingMode" refid="_10_5_622020d_1132928308259_340946_5221"/></annotatedElement><body humanName="Body" mode="s,e">Specifies a &lt;i&gt;rounding behavior&lt;/i&gt; for numerical operations
+capable of discarding precision. Each rounding mode indicates how
+the least significant returned digit of a rounded result is to be
+calculated.  If fewer digits are returned than the digits needed to
+represent the exact numerical result, the discarded digits will be
+referred to as the &lt;i&gt;discarded fraction&lt;/i&gt; regardless the digits'
+contribution to the value of the number.  In other words,
+considered as a numerical value, the discarded fraction could have
+an absolute value greater than one.
+
+&lt;p&gt;Each rounding mode description includes a table listing how
+different two-digit decimal values would round to a one digit
+decimal value under the rounding mode in question.  The result
+column in the tables could be gotten by creating a
+&lt;tt&gt;BigDecimal&lt;/tt&gt; number with the specified value, forming a
+{@link MathContext} object with the proper settings
+(&lt;tt&gt;precision&lt;/tt&gt; set to &lt;tt&gt;1&lt;/tt&gt;, and the
+&lt;tt&gt;roundingMode&lt;/tt&gt; set to the rounding mode in question), and
+calling {@link BigDecimal#round round} on this number with the
+proper &lt;tt&gt;MathContext&lt;/tt&gt;.  A summary table showing the results
+of these rounding operations for all rounding modes appears below.
+
+&lt;p&gt;
+&lt;table border&gt;
+&lt;caption top&gt;&lt;h3&gt;Summary of Rounding Operations Under Different Rounding Modes&lt;/h3&gt;&lt;/caption&gt;
+&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th colspan=8&gt;Result of rounding input to one digit with the given
+rounding mode&lt;/th&gt;
+&lt;tr valign=top&gt;
+&lt;th&gt;Input Number&lt;/th&gt;	 &lt;th&gt;&lt;tt&gt;UP&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;DOWN&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;CEILING&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;FLOOR&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;HALF_UP&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;HALF_DOWN&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;HALF_EVEN&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;UNNECESSARY&lt;/tt&gt;&lt;/th&gt;
+
+&lt;tr align=right&gt;&lt;td&gt;5.5&lt;/td&gt;	 &lt;td&gt;6&lt;/td&gt;  &lt;td&gt;5&lt;/td&gt;    &lt;td&gt;6&lt;/td&gt;    &lt;td&gt;5&lt;/td&gt;  &lt;td&gt;6&lt;/td&gt;      &lt;td&gt;5&lt;/td&gt;       &lt;td&gt;6&lt;/td&gt;       &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;2.5&lt;/td&gt;	 &lt;td&gt;3&lt;/td&gt;  &lt;td&gt;2&lt;/td&gt;    &lt;td&gt;3&lt;/td&gt;    &lt;td&gt;2&lt;/td&gt;  &lt;td&gt;3&lt;/td&gt;      &lt;td&gt;2&lt;/td&gt;       &lt;td&gt;2&lt;/td&gt;       &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;1.6&lt;/td&gt;	 &lt;td&gt;2&lt;/td&gt;  &lt;td&gt;1&lt;/td&gt;    &lt;td&gt;2&lt;/td&gt; 	 &lt;td&gt;1&lt;/td&gt;  &lt;td&gt;2&lt;/td&gt;      &lt;td&gt;2&lt;/td&gt;       &lt;td&gt;2&lt;/td&gt;       &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;1.1&lt;/td&gt;	 &lt;td&gt;2&lt;/td&gt;  &lt;td&gt;1&lt;/td&gt;    &lt;td&gt;2&lt;/td&gt; 	 &lt;td&gt;1&lt;/td&gt;  &lt;td&gt;1&lt;/td&gt;      &lt;td&gt;1&lt;/td&gt;       &lt;td&gt;1&lt;/td&gt;       &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;1.0&lt;/td&gt;	 &lt;td&gt;1&lt;/td&gt;  &lt;td&gt;1&lt;/td&gt;    &lt;td&gt;1&lt;/td&gt; 	 &lt;td&gt;1&lt;/td&gt;  &lt;td&gt;1&lt;/td&gt;      &lt;td&gt;1&lt;/td&gt;       &lt;td&gt;1&lt;/td&gt;       &lt;td&gt;1&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;-1.0&lt;/td&gt; &lt;td&gt;-1&lt;/td&gt; &lt;td&gt;-1&lt;/td&gt;   &lt;td&gt;-1&lt;/td&gt;	 &lt;td&gt;-1&lt;/td&gt; &lt;td&gt;-1&lt;/td&gt;     &lt;td&gt;-1&lt;/td&gt;      &lt;td&gt;-1&lt;/td&gt;      &lt;td&gt;-1&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;-1.1&lt;/td&gt; &lt;td&gt;-2&lt;/td&gt; &lt;td&gt;-1&lt;/td&gt;   &lt;td&gt;-1&lt;/td&gt;	 &lt;td&gt;-2&lt;/td&gt; &lt;td&gt;-1&lt;/td&gt;     &lt;td&gt;-1&lt;/td&gt;      &lt;td&gt;-1&lt;/td&gt;      &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;-1.6&lt;/td&gt; &lt;td&gt;-2&lt;/td&gt; &lt;td&gt;-1&lt;/td&gt;   &lt;td&gt;-1&lt;/td&gt;	 &lt;td&gt;-2&lt;/td&gt; &lt;td&gt;-2&lt;/td&gt;     &lt;td&gt;-2&lt;/td&gt;      &lt;td&gt;-2&lt;/td&gt;      &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;-2.5&lt;/td&gt; &lt;td&gt;-3&lt;/td&gt; &lt;td&gt;-2&lt;/td&gt;   &lt;td&gt;-2&lt;/td&gt;	 &lt;td&gt;-3&lt;/td&gt; &lt;td&gt;-3&lt;/td&gt;     &lt;td&gt;-2&lt;/td&gt;      &lt;td&gt;-2&lt;/td&gt;      &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;-5.5&lt;/td&gt; &lt;td&gt;-6&lt;/td&gt; &lt;td&gt;-5&lt;/td&gt;   &lt;td&gt;-5&lt;/td&gt;	 &lt;td&gt;-6&lt;/td&gt; &lt;td&gt;-6&lt;/td&gt;     &lt;td&gt;-5&lt;/td&gt;      &lt;td&gt;-6&lt;/td&gt;      &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;This &lt;tt&gt;enum&lt;/tt&gt; is intended to replace the integer-based
+enumeration of rounding mode constants in {@link BigDecimal}
+({@link BigDecimal#ROUND_UP}, {@link BigDecimal#ROUND_DOWN},
+etc. ).
+
+@see     BigDecimal
+@see     MathContext
+@version 1.x 01/xx/xx
+@author  Josh Bloch
+@author  Mike Cowlishaw
+@author  Joseph D. Darcy
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RoundingMode" refid="_10_5_622020d_1132928308259_340946_5221"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RoundingMode" refid="_10_5_622020d_1132928308259_340946_5221"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

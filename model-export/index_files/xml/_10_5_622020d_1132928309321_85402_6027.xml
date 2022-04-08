@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309321_85402_6027"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyManagementException" refid="_9_5_f720368_1110473546690_61512_8469"/></annotatedElement><body humanName="Body" mode="s,e">This is the general key management exception for all operations
+dealing with key management. Examples of subclasses of
+KeyManagementException that developers might create for
+giving more detailed information could include:
+
+&lt;ul&gt;
+&lt;li&gt;KeyIDConflictException
+&lt;li&gt;KeyAuthorizationFailureException
+&lt;li&gt;ExpiredKeyException
+&lt;/ul&gt;
+
+@version 1.18 03/12/19
+@author Benjamin Renaud
+
+@see Key
+@see KeyException
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="KeyManagementException" refid="_9_5_f720368_1110473546690_61512_8469"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyManagementException" refid="_9_5_f720368_1110473546690_61512_8469"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

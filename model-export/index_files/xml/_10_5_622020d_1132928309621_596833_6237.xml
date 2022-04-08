@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309621_596833_6237"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DateFormat" refid="_9_5_f720368_1110473546690_324082_8639"/></annotatedElement><body humanName="Body" mode="s,e">DateFormat is an abstract class for date/time formatting subclasses which
+formats and parses dates or time in a language-independent manner.
+The date/time formatting subclass, such as SimpleDateFormat, allows for
+formatting (i.e., date -&gt; text), parsing (text -&gt; date), and
+normalization.  The date is represented as a &lt;code&gt;Date&lt;/code&gt; object or
+as the milliseconds since January 1, 1970, 00:00:00 GMT.
+
+&lt;p&gt;DateFormat provides many class methods for obtaining default date/time
+formatters based on the default or a given locale and a number of formatting
+styles. The formatting styles include FULL, LONG, MEDIUM, and SHORT. More
+detail and examples of using these styles are provided in the method
+descriptions.
+
+&lt;p&gt;DateFormat helps you to format and parse dates for any locale.
+Your code can be completely independent of the locale conventions for
+months, days of the week, or even the calendar format: lunar vs. solar.
+
+&lt;p&gt;To format a date for the current Locale, use one of the
+static factory methods:
+&lt;pre&gt;
+myString = DateFormat.getDateInstance().format(myDate);
+&lt;/pre&gt;
+&lt;p&gt;If you are formatting multiple dates, it is
+more efficient to get the format and use it multiple times so that
+the system doesn't have to fetch the information about the local
+language and country conventions multiple times.
+&lt;pre&gt;
+DateFormat df = DateFormat.getDateInstance();
+for (int i = 0; i &lt; myDate.length; ++i) {
+output.println(df.format(myDate[i]) + "; ");
+}
+&lt;/pre&gt;
+&lt;p&gt;To format a date for a different Locale, specify it in the
+call to getDateInstance().
+&lt;pre&gt;
+DateFormat df = DateFormat.getDateInstance(DateFormat.LONG, Locale.FRANCE);
+&lt;/pre&gt;
+&lt;p&gt;You can use a DateFormat to parse also.
+&lt;pre&gt;
+myDate = df.parse(myString);
+&lt;/pre&gt;
+&lt;p&gt;Use getDateInstance to get the normal date format for that country.
+There are other static factory methods available.
+Use getTimeInstance to get the time format for that country.
+Use getDateTimeInstance to get a date and time format. You can pass in
+different options to these factory methods to control the length of the
+result; from SHORT to MEDIUM to LONG to FULL. The exact result depends
+on the locale, but generally:
+&lt;ul&gt;&lt;li&gt;SHORT is completely numeric, such as 12.13.52 or 3:30pm
+&lt;li&gt;MEDIUM is longer, such as Jan 12, 1952
+&lt;li&gt;LONG is longer, such as January 12, 1952 or 3:30:32pm
+&lt;li&gt;FULL is pretty completely specified, such as
+Tuesday, April 12, 1952 AD or 3:30:42pm PST.
+&lt;/ul&gt;
+
+&lt;p&gt;You can also set the time zone on the format if you wish.
+If you want even more control over the format or parsing,
+(or want to give your users more control),
+you can try casting the DateFormat you get from the factory methods
+to a SimpleDateFormat. This will work for the majority
+of countries; just remember to put it in a try block in case you
+encounter an unusual one.
+
+&lt;p&gt;You can also use forms of the parse and format methods with
+ParsePosition and FieldPosition to
+allow you to
+&lt;ul&gt;&lt;li&gt;progressively parse through pieces of a string.
+&lt;li&gt;align any particular field, or find out where it is for selection
+on the screen.
+&lt;/ul&gt;
+
+&lt;h4&gt;&lt;a name="synchronization"&gt;Synchronization&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;
+Date formats are not synchronized.
+It is recommended to create separate format instances for each thread.
+If multiple threads access a format concurrently, it must be synchronized
+externally.
+
+@see          Format
+@see          NumberFormat
+@see          SimpleDateFormat
+@see          java.util.Calendar
+@see          java.util.GregorianCalendar
+@see          java.util.TimeZone
+@version      1.51 04/12/04
+@author       Mark Davis, Chen-Lieh Huang, Alan Liu
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="DateFormat" refid="_9_5_f720368_1110473546690_324082_8639"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DateFormat" refid="_9_5_f720368_1110473546690_324082_8639"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

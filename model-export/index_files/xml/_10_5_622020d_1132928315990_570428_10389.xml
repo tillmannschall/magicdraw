@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315990_570428_10389"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="UtilDelegate" refid="_9_5_f720368_1110473546737_607036_9561"/></annotatedElement><body humanName="Body" mode="s,e">Supports delegation for method implementations in {@link Util}.  The
+delegate is a singleton instance of a class that implements this
+interface and provides a replacement implementation for all the
+methods of &lt;code&gt;javax.rmi.CORBA.Util&lt;/code&gt;.
+
+Delegation is enabled by providing the delegate's class name as the
+value of the
+&lt;code&gt;javax.rmi.CORBA.UtilClass&lt;/code&gt;
+system property.
+
+@see Util
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="UtilDelegate" refid="_9_5_f720368_1110473546737_607036_9561"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="UtilDelegate" refid="_9_5_f720368_1110473546737_607036_9561"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

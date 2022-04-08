@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546784_841531_10497"><documentation humanName="Documentation" mode="standard">&lt;code&gt;NavigationFilter&lt;/code&gt; can be used to restrict where the cursor can
+be positioned. When the default cursor positioning actions attempt to
+reposition the cursor they will call into the
+&lt;code&gt;NavigationFilter&lt;/code&gt;, assuming
+the &lt;code&gt;JTextComponent&lt;/code&gt; has a non-null
+&lt;code&gt;NavigationFilter&lt;/code&gt; set. In this manner
+the &lt;code&gt;NavigationFilter&lt;/code&gt; can effectively restrict where the
+cursor can be positioned. Similarly &lt;code&gt;DefaultCaret&lt;/code&gt; will call
+into the &lt;code&gt;NavigationFilter&lt;/code&gt; when the user is changing the
+selection to further restrict where the cursor can be positioned.
+&lt;p&gt;
+Subclasses can conditionally call into supers implementation to restrict
+where the cursor can be placed, or call directly into the
+&lt;code&gt;FilterBypass&lt;/code&gt;.
+
+@see javax.swing.text.Caret
+@see javax.swing.text.DefaultCaret
+@see javax.swing.text.View
+
+@version 1.4 12/19/03
+@since 1.4
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FilterBypass" refid="_9_5_f720368_1110473548362_446805_23589"/></member><name humanName="Name" mode="s,e">NavigationFilter</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FilterBypass" refid="_9_5_f720368_1110473548362_446805_23589"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317673_592610_12119"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317673_592610_12119"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FilterBypass" refid="_9_5_f720368_1110473548362_446805_23589"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FilterBypass" refid="_9_5_f720368_1110473548362_446805_23589"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::text::NavigationFilter</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

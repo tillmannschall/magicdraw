@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928316351_115988_10706"><documentation humanName="Documentation" mode="standard">Indicates an error with the &lt;code&gt;SyncProvider&lt;/code&gt; mechanism. This exception
+is created by a &lt;code&gt;SyncProvider&lt;/code&gt; abstract class extension if it
+encounters violations in reading from or writing to the originating data source.
+&lt;P&gt;
+If it is implemented to do so, the &lt;code&gt;SyncProvider&lt;/code&gt; object may also create a
+&lt;code&gt;SyncResolver&lt;/code&gt; object and either initialize the &lt;code&gt;SyncProviderException&lt;/code&gt;
+object with it at construction time or set it with the &lt;code&gt;SyncProvider&lt;/code&gt; object at
+a later time.
+&lt;P&gt;
+The method &lt;code&gt;acceptChanges&lt;/code&gt; will throw this exception after the writer
+has finished checking for conflicts and has found one or more conflicts. An
+application may catch a &lt;code&gt;SyncProviderException&lt;/code&gt; object and call its
+&lt;code&gt;getSyncResolver&lt;/code&gt; method to get its &lt;code&gt;SyncResolver&lt;/code&gt; object.
+See the code fragment in the interface comment for
+&lt;a href="SyncResolver.java"&gt;&lt;code&gt;SyncResolver&lt;/code&gt;&lt;/a&gt; for an example.
+This &lt;code&gt;SyncResolver&lt;/code&gt; object will mirror the &lt;code&gt;RowSet&lt;/code&gt;
+object that generated the exception, except that it will contain only the values
+from the data source that are in conflict.  All other values in the &lt;code&gt;SyncResolver&lt;/code&gt;
+object will be &lt;code&gt;null&lt;/code&gt;.
+&lt;P&gt;
+The &lt;code&gt;SyncResolver&lt;/code&gt; object may be used to examine and resolve
+each conflict in a row and then go to the next row with a conflict to
+repeat the procedure.
+&lt;P&gt;
+A &lt;code&gt;SyncProviderException&lt;/code&gt; object may or may not contain a description of the
+condition causing the exception.  The inherited method &lt;code&gt;getMessage&lt;/code&gt; may be
+called to retrieve the description if there is one.
+
+@author Jonathan Bruce
+@see javax.sql.rowset.spi.SyncFactory
+@see javax.sql.rowset.spi.SyncResolver
+@see javax.sql.rowset.spi.SyncFactoryException
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323371_455248_16641"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SyncProviderException</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spi" refid="_10_5_622020d_1132928316291_669465_10693"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316351_332026_10708"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323371_455248_16641"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316351_332026_10708"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="spi" refid="_10_5_622020d_1132928316291_669465_10693"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spi" refid="_10_5_622020d_1132928316291_669465_10693"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spi" refid="_10_5_622020d_1132928316291_669465_10693"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sql::rowset::spi::SyncProviderException</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SQLException" refid="_9_5_f720368_1110473546690_674828_8587"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

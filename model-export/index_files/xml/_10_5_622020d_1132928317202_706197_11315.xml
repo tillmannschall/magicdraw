@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317202_706197_11315"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetalIconFactory" refid="_9_5_f720368_1110473546768_572534_10085"/></annotatedElement><body humanName="Body" mode="s,e">Factory object that vends &lt;code&gt;Icon&lt;/code&gt;s for
+the Java&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt; look and feel (Metal).
+These icons are used extensively in Metal via the defaults mechanism.
+While other look and feels often use GIFs for icons, creating icons
+in code facilitates switching to other themes.
+
+&lt;p&gt;
+Each method in this class returns
+either an &lt;code&gt;Icon&lt;/code&gt; or &lt;code&gt;null&lt;/code&gt;,
+where &lt;code&gt;null&lt;/code&gt; implies that there is no default icon.
+
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.60 02/15/04
+@author Michael C. Albers
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MetalIconFactory" refid="_9_5_f720368_1110473546768_572534_10085"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetalIconFactory" refid="_9_5_f720368_1110473546768_572534_10085"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

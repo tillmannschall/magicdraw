@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306957_596165_4490"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParameterDescriptor" refid="_9_5_f720368_1110473546596_657151_7307"/></annotatedElement><body humanName="Body" mode="s,e">The ParameterDescriptor class allows bean implementors to provide
+additional information on each of their parameters, beyond the
+low level type information provided by the java.lang.reflect.Method
+class.
+&lt;p&gt;
+Currently all our state comes from the FeatureDescriptor base class.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ParameterDescriptor" refid="_9_5_f720368_1110473546596_657151_7307"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParameterDescriptor" refid="_9_5_f720368_1110473546596_657151_7307"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

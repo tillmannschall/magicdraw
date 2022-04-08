@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314368_593303_8790"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="HTMLDocument" refid="_9_5_f720368_1110473546940_504973_13106"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;HTMLDocument&lt;/code&gt; is the root of the HTML hierarchy and holds
+the entire content. Besides providing access to the hierarchy, it also
+provides some convenience methods for accessing certain sets of
+information from the document.
+&lt;p&gt; The following properties have been deprecated in favor of the
+corresponding ones for the &lt;code&gt;BODY&lt;/code&gt; element: alinkColor background
+bgColor fgColor linkColor vlinkColor In DOM Level 2, the method
+&lt;code&gt;getElementById&lt;/code&gt; is inherited from the &lt;code&gt;Document&lt;/code&gt;
+interface where it was moved.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510'&gt;Document Object Model (DOM) Level 2 Specification&lt;/a&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="HTMLDocument" refid="_9_5_f720368_1110473546940_504973_13106"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="HTMLDocument" refid="_9_5_f720368_1110473546940_504973_13106"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

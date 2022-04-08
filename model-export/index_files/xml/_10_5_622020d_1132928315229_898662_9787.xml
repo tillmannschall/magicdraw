@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928315229_898662_9787"><documentation humanName="Documentation" mode="standard">A Permission to perform actions related to MBeanServers.
+The &lt;em&gt;name&lt;/em&gt; of the permission specifies the operation requested
+or granted by the permission.  For a granted permission, it can be
+&lt;code&gt;*&lt;/code&gt; to allow all of the MBeanServer operations specified below.
+Otherwise, for a granted or requested permission, it must be one of the
+following:
+&lt;dl&gt;
+&lt;dt&gt;createMBeanServer&lt;/dt&gt;
+&lt;dd&gt;Create a new MBeanServer object using the method
+{@link MBeanServerFactory#createMBeanServer()} or
+{@link MBeanServerFactory#createMBeanServer(java.lang.String)}.
+&lt;dt&gt;findMBeanServer&lt;/dt&gt;
+&lt;dd&gt;Find an MBeanServer with a given name, or all MBeanServers in this
+JVM, using the method {@link MBeanServerFactory#findMBeanServer}.
+&lt;dt&gt;newMBeanServer&lt;/dt&gt;
+&lt;dd&gt;Create a new MBeanServer object without keeping a reference to it,
+using the method {@link MBeanServerFactory#newMBeanServer()} or
+{@link MBeanServerFactory#newMBeanServer(java.lang.String)}.
+&lt;dt&gt;releaseMBeanServer&lt;/dt&gt;
+&lt;dd&gt;Remove the MBeanServerFactory's reference to an MBeanServer,
+using the method {@link MBeanServerFactory#releaseMBeanServer}.
+&lt;/dl&gt;
+The &lt;em&gt;name&lt;/em&gt; of the permission can also denote a list of one or more
+comma-separated operations.  Spaces are allowed at the beginning and
+end of the &lt;em&gt;name&lt;/em&gt; and before and after commas.
+&lt;p&gt;
+&lt;code&gt;MBeanServerPermission("createMBeanServer")&lt;/code&gt; implies
+&lt;code&gt;MBeanServerPermission("newMBeanServer")&lt;/code&gt;.
+
+@since 1.5
+@since.unbundled JMX 1.1
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323111_582995_16076"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">MBeanServerPermission</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315229_76023_9789"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323111_582995_16076"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315229_76023_9789"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::management::MBeanServerPermission</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BasicPermission" refid="_9_5_f720368_1110473546674_30641_8429"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

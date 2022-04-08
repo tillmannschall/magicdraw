@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928315219_310324_9778"><documentation humanName="Documentation" mode="standard">&lt;p&gt;Provides MBean server references.  There are no instances of
+this class.&lt;/p&gt;
+
+&lt;p&gt;Since JMX 1.2 this class makes it possible to replace the default
+MBeanServer implementation. This is done using the
+{@link javax.management.MBeanServerBuilder} class.
+The class of the initial MBeanServerBuilder to be
+instantiated can be specified through the
+&lt;b&gt;javax.management.builder.initial&lt;/b&gt; system property.
+The specified class must be a public subclass of
+{@link javax.management.MBeanServerBuilder}, and must have a public
+empty constructor.
+&lt;p&gt;By default, if no value for that property is specified, an instance of
+{@link
+javax.management.MBeanServerBuilder javax.management.MBeanServerBuilder}
+is created. Otherwise, the MBeanServerFactory attempts to load the
+specified class using
+{@link java.lang.Thread#getContextClassLoader()
+Thread.currentThread().getContextClassLoader()}, or if that is null,
+{@link java.lang.Class#forName(java.lang.String) Class.forName()}. Then
+it creates an initial instance of that Class using
+{@link java.lang.Class#newInstance()}. If any checked exception
+is raised during this process (e.g.
+{@link java.lang.ClassNotFoundException},
+{@link java.lang.InstantiationException}) the MBeanServerFactory
+will propagate this exception from within a RuntimeException.&lt;/p&gt;
+
+&lt;p&gt;The &lt;b&gt;javax.management.builder.initial&lt;/b&gt; system property is
+consulted every time a new MBeanServer needs to be created, and the
+class pointed to by that property is loaded. If that class is different
+from that of the current MBeanServerBuilder, then a new MBeanServerBuilder
+is created. Otherwise, the MBeanServerFactory may create a new
+MBeanServerBuilder or reuse the current one.&lt;/p&gt;
+
+&lt;p&gt;If the class pointed to by the property cannot be
+loaded, or does not correspond to a valid subclass of MBeanServerBuilder
+then an exception is propagated, and no MBeanServer can be created until
+the &lt;b&gt;javax.management.builder.initial&lt;/b&gt; system property is reset to
+valid value.&lt;/p&gt;
+
+&lt;p&gt;The MBeanServerBuilder makes it possible to wrap the MBeanServers
+returned by the default MBeanServerBuilder implementation, for the purpose
+of e.g. adding an additional security layer.&lt;/p&gt;
+
+@since 1.5
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">MBeanServerFactory</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315219_939279_9780"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315219_939279_9780"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::management::MBeanServerFactory</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

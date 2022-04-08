@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306356_805018_4115"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BorderLayout" refid="_9_5_f720368_1110473546581_370388_6943"/></annotatedElement><body humanName="Body" mode="s,e">A border layout lays out a container, arranging and resizing
+its components to fit in five regions:
+north, south, east, west, and center.
+Each region may contain no more than one component, and
+is identified by a corresponding constant:
+&lt;code&gt;NORTH&lt;/code&gt;, &lt;code&gt;SOUTH&lt;/code&gt;, &lt;code&gt;EAST&lt;/code&gt;,
+&lt;code&gt;WEST&lt;/code&gt;, and &lt;code&gt;CENTER&lt;/code&gt;.  When adding a
+component to a container with a border layout, use one of these
+five constants, for example:
+&lt;pre&gt;
+Panel p = new Panel();
+p.setLayout(new BorderLayout());
+p.add(new Button("Okay"), BorderLayout.SOUTH);
+&lt;/pre&gt;
+As a convenience, &lt;code&gt;BorderLayout&lt;/code&gt; interprets the
+absence of a string specification the same as the constant
+&lt;code&gt;CENTER&lt;/code&gt;:
+&lt;pre&gt;
+Panel p2 = new Panel();
+p2.setLayout(new BorderLayout());
+p2.add(new TextArea());  // Same as p.add(new TextArea(), BorderLayout.CENTER);
+&lt;/pre&gt;
+&lt;p&gt;
+In addition, &lt;code&gt;BorderLayout&lt;/code&gt; supports the relative
+positioning constants, &lt;code&gt;PAGE_START&lt;/code&gt;, &lt;code&gt;PAGE_END&lt;/code&gt;,
+&lt;code&gt;LINE_START&lt;/code&gt;, and &lt;code&gt;LINE_END&lt;/code&gt;.
+In a container whose &lt;code&gt;ComponentOrientation&lt;/code&gt; is set to
+&lt;code&gt;ComponentOrientation.LEFT_TO_RIGHT&lt;/code&gt;, these constants map to
+&lt;code&gt;NORTH&lt;/code&gt;, &lt;code&gt;SOUTH&lt;/code&gt;, &lt;code&gt;WEST&lt;/code&gt;, and
+&lt;code&gt;EAST&lt;/code&gt;, respectively.
+&lt;p&gt;
+For compatibility with previous releases, &lt;code&gt;BorderLayout&lt;/code&gt;
+also includes the relative positioning constants &lt;code&gt;BEFORE_FIRST_LINE&lt;/code&gt;,
+&lt;code&gt;AFTER_LAST_LINE&lt;/code&gt;, &lt;code&gt;BEFORE_LINE_BEGINS&lt;/code&gt; and
+&lt;code&gt;AFTER_LINE_ENDS&lt;/code&gt;.  These are equivalent to
+&lt;code&gt;PAGE_START&lt;/code&gt;, &lt;code&gt;PAGE_END&lt;/code&gt;, &lt;code&gt;LINE_START&lt;/code&gt;
+and &lt;code&gt;LINE_END&lt;/code&gt; respectively.  For
+consistency with the relative positioning constants used by other
+components, the latter constants are preferred.
+&lt;p&gt;
+Mixing both absolute and relative positioning constants can lead to
+unpredicable results.  If
+you use both types, the relative constants will take precedence.
+For example, if you add components using both the &lt;code&gt;NORTH&lt;/code&gt;
+and &lt;code&gt;PAGE_START&lt;/code&gt; constants in a container whose
+orientation is &lt;code&gt;LEFT_TO_RIGHT&lt;/code&gt;, only the
+&lt;code&gt;PAGE_START&lt;/code&gt; will be layed out.
+&lt;p&gt;
+NOTE: Currently (in the Java 2 platform v1.2),
+&lt;code&gt;BorderLayout&lt;/code&gt; does not support vertical
+orientations.  The &lt;code&gt;isVertical&lt;/code&gt; setting on the container's
+&lt;code&gt;ComponentOrientation&lt;/code&gt; is not respected.
+&lt;p&gt;
+The components are laid out according to their
+preferred sizes and the constraints of the container's size.
+The &lt;code&gt;NORTH&lt;/code&gt; and &lt;code&gt;SOUTH&lt;/code&gt; components may
+be stretched horizontally; the &lt;code&gt;EAST&lt;/code&gt; and
+&lt;code&gt;WEST&lt;/code&gt; components may be stretched vertically;
+the &lt;code&gt;CENTER&lt;/code&gt; component may stretch both horizontally
+and vertically to fill any space left over.
+&lt;p&gt;
+Here is an example of five buttons in an applet laid out using
+the &lt;code&gt;BorderLayout&lt;/code&gt; layout manager:
+&lt;p&gt;
+&lt;img src="doc-files/BorderLayout-1.gif"
+alt="Diagram of an applet demonstrating BorderLayout.
+Each section of the BorderLayout contains a Button corresponding to its position in the layout, one of:
+North, West, Center, East, or South."
+ALIGN=center HSPACE=10 VSPACE=7&gt;
+&lt;p&gt;
+The code for this applet is as follows:
+&lt;p&gt;
+&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+import java.awt.*;
+import java.applet.Applet;
+
+public class buttonDir extends Applet {
+public void init() {
+setLayout(new BorderLayout());
+add(new Button("North"), BorderLayout.NORTH);
+add(new Button("South"), BorderLayout.SOUTH);
+add(new Button("East"), BorderLayout.EAST);
+add(new Button("West"), BorderLayout.WEST);
+add(new Button("Center"), BorderLayout.CENTER);
+}
+}
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+@version 	1.56, 05/18/04
+@author 	Arthur van Hoff
+@see         java.awt.Container#add(String, Component)
+@see         java.awt.ComponentOrientation
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BorderLayout" refid="_9_5_f720368_1110473546581_370388_6943"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BorderLayout" refid="_9_5_f720368_1110473546581_370388_6943"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

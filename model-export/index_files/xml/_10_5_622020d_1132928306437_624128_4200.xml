@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306437_624128_4200"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Font" refid="_9_5_f720368_1110473546581_23258_7009"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Font&lt;/code&gt; class represents fonts, which are used to
+render text in a visible way.
+A font provides the information needed to map sequences of
+&lt;em&gt;characters&lt;/em&gt; to sequences of &lt;em&gt;glyphs&lt;/em&gt;
+and to render sequences of glyphs on &lt;code&gt;Graphics&lt;/code&gt; and
+&lt;code&gt;Component&lt;/code&gt; objects.
+
+&lt;h4&gt;Characters and Glyphs&lt;/h4&gt;
+
+A &lt;em&gt;character&lt;/em&gt; is a symbol that represents an item such as a letter,
+a digit, or punctuation in an abstract way. For example, &lt;code&gt;'g'&lt;/code&gt;,
+&lt;font size=-1&gt;LATIN SMALL LETTER G&lt;/font&gt;, is a character.
+&lt;p&gt;
+A &lt;em&gt;glyph&lt;/em&gt; is a shape used to render a character or a sequence of
+characters. In simple writing systems, such as Latin, typically one glyph
+represents one character. In general, however, characters and glyphs do not
+have one-to-one correspondence. For example, the character '&amp;aacute;'
+&lt;font size=-1&gt;LATIN SMALL LETTER A WITH ACUTE&lt;/font&gt;, can be represented by
+two glyphs: one for 'a' and one for '&amp;acute;'. On the other hand, the
+two-character string "fi" can be represented by a single glyph, an
+"fi" ligature. In complex writing systems, such as Arabic or the South
+and South-East Asian writing systems, the relationship between characters
+and glyphs can be more complicated and involve context-dependent selection
+of glyphs as well as glyph reordering.
+
+A font encapsulates the collection of glyphs needed to render a selected set
+of characters as well as the tables needed to map sequences of characters to
+corresponding sequences of glyphs.
+
+&lt;h4&gt;Physical and Logical Fonts&lt;/h4&gt;
+
+The Java 2 platform distinguishes between two kinds of fonts:
+&lt;em&gt;physical&lt;/em&gt; fonts and &lt;em&gt;logical&lt;/em&gt; fonts.
+&lt;p&gt;
+&lt;em&gt;Physical&lt;/em&gt; fonts are the actual font libraries containing glyph data
+and tables to map from character sequences to glyph sequences, using a font
+technology such as TrueType or PostScript Type 1.
+All implementations of the Java 2 platform must support TrueType fonts;
+support for other font technologies is implementation dependent.
+Physical fonts may use names such as Helvetica, Palatino, HonMincho, or
+any number of other font names.
+Typically, each physical font supports only a limited set of writing
+systems, for example, only Latin characters or only Japanese and Basic
+Latin.
+The set of available physical fonts varies between configurations.
+Applications that require specific fonts can bundle them and instantiate
+them using the {@link #createFont createFont} method.
+&lt;p&gt;
+&lt;em&gt;Logical&lt;/em&gt; fonts are the five font families defined by the Java
+platform which must be supported by any Java runtime environment:
+Serif, SansSerif, Monospaced, Dialog, and DialogInput.
+These logical fonts are not actual font libraries. Instead, the logical
+font names are mapped to physical fonts by the Java runtime environment.
+The mapping is implementation and usually locale dependent, so the look
+and the metrics provided by them vary.
+Typically, each logical font name maps to several physical fonts in order to
+cover a large range of characters.
+&lt;p&gt;
+Peered AWT components, such as {@link Label Label} and
+{@link TextField TextField}, can only use logical fonts.
+&lt;p&gt;
+For a discussion of the relative advantages and disadvantages of using
+physical or logical fonts, see the
+&lt;a href="http://java.sun.com/j2se/corejava/intl/reference/faqs/index.html#desktop-rendering"&gt;Internationalization FAQ&lt;/a&gt;
+document.
+
+&lt;h4&gt;Font Faces and Names&lt;/h4&gt;
+
+A &lt;code&gt;Font&lt;/code&gt;
+can have many faces, such as heavy, medium, oblique, gothic and
+regular. All of these faces have similar typographic design.
+&lt;p&gt;
+There are three different names that you can get from a
+&lt;code&gt;Font&lt;/code&gt; object.  The &lt;em&gt;logical font name&lt;/em&gt; is simply the
+name that was used to construct the font.
+The &lt;em&gt;font face name&lt;/em&gt;, or just &lt;em&gt;font name&lt;/em&gt; for
+short, is the name of a particular font face, like Helvetica Bold. The
+&lt;em&gt;family name&lt;/em&gt; is the name of the font family that determines the
+typographic design across several faces, like Helvetica.
+&lt;p&gt;
+The &lt;code&gt;Font&lt;/code&gt; class represents an instance of a font face from
+a collection of  font faces that are present in the system resources
+of the host system.  As examples, Arial Bold and Courier Bold Italic
+are font faces.  There can be several &lt;code&gt;Font&lt;/code&gt; objects
+associated with a font face, each differing in size, style, transform
+and font features.
+The {@link GraphicsEnvironment#getAllFonts() getAllFonts} method
+of the &lt;code&gt;GraphicsEnvironment&lt;/code&gt; class returns an
+array of all font faces available in the system. These font faces are
+returned as &lt;code&gt;Font&lt;/code&gt; objects with a size of 1, identity
+transform and default font features. These
+base fonts can then be used to derive new &lt;code&gt;Font&lt;/code&gt; objects
+with varying sizes, styles, transforms and font features via the
+&lt;code&gt;deriveFont&lt;/code&gt; methods in this class.
+
+@version 	1.200, 07/20/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Font" refid="_9_5_f720368_1110473546581_23258_7009"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Font" refid="_9_5_f720368_1110473546581_23258_7009"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

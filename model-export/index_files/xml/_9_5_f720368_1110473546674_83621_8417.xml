@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546674_83621_8417"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;AlgorithmParameterGenerator&lt;/code&gt; class is used to generate a
+set of
+parameters to be used with a certain algorithm. Parameter generators
+are constructed using the &lt;code&gt;getInstance&lt;/code&gt; factory methods
+(static methods that return instances of a given class).
+
+&lt;P&gt;The object that will generate the parameters can be initialized
+in two different ways: in an algorithm-independent manner, or in an
+algorithm-specific manner:
+
+&lt;ul&gt;
+&lt;li&gt;The algorithm-independent approach uses the fact that all parameter
+generators share the concept of a "size" and a
+source of randomness. The measure of size is universally shared
+by all algorithm parameters, though it is interpreted differently
+for different algorithms. For example, in the case of parameters for
+the &lt;i&gt;DSA&lt;/i&gt; algorithm, "size" corresponds to the size
+of the prime modulus (in bits).
+When using this approach, algorithm-specific parameter generation
+values - if any - default to some standard values, unless they can be
+derived from the specified size.&lt;P&gt;
+
+&lt;li&gt;The other approach initializes a parameter generator object
+using algorithm-specific semantics, which are represented by a set of
+algorithm-specific parameter generation values. To generate
+Diffie-Hellman system parameters, for example, the parameter generation
+values usually
+consist of the size of the prime modulus and the size of the
+random exponent, both specified in number of bits.
+&lt;/ul&gt;
+
+&lt;P&gt;In case the client does not explicitly initialize the
+AlgorithmParameterGenerator
+(via a call to an &lt;code&gt;init&lt;/code&gt; method), each provider must supply (and
+document) a default initialization. For example, the Sun provider uses a
+default modulus prime size of 1024 bits for the generation of DSA
+parameters.
+
+@author Jan Luehe
+
+@version 1.40, 12/19/03
+
+@see AlgorithmParameters
+@see java.security.spec.AlgorithmParameterSpec
+
+@since 1.2
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">AlgorithmParameterGenerator</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309281_852493_5960"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309281_852493_5960"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::AlgorithmParameterGenerator</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546565_305359_6519"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;DropTargetDragEvent&lt;/code&gt; is delivered to a
+&lt;code&gt;DropTargetListener&lt;/code&gt; via its
+dragEnter() and dragOver() methods.
+&lt;p&gt;
+The &lt;code&gt;DropTargetDragEvent&lt;/code&gt; reports the &lt;i&gt;source drop actions&lt;/i&gt;
+and the &lt;i&gt;user drop action&lt;/i&gt; that reflect the current state of
+the drag operation.
+&lt;p&gt;
+&lt;i&gt;Source drop actions&lt;/i&gt; is a bitwise mask of &lt;code&gt;DnDConstants&lt;/code&gt;
+that represents the set of drop actions supported by the drag source for
+this drag operation.
+&lt;p&gt;
+&lt;i&gt;User drop action&lt;/i&gt; depends on the drop actions supported by the drag
+source and the drop action selected by the user. The user can select a drop
+action by pressing modifier keys during the drag operation:
+&lt;pre&gt;
+Ctrl + Shift -&gt; ACTION_LINK
+Ctrl         -&gt; ACTION_COPY
+Shift        -&gt; ACTION_MOVE
+&lt;/pre&gt;
+If the user selects a drop action, the &lt;i&gt;user drop action&lt;/i&gt; is one of
+&lt;code&gt;DnDConstants&lt;/code&gt; that represents the selected drop action if this
+drop action is supported by the drag source or
+&lt;code&gt;DnDConstants.ACTION_NONE&lt;/code&gt; if this drop action is not supported
+by the drag source.
+&lt;p&gt;
+If the user doesn't select a drop action, the set of
+&lt;code&gt;DnDConstants&lt;/code&gt; that represents the set of drop actions supported
+by the drag source is searched for &lt;code&gt;DnDConstants.ACTION_MOVE&lt;/code&gt;,
+then for &lt;code&gt;DnDConstants.ACTION_COPY&lt;/code&gt;, then for
+&lt;code&gt;DnDConstants.ACTION_LINK&lt;/code&gt; and the &lt;i&gt;user drop action&lt;/i&gt; is the
+first constant found. If no constant is found the &lt;i&gt;user drop action&lt;/i&gt;
+is &lt;code&gt;DnDConstants.ACTION_NONE&lt;/code&gt;.
+
+@version 	1.24, 05/05/04
+@since 1.2
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928320567_393063_12913"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">DropTargetDragEvent</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dnd" refid="_9_5_f720368_1110473547284_448561_16376"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305665_847038_3671"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928320567_393063_12913"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305665_847038_3671"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="dnd" refid="_9_5_f720368_1110473547284_448561_16376"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dnd" refid="_9_5_f720368_1110473547284_448561_16376"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dnd" refid="_9_5_f720368_1110473547284_448561_16376"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::dnd::DropTargetDragEvent</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetEvent" refid="_9_5_f720368_1110473546565_246023_6523"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

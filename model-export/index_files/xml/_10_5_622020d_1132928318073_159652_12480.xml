@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318073_159652_12480"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JProgressBar" refid="_9_5_f720368_1110473546799_749916_10755"/></annotatedElement><body humanName="Body" mode="s,e">A component that, by default, displays an integer value within a bounded
+interval. A progress bar typically communicates the progress of some
+work by displaying its percentage of completion and possibly a textual
+display of this percentage.
+
+&lt;p&gt;
+
+To indicate that a task of unknown length is executing,
+you can put a progress bar into indeterminate mode.
+While the bar is in indeterminate mode,
+it animates constantly to show that work is occurring.
+As soon as you can determine the task's length and amount of progress,
+you should update the progress bar's value
+and switch it back to determinate mode.
+
+&lt;p&gt;
+
+Here is an example of creating a progress bar,
+where &lt;code&gt;task&lt;/code&gt; is an object
+that returns information about the progress of some work:
+
+&lt;pre&gt;
+progressBar = new JProgressBar(0, task.getLengthOfTask());
+progressBar.setValue(0);
+progressBar.setStringPainted(true);
+&lt;/pre&gt;
+
+Here is an example of updating the value of the progress bar:
+
+&lt;pre&gt;
+progressBar.setValue(task.getCurrent());
+&lt;/pre&gt;
+
+Here is an example of putting a progress bar into
+indeterminate mode,
+and then switching back to determinate mode
+once the length of the task is known:
+
+&lt;pre&gt;
+progressBar = new JProgressBar();
+&lt;em&gt;...//when the task of (initially) unknown length begins:&lt;/em&gt;
+progressBar.setIndeterminate(true);
+&lt;em&gt;...//do some work; get length of task...&lt;/em&gt;
+progressBar.setMaximum(newLength);
+progressBar.setValue(newValue);
+progressBar.setIndeterminate(false);
+&lt;/pre&gt;
+
+&lt;p&gt;
+
+For complete examples and further documentation see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/progress.html" target="_top"&gt;How to Monitor Progress&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see javax.swing.plaf.basic.BasicProgressBarUI
+
+@beaninfo
+attribute: isContainer false
+description: A component that displays an integer value.
+
+@version 1.93 12/19/03
+@author Michael C. Albers
+@author Kathy Walrath
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JProgressBar" refid="_9_5_f720368_1110473546799_749916_10755"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JProgressBar" refid="_9_5_f720368_1110473546799_749916_10755"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

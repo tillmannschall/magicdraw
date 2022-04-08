@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318194_307692_12592"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="LookAndFeel" refid="_9_5_f720368_1110473546799_286745_10815"/></annotatedElement><body humanName="Body" mode="s,e">Completely characterizes a look and feel from the point of view
+of the pluggable look and feel components.
+
+@version 1.36 05/05/04
+@author Tom Ball
+@author Hans Muller
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="LookAndFeel" refid="_9_5_f720368_1110473546799_286745_10815"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="LookAndFeel" refid="_9_5_f720368_1110473546799_286745_10815"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

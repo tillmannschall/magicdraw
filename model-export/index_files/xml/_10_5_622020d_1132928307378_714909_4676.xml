@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307378_714909_4676"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrintStream" refid="_9_5_f720368_1110473546612_482204_7467"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;PrintStream&lt;/code&gt; adds functionality to another output stream,
+namely the ability to print representations of various data values
+conveniently.  Two other features are provided as well.  Unlike other output
+streams, a &lt;code&gt;PrintStream&lt;/code&gt; never throws an
+&lt;code&gt;IOException&lt;/code&gt;; instead, exceptional situations merely set an
+internal flag that can be tested via the &lt;code&gt;checkError&lt;/code&gt; method.
+Optionally, a &lt;code&gt;PrintStream&lt;/code&gt; can be created so as to flush
+automatically; this means that the &lt;code&gt;flush&lt;/code&gt; method is
+automatically invoked after a byte array is written, one of the
+&lt;code&gt;println&lt;/code&gt; methods is invoked, or a newline character or byte
+(&lt;code&gt;'\n'&lt;/code&gt;) is written.
+
+&lt;p&gt; All characters printed by a &lt;code&gt;PrintStream&lt;/code&gt; are converted into
+bytes using the platform's default character encoding.  The &lt;code&gt;{@link
+PrintWriter}&lt;/code&gt; class should be used in situations that require writing
+characters rather than bytes.
+
+@version    1.32, 04/07/16
+@author     Frank Yellin
+@author     Mark Reinhold
+@since      JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PrintStream" refid="_9_5_f720368_1110473546612_482204_7467"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrintStream" refid="_9_5_f720368_1110473546612_482204_7467"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

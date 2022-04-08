@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928313347_871959_7429"><documentation humanName="Documentation" mode="standard">A collection designed for holding elements prior to processing.
+Besides basic {@link java.util.Collection Collection} operations, queues provide
+additional insertion, extraction, and inspection operations.
+
+&lt;p&gt;Queues typically, but do not necessarily, order elements in a
+FIFO (first-in-first-out) manner.  Among the exceptions are
+priority queues, which order elements according to a supplied
+comparator, or the elements' natural ordering, and LIFO queues (or
+stacks) which order the elements LIFO (last-in-first-out).
+Whatever the ordering used, the &lt;em&gt;head&lt;/em&gt; of the queue is that
+element which would be removed by a call to {@link #remove() } or
+{@link #poll()}.  In a FIFO queue, all new elements are inserted at
+the &lt;em&gt; tail&lt;/em&gt; of the queue. Other kinds of queues may use
+different placement rules.  Every &lt;tt&gt;Queue&lt;/tt&gt; implementation
+must specify its ordering properties.
+
+&lt;p&gt;The {@link #offer offer} method inserts an element if possible,
+otherwise returning &lt;tt&gt;false&lt;/tt&gt;.  This differs from the {@link
+java.util.Collection#add Collection.add} method, which can fail to
+add an element only by throwing an unchecked exception.  The
+&lt;tt&gt;offer&lt;/tt&gt; method is designed for use when failure is a normal,
+rather than exceptional occurrence, for example, in fixed-capacity
+(or "bounded") queues.
+
+&lt;p&gt;The {@link #remove()} and {@link #poll()} methods remove and
+return the head of the queue.
+Exactly which element is removed from the queue is a
+function of the queue's ordering policy, which differs from
+implementation to implementation. The &lt;tt&gt;remove()&lt;/tt&gt; and
+&lt;tt&gt;poll()&lt;/tt&gt; methods differ only in their behavior when the
+queue is empty: the &lt;tt&gt;remove()&lt;/tt&gt; method throws an exception,
+while the &lt;tt&gt;poll()&lt;/tt&gt; method returns &lt;tt&gt;null&lt;/tt&gt;.
+
+&lt;p&gt;The {@link #element()} and {@link #peek()} methods return, but do
+not remove, the head of the queue.
+
+&lt;p&gt;The &lt;tt&gt;Queue&lt;/tt&gt; interface does not define the &lt;i&gt;blocking queue
+methods&lt;/i&gt;, which are common in concurrent programming.  These methods,
+which wait for elements to appear or for space to become available, are
+defined in the {@link java.util.concurrent.BlockingQueue} interface, which
+extends this interface.
+
+&lt;p&gt;&lt;tt&gt;Queue&lt;/tt&gt; implementations generally do not allow insertion
+of &lt;tt&gt;null&lt;/tt&gt; elements, although some implementations, such as
+{@link LinkedList}, do not prohibit insertion of &lt;tt&gt;null&lt;/tt&gt;.
+Even in the implementations that permit it, &lt;tt&gt;null&lt;/tt&gt; should
+not be inserted into a &lt;tt&gt;Queue&lt;/tt&gt;, as &lt;tt&gt;null&lt;/tt&gt; is also
+used as a special return value by the &lt;tt&gt;poll&lt;/tt&gt; method to
+indicate that the queue contains no elements.
+
+&lt;p&gt;&lt;tt&gt;Queue&lt;/tt&gt; implementations generally do not define
+element-based versions of methods &lt;tt&gt;equals&lt;/tt&gt; and
+&lt;tt&gt;hashCode&lt;/tt&gt; but instead inherit the identity based versions
+from class &lt;tt&gt;Object&lt;/tt&gt;, because element-based equality is not
+always well-defined for queues with the same elements but different
+ordering properties.
+
+
+&lt;p&gt;This interface is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@see java.util.Collection
+@see LinkedList
+@see PriorityQueue
+@see java.util.concurrent.LinkedBlockingQueue
+@see java.util.concurrent.BlockingQueue
+@see java.util.concurrent.ArrayBlockingQueue
+@see java.util.concurrent.LinkedBlockingQueue
+@see java.util.concurrent.PriorityBlockingQueue
+@since 1.5
+@author Doug Lea
+@param &lt;E&gt; the type of elements held in this collection
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Collection&lt;E&gt;" refid="_10_5_622020d_1132928322460_511299_14700"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322620_625592_15085"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Queue</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313357_139935_7434"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313357_873063_7430"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322620_625592_15085"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313357_139935_7434"/></ownedElement><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313357_873063_7430"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::Queue</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

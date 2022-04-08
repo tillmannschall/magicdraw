@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317042_666448_10928"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FileView" refid="_9_5_f720368_1110473546753_439743_9925"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;FileView&lt;/code&gt; defines an abstract class that can be implemented
+to provide the filechooser with UI information for a &lt;code&gt;File&lt;/code&gt;.
+Each L&amp;F &lt;code&gt;JFileChooserUI&lt;/code&gt; object implements this
+class to pass back the correct icons and type descriptions specific to
+that L&amp;F. For example, the Microsoft Windows L&amp;F returns the
+generic Windows icons for directories and generic files.
+Additionally, you may want to provide your own &lt;code&gt;FileView&lt;/code&gt; to
+&lt;code&gt;JFileChooser&lt;/code&gt; to return different icons or additional
+information using {@link javax.swing.JFileChooser#setFileView}.
+
+&lt;p&gt;
+
+&lt;code&gt;JFileChooser&lt;/code&gt; first looks to see if there is a user defined
+&lt;code&gt;FileView&lt;/code&gt;, if there is, it gets type information from
+there first. If &lt;code&gt;FileView&lt;/code&gt; returns &lt;code&gt;null&lt;/code&gt; for
+any method, &lt;code&gt;JFileChooser&lt;/code&gt; then uses the L&amp;F specific
+view to get the information.
+So, for example, if you provide a &lt;code&gt;FileView&lt;/code&gt; class that
+returns an &lt;code&gt;Icon&lt;/code&gt; for JPG files, and returns &lt;code&gt;null&lt;/code&gt;
+icons for all other files, the UI's &lt;code&gt;FileView&lt;/code&gt; will provide
+default icons for all other files.
+
+&lt;p&gt;
+
+For an example implementation of a simple file view, see
+&lt;code&gt;&lt;i&gt;yourJDK&lt;/i&gt;/demo/jfc/FileChooserDemo/ExampleFileView.java&lt;/code&gt;.
+For more information and examples see
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/filechooser.html"&gt;How to Use File Choosers&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+
+@see javax.swing.JFileChooser
+
+@version 1.19 06/28/04
+@author Jeff Dinkins
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="FileView" refid="_9_5_f720368_1110473546753_439743_9925"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FileView" refid="_9_5_f720368_1110473546753_439743_9925"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

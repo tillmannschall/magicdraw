@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928313497_609212_7526"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::UUID -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322650_414103_15142"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::UUID -&gt; JDK 5.0 Classes::java::util::Comparable&lt;UUID&gt;]" refid="_10_5_622020d_1132928322650_176231_15146"/></clientDependency><documentation humanName="Documentation" mode="standard">A class that represents an immutable universally unique identifier (UUID).
+A UUID represents a 128-bit value.
+
+&lt;p&gt;There exist different variants of these global identifiers. The methods
+of this class are for manipulating the Leach-Salz variant, although the
+constructors allow the creation of any variant of UUID (described below).
+
+&lt;p&gt;The layout of a variant 2 (Leach-Salz) UUID is as follows:
+
+The most significant long consists of the following unsigned fields:
+&lt;pre&gt;
+0xFFFFFFFF00000000 time_low
+0x00000000FFFF0000 time_mid
+0x000000000000F000 version
+0x0000000000000FFF time_hi
+&lt;/pre&gt;
+The least significant long consists of the following unsigned fields:
+&lt;pre&gt;
+0xC000000000000000 variant
+0x3FFF000000000000 clock_seq
+0x0000FFFFFFFFFFFF node
+&lt;/pre&gt;
+
+&lt;p&gt;The variant field contains a value which identifies the layout of
+the &lt;tt&gt;UUID&lt;/tt&gt;. The bit layout described above is valid only for
+a &lt;tt&gt;UUID&lt;/tt&gt; with a variant value of 2, which indicates the
+Leach-Salz variant.
+
+&lt;p&gt;The version field holds a value that describes the type of this
+&lt;tt&gt;UUID&lt;/tt&gt;. There are four different basic types of UUIDs: time-based,
+DCE security, name-based, and randomly generated UUIDs. These types
+have a version value of 1, 2, 3 and 4, respectively.
+
+&lt;p&gt;For more information including algorithms used to create &lt;tt&gt;UUID&lt;/tt&gt;s,
+see the Internet-Draft &lt;a href="http://www.ietf.org/internet-drafts/draft-mealling-uuid-urn-03.txt"&gt;UUIDs and GUIDs&lt;/a&gt;
+or the standards body definition at
+&lt;a href="http://www.iso.ch/cate/d2229.html"&gt;ISO/IEC 11578:1996&lt;/a&gt;.
+
+@version 1.14, 07/12/04
+@since   1.5
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::UUID -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322650_414103_15142"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::UUID -&gt; JDK 5.0 Classes::java::util::Comparable&lt;UUID&gt;]" refid="_10_5_622020d_1132928322650_176231_15146"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">UUID</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313497_647324_7528"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313497_647324_7528"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::UUID -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322650_414103_15142"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::UUID -&gt; JDK 5.0 Classes::java::util::Comparable&lt;UUID&gt;]" refid="_10_5_622020d_1132928322650_176231_15146"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::UUID</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Comparable&lt;UUID&gt;" refid="_10_5_622020d_1132928322650_794897_15143"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

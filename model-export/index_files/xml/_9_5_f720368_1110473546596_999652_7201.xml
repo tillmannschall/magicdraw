@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546596_999652_7201"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;DefaultPersistenceDelegate&lt;/code&gt; is a concrete implementation of
+the abstract &lt;code&gt;PersistenceDelegate&lt;/code&gt; class and
+is the delegate used by default for classes about
+which no information is available. The &lt;code&gt;DefaultPersistenceDelegate&lt;/code&gt;
+provides, version resilient, public API-based persistence for
+classes that follow the JavaBeans conventions without any class specific
+configuration.
+&lt;p&gt;
+The key assumptions are that the class has a nullary constructor
+and that its state is accurately represented by matching pairs
+of "setter" and "getter" methods in the order they are returned
+by the Introspector.
+In addition to providing code-free persistence for JavaBeans,
+the &lt;code&gt;DefaultPersistenceDelegate&lt;/code&gt; provides a convenient means
+to effect persistent storage for classes that have a constructor
+that, while not nullary, simply requires some property values
+as arguments.
+
+@see #DefaultPersistenceDelegate(String[])
+@see java.beans.Introspector
+
+@since 1.4
+
+@version 1.17 05/05/04
+@author Philip Milne
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321538_615843_13411"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">DefaultPersistenceDelegate</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beans" refid="_9_5_f720368_1110473547440_999992_17398"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306807_50494_4420"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321538_615843_13411"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306807_50494_4420"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="beans" refid="_9_5_f720368_1110473547440_999992_17398"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beans" refid="_9_5_f720368_1110473547440_999992_17398"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beans" refid="_9_5_f720368_1110473547440_999992_17398"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::beans::DefaultPersistenceDelegate</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="PersistenceDelegate" refid="_9_5_f720368_1110473546596_592582_7309"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

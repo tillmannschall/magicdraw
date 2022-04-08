@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317032_443504_10912"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TreeWillExpandListener" refid="_9_5_f720368_1110473546753_117844_9909"/></annotatedElement><body humanName="Body" mode="s,e">The listener that's notified when a tree expands or collapses
+a node.
+For further information and examples see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/events/treewillexpandlistener.html"&gt;How to Write a Tree-Will-Expand Listener&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+
+@version 1.9 12/19/03
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="TreeWillExpandListener" refid="_9_5_f720368_1110473546753_117844_9909"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TreeWillExpandListener" refid="_9_5_f720368_1110473546753_117844_9909"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310052_453913_6426"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ArrayBlockingQueue" refid="_10_5_622020d_1132928310052_82841_6419"/></annotatedElement><body humanName="Body" mode="s,e">A bounded {@linkplain BlockingQueue blocking queue} backed by an
+array.  This queue orders elements FIFO (first-in-first-out).  The
+&lt;em&gt;head&lt;/em&gt; of the queue is that element that has been on the
+queue the longest time.  The &lt;em&gt;tail&lt;/em&gt; of the queue is that
+element that has been on the queue the shortest time. New elements
+are inserted at the tail of the queue, and the queue retrieval
+operations obtain elements at the head of the queue.
+
+&lt;p&gt;This is a classic "bounded buffer", in which a
+fixed-sized array holds elements inserted by producers and
+extracted by consumers.  Once created, the capacity cannot be
+increased.  Attempts to put an element to a full queue will
+result in the put operation blocking; attempts to retrieve an
+element from an empty queue will similarly block.
+
+&lt;p&gt; This class supports an optional fairness policy for ordering
+waiting producer and consumer threads.  By default, this ordering
+is not guaranteed. However, a queue constructed with fairness set
+to &lt;tt&gt;true&lt;/tt&gt; grants threads access in FIFO order. Fairness
+generally decreases throughput but reduces variability and avoids
+starvation.
+
+&lt;p&gt;This class and its iterator implement all of the
+&lt;em&gt;optional&lt;/em&gt; methods of the {@link Collection} and {@link
+Iterator} interfaces.
+
+&lt;p&gt;This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@since 1.5
+@author Doug Lea
+@param &lt;E&gt; the type of elements held in this collection
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ArrayBlockingQueue" refid="_10_5_622020d_1132928310052_82841_6419"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ArrayBlockingQueue" refid="_10_5_622020d_1132928310052_82841_6419"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

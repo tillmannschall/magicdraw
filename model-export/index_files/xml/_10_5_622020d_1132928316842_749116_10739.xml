@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928316842_749116_10739"><documentation humanName="Documentation" mode="standard">The standard interface that provides the framework for all
+&lt;code&gt;FilteredRowSet&lt;/code&gt; objects to describe their filters.
+&lt;p&gt;
+&lt;h3&gt;1.0 Background&lt;/h3&gt;
+The &lt;code&gt;Predicate&lt;/code&gt; interface is a standard interface that
+applications can implement to define the filter they wish to apply to a
+a &lt;code&gt;FilteredRowSet&lt;/code&gt; object. A &lt;code&gt;FilteredRowSet&lt;/code&gt;
+object consumes implementations of this interface and enforces the
+constraints defined in the implementation of the method &lt;code&gt;evaluate&lt;/code&gt;.
+A &lt;code&gt;FilteredRowSet&lt;/code&gt; object enforces the filter constraints in a
+bi-directional manner: It outputs only rows that are within
+the constraints of the filter; and conversely, it inserts, modifies, or updates
+only rows that are within the constraints of the filter.
+
+&lt;h3&gt;2.0 Implementation Guidelines&lt;/h3&gt;
+In order to supply a predicate for the &lt;code&gt;FilteredRowSet&lt;/code&gt;.
+this interface must be implemented.  At this time, the JDBC RowSet
+Implementations (JSR-114) does not specify any standard filters definitions.
+By specifying a standard means and mechanism for a range of filters to be
+defined and deployed with both the reference and vendor implementations
+of the &lt;code&gt;FilteredRowSet&lt;/code&gt; interface, this allows for a flexible
+and application motivated implementations of &lt;code&gt;Predicate&lt;/code&gt; to emerge.
+&lt;p&gt;
+A sample implementation would look something like this:
+&lt;pre&gt;
+&lt;code&gt;
+public class Range implements Predicate {
+
+private Object lo[];
+private Object hi[];
+private int idx[];
+
+public Range(Object[] lo, Object[] hi, int[] idx) {
+this.lo = lo;
+this.hi = hi;
+this.idx = idx;
+}
+
+public boolean evaluate(RowSet rs) {
+CachedRowSet crs = (CachedRowSet)rs;
+boolean bool1,bool2;
+
+Check the present row determine if it lies
+within the filtering criteria.
+
+for (int i = 0; i &lt; idx.length; i++) {
+
+if ((rs.getObject(idx[i]) &gt;= lo[i]) &amp;&amp;
+(rs.getObject(idx[i]) &gt;= hi[i]) {
+bool1 = true; // within filter constraints
+} else {
+bool2 = true; // outside of filter constraints
+}
+}
+
+if (bool2) {
+return false;
+} else {
+return true;
+}
+}
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;P&gt;
+The example above implements a simple range predicate. Note, that
+implementations should but are not required to provider &lt;code&gt;String&lt;/code&gt;
+and integer index based constructors to provide for JDBC RowSet Implementation
+applications that use both column identification conventions.
+
+@author Jonathan Bruce, Amit Handa
+
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Predicate</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316842_556202_10741"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316842_556202_10741"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sql::rowset::Predicate</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

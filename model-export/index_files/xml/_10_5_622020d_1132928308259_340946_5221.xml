@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928308259_340946_5221"><APPLIED_STEREOTYPES humanName="Applied Stereotype" mode="s,e"><stereotype classType="Stereotype" humanType="Stereotype" icon="index_files/icon_stereotype_1767532961.jpg" name="JavaEnumeration" refid="_622020d_1094807910486_107057_1"/></APPLIED_STEREOTYPES><appliedStereotype humanName="Applied Stereotype" mode="s,e"><stereotype classType="Stereotype" humanType="Stereotype" icon="index_files/icon_stereotype_1767532961.jpg" name="JavaEnumeration" refid="_622020d_1094807910486_107057_1"><property classType="Property" humanName="Base_ Class" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="base_Class" refid="_10_0EAPbeta2_be00301_1123760461441_127886_158"/><property classType="Property" humanName="Base_ Classifier" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="base_Classifier" refid="_10_0EAPbeta2_be00301_1123760461591_225457_189"/><property classType="Property" humanName="Base_ Element" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="base_Element" refid="_10_0EAPbeta2_be00301_1123760461861_180156_245"/><property classType="Property" humanName="Base_ Enumeration" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="base_Enumeration" refid="_10_0EAPbeta2_be00301_1123760461421_500280_153"/><property classType="Property" humanName="Java Annotations" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="JavaAnnotations" refid="_622020d_1094808990539_635117_1756"/><property classType="Property" humanName="Java Static" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="JavaStatic" refid="rimvydas_1048695729605_909214_4868"/></stereotype></appliedStereotype><appliedStereotypeInstance classType="InstanceSpecification" humanName="Applied Stereotype Instance" humanType="Instance Specification" icon="index_files/icon_instancespecification_125865913.jpg" name=" : JavaEnumeration" refid="_10_5_622020d_1132928308259_717142_5223"/><documentation humanName="Documentation" mode="standard">Specifies a &lt;i&gt;rounding behavior&lt;/i&gt; for numerical operations
+capable of discarding precision. Each rounding mode indicates how
+the least significant returned digit of a rounded result is to be
+calculated.  If fewer digits are returned than the digits needed to
+represent the exact numerical result, the discarded digits will be
+referred to as the &lt;i&gt;discarded fraction&lt;/i&gt; regardless the digits'
+contribution to the value of the number.  In other words,
+considered as a numerical value, the discarded fraction could have
+an absolute value greater than one.
+
+&lt;p&gt;Each rounding mode description includes a table listing how
+different two-digit decimal values would round to a one digit
+decimal value under the rounding mode in question.  The result
+column in the tables could be gotten by creating a
+&lt;tt&gt;BigDecimal&lt;/tt&gt; number with the specified value, forming a
+{@link MathContext} object with the proper settings
+(&lt;tt&gt;precision&lt;/tt&gt; set to &lt;tt&gt;1&lt;/tt&gt;, and the
+&lt;tt&gt;roundingMode&lt;/tt&gt; set to the rounding mode in question), and
+calling {@link BigDecimal#round round} on this number with the
+proper &lt;tt&gt;MathContext&lt;/tt&gt;.  A summary table showing the results
+of these rounding operations for all rounding modes appears below.
+
+&lt;p&gt;
+&lt;table border&gt;
+&lt;caption top&gt;&lt;h3&gt;Summary of Rounding Operations Under Different Rounding Modes&lt;/h3&gt;&lt;/caption&gt;
+&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;th colspan=8&gt;Result of rounding input to one digit with the given
+rounding mode&lt;/th&gt;
+&lt;tr valign=top&gt;
+&lt;th&gt;Input Number&lt;/th&gt;	 &lt;th&gt;&lt;tt&gt;UP&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;DOWN&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;CEILING&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;FLOOR&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;HALF_UP&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;HALF_DOWN&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;HALF_EVEN&lt;/tt&gt;&lt;/th&gt;
+&lt;th&gt;&lt;tt&gt;UNNECESSARY&lt;/tt&gt;&lt;/th&gt;
+
+&lt;tr align=right&gt;&lt;td&gt;5.5&lt;/td&gt;	 &lt;td&gt;6&lt;/td&gt;  &lt;td&gt;5&lt;/td&gt;    &lt;td&gt;6&lt;/td&gt;    &lt;td&gt;5&lt;/td&gt;  &lt;td&gt;6&lt;/td&gt;      &lt;td&gt;5&lt;/td&gt;       &lt;td&gt;6&lt;/td&gt;       &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;2.5&lt;/td&gt;	 &lt;td&gt;3&lt;/td&gt;  &lt;td&gt;2&lt;/td&gt;    &lt;td&gt;3&lt;/td&gt;    &lt;td&gt;2&lt;/td&gt;  &lt;td&gt;3&lt;/td&gt;      &lt;td&gt;2&lt;/td&gt;       &lt;td&gt;2&lt;/td&gt;       &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;1.6&lt;/td&gt;	 &lt;td&gt;2&lt;/td&gt;  &lt;td&gt;1&lt;/td&gt;    &lt;td&gt;2&lt;/td&gt; 	 &lt;td&gt;1&lt;/td&gt;  &lt;td&gt;2&lt;/td&gt;      &lt;td&gt;2&lt;/td&gt;       &lt;td&gt;2&lt;/td&gt;       &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;1.1&lt;/td&gt;	 &lt;td&gt;2&lt;/td&gt;  &lt;td&gt;1&lt;/td&gt;    &lt;td&gt;2&lt;/td&gt; 	 &lt;td&gt;1&lt;/td&gt;  &lt;td&gt;1&lt;/td&gt;      &lt;td&gt;1&lt;/td&gt;       &lt;td&gt;1&lt;/td&gt;       &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;1.0&lt;/td&gt;	 &lt;td&gt;1&lt;/td&gt;  &lt;td&gt;1&lt;/td&gt;    &lt;td&gt;1&lt;/td&gt; 	 &lt;td&gt;1&lt;/td&gt;  &lt;td&gt;1&lt;/td&gt;      &lt;td&gt;1&lt;/td&gt;       &lt;td&gt;1&lt;/td&gt;       &lt;td&gt;1&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;-1.0&lt;/td&gt; &lt;td&gt;-1&lt;/td&gt; &lt;td&gt;-1&lt;/td&gt;   &lt;td&gt;-1&lt;/td&gt;	 &lt;td&gt;-1&lt;/td&gt; &lt;td&gt;-1&lt;/td&gt;     &lt;td&gt;-1&lt;/td&gt;      &lt;td&gt;-1&lt;/td&gt;      &lt;td&gt;-1&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;-1.1&lt;/td&gt; &lt;td&gt;-2&lt;/td&gt; &lt;td&gt;-1&lt;/td&gt;   &lt;td&gt;-1&lt;/td&gt;	 &lt;td&gt;-2&lt;/td&gt; &lt;td&gt;-1&lt;/td&gt;     &lt;td&gt;-1&lt;/td&gt;      &lt;td&gt;-1&lt;/td&gt;      &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;-1.6&lt;/td&gt; &lt;td&gt;-2&lt;/td&gt; &lt;td&gt;-1&lt;/td&gt;   &lt;td&gt;-1&lt;/td&gt;	 &lt;td&gt;-2&lt;/td&gt; &lt;td&gt;-2&lt;/td&gt;     &lt;td&gt;-2&lt;/td&gt;      &lt;td&gt;-2&lt;/td&gt;      &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;-2.5&lt;/td&gt; &lt;td&gt;-3&lt;/td&gt; &lt;td&gt;-2&lt;/td&gt;   &lt;td&gt;-2&lt;/td&gt;	 &lt;td&gt;-3&lt;/td&gt; &lt;td&gt;-3&lt;/td&gt;     &lt;td&gt;-2&lt;/td&gt;      &lt;td&gt;-2&lt;/td&gt;      &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;tr align=right&gt;&lt;td&gt;-5.5&lt;/td&gt; &lt;td&gt;-6&lt;/td&gt; &lt;td&gt;-5&lt;/td&gt;   &lt;td&gt;-5&lt;/td&gt;	 &lt;td&gt;-6&lt;/td&gt; &lt;td&gt;-6&lt;/td&gt;     &lt;td&gt;-5&lt;/td&gt;      &lt;td&gt;-6&lt;/td&gt;      &lt;td&gt;throw &lt;tt&gt;ArithmeticException&lt;/tt&gt;&lt;/td&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;This &lt;tt&gt;enum&lt;/tt&gt; is intended to replace the integer-based
+enumeration of rounding mode constants in {@link BigDecimal}
+({@link BigDecimal#ROUND_UP}, {@link BigDecimal#ROUND_DOWN},
+etc. ).
+
+@see     BigDecimal
+@see     MathContext
+@version 1.x 01/xx/xx
+@author  Josh Bloch
+@author  Mike Cowlishaw
+@author  Joseph D. Darcy
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">RoundingMode</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="math" refid="_9_5_f720368_1110473547534_885090_18037"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308259_735370_5224"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308259_735370_5224"/><instancespecification classType="InstanceSpecification" humanType="Instance Specification" icon="index_files/icon_instancespecification_125865913.jpg" name=" : JavaEnumeration" refid="_10_5_622020d_1132928308259_717142_5223"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="math" refid="_9_5_f720368_1110473547534_885090_18037"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="math" refid="_9_5_f720368_1110473547534_885090_18037"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="math" refid="_9_5_f720368_1110473547534_885090_18037"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::math::RoundingMode</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

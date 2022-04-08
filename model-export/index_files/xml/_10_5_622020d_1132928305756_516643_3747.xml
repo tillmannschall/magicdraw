@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305756_516643_3747"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="MouseMotionAdapter" refid="_9_5_f720368_1110473546565_766151_6595"/></annotatedElement><body humanName="Body" mode="s,e">An abstract adapter class for receiving mouse motion events.
+The methods in this class are empty. This class exists as
+convenience for creating listener objects.
+&lt;P&gt;
+Mouse motion events occur when a mouse is moved or dragged.
+(Many such events will be generated in a normal program.
+To track clicks and other mouse events, use the MouseAdapter.)
+&lt;P&gt;
+Extend this class to create a &lt;code&gt;MouseEvent&lt;/code&gt; listener
+and override the methods for the events of interest. (If you implement the
+&lt;code&gt;MouseMotionListener&lt;/code&gt; interface, you have to define all of
+the methods in it. This abstract class defines null methods for them
+all, so you can only have to define methods for events you care about.)
+&lt;P&gt;
+Create a listener object using the extended class and then register it with
+a component using the component's &lt;code&gt;addMouseMotionListener&lt;/code&gt;
+method. When the mouse is moved or dragged, the relevant method in the
+listener object is invoked and the &lt;code&gt;MouseEvent&lt;/code&gt; is passed to it.
+
+@author Amy Fowler
+@version 1.15 12/19/03
+
+@see MouseEvent
+@see MouseMotionListener
+@see &lt;a href="http://java.sun.com/docs/books/tutorial/post1.0/ui/mousemotionlistener.html"&gt;Tutorial: Writing a Mouse Motion Listener&lt;/a&gt;
+@see &lt;a href="http://www.awl.com/cp/javaseries/jcl1_2.html"&gt;Reference: The Java Class Libraries (update file)&lt;/a&gt;
+
+@since 1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="MouseMotionAdapter" refid="_9_5_f720368_1110473546565_766151_6595"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="MouseMotionAdapter" refid="_9_5_f720368_1110473546565_766151_6595"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

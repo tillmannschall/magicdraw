@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309221_523646_5931"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="KeySpec" refid="_9_5_f720368_1110473546674_927289_8391"/></annotatedElement><body humanName="Body" mode="s,e">A (transparent) specification of the key material
+that constitutes a cryptographic key.
+
+&lt;p&gt;If the key is stored on a hardware device, its
+specification may contain information that helps identify the key on the
+device.
+
+&lt;P&gt; A key may be specified in an algorithm-specific way, or in an
+algorithm-independent encoding format (such as ASN.1).
+For example, a DSA private key may be specified by its components
+&lt;code&gt;x&lt;/code&gt;, &lt;code&gt;p&lt;/code&gt;, &lt;code&gt;q&lt;/code&gt;, and &lt;code&gt;g&lt;/code&gt;
+(see {@link DSAPrivateKeySpec}), or it may be
+specified using its DER encoding
+(see {@link PKCS8EncodedKeySpec}).
+
+&lt;P&gt; This interface contains no methods or constants. Its only purpose
+is to group (and provide type safety for) all key specifications.
+All key specifications must implement this interface.
+
+@author Jan Luehe
+
+@version 1.17, 12/19/03
+
+@see java.security.Key
+@see java.security.KeyFactory
+@see EncodedKeySpec
+@see X509EncodedKeySpec
+@see PKCS8EncodedKeySpec
+@see DSAPrivateKeySpec
+@see DSAPublicKeySpec
+
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="KeySpec" refid="_9_5_f720368_1110473546674_927289_8391"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="KeySpec" refid="_9_5_f720368_1110473546674_927289_8391"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

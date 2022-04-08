@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306096_579776_3980"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PixelGrabber" refid="_9_5_f720368_1110473546581_251351_6815"/></annotatedElement><body humanName="Body" mode="s,e">The PixelGrabber class implements an ImageConsumer which can be attached
+to an Image or ImageProducer object to retrieve a subset of the pixels
+in that image.  Here is an example:
+&lt;pre&gt;
+
+public void handlesinglepixel(int x, int y, int pixel) {
+int alpha = (pixel &gt;&gt; 24) &amp; 0xff;
+int red   = (pixel &gt;&gt; 16) &amp; 0xff;
+int green = (pixel &gt;&gt;  8) &amp; 0xff;
+int blue  = (pixel      ) &amp; 0xff;
+Deal with the pixel as necessary...
+}
+
+public void handlepixels(Image img, int x, int y, int w, int h) {
+int[] pixels = new int[w * h];
+PixelGrabber pg = new PixelGrabber(img, x, y, w, h, pixels, 0, w);
+try {
+pg.grabPixels();
+} catch (InterruptedException e) {
+System.err.println("interrupted waiting for pixels!");
+return;
+}
+if ((pg.getStatus() &amp; ImageObserver.ABORT) != 0) {
+System.err.println("image fetch aborted or errored");
+return;
+}
+for (int j = 0; j &lt; h; j++) {
+for (int i = 0; i &lt; w; i++) {
+handlesinglepixel(x+i, y+j, pixels[j * w + i]);
+}
+}
+}
+
+&lt;/pre&gt;
+
+@see ColorModel#getRGBdefault
+
+@version 	1.25, 07/16/04
+@author 	Jim Graham
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PixelGrabber" refid="_9_5_f720368_1110473546581_251351_6815"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PixelGrabber" refid="_9_5_f720368_1110473546581_251351_6815"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

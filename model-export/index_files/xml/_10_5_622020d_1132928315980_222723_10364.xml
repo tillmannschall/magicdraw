@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315980_222723_10364"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ServiceUI" refid="_9_5_f720368_1110473546737_882923_9535"/></annotatedElement><body humanName="Body" mode="s,e">This class is a collection of UI convenience methods which provide a
+graphical user dialog for browsing print services looked up through the Java
+Print Service API.
+&lt;p&gt;
+The dialogs follow a standard pattern of acting as a continue/cancel option
+for a user as well as allowing the user to select the print service to use
+and specify choices such as paper size and number of copies.
+&lt;p&gt;
+&lt;p&gt;
+The dialogs are designed to work with pluggable print services though the
+public APIs of those print services.
+&lt;p&gt;
+If a print service provides any vendor extensions these may be made
+accessible to the user through a vendor supplied tab panel Component.
+Such a vendor extension is encouraged to use Swing! and to support its
+accessibility APIs.
+The vendor extensions should return the settings as part of the
+AttributeSet.
+Applications which want to preserve the user settings should use those
+settings to specify the print job.
+Note that this class is not referenced by any other part of the Java
+Print Service and may not be included in profiles which cannot depend
+on the presence of the AWT packages.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ServiceUI" refid="_9_5_f720368_1110473546737_882923_9535"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ServiceUI" refid="_9_5_f720368_1110473546737_882923_9535"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

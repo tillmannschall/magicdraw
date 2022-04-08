@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546596_529812_7157"><documentation humanName="Documentation" mode="standard">&lt;p&gt;
+This interface is implemented by BeanContexts' that have an AWT Container
+associated with them.
+&lt;/p&gt;
+
+@author Laurence P. G. Cable
+@version 1.10, 12/19/03
+@since 1.2
+
+@see java.beans.beancontext.BeanContext
+@see java.beans.beancontext.BeanContextSupport
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">BeanContextContainerProxy</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beancontext" refid="_9_5_f720368_1110473547440_320146_17399"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306777_568043_4374"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306777_568043_4374"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="beancontext" refid="_9_5_f720368_1110473547440_320146_17399"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beancontext" refid="_9_5_f720368_1110473547440_320146_17399"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beancontext" refid="_9_5_f720368_1110473547440_320146_17399"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::beans::beancontext::BeanContextContainerProxy</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

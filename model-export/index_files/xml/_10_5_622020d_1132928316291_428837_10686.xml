@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316291_428837_10686"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerialStruct" refid="_10_5_622020d_1132928316291_594459_10684"/></annotatedElement><body humanName="Body" mode="s,e">A serialized mapping in the Java programming language of an SQL
+structured type. Each attribute that is not already serialized
+is mapped to a serialized form, and if an attribute is itself
+a structured type, each of its attributes that is not already
+serialized is mapped to a serialized form.
+&lt;P&gt;
+In addition, the structured type is custom mapped to a class in the
+Java programming language if there is such a mapping, as are
+its attributes, if appropriate.
+&lt;P&gt;
+The &lt;code&gt;SerialStruct&lt;/code&gt; class provides a constructor for creating
+an instance from a &lt;code&gt;Struct&lt;/code&gt; object, a method for retrieving
+the SQL type name of the SQL structured type in the database, and methods
+for retrieving its attribute values.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SerialStruct" refid="_10_5_622020d_1132928316291_594459_10684"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerialStruct" refid="_10_5_622020d_1132928316291_594459_10684"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

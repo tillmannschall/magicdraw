@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313507_408323_7533"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Vector" refid="_9_5_f720368_1110473546706_971153_8947"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Vector&lt;/code&gt; class implements a growable array of
+objects. Like an array, it contains components that can be
+accessed using an integer index. However, the size of a
+&lt;code&gt;Vector&lt;/code&gt; can grow or shrink as needed to accommodate
+adding and removing items after the &lt;code&gt;Vector&lt;/code&gt; has been created.&lt;p&gt;
+
+Each vector tries to optimize storage management by maintaining a
+&lt;code&gt;capacity&lt;/code&gt; and a &lt;code&gt;capacityIncrement&lt;/code&gt;. The
+&lt;code&gt;capacity&lt;/code&gt; is always at least as large as the vector
+size; it is usually larger because as components are added to the
+vector, the vector's storage increases in chunks the size of
+&lt;code&gt;capacityIncrement&lt;/code&gt;. An application can increase the
+capacity of a vector before inserting a large number of
+components; this reduces the amount of incremental reallocation. &lt;p&gt;
+
+As of the Java 2 platform v1.2, this class has been retrofitted to
+implement List, so that it becomes a part of Java's collection framework.
+Unlike the new collection implementations, Vector is synchronized.&lt;p&gt;
+
+The Iterators returned by Vector's iterator and listIterator
+methods are &lt;em&gt;fail-fast&lt;/em&gt;: if the Vector is structurally modified
+at any time after the Iterator is created, in any way except through the
+Iterator's own remove or add methods, the Iterator will throw a
+ConcurrentModificationException.  Thus, in the face of concurrent
+modification, the Iterator fails quickly and cleanly, rather than risking
+arbitrary, non-deterministic behavior at an undetermined time in the future.
+The Enumerations returned by Vector's elements method are &lt;em&gt;not&lt;/em&gt;
+fail-fast.
+
+&lt;p&gt;Note that the fail-fast behavior of an iterator cannot be guaranteed
+as it is, generally speaking, impossible to make any hard guarantees in the
+presence of unsynchronized concurrent modification.  Fail-fast iterators
+throw &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt; on a best-effort basis.
+Therefore, it would be wrong to write a program that depended on this
+exception for its correctness:  &lt;i&gt;the fail-fast behavior of iterators
+should be used only to detect bugs.&lt;/i&gt;&lt;p&gt;
+
+This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Lee Boynton
+@author  Jonathan Payne
+@version 1.96, 02/19/04
+@see Collection
+@see List
+@see ArrayList
+@see LinkedList
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Vector" refid="_9_5_f720368_1110473546706_971153_8947"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Vector" refid="_9_5_f720368_1110473546706_971153_8947"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

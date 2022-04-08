@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309531_209803_6182"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ResultSetMetaData" refid="_9_5_f720368_1110473546690_588872_8581"/></annotatedElement><body humanName="Body" mode="s,e">An object that can be used to get information about the types
+and properties of the columns in a &lt;code&gt;ResultSet&lt;/code&gt; object.
+The following code fragment creates the &lt;code&gt;ResultSet&lt;/code&gt; object rs,
+creates the &lt;code&gt;ResultSetMetaData&lt;/code&gt; object rsmd, and uses rsmd
+to find out how many columns rs has and whether the first column in rs
+can be used in a &lt;code&gt;WHERE&lt;/code&gt; clause.
+&lt;PRE&gt;
+
+ResultSet rs = stmt.executeQuery("SELECT a, b, c FROM TABLE2");
+ResultSetMetaData rsmd = rs.getMetaData();
+int numberOfColumns = rsmd.getColumnCount();
+boolean b = rsmd.isSearchable(1);
+
+&lt;/PRE&gt;
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ResultSetMetaData" refid="_9_5_f720368_1110473546690_588872_8581"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ResultSetMetaData" refid="_9_5_f720368_1110473546690_588872_8581"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

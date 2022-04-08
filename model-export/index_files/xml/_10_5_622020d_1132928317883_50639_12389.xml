@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317883_50639_12389"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JCheckBoxMenuItem" refid="_9_5_f720368_1110473546784_775716_10709"/></annotatedElement><body humanName="Body" mode="s,e">A menu item that can be selected or deselected. If selected, the menu
+item typically appears with a checkmark next to it. If unselected or
+deselected, the menu item appears without a checkmark. Like a regular
+menu item, a check box menu item can have either text or a graphic
+icon associated with it, or both.
+&lt;p&gt;
+Either &lt;code&gt;isSelected&lt;/code&gt;/&lt;code&gt;setSelected&lt;/code&gt; or
+&lt;code&gt;getState&lt;/code&gt;/&lt;code&gt;setState&lt;/code&gt; can be used
+to determine/specify the menu item's selection state. The
+preferred methods are &lt;code&gt;isSelected&lt;/code&gt; and
+&lt;code&gt;setSelected&lt;/code&gt;, which work for all menus and buttons.
+The &lt;code&gt;getState&lt;/code&gt; and &lt;code&gt;setState&lt;/code&gt; methods exist for
+compatibility with other component sets.
+&lt;p&gt;
+For further information and examples of using check box menu items,
+see &lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/menu.html"&gt;How to Use Menus&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@beaninfo
+attribute: isContainer false
+description: A menu item which can be selected or deselected.
+
+@version 1.55 12/19/03
+@author Georges Saab
+@author David Karlton
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JCheckBoxMenuItem" refid="_9_5_f720368_1110473546784_775716_10709"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JCheckBoxMenuItem" refid="_9_5_f720368_1110473546784_775716_10709"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

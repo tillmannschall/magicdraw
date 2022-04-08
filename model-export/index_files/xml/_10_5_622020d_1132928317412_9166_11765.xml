@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317412_9166_11765"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TableModel" refid="_9_5_f720368_1110473546768_236941_10299"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;TableModel&lt;/code&gt; interface specifies the methods the
+&lt;code&gt;JTable&lt;/code&gt; will use to interrogate a tabular data model. &lt;p&gt;
+
+The &lt;code&gt;JTable&lt;/code&gt; can be set up to display any data
+model which implements the
+&lt;code&gt;TableModel&lt;/code&gt; interface with a couple of lines of code:  &lt;p&gt;
+&lt;pre&gt;
+TableModel myData = new MyTableModel();
+JTable table = new JTable(myData);
+&lt;/pre&gt;&lt;p&gt;
+
+For further documentation, see &lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/table.html#data"&gt;Creating a Table Model&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;p&gt;
+@version 1.26 05/05/04
+@author Philip Milne
+@see JTable
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="TableModel" refid="_9_5_f720368_1110473546768_236941_10299"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TableModel" refid="_9_5_f720368_1110473546768_236941_10299"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

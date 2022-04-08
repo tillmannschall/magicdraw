@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315750_585082_10241"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RequestingUserName" refid="_9_5_f720368_1110473546737_582837_9433"/></annotatedElement><body humanName="Body" mode="s,e">Class RequestingUserName is a printing attribute class, a text attribute,
+that specifies the name of the end user that submitted the print job. A
+requesting user name is an arbitrary string defined by the client. The
+printer does not put the client-specified RequestingUserName attribute into
+the Print Job's attribute set; rather, the printer puts in a {@link
+JobOriginatingUserName JobOriginatingUserName} attribute.
+This means that services which support specifying a username with this
+attribute should also report a JobOriginatingUserName in the job's
+attribute set. Note that many print services may have a way to independently
+authenticate the user name, and so may state support for a
+requesting user name, but in practice will then report the user name
+authenticated by the service rather than that specified via this
+attribute.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The string value gives the IPP name value. The
+locale gives the IPP natural language. The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute name.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RequestingUserName" refid="_9_5_f720368_1110473546737_582837_9433"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RequestingUserName" refid="_9_5_f720368_1110473546737_582837_9433"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

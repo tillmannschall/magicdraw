@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307789_409763_4869"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AnnotatedElement" refid="_10_5_622020d_1132928307779_179201_4867"/></annotatedElement><body humanName="Body" mode="s,e">Represents an annotated element of the program currently running in this
+VM.  This interface allows annotations to be read reflectively.  All
+annotations returned by methods in this interface are immutable and
+serializable.  It is permissible for the caller to modify the
+arrays returned by accessors for array-valued enum members; it will
+have no affect on the arrays returned to other callers.
+
+&lt;p&gt;If an annotation returned by a method in this interface contains
+(directly or indirectly) a {@link Class}-valued member referring to
+a class that is not accessible in this VM, attempting to read the class
+by calling the relevant Class-returning method on the returned annotation
+will result in a {@link TypeNotPresentException}.
+
+&lt;p&gt;Similarly, attempting to read an enum-valued member will result in
+a {@link EnumConstantNotPresentException} if the enum constant in the
+annotation is no longer present in the enum type.
+
+&lt;p&gt;Finally, Attempting to read a member whose definition has evolved
+incompatibly will result in a {@link
+java.lang.annotation.AnnotationTypeMismatchException} or an
+{@link java.lang.annotation.IncompleteAnnotationException}.
+
+@since 1.5
+@author Josh Bloch
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="AnnotatedElement" refid="_10_5_622020d_1132928307779_179201_4867"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AnnotatedElement" refid="_10_5_622020d_1132928307779_179201_4867"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308940_301692_5621"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LocateRegistry" refid="_9_5_f720368_1110473546674_117077_8157"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;LocateRegistry&lt;/code&gt; is used to obtain a reference to a bootstrap
+remote object registry on a particular host (including the local host), or
+to create a remote object registry that accepts calls on a specific port.
+
+&lt;p&gt; Note that a &lt;code&gt;getRegistry&lt;/code&gt; call does not actually make a
+connection to the remote host.  It simply creates a local reference to
+the remote registry and will succeed even if no registry is running on
+the remote host.  Therefore, a subsequent method invocation to a remote
+registry returned as a result of this method may fail.
+
+@version 1.33, 12/19/03
+@author  Ann Wollrath
+@author  Peter Jones
+@since   JDK1.1
+@see     java.rmi.registry.Registry
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="LocateRegistry" refid="_9_5_f720368_1110473546674_117077_8157"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LocateRegistry" refid="_9_5_f720368_1110473546674_117077_8157"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

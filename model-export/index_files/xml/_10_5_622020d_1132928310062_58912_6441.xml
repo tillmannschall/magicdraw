@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310062_58912_6441"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Callable" refid="_10_5_622020d_1132928310062_210045_6436"/></annotatedElement><body humanName="Body" mode="s,e">A task that returns a result and may throw an exception.
+Implementors define a single method with no arguments called
+&lt;tt&gt;call&lt;/tt&gt;.
+
+&lt;p&gt;The &lt;tt&gt;Callable&lt;/tt&gt; interface is similar to {@link
+java.lang.Runnable}, in that both are designed for classes whose
+instances are potentially executed by another thread.  A
+&lt;tt&gt;Runnable&lt;/tt&gt;, however, does not return a result and cannot
+throw a checked exception.
+
+&lt;p&gt; The {@link Executors} class contains utility methods to
+convert from other common forms to &lt;tt&gt;Callable&lt;/tt&gt; classes.
+
+@see Executor
+@since 1.5
+@author Doug Lea
+@param &lt;V&gt; the result type of method &lt;tt&gt;call&lt;/tt&gt;
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Callable" refid="_10_5_622020d_1132928310062_210045_6436"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Callable" refid="_10_5_622020d_1132928310062_210045_6436"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546706_967666_8881"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::LinkedHashSet -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322610_684812_15050"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::LinkedHashSet -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322610_852777_15049"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::LinkedHashSet -&gt; JDK 5.0 Classes::java::util::Set&lt;E&gt;]" refid="_10_5_622020d_1132928322610_134397_15048"/></clientDependency><documentation humanName="Documentation" mode="standard">&lt;p&gt;Hash table and linked list implementation of the &lt;tt&gt;Set&lt;/tt&gt; interface,
+with predictable iteration order.  This implementation differs from
+&lt;tt&gt;HashSet&lt;/tt&gt; in that it maintains a doubly-linked list running through
+all of its entries.  This linked list defines the iteration ordering,
+which is the order in which elements were inserted into the set
+(&lt;i&gt;insertion-order&lt;/i&gt;).  Note that insertion order is &lt;i&gt;not&lt;/i&gt; affected
+if an element is &lt;i&gt;re-inserted&lt;/i&gt; into the set.  (An element &lt;tt&gt;e&lt;/tt&gt;
+is reinserted into a set &lt;tt&gt;s&lt;/tt&gt; if &lt;tt&gt;s.add(e)&lt;/tt&gt; is invoked when
+&lt;tt&gt;s.contains(e)&lt;/tt&gt; would return &lt;tt&gt;true&lt;/tt&gt; immediately prior to
+the invocation.)
+
+&lt;p&gt;This implementation spares its clients from the unspecified, generally
+chaotic ordering provided by {@link HashSet}, without incurring the
+increased cost associated with {@link TreeSet}.  It can be used to
+produce a copy of a set that has the same order as the original, regardless
+of the original set's implementation:
+&lt;pre&gt;
+void foo(Set m) {
+Set copy = new LinkedHashSet(m);
+...
+}
+&lt;/pre&gt;
+This technique is particularly useful if a module takes a set on input,
+copies it, and later returns results whose order is determined by that of
+the copy.  (Clients generally appreciate having things returned in the same
+order they were presented.)
+
+&lt;p&gt;This class provides all of the optional &lt;tt&gt;Set&lt;/tt&gt; operations, and
+permits null elements.  Like &lt;tt&gt;HashSet&lt;/tt&gt;, it provides constant-time
+performance for the basic operations (&lt;tt&gt;add&lt;/tt&gt;, &lt;tt&gt;contains&lt;/tt&gt; and
+&lt;tt&gt;remove&lt;/tt&gt;), assuming the hash function disperses elements
+properly among the buckets.  Performance is likely to be just slightly
+below that of &lt;tt&gt;HashSet&lt;/tt&gt;, due to the added expense of maintaining the
+linked list, with one exception: Iteration over a &lt;tt&gt;LinkedHashSet&lt;/tt&gt;
+requires time proportional to the &lt;i&gt;size&lt;/i&gt; of the set, regardless of
+its capacity.  Iteration over a &lt;tt&gt;HashSet&lt;/tt&gt; is likely to be more
+expensive, requiring time proportional to its &lt;i&gt;capacity&lt;/i&gt;.
+
+&lt;p&gt;A linked hash set has two parameters that affect its performance:
+&lt;i&gt;initial capacity&lt;/i&gt; and &lt;i&gt;load factor&lt;/i&gt;.  They are defined precisely
+as for &lt;tt&gt;HashSet&lt;/tt&gt;.  Note, however, that the penalty for choosing an
+excessively high value for initial capacity is less severe for this class
+than for &lt;tt&gt;HashSet&lt;/tt&gt;, as iteration times for this class are unaffected
+by capacity.
+
+&lt;p&gt;&lt;strong&gt;Note that this implementation is not synchronized.&lt;/strong&gt; If
+multiple threads access a linked hash set concurrently, and at least one of
+the threads modifies the set, it &lt;em&gt;must&lt;/em&gt; be synchronized externally.
+This is typically accomplished by synchronizing on some object that
+naturally encapsulates the set.  If no such object exists, the set should
+be "wrapped" using the &lt;tt&gt;Collections.synchronizedSet&lt;/tt&gt;method.  This is
+best done at creation time, to prevent accidental unsynchronized access:
+&lt;pre&gt;
+Set s = Collections.synchronizedSet(new LinkedHashSet(...));
+&lt;/pre&gt;
+
+&lt;p&gt;The iterators returned by the this class's &lt;tt&gt;iterator&lt;/tt&gt; method are
+&lt;em&gt;fail-fast&lt;/em&gt;: if the set is modified at any time after the iterator
+is created, in any way except through the iterator's own remove method, the
+iterator will throw a &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt;.  Thus, in
+the face of concurrent modification, the Iterator fails quickly and
+cleanly, rather than risking arbitrary, non-deterministic behavior at an
+undetermined time in the future.
+
+&lt;p&gt;Note that the fail-fast behavior of an iterator cannot be guaranteed
+as it is, generally speaking, impossible to make any hard guarantees in the
+presence of unsynchronized concurrent modification.  Fail-fast iterators
+throw &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt; on a best-effort basis.
+Therefore, it would be wrong to write a program that depended on this
+exception for its correctness:   &lt;i&gt;the fail-fast behavior of iterators
+should be used only to detect bugs.&lt;/i&gt;
+
+&lt;p&gt;This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@version 1.14 04/02/19
+@see     Object#hashCode()
+@see     Collection
+@see     Set
+@see     HashSet
+@see     TreeSet
+@see     Hashtable
+@since   1.4
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322610_648476_15054"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::LinkedHashSet -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322610_684812_15050"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::LinkedHashSet -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322610_852777_15049"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::LinkedHashSet -&gt; JDK 5.0 Classes::java::util::Set&lt;E&gt;]" refid="_10_5_622020d_1132928322610_134397_15048"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">LinkedHashSet</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313276_200429_7363"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313276_186691_7359"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322610_648476_15054"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313276_200429_7363"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::LinkedHashSet -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322610_684812_15050"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::LinkedHashSet -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322610_852777_15049"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::LinkedHashSet -&gt; JDK 5.0 Classes::java::util::Set&lt;E&gt;]" refid="_10_5_622020d_1132928322610_134397_15048"/></ownedElement><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313276_186691_7359"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::LinkedHashSet</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Set&lt;E&gt;" refid="_10_5_622020d_1132928322470_406203_14723"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HashSet&lt;E&gt;" refid="_10_5_622020d_1132928322610_475882_15051"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

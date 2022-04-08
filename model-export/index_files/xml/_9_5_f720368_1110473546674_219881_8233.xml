@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546674_219881_8233"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;Remote&lt;/code&gt; interface serves to identify interfaces whose
+methods may be invoked from a non-local virtual machine.  Any object that
+is a remote object must directly or indirectly implement this interface.
+Only those methods specified in a "remote interface", an interface that
+extends &lt;code&gt;java.rmi.Remote&lt;/code&gt; are available remotely.
+
+&lt;p&gt;Implementation classes can implement any number of remote interfaces and
+can extend other remote implementation classes.  RMI provides some
+convenience classes that remote object implementations can extend which
+facilitate remote object creation.  These classes are
+&lt;code&gt;java.rmi.server.UnicastRemoteObject&lt;/code&gt; and
+&lt;code&gt;java.rmi.activation.Activatable&lt;/code&gt;.
+
+&lt;p&gt;For complete details on RMI, see the &lt;a
+href=../../../guide/rmi/spec/rmiTOC.html&gt;RMI Specification&lt;/a&gt; which describes the RMI API and system.
+
+@version 1.15, 12/19/03
+@since   JDK1.1
+@author  Ann Wollrath
+@see	    java.rmi.server.UnicastRemoteObject
+@see     java.rmi.activation.Activatable
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Remote</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rmi" refid="_9_5_f720368_1110473547690_766614_18431"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309050_57680_5729"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309050_57680_5729"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="rmi" refid="_9_5_f720368_1110473547690_766614_18431"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rmi" refid="_9_5_f720368_1110473547690_766614_18431"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rmi" refid="_9_5_f720368_1110473547690_766614_18431"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::rmi::Remote</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::rmi::server::RemoteObject -&gt; JDK 5.0 Classes::java::rmi::Remote]" refid="_10_5_622020d_1132928321829_586101_14057"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

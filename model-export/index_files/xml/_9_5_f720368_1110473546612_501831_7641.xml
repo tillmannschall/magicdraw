@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546612_501831_7641"><documentation humanName="Documentation" mode="standard">The class &lt;code&gt;Math&lt;/code&gt; contains methods for performing basic
+numeric operations such as the elementary exponential, logarithm,
+square root, and trigonometric functions.
+
+&lt;p&gt;Unlike some of the numeric methods of class
+&lt;code&gt;StrictMath&lt;/code&gt;, all implementations of the equivalent
+functions of class &lt;code&gt;Math&lt;/code&gt; are not defined to return the
+bit-for-bit same results.  This relaxation permits
+better-performing implementations where strict reproducibility is
+not required.
+
+&lt;p&gt;By default many of the &lt;code&gt;Math&lt;/code&gt; methods simply call
+the equivalent method in &lt;code&gt;StrictMath&lt;/code&gt; for their
+implementation.  Code generators are encouraged to use
+platform-specific native libraries or microprocessor instructions,
+where available, to provide higher-performance implementations of
+&lt;code&gt;Math&lt;/code&gt; methods.  Such higher-performance
+implementations still must conform to the specification for
+&lt;code&gt;Math&lt;/code&gt;.
+
+&lt;p&gt;The quality of implementation specifications concern two
+properties, accuracy of the returned result and monotonicity of the
+method.  Accuracy of the floating-point &lt;code&gt;Math&lt;/code&gt; methods
+is measured in terms of &lt;i&gt;ulps&lt;/i&gt;, units in the last place.  For
+a given floating-point format, an ulp of a specific real number
+value is the distance between the two floating-point values
+bracketing that numerical value.  When discussing the accuracy of a
+method as a whole rather than at a specific argument, the number of
+ulps cited is for the worst-case error at any argument.  If a
+method always has an error less than 0.5 ulps, the method always
+returns the floating-point number nearest the exact result; such a
+method is &lt;i&gt;correctly rounded&lt;/i&gt;.  A correctly rounded method is
+generally the best a floating-point approximation can be; however,
+it is impractical for many floating-point methods to be correctly
+rounded.  Instead, for the &lt;code&gt;Math&lt;/code&gt; class, a larger error
+bound of 1 or 2 ulps is allowed for certain methods.  Informally,
+with a 1 ulp error bound, when the exact result is a representable
+number, the exact result should be returned as the computed result;
+otherwise, either of the two floating-point values which bracket
+the exact result may be returned.  For exact results large in
+magnitude, one of the endpoints of the bracket may be infinite.
+Besides accuracy at individual arguments, maintaining proper
+relations between the method at different arguments is also
+important.  Therefore, most methods with more than 0.5 ulp errors
+are required to be &lt;i&gt;semi-monotonic&lt;/i&gt;: whenever the mathematical
+function is non-decreasing, so is the floating-point approximation,
+likewise, whenever the mathematical function is non-increasing, so
+is the floating-point approximation.  Not all approximations that
+have 1 ulp accuracy will automatically meet the monotonicity
+requirements.
+
+@author  unascribed
+@author  Joseph D. Darcy
+@version 1.69, 06/14/04
+@since   JDK1.0
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">Math</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308029_981910_5078"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308029_981910_5078"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::Math</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

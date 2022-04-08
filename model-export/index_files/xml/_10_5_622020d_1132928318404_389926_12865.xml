@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318404_389926_12865"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="XMLConstants" refid="_10_5_622020d_1132928318404_27959_12863"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Utility class to contain basic XML values as constants.&lt;/p&gt;
+
+@author &lt;a href="mailto:Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+@version $Revision: 1.10.12.1 $, $Date: 2004/05/05 20:04:51 $
+@see &lt;a href="http://www.w3.org/TR/xml11/"&gt;Extensible Markup Language (XML) 1.1&lt;/a&gt;
+@see &lt;a href="http://www.w3.org/TR/REC-xml"&gt;Extensible Markup Language (XML) 1.0 (Second Edition)&lt;/a&gt;
+@see &lt;a href="http://www.w3.org/XML/xml-V10-2e-errata"&gt;XML 1.0 Second Edition Specification Errata&lt;/a&gt;
+@see &lt;a href="http://www.w3.org/TR/xml-names11/"&gt;Namespaces in XML 1.1&lt;/a&gt;
+@see &lt;a href="http://www.w3.org/TR/REC-xml-names"&gt;Namespaces in XML&lt;/a&gt;
+@see &lt;a href="http://www.w3.org/XML/xml-names-19990114-errata"&gt;Namespaces in XML Errata&lt;/a&gt;
+@see &lt;a href="http://www.w3.org/TR/xmlschema-1/"&gt;XML Schema Part 1: Structures&lt;/a&gt;
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="XMLConstants" refid="_10_5_622020d_1132928318404_27959_12863"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="XMLConstants" refid="_10_5_622020d_1132928318404_27959_12863"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

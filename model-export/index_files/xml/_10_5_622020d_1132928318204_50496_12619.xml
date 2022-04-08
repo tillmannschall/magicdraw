@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318204_50496_12619"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ProgressMonitorInputStream" refid="_9_5_f720368_1110473546799_94607_10833"/></annotatedElement><body humanName="Body" mode="s,e">Monitors the progress of reading from some InputStream. This ProgressMonitor
+is normally invoked in roughly this form:
+&lt;pre&gt;
+InputStream in = new BufferedInputStream(
+new ProgressMonitorInputStream(
+parentComponent,
+"Reading " + fileName,
+new FileInputStream(fileName)));
+&lt;/pre&gt;&lt;p&gt;
+This creates a progress monitor to monitor the progress of reading
+the input stream.  If it's taking a while, a ProgressDialog will
+be popped up to inform the user.  If the user hits the Cancel button
+an InterruptedIOException will be thrown on the next read.
+All the right cleanup is done when the stream is closed.
+
+
+&lt;p&gt;
+
+For further documentation and examples see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/progress.html"&gt;How to Monitor Progress&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+
+@see ProgressMonitor
+@see JOptionPane
+@author James Gosling
+@version 1.19 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ProgressMonitorInputStream" refid="_9_5_f720368_1110473546799_94607_10833"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ProgressMonitorInputStream" refid="_9_5_f720368_1110473546799_94607_10833"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

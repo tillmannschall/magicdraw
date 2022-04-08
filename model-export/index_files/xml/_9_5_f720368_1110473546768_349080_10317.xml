@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546768_349080_10317"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::text::html::parser::Parser -&gt; JDK 5.0 Classes::javax::swing::text::html::parser::DTDConstants]" refid="_10_5_622020d_1132928323782_362639_17727"/></clientDependency><documentation humanName="Documentation" mode="standard">A simple DTD-driven HTML parser. The parser reads an
+HTML file from an InputStream and calls various methods
+(which should be overridden in a subclass) when tags and
+data are encountered.
+&lt;p&gt;
+Unfortunately there are many badly implemented HTML parsers
+out there, and as a result there are many badly formatted
+HTML files. This parser attempts to parse most HTML files.
+This means that the implementation sometimes deviates from
+the SGML specification in favor of HTML.
+&lt;p&gt;
+The parser treats \r and \r\n as \n. Newlines after starttags
+and before end tags are ignored just as specified in the SGML/HTML
+specification.
+&lt;p&gt;
+The html spec does not specify how spaces are to be coalesced very well.
+Specifically, the following scenarios are not discussed (note that a
+space should be used here, but I am using &amp;nbsp to force the space to
+be displayed):
+&lt;p&gt;
+'&lt;b&gt;blah&amp;nbsp;&lt;i&gt;&amp;nbsp;&lt;strike&gt;&amp;nbsp;foo' which can be treated as:
+'&lt;b&gt;blah&amp;nbsp;&lt;i&gt;&lt;strike&gt;foo'
+&lt;p&gt;as well as:
+'&lt;p&gt;&lt;a href="xx"&gt;&amp;nbsp;&lt;em&gt;Using&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;'
+which appears to be treated as:
+'&lt;p&gt;&lt;a href="xx"&gt;&lt;em&gt;Using&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;'
+&lt;p&gt;
+If &lt;code&gt;strict&lt;/code&gt; is false, when a tag that breaks flow,
+(&lt;code&gt;TagElement.breaksFlows&lt;/code&gt;) or trailing whitespace is
+encountered, all whitespace will be ignored until a non whitespace
+character is encountered. This appears to give behavior closer to
+the popular browsers.
+
+@see DTD
+@see TagElement
+@see SimpleAttributeSet
+@version 1.38, 12/19/03
+@author Arthur van Hoff
+@author Sunita Mani
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::text::html::parser::Parser -&gt; JDK 5.0 Classes::javax::swing::text::html::parser::DTDConstants]" refid="_10_5_622020d_1132928323782_362639_17727"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Parser</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="parser" refid="_9_5_f720368_1110473548284_548152_22833"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317422_851067_11783"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317422_851067_11783"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::text::html::parser::Parser -&gt; JDK 5.0 Classes::javax::swing::text::html::parser::DTDConstants]" refid="_10_5_622020d_1132928323782_362639_17727"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="parser" refid="_9_5_f720368_1110473548284_548152_22833"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="parser" refid="_9_5_f720368_1110473548284_548152_22833"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="parser" refid="_9_5_f720368_1110473548284_548152_22833"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::text::html::parser::Parser</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DTDConstants" refid="_9_5_f720368_1110473546768_919561_10311"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

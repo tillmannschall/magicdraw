@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315660_871466_10154"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobOriginatingUserName" refid="_9_5_f720368_1110473546721_951303_9351"/></annotatedElement><body humanName="Body" mode="s,e">Class JobOriginatingUserName is a printing attribute class, a text
+attribute, that contains the name of the end user that submitted the
+print job. If possible, the printer sets this attribute to the most
+authenticated printable user name that it can obtain from the
+authentication service that authenticated the submitted Print Request.
+If such is not available, the printer uses the value of the
+{@link RequestingUserName RequestingUserName}
+attribute supplied by the client in the Print Request's attribute set.
+If no authentication service is available, and the client did not supply
+a {@link RequestingUserName RequestingUserName} attribute,
+the printer sets the JobOriginatingUserName attribute to an empty
+(zero-length) string.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The string value gives the IPP name value. The
+locale gives the IPP natural language. The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute name.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JobOriginatingUserName" refid="_9_5_f720368_1110473546721_951303_9351"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobOriginatingUserName" refid="_9_5_f720368_1110473546721_951303_9351"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

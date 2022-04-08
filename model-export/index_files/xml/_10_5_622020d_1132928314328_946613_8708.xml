@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314328_946613_8708"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CSS2Properties" refid="_9_5_f720368_1110473546940_931624_13024"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;CSS2Properties&lt;/code&gt; interface represents a convenience
+mechanism for retrieving and setting properties within a
+&lt;code&gt;CSSStyleDeclaration&lt;/code&gt;. The attributes of this interface
+correspond to all the properties specified in CSS2. Getting an attribute
+of this interface is equivalent to calling the
+&lt;code&gt;getPropertyValue&lt;/code&gt; method of the
+&lt;code&gt;CSSStyleDeclaration&lt;/code&gt; interface. Setting an attribute of this
+interface is equivalent to calling the &lt;code&gt;setProperty&lt;/code&gt; method of
+the &lt;code&gt;CSSStyleDeclaration&lt;/code&gt; interface.
+&lt;p&gt; A conformant implementation of the CSS module is not required to
+implement the &lt;code&gt;CSS2Properties&lt;/code&gt; interface. If an implementation
+does implement this interface, the expectation is that language-specific
+methods can be used to cast from an instance of the
+&lt;code&gt;CSSStyleDeclaration&lt;/code&gt; interface to the
+&lt;code&gt;CSS2Properties&lt;/code&gt; interface.
+&lt;p&gt; If an implementation does implement this interface, it is expected to
+understand the specific syntax of the shorthand properties, and apply
+their semantics; when the &lt;code&gt;margin&lt;/code&gt; property is set, for
+example, the &lt;code&gt;marginTop&lt;/code&gt;, &lt;code&gt;marginRight&lt;/code&gt;,
+&lt;code&gt;marginBottom&lt;/code&gt; and &lt;code&gt;marginLeft&lt;/code&gt; properties are
+actually being set by the underlying implementation.
+&lt;p&gt; When dealing with CSS "shorthand" properties, the shorthand properties
+should be decomposed into their component longhand properties as
+appropriate, and when querying for their value, the form returned should
+be the shortest form exactly equivalent to the declarations made in the
+ruleset. However, if there is no shorthand declaration that could be
+added to the ruleset without changing in any way the rules already
+declared in the ruleset (i.e., by adding longhand rules that were
+previously not declared in the ruleset), then the empty string should be
+returned for the shorthand property.
+&lt;p&gt; For example, querying for the &lt;code&gt;font&lt;/code&gt; property should not
+return "normal normal normal 14pt/normal Arial, sans-serif", when "14pt
+Arial, sans-serif" suffices. (The normals are initial values, and are
+implied by use of the longhand property.)
+&lt;p&gt; If the values for all the longhand properties that compose a particular
+string are the initial values, then a string consisting of all the
+initial values should be returned (e.g. a &lt;code&gt;border-width&lt;/code&gt; value
+of "medium" should be returned as such, not as "").
+&lt;p&gt; For some shorthand properties that take missing values from other
+sides, such as the &lt;code&gt;margin&lt;/code&gt;, &lt;code&gt;padding&lt;/code&gt;, and
+&lt;code&gt;border-[width|style|color]&lt;/code&gt; properties, the minimum number of
+sides possible should be used; i.e., "0px 10px" will be returned instead
+of "0px 10px 0px 10px".
+&lt;p&gt; If the value of a shorthand property can not be decomposed into its
+component longhand properties, as is the case for the &lt;code&gt;font&lt;/code&gt;
+property with a value of "menu", querying for the values of the component
+longhand properties should return the empty string.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/REC-DOM-Level-2-Style-20001113'&gt;Document Object Model (DOM) Level 2 Style Specification&lt;/a&gt;.
+@since DOM Level 2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CSS2Properties" refid="_9_5_f720368_1110473546940_931624_13024"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CSS2Properties" refid="_9_5_f720368_1110473546940_931624_13024"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

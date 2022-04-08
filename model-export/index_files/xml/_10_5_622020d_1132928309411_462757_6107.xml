@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309411_462757_6107"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Provider" refid="_9_5_f720368_1110473546690_633220_8515"/></annotatedElement><body humanName="Body" mode="s,e">This class represents a "provider" for the
+Java Security API, where a provider implements some or all parts of
+Java Security. Services that a provider may implement include:
+
+&lt;ul&gt;
+
+&lt;li&gt;Algorithms (such as DSA, RSA, MD5 or SHA-1).
+
+&lt;li&gt;Key generation, conversion, and management facilities (such as for
+algorithm-specific keys).
+
+&lt;/ul&gt;
+
+&lt;p&gt;Each provider has a name and a version number, and is configured
+in each runtime it is installed in.
+
+&lt;p&gt;See &lt;a href =
+"../../../guide/security/CryptoSpec.html#Provider"&gt;The Provider Class&lt;/a&gt;
+in the "Java Cryptography Architecture API Specification &amp; Reference"
+for information about how a particular type of provider, the
+cryptographic service provider, works and is installed. However,
+please note that a provider can be used to implement any security
+service in Java that uses a pluggable architecture with a choice
+of implementations that fit underneath.
+
+&lt;p&gt;Some provider implementations may encounter unrecoverable internal
+errors during their operation, for example a failure to communicate with a
+security token. A {@link ProviderException} should be used to indicate
+such errors.
+
+&lt;p&gt;The service type &lt;code&gt;Provider&lt;/code&gt; is reserved for use by the
+security framework. Services of this type cannot be added, removed,
+or modified by applications.
+The following attributes are automatically placed in each Provider object:
+&lt;table cellspacing=4&gt;
+&lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;Provider.id name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;String.valueOf(provider.getName())&lt;/code&gt;&lt;/td&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;Provider.id version&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;String.valueOf(provider.getVersion())&lt;/code&gt;&lt;/td&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;Provider.id info&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;String.valueOf(provider.getInfo())&lt;/code&gt;&lt;/td&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;Provider.id className&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;provider.getClass().getName()&lt;/code&gt;&lt;/td&gt;
+&lt;/table&gt;
+
+@version 1.61, 05/05/04
+@author Benjamin Renaud
+@author Andreas Sterbenz
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Provider" refid="_9_5_f720368_1110473546690_633220_8515"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Provider" refid="_9_5_f720368_1110473546690_633220_8515"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

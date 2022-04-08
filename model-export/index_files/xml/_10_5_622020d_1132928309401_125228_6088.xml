@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309401_125228_6088"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrivateKey" refid="_9_5_f720368_1110473546690_456258_8505"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;A private key. This interface contains no methods or constants.
+It merely serves to group (and provide type safety for) all private key
+interfaces.
+
+Note: The specialized private key interfaces extend this interface.
+See, for example, the DSAPrivateKey interface in
+&lt;code&gt;java.security.interfaces&lt;/code&gt;.
+
+@see Key
+@see PublicKey
+@see Certificate
+@see Signature#initVerify
+@see java.security.interfaces.DSAPrivateKey
+@see java.security.interfaces.RSAPrivateKey
+@see java.security.interfaces.RSAPrivateCrtKey
+
+@version 1.29 03/12/19
+@author Benjamin Renaud
+@author Josh Bloch
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="PrivateKey" refid="_9_5_f720368_1110473546690_456258_8505"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrivateKey" refid="_9_5_f720368_1110473546690_456258_8505"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

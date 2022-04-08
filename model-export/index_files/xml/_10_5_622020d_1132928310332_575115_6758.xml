@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310332_575115_6758"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Logging" refid="_10_5_622020d_1132928310332_229041_6756"/></annotatedElement><body humanName="Body" mode="s,e">Logging is the implementation class of LoggingMXBean.
+
+The &lt;tt&gt;LoggingMXBean&lt;/tt&gt; interface provides a standard
+method for management access to the individual
+java.util.Logger objects available at runtime.
+
+@author Ron Mann
+@author Mandy Chung
+@version 1.5, 04/18/04
+@since 1.5
+
+@see javax.management
+@see java.util.Logger
+@see java.util.LogManager
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Logging" refid="_10_5_622020d_1132928310332_229041_6756"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Logging" refid="_10_5_622020d_1132928310332_229041_6756"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

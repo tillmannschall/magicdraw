@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546706_933782_8795"><documentation humanName="Documentation" mode="standard">This class provides support for general purpose compression using the
+popular ZLIB compression library. The ZLIB compression library was
+initially developed as part of the PNG graphics standard and is not
+protected by patents. It is fully described in the specifications at
+the &lt;a href="package-summary.html#package_description"&gt;java.util.zip
+package description&lt;/a&gt;.
+
+&lt;p&gt;The following code fragment demonstrates a trivial compression
+and decompression of a string using &lt;tt&gt;Deflater&lt;/tt&gt; and
+&lt;tt&gt;Inflater&lt;/tt&gt;.
+
+&lt;blockquote&gt;&lt;pre&gt;
+Encode a String into bytes
+String inputString = "blahblahblah\u20AC\u20AC";
+byte[] input = inputString.getBytes("UTF-8");
+
+Compress the bytes
+byte[] output = new byte[100];
+Deflater compresser = new Deflater();
+compresser.setInput(input);
+compresser.finish();
+int compressedDataLength = compresser.deflate(output);
+
+Decompress the bytes
+Inflater decompresser = new Inflater();
+decompresser.setInput(output, 0, compressedDataLength);
+byte[] result = new byte[100];
+int resultLength = decompresser.inflate(result);
+decompresser.end();
+
+Decode the bytes into a String
+String outputString = new String(result, 0, resultLength, "UTF-8");
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+@see		Inflater
+@version 	1.40, 12/19/03
+@author 	David Connelly
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Deflater</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="zip" refid="_9_5_f720368_1110473547846_265295_19363"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310773_984712_6907"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310773_984712_6907"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="zip" refid="_9_5_f720368_1110473547846_265295_19363"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="zip" refid="_9_5_f720368_1110473547846_265295_19363"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="zip" refid="_9_5_f720368_1110473547846_265295_19363"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::zip::Deflater</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

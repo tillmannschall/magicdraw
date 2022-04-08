@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314859_957461_9248"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IIOImage" refid="_9_5_f720368_1110473546706_748992_9091"/></annotatedElement><body humanName="Body" mode="s,e">A simple container class to aggregate an image, a set of
+thumbnail (preview) images, and an object representing metadata
+associated with the image.
+
+&lt;p&gt; The image data may take the form of either a
+&lt;code&gt;RenderedImage&lt;/code&gt;, or a &lt;code&gt;Raster&lt;/code&gt;.  Reader
+methods that return an &lt;code&gt;IIOImage&lt;/code&gt; will always return a
+&lt;code&gt;BufferedImage&lt;/code&gt; using the &lt;code&gt;RenderedImage&lt;/code&gt;
+reference.  Writer methods that accept an &lt;code&gt;IIOImage&lt;/code&gt;
+will always accept a &lt;code&gt;RenderedImage&lt;/code&gt;, and may optionally
+accept a &lt;code&gt;Raster&lt;/code&gt;.
+
+&lt;p&gt; Exactly one of &lt;code&gt;getRenderedImage&lt;/code&gt; and
+&lt;code&gt;getRaster&lt;/code&gt; will return a non-&lt;code&gt;null&lt;/code&gt; value.
+Subclasses are responsible for ensuring this behavior.
+
+@see ImageReader#readAll(int, ImageReadParam)
+@see ImageReader#readAll(java.util.Iterator)
+@see ImageWriter#write(javax.imageio.metadata.IIOMetadata,
+IIOImage, ImageWriteParam)
+@see ImageWriter#write(IIOImage)
+@see ImageWriter#writeToSequence(IIOImage, ImageWriteParam)
+@see ImageWriter#writeInsert(int, IIOImage, ImageWriteParam)
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="IIOImage" refid="_9_5_f720368_1110473546706_748992_9091"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IIOImage" refid="_9_5_f720368_1110473546706_748992_9091"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

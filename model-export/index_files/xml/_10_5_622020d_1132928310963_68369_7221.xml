@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310963_68369_7221"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="EnumSet" refid="_10_5_622020d_1132928310953_381854_7211"/></annotatedElement><body humanName="Body" mode="s,e">A specialized {@link Set} implementation for use with enum types.  All of
+the elements in an enum set must come from a single enum type that is
+specified, explicitly or implicitly, when the set is created.  Enum sets
+are represented internally as bit vectors.  This representation is
+extremely compact and efficient. The space and time performance of this
+class should be good enough to allow its use as a high-quality, typesafe
+alternative to traditional &lt;tt&gt;int&lt;/tt&gt;-based "bit flags."  Even bulk
+operations (such as &lt;tt&gt;containsAll&lt;/tt&gt; and &lt;tt&gt;retainAll&lt;/tt&gt;) should
+run very quickly if the specified collection is also an enum set.
+
+&lt;p&gt;The iterator returned by the &lt;tt&gt;iterator&lt;/tt&gt;method traverses the
+elements in their &lt;i&gt;natural order&lt;/i&gt; (the order in which the enum
+constants are declared).  The returned iterator is &lt;i&gt;weakly
+consistent&lt;/i&gt;: it will never throw {@link ConcurrentModificationException}
+and it may or may not show the effects of any modifications to the set that
+occur while the iteration is in progress.
+
+&lt;p&gt;Null elements are not permitted.  Attempts to insert a null element
+will throw {@link NullPointerException}.  Attempts to test for the
+presence of a null element or to remove one will, however, function
+properly.
+
+&lt;P&gt;Like most collection implementations &lt;tt&gt;EnumSet&lt;/tt&gt; is not
+synchronized.  If multiple threads access an enum set concurrently, and at
+least one of the threads modifies the set, it should be synchronized
+externally.  This is typically accomplished by synchronizing on some
+object that naturally encapsulates the enum set.  If no such object exists,
+the set should be "wrapped" using the {@link Collections#synchronizedSet}
+method.  This is best done at creation time, to prevent accidental
+unsynchronized access:
+
+&lt;pre&gt;
+Set&lt;MyEnum&gt; s = Collections.synchronizedSet(EnumSet.noneOf(Foo.class));
+&lt;/pre&gt;
+
+&lt;p&gt;Implementation note: All basic operations execute in constant time.
+They are likely (though not guaranteed) to be much faster than their
+{@link HashSet} counterparts.  Even bulk operations, such as {@link
+#addAll} and  {@link #removeAll} execute in constant time if the
+parameter is another &lt;tt&gt;EnumSet&lt;/tt&gt; instance.
+
+&lt;p&gt;This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author Josh Bloch
+@version 1.10, 05/28/04
+@since 1.5
+@see EnumMap
+@serial exclude
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="EnumSet" refid="_10_5_622020d_1132928310953_381854_7211"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="EnumSet" refid="_10_5_622020d_1132928310953_381854_7211"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

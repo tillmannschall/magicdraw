@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310302_444902_6721"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JarException" refid="_9_5_f720368_1110473546690_853654_8703"/></annotatedElement><body humanName="Body" mode="s,e">Signals that an error of some sort has occurred while reading from
+or writing to a JAR file.
+
+@author  David Connelly
+@version 1.12, 12/19/03
+@since   1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JarException" refid="_9_5_f720368_1110473546690_853654_8703"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JarException" refid="_9_5_f720368_1110473546690_853654_8703"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

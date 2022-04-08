@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315970_204877_10350"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MimeType" refid="_9_5_f720368_1110473546737_149723_9521"/></annotatedElement><body humanName="Body" mode="s,e">Class MimeType encapsulates a Multipurpose Internet Mail Extensions (MIME)
+media type as defined in &lt;A HREF="http://www.ietf.org/rfc/rfc2045.txt"&gt;RFC
+2045&lt;/A&gt; and &lt;A HREF="http://www.ietf.org/rfc/rfc2046.txt"&gt;RFC 2046&lt;/A&gt;. A
+MIME type object is part of a {@link DocFlavor DocFlavor} object and
+specifies the format of the print data.
+&lt;P&gt;
+Class MimeType is similar to the like-named
+class in package {@link java.awt.datatransfer java.awt.datatransfer}. Class
+java.awt.datatransfer.MimeType is not used in the Jini Print Service API
+for two reasons:
+&lt;OL TYPE=1&gt;
+&lt;LI&gt;
+Since not all Java profiles include the AWT, the Jini Print Service should
+not depend on an AWT class.
+&lt;P&gt;
+&lt;LI&gt;
+The implementation of class java.awt.datatransfer.MimeType does not
+guarantee
+that equivalent MIME types will have the same serialized representation.
+Thus, since the Jini Lookup Service (JLUS) matches service attributes based
+on equality of serialized representations, JLUS searches involving MIME
+types encapsulated in class java.awt.datatransfer.MimeType may incorrectly
+fail to match.
+&lt;/OL&gt;
+&lt;P&gt;
+Class MimeType's serialized representation is based on the following
+canonical form of a MIME type string. Thus, two MIME types that are not
+identical but that are equivalent (that have the same canonical form) will
+be considered equal by the JLUS's matching algorithm.
+&lt;UL&gt;
+&lt;LI&gt; The media type, media subtype, and parameters are retained, but all
+comments and whitespace characters are discarded.
+&lt;LI&gt; The media type, media subtype, and parameter names are converted to
+lowercase.
+&lt;LI&gt; The parameter values retain their original case, except a charset
+parameter value for a text media type is converted to lowercase.
+&lt;LI&gt; Quote characters surrounding parameter values are removed.
+&lt;LI&gt; Quoting backslash characters inside parameter values are removed.
+&lt;LI&gt; The parameters are arranged in ascending order of parameter name.
+&lt;/UL&gt;
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MimeType" refid="_9_5_f720368_1110473546737_149723_9521"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MimeType" refid="_9_5_f720368_1110473546737_149723_9521"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

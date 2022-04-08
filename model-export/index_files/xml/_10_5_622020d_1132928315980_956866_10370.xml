@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315980_956866_10370"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="StreamPrintService" refid="_9_5_f720368_1110473546737_828809_9541"/></annotatedElement><body humanName="Body" mode="s,e">This class extends {@link PrintService} and represents a
+print service that prints data in different formats to a
+client-provided output stream.
+This is principally intended for services where
+the output format is a document type suitable for viewing
+or archiving.
+The output format must be declared as a mime type.
+This is equivalent to an output document flavor where the
+representation class is always "java.io.OutputStream"
+An instance of the &lt;code&gt;StreamPrintService&lt;/code&gt; class is
+obtained from a {@link StreamPrintServiceFactory} instance.
+&lt;p&gt;
+Note that a &lt;code&gt;StreamPrintService&lt;/code&gt; is different from a
+&lt;code&gt;PrintService&lt;/code&gt;, which supports a
+{@link javax.print.attribute.standard.Destination Destination}
+attribute.  A &lt;code&gt;StreamPrintService&lt;/code&gt; always requires an output
+stream, whereas a &lt;code&gt;PrintService&lt;/code&gt; optionally accepts a
+&lt;code&gt;Destination&lt;/code&gt;. A &lt;code&gt;StreamPrintService&lt;/code&gt;
+has no default destination for its formatted output.
+Additionally a &lt;code&gt;StreamPrintService&lt;/code&gt; is expected to generate
+output in
+a format useful in other contexts.
+StreamPrintService's are not expected to support the Destination attribute.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="StreamPrintService" refid="_9_5_f720368_1110473546737_828809_9541"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="StreamPrintService" refid="_9_5_f720368_1110473546737_828809_9541"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317603_529997_12056"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ElementIterator" refid="_9_5_f720368_1110473546784_484249_10461"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;
+ElementIterator, as the name suggests, iteratates over the Element
+tree.  The constructor can be invoked with either Document or an Element
+as an argument.  If the constructor is invoked with a Document as an
+argument then the root of the iteration is the return value of
+document.getDefaultRootElement().
+
+The iteration happens in a depth-first manner.  In terms of how
+boundary conditions are handled:
+a) if next() is called before first() or current(), the
+root will be returned.
+b) next() returns null to indicate the end of the list.
+c) previous() returns null when the current element is the root
+or next() has returned null.
+
+The ElementIterator does no locking of the Element tree. This means
+that it does not track any changes.  It is the responsibility of the
+user of this class, to ensure that no changes happen during element
+iteration.
+
+Simple usage example:
+
+public void iterate() {
+ElementIterator it = new ElementIterator(root);
+Element elem;
+while (true) {
+if ((elem = next()) != null) {
+process element
+System.out.println("elem: " + elem.getName());
+} else {
+break;
+}
+}
+}
+
+@author Sunita Mani
+@version 1.14 12/19/03
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ElementIterator" refid="_9_5_f720368_1110473546784_484249_10461"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ElementIterator" refid="_9_5_f720368_1110473546784_484249_10461"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

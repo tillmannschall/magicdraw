@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307959_114264_5031"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ExceptionInInitializerError" refid="_9_5_f720368_1110473546612_425407_7601"/></annotatedElement><body humanName="Body" mode="s,e">Signals that an unexpected exception has occurred in a static initializer.
+An &lt;code&gt;ExceptionInInitializerError&lt;/code&gt; is thrown to indicate that an
+exception occurred during evaluation of a static initializer or the
+initializer for a static variable.
+
+&lt;p&gt;As of release 1.4, this exception has been retrofitted to conform to
+the general purpose exception-chaining mechanism.  The "saved throwable
+object" that may be provided at construction time and accessed via
+the {@link #getException()} method is now known as the &lt;i&gt;cause&lt;/i&gt;,
+and may be accessed via the {@link Throwable#getCause()} method, as well
+as the aforementioned "legacy method."
+
+@author  Frank Yellin
+@version 1.17, 12/19/03
+@since   JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ExceptionInInitializerError" refid="_9_5_f720368_1110473546612_425407_7601"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ExceptionInInitializerError" refid="_9_5_f720368_1110473546612_425407_7601"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

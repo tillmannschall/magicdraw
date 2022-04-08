@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307418_466908_4701"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StringBufferInputStream" refid="_9_5_f720368_1110473546612_518938_7489"/></annotatedElement><body humanName="Body" mode="s,e">This class allows an application to create an input stream in
+which the bytes read are supplied by the contents of a string.
+Applications can also read bytes from a byte array by using a
+&lt;code&gt;ByteArrayInputStream&lt;/code&gt;.
+&lt;p&gt;
+Only the low eight bits of each character in the string are used by
+this class.
+
+@author     Arthur van Hoff
+@version    1.26, 05/18/04
+@see        java.io.ByteArrayInputStream
+@see        java.io.StringReader
+@since      JDK1.0
+@deprecated This class does not properly convert characters into bytes.  As
+of JDK&amp;nbsp;1.1, the preferred way to create a stream from a
+string is via the &lt;code&gt;StringReader&lt;/code&gt; class.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StringBufferInputStream" refid="_9_5_f720368_1110473546612_518938_7489"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StringBufferInputStream" refid="_9_5_f720368_1110473546612_518938_7489"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

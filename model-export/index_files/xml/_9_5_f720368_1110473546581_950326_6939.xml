@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_950326_6939"><documentation humanName="Documentation" mode="standard">This class is for AWT permissions.
+An &lt;code&gt;AWTPermission&lt;/code&gt; contains a target name but
+no actions list; you either have the named permission
+or you don't.
+
+&lt;P&gt;
+The target name is the name of the AWT permission (see below). The naming
+convention follows the hierarchical property naming convention.
+Also, an asterisk could be used to represent all AWT permissions.
+
+&lt;P&gt;
+The following table lists all the possible &lt;code&gt;AWTPermission&lt;/code&gt;
+target names, and for each provides a description of what the
+permission allows and a discussion of the risks of granting code
+the permission.
+&lt;P&gt;
+
+&lt;table border=1 cellpadding=5 summary="AWTPermission target names, descriptions, and associated risks."&gt;
+&lt;tr&gt;
+&lt;th&gt;Permission Target Name&lt;/th&gt;
+&lt;th&gt;What the Permission Allows&lt;/th&gt;
+&lt;th&gt;Risks of Allowing this Permission&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;accessClipboard&lt;/td&gt;
+&lt;td&gt;Posting and retrieval of information to and from the AWT clipboard&lt;/td&gt;
+&lt;td&gt;This would allow malfeasant code to share
+potentially sensitive or confidential information.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;accessEventQueue&lt;/td&gt;
+&lt;td&gt;Access to the AWT event queue&lt;/td&gt;
+&lt;td&gt;After retrieving the AWT event queue,
+malicious code may peek at and even remove existing events
+from its event queue, as well as post bogus events which may purposefully
+cause the application or applet to misbehave in an insecure manner.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;createRobot&lt;/td&gt;
+&lt;td&gt;Create java.awt.Robot objects&lt;/td&gt;
+&lt;td&gt;The java.awt.Robot object allows code to generate native-level
+mouse and keyboard events as well as read the screen. It could allow
+malicious code to control the system, run other programs, read the
+display, and deny mouse and keyboard access to the user.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;fullScreenExclusive&lt;/td&gt;
+&lt;td&gt;Enter full-screen exclusive mode&lt;/td&gt;
+&lt;td&gt;Entering full-screen exclusive mode allows direct access to
+low-level graphics card memory.  This could be used to spoof the
+system, since the program is in direct control of rendering.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;listenToAllAWTEvents&lt;/td&gt;
+&lt;td&gt;Listen to all AWT events, system-wide&lt;/td&gt;
+&lt;td&gt;After adding an AWT event listener,
+malicious code may scan all AWT events dispatched in the system,
+allowing it to read all user input (such as passwords).  Each
+AWT event listener is called from within the context of that
+event queue's EventDispatchThread, so if the accessEventQueue
+permission is also enabled, malicious code could modify the
+contents of AWT event queues system-wide, causing the application
+or applet to misbehave in an insecure manner.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;readDisplayPixels&lt;/td&gt;
+&lt;td&gt;Readback of pixels from the display screen&lt;/td&gt;
+&lt;td&gt;Interfaces such as the java.awt.Composite interface or the
+java.awt.Robot class allow arbitrary code to examine pixels on the
+display enable malicious code to snoop on the activities of the user.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;replaceKeyboardFocusManager&lt;/td&gt;
+&lt;td&gt;Sets the &lt;code&gt;KeyboardFocusManager&lt;/code&gt; for
+a particular thread.
+&lt;td&gt;When &lt;code&gt;SecurityManager&lt;/code&gt; is installed, the invoking
+thread must be granted this permission in order to replace
+the current &lt;code&gt;KeyboardFocusManager&lt;/code&gt;.  If permission
+is not granted, a &lt;code&gt;SecurityException&lt;/code&gt; will be thrown.
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;showWindowWithoutWarningBanner&lt;/td&gt;
+&lt;td&gt;Display of a window without also displaying a banner warning
+that the window was created by an applet&lt;/td&gt;
+&lt;td&gt;Without this warning,
+an applet may pop up windows without the user knowing that they
+belong to an applet.  Since users may make security-sensitive
+decisions based on whether or not the window belongs to an applet
+(entering a username and password into a dialog box, for example),
+disabling this warning banner may allow applets to trick the user
+into entering such information.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;watchMousePointer&lt;/td&gt;
+&lt;td&gt;Getting the information about the mouse pointer position at any
+time&lt;/td&gt;
+&lt;td&gt;Constantly watching the mouse pointer,
+an applet can make guesses about what the user is doing, i.e. moving
+the mouse to the lower left corner of the screen most likely means that
+the user is about to launch an application. If a virtual keypad is used
+so that keyboard is emulated using the mouse, an applet may guess what
+is being typed.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setWindowAlwaysOnTop&lt;/td&gt;
+&lt;td&gt;Setting always-on-top property of the window: {@link Window#setAlwaysOnTop}&lt;/td&gt;
+&lt;td&gt;The malicious window might make itself look and behave like a real full desktop, so that
+information entered by the unsuspecting user is captured and subsequently misused &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setAppletStub&lt;/td&gt;
+&lt;td&gt;Setting the stub which implements Applet container services&lt;/td&gt;
+&lt;td&gt;Malicious code could set an applet's stub and result in unexpected
+behavior or denial of service to an applet.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+@see java.security.BasicPermission
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionCollection
+@see java.lang.SecurityManager
+
+@version 	1.28, 04/21/04
+
+@author Marianne Mueller
+@author Roland Schemers
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321308_232937_13153"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">AWTPermission</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306326_839607_4111"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321308_232937_13153"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306326_839607_4111"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::AWTPermission</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BasicPermission" refid="_9_5_f720368_1110473546674_30641_8429"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

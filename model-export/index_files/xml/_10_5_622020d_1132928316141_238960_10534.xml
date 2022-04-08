@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316141_238960_10534"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SaslServerFactory" refid="_10_5_622020d_1132928316141_689413_10532"/></annotatedElement><body humanName="Body" mode="s,e">An interface for creating instances of &lt;tt&gt;SaslServer&lt;/tt&gt;.
+A class that implements this interface
+must be thread-safe and handle multiple simultaneous
+requests. It must also have a public constructor that accepts no
+argument.
+&lt;p&gt;
+This interface is not normally accessed directly by a server, which will use the
+&lt;tt&gt;Sasl&lt;/tt&gt; static methods
+instead. However, a particular environment may provide and install a
+new or different &lt;tt&gt;SaslServerFactory&lt;/tt&gt;.
+
+@since 1.5
+
+@see SaslServer
+@see Sasl
+
+@author Rosanna Lee
+@author Rob Weltman
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="SaslServerFactory" refid="_10_5_622020d_1132928316141_689413_10532"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SaslServerFactory" refid="_10_5_622020d_1132928316141_689413_10532"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

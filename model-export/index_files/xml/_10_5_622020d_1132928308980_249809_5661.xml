@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308980_249809_5661"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RemoteRef" refid="_9_5_f720368_1110473546674_64512_8177"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;RemoteRef&lt;/code&gt; represents the handle for a remote object. A
+&lt;code&gt;RemoteStub&lt;/code&gt; uses a remote reference to carry out a
+remote method invocation to a remote object.
+
+@version 1.23, 05/18/04
+@author  Ann Wollrath
+@since   JDK1.1
+@see     java.rmi.server.RemoteStub
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="RemoteRef" refid="_9_5_f720368_1110473546674_64512_8177"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RemoteRef" refid="_9_5_f720368_1110473546674_64512_8177"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

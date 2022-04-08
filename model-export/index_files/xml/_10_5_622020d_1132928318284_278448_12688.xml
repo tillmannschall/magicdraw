@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318284_278448_12688"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ActiveValue" refid="_9_5_f720368_1110473547221_287093_16067"/></annotatedElement><body humanName="Body" mode="s,e">This class enables one to store an entry in the defaults
+table that's constructed each time it's looked up with one of
+the &lt;code&gt;getXXX(key)&lt;/code&gt; methods. Here's an example of
+an &lt;code&gt;ActiveValue&lt;/code&gt; that constructs a
+&lt;code&gt;DefaultListCellRenderer&lt;/code&gt;:
+&lt;pre&gt;
+Object cellRendererActiveValue = new UIDefaults.ActiveValue() {
+public Object createValue(UIDefaults table) {
+return new DefaultListCellRenderer();
+}
+};
+
+uiDefaultsTable.put("MyRenderer", cellRendererActiveValue);
+&lt;/pre&gt;
+
+@see UIDefaults#get
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ActiveValue" refid="_9_5_f720368_1110473547221_287093_16067"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ActiveValue" refid="_9_5_f720368_1110473547221_287093_16067"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

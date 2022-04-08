@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315740_787289_10225"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterResolution" refid="_9_5_f720368_1110473546721_936754_9417"/></annotatedElement><body humanName="Body" mode="s,e">Class PrinterResolution is a printing attribute class that specifies an
+exact resolution supported by a printer or to be used for a print job.
+This attribute assumes that printers have a small set of device resolutions
+at which they can operate rather than a continuum.
+&lt;p&gt;
+PrinterResolution is used in multiple ways:
+&lt;OL TYPE=1&gt;
+&lt;LI&gt;
+When a client searches looking for a printer that supports the client's
+desired resolution exactly (no more, no less), the client specifies
+an instance of class PrinterResolution indicating the exact resolution the
+client wants. Only printers supporting that exact resolution will match the
+search.
+&lt;P&gt;
+&lt;LI&gt;
+When a client needs to print a job using the client's desired resolution
+exactly (no more, no less), the client specifies an instance of class
+PrinterResolution as an attribute of the Print Job. This will fail if the
+Print Job doesn't support that exact resolution, and Fidelity is set to
+true.
+&lt;/OL&gt;
+If a client wants to locate a printer supporting a resolution
+greater than some required minimum, then it may be necessary to exclude
+this attribute from a lookup request and to directly query the set of
+supported resolutions, and specify the one that most closely meets
+the client's requirements.
+In some cases this may be more simply achieved by specifying a
+PrintQuality attribute which often controls resolution.
+&lt;P&gt;
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The information needed to construct an IPP
+&lt;CODE&gt;"printer-resolution"&lt;/CODE&gt; attribute can be obtained by calling
+methods on the PrinterResolution object. The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute name.
+&lt;P&gt;
+
+@author  David Mendenhall
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PrinterResolution" refid="_9_5_f720368_1110473546721_936754_9417"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterResolution" refid="_9_5_f720368_1110473546721_936754_9417"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

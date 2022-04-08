@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305926_403764_3834"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Ellipse2D" refid="_9_5_f720368_1110473546565_597159_6679"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Ellipse2D&lt;/code&gt; class describes an ellipse that is defined
+by a bounding rectangle.
+&lt;p&gt;
+This class is only the abstract superclass for all objects which
+store a 2D ellipse.
+The actual storage representation of the coordinates is left to
+the subclass.
+
+@version 1.16, 12/19/03
+@author	Jim Graham
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Ellipse2D" refid="_9_5_f720368_1110473546565_597159_6679"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Ellipse2D" refid="_9_5_f720368_1110473546565_597159_6679"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

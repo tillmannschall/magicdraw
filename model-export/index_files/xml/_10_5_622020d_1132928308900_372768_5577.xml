@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308900_372768_5577"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="LongBuffer" refid="_9_5_f720368_1110473546659_884690_8113"/></annotatedElement><body humanName="Body" mode="s,e">A long buffer.
+
+&lt;p&gt; This class defines four categories of operations upon
+long buffers:
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; Absolute and relative {@link #get() &lt;/code&gt;&lt;i&gt;get&lt;/i&gt;&lt;code&gt;} and
+{@link #put(long) &lt;/code&gt;&lt;i&gt;put&lt;/i&gt;&lt;code&gt;} methods that read and write
+single longs; &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Relative {@link #get(long[]) &lt;/code&gt;&lt;i&gt;bulk get&lt;/i&gt;&lt;code&gt;}
+methods that transfer contiguous sequences of longs from this buffer
+into an array; and&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Relative {@link #put(long[]) &lt;/code&gt;&lt;i&gt;bulk put&lt;/i&gt;&lt;code&gt;}
+methods that transfer contiguous sequences of longs from a
+long array or some other long
+buffer into this buffer;&amp;#32;and &lt;/p&gt;&lt;/li&gt;
+
+
+&lt;li&gt;&lt;p&gt; Methods for {@link #compact &lt;/code&gt;compacting&lt;code&gt;}, {@link
+#duplicate &lt;/code&gt;duplicating&lt;code&gt;}, and {@link #slice
+&lt;/code&gt;slicing&lt;code&gt;} a long buffer.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt; Long buffers can be created either by {@link #allocate
+&lt;/code&gt;&lt;i&gt;allocation&lt;/i&gt;&lt;code&gt;}, which allocates space for the buffer's
+
+
+content, by {@link #wrap(long[]) &lt;/code&gt;&lt;i&gt;wrapping&lt;/i&gt;&lt;code&gt;} an existing
+long array  into a buffer, or by creating a
+&lt;a href="ByteBuffer.html#view"&gt;&lt;i&gt;view&lt;/i&gt;&lt;/a&gt; of an existing byte buffer
+
+
+
+
+&lt;p&gt; Like a byte buffer, a long buffer is either &lt;a
+href="ByteBuffer.html#direct"&gt;&lt;i&gt;direct&lt;/i&gt; or &lt;i&gt;non-direct&lt;/i&gt;&lt;/a&gt;.  A
+long buffer created via the &lt;tt&gt;wrap&lt;/tt&gt; methods of this class will
+be non-direct.  A long buffer created as a view of a byte buffer will
+be direct if, and only if, the byte buffer itself is direct.  Whether or not
+a long buffer is direct may be determined by invoking the {@link
+#isDirect isDirect} method.  &lt;/p&gt;
+
+
+
+
+&lt;p&gt; Methods in this class that do not otherwise have a value to return are
+specified to return the buffer upon which they are invoked.  This allows
+method invocations to be chained.
+
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.56, 04/07/16
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="LongBuffer" refid="_9_5_f720368_1110473546659_884690_8113"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="LongBuffer" refid="_9_5_f720368_1110473546659_884690_8113"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

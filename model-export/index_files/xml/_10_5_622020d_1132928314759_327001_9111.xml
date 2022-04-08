@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314759_327001_9111"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AccessibleExtendedText" refid="_10_5_622020d_1132928314759_337140_9109"/></annotatedElement><body humanName="Body" mode="s,e">&lt;P&gt;The AccessibleExtendedText interface contains additional methods
+not provided by the AccessibleText interface
+
+Applications can determine if an object supports the AccessibleExtendedText
+interface by first obtaining its AccessibleContext (see {@link Accessible})
+and then calling the {@link AccessibleContext#getAccessibleText} method of
+AccessibleContext.  If the return value is an instance of
+AccessibleExtendedText, the object supports this interface.
+
+@see Accessible
+@see Accessible#getAccessibleContext
+@see AccessibleContext
+@see AccessibleContext#getAccessibleText
+@see AccessibleText.AccessibleTextChunk
+
+@version      1.2 12/19/03
+@author       Peter Korn
+@author       Lynn Monsanto
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="AccessibleExtendedText" refid="_10_5_622020d_1132928314759_337140_9109"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AccessibleExtendedText" refid="_10_5_622020d_1132928314759_337140_9109"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

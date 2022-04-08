@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316281_729820_10674"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerialDatalink" refid="_10_5_622020d_1132928316281_819191_10672"/></annotatedElement><body humanName="Body" mode="s,e">A serialized mapping in the Java programming language of an SQL
+&lt;code&gt;DATALINK&lt;/code&gt; value. A &lt;code&gt;DATALINK&lt;/code&gt; value
+references a file outside of the underlying data source that the
+data source manages.
+&lt;P&gt;
+&lt;code&gt;RowSet&lt;/code&gt; implementations can use the method &lt;code&gt;RowSet.getURL&lt;/code&gt;
+to retrieve a &lt;code&gt;java.net.URL&lt;/code&gt; object, which can be used
+to manipulate the external data.
+&lt;pre&gt;
+java.net.URL url = rowset.getURL(1);
+&lt;/pre&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SerialDatalink" refid="_10_5_622020d_1132928316281_819191_10672"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerialDatalink" refid="_10_5_622020d_1132928316281_819191_10672"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

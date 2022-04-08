@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313447_479511_7465"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SimpleTimeZone" refid="_9_5_f720368_1110473546706_466957_8921"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;SimpleTimeZone&lt;/code&gt; is a concrete subclass of &lt;code&gt;TimeZone&lt;/code&gt;
+that represents a time zone for use with a Gregorian calendar.
+The class holds an offset from GMT, called &lt;em&gt;raw offset&lt;/em&gt;, and start
+and end rules for a daylight saving time schedule.  Since it only holds
+single values for each, it cannot handle historical changes in the offset
+from GMT and the daylight saving schedule, except that the {@link
+#setStartYear setStartYear} method can specify the year when the daylight
+saving time schedule starts in effect.
+&lt;p&gt;
+To construct a &lt;code&gt;SimpleTimeZone&lt;/code&gt; with a daylight saving time
+schedule, the schedule can be described with a set of rules,
+&lt;em&gt;start-rule&lt;/em&gt; and &lt;em&gt;end-rule&lt;/em&gt;. A day when daylight saving time
+starts or ends is specified by a combination of &lt;em&gt;month&lt;/em&gt;,
+&lt;em&gt;day-of-month&lt;/em&gt;, and &lt;em&gt;day-of-week&lt;/em&gt; values. The &lt;em&gt;month&lt;/em&gt;
+value is represented by a Calendar {@link Calendar#MONTH MONTH} field
+value, such as {@link Calendar#MARCH}. The &lt;em&gt;day-of-week&lt;/em&gt; value is
+represented by a Calendar {@link Calendar#DAY_OF_WEEK DAY_OF_WEEK} value,
+such as {@link Calendar#SUNDAY SUNDAY}. The meanings of value combinations
+are as follows.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Exact day of month&lt;/b&gt;&lt;br&gt;
+To specify an exact day of month, set the &lt;em&gt;month&lt;/em&gt; and
+&lt;em&gt;day-of-month&lt;/em&gt; to an exact value, and &lt;em&gt;day-of-week&lt;/em&gt; to zero. For
+example, to specify March 1, set the &lt;em&gt;month&lt;/em&gt; to {@link Calendar#MARCH
+MARCH}, &lt;em&gt;day-of-month&lt;/em&gt; to 1, and &lt;em&gt;day-of-week&lt;/em&gt; to 0.&lt;/li&gt;
+
+&lt;li&gt;&lt;b&gt;Day of week on or after day of month&lt;/b&gt;&lt;br&gt;
+To specify a day of week on or after an exact day of month, set the
+&lt;em&gt;month&lt;/em&gt; to an exact month value, &lt;em&gt;day-of-month&lt;/em&gt; to the day on
+or after which the rule is applied, and &lt;em&gt;day-of-week&lt;/em&gt; to a negative {@link
+Calendar#DAY_OF_WEEK DAY_OF_WEEK} field value. For example, to specify the
+second Sunday of April, set &lt;em&gt;month&lt;/em&gt; to {@link Calendar#APRIL APRIL},
+&lt;em&gt;day-of-month&lt;/em&gt; to 8, and &lt;em&gt;day-of-week&lt;/em&gt; to &lt;code&gt;-&lt;/code&gt;{@link
+Calendar#SUNDAY SUNDAY}.&lt;/li&gt;
+
+&lt;li&gt;&lt;b&gt;Day of week on or before day of month&lt;/b&gt;&lt;br&gt;
+To specify a day of the week on or before an exact day of the month, set
+&lt;em&gt;day-of-month&lt;/em&gt; and &lt;em&gt;day-of-week&lt;/em&gt; to a negative value. For
+example, to specify the last Wednesday on or before the 21st of March, set
+&lt;em&gt;month&lt;/em&gt; to {@link Calendar#MARCH MARCH}, &lt;em&gt;day-of-month&lt;/em&gt; is -21
+and &lt;em&gt;day-of-week&lt;/em&gt; is &lt;code&gt;-&lt;/code&gt;{@link Calendar#WEDNESDAY WEDNESDAY}. &lt;/li&gt;
+
+&lt;li&gt;&lt;b&gt;Last day-of-week of month&lt;/b&gt;&lt;br&gt;
+To specify, the last day-of-week of the month, set &lt;em&gt;day-of-week&lt;/em&gt; to a
+{@link Calendar#DAY_OF_WEEK DAY_OF_WEEK} value and &lt;em&gt;day-of-month&lt;/em&gt; to
+-1. For example, to specify the last Sunday of October, set &lt;em&gt;month&lt;/em&gt;
+to {@link Calendar#OCTOBER OCTOBER}, &lt;em&gt;day-of-week&lt;/em&gt; to {@link
+Calendar#SUNDAY SUNDAY} and &lt;em&gt;day-of-month&lt;/em&gt; to -1.  &lt;/li&gt;
+
+&lt;/ul&gt;
+The time of the day at which daylight saving time starts or ends is
+specified by a millisecond value within the day. There are three kinds of
+&lt;em&gt;mode&lt;/em&gt;s to specify the time: {@link #WALL_TIME}, {@link
+#STANDARD_TIME} and {@link #UTC_TIME}. For example, if daylight
+saving time ends
+at 2:00 am in the wall clock time, it can be specified by 7200000
+milliseconds in the {@link #WALL_TIME} mode. In this case, the wall clock time
+for an &lt;em&gt;end-rule&lt;/em&gt; means the same thing as the daylight time.
+&lt;p&gt;
+The following are examples of parameters for constructing time zone objects.
+&lt;pre&gt;&lt;code&gt;
+Base GMT offset: -8:00
+DST starts:      at 2:00am in standard time
+on the first Sunday in April
+DST ends:        at 2:00am in daylight time
+on the last Sunday in October
+Save:            1 hour
+SimpleTimeZone(-28800000,
+"America/Los_Angeles",
+Calendar.APRIL, 1, -Calendar.SUNDAY,
+7200000,
+Calendar.OCTOBER, -1, Calendar.SUNDAY,
+7200000,
+3600000)
+
+Base GMT offset: +1:00
+DST starts:      at 1:00am in UTC time
+on the last Sunday in March
+DST ends:        at 1:00am in UTC time
+on the last Sunday in October
+Save:            1 hour
+SimpleTimeZone(3600000,
+"Europe/Paris",
+Calendar.MARCH, -1, Calendar.SUNDAY,
+3600000, SimpleTimeZone.UTC_TIME,
+Calendar.OCTOBER, -1, Calendar.SUNDAY,
+3600000, SimpleTimeZone.UTC_TIME,
+3600000)
+&lt;/code&gt;&lt;/pre&gt;
+These parameter rules are also applicable to the set rule methods, such as
+&lt;code&gt;setStartRule&lt;/code&gt;.
+
+@since 1.1
+@see      Calendar
+@see      GregorianCalendar
+@see      TimeZone
+@version  1.49 01/12/04
+@author   David Goldsmith, Mark Davis, Chen-Lieh Huang, Alan Liu
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SimpleTimeZone" refid="_9_5_f720368_1110473546706_466957_8921"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SimpleTimeZone" refid="_9_5_f720368_1110473546706_466957_8921"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

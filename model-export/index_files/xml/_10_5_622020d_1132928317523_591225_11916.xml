@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317523_591225_11916"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ResourceLoader" refid="_9_5_f720368_1110473546784_723132_10391"/></annotatedElement><body humanName="Body" mode="s,e">Simple class to load resources using the 1.2
+security model.  Since the html support is loaded
+lazily, it's resources are potentially fetched with
+applet code in the call stack.  By providing this
+functionality in a class that is only built on 1.2,
+reflection can be used from the code that is also
+built on 1.1 to call this functionality (and avoid
+the evils of preprocessing).  This functionality
+is called from HTMLEditorKit.getResourceAsStream.
+
+@author  Timothy Prinzing
+@version 1.7 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ResourceLoader" refid="_9_5_f720368_1110473546784_723132_10391"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ResourceLoader" refid="_9_5_f720368_1110473546784_723132_10391"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

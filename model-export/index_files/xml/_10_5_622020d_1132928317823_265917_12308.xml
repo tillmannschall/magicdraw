@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317823_265917_12308"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Box" refid="_9_5_f720368_1110473546784_301877_10633"/></annotatedElement><body humanName="Body" mode="s,e">A lightweight container
+that uses a BoxLayout object as its layout manager.
+Box provides several class methods
+that are useful for containers using BoxLayout --
+even non-Box containers.
+
+&lt;p&gt;
+The &lt;code&gt;Box&lt;/code&gt; class can create several kinds
+of invisible components
+that affect layout:
+glue, struts, and rigid areas.
+If all the components your &lt;code&gt;Box&lt;/code&gt; contains
+have a fixed size,
+you might want to use a glue component
+(returned by &lt;code&gt;createGlue&lt;/code&gt;)
+to control the components' positions.
+If you need a fixed amount of space between two components,
+try using a strut
+(&lt;code&gt;createHorizontalStrut&lt;/code&gt; or &lt;code&gt;createVerticalStrut&lt;/code&gt;).
+If you need an invisible component
+that always takes up the same amount of space,
+get it by invoking &lt;code&gt;createRigidArea&lt;/code&gt;.
+&lt;p&gt;
+If you are implementing a &lt;code&gt;BoxLayout&lt;/code&gt; you
+can find further information and examples in
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/layout/box.html"&gt;How to Use BoxLayout&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see BoxLayout
+
+@author  Timothy Prinzing
+@version 1.43 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Box" refid="_9_5_f720368_1110473546784_301877_10633"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Box" refid="_9_5_f720368_1110473546784_301877_10633"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

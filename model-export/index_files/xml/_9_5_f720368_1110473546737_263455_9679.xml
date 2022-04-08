@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546737_263455_9679"><documentation humanName="Documentation" mode="standard">A &lt;code&gt;Sequence&lt;/code&gt; is a data structure containing musical
+information (often an entire song or composition) that can be played
+back by a &lt;code&gt;{@link Sequencer}&lt;/code&gt; object. Specifically, the
+&lt;code&gt;Sequence&lt;/code&gt; contains timing
+information and one or more tracks.  Each &lt;code&gt;{@link Track track}&lt;/code&gt; consists of a
+series of MIDI events (such as note-ons, note-offs, program changes, and meta-events).
+The sequence's timing information specifies the type of unit that is used
+to time-stamp the events in the sequence.
+&lt;p&gt;
+A &lt;code&gt;Sequence&lt;/code&gt; can be created from a MIDI file by reading the file
+into an input stream and invoking one of the &lt;code&gt;getSequence&lt;/code&gt; methods of
+{@link MidiSystem}.  A sequence can also be built from scratch by adding new
+&lt;code&gt;Tracks&lt;/code&gt; to an empty &lt;code&gt;Sequence&lt;/code&gt;, and adding
+&lt;code&gt;{@link MidiEvent}&lt;/code&gt; objects to these &lt;code&gt;Tracks&lt;/code&gt;.
+
+@see Sequencer#setSequence(java.io.InputStream stream)
+@see Sequencer#setSequence(Sequence sequence)
+@see Track#add(MidiEvent)
+@see MidiFileFormat
+
+@version 1.27, 04/05/05
+@author Kara Kytle
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Sequence</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316191_59271_10573"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316191_59271_10573"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sound::midi::Sequence</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

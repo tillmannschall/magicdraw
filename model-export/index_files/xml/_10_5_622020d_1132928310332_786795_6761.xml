@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310332_786795_6761"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="LoggingMXBean" refid="_10_5_622020d_1132928310332_84883_6759"/></annotatedElement><body humanName="Body" mode="s,e">The management interface for the logging facility.
+
+&lt;p&gt;There is a single global instance of the &lt;tt&gt;LoggingMXBean&lt;/tt&gt;.
+This instance is an
+&lt;a href="ManagementFactory.html#MXBean"&gt;MXBean&lt;/a&gt;
+can be obtained by calling
+the {@link LogManager#getLoggingMXBean} method or from the
+{@link java.lang.management.ManagementFactory#getPlatformMBeanServer
+platform &lt;tt&gt;MBeanServer&lt;/tt&gt;} method.
+
+&lt;p&gt;The {@link javax.management.ObjectName ObjectName} for uniquely
+identifying the &lt;tt&gt;LoggingMXBean&lt;/tt&gt; within an MBeanServer is:
+&lt;blockquote&gt;
+{@link LogManager#LOGGING_MXBEAN_NAME
+&lt;tt&gt;java.util.logging:type=Logging&lt;/tt&gt;}
+&lt;/blockquote&gt;
+
+@see java.lang.management.ManagementFactory
+
+@author  Ron Mann
+@author  Mandy Chung
+@version 1.7, 04/20/04
+@since   1.5
+
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="LoggingMXBean" refid="_10_5_622020d_1132928310332_84883_6759"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="LoggingMXBean" refid="_10_5_622020d_1132928310332_84883_6759"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

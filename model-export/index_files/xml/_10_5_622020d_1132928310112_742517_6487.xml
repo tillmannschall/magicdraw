@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310112_742517_6487"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ConcurrentHashMap" refid="_10_5_622020d_1132928310072_295537_6451"/></annotatedElement><body humanName="Body" mode="s,e">A hash table supporting full concurrency of retrievals and
+adjustable expected concurrency for updates. This class obeys the
+same functional specification as {@link java.util.Hashtable}, and
+includes versions of methods corresponding to each method of
+&lt;tt&gt;Hashtable&lt;/tt&gt;. However, even though all operations are
+thread-safe, retrieval operations do &lt;em&gt;not&lt;/em&gt; entail locking,
+and there is &lt;em&gt;not&lt;/em&gt; any support for locking the entire table
+in a way that prevents all access.  This class is fully
+interoperable with &lt;tt&gt;Hashtable&lt;/tt&gt; in programs that rely on its
+thread safety but not on its synchronization details.
+
+&lt;p&gt; Retrieval operations (including &lt;tt&gt;get&lt;/tt&gt;) generally do not
+block, so may overlap with update operations (including
+&lt;tt&gt;put&lt;/tt&gt; and &lt;tt&gt;remove&lt;/tt&gt;). Retrievals reflect the results
+of the most recently &lt;em&gt;completed&lt;/em&gt; update operations holding
+upon their onset.  For aggregate operations such as &lt;tt&gt;putAll&lt;/tt&gt;
+and &lt;tt&gt;clear&lt;/tt&gt;, concurrent retrievals may reflect insertion or
+removal of only some entries.  Similarly, Iterators and
+Enumerations return elements reflecting the state of the hash table
+at some point at or since the creation of the iterator/enumeration.
+They do &lt;em&gt;not&lt;/em&gt; throw
+{@link ConcurrentModificationException}.  However, iterators are
+designed to be used by only one thread at a time.
+
+&lt;p&gt; The allowed concurrency among update operations is guided by
+the optional &lt;tt&gt;concurrencyLevel&lt;/tt&gt; constructor argument
+(default 16), which is used as a hint for internal sizing.  The
+table is internally partitioned to try to permit the indicated
+number of concurrent updates without contention. Because placement
+in hash tables is essentially random, the actual concurrency will
+vary.  Ideally, you should choose a value to accommodate as many
+threads as will ever concurrently modify the table. Using a
+significantly higher value than you need can waste space and time,
+and a significantly lower value can lead to thread contention. But
+overestimates and underestimates within an order of magnitude do
+not usually have much noticeable impact. A value of one is
+appropriate when it is known that only one thread will modify and
+all others will only read. Also, resizing this or any other kind of
+hash table is a relatively slow operation, so, when possible, it is
+a good idea to provide estimates of expected table sizes in
+constructors.
+
+&lt;p&gt;This class and its views and iterators implement all of the
+&lt;em&gt;optional&lt;/em&gt; methods of the {@link Map} and {@link Iterator}
+interfaces.
+
+&lt;p&gt; Like {@link java.util.Hashtable} but unlike {@link
+java.util.HashMap}, this class does NOT allow &lt;tt&gt;null&lt;/tt&gt; to be
+used as a key or value.
+
+&lt;p&gt;This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@since 1.5
+@author Doug Lea
+@param &lt;K&gt; the type of keys maintained by this map
+@param &lt;V&gt; the type of mapped values
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ConcurrentHashMap" refid="_10_5_622020d_1132928310072_295537_6451"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ConcurrentHashMap" refid="_10_5_622020d_1132928310072_295537_6451"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

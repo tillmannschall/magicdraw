@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305816_960781_3781"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GraphicAttribute" refid="_9_5_f720368_1110473546565_475634_6631"/></annotatedElement><body humanName="Body" mode="s,e">This class is used with the CHAR_REPLACEMENT attribute.
+&lt;p&gt;
+The &lt;code&gt;GraphicAttribute&lt;/code&gt; class represents a graphic embedded
+in text. Clients subclass this class to implement their own char
+replacement graphics.  Clients wishing to embed shapes and images in
+text need not subclass this class.  Instead, clients can use the
+{@link ShapeGraphicAttribute} and {@link ImageGraphicAttribute}
+classes.
+&lt;p&gt;
+Subclasses must ensure that their objects are immutable once they
+are constructed.  Mutating a &lt;code&gt;GraphicAttribute&lt;/code&gt; that
+is used in a {@link TextLayout} results in undefined behavior from the
+&lt;code&gt;TextLayout&lt;/code&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="GraphicAttribute" refid="_9_5_f720368_1110473546565_475634_6631"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GraphicAttribute" refid="_9_5_f720368_1110473546565_475634_6631"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

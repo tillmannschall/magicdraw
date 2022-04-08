@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314398_24242_8880"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DOMImplementationLS" refid="_10_5_622020d_1132928314398_277011_8878"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;DOMImplementationLS&lt;/code&gt; contains the factory methods for creating
+Load and Save objects.
+&lt;p&gt; The expectation is that an instance of the
+&lt;code&gt;DOMImplementationLS&lt;/code&gt; interface can be obtained by using
+binding-specific casting methods on an instance of the
+&lt;code&gt;DOMImplementation&lt;/code&gt; interface or, if the &lt;code&gt;Document&lt;/code&gt;
+supports the feature &lt;code&gt;"Core"&lt;/code&gt; version &lt;code&gt;"3.0"&lt;/code&gt;
+defined in [&lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'&gt;DOM Level 3 Core&lt;/a&gt;]
+, by using the method &lt;code&gt;DOMImplementation.getFeature&lt;/code&gt; with
+parameter values &lt;code&gt;"LS"&lt;/code&gt; (or &lt;code&gt;"LS-Async"&lt;/code&gt;) and
+&lt;code&gt;"3.0"&lt;/code&gt; (respectively).
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-LS-20040407'&gt;Document Object Model (DOM) Level 3 Load
+and Save Specification&lt;/a&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DOMImplementationLS" refid="_10_5_622020d_1132928314398_277011_8878"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DOMImplementationLS" refid="_10_5_622020d_1132928314398_277011_8878"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546690_72129_8749"><documentation humanName="Documentation" mode="standard">This class provides a skeletal implementation of the {@link Preferences}
+class, greatly easing the task of implementing it.
+
+&lt;p&gt;&lt;strong&gt;This class is for &lt;tt&gt;Preferences&lt;/tt&gt; implementers only.
+Normal users of the &lt;tt&gt;Preferences&lt;/tt&gt; facility should have no need to
+consult this documentation.  The {@link Preferences} documentation
+should suffice.&lt;/strong&gt;
+
+&lt;p&gt;Implementors must override the nine abstract service-provider interface
+(SPI) methods: {@link #getSpi(String)}, {@link #putSpi(String,String)},
+{@link #removeSpi(String)}, {@link #childSpi(String)}, {@link
+#removeNodeSpi()}, {@link #keysSpi()}, {@link #childrenNamesSpi()}, {@link
+#syncSpi()} and {@link #flushSpi()}.  All of the concrete methods specify
+precisely how they are implemented atop these SPI methods.  The implementor
+may, at his discretion, override one or more of the concrete methods if the
+default implementation is unsatisfactory for any reason, such as
+performance.
+
+&lt;p&gt;The SPI methods fall into three groups concerning exception
+behavior. The &lt;tt&gt;getSpi&lt;/tt&gt; method should never throw exceptions, but it
+doesn't really matter, as any exception thrown by this method will be
+intercepted by {@link #get(String,String)}, which will return the specified
+default value to the caller.  The &lt;tt&gt;removeNodeSpi, keysSpi,
+childrenNamesSpi, syncSpi&lt;/tt&gt; and &lt;tt&gt;flushSpi&lt;/tt&gt; methods are specified
+to throw {@link BackingStoreException}, and the implementation is required
+to throw this checked exception if it is unable to perform the operation.
+The exception propagates outward, causing the corresponding API method
+to fail.
+
+&lt;p&gt;The remaining SPI methods {@link #putSpi(String,String)}, {@link
+#removeSpi(String)} and {@link #childSpi(String)} have more complicated
+exception behavior.  They are not specified to throw
+&lt;tt&gt;BackingStoreException&lt;/tt&gt;, as they can generally obey their contracts
+even if the backing store is unavailable.  This is true because they return
+no information and their effects are not required to become permanent until
+a subsequent call to {Preferences#flush()} or
+{Preferences#sync()}. Generally speaking, these SPI methods should not
+throw exceptions.  In some implementations, there may be circumstances
+under which these calls cannot even enqueue the requested operation for
+later processing.  Even under these circumstances it is generally better to
+simply ignore the invocation and return, rather than throwing an
+exception.  Under these circumstances, however, all subsequent invocations
+of &lt;tt&gt;flush()&lt;/tt&gt; and &lt;tt&gt;sync&lt;/tt&gt; should return &lt;tt&gt;false&lt;/tt&gt;, as
+returning &lt;tt&gt;true&lt;/tt&gt; would imply that all previous operations had
+successfully been made permanent.
+
+&lt;p&gt;There is one circumstance under which &lt;tt&gt;putSpi, removeSpi and
+childSpi&lt;/tt&gt; &lt;i&gt;should&lt;/i&gt; throw an exception: if the caller lacks
+sufficient privileges on the underlying operating system to perform the
+requested operation.  This will, for instance, occur on most systems
+if a non-privileged user attempts to modify system preferences.
+(The required privileges will vary from implementation to
+implementation.  On some implementations, they are the right to modify the
+contents of some directory in the file system; on others they are the right
+to modify contents of some key in a registry.)  Under any of these
+circumstances, it would generally be undesirable to let the program
+continue executing as if these operations would become permanent at a later
+time.  While implementations are not required to throw an exception under
+these circumstances, they are encouraged to do so.  A {@link
+SecurityException} would be appropriate.
+
+&lt;p&gt;Most of the SPI methods require the implementation to read or write
+information at a preferences node.  The implementor should beware of the
+fact that another VM may have concurrently deleted this node from the
+backing store.  It is the implementation's responsibility to recreate the
+node if it has been deleted.
+
+&lt;p&gt;Implementation note: In Sun's default &lt;tt&gt;Preferences&lt;/tt&gt;
+implementations, the user's identity is inherited from the underlying
+operating system and does not change for the lifetime of the virtual
+machine.  It is recognized that server-side &lt;tt&gt;Preferences&lt;/tt&gt;
+implementations may have the user identity change from request to request,
+implicitly passed to &lt;tt&gt;Preferences&lt;/tt&gt; methods via the use of a
+static {@link ThreadLocal} instance.  Authors of such implementations are
+&lt;i&gt;strongly&lt;/i&gt; encouraged to determine the user at the time preferences
+are accessed (for example by the {@link #get(String,String)} or {@link
+#put(String,String)} method) rather than permanently associating a user
+with each &lt;tt&gt;Preferences&lt;/tt&gt; instance.  The latter behavior conflicts
+with normal &lt;tt&gt;Preferences&lt;/tt&gt; usage and would lead to great confusion.
+
+@author  Josh Bloch
+@version 1.20, 01/12/04
+@see     Preferences
+@since   1.4
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322370_72779_14579"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EventDispatchThread" refid="_9_5_f720368_1110473547815_182130_19105"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NodeAddedEvent" refid="_9_5_f720368_1110473547815_781769_19102"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NodeRemovedEvent" refid="_9_5_f720368_1110473547815_877055_19104"/></member><name humanName="Name" mode="s,e">AbstractPreferences</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="prefs" refid="_9_5_f720368_1110473547815_981880_19100"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EventDispatchThread" refid="_9_5_f720368_1110473547815_182130_19105"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NodeAddedEvent" refid="_9_5_f720368_1110473547815_781769_19102"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NodeRemovedEvent" refid="_9_5_f720368_1110473547815_877055_19104"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310382_30543_6781"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322370_72779_14579"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310382_30543_6781"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EventDispatchThread" refid="_9_5_f720368_1110473547815_182130_19105"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NodeAddedEvent" refid="_9_5_f720368_1110473547815_781769_19102"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NodeRemovedEvent" refid="_9_5_f720368_1110473547815_877055_19104"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EventDispatchThread" refid="_9_5_f720368_1110473547815_182130_19105"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NodeAddedEvent" refid="_9_5_f720368_1110473547815_781769_19102"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NodeRemovedEvent" refid="_9_5_f720368_1110473547815_877055_19104"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="prefs" refid="_9_5_f720368_1110473547815_981880_19100"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="prefs" refid="_9_5_f720368_1110473547815_981880_19100"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="prefs" refid="_9_5_f720368_1110473547815_981880_19100"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::prefs::AbstractPreferences</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Preferences" refid="_9_5_f720368_1110473546690_735692_8765"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

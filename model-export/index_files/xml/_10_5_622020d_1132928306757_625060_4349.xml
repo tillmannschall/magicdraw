@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306757_625060_4349"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TextComponent" refid="_9_5_f720368_1110473546596_302274_7133"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;TextComponent&lt;/code&gt; class is the superclass of
+any component that allows the editing of some text.
+&lt;p&gt;
+A text component embodies a string of text.  The
+&lt;code&gt;TextComponent&lt;/code&gt; class defines a set of methods
+that determine whether or not this text is editable. If the
+component is editable, it defines another set of methods
+that supports a text insertion caret.
+&lt;p&gt;
+In addition, the class defines methods that are used
+to maintain a current &lt;em&gt;selection&lt;/em&gt; from the text.
+The text selection, a substring of the component's text,
+is the target of editing operations. It is also referred
+to as the &lt;em&gt;selected text&lt;/em&gt;.
+
+@version	1.83, 05/05/04
+@author 	Sami Shaio
+@author 	Arthur van Hoff
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="TextComponent" refid="_9_5_f720368_1110473546596_302274_7133"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TextComponent" refid="_9_5_f720368_1110473546596_302274_7133"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

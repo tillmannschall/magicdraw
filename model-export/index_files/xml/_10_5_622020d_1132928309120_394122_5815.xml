@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309120_394122_5815"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertStore" refid="_9_5_f720368_1110473546674_330357_8311"/></annotatedElement><body humanName="Body" mode="s,e">A class for retrieving &lt;code&gt;Certificate&lt;/code&gt;s and &lt;code&gt;CRL&lt;/code&gt;s
+from a repository.
+&lt;p&gt;
+This class uses a provider-based architecture, as described in the
+Java Cryptography Architecture.
+To create a &lt;code&gt;CertStore&lt;/code&gt;, call one of the static
+&lt;code&gt;getInstance&lt;/code&gt; methods, passing in the type of
+&lt;code&gt;CertStore&lt;/code&gt; desired, any applicable initialization parameters
+and optionally the name of the provider desired.
+&lt;p&gt;
+Once the &lt;code&gt;CertStore&lt;/code&gt; has been created, it can be used to
+retrieve &lt;code&gt;Certificate&lt;/code&gt;s and &lt;code&gt;CRL&lt;/code&gt;s by calling its
+{@link #getCertificates(CertSelector selector) getCertificates} and
+{@link #getCRLs(CRLSelector selector) getCRLs} methods.
+&lt;p&gt;
+Unlike a {@link java.security.KeyStore KeyStore}, which provides access
+to a cache of private keys and trusted certificates, a
+&lt;code&gt;CertStore&lt;/code&gt; is designed to provide access to a potentially
+vast repository of untrusted certificates and CRLs. For example, an LDAP
+implementation of &lt;code&gt;CertStore&lt;/code&gt; provides access to certificates
+and CRLs stored in one or more directories using the LDAP protocol and the
+schema as defined in the RFC service attribute. See Appendix A in the
+&lt;a href= "../../../../guide/security/certpath/CertPathProgGuide.html#AppA"&gt;
+Java Certification Path API Programmer's Guide&lt;/a&gt; for more information about
+standard &lt;code&gt;CertStore&lt;/code&gt; types.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+All public methods of &lt;code&gt;CertStore&lt;/code&gt; objects must be thread-safe.
+That is, multiple threads may concurrently invoke these methods on a
+single &lt;code&gt;CertStore&lt;/code&gt; object (or more than one) with no
+ill effects. This allows a &lt;code&gt;CertPathBuilder&lt;/code&gt; to search for a
+CRL while simultaneously searching for further certificates, for instance.
+&lt;p&gt;
+The static methods of this class are also guaranteed to be thread-safe.
+Multiple threads may concurrently invoke the static methods defined in
+this class with no ill effects.
+
+@version 	1.13 06/28/04
+@since	1.4
+@author	Sean Mullan, Steve Hanna
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CertStore" refid="_9_5_f720368_1110473546674_330357_8311"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertStore" refid="_9_5_f720368_1110473546674_330357_8311"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

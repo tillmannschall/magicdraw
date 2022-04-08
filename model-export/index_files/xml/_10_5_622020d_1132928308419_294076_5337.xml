@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308419_294076_5337"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SocketPermissionCollection" refid="_9_5_f720368_1110473546643_912542_7821"/></annotatedElement><body humanName="Body" mode="s,e">if (init'd with IP, key is IP as string)
+if wildcard, its the wild card
+else its the cname?
+
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionCollection
+
+@version 1.59 02/12/04
+
+@author Roland Schemers
+
+@serial include
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SocketPermissionCollection" refid="_9_5_f720368_1110473546643_912542_7821"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SocketPermissionCollection" refid="_9_5_f720368_1110473546643_912542_7821"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

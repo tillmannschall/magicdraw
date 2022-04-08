@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309411_610066_6095"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrivilegedActionException" refid="_9_5_f720368_1110473546690_641165_8509"/></annotatedElement><body humanName="Body" mode="s,e">This exception is thrown by
+&lt;code&gt;doPrivileged(PrivilegedExceptionAction)&lt;/code&gt; and
+&lt;code&gt;doPrivileged(PrivilegedExceptionAction,
+AccessControlContext context)&lt;/code&gt; to indicate
+that the action being performed threw a checked exception.  The exception
+thrown by the action can be obtained by calling the
+&lt;code&gt;getException&lt;/code&gt; method.  In effect, an
+&lt;code&gt;PrivilegedActionException&lt;/code&gt; is a "wrapper"
+for an exception thrown by a privileged action.
+
+&lt;p&gt;As of release 1.4, this exception has been retrofitted to conform to
+the general purpose exception-chaining mechanism.  The "exception thrown
+by the privileged computation" that is provided at construction time and
+accessed via the {@link #getException()} method is now known as the
+&lt;i&gt;cause&lt;/i&gt;, and may be accessed via the {@link Throwable#getCause()}
+method, as well as the aforementioned "legacy method."
+
+@see PrivilegedExceptionAction
+@see AccessController#doPrivileged(PrivilegedExceptionAction)
+@see AccessController#doPrivileged(PrivilegedExceptionAction,AccessControlContext)
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PrivilegedActionException" refid="_9_5_f720368_1110473546690_641165_8509"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrivilegedActionException" refid="_9_5_f720368_1110473546690_641165_8509"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

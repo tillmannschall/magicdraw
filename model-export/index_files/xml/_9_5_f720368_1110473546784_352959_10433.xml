@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546784_352959_10433"><documentation humanName="Documentation" mode="standard">Component decorator that implements the view interface.  The
+entire element is used to represent the component.  This acts
+as a gateway from the display-only View implementations to
+interactive lightweight components (ie it allows components
+to be embedded into the View hierarchy).
+&lt;p&gt;
+The component is placed relative to the text baseline
+according to the value returned by
+&lt;code&gt;Component.getAlignmentY&lt;/code&gt;.  For Swing components
+this value can be conveniently set using the method
+&lt;code&gt;JComponent.setAlignmentY&lt;/code&gt;.  For example, setting
+a value of &lt;code&gt;0.75&lt;/code&gt; will cause 75 percent of the
+component to be above the baseline, and 25 percent of the
+component to be below the baseline.
+&lt;p&gt;
+This class is implemented to do the extra work necessary to
+work properly in the presence of multiple threads (i.e. from
+asynchronous notification of model changes for example) by
+ensuring that all component access is done on the event thread.
+&lt;p&gt;
+The component used is determined by the return value of the
+createComponent method.  The default implementation of this
+method is to return the component held as an attribute of
+the element (by calling StyleConstants.getComponent).  A
+limitation of this behavior is that the component cannot
+be used by more than one text component (i.e. with a shared
+model).  Subclasses can remove this constraint by implementing
+the createComponent to actually create a component based upon
+some kind of specification contained in the attributes.  The
+ObjectView class in the html package is an example of a
+ComponentView implementation that supports multiple component
+views of a shared model.
+
+@author Timothy Prinzing
+@version 1.54 12/19/03
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323852_603789_17934"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Invalidator" refid="_9_5_f720368_1110473548331_673330_23366"/></member><name humanName="Name" mode="s,e">ComponentView</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Invalidator" refid="_9_5_f720368_1110473548331_673330_23366"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317553_364151_11997"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323852_603789_17934"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317553_364151_11997"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Invalidator" refid="_9_5_f720368_1110473548331_673330_23366"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Invalidator" refid="_9_5_f720368_1110473548331_673330_23366"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::text::ComponentView</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="View" refid="_9_5_f720368_1110473546784_975109_10547"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

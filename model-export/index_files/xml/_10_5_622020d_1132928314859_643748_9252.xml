@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314859_643748_9252"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="IIOParamController" refid="_9_5_f720368_1110473546706_295421_9095"/></annotatedElement><body humanName="Body" mode="s,e">An interface to be implemented by objects that can determine the
+settings of an &lt;code&gt;IIOParam&lt;/code&gt; object, either by putting up a
+GUI to obtain values from a user, or by other means.  This
+interface merely specifies a generic &lt;code&gt;activate&lt;/code&gt; method
+that invokes the controller, without regard for how the controller
+obtains values (&lt;i&gt;i.e.&lt;/i&gt;, whether the controller puts up a GUI
+or merely computes a set of values is irrelevant to this
+interface).
+
+&lt;p&gt; Within the &lt;code&gt;activate&lt;/code&gt; method, a controller obtains
+initial values by querying the &lt;code&gt;IIOParam&lt;/code&gt; object's
+&lt;code&gt;get&lt;/code&gt; methods, modifies values by whatever means, then
+invokes the &lt;code&gt;IIOParam&lt;/code&gt; object's &lt;code&gt;set&lt;/code&gt; methods
+to modify the appropriate settings.  Normally, these
+&lt;code&gt;set&lt;/code&gt; methods will be invoked all at once at a final
+commit in order that a cancel operation not disturb existing
+values.  In general, applications may expect that when the
+&lt;code&gt;activate&lt;/code&gt; method returns &lt;code&gt;true&lt;/code&gt;, the
+&lt;code&gt;IIOParam&lt;/code&gt; object is ready for use in a read or write
+operation.
+
+&lt;p&gt; Vendors may choose to provide GUIs for the
+&lt;code&gt;IIOParam&lt;/code&gt; subclasses they define for a particular
+plug-in.  These can be set up as default controllers in the
+corresponding &lt;code&gt;IIOParam&lt;/code&gt; subclasses.
+
+&lt;p&gt; Applications may override any default GUIs and provide their
+own controllers embedded in their own framework.  All that is
+required is that the&lt;code&gt;activate&lt;/code&gt; method behave modally
+(not returning until either cancelled or committed), though it need
+not put up an explicitly modal dialog.  Such a non-modal GUI
+component would be coded roughly as follows:
+
+&lt;br&gt;
+&lt;pre&gt;
+class MyGUI extends SomeComponent implements IIOParamController {
+
+public MyGUI() {
+...
+setEnabled(false);
+}
+
+public boolean activate(IIOParam param) {
+disable other components if desired
+setEnabled(true);
+go to sleep until either cancelled or committed
+boolean ret = false;
+if (!cancelled) {
+set values on param
+ret = true;
+}
+setEnabled(false);
+enable any components disabled above
+return ret;
+}
+&lt;/pre&gt;
+
+&lt;p&gt; Alternatively, an algorithmic process such as a database lookup
+or the parsing of a command line could be used as a controller, in
+which case the &lt;code&gt;activate&lt;/code&gt; method would simply look up or
+compute the settings, call the &lt;code&gt;IIOParam.setXXX&lt;/code&gt;
+methods, and return &lt;code&gt;true&lt;/code&gt;.
+
+@see IIOParam#setController
+@see IIOParam#getController
+@see IIOParam#getDefaultController
+@see IIOParam#hasController
+@see IIOParam#activateController
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="IIOParamController" refid="_9_5_f720368_1110473546706_295421_9095"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="IIOParamController" refid="_9_5_f720368_1110473546706_295421_9095"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

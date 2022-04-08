@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308249_223625_5218"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MathContext" refid="_10_5_622020d_1132928308249_616828_5216"/></annotatedElement><body humanName="Body" mode="s,e">Immutable objects which encapsulate the context settings which
+describe certain rules for numerical operators, such as those
+implemented by the {@link BigDecimal} class.
+
+&lt;p&gt;The base-independent settings are:
+&lt;ol&gt;
+&lt;li&gt;&lt;tt&gt;precision&lt;/tt&gt;:
+the number of digits to be used for an operation; results are
+rounded to this precision
+
+&lt;li&gt;&lt;tt&gt;roundingMode&lt;/tt&gt;:
+a {@link RoundingMode} object which specifies the algorithm to be
+used for rounding.
+&lt;/ol&gt;
+
+@see     BigDecimal
+@see     RoundingMode
+@author  Mike Cowlishaw
+@author  Joseph D. Darcy
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MathContext" refid="_10_5_622020d_1132928308249_616828_5216"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MathContext" refid="_10_5_622020d_1132928308249_616828_5216"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

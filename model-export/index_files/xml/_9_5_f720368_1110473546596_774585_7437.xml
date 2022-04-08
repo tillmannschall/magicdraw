@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546596_774585_7437"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::io::ObjectInputStream -&gt; JDK 5.0 Classes::java::io::ObjectInput]" refid="_10_5_622020d_1132928321578_761294_13516"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::io::ObjectInputStream -&gt; JDK 5.0 Classes::java::io::ObjectStreamConstants]" refid="_10_5_622020d_1132928321578_363996_13517"/></clientDependency><documentation humanName="Documentation" mode="standard">An ObjectInputStream deserializes primitive data and objects previously
+written using an ObjectOutputStream.
+
+&lt;p&gt;ObjectOutputStream and ObjectInputStream can provide an application with
+persistent storage for graphs of objects when used with a FileOutputStream
+and FileInputStream respectively.  ObjectInputStream is used to recover
+those objects previously serialized. Other uses include passing objects
+between hosts using a socket stream or for marshaling and unmarshaling
+arguments and parameters in a remote communication system.
+
+&lt;p&gt;ObjectInputStream ensures that the types of all objects in the graph
+created from the stream match the classes present in the Java Virtual
+Machine.  Classes are loaded as required using the standard mechanisms.
+
+&lt;p&gt;Only objects that support the java.io.Serializable or
+java.io.Externalizable interface can be read from streams.
+
+&lt;p&gt;The method &lt;code&gt;readObject&lt;/code&gt; is used to read an object from the
+stream.  Java's safe casting should be used to get the desired type.  In
+Java, strings and arrays are objects and are treated as objects during
+serialization. When read they need to be cast to the expected type.
+
+&lt;p&gt;Primitive data types can be read from the stream using the appropriate
+method on DataInput.
+
+&lt;p&gt;The default deserialization mechanism for objects restores the contents
+of each field to the value and type it had when it was written.  Fields
+declared as transient or static are ignored by the deserialization process.
+References to other objects cause those objects to be read from the stream
+as necessary.  Graphs of objects are restored correctly using a reference
+sharing mechanism.  New objects are always allocated when deserializing,
+which prevents existing objects from being overwritten.
+
+&lt;p&gt;Reading an object is analogous to running the constructors of a new
+object.  Memory is allocated for the object and initialized to zero (NULL).
+No-arg constructors are invoked for the non-serializable classes and then
+the fields of the serializable classes are restored from the stream starting
+with the serializable class closest to java.lang.object and finishing with
+the object's most specific class.
+
+&lt;p&gt;For example to read from a stream as written by the example in
+ObjectOutputStream:
+&lt;br&gt;
+&lt;pre&gt;
+FileInputStream fis = new FileInputStream("t.tmp");
+ObjectInputStream ois = new ObjectInputStream(fis);
+
+int i = ois.readInt();
+String today = (String) ois.readObject();
+Date date = (Date) ois.readObject();
+
+ois.close();
+&lt;/pre&gt;
+
+&lt;p&gt;Classes control how they are serialized by implementing either the
+java.io.Serializable or java.io.Externalizable interfaces.
+
+&lt;p&gt;Implementing the Serializable interface allows object serialization to
+save and restore the entire state of the object and it allows classes to
+evolve between the time the stream is written and the time it is read.  It
+automatically traverses references between objects, saving and restoring
+entire graphs.
+
+&lt;p&gt;Serializable classes that require special handling during the
+serialization and deserialization process should implement the following
+methods:&lt;p&gt;
+
+&lt;pre&gt;
+private void writeObject(java.io.ObjectOutputStream stream)
+throws IOException;
+private void readObject(java.io.ObjectInputStream stream)
+throws IOException, ClassNotFoundException;
+private void readObjectNoData()
+throws ObjectStreamException;
+&lt;/pre&gt;
+
+&lt;p&gt;The readObject method is responsible for reading and restoring the state
+of the object for its particular class using data written to the stream by
+the corresponding writeObject method.  The method does not need to concern
+itself with the state belonging to its superclasses or subclasses.  State is
+restored by reading data from the ObjectInputStream for the individual
+fields and making assignments to the appropriate fields of the object.
+Reading primitive data types is supported by DataInput.
+
+&lt;p&gt;Any attempt to read object data which exceeds the boundaries of the
+custom data written by the corresponding writeObject method will cause an
+OptionalDataException to be thrown with an eof field value of true.
+Non-object reads which exceed the end of the allotted data will reflect the
+end of data in the same way that they would indicate the end of the stream:
+bytewise reads will return -1 as the byte read or number of bytes read, and
+primitive reads will throw EOFExceptions.  If there is no corresponding
+writeObject method, then the end of default serialized data marks the end of
+the allotted data.
+
+&lt;p&gt;Primitive and object read calls issued from within a readExternal method
+behave in the same manner--if the stream is already positioned at the end of
+data written by the corresponding writeExternal method, object reads will
+throw OptionalDataExceptions with eof set to true, bytewise reads will
+return -1, and primitive reads will throw EOFExceptions.  Note that this
+behavior does not hold for streams written with the old
+&lt;code&gt;ObjectStreamConstants.PROTOCOL_VERSION_1&lt;/code&gt; protocol, in which the
+end of data written by writeExternal methods is not demarcated, and hence
+cannot be detected.
+
+&lt;p&gt;The readObjectNoData method is responsible for initializing the state of
+the object for its particular class in the event that the serialization
+stream does not list the given class as a superclass of the object being
+deserialized.  This may occur in cases where the receiving party uses a
+different version of the deserialized instance's class than the sending
+party, and the receiver's version extends classes that are not extended by
+the sender's version.  This may also occur if the serialization stream has
+been tampered; hence, readObjectNoData is useful for initializing
+deserialized objects properly despite a "hostile" or incomplete source
+stream.
+
+&lt;p&gt;Serialization does not read or assign values to the fields of any object
+that does not implement the java.io.Serializable interface.  Subclasses of
+Objects that are not serializable can be serializable. In this case the
+non-serializable class must have a no-arg constructor to allow its fields to
+be initialized.  In this case it is the responsibility of the subclass to
+save and restore the state of the non-serializable class. It is frequently
+the case that the fields of that class are accessible (public, package, or
+protected) or that there are get and set methods that can be used to restore
+the state.
+
+&lt;p&gt;Any exception that occurs while deserializing an object will be caught by
+the ObjectInputStream and abort the reading process.
+
+&lt;p&gt;Implementing the Externalizable interface allows the object to assume
+complete control over the contents and format of the object's serialized
+form.  The methods of the Externalizable interface, writeExternal and
+readExternal, are called to save and restore the objects state.  When
+implemented by a class they can write and read their own state using all of
+the methods of ObjectOutput and ObjectInput.  It is the responsibility of
+the objects to handle any versioning that occurs.
+
+&lt;p&gt;Enum constants are deserialized differently than ordinary serializable or
+externalizable objects.  The serialized form of an enum constant consists
+solely of its name; field values of the constant are not transmitted.  To
+deserialize an enum constant, ObjectInputStream reads the constant name from
+the stream; the deserialized constant is then obtained by calling the static
+method &lt;code&gt;Enum.valueOf(Class, String)&lt;/code&gt; with the enum constant's
+base type and the received constant name as arguments.  Like other
+serializable or externalizable objects, enum constants can function as the
+targets of back references appearing subsequently in the serialization
+stream.  The process by which enum constants are deserialized cannot be
+customized: any class-specific readObject, readObjectNoData, and readResolve
+methods defined by enum types are ignored during deserialization.
+Similarly, any serialPersistentFields or serialVersionUID field declarations
+are also ignored--all enum types have a fixed serialVersionUID of 0L.
+
+@author	Mike Warres
+@author	Roger Riggs
+@version 1.155, 04/05/28
+@see java.io.DataInput
+@see java.io.ObjectOutputStream
+@see java.io.Serializable
+@see &lt;a href="../../../guide/serialization/spec/input.doc.html"&gt; Object Serialization Specification, Section 3, Object Input Classes&lt;/a&gt;
+@since   JDK1.1
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321578_184137_13518"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::io::ObjectInputStream -&gt; JDK 5.0 Classes::java::io::ObjectInput]" refid="_10_5_622020d_1132928321578_761294_13516"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::io::ObjectInputStream -&gt; JDK 5.0 Classes::java::io::ObjectStreamConstants]" refid="_10_5_622020d_1132928321578_363996_13517"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BlockDataInputStream" refid="_9_5_f720368_1110473547487_636702_17629"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GetField" refid="_9_5_f720368_1110473547034_780372_14004"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GetFieldImpl" refid="_9_5_f720368_1110473547487_673767_17619"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HandleTable" refid="_9_5_f720368_1110473547487_811522_17631"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PeekInputStream" refid="_9_5_f720368_1110473547487_136042_17626"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ValidationList" refid="_9_5_f720368_1110473547487_58282_17621"/></member><name humanName="Name" mode="s,e">ObjectInputStream</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BlockDataInputStream" refid="_9_5_f720368_1110473547487_636702_17629"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GetField" refid="_9_5_f720368_1110473547034_780372_14004"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GetFieldImpl" refid="_9_5_f720368_1110473547487_673767_17619"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HandleTable" refid="_9_5_f720368_1110473547487_811522_17631"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PeekInputStream" refid="_9_5_f720368_1110473547487_136042_17626"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ValidationList" refid="_9_5_f720368_1110473547487_58282_17621"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307348_497084_4636"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321578_184137_13518"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307348_497084_4636"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BlockDataInputStream" refid="_9_5_f720368_1110473547487_636702_17629"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GetField" refid="_9_5_f720368_1110473547034_780372_14004"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GetFieldImpl" refid="_9_5_f720368_1110473547487_673767_17619"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HandleTable" refid="_9_5_f720368_1110473547487_811522_17631"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::io::ObjectInputStream -&gt; JDK 5.0 Classes::java::io::ObjectInput]" refid="_10_5_622020d_1132928321578_761294_13516"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::io::ObjectInputStream -&gt; JDK 5.0 Classes::java::io::ObjectStreamConstants]" refid="_10_5_622020d_1132928321578_363996_13517"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PeekInputStream" refid="_9_5_f720368_1110473547487_136042_17626"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ValidationList" refid="_9_5_f720368_1110473547487_58282_17621"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BlockDataInputStream" refid="_9_5_f720368_1110473547487_636702_17629"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GetField" refid="_9_5_f720368_1110473547034_780372_14004"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GetFieldImpl" refid="_9_5_f720368_1110473547487_673767_17619"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HandleTable" refid="_9_5_f720368_1110473547487_811522_17631"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PeekInputStream" refid="_9_5_f720368_1110473547487_136042_17626"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ValidationList" refid="_9_5_f720368_1110473547487_58282_17621"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::io::ObjectInputStream</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ObjectInput" refid="_9_5_f720368_1110473546596_941710_7435"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ObjectStreamConstants" refid="_9_5_f720368_1110473546596_227278_7447"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="InputStream" refid="_9_5_f720368_1110473546596_677017_7415"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546768_805054_10375"><documentation humanName="Documentation" mode="standard">MinimalHTMLWriter is a fallback writer used by the
+HTMLEditorKit to write out HTML for a document that
+is a not produced by the EditorKit.
+
+The format for the document is:
+&lt;pre&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+&lt;!-- list of named styles
+p.normal {
+font-family: SansSerif;
+margin-height: 0;
+font-size: 14
+}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p style=normal&gt;
+&lt;b&gt;Bold, italic, and underline attributes
+of the run are emitted as HTML tags.
+The remaining attributes are emitted as
+part of the style attribute of a &lt;span&gt; tag.
+The syntax is similar to inline styles.&lt;/b&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;/pre&gt;
+
+@author Sunita Mani
+@version 1.14, 12/19/03
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323832_454166_17853"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">MinimalHTMLWriter</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="html" refid="_9_5_f720368_1110473548284_485817_22832"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317523_629365_11899"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323832_454166_17853"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317523_629365_11899"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="html" refid="_9_5_f720368_1110473548284_485817_22832"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="html" refid="_9_5_f720368_1110473548284_485817_22832"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="html" refid="_9_5_f720368_1110473548284_485817_22832"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::text::html::MinimalHTMLWriter</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractWriter" refid="_9_5_f720368_1110473546784_436800_10419"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

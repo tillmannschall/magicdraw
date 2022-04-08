@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308850_541013_5511"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ByteOrder" refid="_9_5_f720368_1110473546659_839559_8021"/></annotatedElement><body humanName="Body" mode="s,e">A typesafe enumeration for byte orders.
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.13, 03/12/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ByteOrder" refid="_9_5_f720368_1110473546659_839559_8021"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ByteOrder" refid="_9_5_f720368_1110473546659_839559_8021"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

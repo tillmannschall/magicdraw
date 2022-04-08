@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473548081_823323_20818"><documentation humanName="Documentation" mode="standard">A &lt;code&gt;SyncMode&lt;/code&gt; object represents one of the ways in which
+a MIDI sequencer's notion of time can be synchronized with a master
+or slave device.
+If the sequencer is being synchronized to a master, the
+sequencer revises its current time in response to messages from
+the master.  If the sequencer has a slave, the sequencer
+similarly sends messages to control the slave's timing.
+&lt;p&gt;
+There are three predefined modes that specify possible masters
+for a sequencer: &lt;code&gt;INTERNAL_CLOCK&lt;/code&gt;,
+&lt;code&gt;MIDI_SYNC&lt;/code&gt;, and &lt;code&gt;MIDI_TIME_CODE&lt;/code&gt;.  The
+latter two work if the sequencer receives MIDI messages from
+another device.  In these two modes, the sequencer's time gets reset
+based on system real-time timing clock messages or MIDI time code
+(MTC) messages, respectively.  These two modes can also be used
+as slave modes, in which case the sequencer sends the corresponding
+types of MIDI messages to its receiver (whether or not the sequencer
+is also receiving them from a master).  A fourth mode,
+&lt;code&gt;NO_SYNC&lt;/code&gt;, is used to indicate that the sequencer should
+not control its receiver's timing.
+
+@see Sequencer#setMasterSyncMode(Sequencer.SyncMode)
+@see Sequencer#setSlaveSyncMode(Sequencer.SyncMode)
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SyncMode</name><namespace classType="Interface" humanName="Namespace" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Sequencer" refid="_9_5_f720368_1110473546737_906284_9681"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316191_50048_10574"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316191_50048_10574"/></ownedElement><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Sequencer" refid="_9_5_f720368_1110473546737_906284_9681"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sound::midi::Sequencer::SyncMode</qualifiedName><redefinitionContext humanName="Redefinition Context"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Sequencer" refid="_9_5_f720368_1110473546737_906284_9681"/></redefinitionContext><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

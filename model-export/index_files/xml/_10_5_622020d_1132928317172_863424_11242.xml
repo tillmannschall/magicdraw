@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317172_863424_11242"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultMenuLayout" refid="_9_5_f720368_1110473546753_988960_10051"/></annotatedElement><body humanName="Body" mode="s,e">The default layout manager for Popup menus and menubars.  This
+class is an extension of BoxLayout which adds the UIResource tag
+so that plauggable L&amp;Fs can distinguish it from user-installed
+layout managers on menus.
+
+@version 1.8 12/19/03
+@author Georges Saab
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DefaultMenuLayout" refid="_9_5_f720368_1110473546753_988960_10051"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultMenuLayout" refid="_9_5_f720368_1110473546753_988960_10051"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

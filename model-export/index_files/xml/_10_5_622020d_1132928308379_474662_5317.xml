@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308379_474662_5317"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ServerSocket" refid="_9_5_f720368_1110473546643_18560_7801"/></annotatedElement><body humanName="Body" mode="s,e">This class implements server sockets. A server socket waits for
+requests to come in over the network. It performs some operation
+based on that request, and then possibly returns a result to the requester.
+&lt;p&gt;
+The actual work of the server socket is performed by an instance
+of the &lt;code&gt;SocketImpl&lt;/code&gt; class. An application can
+change the socket factory that creates the socket
+implementation to configure itself to create sockets
+appropriate to the local firewall.
+
+@author  unascribed
+@version 1.86, 05/24/04
+@see     java.net.SocketImpl
+@see     java.net.ServerSocket#setSocketFactory(java.net.SocketImplFactory)
+@see     java.nio.channels.ServerSocketChannel
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ServerSocket" refid="_9_5_f720368_1110473546643_18560_7801"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ServerSocket" refid="_9_5_f720368_1110473546643_18560_7801"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

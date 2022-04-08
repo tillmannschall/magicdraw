@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314899_146787_9310"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ModelMBean" refid="_10_5_622020d_1132928314899_871767_9308"/></annotatedElement><body humanName="Body" mode="s,e">This interface must be implemented by the ModelMBeans. An implementation of this interface
+must be shipped with every JMX Agent.
+&lt;P&gt;
+Java resources wishing to be manageable instantiate the ModelMBean using the MBeanServer's
+createMBean method.  The resource then sets the ModelMBeanInfo (with Descriptors) for the ModelMBean
+instance. The attributes and operations exposed via the ModelMBeanInfo for the ModelMBean are accessible
+from MBeans, connectors/adaptors like other MBeans. Through the ModelMBeanInfo Descriptors, values and methods in
+the managed application can be defined and mapped to attributes and operations of the ModelMBean.
+This mapping can be defined during development in an XML formatted file or dynamically and
+programmatically at runtime.
+&lt;P&gt;
+Every ModelMBean which is instantiated in the MBeanServer becomes manageable:
+its attributes and operations
+become remotely accessible through the connectors/adaptors connected to that MBeanServer.
+A Java object cannot be registered in the MBeanServer unless it is a JMX compliant MBean.
+By instantiating a ModelMBean, resources are guaranteed that the MBean is valid.
+&lt;P&gt;
+MBeanException and RuntimeOperationsException must be thrown on every public method.  This allows
+for wrapping exceptions from distributed communications (RMI, EJB, etc.).  These exceptions do
+not have to be thrown by the implementation except in the scenarios described in the specification
+and javadoc.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ModelMBean" refid="_10_5_622020d_1132928314899_871767_9308"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ModelMBean" refid="_10_5_622020d_1132928314899_871767_9308"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

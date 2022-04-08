@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315810_396391_10287"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintJobAttributeSet" refid="_9_5_f720368_1110473546737_497541_9469"/></annotatedElement><body humanName="Body" mode="s,e">Interface PrintJobAttributeSet specifies the interface for a set of print
+job attributes, i.e. printing attributes that implement interface {@link
+PrintJobAttribute PrintJobAttribute}. In the Print Service API, a
+service uses a PrintJobAttributeSet to report the status of a print job.
+&lt;P&gt;
+A PrintJobAttributeSet is just an {@link AttributeSet AttributeSet} whose
+constructors and mutating operations guarantee an additional invariant,
+namely that all attribute values in the PrintJobAttributeSet must be
+instances of interface {@link PrintJobAttribute PrintJobAttribute}.
+The {@link #add(Attribute) &lt;CODE&gt;add(Attribute)&lt;/CODE&gt;}, and
+{@link #addAll(AttributeSet) &lt;CODE&gt;addAll(AttributeSet)&lt;/CODE&gt;} operations
+are respecified below to guarantee this additional invariant.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="PrintJobAttributeSet" refid="_9_5_f720368_1110473546737_497541_9469"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintJobAttributeSet" refid="_9_5_f720368_1110473546737_497541_9469"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

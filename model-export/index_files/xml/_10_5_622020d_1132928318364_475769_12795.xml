@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318364_475769_12795"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="TransformerFactory" refid="_9_5_f720368_1110473546799_812065_10949"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;A TransformerFactory instance can be used to create
+{@link javax.xml.transform.Transformer} and
+{@link javax.xml.transform.Templates} objects.&lt;/p&gt;
+
+&lt;p&gt;The system property that determines which Factory implementation
+to create is named &lt;code&gt;"javax.xml.transform.TransformerFactory"&lt;/code&gt;.
+This property names a concrete subclass of the
+&lt;code&gt;TransformerFactory&lt;/code&gt; abstract class. If the property is not
+defined, a platform default is be used.&lt;/p&gt;
+
+@author &lt;a href="mailto:Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="TransformerFactory" refid="_9_5_f720368_1110473546799_812065_10949"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="TransformerFactory" refid="_9_5_f720368_1110473546799_812065_10949"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

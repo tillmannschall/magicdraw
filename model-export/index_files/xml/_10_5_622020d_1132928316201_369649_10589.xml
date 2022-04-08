@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316201_369649_10589"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Track" refid="_9_5_f720368_1110473546737_255724_9693"/></annotatedElement><body humanName="Body" mode="s,e">A MIDI track is an independent stream of MIDI events (time-stamped MIDI
+data) that can be stored along with other tracks in a standard MIDI file.
+The MIDI specification allows only 16 channels of MIDI data, but tracks
+are a way to get around this limitation.  A MIDI file can contain any number
+of tracks, each containing its own stream of up to 16 channels of MIDI data.
+&lt;p&gt;
+A &lt;code&gt;Track&lt;/code&gt; occupies a middle level in the hierarchy of data played
+by a &lt;code&gt;{@link Sequencer}&lt;/code&gt;: sequencers play sequences, which contain tracks,
+which contain MIDI events.  A sequencer may provide controls that mute
+or solo individual tracks.
+&lt;p&gt;
+The timing information and resolution for a track is controlled by and stored
+in the sequence containing the track. A given &lt;code&gt;Track&lt;/code&gt;
+is considered to belong to the particular &lt;code&gt;{@link Sequence}&lt;/code&gt; that
+maintains its timing. For this reason, a new (empty) track is created by calling the
+&lt;code&gt;{@link Sequence#createTrack}&lt;/code&gt; method, rather than by directly invoking a
+&lt;code&gt;Track&lt;/code&gt; constructor.
+&lt;p&gt;
+The &lt;code&gt;Track&lt;/code&gt; class provides methods to edit the track by adding
+or removing &lt;code&gt;MidiEvent&lt;/code&gt; objects from it.  These operations keep
+the event list in the correct time order.  Methods are also
+included to obtain the track's size, in terms of either the number of events
+it contains or its duration in ticks.
+
+@see Sequencer#setTrackMute
+@see Sequencer#setTrackSolo
+
+@version 1.22, 03/12/19
+@author Kara Kytle
+@author Florian Bomers
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Track" refid="_9_5_f720368_1110473546737_255724_9693"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Track" refid="_9_5_f720368_1110473546737_255724_9693"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

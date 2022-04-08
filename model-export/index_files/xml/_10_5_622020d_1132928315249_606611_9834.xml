@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315249_606611_9834"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectName" refid="_10_5_622020d_1132928315249_145728_9830"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Represents the object name of an MBean, or a pattern that can
+match the names of several MBeans.  Instances of this class are
+immutable.&lt;/p&gt;
+
+&lt;p&gt;An instance of this class can
+be used to represent:
+&lt;ul&gt;
+&lt;li&gt; An object name
+&lt;li&gt; An object name pattern, within the context of a query
+&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;An object name consists of two parts, the domain and the key
+properties.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;domain&lt;/em&gt; is a string of characters not including
+the character colon (&lt;code&gt;:&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;If the domain includes at least one occurrence of the wildcard
+characters asterisk (&lt;code&gt;*&lt;/code&gt;) or question mark
+(&lt;code&gt;?&lt;/code&gt;), then the object name is a pattern.  The asterisk
+matches any sequence of zero or more characters, while the question
+mark matches any single character.&lt;/p&gt;
+
+&lt;p&gt;If the domain is empty, it will be replaced in certain contexts
+by the &lt;em&gt;default domain&lt;/em&gt; of the MBean server in which the
+ObjectName is used.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;key properties&lt;/em&gt; are an unordered set of keys and
+associated values.&lt;/p&gt;
+
+&lt;p&gt;Each &lt;em&gt;key&lt;/em&gt; is a nonempty string of characters which may
+not contain any of the characters comma (&lt;code&gt;,&lt;/code&gt;), equals
+(&lt;code&gt;=&lt;/code&gt;), colon, asterisk, or question mark.  The same key
+may not occur twice in a given ObjectName.&lt;/p&gt;
+
+&lt;p&gt;Each &lt;em&gt;value&lt;/em&gt; associated with a key is a string of
+characters that is either unquoted or quoted.&lt;/p&gt;
+
+&lt;p&gt;An &lt;em&gt;unquoted value&lt;/em&gt; is a possibly empty string of
+characters which may not contain any of the characters comma,
+equals, colon, quote, asterisk, or question mark.&lt;/p&gt;
+
+&lt;p&gt;A &lt;em&gt;quoted value&lt;/em&gt; consists of a quote (&lt;code&gt;"&lt;/code&gt;),
+followed by a possibly empty string of characters, followed by
+another quote.  Within the string of characters, the backslash
+(&lt;code&gt;\&lt;/code&gt;) has a special meaning.  It must be followed by
+one of the following characters:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Another backslash.  The second backslash has no special
+meaning and the two characters represent a single backslash.
+
+&lt;li&gt;The character 'n'.  The two characters represent a newline
+('\n' in Java).
+
+&lt;li&gt;A quote.  The two characters represent a quote, and that quote
+is not considered to terminate the quoted value. An ending closing
+quote must be present for the quoted value to be valid.
+
+&lt;li&gt;A question mark (?) or star (*).  The two characters represent
+a question mark or star respectively.
+&lt;/ul&gt;
+
+&lt;p&gt;A quote, question mark, or star may not appear inside a quoted
+value except immediately after an odd number of consecutive
+backslashes.&lt;/p&gt;
+
+&lt;p&gt;The quotes surrounding a quoted value, and any backslashes
+within that value, are considered to be part of the value.&lt;/p&gt;
+
+&lt;p&gt;An ObjectName may be a &lt;em&gt;property pattern&lt;/em&gt;.  In this case
+it may have zero or more keys and associated values.  It matches a
+nonpattern ObjectName whose domain matches and that contains the
+same keys and associated values, as well as possibly other keys and
+values.&lt;/p&gt;
+
+&lt;p&gt;An ObjectName is a pattern if its domain contains a wildcard or
+if the ObjectName is a property pattern.&lt;/p&gt;
+
+&lt;p&gt;If an ObjectName is not a pattern, it must contain at least one
+key with its associated value.&lt;/p&gt;
+
+&lt;p&gt;An ObjectName can be written as a String with the following
+elements in order:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The domain.
+&lt;li&gt;A colon (&lt;code&gt;:&lt;/code&gt;).
+&lt;li&gt;A key property list as defined below.
+&lt;/ul&gt;
+
+&lt;p&gt;A key property list written as a String is a comma-separated
+list of elements.  Each element is either an asterisk or a key
+property.  A key property consists of a key, an equals
+(&lt;code&gt;=&lt;/code&gt;), and the associated value.&lt;/p&gt;
+
+&lt;p&gt;At most one element of a key property list may be an asterisk.
+If the key property list contains an asterisk element, the
+ObjectName is a property pattern.&lt;/p&gt;
+
+&lt;p&gt;Spaces have no special significance in a String representing an
+ObjectName.  For example, the String:
+&lt;pre&gt;
+domain: key1 = value1 , key2 = value2
+&lt;/pre&gt;
+represents an ObjectName with two keys.  The name of each key
+contains six characters, of which the first and last are spaces.
+The value associated with the key &lt;code&gt;"&amp;nbsp;key1&amp;nbsp;"&lt;/code&gt;
+also begins and ends with a space.&lt;/p&gt;
+
+&lt;p&gt;In addition to the restrictions on characters spelt out above,
+no part of an ObjectName may contain a newline character
+(&lt;code&gt;'\n'&lt;/code&gt;), whether the domain, a key, or a value, whether
+quoted or unquoted.  The newline character can be represented in a
+quoted value with the sequence &lt;code&gt;\n&lt;/code&gt;.
+
+&lt;p&gt;The rules on special characters and quoting apply regardless of
+which constructor is used to make an ObjectName.&lt;/p&gt;
+
+&lt;p&gt;To avoid collisions between MBeans supplied by different
+vendors, a useful convention is to begin the domain name with the
+reverse DNS name of the organization that specifies the MBeans,
+followed by a period and a string whose interpretation is
+determined by that organization.  For example, MBeans specified by
+Sun Microsystems Inc., DNS name &lt;code&gt;sun.com&lt;/code&gt;, would have
+domains such as &lt;code&gt;com.sun.MyDomain&lt;/code&gt;.  This is essentially
+the same convention as for Java-language package names.&lt;/p&gt;
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ObjectName" refid="_10_5_622020d_1132928315249_145728_9830"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectName" refid="_10_5_622020d_1132928315249_145728_9830"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

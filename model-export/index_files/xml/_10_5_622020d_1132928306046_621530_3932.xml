@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306046_621530_3932"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ComponentSampleModel" refid="_9_5_f720368_1110473546565_226234_6767"/></annotatedElement><body humanName="Body" mode="s,e">This class represents image data which is stored such that each sample
+of a pixel occupies one data element of the DataBuffer.  It stores the
+N samples which make up a pixel in N separate data array elements.
+Different bands may be in different banks of the DataBuffer.
+Accessor methods are provided so that image data can be manipulated
+directly. This class can support different kinds of interleaving, e.g.
+band interleaving, scanline interleaving, and pixel interleaving.
+Pixel stride is the number of data array elements between two samples
+for the same band on the same scanline. Scanline stride is the number
+of data array elements between a given sample and the corresponding sample
+in the same column of the next scanline.  Band offsets denote the number
+of data array elements from the first data array element of the bank
+of the DataBuffer holding each band to the first sample of the band.
+The bands are numbered from 0 to N-1.  This class can represent image
+data for which each sample is an unsigned integral number which can be
+stored in 8, 16, or 32 bits (using &lt;code&gt;DataBuffer.TYPE_BYTE&lt;/code&gt;,
+&lt;code&gt;DataBuffer.TYPE_USHORT&lt;/code&gt;, or &lt;code&gt;DataBuffer.TYPE_INT&lt;/code&gt;,
+respectively), data for which each sample is a signed integral number
+which can be stored in 16 bits (using &lt;code&gt;DataBuffer.TYPE_SHORT&lt;/code&gt;),
+or data for which each sample is a signed float or double quantity
+(using &lt;code&gt;DataBuffer.TYPE_FLOAT&lt;/code&gt; or
+&lt;code&gt;DataBuffer.TYPE_DOUBLE&lt;/code&gt;, respectively).
+All samples of a given ComponentSampleModel
+are stored with the same precision.  All strides and offsets must be
+non-negative.  This class supports
+{@link DataBuffer#TYPE_BYTE TYPE_BYTE},
+{@link DataBuffer#TYPE_USHORT TYPE_USHORT},
+{@link DataBuffer#TYPE_SHORT TYPE_SHORT},
+{@link DataBuffer#TYPE_INT TYPE_INT},
+{@link DataBuffer#TYPE_FLOAT TYPE_FLOAT},
+{@link DataBuffer#TYPE_DOUBLE TYPE_DOUBLE},
+@see java.awt.image.PixelInterleavedSampleModel
+@see java.awt.image.BandedSampleModel
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ComponentSampleModel" refid="_9_5_f720368_1110473546565_226234_6767"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ComponentSampleModel" refid="_9_5_f720368_1110473546565_226234_6767"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

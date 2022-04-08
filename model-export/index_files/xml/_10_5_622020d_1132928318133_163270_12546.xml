@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318133_163270_12546"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JTextPane" refid="_9_5_f720368_1110473546799_839545_10783"/></annotatedElement><body humanName="Body" mode="s,e">A text component that can be marked up with attributes that are
+represented graphically.
+You can find how-to information and examples of using text panes in
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/text.html"&gt;Using Text Components&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+
+&lt;p&gt;
+This component models paragraphs
+that are composed of runs of character level attributes.  Each
+paragraph may have a logical style attached to it which contains
+the default attributes to use if not overridden by attributes set
+on the paragraph or character run.  Components and images may
+be embedded in the flow of text.
+&lt;p&gt;
+&lt;dt&gt;&lt;b&gt;&lt;font size=+1&gt;Newlines&lt;/font&gt;&lt;/b&gt;
+&lt;dd&gt;
+For a discussion on how newlines are handled, see
+&lt;a href="text/DefaultEditorKit.html"&gt;DefaultEditorKit&lt;/a&gt;.
+&lt;/dl&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@beaninfo
+attribute: isContainer true
+description: A text component that can be marked up with attributes that are graphically represented.
+
+@author  Timothy Prinzing
+@version 1.90 12/19/03
+@see javax.swing.text.StyledEditorKit
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JTextPane" refid="_9_5_f720368_1110473546799_839545_10783"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JTextPane" refid="_9_5_f720368_1110473546799_839545_10783"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

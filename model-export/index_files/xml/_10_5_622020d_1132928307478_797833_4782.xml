@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928307478_797833_4782"><documentation humanName="Documentation" mode="standard">This class provides services needed to instrument Java
+programming language code.
+Instrumentation is the addition of byte-codes to methods for the
+purpose of gathering data to be utilized by tools.
+Since the changes are purely additive, these tools do not modify
+application state or behavior.
+Examples of such benign tools include monitoring agents, profilers,
+coverage analyzers, and event loggers.
+
+&lt;P&gt;
+The only way to access an instance of the &lt;code&gt;Instrumentation&lt;/code&gt;
+interface is for the JVM to be launched in a way that indicates
+the agent class - see
+{@linkplain java.lang.instrument the package specification}.
+The &lt;code&gt;Instrumentation&lt;/code&gt; instance is passed
+to the &lt;code&gt;premain&lt;/code&gt; method of the agent class.
+Once an agent acquires the &lt;code&gt;Instrumentation&lt;/code&gt; instance,
+the agent may call methods on the instance at any time.
+
+@since   JDK1.5
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Instrumentation</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="instrument" refid="_10_5_622020d_1132928307468_552752_4772"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307518_349298_4784"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307518_349298_4784"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="instrument" refid="_10_5_622020d_1132928307468_552752_4772"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="instrument" refid="_10_5_622020d_1132928307468_552752_4772"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="instrument" refid="_10_5_622020d_1132928307468_552752_4772"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::instrument::Instrumentation</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

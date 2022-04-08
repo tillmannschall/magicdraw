@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546690_872686_8547"><documentation humanName="Documentation" mode="standard">The mapping in the Java programming language for the SQL type
+&lt;code&gt;ARRAY&lt;/code&gt;.
+By default, an &lt;code&gt;Array&lt;/code&gt; value is a transaction-duration
+reference to an SQL &lt;code&gt;ARRAY&lt;/code&gt; value.  By default, an &lt;code&gt;Array&lt;/code&gt;
+object is implemented using an SQL LOCATOR(array) internally, which
+means that an &lt;code&gt;Array&lt;/code&gt; object contains a logical pointer
+to the data in the SQL &lt;code&gt;ARRAY&lt;/code&gt; value rather
+than containing the &lt;code&gt;ARRAY&lt;/code&gt; value's data.
+&lt;p&gt;
+The &lt;code&gt;Array&lt;/code&gt; interface provides methods for bringing an SQL
+&lt;code&gt;ARRAY&lt;/code&gt; value's data to the client as either an array or a
+&lt;code&gt;ResultSet&lt;/code&gt; object.
+If the elements of the SQL &lt;code&gt;ARRAY&lt;/code&gt;
+are a UDT, they may be custom mapped.  To create a custom mapping,
+a programmer must do two things:
+&lt;ul&gt;
+&lt;li&gt;create a class that implements the {@link SQLData}
+interface for the UDT to be custom mapped.
+&lt;li&gt;make an entry in a type map that contains
+&lt;ul&gt;
+&lt;li&gt;the fully-qualified SQL type name of the UDT
+&lt;li&gt;the &lt;code&gt;Class&lt;/code&gt; object for the class implementing
+&lt;code&gt;SQLData&lt;/code&gt;
+&lt;/ul&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+When a type map with an entry for
+the base type is supplied to the methods &lt;code&gt;getArray&lt;/code&gt;
+and &lt;code&gt;getResultSet&lt;/code&gt;, the mapping
+it contains will be used to map the elements of the &lt;code&gt;ARRAY&lt;/code&gt; value.
+If no type map is supplied, which would typically be the case,
+the connection's type map is used by default.
+If the connection's type map or a type map supplied to a method has no entry
+for the base type, the elements are mapped according to the standard mapping.
+&lt;p&gt;
+@since 1.2
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Array</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309471_361276_6149"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309471_361276_6149"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::sql::Array</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::sql::rowset::serial::SerialArray -&gt; JDK 5.0 Classes::java::sql::Array]" refid="_10_5_622020d_1132928323361_494809_16616"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

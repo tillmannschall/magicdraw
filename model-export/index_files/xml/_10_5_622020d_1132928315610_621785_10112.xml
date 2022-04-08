@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315610_621785_10112"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Copies" refid="_9_5_f720368_1110473546721_617225_9309"/></annotatedElement><body humanName="Body" mode="s,e">Class Copies is an integer valued printing attribute class that specifies the
+number of copies to be printed.
+&lt;P&gt;
+On many devices the supported number of collated copies will be limited by
+the number of physical output bins on the device, and may be different from
+the number of uncollated copies which can be supported.
+&lt;P&gt;
+The effect of a Copies attribute with a value of &lt;I&gt;n&lt;/I&gt; on a multidoc print
+job (a job with multiple documents) depends on the (perhaps defaulted) value
+of the {@link MultipleDocumentHandling MultipleDocumentHandling} attribute:
+&lt;UL&gt;
+&lt;LI&gt;
+SINGLE_DOCUMENT -- The result will be &lt;I&gt;n&lt;/I&gt; copies of a single output
+document comprising all the input docs.
+&lt;P&gt;
+&lt;LI&gt;
+SINGLE_DOCUMENT_NEW_SHEET -- The result will be &lt;I&gt;n&lt;/I&gt; copies of a single
+output document comprising all the input docs, and the first impression of
+each input doc will always start on a new media sheet.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_UNCOLLATED_COPIES -- The result will be &lt;I&gt;n&lt;/I&gt; copies of
+the first input document, followed by &lt;I&gt;n&lt;/I&gt; copies of the second input
+document, . . . followed by &lt;I&gt;n&lt;/I&gt; copies of the last input document.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_COLLATED_COPIES -- The result will be the first input
+document, the second input document, . . . the last input document, the group
+of documents being repeated &lt;I&gt;n&lt;/I&gt; times.
+&lt;/UL&gt;
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The integer value gives the IPP integer value. The
+category name returned by &lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute
+name.
+&lt;P&gt;
+
+@author  David Mendenhall
+@author  Alan Kamihensky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Copies" refid="_9_5_f720368_1110473546721_617225_9309"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Copies" refid="_9_5_f720368_1110473546721_617225_9309"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

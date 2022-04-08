@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308600_931835_5388"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Channel" refid="_9_5_f720368_1110473546643_379446_7877"/></annotatedElement><body humanName="Body" mode="s,e">A nexus for I/O operations.
+
+&lt;p&gt; A channel represents an open connection to an entity such as a hardware
+device, a file, a network socket, or a program component that is capable of
+performing one or more distinct I/O operations, for example reading or
+writing.
+
+&lt;p&gt; A channel is either open or closed.  A channel is open upon creation,
+and once closed it remains closed.  Once a channel is closed, any attempt to
+invoke an I/O operation upon it will cause a {@link ClosedChannelException}
+to be thrown.  Whether or not a channel is open may be tested by invoking
+its {@link #isOpen isOpen} method.
+
+&lt;p&gt; Channels are, in general, intended to be safe for multithreaded access
+as described in the specifications of the interfaces and classes that extend
+and implement this interface.
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.18, 03/12/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Channel" refid="_9_5_f720368_1110473546643_379446_7877"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Channel" refid="_9_5_f720368_1110473546643_379446_7877"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

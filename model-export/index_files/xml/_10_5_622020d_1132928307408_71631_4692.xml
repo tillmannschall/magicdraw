@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307408_71631_4692"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerializablePermission" refid="_9_5_f720368_1110473546612_89850_7483"/></annotatedElement><body humanName="Body" mode="s,e">This class is for Serializable permissions. A SerializablePermission
+contains a name (also referred to as a "target name") but
+no actions list; you either have the named permission
+or you don't.
+
+&lt;P&gt;
+The target name is the name of the Serializable permission (see below).
+
+&lt;P&gt;
+The following table lists all the possible SerializablePermission target names,
+and for each provides a description of what the permission allows
+and a discussion of the risks of granting code the permission.
+&lt;P&gt;
+
+&lt;table border=1 cellpadding=5 summary="Permission target name, what the permission allows, and associated risks"&gt;
+&lt;tr&gt;
+&lt;th&gt;Permission Target Name&lt;/th&gt;
+&lt;th&gt;What the Permission Allows&lt;/th&gt;
+&lt;th&gt;Risks of Allowing this Permission&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;enableSubclassImplementation&lt;/td&gt;
+&lt;td&gt;Subclass implementation of ObjectOutputStream or ObjectInputStream
+to override the default serialization or deserialization, respectively,
+of objects&lt;/td&gt;
+&lt;td&gt;Code can use this to serialize or
+deserialize classes in a purposefully malfeasant manner. For example,
+during serialization, malicious code can use this to
+purposefully store confidential private field data in a way easily accessible
+to attackers. Or, during deserialization it could, for example, deserialize
+a class with all its private fields zeroed out.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;enableSubstitution&lt;/td&gt;
+&lt;td&gt;Substitution of one object for another during
+serialization or deserialization&lt;/td&gt;
+&lt;td&gt;This is dangerous because malicious code
+can replace the actual object with one which has incorrect or
+malignant data.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+
+@see java.security.BasicPermission
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionCollection
+@see java.lang.SecurityManager
+
+@version 1.19, 01/12/04
+
+@author Joe Fialli
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SerializablePermission" refid="_9_5_f720368_1110473546612_89850_7483"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerializablePermission" refid="_9_5_f720368_1110473546612_89850_7483"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314969_795388_9420"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="OpenMBeanOperationInfo" refid="_10_5_622020d_1132928314969_810753_9418"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Describes an operation of an Open MBean.&lt;/p&gt;
+
+&lt;p&gt;This interface declares the same methods as the class {@link
+javax.management.MBeanOperationInfo}.  A class implementing this
+interface (typically {@link OpenMBeanOperationInfoSupport}) should
+extend {@link javax.management.MBeanOperationInfo}.&lt;/p&gt;
+
+&lt;p&gt;The {@link #getSignature()} method should return at runtime an
+array of instances of a subclass of {@link MBeanParameterInfo}
+which implements the {@link OpenMBeanParameterInfo} interface
+(typically {@link OpenMBeanParameterInfoSupport}).&lt;/p&gt;
+
+@version     3.20  03/12/19
+@author      Sun Microsystems, Inc.
+
+@since 1.5
+@since.unbundled JMX 1.1
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="OpenMBeanOperationInfo" refid="_10_5_622020d_1132928314969_810753_9418"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="OpenMBeanOperationInfo" refid="_10_5_622020d_1132928314969_810753_9418"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

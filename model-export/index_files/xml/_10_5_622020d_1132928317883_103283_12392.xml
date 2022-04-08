@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317883_103283_12392"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JColorChooser" refid="_9_5_f720368_1110473546784_63829_10711"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;JColorChooser&lt;/code&gt; provides a pane of controls designed to allow
+a user to manipulate and select a color.
+For information about using color choosers, see
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/colorchooser.html"&gt;How to Use Color Choosers&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+
+&lt;p&gt;
+
+This class provides three levels of API:
+&lt;ol&gt;
+&lt;li&gt;A static convenience method which shows a modal color-chooser
+dialog and returns the color selected by the user.
+&lt;li&gt;A static convenience method for creating a color-chooser dialog
+where &lt;code&gt;ActionListeners&lt;/code&gt; can be specified to be invoked when
+the user presses one of the dialog buttons.
+&lt;li&gt;The ability to create instances of &lt;code&gt;JColorChooser&lt;/code&gt; panes
+directly (within any container). &lt;code&gt;PropertyChange&lt;/code&gt; listeners
+can be added to detect when the current "color" property changes.
+&lt;/ol&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+
+@beaninfo
+attribute: isContainer false
+description: A component that supports selecting a Color.
+
+
+@version 1.47 12/19/03
+@author James Gosling
+@author Amy Fowler
+@author Steve Wilson
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JColorChooser" refid="_9_5_f720368_1110473546784_63829_10711"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JColorChooser" refid="_9_5_f720368_1110473546784_63829_10711"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

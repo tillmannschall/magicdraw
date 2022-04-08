@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316050_660929_10459"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CredentialExpiredException" refid="_9_5_f720368_1110473546737_280512_9611"/></annotatedElement><body humanName="Body" mode="s,e">Signals that a &lt;code&gt;Credential&lt;/code&gt; has expired.
+
+&lt;p&gt; This exception is thrown by LoginModules when they determine
+that a &lt;code&gt;Credential&lt;/code&gt; has expired.
+For example, a &lt;code&gt;LoginModule&lt;/code&gt; authenticating a user
+in its &lt;code&gt;login&lt;/code&gt; method may determine that the user's
+password, although entered correctly, has expired.  In this case
+the &lt;code&gt;LoginModule&lt;/code&gt; throws this exception to notify
+the application.  The application can then take the appropriate
+steps to assist the user in updating the password.
+
+@version 1.17, 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CredentialExpiredException" refid="_9_5_f720368_1110473546737_280512_9611"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CredentialExpiredException" refid="_9_5_f720368_1110473546737_280512_9611"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

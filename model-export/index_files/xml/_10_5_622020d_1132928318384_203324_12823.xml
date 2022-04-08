@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318384_203324_12823"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ValidatorHandler" refid="_10_5_622020d_1132928318384_629324_12821"/></annotatedElement><body humanName="Body" mode="s,e">Streaming validator that works on SAX stream.
+
+&lt;p&gt;
+A {@link ValidatorHandler} object is a thread-unsafe, non-reentrant object.
+In other words, it is the application's responsibility to make
+sure that one {@link ValidatorHandler} object is not used from
+more than one thread at any given time.
+
+&lt;p&gt;
+{@link ValidatorHandler} checks if the SAX events follow
+the set of constraints described in the associated {@link Schema},
+and additionally it may modify the SAX events (for example
+by adding default values, etc.)
+
+&lt;p&gt;
+{@link ValidatorHandler} extends from {@link ContentHandler},
+but it refines the underlying {@link ContentHandler} in
+the following way:
+&lt;ol&gt;
+&lt;li&gt;startElement/endElement events must receive non-null String
+for &lt;code&gt;uri&lt;/code&gt;, &lt;code&gt;localName&lt;/code&gt;, and &lt;code&gt;qname&lt;/code&gt;,
+even though SAX allows some of them to be null.
+Similarly, the user-specified {@link ContentHandler} will receive non-null
+Strings for all three parameters.
+
+&lt;li&gt;Applications must ensure that {@link ValidatorHandler}'s
+{@link ContentHandler#startPrefixMapping(String,String)} and
+{@link ContentHandler#endPrefixMapping(String)} are invoked
+properly. Similarly, the user-specified {@link ContentHandler}
+will receive startPrefixMapping/endPrefixMapping events.
+If the {@link ValidatorHandler} introduces additional namespace
+bindings, the user-specified {@link ContentHandler} will receive
+additional startPrefixMapping/endPrefixMapping events.
+
+&lt;li&gt;{@link org.xml.sax.Attributes} for the
+{@link ContentHandler#startElement(String,String,String,Attributes)} method
+may or may not include xmlns* attributes.
+&lt;/ol&gt;
+
+&lt;p&gt;
+A {@link ValidatorHandler} is automatically reset every time
+the startDocument method is invoked.
+
+&lt;h2&gt;Recognized Properties and Features&lt;/h2&gt;
+&lt;p&gt;
+This spec defines the following feature that must be recognized
+by all {@link ValidatorHandler} implementations.
+
+&lt;h3&gt;&lt;code&gt;http://xml.org/sax/features/namespace-prefixes&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;
+This feature controls how a {@link ValidatorHandler} introduces
+namespace bindings that were not present in the original SAX event
+stream.
+When this feature is set to true, it must make
+sure that the user's {@link ContentHandler} will see
+the corresponding &lt;code&gt;xmlns*&lt;/code&gt; attribute in
+the {@link org.xml.sax.Attributes} object of the
+{@link ContentHandler#startElement(String,String,String,Attributes)}
+callback. Otherwise, &lt;code&gt;xmlns*&lt;/code&gt; attributes must not be
+added to {@link org.xml.sax.Attributes} that's passed to the
+user-specified {@link ContentHandler}.
+&lt;p&gt;
+(Note that regardless of this switch, namespace bindings are
+always notified to applications through
+{@link ContentHandler#startPrefixMapping(String,String)} and
+{@link ContentHandler#endPrefixMapping(String)} methods of the
+{@link ContentHandler} specified by the user.)
+
+&lt;p&gt;
+Note that this feature does &lt;em&gt;NOT&lt;/em&gt; affect the way
+a {@link ValidatorHandler} receives SAX events. It merely
+changes the way it augments SAX events.
+
+&lt;p&gt;This feature is set to &lt;code&gt;false&lt;/code&gt; by default.&lt;/p&gt;
+
+@author  &lt;a href="mailto:Kohsuke.Kawaguchi@Sun.com"&gt;Kohsuke Kawaguchi&lt;/a&gt;
+@version $Revision: 1.23.16.1 $, $Date: 2004/06/28 18:26:43 $
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ValidatorHandler" refid="_10_5_622020d_1132928318384_629324_12821"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ValidatorHandler" refid="_10_5_622020d_1132928318384_629324_12821"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

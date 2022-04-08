@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316040_814207_10452"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AppConfigurationEntry" refid="_9_5_f720368_1110473546737_586438_9607"/></annotatedElement><body humanName="Body" mode="s,e">This class represents a single &lt;code&gt;LoginModule&lt;/code&gt; entry
+configured for the application specified in the
+&lt;code&gt;getAppConfigurationEntry(String appName)&lt;/code&gt;
+method in the &lt;code&gt;Configuration&lt;/code&gt; class.  Each respective
+&lt;code&gt;AppConfigurationEntry&lt;/code&gt; contains a &lt;code&gt;LoginModule&lt;/code&gt; name,
+a control flag (specifying whether this &lt;code&gt;LoginModule&lt;/code&gt; is
+REQUIRED, REQUISITE, SUFFICIENT, or OPTIONAL), and LoginModule-specific
+options.  Please refer to the &lt;code&gt;Configuration&lt;/code&gt; class for
+more information on the different control flags and their semantics.
+
+@version 1.34, 05/05/04
+@see javax.security.auth.login.Configuration
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AppConfigurationEntry" refid="_9_5_f720368_1110473546737_586438_9607"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AppConfigurationEntry" refid="_9_5_f720368_1110473546737_586438_9607"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

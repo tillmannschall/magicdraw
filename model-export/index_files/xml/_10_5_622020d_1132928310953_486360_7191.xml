@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310953_486360_7191"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Enumeration" refid="_9_5_f720368_1110473546706_70178_8859"/></annotatedElement><body humanName="Body" mode="s,e">An object that implements the Enumeration interface generates a
+series of elements, one at a time. Successive calls to the
+&lt;code&gt;nextElement&lt;/code&gt; method return successive elements of the
+series.
+&lt;p&gt;
+For example, to print all elements of a vector &lt;i&gt;v&lt;/i&gt;:
+&lt;blockquote&gt;&lt;pre&gt;
+for (Enumeration e = v.elements() ; e.hasMoreElements() ;) {
+System.out.println(e.nextElement());&lt;br&gt;
+}
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+Methods are provided to enumerate through the elements of a
+vector, the keys of a hashtable, and the values in a hashtable.
+Enumerations are also used to specify the input streams to a
+&lt;code&gt;SequenceInputStream&lt;/code&gt;.
+&lt;p&gt;
+NOTE: The functionality of this interface is duplicated by the Iterator
+interface.  In addition, Iterator adds an optional remove operation, and
+has shorter method names.  New implementations should consider using
+Iterator in preference to Enumeration.
+
+@see     java.util.Iterator
+@see     java.io.SequenceInputStream
+@see     java.util.Enumeration#nextElement()
+@see     java.util.Hashtable
+@see     java.util.Hashtable#elements()
+@see     java.util.Hashtable#keys()
+@see     java.util.Vector
+@see     java.util.Vector#elements()
+
+@author  Lee Boynton
+@version 1.22, 12/19/03
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Enumeration" refid="_9_5_f720368_1110473546706_70178_8859"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Enumeration" refid="_9_5_f720368_1110473546706_70178_8859"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

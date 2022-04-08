@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307068_61160_4577"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FilenameFilter" refid="_9_5_f720368_1110473546596_466017_7391"/></annotatedElement><body humanName="Body" mode="s,e">Instances of classes that implement this interface are used to
+filter filenames. These instances are used to filter directory
+listings in the &lt;code&gt;list&lt;/code&gt; method of class
+&lt;code&gt;File&lt;/code&gt;, and by the Abstract Window Toolkit's file
+dialog component.
+
+@author  Arthur van Hoff
+@author  Jonathan Payne
+@version 1.23, 12/19/03
+@see     java.awt.FileDialog#setFilenameFilter(java.io.FilenameFilter)
+@see     java.io.File
+@see     java.io.File#list(java.io.FilenameFilter)
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="FilenameFilter" refid="_9_5_f720368_1110473546596_466017_7391"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FilenameFilter" refid="_9_5_f720368_1110473546596_466017_7391"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

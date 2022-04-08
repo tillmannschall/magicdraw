@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309171_979787_5849"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="X509Certificate" refid="_9_5_f720368_1110473546674_401751_8345"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;
+Abstract class for X.509 certificates. This provides a standard
+way to access all the attributes of an X.509 certificate.
+&lt;p&gt;
+In June of 1996, the basic X.509 v3 format was completed by
+ISO/IEC and ANSI X9, which is described below in ASN.1:
+&lt;pre&gt;
+Certificate  ::=  SEQUENCE  {
+tbsCertificate       TBSCertificate,
+signatureAlgorithm   AlgorithmIdentifier,
+signature            BIT STRING  }
+&lt;/pre&gt;
+&lt;p&gt;
+These certificates are widely used to support authentication and
+other functionality in Internet security systems. Common applications
+include Privacy Enhanced Mail (PEM), Transport Layer Security (SSL),
+code signing for trusted software distribution, and Secure Electronic
+Transactions (SET).
+&lt;p&gt;
+These certificates are managed and vouched for by &lt;em&gt;Certificate
+Authorities&lt;/em&gt; (CAs). CAs are services which create certificates by
+placing data in the X.509 standard format and then digitally signing
+that data. CAs act as trusted third parties, making introductions
+between principals who have no direct knowledge of each other.
+CA certificates are either signed by themselves, or by some other
+CA such as a "root" CA.
+&lt;p&gt;
+More information can be found in RFC 2459,
+"Internet X.509 Public Key Infrastructure Certificate and CRL
+Profile" at &lt;A HREF="http://www.ietf.org/rfc/rfc2459.txt"&gt;
+http://www.ietf.org/rfc/rfc2459.txt &lt;/A&gt;.
+&lt;p&gt;
+The ASN.1 definition of &lt;code&gt;tbsCertificate&lt;/code&gt; is:
+&lt;pre&gt;
+TBSCertificate  ::=  SEQUENCE  {
+version         [0]  EXPLICIT Version DEFAULT v1,
+serialNumber         CertificateSerialNumber,
+signature            AlgorithmIdentifier,
+issuer               Name,
+validity             Validity,
+subject              Name,
+subjectPublicKeyInfo SubjectPublicKeyInfo,
+issuerUniqueID  [1]  IMPLICIT UniqueIdentifier OPTIONAL,
+-- If present, version must be v2 or v3
+subjectUniqueID [2]  IMPLICIT UniqueIdentifier OPTIONAL,
+-- If present, version must be v2 or v3
+extensions      [3]  EXPLICIT Extensions OPTIONAL
+-- If present, version must be v3
+}
+&lt;/pre&gt;
+&lt;p&gt;
+Certificates are instantiated using a certificate factory. The following is
+an example of how to instantiate an X.509 certificate:
+&lt;pre&gt;
+InputStream inStream = new FileInputStream("fileName-of-cert");
+CertificateFactory cf = CertificateFactory.getInstance("X.509");
+X509Certificate cert = (X509Certificate)cf.generateCertificate(inStream);
+inStream.close();
+&lt;/pre&gt;
+
+@author Hemma Prafullchandra
+
+@version 1.39
+
+@see Certificate
+@see CertificateFactory
+@see X509Extension
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="X509Certificate" refid="_9_5_f720368_1110473546674_401751_8345"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="X509Certificate" refid="_9_5_f720368_1110473546674_401751_8345"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

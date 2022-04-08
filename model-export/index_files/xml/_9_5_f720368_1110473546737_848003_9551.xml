@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546737_848003_9551"><documentation humanName="Documentation" mode="standard">Supports delegation for method implementations in {@link javax.rmi.PortableRemoteObject}.
+The delegate is a singleton instance of a class that implements this
+interface and provides a replacement implementation for all the
+methods of &lt;code&gt;javax.rmi.PortableRemoteObject&lt;/code&gt;.
+
+Delegates are enabled by providing the delegate's class name as the
+value of the
+&lt;code&gt;javax.rmi.CORBA.PortableRemoteObjectClass&lt;/code&gt;
+system property.
+
+@see javax.rmi.PortableRemoteObject
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">PortableRemoteObjectDelegate</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="CORBA" refid="_9_5_f720368_1110473548065_821173_20665"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315990_772185_10379"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315990_772185_10379"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="CORBA" refid="_9_5_f720368_1110473548065_821173_20665"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="CORBA" refid="_9_5_f720368_1110473548065_821173_20665"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="CORBA" refid="_9_5_f720368_1110473548065_821173_20665"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::rmi::CORBA::PortableRemoteObjectDelegate</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307949_984372_5027"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Error" refid="_9_5_f720368_1110473546612_180337_7597"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;Error&lt;/code&gt; is a subclass of &lt;code&gt;Throwable&lt;/code&gt;
+that indicates serious problems that a reasonable application
+should not try to catch. Most such errors are abnormal conditions.
+The &lt;code&gt;ThreadDeath&lt;/code&gt; error, though a "normal" condition,
+is also a subclass of &lt;code&gt;Error&lt;/code&gt; because most applications
+should not try to catch it.
+&lt;p&gt;
+A method is not required to declare in its &lt;code&gt;throws&lt;/code&gt;
+clause any subclasses of &lt;code&gt;Error&lt;/code&gt; that might be thrown
+during the execution of the method but not caught, since these
+errors are abnormal conditions that should never occur.
+
+@author  Frank Yellin
+@version 1.16, 12/19/03
+@see     java.lang.ThreadDeath
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Error" refid="_9_5_f720368_1110473546612_180337_7597"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Error" refid="_9_5_f720368_1110473546612_180337_7597"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

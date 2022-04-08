@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309311_967535_6001"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GuardedObject" refid="_9_5_f720368_1110473546674_454301_8449"/></annotatedElement><body humanName="Body" mode="s,e">A GuardedObject is an object that is used to protect access to
+another object.
+
+&lt;p&gt;A GuardedObject encapsulates a target object and a Guard object,
+such that access to the target object is possible
+only if the Guard object allows it.
+Once an object is encapsulated by a GuardedObject,
+access to that object is controlled by the &lt;code&gt;getObject&lt;/code&gt;
+method, which invokes the
+&lt;code&gt;checkGuard&lt;/code&gt; method on the Guard object that is
+guarding access. If access is not allowed,
+an exception is thrown.
+
+@see Guard
+@see Permission
+
+@version 1.15 03/12/19
+@author Roland Schemers
+@author Li Gong
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="GuardedObject" refid="_9_5_f720368_1110473546674_454301_8449"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GuardedObject" refid="_9_5_f720368_1110473546674_454301_8449"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

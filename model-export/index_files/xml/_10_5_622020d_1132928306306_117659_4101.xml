@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306306_117659_4101"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AWTEvent" refid="_9_5_f720368_1110473546581_660844_6931"/></annotatedElement><body humanName="Body" mode="s,e">The root event class for all AWT events.
+This class and its subclasses supercede the original
+java.awt.Event class.
+Subclasses of this root AWTEvent class defined outside of the
+java.awt.event package should define event ID values greater than
+the value defined by RESERVED_ID_MAX.
+&lt;p&gt;
+The event masks defined in this class are needed by Component subclasses
+which are using Component.enableEvents() to select for event types not
+selected by registered listeners. If a listener is registered on a
+component, the appropriate event mask is already set internally by the
+component.
+&lt;p&gt;
+The masks are also used to specify to which types of events an
+AWTEventListener should listen. The masks are bitwise-ORed together
+and passed to Toolkit.addAWTEventListener.
+
+@see Component#enableEvents
+@see Toolkit#addAWTEventListener
+
+@see java.awt.event.ActionEvent
+@see java.awt.event.AdjustmentEvent
+@see java.awt.event.ComponentEvent
+@see java.awt.event.ContainerEvent
+@see java.awt.event.FocusEvent
+@see java.awt.event.InputMethodEvent
+@see java.awt.event.InvocationEvent
+@see java.awt.event.ItemEvent
+@see java.awt.event.HierarchyEvent
+@see java.awt.event.KeyEvent
+@see java.awt.event.MouseEvent
+@see java.awt.event.MouseWheelEvent
+@see java.awt.event.PaintEvent
+@see java.awt.event.TextEvent
+@see java.awt.event.WindowEvent
+
+@author Carl Quinn
+@author Amy Fowler
+@version 1.55 06/02/04
+@since 1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AWTEvent" refid="_9_5_f720368_1110473546581_660844_6931"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AWTEvent" refid="_9_5_f720368_1110473546581_660844_6931"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473547518_440238_17855"><UMLClass classType="Class" humanName="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ClassLoader" refid="_9_5_f720368_1110473546612_433369_7581"/><documentation humanName="Documentation" mode="standard">The inner class NativeLibrary denotes a loaded native library instance.
+Every classloader contains a vector of loaded native libraries in the
+private field &lt;tt&gt;nativeLibraries&lt;/tt&gt;.  The native libraries loaded
+into the system are entered into the &lt;tt&gt;systemNativeLibraries&lt;/tt&gt;
+vector.
+
+&lt;p&gt; Every native library requires a particular version of JNI. This is
+denoted by the private &lt;tt&gt;jniVersion&lt;/tt&gt; field.  This field is set by
+the VM when it loads the library, and used by the VM to pass the correct
+version of JNI to the native methods.  &lt;/p&gt;
+
+@version  1.186 08/02/04
+@see      ClassLoader
+@since    1.2
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">NativeLibrary</name><namespace classType="Class" humanName="Namespace" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ClassLoader" refid="_9_5_f720368_1110473546612_433369_7581"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307929_594600_4986"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307929_594600_4986"/></ownedElement><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ClassLoader" refid="_9_5_f720368_1110473546612_433369_7581"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::ClassLoader::NativeLibrary</qualifiedName><redefinitionContext humanName="Redefinition Context"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ClassLoader" refid="_9_5_f720368_1110473546612_433369_7581"/></redefinitionContext><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

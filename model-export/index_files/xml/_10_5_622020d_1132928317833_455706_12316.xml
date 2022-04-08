@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317833_455706_12316"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CellEditor" refid="_9_5_f720368_1110473546784_515358_10641"/></annotatedElement><body humanName="Body" mode="s,e">This interface defines the methods any general editor should be able
+to implement. &lt;p&gt;
+
+Having this interface enables complex components (the client of the
+editor) such as &lt;code&gt;JList&lt;/code&gt;, &lt;code&gt;JTree&lt;/code&gt;, and
+&lt;code&gt;JTable&lt;/code&gt; to allow any generic editor to
+edit values in a table cell, or tree cell, etc.  Without this generic
+editor interface, &lt;code&gt;JTable&lt;/code&gt; would have to know about specific editors,
+such as &lt;code&gt;JTextField&lt;/code&gt;, &lt;code&gt;JCheckBox&lt;/code&gt;, &lt;code&gt;JComboBox&lt;/code&gt;,
+etc.  In addition, without this interface, clients of editors such as
+&lt;code&gt;JTable&lt;/code&gt; would not be able
+to work with any editors developed in the future by the user
+or a 3rd party ISV. &lt;p&gt;
+
+To use this interface, a developer creating a new editor can have the
+new component implement the interface.  Or the developer can
+choose a wrapper based approach and provide a companion object which
+implements the &lt;code&gt;CellEditor&lt;/code&gt; interface (See
+&lt;code&gt;JCellEditor&lt;/code&gt; for example).  The wrapper approach
+is particularly useful if the user want to use a 3rd party ISV
+editor with &lt;code&gt;JTable&lt;/code&gt;, but the ISV didn't implement the
+&lt;code&gt;CellEditor&lt;/code&gt; interface.  The user can simply create an object
+that contains an instance of the 3rd party editor object and "translate"
+the &lt;code&gt;CellEditor&lt;/code&gt; API into the 3rd party editor's API.
+
+@see javax.swing.event.CellEditorListener
+
+@version 1.24 12/19/03
+@author Alan Chung
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CellEditor" refid="_9_5_f720368_1110473546784_515358_10641"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CellEditor" refid="_9_5_f720368_1110473546784_515358_10641"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

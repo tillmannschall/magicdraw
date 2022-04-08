@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317903_243027_12410"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JDesktopPane" refid="_9_5_f720368_1110473546784_582024_10721"/></annotatedElement><body humanName="Body" mode="s,e">A container used to create a multiple-document interface or a virtual desktop.
+You create &lt;code&gt;JInternalFrame&lt;/code&gt; objects and add them to the
+&lt;code&gt;JDesktopPane&lt;/code&gt;. &lt;code&gt;JDesktopPane&lt;/code&gt; extends
+&lt;code&gt;JLayeredPane&lt;/code&gt; to manage the potentially overlapping internal
+frames. It also maintains a reference to an instance of
+&lt;code&gt;DesktopManager&lt;/code&gt; that is set by the UI
+class for the current look and feel (L&amp;F).  Note that &lt;code&gt;JDesktopPane&lt;/code&gt;
+does not support borders.
+&lt;p&gt;
+This class is normally used as the parent of &lt;code&gt;JInternalFrames&lt;/code&gt;
+to provide a pluggable &lt;code&gt;DesktopManager&lt;/code&gt; object to the
+&lt;code&gt;JInternalFrames&lt;/code&gt;. The &lt;code&gt;installUI&lt;/code&gt; of the
+L&amp;F specific implementation is responsible for setting the
+&lt;code&gt;desktopManager&lt;/code&gt; variable appropriately.
+When the parent of a &lt;code&gt;JInternalFrame&lt;/code&gt; is a &lt;code&gt;JDesktopPane&lt;/code&gt;,
+it should delegate most of its behavior to the &lt;code&gt;desktopManager&lt;/code&gt;
+(closing, resizing, etc).
+&lt;p&gt;
+For further documentation and examples see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/internalframe.html"&gt;How to Use Internal Frames&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see JInternalFrame
+@see JInternalFrame.JDesktopIcon
+@see DesktopManager
+
+@version 1.51 12/19/03
+@author David Kloba
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JDesktopPane" refid="_9_5_f720368_1110473546784_582024_10721"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JDesktopPane" refid="_9_5_f720368_1110473546784_582024_10721"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

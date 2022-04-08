@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309611_797067_6232"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CollationRules" refid="_9_5_f720368_1110473546690_648263_8635"/></annotatedElement><body humanName="Body" mode="s,e">CollationRules contains the default en_US collation rules as a base
+for building other collation tables.
+&lt;p&gt;Note that decompositions are done before these rules are used,
+so they do not have to contain accented characters, such as A-grave.
+@see                RuleBasedCollator
+@see                LocaleElements
+@version            1.26, 12/19/03
+@author             Helena Shih, Mark Davis
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CollationRules" refid="_9_5_f720368_1110473546690_648263_8635"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CollationRules" refid="_9_5_f720368_1110473546690_648263_8635"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546706_740306_9083"><documentation humanName="Documentation" mode="standard">Package-visible class consolidating common code for
+&lt;code&gt;MemoryCacheImageInputStream&lt;/code&gt; and
+&lt;code&gt;MemoryCacheImageOutputStream&lt;/code&gt;.
+This class keeps an &lt;code&gt;ArrayList&lt;/code&gt; of 8K blocks,
+loaded sequentially.  Blocks may only be disposed of
+from the index 0 forward.  As blocks are freed, the
+corresponding entries in the array list are set to
+&lt;code&gt;null&lt;/code&gt;, but no compacting is performed.
+This allows the index for each block to never change,
+and the length of the cache is always the same as the
+total amount of data ever cached.  Cached data is
+therefore always contiguous from the point of last
+disposal to the current length.
+
+&lt;p&gt; The total number of blocks resident in the cache must not
+exceed &lt;code&gt;Integer.MAX_VALUE&lt;/code&gt;.  In practice, the limit of
+available memory will be exceeded long before this becomes an
+issue, since a full cache would contain 8192*2^31 = 16 terabytes of
+data.
+
+A &lt;code&gt;MemoryCache&lt;/code&gt; may be reused after a call
+to &lt;code&gt;reset()&lt;/code&gt;.
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">MemoryCache</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="stream" refid="_9_5_f720368_1110473547924_526750_19912"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314849_669970_9240"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314849_669970_9240"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="stream" refid="_9_5_f720368_1110473547924_526750_19912"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="stream" refid="_9_5_f720368_1110473547924_526750_19912"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="stream" refid="_9_5_f720368_1110473547924_526750_19912"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::imageio::stream::MemoryCache</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

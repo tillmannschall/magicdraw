@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316151_807423_10555"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548081_508251_20806"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;MidiDevice.Info&lt;/code&gt; object contains assorted
+data about a &lt;code&gt;{@link MidiDevice}&lt;/code&gt;, including its
+name, the company who created it, and descriptive text.
+
+@see MidiDevice#getDeviceInfo
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Info" refid="_9_5_f720368_1110473548081_508251_20806"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548081_508251_20806"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

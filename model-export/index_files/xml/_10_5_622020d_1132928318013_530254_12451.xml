@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318013_530254_12451"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JList" refid="_9_5_f720368_1110473546799_353580_10739"/></annotatedElement><body humanName="Body" mode="s,e">A component that allows the user to select one or more objects from a
+list.  A separate model, &lt;code&gt;ListModel&lt;/code&gt;, represents the contents
+of the list.  It's easy to display an array or vector of objects, using
+a &lt;code&gt;JList&lt;/code&gt; constructor that builds a &lt;code&gt;ListModel&lt;/code&gt;
+instance for you:
+&lt;pre&gt;
+Create a JList that displays the strings in data[]
+
+String[] data = {"one", "two", "three", "four"};
+JList dataList = new JList(data);
+
+The value of the JList model property is an object that provides
+a read-only view of the data.  It was constructed automatically.
+
+for(int i = 0; i &lt; dataList.getModel().getSize(); i++) {
+System.out.println(dataList.getModel().getElementAt(i));
+}
+
+Create a JList that displays the superclass of JList.class.
+We store the superclasses in a java.util.Vector.
+
+Vector superClasses = new Vector();
+Class rootClass = javax.swing.JList.class;
+for(Class cls = rootClass; cls != null; cls = cls.getSuperclass()) {
+superClasses.addElement(cls);
+}
+JList classList = new JList(superClasses);
+&lt;/pre&gt;
+&lt;p&gt;
+&lt;code&gt;JList&lt;/code&gt; doesn't support scrolling directly.
+To create a scrolling
+list you make the &lt;code&gt;JList&lt;/code&gt; the viewport view of a
+&lt;code&gt;JScrollPane&lt;/code&gt;.  For example:
+&lt;pre&gt;
+JScrollPane scrollPane = new JScrollPane(dataList);
+Or in two steps:
+JScrollPane scrollPane = new JScrollPane();
+scrollPane.getViewport().setView(dataList);
+&lt;/pre&gt;
+&lt;p&gt;
+By default the &lt;code&gt;JList&lt;/code&gt; selection model allows any
+combination of items to be selected at a time, using the constant
+&lt;code&gt;MULTIPLE_INTERVAL_SELECTION&lt;/code&gt;.
+The selection state is actually managed
+by a separate delegate object, an instance of
+&lt;code&gt;ListSelectionModel&lt;/code&gt;.
+However &lt;code&gt;JList&lt;/code&gt; provides convenient properties for
+managing the selection.
+&lt;pre&gt;
+String[] data = {"one", "two", "three", "four"};
+JList dataList = new JList(data);
+
+dataList.setSelectedIndex(1);  // select "two"
+dataList.getSelectedValue();   // returns "two"
+&lt;/pre&gt;
+&lt;p&gt;
+The contents of a &lt;code&gt;JList&lt;/code&gt; can be dynamic,
+in other words, the list elements can
+change value and the size of the list can change after the
+&lt;code&gt;JList&lt;/code&gt; has
+been created.  The &lt;code&gt;JList&lt;/code&gt; observes changes in its model with a
+&lt;code&gt;swing.event.ListDataListener&lt;/code&gt; implementation.  A correct
+implementation of &lt;code&gt;ListModel&lt;/code&gt; notifies
+it's listeners each time a change occurs.  The changes are
+characterized by a &lt;code&gt;swing.event.ListDataEvent&lt;/code&gt;, which identifies
+the range of list indices that have been modified, added, or removed.
+Simple dynamic-content &lt;code&gt;JList&lt;/code&gt; applications can use the
+&lt;code&gt;DefaultListModel&lt;/code&gt; class to store list elements.  This class
+implements the &lt;code&gt;ListModel&lt;/code&gt; interface and provides the
+&lt;code&gt;java.util.Vector&lt;/code&gt; API as well.  Applications that need to
+provide custom &lt;code&gt;ListModel&lt;/code&gt; implementations can subclass
+&lt;code&gt;AbstractListModel&lt;/code&gt;, which provides basic
+&lt;code&gt;ListDataListener&lt;/code&gt; support.  For example:
+&lt;pre&gt;
+This list model has about 2^16 elements.  Enjoy scrolling.
+
+&lt;a name="prototype_example"&gt;
+ListModel bigData = new AbstractListModel() {
+public int getSize() { return Short.MAX_VALUE; }
+public Object getElementAt(int index) { return "Index " + index; }
+};
+
+JList bigDataList = new JList(bigData);
+
+We don't want the JList implementation to compute the width
+or height of all of the list cells, so we give it a string
+that's as big as we'll need for any cell.  It uses this to
+compute values for the fixedCellWidth and fixedCellHeight
+properties.
+
+bigDataList.setPrototypeCellValue("Index 1234567890");
+&lt;/pre&gt;
+&lt;p&gt;
+&lt;code&gt;JList&lt;/code&gt; uses a &lt;code&gt;java.awt.Component&lt;/code&gt;, provided by
+a delegate called the
+&lt;code&gt;cellRendererer&lt;/code&gt;, to paint the visible cells in the list.
+The cell renderer component is used like a "rubber stamp" to paint
+each visible row.  Each time the &lt;code&gt;JList&lt;/code&gt; needs to paint a cell
+it asks the cell renderer for the component, moves it into place
+using &lt;code&gt;setBounds()&lt;/code&gt; and then draws it by calling its paint method.
+The default cell renderer uses a &lt;code&gt;JLabel&lt;/code&gt; component to render
+the string value of each component.   You can substitute your
+own cell renderer, using code like this:
+&lt;pre&gt;
+Display an icon and a string for each object in the list.
+
+&lt;a name="cellrenderer_example"&gt;
+class MyCellRenderer extends JLabel implements ListCellRenderer {
+final static ImageIcon longIcon = new ImageIcon("long.gif");
+final static ImageIcon shortIcon = new ImageIcon("short.gif");
+
+This is the only method defined by ListCellRenderer.
+We just reconfigure the JLabel each time we're called.
+
+public Component getListCellRendererComponent(
+JList list,
+Object value,            // value to display
+int index,               // cell index
+boolean isSelected,      // is the cell selected
+boolean cellHasFocus)    // the list and the cell have the focus
+{
+String s = value.toString();
+setText(s);
+setIcon((s.length() &gt; 10) ? longIcon : shortIcon);
+if (isSelected) {
+setBackground(list.getSelectionBackground());
+setForeground(list.getSelectionForeground());
+}
+else {
+setBackground(list.getBackground());
+setForeground(list.getForeground());
+}
+setEnabled(list.isEnabled());
+setFont(list.getFont());
+setOpaque(true);
+return this;
+}
+}
+
+String[] data = {"one", "two", "three", "four"};
+JList dataList = new JList(data);
+dataList.setCellRenderer(new MyCellRenderer());
+&lt;/pre&gt;
+&lt;p&gt;
+&lt;code&gt;JList&lt;/code&gt; doesn't provide any special support for handling double or
+triple (or N) mouse clicks however it's easy to handle them using
+a &lt;code&gt;MouseListener&lt;/code&gt;.  Use the &lt;code&gt;JList&lt;/code&gt; method
+&lt;code&gt;locationToIndex()&lt;/code&gt; to
+determine what cell was clicked.  For example:
+&lt;pre&gt;
+final JList list = new JList(dataModel);
+MouseListener mouseListener = new MouseAdapter() {
+public void mouseClicked(MouseEvent e) {
+if (e.getClickCount() == 2) {
+int index = list.locationToIndex(e.getPoint());
+System.out.println("Double clicked on Item " + index);
+}
+}
+};
+list.addMouseListener(mouseListener);
+&lt;/pre&gt;
+Note that in this example the &lt;code&gt;dataList&lt;/code&gt; is &lt;code&gt;final&lt;/code&gt;
+because it's referred to by the anonymous &lt;code&gt;MouseListener&lt;/code&gt; class.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+&lt;p&gt;
+See &lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/list.html"&gt;How to Use Lists&lt;/a&gt;
+in &lt;a href="http://java.sun.com/Series/Tutorial/index.html"&gt;&lt;em&gt;The Java Tutorial&lt;/em&gt;&lt;/a&gt;
+for further documentation.
+Also see the article &lt;a href="http://java.sun.com/products/jfc/tsc/tech_topics/jlist_1/jlist.html"&gt;Advanced JList Programming&lt;/a&gt;
+in &lt;a href="http://java.sun.com/products/jfc/tsc"&gt;&lt;em&gt;The Swing Connection&lt;/em&gt;&lt;/a&gt;.
+&lt;p&gt;
+@see ListModel
+@see AbstractListModel
+@see DefaultListModel
+@see ListSelectionModel
+@see DefaultListSelectionModel
+@see ListCellRenderer
+
+@beaninfo
+attribute: isContainer false
+description: A component which allows for the selection of one or more objects from a list.
+
+@version 1.112 05/05/04
+@author Hans Muller
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JList" refid="_9_5_f720368_1110473546799_353580_10739"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JList" refid="_9_5_f720368_1110473546799_353580_10739"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

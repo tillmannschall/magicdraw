@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546799_690835_10827"><documentation humanName="Documentation" mode="standard">Popups are used to display a &lt;code&gt;Component&lt;/code&gt; to the user, typically
+on top of all the other &lt;code&gt;Component&lt;/code&gt;s in a particular containment
+hierarchy. &lt;code&gt;Popup&lt;/code&gt;s have a very small life cycle. Once you
+have obtained a &lt;code&gt;Popup&lt;/code&gt;, and hidden it (invoked the
+&lt;code&gt;hide&lt;/code&gt; method), you should no longer
+invoke any methods on it. This allows the &lt;code&gt;PopupFactory&lt;/code&gt; to cache
+&lt;code&gt;Popup&lt;/code&gt;s for later use.
+&lt;p&gt;
+The general contract is that if you need to change the size of the
+&lt;code&gt;Component&lt;/code&gt;, or location of the &lt;code&gt;Popup&lt;/code&gt;, you should
+obtain a new &lt;code&gt;Popup&lt;/code&gt;.
+&lt;p&gt;
+&lt;code&gt;Popup&lt;/code&gt; does not descend from &lt;code&gt;Component&lt;/code&gt;, rather
+implementations of &lt;code&gt;Popup&lt;/code&gt; are responsible for creating
+and maintaining their own &lt;code&gt;Component&lt;/code&gt;s to render the
+requested &lt;code&gt;Component&lt;/code&gt; to the user.
+&lt;p&gt;
+You typically do not explicitly create an instance of &lt;code&gt;Popup&lt;/code&gt;,
+instead obtain one from a &lt;code&gt;PopupFactory&lt;/code&gt;.
+
+@see PopupFactory
+
+@version 1.17 12/19/03
+@since 1.4
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultFrame" refid="_9_5_f720368_1110473548471_544081_24413"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HeavyWeightWindow" refid="_9_5_f720368_1110473548471_425961_24410"/></member><name humanName="Name" mode="s,e">Popup</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultFrame" refid="_9_5_f720368_1110473548471_544081_24413"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HeavyWeightWindow" refid="_9_5_f720368_1110473548471_425961_24410"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318194_662817_12606"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318194_662817_12606"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultFrame" refid="_9_5_f720368_1110473548471_544081_24413"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HeavyWeightWindow" refid="_9_5_f720368_1110473548471_425961_24410"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultFrame" refid="_9_5_f720368_1110473548471_544081_24413"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HeavyWeightWindow" refid="_9_5_f720368_1110473548471_425961_24410"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::Popup</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

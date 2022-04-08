@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546565_588906_6769"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::ConvolveOp -&gt; JDK 5.0 Classes::java::awt::image::BufferedImageOp]" refid="_10_5_622020d_1132928321238_170391_13067"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::ConvolveOp -&gt; JDK 5.0 Classes::java::awt::image::RasterOp]" refid="_10_5_622020d_1132928321238_727919_13068"/></clientDependency><documentation humanName="Documentation" mode="standard">This class implements a convolution from the source
+to the destination.
+Convolution using a convolution kernel is a spatial operation that
+computes the output pixel from an input pixel by multiplying the kernel
+with the surround of the input pixel.
+This allows the output pixel to be affected by the immediate neighborhood
+in a way that can be mathematically specified with a kernel.
+&lt;p&gt;
+This class operates with BufferedImage data in which color components are
+premultiplied with the alpha component.  If the Source BufferedImage has
+an alpha component, and the color components are not premultiplied with
+the alpha component, then the data are premultiplied before being
+convolved.  If the Destination has color components which are not
+premultiplied, then alpha is divided out before storing into the
+Destination (if alpha is 0, the color components are set to 0).  If the
+Destination has no alpha component, then the resulting alpha is discarded
+after first dividing it out of the color components.
+&lt;p&gt;
+Rasters are treated as having no alpha channel.  If the above treatment
+of the alpha channel in BufferedImages is not desired, it may be avoided
+by getting the Raster of a source BufferedImage and using the filter method
+of this class which works with Rasters.
+&lt;p&gt;
+If a RenderingHints object is specified in the constructor, the
+color rendering hint and the dithering hint may be used when color
+conversion is required.
+&lt;p&gt;
+Note that the Source and the Destination may not be the same object.
+@version 10 Feb 1997
+@see Kernel
+@see java.awt.RenderingHints#KEY_COLOR_RENDERING
+@see java.awt.RenderingHints#KEY_DITHERING
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::ConvolveOp -&gt; JDK 5.0 Classes::java::awt::image::BufferedImageOp]" refid="_10_5_622020d_1132928321238_170391_13067"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::ConvolveOp -&gt; JDK 5.0 Classes::java::awt::image::RasterOp]" refid="_10_5_622020d_1132928321238_727919_13068"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ConvolveOp</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306046_651541_3934"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306046_651541_3934"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::ConvolveOp -&gt; JDK 5.0 Classes::java::awt::image::BufferedImageOp]" refid="_10_5_622020d_1132928321238_170391_13067"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::ConvolveOp -&gt; JDK 5.0 Classes::java::awt::image::RasterOp]" refid="_10_5_622020d_1132928321238_727919_13068"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::image::ConvolveOp</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BufferedImageOp" refid="_9_5_f720368_1110473546565_282435_6755"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RasterOp" refid="_9_5_f720368_1110473546581_850797_6823"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

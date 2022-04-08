@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317733_799278_12200"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TextLayoutStrategy" refid="_9_5_f720368_1110473546784_8722_10543"/></annotatedElement><body humanName="Body" mode="s,e">A flow strategy that uses java.awt.font.LineBreakMeasureer to
+produce java.awt.font.TextLayout for i18n capable rendering.
+If the child view being placed into the flow is of type
+GlyphView and can be rendered by TextLayout, a GlyphPainter
+that uses TextLayout is plugged into the GlyphView.
+
+@author  Timothy Prinzing
+@version 1.22 05/05/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="TextLayoutStrategy" refid="_9_5_f720368_1110473546784_8722_10543"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TextLayoutStrategy" refid="_9_5_f720368_1110473546784_8722_10543"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

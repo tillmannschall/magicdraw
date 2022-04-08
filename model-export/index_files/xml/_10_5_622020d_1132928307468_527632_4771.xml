@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307468_527632_4771"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Target" refid="_10_5_622020d_1132928307468_207929_4764"/></annotatedElement><body humanName="Body" mode="s,e">Indicates the kinds of program element to which an annotation type
+is applicable.  If a Target meta-annotation is not present on an
+annotation type declaration, the declared type may be used on any
+program element.  If such a meta-annotation is present, the compiler
+will enforce the specified usage restriction.
+
+For example, this meta-annotation indicates that the declared type is
+itself a meta-annotation type.  It can only be used on annotation type
+declarations:
+&lt;pre&gt;
+&amp;#064;Target(ElementType.ANNOTATION_TYPE)
+public &amp;#064;interface MetaAnnotationType {
+...
+}
+&lt;/pre&gt;
+This meta-annotation indicates that the declared type is intended solely
+for use as a member type in complex annotation type declarations.  It
+cannot be used to annotate anything directly:
+&lt;pre&gt;
+&amp;#064;Target({})
+public &amp;#064;interface MemberType {
+...
+}
+&lt;/pre&gt;
+It is a compile-time error for a single ElementType constant to
+appear more than once in a Target annotation.  For example, the
+following meta-annotation is illegal:
+&lt;pre&gt;
+&amp;#064;Target({ElementType.FIELD, ElementType.METHOD, ElementType.FIELD})
+public &amp;#064;interface Bogus {
+...
+}
+&lt;/pre&gt;
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Target" refid="_10_5_622020d_1132928307468_207929_4764"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Target" refid="_10_5_622020d_1132928307468_207929_4764"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306086_192163_3972"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="LookupTable" refid="_9_5_f720368_1110473546581_501232_6807"/></annotatedElement><body humanName="Body" mode="s,e">This abstract class defines a lookup table object.  ByteLookupTable
+and ShortLookupTable are subclasses, which
+contain byte and short data, respectively.  A lookup table
+contains data arrays for one or more bands (or components) of an image
+(for example, separate arrays for R, G, and B),
+and it contains an offset which will be subtracted from the
+input values before indexing into the arrays.  This allows an array
+smaller than the native data size to be provided for a
+constrained input.  If there is only one array in the lookup
+table, it will be applied to all bands.  All arrays must be the
+same size.
+
+@see ByteLookupTable
+@see ShortLookupTable
+@see LookupOp
+@version 10 Feb 1997
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="LookupTable" refid="_9_5_f720368_1110473546581_501232_6807"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="LookupTable" refid="_9_5_f720368_1110473546581_501232_6807"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

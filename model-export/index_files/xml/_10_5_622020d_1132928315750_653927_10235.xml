@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315750_653927_10235"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrintQuality" refid="_9_5_f720368_1110473546721_829448_9427"/></annotatedElement><body humanName="Body" mode="s,e">Class PrintQuality is a printing attribute class, an enumeration,
+that specifies the print quality that the printer uses for the job.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; is the IPP attribute name.  The enumeration's
+integer value is the IPP enum value.  The &lt;code&gt;toString()&lt;/code&gt; method
+returns the IPP string representation of the attribute value.
+&lt;P&gt;
+
+@author  David Mendenhall
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PrintQuality" refid="_9_5_f720368_1110473546721_829448_9427"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrintQuality" refid="_9_5_f720368_1110473546721_829448_9427"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

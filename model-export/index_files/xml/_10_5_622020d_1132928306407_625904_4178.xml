@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306407_625904_4178"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Dialog" refid="_9_5_f720368_1110473546581_788523_6987"/></annotatedElement><body humanName="Body" mode="s,e">A Dialog is a top-level window with a title and a border
+that is typically used to take some form of input from the user.
+
+The size of the dialog includes any area designated for the
+border.  The dimensions of the border area can be obtained
+using the &lt;code&gt;getInsets&lt;/code&gt; method, however, since
+these dimensions are platform-dependent, a valid insets
+value cannot be obtained until the dialog is made displayable
+by either calling &lt;code&gt;pack&lt;/code&gt; or &lt;code&gt;show&lt;/code&gt;.
+Since the border area is included in the overall size of the
+dialog, the border effectively obscures a portion of the dialog,
+constraining the area available for rendering and/or displaying
+subcomponents to the rectangle which has an upper-left corner
+location of &lt;code&gt;(insets.left, insets.top)&lt;/code&gt;, and has a size of
+&lt;code&gt;width - (insets.left + insets.right)&lt;/code&gt; by
+&lt;code&gt;height - (insets.top + insets.bottom)&lt;/code&gt;.
+&lt;p&gt;
+The default layout for a dialog is &lt;code&gt;BorderLayout&lt;/code&gt;.
+&lt;p&gt;
+A dialog may have its native decorations (i.e. Frame &amp; Titlebar) turned off
+with &lt;code&gt;setUndecorated&lt;/code&gt;.  This can only be done while the dialog
+is not {@link Component#isDisplayable() displayable}.
+&lt;p&gt;
+A dialog must have either a frame or another dialog defined as its
+owner when it's constructed.  When the owner window of a visible dialog
+is minimized, the dialog will automatically be hidden
+from the user. When the owner window is subsequently restored,
+the dialog is made visible to the user again.
+&lt;p&gt;
+In a multi-screen environment, you can create a &lt;code&gt;Dialog&lt;/code&gt;
+on a different screen device than its owner.  See {@link java.awt.Frame} for
+more information.
+&lt;p&gt;
+A dialog can be either modeless (the default) or modal.  A modal
+dialog is one which blocks input to all other toplevel windows
+in the application, except for any windows created with the dialog
+as their owner.
+&lt;p&gt;
+Dialogs are capable of generating the following
+&lt;code&gt;WindowEvents&lt;/code&gt;:
+&lt;code&gt;WindowOpened&lt;/code&gt;, &lt;code&gt;WindowClosing&lt;/code&gt;,
+&lt;code&gt;WindowClosed&lt;/code&gt;, &lt;code&gt;WindowActivated&lt;/code&gt;,
+&lt;code&gt;WindowDeactivated&lt;/code&gt;, &lt;code&gt;WindowGainedFocus&lt;/code&gt;,
+&lt;code&gt;WindowLostFocus&lt;/code&gt;.
+
+@see WindowEvent
+@see Window#addWindowListener
+
+@version 	1.99, 05/18/04
+@author 	Sami Shaio
+@author 	Arthur van Hoff
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Dialog" refid="_9_5_f720368_1110473546581_788523_6987"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Dialog" refid="_9_5_f720368_1110473546581_788523_6987"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315990_431408_10383"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="StubDelegate" refid="_9_5_f720368_1110473546737_137242_9555"/></annotatedElement><body humanName="Body" mode="s,e">Supports delegation for method implementations in {@link Stub}.
+A delegate is an instance of a class that implements this
+interface and provides a replacement implementation for all the
+methods of &lt;code&gt;javax.rmi.CORBA.Stub&lt;/code&gt;.  If delegation is
+enabled, each stub has an associated delegate.
+
+Delegates are enabled by providing the delegate's class name as the
+value of the
+&lt;code&gt;javax.rmi.CORBA.StubClass&lt;/code&gt;
+system property.
+
+@see Stub
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="StubDelegate" refid="_9_5_f720368_1110473546737_137242_9555"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="StubDelegate" refid="_9_5_f720368_1110473546737_137242_9555"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

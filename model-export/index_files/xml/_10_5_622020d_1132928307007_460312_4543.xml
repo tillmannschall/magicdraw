@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307007_460312_4543"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ByteArrayInputStream" refid="_9_5_f720368_1110473546596_221350_7359"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;ByteArrayInputStream&lt;/code&gt; contains
+an internal buffer that contains bytes that
+may be read from the stream. An internal
+counter keeps track of the next byte to
+be supplied by the &lt;code&gt;read&lt;/code&gt; method.
+&lt;p&gt;
+Closing a &lt;tt&gt;ByteArrayInputStream&lt;/tt&gt; has no effect. The methods in
+this class can be called after the stream has been closed without
+generating an &lt;tt&gt;IOException&lt;/tt&gt;.
+
+@author  Arthur van Hoff
+@version 1.44, 12/19/03
+@see     java.io.StringBufferInputStream
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ByteArrayInputStream" refid="_9_5_f720368_1110473546596_221350_7359"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ByteArrayInputStream" refid="_9_5_f720368_1110473546596_221350_7359"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546940_761182_13042"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;CSSStyleDeclaration&lt;/code&gt; interface represents a single CSS
+declaration block. This interface may be used to determine the style
+properties currently set in a block or to set style properties explicitly
+within the block.
+&lt;p&gt; While an implementation may not recognize all CSS properties within a
+CSS declaration block, it is expected to provide access to all specified
+properties in the style sheet through the &lt;code&gt;CSSStyleDeclaration&lt;/code&gt;
+interface. Furthermore, implementations that support a specific level of
+CSS should correctly handle CSS shorthand properties for that level. For
+a further discussion of shorthand properties, see the
+&lt;code&gt;CSS2Properties&lt;/code&gt; interface.
+&lt;p&gt; This interface is also used to provide a read-only access to the
+computed values of an element. See also the &lt;code&gt;ViewCSS&lt;/code&gt;
+interface.  The CSS Object Model doesn't provide an access to the
+specified or actual values of the CSS cascade.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/REC-DOM-Level-2-Style-20001113'&gt;Document Object Model (DOM) Level 2 Style Specification&lt;/a&gt;.
+@since DOM Level 2
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">CSSStyleDeclaration</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="css" refid="_9_5_f720368_1110473548831_920998_27434"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314338_18008_8726"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314338_18008_8726"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="css" refid="_9_5_f720368_1110473548831_920998_27434"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="css" refid="_9_5_f720368_1110473548831_920998_27434"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="css" refid="_9_5_f720368_1110473548831_920998_27434"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::w3c::dom::css::CSSStyleDeclaration</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

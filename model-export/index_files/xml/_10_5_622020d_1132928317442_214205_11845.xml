@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317442_214205_11845"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Tag" refid="_9_5_f720368_1110473548299_944343_22957"/></annotatedElement><body humanName="Body" mode="s,e">Typesafe enumeration for an HTML tag.  Although the
+set of HTML tags is a closed set, we have left the
+set open so that people can add their own tag types
+to their custom parser and still communicate to the
+reader.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Tag" refid="_9_5_f720368_1110473548299_944343_22957"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Tag" refid="_9_5_f720368_1110473548299_944343_22957"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

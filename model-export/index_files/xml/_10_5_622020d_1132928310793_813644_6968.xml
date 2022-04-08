@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310793_813644_6968"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractQueue" refid="_10_5_622020d_1132928310793_289615_6963"/></annotatedElement><body humanName="Body" mode="s,e">This class provides skeletal implementations of some {@link Queue}
+operations. The implementations in this class are appropriate when
+the base implementation does &lt;em&gt;not&lt;/em&gt; allow &lt;tt&gt;null&lt;/tt&gt;
+elements.  Methods {@link #add add}, {@link #remove remove}, and
+{@link #element element} are based on {@link #offer offer}, {@link
+#poll poll}, and {@link #peek peek}, respectively but throw
+exceptions instead of indicating failure via &lt;tt&gt;false&lt;/tt&gt; or
+&lt;tt&gt;null&lt;/tt&gt; returns.
+
+&lt;p&gt; A &lt;tt&gt;Queue&lt;/tt&gt; implementation that extends this class must
+minimally define a method {@link Queue#offer} which does not permit
+insertion of &lt;tt&gt;null&lt;/tt&gt; elements, along with methods {@link
+Queue#peek}, {@link Queue#poll}, {@link Collection#size}, and a
+{@link Collection#iterator} supporting {@link
+Iterator#remove}. Typically, additional methods will be overridden
+as well. If these requirements cannot be met, consider instead
+subclassing {@link AbstractCollection}.
+
+&lt;p&gt;This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@since 1.5
+@author Doug Lea
+@param &lt;E&gt; the type of elements held in this collection
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AbstractQueue" refid="_10_5_622020d_1132928310793_289615_6963"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractQueue" refid="_10_5_622020d_1132928310793_289615_6963"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

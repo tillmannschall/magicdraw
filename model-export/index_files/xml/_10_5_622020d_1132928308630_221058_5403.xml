@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308630_221058_5403"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FileChannel" refid="_9_5_f720368_1110473546643_872235_7891"/></annotatedElement><body humanName="Body" mode="s,e">A channel for reading, writing, mapping, and manipulating a file.
+
+&lt;p&gt; A file channel has a current &lt;i&gt;position&lt;/i&gt; within its file which can
+be both {@link #position() &lt;/code&gt;queried&lt;code&gt;} and {@link #position(long)
+&lt;/code&gt;modified&lt;code&gt;}.  The file itself contains a variable-length sequence
+of bytes that can be read and written and whose current {@link #size
+&lt;/code&gt;&lt;i&gt;size&lt;/i&gt;&lt;code&gt;} can be queried.  The size of the file increases
+when bytes are written beyond its current size; the size of the file
+decreases when it is {@link #truncate &lt;/code&gt;&lt;i&gt;truncated&lt;/i&gt;&lt;code&gt;}.  The
+file may also have some associated &lt;i&gt;metadata&lt;/i&gt; such as access
+permissions, content type, and last-modification time; this class does not
+define methods for metadata access.
+
+&lt;p&gt; In addition to the familiar read, write, and close operations of byte
+channels, this class defines the following file-specific operations: &lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; Bytes may be {@link #read(ByteBuffer, long) &lt;/code&gt;read&lt;code&gt;} or
+{@link #write(ByteBuffer, long) &lt;/code&gt;written&lt;code&gt;} at an absolute
+position in a file in a way that does not affect the channel's current
+position.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; A region of a file may be {@link #map &lt;/code&gt;mapped&lt;code&gt;}
+directly into memory; for large files this is often much more efficient
+than invoking the usual &lt;tt&gt;read&lt;/tt&gt; or &lt;tt&gt;write&lt;/tt&gt; methods.
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Updates made to a file may be {@link #force &lt;/code&gt;forced
+out&lt;code&gt;} to the underlying storage device, ensuring that data are not
+lost in the event of a system crash.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Bytes can be transferred from a file {@link #transferTo &lt;/code&gt;to
+some other channel&lt;code&gt;}, and {@link #transferFrom &lt;/code&gt;vice
+versa&lt;code&gt;}, in a way that can be optimized by many operating systems
+into a very fast transfer directly to or from the filesystem cache.
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; A region of a file may be {@link FileLock &lt;/code&gt;locked&lt;code&gt;}
+against access by other programs.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt; File channels are safe for use by multiple concurrent threads.  The
+{@link Channel#close close} method may be invoked at any time, as specified
+by the {@link Channel} interface.  Only one operation that involves the
+channel's position or can change its file's size may be in progress at any
+given time; attempts to initiate a second such operation while the first is
+still in progress will block until the first operation completes.  Other
+operations, in particular those that take an explicit position, may proceed
+concurrently; whether they in fact do so is dependent upon the underlying
+implementation and is therefore unspecified.
+
+&lt;p&gt; The view of a file provided by an instance of this class is guaranteed
+to be consistent with other views of the same file provided by other
+instances in the same program.  The view provided by an instance of this
+class may or may not, however, be consistent with the views seen by other
+concurrently-running programs due to caching performed by the underlying
+operating system and delays induced by network-filesystem protocols.  This
+is true regardless of the language in which these other programs are
+written, and whether they are running on the same machine or on some other
+machine.  The exact nature of any such inconsistencies are system-dependent
+and are therefore unspecified.
+
+&lt;p&gt; This class does not define methods for opening existing files or for
+creating new ones; such methods may be added in a future release.  In this
+release a file channel can be obtained from an existing {@link
+java.io.FileInputStream#getChannel FileInputStream}, {@link
+java.io.FileOutputStream#getChannel FileOutputStream}, or {@link
+java.io.RandomAccessFile#getChannel RandomAccessFile} object by invoking
+that object's &lt;tt&gt;getChannel&lt;/tt&gt; method, which returns a file channel that
+is connected to the same underlying file.
+
+&lt;p&gt; The state of a file channel is intimately connected to that of the
+object whose &lt;tt&gt;getChannel&lt;/tt&gt; method returned the channel.  Changing the
+channel's position, whether explicitly or by reading or writing bytes, will
+change the file position of the originating object, and vice versa.
+Changing the file's length via the file channel will change the length seen
+via the originating object, and vice versa.  Changing the file's content by
+writing bytes will change the content seen by the originating object, and
+vice versa.
+
+&lt;a name="open-mode"&gt;&lt;p&gt; At various points this class specifies that an
+instance that is "open for reading," "open for writing," or "open for
+reading and writing" is required.  A channel obtained via the {@link
+java.io.FileInputStream#getChannel getChannel} method of a {@link
+java.io.FileInputStream} instance will be open for reading.  A channel
+obtained via the {@link java.io.FileOutputStream#getChannel getChannel}
+method of a {@link java.io.FileOutputStream} instance will be open for
+writing.  Finally, a channel obtained via the {@link
+java.io.RandomAccessFile#getChannel getChannel} method of a {@link
+java.io.RandomAccessFile} instance will be open for reading if the instance
+was created with mode &lt;tt&gt;"r"&lt;/tt&gt; and will be open for reading and writing
+if the instance was created with mode &lt;tt&gt;"rw"&lt;/tt&gt;.
+
+&lt;a name="append-mode"&gt;&lt;p&gt; A file channel that is open for writing may be in
+&lt;i&gt;append mode&lt;/i&gt;, for example if it was obtained from a file-output stream
+that was created by invoking the {@link
+java.io.FileOutputStream#FileOutputStream(java.io.File,boolean)
+FileOutputStream(File,boolean)} constructor and passing &lt;tt&gt;true&lt;/tt&gt; for
+the second parameter.  In this mode each invocation of a relative write
+operation first advances the position to the end of the file and then writes
+the requested data.  Whether the advancement of the position and the writing
+of the data are done in a single atomic operation is system-dependent and
+therefore unspecified.
+
+
+@see java.io.FileInputStream#getChannel()
+@see java.io.FileOutputStream#getChannel()
+@see java.io.RandomAccessFile#getChannel()
+
+@author Mark Reinhold
+@author Mike McCloskey
+@author JSR-51 Expert Group
+@version 1.40, 04/01/12
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="FileChannel" refid="_9_5_f720368_1110473546643_872235_7891"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FileChannel" refid="_9_5_f720368_1110473546643_872235_7891"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

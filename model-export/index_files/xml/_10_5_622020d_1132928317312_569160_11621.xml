@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317312_569160_11621"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SynthStyle" refid="_10_5_622020d_1132928317312_943186_11619"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;SynthStyle&lt;/code&gt; is a set of style properties.
+Each &lt;code&gt;SynthUI&lt;/code&gt; references at least one
+&lt;code&gt;SynthStyle&lt;/code&gt; that is obtained using a
+&lt;code&gt;SynthStyleFactory&lt;/code&gt;. You typically don't need to interact with
+this class directly, rather you will load a
+&lt;a href="doc-files/synthFileFormat.html"&gt;Synth File Format file&lt;/a&gt; into
+&lt;code&gt;SynthLookAndFeel&lt;/code&gt; that will create a set of SynthStyles.
+
+@see SynthLookAndFeel
+@see SynthStyleFactory
+
+@version 1.23, 12/19/03
+@since 1.5
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="SynthStyle" refid="_10_5_622020d_1132928317312_943186_11619"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SynthStyle" refid="_10_5_622020d_1132928317312_943186_11619"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

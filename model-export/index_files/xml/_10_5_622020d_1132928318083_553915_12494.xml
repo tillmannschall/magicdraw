@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318083_553915_12494"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JScrollBar" refid="_9_5_f720368_1110473546799_740457_10763"/></annotatedElement><body humanName="Body" mode="s,e">An implementation of a scrollbar. The user positions the knob in the
+scrollbar to determine the contents of the viewing area. The
+program typically adjusts the display so that the end of the
+scrollbar represents the end of the displayable contents, or 100%
+of the contents. The start of the scrollbar is the beginning of the
+displayable contents, or 0%. The position of the knob within
+those bounds then translates to the corresponding percentage of
+the displayable contents.
+&lt;p&gt;
+Typically, as the position of the knob in the scrollbar changes
+a corresponding change is made to the position of the JViewport on
+the underlying view, changing the contents of the JViewport.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see JScrollPane
+@beaninfo
+attribute: isContainer false
+description: A component that helps determine the visible content range of an area.
+
+@version 1.78 12/19/03
+@author David Kloba
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JScrollBar" refid="_9_5_f720368_1110473546799_740457_10763"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JScrollBar" refid="_9_5_f720368_1110473546799_740457_10763"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

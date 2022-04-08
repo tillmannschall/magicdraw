@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317172_23420_11252"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CachedPainter" refid="_10_5_622020d_1132928317172_63322_11246"/></annotatedElement><body humanName="Body" mode="s,e">A base class used for icons or images that are expensive to paint.
+A subclass will do the following:
+&lt;ol&gt;
+&lt;li&gt;Invoke &lt;code&gt;paint&lt;/code&gt; when you want to paint the image,
+if you are implementing &lt;code&gt;Icon&lt;/code&gt; you'll invoke this from
+&lt;code&gt;paintIcon&lt;/code&gt;.
+The args argument is useful when additional state is needed.
+&lt;li&gt;Override &lt;code&gt;paintToImage&lt;/code&gt; to render the image.  The code that
+lives here is equivalent to what previously would go in
+&lt;code&gt;paintIcon&lt;/code&gt;, for an &lt;code&gt;Icon&lt;/code&gt;.
+&lt;/ol&gt;
+
+@version @(#)CachedPainter.java	1.2 04/02/15
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="CachedPainter" refid="_10_5_622020d_1132928317172_63322_11246"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CachedPainter" refid="_10_5_622020d_1132928317172_63322_11246"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

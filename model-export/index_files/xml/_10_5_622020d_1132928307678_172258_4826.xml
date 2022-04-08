@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928307678_172258_4826"><documentation humanName="Documentation" mode="standard">The management interface for the runtime system of
+the Java virtual machine.
+
+&lt;p&gt; A Java virtual machine has a single instance of the implementation
+class of this interface.  This instance implementing this interface is
+an &lt;a href="ManagementFactory.html#MXBean"&gt;MXBean&lt;/a&gt;
+that can be obtained by calling
+the {@link ManagementFactory#getRuntimeMXBean} method or
+from the {@link ManagementFactory#getPlatformMBeanServer
+platform &lt;tt&gt;MBeanServer&lt;/tt&gt;} method.
+
+&lt;p&gt;The &lt;tt&gt;ObjectName&lt;/tt&gt; for uniquely identifying the MXBean for
+the runtime system within an MBeanServer is:
+&lt;blockquote&gt;
+{@link ManagementFactory#RUNTIME_MXBEAN_NAME
+&lt;tt&gt;java.lang:type=Runtime&lt;/tt&gt;}
+&lt;/blockquote&gt;
+
+&lt;p&gt; This interface defines several convenient methods for accessing
+system properties about the Java virtual machine.
+
+@see &lt;a href="../../../javax/management/package-summary.html"&gt;
+JMX Specification.&lt;/a&gt;
+@see &lt;a href="package-summary.html#examples"&gt;
+Ways to Access MXBeans&lt;/a&gt;
+
+@author  Mandy Chung
+@version 1.13, 04/20/04
+@since   1.5
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">RuntimeMXBean</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928307518_833692_4788"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307688_547676_4828"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307688_547676_4828"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="management" refid="_10_5_622020d_1132928307518_833692_4788"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928307518_833692_4788"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928307518_833692_4788"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::management::RuntimeMXBean</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

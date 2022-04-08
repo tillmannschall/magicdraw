@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546753_91611_9825"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::colorchooser::SyntheticImage -&gt; JDK 5.0 Classes::java::awt::image::ImageProducer]" refid="_10_5_622020d_1132928323401_491348_16702"/></clientDependency><documentation humanName="Documentation" mode="standard">A helper class to make computing synthetic images a little easier.
+All you need to do is define a subclass that overrides computeRow
+to compute a row of the image.  It is passed the y coordinate of the
+row and an array into which to put the pixels in
+&lt;a href="http://java.sun.com/products/jdk/1.1/docs/api/java.awt.image.ColorModel.html#getRGBdefault()"&gt;
+standard ARGB format&lt;/a&gt;.
+&lt;p&gt;Normal usage looks something like this:
+&lt;pre&gt;&amp;nbsp;Image i = createImage(new SyntheticImage(200, 100) {
+&amp;nbsp;    protected void computeRow(int y, int[] row) {
+&amp;nbsp;	for(int i = width; --i&gt;=0; ) {
+&amp;nbsp;	    int grey = i*255/(width-1);
+&amp;nbsp;	    row[i] = (255&lt;&lt;24)|(grey&lt;&lt;16)|(grey&lt;&lt;8)|grey;
+&amp;nbsp;	}
+&amp;nbsp;    }
+&amp;nbsp;}
+&lt;/pre&gt;This creates a image 200 pixels wide and 100 pixels high
+that is a horizontal grey ramp, going from black on the left to
+white on the right.
+&lt;p&gt;
+If the image is to be a movie, override isStatic to return false,
+&lt;i&gt;y&lt;/i&gt; cycling back to 0 is computeRow's signal that the next
+frame has started.  It is acceptable (expected?) for computeRow(0,r)
+to pause until the appropriate time to start the next frame.
+
+@version 1.24 12/19/03
+@author James Gosling
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::colorchooser::SyntheticImage -&gt; JDK 5.0 Classes::java::awt::image::ImageProducer]" refid="_10_5_622020d_1132928323401_491348_16702"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SyntheticImage</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="colorchooser" refid="_9_5_f720368_1110473548112_696104_20974"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317002_83998_10826"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317002_83998_10826"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::colorchooser::SyntheticImage -&gt; JDK 5.0 Classes::java::awt::image::ImageProducer]" refid="_10_5_622020d_1132928323401_491348_16702"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="colorchooser" refid="_9_5_f720368_1110473548112_696104_20974"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="colorchooser" refid="_9_5_f720368_1110473548112_696104_20974"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="colorchooser" refid="_9_5_f720368_1110473548112_696104_20974"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::colorchooser::SyntheticImage</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ImageProducer" refid="_9_5_f720368_1110473546565_60145_6797"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

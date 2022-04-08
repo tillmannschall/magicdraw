@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317503_464864_11869"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="HTMLTextAction" refid="_9_5_f720368_1110473548315_572815_23025"/></annotatedElement><body humanName="Body" mode="s,e">An abstract Action providing some convenience methods that may
+be useful in inserting HTML into an existing document.
+&lt;p&gt;NOTE: None of the convenience methods obtain a lock on the
+document. If you have another thread modifying the text these
+methods may have inconsistent behavior, or return the wrong thing.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="HTMLTextAction" refid="_9_5_f720368_1110473548315_572815_23025"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="HTMLTextAction" refid="_9_5_f720368_1110473548315_572815_23025"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

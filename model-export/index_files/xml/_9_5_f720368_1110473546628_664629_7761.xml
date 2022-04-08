@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546628_664629_7761"><documentation humanName="Documentation" mode="standard">This class represents an Internet Protocol version 4 (IPv4) address.
+Defined by &lt;a href="http://www.ietf.org/rfc/rfc790.txt"&gt;
+&lt;i&gt;RFC&amp;nbsp;790: Assigned Numbers&lt;/i&gt;&lt;/a&gt;,
+&lt;a href="http://www.ietf.org/rfc/rfc1918.txt"&gt;
+&lt;i&gt;RFC&amp;nbsp;1918: Address Allocation for Private Internets&lt;/i&gt;&lt;/a&gt;,
+and &lt;a href="http://www.ietf.org/rfc/rfc2365.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2365:
+Administratively Scoped IP Multicast&lt;/i&gt;&lt;/a&gt;
+
+&lt;h4&gt; &lt;A NAME="format"&gt;Textual representation of IP addresses&lt;/a&gt; &lt;/h4&gt;
+
+Textual representation of IPv4 address used as input to methods
+takes one of the following forms:
+
+&lt;blockquote&gt;&lt;table cellpadding=0 cellspacing=0 summary="layout"&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt&gt;d.d.d.d&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt&gt;d.d.d&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt&gt;d.d&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt&gt;d&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; When four parts are specified, each is interpreted as a byte of
+data and assigned, from left to right, to the four bytes of an IPv4
+address.
+&lt;p&gt; When a three part address is specified, the last part is
+interpreted as a 16-bit quantity and placed in the right most two
+bytes of the network address. This makes the three part address
+format convenient for specifying Class B net- work addresses as
+128.net.host.
+
+&lt;p&gt; When a two part address is supplied, the last part is
+interpreted as a 24-bit quantity and placed in the right most three
+bytes of the network address. This makes the two part address
+format convenient for specifying Class A network addresses as
+net.host.
+
+&lt;p&gt; When only one part is given, the value is stored directly in
+the network address without any byte rearrangement.
+
+&lt;p&gt; For methods that return a textual representation as output
+value, the first form, i.e. a dotted-quad string, is used.
+
+&lt;h4&gt; The Scope of a Multicast Address &lt;/h4&gt;
+
+Historically the IPv4 TTL field in the IP header has doubled as a
+multicast scope field: a TTL of 0 means node-local, 1 means
+link-local, up through 32 means site-local, up through 64 means
+region-local, up through 128 means continent-local, and up through
+255 are global. However, the administrative scoping is preferred.
+Please refer to &lt;a href="http://www.ietf.org/rfc/rfc2365.txt"&gt;
+&lt;i&gt;RFC&amp;nbsp;2365: Administratively Scoped IP Multicast&lt;/i&gt;&lt;/a&gt;
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321719_678701_13791"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Cache" refid="_9_5_f720368_1110473547549_544193_18066"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CacheEntry" refid="_9_5_f720368_1110473547549_668174_18063"/></inheritedMember><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Cache" refid="_9_5_f720368_1110473547549_544193_18066"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CacheEntry" refid="_9_5_f720368_1110473547549_668174_18063"/></member><name humanName="Name" mode="s,e">Inet4Address</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308299_190316_5265"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321719_678701_13791"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308299_190316_5265"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::net::Inet4Address</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InetAddress" refid="_9_5_f720368_1110473546643_279990_7769"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

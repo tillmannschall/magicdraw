@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306046_662518_3938"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DataBuffer" refid="_9_5_f720368_1110473546565_692903_6773"/></annotatedElement><body humanName="Body" mode="s,e">This class exists to wrap one or more data arrays.  Each data array in
+the DataBuffer is referred to as a bank.  Accessor methods for getting
+and setting elements of the DataBuffer's banks exist with and without
+a bank specifier.  The methods without a bank specifier use the default 0th
+bank.  The DataBuffer can optionally take an offset per bank, so that
+data in an existing array can be used even if the interesting data
+doesn't start at array location zero.  Getting or setting the 0th
+element of a bank, uses the (0+offset)th element of the array.  The
+size field specifies how much of the data array is available for
+use.  Size + offset for a given bank should never be greater
+than the length of the associated data array.  The data type of
+a data buffer indicates the type of the data array(s) and may also
+indicate additional semantics, e.g. storing unsigned 8-bit data
+in elements of a byte array.  The data type may be TYPE_UNDEFINED
+or one of the types defined below.  Other types may be added in
+the future.  Generally, an object of class DataBuffer will be cast down
+to one of its data type specific subclasses to access data type specific
+methods for improved performance.  Currently, the Java 2D(tm) API
+image classes use TYPE_BYTE, TYPE_USHORT, TYPE_INT, TYPE_SHORT,
+TYPE_FLOAT, and TYPE_DOUBLE DataBuffers to store image data.
+@see java.awt.image.Raster
+@see java.awt.image.SampleModel
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="DataBuffer" refid="_9_5_f720368_1110473546565_692903_6773"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DataBuffer" refid="_9_5_f720368_1110473546565_692903_6773"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928308049_75077_5112"><documentation humanName="Documentation" mode="standard">This class is used to create operating system processes.
+
+&lt;p&gt;Each &lt;code&gt;ProcessBuilder&lt;/code&gt; instance manages a collection
+of process attributes.  The {@link #start()} method creates a new
+{@link Process} instance with those attributes.  The {@link
+#start()} method can be invoked repeatedly from the same instance
+to create new subprocesses with identical or related attributes.
+
+&lt;p&gt;Each process builder manages these process attributes:
+
+&lt;ul&gt;
+
+&lt;li&gt;a &lt;i&gt;command&lt;/i&gt;, a list of strings which signifies the
+external program file to be invoked and its arguments, if any.
+Which string lists represent a valid operating system command is
+system-dependent.  For example, it is common for each conceptual
+argument to be an element in this list, but there are operating
+systems where programs are expected to tokenize command line
+strings themselves - on such a system a Java implementation might
+require commands to contain exactly two elements.
+
+&lt;li&gt;an &lt;i&gt;environment&lt;/i&gt;, which is a system-dependent mapping from
+&lt;i&gt;variables&lt;/i&gt; to &lt;i&gt;values&lt;/i&gt;.  The initial value is a copy of
+the environment of the current process (see {@link System#getenv()}).
+
+&lt;li&gt;a &lt;i&gt;working directory&lt;/i&gt;.  The default value is the current
+working directory of the current process, usually the directory
+named by the system property &lt;code&gt;user.dir&lt;/code&gt;.
+
+&lt;li&gt;a &lt;i&gt;redirectErrorStream&lt;/i&gt; property.  Initially, this property
+is &lt;code&gt;false&lt;/code&gt;, meaning that the standard output and error
+output of a subprocess are sent to two separate streams, which can
+be accessed using the {@link Process#getInputStream()} and {@link
+Process#getErrorStream()} methods.  If the value is set to
+&lt;code&gt;true&lt;/code&gt;, the standard error is merged with the standard
+output.  This makes it easier to correlate error messages with the
+corresponding output.  In this case, the merged data can be read
+from the stream returned by {@link Process#getInputStream()}, while
+reading from the stream returned by {@link
+Process#getErrorStream()} will get an immediate end of file.
+
+&lt;/ul&gt;
+
+&lt;p&gt;Modifying a process builder's attributes will affect processes
+subsequently started by that object's {@link #start()} method, but
+will never affect previously started processes or the Java process
+itself.
+
+&lt;p&gt;Most error checking is performed by the {@link #start()} method.
+It is possible to modify the state of an object so that {@link
+#start()} will fail.  For example, setting the command attribute to
+an empty list will not throw an exception unless {@link #start()}
+is invoked.
+
+&lt;p&gt;&lt;strong&gt;Note that this class is not synchronized.&lt;/strong&gt;
+If multiple threads access a &lt;code&gt;ProcessBuilder&lt;/code&gt; instance
+concurrently, and at least one of the threads modifies one of the
+attributes structurally, it &lt;i&gt;must&lt;/i&gt; be synchronized externally.
+
+&lt;p&gt;Starting a new process which uses the default working directory
+and environment is easy:
+
+&lt;blockquote&gt;&lt;pre&gt;
+Process p = new ProcessBuilder("myCommand", "myArg").start();
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;Here is an example that starts a process with a modified working
+directory and environment:
+
+&lt;blockquote&gt;&lt;pre&gt;
+ProcessBuilder pb = new ProcessBuilder("myCommand", "myArg1", "myArg2");
+Map&lt;String, String&gt; env = pb.environment();
+env.put("VAR1", "myValue");
+env.remove("OTHERVAR");
+env.put("VAR2", env.get("VAR1") + "suffix");
+pb.directory("myDir");
+Process p = pb.start();
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;To start a process with an explicit set of environment
+variables, first call {@link java.util.Map#clear() Map.clear()}
+before adding environment variables.
+
+@since 1.5
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">ProcessBuilder</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308059_172155_5114"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308059_172155_5114"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::ProcessBuilder</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

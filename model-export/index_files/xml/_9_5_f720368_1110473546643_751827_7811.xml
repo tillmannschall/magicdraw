@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546643_751827_7811"><documentation humanName="Documentation" mode="standard">This interface defines a factory for socket implementations. It
+is used by the classes &lt;code&gt;Socket&lt;/code&gt; and
+&lt;code&gt;ServerSocket&lt;/code&gt; to create actual socket
+implementations.
+
+@author  Arthur van Hoff
+@version 1.18, 12/19/03
+@see     java.net.Socket
+@see     java.net.ServerSocket
+@since   JDK1.0
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SocketImplFactory</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308389_618520_5327"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308389_618520_5327"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::net::SocketImplFactory</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306667_502841_4255"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="KeyEventPostProcessor" refid="_9_5_f720368_1110473546581_424939_7061"/></annotatedElement><body humanName="Body" mode="s,e">A KeyEventPostProcessor cooperates with the current KeyboardFocusManager
+in the final resolution of all unconsumed KeyEvents. KeyEventPostProcessors
+registered with the current KeyboardFocusManager will receive KeyEvents
+after the KeyEvents have been dispatched to and handled by their targets.
+KeyEvents that would have been otherwise discarded because no Component in
+the application currently owns the focus will also be forwarded to
+registered KeyEventPostProcessors. This will allow applications to implement
+features that require global KeyEvent post-handling, such as menu shortcuts.
+&lt;p&gt;
+Note that the KeyboardFocusManager itself implements KeyEventPostProcessor.
+By default, the current KeyboardFocusManager will be the final
+KeyEventPostProcessor in the chain. The current KeyboardFocusManager cannot
+be completely deregistered as a KeyEventPostProcessor. However, if a
+KeyEventPostProcessor reports that no further post-processing of the
+KeyEvent should take place, the AWT will consider the event fully handled
+and will take no additional action with regard to the event. (While it is
+possible for client code to register the current KeyboardFocusManager as
+a KeyEventPostProcessor one or more times, this is usually unnecessary and
+not recommended.)
+
+@author David Mendenhall
+@version 1.5, 12/19/03
+
+@see KeyboardFocusManager#addKeyEventPostProcessor
+@see KeyboardFocusManager#removeKeyEventPostProcessor
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="KeyEventPostProcessor" refid="_9_5_f720368_1110473546581_424939_7061"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="KeyEventPostProcessor" refid="_9_5_f720368_1110473546581_424939_7061"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

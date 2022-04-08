@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309531_224786_6188"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SQLException" refid="_9_5_f720368_1110473546690_674828_8587"/></annotatedElement><body humanName="Body" mode="s,e">&lt;P&gt;An exception that provides information on a database access
+error or other errors.
+
+&lt;P&gt;Each &lt;code&gt;SQLException&lt;/code&gt; provides several kinds of information:
+&lt;UL&gt;
+&lt;LI&gt; a string describing the error.  This is used as the Java Exception
+message, available via the method &lt;code&gt;getMesage&lt;/code&gt;.
+&lt;LI&gt; a "SQLstate" string, which follows either the XOPEN SQLstate conventions
+or the SQL 99 conventions.
+The values of the SQLState string are described in the appropriate spec.
+The &lt;code&gt;DatabaseMetaData&lt;/code&gt; method &lt;code&gt;getSQLStateType&lt;/code&gt;
+can be used to discover whether the driver returns the XOPEN type or
+the SQL 99 type.
+&lt;LI&gt; an integer error code that is specific to each vendor.  Normally this will
+be the actual error code returned by the underlying database.
+&lt;LI&gt; a chain to a next Exception.  This can be used to provide additional
+error information.
+&lt;/UL&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SQLException" refid="_9_5_f720368_1110473546690_674828_8587"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SQLException" refid="_9_5_f720368_1110473546690_674828_8587"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

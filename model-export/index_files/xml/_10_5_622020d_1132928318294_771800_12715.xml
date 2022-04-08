@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_10_5_622020d_1132928318294_771800_12715"><documentation humanName="Documentation" mode="standard">&lt;p&gt;Immutable representation of a time span as defined in
+the W3C XML Schema 1.0 specification.&lt;/p&gt;
+
+&lt;p&gt;A Duration object represents a period of Gregorian time,
+which consists of six fields (years, months, days, hours,
+minutes, and seconds) plus a sign (+/-) field.&lt;/p&gt;
+
+&lt;p&gt;The first five fields have non-negative (&gt;=0) integers or null
+(which represents that the field is not set),
+and the seconds field has a non-negative decimal or null.
+A negative sign indicates a negative duration.&lt;/p&gt;
+
+&lt;p&gt;This class provides a number of methods that make it easy
+to use for the duration datatype of XML Schema 1.0 with
+the errata.&lt;/p&gt;
+
+&lt;h2&gt;Order relationship&lt;/h2&gt;
+&lt;p&gt;Duration objects only have partial order, where two values A and B
+maybe either:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A&lt;B (A is shorter than B)
+&lt;li&gt;A&gt;B (A is longer than B)
+&lt;li&gt;A==B   (A and B are of the same duration)
+&lt;li&gt;A&lt;&gt;B (Comparison between A and B is indeterminate)
+&lt;/ol&gt;
+&lt;p&gt;For example, 30 days cannot be meaningfully compared to one month.
+The {@link #compare(Duration duration)} method implements this
+relationship.&lt;/p&gt;
+
+&lt;p&gt;See the {@link #isLongerThan(Duration)} method for details about
+the order relationship among &lt;code&gt;Duration&lt;/code&gt; objects.&lt;/p&gt;
+
+&lt;h2&gt;Operations over Duration&lt;/h2&gt;
+&lt;p&gt;This class provides a set of basic arithmetic operations, such
+as addition, subtraction and multiplication.
+Because durations don't have total order, an operation could
+fail for some combinations of operations. For example, you cannot
+subtract 15 days from 1 month. See the javadoc of those methods
+for detailed conditions where this could happen.&lt;/p&gt;
+
+&lt;p&gt;Also, division of a duration by a number is not provided because
+the &lt;code&gt;Duration&lt;/code&gt; class can only deal with finite precision
+decimal numbers. For example, one cannot represent 1 sec divided by 3.&lt;/p&gt;
+
+&lt;p&gt;However, you could substitute a division by 3 with multiplying
+by numbers such as 0.3 or 0.333.&lt;/p&gt;
+
+&lt;h2&gt;Range of allowed values&lt;/h2&gt;
+&lt;p&gt;
+Because some operations of &lt;code&gt;Duration&lt;/code&gt; rely on {@link Calendar}
+even though {@link Duration} can hold very large or very small values,
+some of the methods may not work correctly on such &lt;code&gt;Duration&lt;/code&gt;s.
+The impacted methods document their dependency on {@link Calendar}.
+
+
+@author &lt;a href="mailto:Joseph.Fialli@Sun.COM"&gt;Joseph Fialli&lt;/a&gt;
+@author &lt;a href="mailto:Kohsuke.Kawaguchi@Sun.com"&gt;Kohsuke Kawaguchi&lt;/a&gt;
+@author &lt;a href="mailto:Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+@version $Revision: 1.36.8.1.4.3 $, $Date: 2004/06/07 06:33:50 $
+@see XMLGregorianCalendar#add(Duration)
+@since 1.5
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Duration</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="datatype" refid="_10_5_622020d_1132928318284_723327_12703"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318294_376245_12717"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318294_376245_12717"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="datatype" refid="_10_5_622020d_1132928318284_723327_12703"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="datatype" refid="_10_5_622020d_1132928318284_723327_12703"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="datatype" refid="_10_5_622020d_1132928318284_723327_12703"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::xml::datatype::Duration</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

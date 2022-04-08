@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317152_463058_11167"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicTabbedPaneUI" refid="_9_5_f720368_1110473546753_694845_10019"/></annotatedElement><body humanName="Body" mode="s,e">A Basic L&amp;F implementation of TabbedPaneUI.
+
+@version 1.87 06/08/99
+@author Amy Fowler
+@author Philip Milne
+@author Steve Wilson
+@author Tom Santos
+@author Dave Moore
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BasicTabbedPaneUI" refid="_9_5_f720368_1110473546753_694845_10019"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicTabbedPaneUI" refid="_9_5_f720368_1110473546753_694845_10019"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

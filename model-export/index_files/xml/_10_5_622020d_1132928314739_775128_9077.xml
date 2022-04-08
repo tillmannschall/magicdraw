@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314739_775128_9077"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Parser" refid="_9_5_f720368_1110473546956_849409_13298"/></annotatedElement><body humanName="Body" mode="s,e">Basic interface for SAX (Simple API for XML) parsers.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This was the main event supplier interface for SAX1; it has
+been replaced in SAX2 by {@link org.xml.sax.XMLReader XMLReader},
+which includes Namespace support and sophisticated configurability
+and extensibility.&lt;/p&gt;
+
+&lt;p&gt;All SAX1 parsers must implement this basic interface: it allows
+applications to register handlers for different types of events
+and to initiate a parse from a URI, or a character stream.&lt;/p&gt;
+
+&lt;p&gt;All SAX1 parsers must also implement a zero-argument constructor
+(though other constructors are also allowed).&lt;/p&gt;
+
+&lt;p&gt;SAX1 parsers are reusable but not re-entrant: the application
+may reuse a parser object (possibly with a different input source)
+once the first parse has completed successfully, but it may not
+invoke the parse() methods recursively within a parse.&lt;/p&gt;
+
+@deprecated This interface has been replaced by the SAX2
+{@link org.xml.sax.XMLReader XMLReader}
+interface, which includes Namespace support.
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.EntityResolver
+@see org.xml.sax.DTDHandler
+@see org.xml.sax.DocumentHandler
+@see org.xml.sax.ErrorHandler
+@see org.xml.sax.HandlerBase
+@see org.xml.sax.InputSource
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Parser" refid="_9_5_f720368_1110473546956_849409_13298"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Parser" refid="_9_5_f720368_1110473546956_849409_13298"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314338_766918_8724"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CSSRuleList" refid="_9_5_f720368_1110473546940_573468_13040"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;CSSRuleList&lt;/code&gt; interface provides the abstraction of an
+ordered collection of CSS rules.
+&lt;p&gt; The items in the &lt;code&gt;CSSRuleList&lt;/code&gt; are accessible via an
+integral index, starting from 0.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/REC-DOM-Level-2-Style-20001113'&gt;Document Object Model (DOM) Level 2 Style Specification&lt;/a&gt;.
+@since DOM Level 2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CSSRuleList" refid="_9_5_f720368_1110473546940_573468_13040"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CSSRuleList" refid="_9_5_f720368_1110473546940_573468_13040"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

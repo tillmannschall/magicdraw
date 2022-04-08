@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318113_425965_12511"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NumberEditor" refid="_9_5_f720368_1110473548456_890381_24293"/></annotatedElement><body humanName="Body" mode="s,e">An editor for a &lt;code&gt;JSpinner&lt;/code&gt; whose model is a
+&lt;code&gt;SpinnerNumberModel&lt;/code&gt;.  The value of the editor is
+displayed with a &lt;code&gt;JFormattedTextField&lt;/code&gt; whose format
+is defined by a &lt;code&gt;NumberFormatter&lt;/code&gt; instance whose
+&lt;code&gt;minimum&lt;/code&gt; and &lt;code&gt;maximum&lt;/code&gt; properties
+are mapped to the &lt;code&gt;SpinnerNumberModel&lt;/code&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="NumberEditor" refid="_9_5_f720368_1110473548456_890381_24293"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NumberEditor" refid="_9_5_f720368_1110473548456_890381_24293"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_682450_8477"><documentation humanName="Documentation" mode="standard">This class represents a storage facility for cryptographic
+keys and certificates.
+
+&lt;p&gt; A &lt;code&gt;KeyStore&lt;/code&gt; manages different types of entries.
+Each type of entry implements the &lt;code&gt;KeyStore.Entry&lt;/code&gt; interface.
+Three basic &lt;code&gt;KeyStore.Entry&lt;/code&gt; implementations are provided:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;KeyStore.PrivateKeyEntry&lt;/b&gt;
+&lt;p&gt; This type of entry holds a cryptographic &lt;code&gt;PrivateKey&lt;/code&gt;,
+which is optionally stored in a protected format to prevent
+unauthorized access.  It is also accompanied by a certificate chain
+for the corresponding public key.
+
+&lt;p&gt; Private keys and certificate chains are used by a given entity for
+self-authentication. Applications for this authentication include software
+distribution organizations which sign JAR files as part of releasing
+and/or licensing software.
+
+&lt;li&gt;&lt;b&gt;KeyStore.SecretKeyEntry&lt;/b&gt;
+&lt;p&gt; This type of entry holds a cryptographic &lt;code&gt;SecretKey&lt;/code&gt;,
+which is optionally stored in a protected format to prevent
+unauthorized access.
+
+&lt;li&gt;&lt;b&gt;KeyStore.TrustedCertificateEntry&lt;/b&gt;
+&lt;p&gt; This type of entry contains a single public key &lt;code&gt;Certificate&lt;/code&gt;
+belonging to another party. It is called a &lt;i&gt;trusted certificate&lt;/i&gt;
+because the keystore owner trusts that the public key in the certificate
+indeed belongs to the identity identified by the &lt;i&gt;subject&lt;/i&gt; (owner)
+of the certificate.
+
+&lt;p&gt;This type of entry can be used to authenticate other parties.
+&lt;/ul&gt;
+
+&lt;p&gt; Each entry in a keystore is identified by an "alias" string. In the
+case of private keys and their associated certificate chains, these strings
+distinguish among the different ways in which the entity may authenticate
+itself. For example, the entity may authenticate itself using different
+certificate authorities, or using different public key algorithms.
+
+&lt;p&gt; Whether keystores are persistent, and the mechanisms used by the
+keystore if it is persistent, are not specified here. This allows
+use of a variety of techniques for protecting sensitive (e.g., private or
+secret) keys. Smart cards or other integrated cryptographic engines
+(SafeKeyper) are one option, and simpler mechanisms such as files may also
+be used (in a variety of formats).
+
+&lt;p&gt; Typical ways to request a KeyStore object include
+relying on the default type and providing a specific keystore type.
+
+&lt;ul&gt;
+&lt;li&gt;To rely on the default type:
+&lt;pre&gt;
+KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+&lt;/pre&gt;
+The system will return a keystore implementation for the default type.
+&lt;p&gt;
+
+&lt;li&gt;To provide a specific keystore type:
+&lt;pre&gt;
+KeyStore ks = KeyStore.getInstance("JKS");
+&lt;/pre&gt;
+The system will return the most preferred implementation of the
+specified keystore type available in the environment. &lt;p&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; Before a keystore can be accessed, it must be
+{@link #load(java.io.InputStream, char[]) loaded}.
+&lt;pre&gt;
+KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+
+get user password and file input stream
+char[] password = getPassword();
+java.io.FileInputStream fis =
+new java.io.FileInputStream("keyStoreName");
+ks.load(fis, password);
+fis.close();
+&lt;/pre&gt;
+
+To create an empty keystore using the above &lt;code&gt;load&lt;/code&gt; method,
+pass &lt;code&gt;null&lt;/code&gt; as the &lt;code&gt;InputStream&lt;/code&gt; argument.
+
+&lt;p&gt; Once the keystore has been loaded, it is possible
+to read existing entries from the keystore, or to write new entries
+into the keystore:
+&lt;pre&gt;
+get my private key
+KeyStore.PrivateKeyEntry pkEntry = (KeyStore.PrivateKeyEntry)
+ks.getEntry("privateKeyAlias", password);
+PrivateKey myPrivateKey = pkEntry.getPrivateKey();
+
+save my secret key
+javax.crypto.SecretKey mySecretKey;
+KeyStore.SecretKeyEntry skEntry =
+new KeyStore.SecretKeyEntry(mySecretKey);
+ks.setEntry("secretKeyAlias", skEntry, password);
+
+store away the keystore
+java.io.FileOutputStream fos =
+new java.io.FileOutputStream("newKeyStoreName");
+ks.store(fos, password);
+fos.close();
+&lt;/pre&gt;
+
+Note that although the same password may be used to
+load the keystore, to protect the private key entry,
+to protect the secret key entry, and to store the keystore
+(as is shown in the sample code above),
+different passwords or other protection parameters
+may also be used.
+
+@author Jan Luehe
+
+@version 1.42, 06/28/04
+
+@see java.security.PrivateKey
+@see javax.crypto.SecretKey
+@see java.security.cert.Certificate
+
+@since 1.2
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Builder" refid="_10_5_622020d_1132928309341_305480_6056"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CallbackHandlerProtection" refid="_10_5_622020d_1132928309331_542530_6046"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Entry" refid="_10_5_622020d_1132928309341_167754_6048"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="LoadStoreParameter" refid="_10_5_622020d_1132928309331_956445_6040"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PasswordProtection" refid="_10_5_622020d_1132928309331_973393_6044"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrivateKeyEntry" refid="_10_5_622020d_1132928309341_352170_6050"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ProtectionParameter" refid="_10_5_622020d_1132928309331_869672_6042"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecretKeyEntry" refid="_10_5_622020d_1132928309341_45186_6052"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SimpleLoadStoreParameter" refid="_10_5_622020d_1132928309341_159146_6059"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TrustedCertificateEntry" refid="_10_5_622020d_1132928309341_296783_6054"/></member><name humanName="Name" mode="s,e">KeyStore</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Builder" refid="_10_5_622020d_1132928309341_305480_6056"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CallbackHandlerProtection" refid="_10_5_622020d_1132928309331_542530_6046"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Entry" refid="_10_5_622020d_1132928309341_167754_6048"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="LoadStoreParameter" refid="_10_5_622020d_1132928309331_956445_6040"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PasswordProtection" refid="_10_5_622020d_1132928309331_973393_6044"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrivateKeyEntry" refid="_10_5_622020d_1132928309341_352170_6050"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ProtectionParameter" refid="_10_5_622020d_1132928309331_869672_6042"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecretKeyEntry" refid="_10_5_622020d_1132928309341_45186_6052"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SimpleLoadStoreParameter" refid="_10_5_622020d_1132928309341_159146_6059"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TrustedCertificateEntry" refid="_10_5_622020d_1132928309341_296783_6054"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309351_918135_6061"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309351_918135_6061"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Builder" refid="_10_5_622020d_1132928309341_305480_6056"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CallbackHandlerProtection" refid="_10_5_622020d_1132928309331_542530_6046"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Entry" refid="_10_5_622020d_1132928309341_167754_6048"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="LoadStoreParameter" refid="_10_5_622020d_1132928309331_956445_6040"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PasswordProtection" refid="_10_5_622020d_1132928309331_973393_6044"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrivateKeyEntry" refid="_10_5_622020d_1132928309341_352170_6050"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ProtectionParameter" refid="_10_5_622020d_1132928309331_869672_6042"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecretKeyEntry" refid="_10_5_622020d_1132928309341_45186_6052"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SimpleLoadStoreParameter" refid="_10_5_622020d_1132928309341_159146_6059"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TrustedCertificateEntry" refid="_10_5_622020d_1132928309341_296783_6054"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Builder" refid="_10_5_622020d_1132928309341_305480_6056"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CallbackHandlerProtection" refid="_10_5_622020d_1132928309331_542530_6046"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Entry" refid="_10_5_622020d_1132928309341_167754_6048"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="LoadStoreParameter" refid="_10_5_622020d_1132928309331_956445_6040"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PasswordProtection" refid="_10_5_622020d_1132928309331_973393_6044"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrivateKeyEntry" refid="_10_5_622020d_1132928309341_352170_6050"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ProtectionParameter" refid="_10_5_622020d_1132928309331_869672_6042"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecretKeyEntry" refid="_10_5_622020d_1132928309341_45186_6052"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SimpleLoadStoreParameter" refid="_10_5_622020d_1132928309341_159146_6059"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TrustedCertificateEntry" refid="_10_5_622020d_1132928309341_296783_6054"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::KeyStore</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

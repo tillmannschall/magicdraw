@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317082_419492_10959"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ListDataHandler" refid="_9_5_f720368_1110473548143_98878_21184"/></annotatedElement><body humanName="Body" mode="s,e">This listener watches for changes in the
+&lt;code&gt;ComboBoxModel&lt;/code&gt;.
+&lt;p&gt;
+This public inner class should be treated as protected.
+Instantiate it only within subclasses of
+&lt;code&gt;BasicComboBoxUI&lt;/code&gt;.
+
+@see #createListDataListener
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ListDataHandler" refid="_9_5_f720368_1110473548143_98878_21184"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ListDataHandler" refid="_9_5_f720368_1110473548143_98878_21184"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

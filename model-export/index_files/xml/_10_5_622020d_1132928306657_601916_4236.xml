@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306657_601916_4236"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Image" refid="_9_5_f720368_1110473546581_642816_7047"/></annotatedElement><body humanName="Body" mode="s,e">The abstract class &lt;code&gt;Image&lt;/code&gt; is the superclass of all
+classes that represent graphical images. The image must be
+obtained in a platform-specific manner.
+
+@version 	1.39, 12/19/03
+@author 	Sami Shaio
+@author 	Arthur van Hoff
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Image" refid="_9_5_f720368_1110473546581_642816_7047"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Image" refid="_9_5_f720368_1110473546581_642816_7047"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

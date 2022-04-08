@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308379_648614_5312"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ResponseCache" refid="_10_5_622020d_1132928308379_160716_5310"/></annotatedElement><body humanName="Body" mode="s,e">Represents implementations of URLConnection caches. An instance of
+such a class can be registered with the system by doing
+ResponseCache.setDefault(ResponseCache), and the system will call
+this object in order to:
+
+&lt;ul&gt;&lt;li&gt;store resource data which has been retrieved from an
+external source into the cache&lt;/li&gt;
+&lt;li&gt;try to fetch a requested resource that may have been
+stored in the cache&lt;/li&gt;
+&lt;/ul&gt;
+
+The ResponseCache implementation decides which resources
+should be cached, and for how long they should be cached. If a
+request resource cannot be retrieved from the cache, then the
+protocol handlers will fetch the resource from its original
+location.
+
+The settings for URLConnection#useCaches controls whether the
+protocol is allowed to use a cached response.
+
+For more information on HTTP caching, see &lt;a
+href="http://www.ietf.org/rfc/rfc2616.txt""&gt;&lt;i&gt;RFC&amp;nbsp;2616: Hypertext
+Transfer Protocol -- HTTP/1.1&lt;/i&gt;&lt;/a&gt;
+
+@version 1.1, 03/09/22
+@author Yingxian Wang
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ResponseCache" refid="_10_5_622020d_1132928308379_160716_5310"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ResponseCache" refid="_10_5_622020d_1132928308379_160716_5310"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546674_927289_8391"><documentation humanName="Documentation" mode="standard">A (transparent) specification of the key material
+that constitutes a cryptographic key.
+
+&lt;p&gt;If the key is stored on a hardware device, its
+specification may contain information that helps identify the key on the
+device.
+
+&lt;P&gt; A key may be specified in an algorithm-specific way, or in an
+algorithm-independent encoding format (such as ASN.1).
+For example, a DSA private key may be specified by its components
+&lt;code&gt;x&lt;/code&gt;, &lt;code&gt;p&lt;/code&gt;, &lt;code&gt;q&lt;/code&gt;, and &lt;code&gt;g&lt;/code&gt;
+(see {@link DSAPrivateKeySpec}), or it may be
+specified using its DER encoding
+(see {@link PKCS8EncodedKeySpec}).
+
+&lt;P&gt; This interface contains no methods or constants. Its only purpose
+is to group (and provide type safety for) all key specifications.
+All key specifications must implement this interface.
+
+@author Jan Luehe
+
+@version 1.17, 12/19/03
+
+@see java.security.Key
+@see java.security.KeyFactory
+@see EncodedKeySpec
+@see X509EncodedKeySpec
+@see PKCS8EncodedKeySpec
+@see DSAPrivateKeySpec
+@see DSAPublicKeySpec
+
+@since 1.2
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">KeySpec</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spec" refid="_9_5_f720368_1110473547721_68899_18700"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309221_523646_5931"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309221_523646_5931"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="spec" refid="_9_5_f720368_1110473547721_68899_18700"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spec" refid="_9_5_f720368_1110473547721_68899_18700"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spec" refid="_9_5_f720368_1110473547721_68899_18700"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::spec::KeySpec</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::spec::DSAPrivateKeySpec -&gt; JDK 5.0 Classes::java::security::spec::KeySpec]" refid="_10_5_622020d_1132928321869_182746_14157"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::spec::DSAPublicKeySpec -&gt; JDK 5.0 Classes::java::security::spec::KeySpec]" refid="_10_5_622020d_1132928321869_954614_14158"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::spec::ECPrivateKeySpec -&gt; JDK 5.0 Classes::java::security::spec::KeySpec]" refid="_10_5_622020d_1132928321869_75009_14163"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::spec::ECPublicKeySpec -&gt; JDK 5.0 Classes::java::security::spec::KeySpec]" refid="_10_5_622020d_1132928321869_816990_14164"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::spec::EncodedKeySpec -&gt; JDK 5.0 Classes::java::security::spec::KeySpec]" refid="_10_5_622020d_1132928321869_984895_14165"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::spec::RSAPrivateKeySpec -&gt; JDK 5.0 Classes::java::security::spec::KeySpec]" refid="_10_5_622020d_1132928321869_477821_14174"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::spec::RSAPublicKeySpec -&gt; JDK 5.0 Classes::java::security::spec::KeySpec]" refid="_10_5_622020d_1132928321869_311934_14175"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

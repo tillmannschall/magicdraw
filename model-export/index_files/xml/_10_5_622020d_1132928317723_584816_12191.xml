@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317723_584816_12191"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="TableView" refid="_9_5_f720368_1110473546784_472000_10535"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;
+Implements View interface for a table, that is composed of an
+element structure where the child elements of the element
+this view is responsible for represent rows and the child
+elements of the row elements are cells.  The cell elements can
+have an arbitrary element structure under them, which will
+be built with the ViewFactory returned by the getViewFactory
+method.
+&lt;pre&gt;
+
+&amp;nbsp;  TABLE
+&amp;nbsp;    ROW
+&amp;nbsp;      CELL
+&amp;nbsp;      CELL
+&amp;nbsp;    ROW
+&amp;nbsp;      CELL
+&amp;nbsp;      CELL
+
+&lt;/pre&gt;
+&lt;p&gt;
+This is implemented as a hierarchy of boxes, the table itself
+is a vertical box, the rows are horizontal boxes, and the cells
+are vertical boxes.  The cells are allowed to span multiple
+columns and rows.  By default, the table can be thought of as
+being formed over a grid (i.e. somewhat like one would find in
+gridbag layout), where table cells can request to span more
+than one grid cell.  The default horizontal span of table cells
+will be based upon this grid, but can be changed by reimplementing
+the requested span of the cell (i.e. table cells can have independant
+spans if desired).
+
+@author  Timothy Prinzing
+@version 1.33 05/18/04
+@see     View
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="TableView" refid="_9_5_f720368_1110473546784_472000_10535"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="TableView" refid="_9_5_f720368_1110473546784_472000_10535"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

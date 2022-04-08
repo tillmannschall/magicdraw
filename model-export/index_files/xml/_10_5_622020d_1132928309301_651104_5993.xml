@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309301_651104_5993"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DigestOutputStream" refid="_9_5_f720368_1110473546674_723361_8441"/></annotatedElement><body humanName="Body" mode="s,e">A transparent stream that updates the associated message digest using
+the bits going through the stream.
+
+&lt;p&gt;To complete the message digest computation, call one of the
+&lt;code&gt;digest&lt;/code&gt; methods on the associated message
+digest after your calls to one of this digest ouput stream's
+{@link #write(int) write} methods.
+
+&lt;p&gt;It is possible to turn this stream on or off (see
+{@link #on(boolean) on}). When it is on, a call to one of the
+&lt;code&gt;write&lt;/code&gt; methods results in
+an update on the message digest.  But when it is off, the message
+digest is not updated. The default is for the stream to be on.
+
+@see MessageDigest
+@see DigestInputStream
+
+@version 1.31 03/12/19
+@author Benjamin Renaud
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DigestOutputStream" refid="_9_5_f720368_1110473546674_723361_8441"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DigestOutputStream" refid="_9_5_f720368_1110473546674_723361_8441"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

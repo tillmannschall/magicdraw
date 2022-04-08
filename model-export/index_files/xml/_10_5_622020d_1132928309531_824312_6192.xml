@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309531_824312_6192"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SQLOutput" refid="_9_5_f720368_1110473546690_687938_8591"/></annotatedElement><body humanName="Body" mode="s,e">The output stream for writing the attributes of a user-defined
+type back to the database.  This interface, used
+only for custom mapping, is used by the driver, and its
+methods are never directly invoked by a programmer.
+&lt;p&gt;When an object of a class implementing the interface
+&lt;code&gt;SQLData&lt;/code&gt; is passed as an argument to an SQL statement, the
+JDBC driver calls the method &lt;code&gt;SQLData.getSQLType&lt;/code&gt; to
+determine the  kind of SQL
+datum being passed to the database.
+The driver then creates an instance of &lt;code&gt;SQLOutput&lt;/code&gt; and
+passes it to the method &lt;code&gt;SQLData.writeSQL&lt;/code&gt;.
+The method &lt;code&gt;writeSQL&lt;/code&gt; in turn calls the
+appropriate &lt;code&gt;SQLOutput&lt;/code&gt; &lt;i&gt;writer&lt;/i&gt; methods
+&lt;code&gt;writeBoolean&lt;/code&gt;, &lt;code&gt;writeCharacterStream&lt;/code&gt;, and so on)
+to write data from the &lt;code&gt;SQLData&lt;/code&gt; object to
+the &lt;code&gt;SQLOutput&lt;/code&gt; output stream as the
+representation of an SQL user-defined type.
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="SQLOutput" refid="_9_5_f720368_1110473546690_687938_8591"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SQLOutput" refid="_9_5_f720368_1110473546690_687938_8591"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

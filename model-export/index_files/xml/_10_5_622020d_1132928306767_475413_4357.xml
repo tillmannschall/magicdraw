@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306767_475413_4357"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Toolkit" refid="_9_5_f720368_1110473546596_177251_7141"/></annotatedElement><body humanName="Body" mode="s,e">This class is the abstract superclass of all actual
+implementations of the Abstract Window Toolkit. Subclasses of
+&lt;code&gt;Toolkit&lt;/code&gt; are used to bind the various components
+to particular native toolkit implementations.
+&lt;p&gt;
+Many GUI operations may be performed asynchronously.  This
+means that if you set the state of a component, and then
+immediately query the state, the returned value may not yet
+reflect the requested change.  This includes, but is not
+limited to:
+&lt;ul&gt;
+&lt;li&gt;Scrolling to a specified position.
+&lt;br&gt;For example, calling &lt;code&gt;ScrollPane.setScrollPosition&lt;/code&gt;
+and then &lt;code&gt;getScrollPosition&lt;/code&gt; may return an incorrect
+value if the original request has not yet been processed.
+&lt;p&gt;
+&lt;li&gt;Moving the focus from one component to another.
+&lt;br&gt;For more information, see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/focus.html#transferTiming"&gt;Timing
+Focus Transfers&lt;/a&gt;, a section in
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/"&gt;The Swing
+Tutorial&lt;/a&gt;.
+&lt;p&gt;
+&lt;li&gt;Making a top-level container visible.
+&lt;br&gt;Calling &lt;code&gt;setVisible(true)&lt;/code&gt; on a &lt;code&gt;Window&lt;/code&gt;,
+&lt;code&gt;Frame&lt;/code&gt; or &lt;code&gt;Dialog&lt;/code&gt; may occur
+asynchronously.
+&lt;p&gt;
+&lt;li&gt;Setting the size or location of a top-level container.
+&lt;br&gt;Calls to &lt;code&gt;setSize&lt;/code&gt;, &lt;code&gt;setBounds&lt;/code&gt; or
+&lt;code&gt;setLocation&lt;/code&gt; on a &lt;code&gt;Window&lt;/code&gt;,
+&lt;code&gt;Frame&lt;/code&gt; or &lt;code&gt;Dialog&lt;/code&gt; are forwarded
+to the underlying window management system and may be
+ignored or modified.  See {@link java.awt.Window} for
+more information.
+&lt;/ul&gt;
+&lt;p&gt;
+Most applications should not call any of the methods in this
+class directly. The methods defined by &lt;code&gt;Toolkit&lt;/code&gt; are
+the "glue" that joins the platform-independent classes in the
+&lt;code&gt;java.awt&lt;/code&gt; package with their counterparts in
+&lt;code&gt;java.awt.peer&lt;/code&gt;. Some methods defined by
+&lt;code&gt;Toolkit&lt;/code&gt; query the native operating system directly.
+
+@version 	1.203, 12/19/03
+@author	Sami Shaio
+@author	Arthur van Hoff
+@author	Fred Ecks
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Toolkit" refid="_9_5_f720368_1110473546596_177251_7141"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Toolkit" refid="_9_5_f720368_1110473546596_177251_7141"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

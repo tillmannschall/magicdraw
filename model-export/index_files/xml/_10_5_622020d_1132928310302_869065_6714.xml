@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310302_869065_6714"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TimeUnit" refid="_10_5_622020d_1132928310292_771921_6711"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;tt&gt;TimeUnit&lt;/tt&gt; represents time durations at a given unit of
+granularity and provides utility methods to convert across units,
+and to perform timing and delay operations in these units.  A
+&lt;tt&gt;TimeUnit&lt;/tt&gt; does not maintain time information, but only
+helps organize and use time representations that may be maintained
+separately across various contexts.
+
+&lt;p&gt;A &lt;tt&gt;TimeUnit&lt;/tt&gt; is mainly used to inform time-based methods
+how a given timing parameter should be interpreted. For example,
+the following code will timeout in 50 milliseconds if the {@link
+java.util.concurrent.locks.Lock lock} is not available:
+
+&lt;pre&gt;  Lock lock = ...;
+if ( lock.tryLock(50L, TimeUnit.MILLISECONDS) ) ...
+&lt;/pre&gt;
+while this code will timeout in 50 seconds:
+&lt;pre&gt;
+Lock lock = ...;
+if ( lock.tryLock(50L, TimeUnit.SECONDS) ) ...
+&lt;/pre&gt;
+
+Note however, that there is no guarantee that a particular timeout
+implementation will be able to notice the passage of time at the
+same granularity as the given &lt;tt&gt;TimeUnit&lt;/tt&gt;.
+
+@since 1.5
+@author Doug Lea
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="TimeUnit" refid="_10_5_622020d_1132928310292_771921_6711"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TimeUnit" refid="_10_5_622020d_1132928310292_771921_6711"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

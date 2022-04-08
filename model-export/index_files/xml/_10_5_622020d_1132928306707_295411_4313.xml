@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306707_295411_4313"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PopupMenu" refid="_9_5_f720368_1110473546581_531688_7101"/></annotatedElement><body humanName="Body" mode="s,e">A class that implements a menu which can be dynamically popped up
+at a specified position within a component.
+&lt;p&gt;
+As the inheritance hierarchy implies, a &lt;code&gt;PopupMenu&lt;/code&gt;
+can be used anywhere a &lt;code&gt;Menu&lt;/code&gt; can be used.
+However, if you use a &lt;code&gt;PopupMenu&lt;/code&gt; like a &lt;code&gt;Menu&lt;/code&gt;
+(e.g., you add it to a &lt;code&gt;MenuBar&lt;/code&gt;), then you &lt;b&gt;cannot&lt;/b&gt;
+call &lt;code&gt;show&lt;/code&gt; on that &lt;code&gt;PopupMenu&lt;/code&gt;.
+
+@version	1.29 03/16/04
+@author 	Amy Fowler
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PopupMenu" refid="_9_5_f720368_1110473546581_531688_7101"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PopupMenu" refid="_9_5_f720368_1110473546581_531688_7101"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

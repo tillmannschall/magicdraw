@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314959_991187_9396"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyAlreadyExistsException" refid="_10_5_622020d_1132928314959_108480_9394"/></annotatedElement><body humanName="Body" mode="s,e">This runtime exception is thrown to indicate that the index of a row to be added to a &lt;i&gt;tabular data&lt;/i&gt; instance
+is already used to refer to another row in this &lt;i&gt;tabular data&lt;/i&gt; instance.
+
+@version     3.17  03/12/19
+@author      Sun Microsystems, Inc.
+
+@since 1.5
+@since.unbundled JMX 1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="KeyAlreadyExistsException" refid="_10_5_622020d_1132928314959_108480_9394"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyAlreadyExistsException" refid="_10_5_622020d_1132928314959_108480_9394"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

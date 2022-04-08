@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315239_802127_9817"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NotificationFilterSupport" refid="_10_5_622020d_1132928315239_796423_9815"/></annotatedElement><body humanName="Body" mode="s,e">Provides an implementation of the {@link javax.management.NotificationFilter} interface.
+The filtering is performed on the notification type attribute.
+&lt;P&gt;
+Manages a list of enabled notification types.
+A method allows users to enable/disable as many notification types as required.
+&lt;P&gt;
+Then, before sending a notification to a listener registered with a filter,
+the notification broadcaster compares this notification type with all notification types
+enabled by the filter. The notification will be sent to the listener
+only if its filter enables this notification type.
+&lt;P&gt;
+Example:
+&lt;BLOCKQUOTE&gt;
+&lt;PRE&gt;
+NotificationFilterSupport myFilter = new NotificationFilterSupport();
+myFilter.enableType("my_example.my_type");
+myBroadcaster.addListener(myListener, myFilter, null);
+&lt;/PRE&gt;
+&lt;/BLOCKQUOTE&gt;
+The listener &lt;CODE&gt;myListener&lt;/CODE&gt; will only receive notifications the type of which equals/starts with "my_example.my_type".
+
+@see javax.management.NotificationBroadcaster#addNotificationListener
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="NotificationFilterSupport" refid="_10_5_622020d_1132928315239_796423_9815"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NotificationFilterSupport" refid="_10_5_622020d_1132928315239_796423_9815"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

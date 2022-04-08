@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305665_48399_3675"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetEvent" refid="_9_5_f720368_1110473546565_246023_6523"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;DropTargetEvent&lt;/code&gt; is the base
+class for both the &lt;code&gt;DropTargetDragEvent&lt;/code&gt;
+and the &lt;code&gt;DropTargetDropEvent&lt;/code&gt;.
+It encapsulates the current state of the Drag and
+Drop operations, in particular the current
+&lt;code&gt;DropTargetContext&lt;/code&gt;.
+
+@version 	1.18, 12/19/03
+@since 1.2
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DropTargetEvent" refid="_9_5_f720368_1110473546565_246023_6523"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetEvent" refid="_9_5_f720368_1110473546565_246023_6523"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

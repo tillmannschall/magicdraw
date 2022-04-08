@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928315029_460910_9575"><documentation humanName="Documentation" mode="standard">&lt;p&gt;Factory to create JMX API connector clients.  There
+are no instances of this class.&lt;/p&gt;
+
+&lt;p&gt;Connections are usually made using the {@link
+#connect(JMXServiceURL) connect} method of this class.  More
+advanced applications can separate the creation of the connector
+client, using {@link #newJMXConnector(JMXServiceURL, Map)
+newJMXConnector} and the establishment of the connection itself, using
+{@link JMXConnector#connect(Map)}.&lt;/p&gt;
+
+&lt;p&gt;Each client is created by an instance of {@link
+JMXConnectorProvider}.  This instance is found as follows.  Suppose
+the given {@link JMXServiceURL} looks like
+&lt;code&gt;"service:jmx:&lt;em&gt;protocol&lt;/em&gt;:&lt;em&gt;remainder&lt;/em&gt;"&lt;/code&gt;.
+Then the factory will attempt to find the appropriate {@link
+JMXConnectorProvider} for &lt;code&gt;&lt;em&gt;protocol&lt;/em&gt;&lt;/code&gt;.  Each
+occurrence of the character &lt;code&gt;+&lt;/code&gt; or &lt;code&gt;-&lt;/code&gt; in
+&lt;code&gt;&lt;em&gt;protocol&lt;/em&gt;&lt;/code&gt; is replaced by &lt;code&gt;.&lt;/code&gt; or
+&lt;code&gt;_&lt;/code&gt;, respectively.&lt;/p&gt;
+
+&lt;p&gt;A &lt;em&gt;provider package list&lt;/em&gt; is searched for as follows:&lt;/p&gt;
+
+&lt;ol&gt;
+
+&lt;li&gt;If the &lt;code&gt;environment&lt;/code&gt; parameter to {@link
+#newJMXConnector(JMXServiceURL, Map) newJMXConnector} contains the
+key &lt;code&gt;jmx.remote.protocol.provider.pkgs&lt;/code&gt; then the
+associated value is the provider package list.
+
+&lt;li&gt;Otherwise, if the system property
+&lt;code&gt;jmx.remote.protocol.provider.pkgs&lt;/code&gt; exists, then its value
+is the provider package list.
+
+&lt;li&gt;Otherwise, there is no provider package list.
+
+&lt;/ol&gt;
+
+&lt;p&gt;The provider package list is a string that is interpreted as a
+list of non-empty Java package names separated by vertical bars
+(&lt;code&gt;|&lt;/code&gt;).  If the string is empty, then so is the provider
+package list.  If the provider package list is not a String, or if
+it contains an element that is an empty string, a {@link
+JMXProviderException} is thrown.&lt;/p&gt;
+
+&lt;p&gt;If the provider package list exists and is not empty, then for
+each element &lt;code&gt;&lt;em&gt;pkg&lt;/em&gt;&lt;/code&gt; of the list, the factory
+will attempt to load the class
+
+&lt;blockquote&gt;
+&lt;code&gt;&lt;em&gt;pkg&lt;/em&gt;.&lt;em&gt;protocol&lt;/em&gt;.ClientProvider&lt;/code&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If the &lt;code&gt;environment&lt;/code&gt; parameter to {@link
+#newJMXConnector(JMXServiceURL, Map) newJMXConnector} contains the
+key &lt;code&gt;jmx.remote.protocol.provider.class.loader&lt;/code&gt; then the
+associated value is the class loader to use to load the provider.
+If the associated value is not an instance of {@link
+java.lang.ClassLoader}, an {@link
+java.lang.IllegalArgumentException} is thrown.&lt;/p&gt;
+
+&lt;p&gt;If the &lt;code&gt;jmx.remote.protocol.provider.class.loader&lt;/code&gt;
+key is not present in the &lt;code&gt;environment&lt;/code&gt; parameter, the
+calling thread's context class loader is used.&lt;/p&gt;
+
+&lt;p&gt;If the attempt to load this class produces a {@link
+ClassNotFoundException}, the search for a handler continues with
+the next element of the list.&lt;/p&gt;
+
+&lt;p&gt;Otherwise, a problem with the provider found is signalled by a
+{@link JMXProviderException} whose {@link
+JMXProviderException#getCause() &lt;em&gt;cause&lt;/em&gt;} indicates the underlying
+exception, as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;if the attempt to load the class produces an exception other
+than &lt;code&gt;ClassNotFoundException&lt;/code&gt;, that is the
+&lt;em&gt;cause&lt;/em&gt;;
+
+&lt;li&gt;if {@link Class#newInstance()} for the class produces an
+exception, that is the &lt;em&gt;cause&lt;/em&gt;.
+
+&lt;/ul&gt;
+
+&lt;p&gt;If no provider is found by the above steps, including the
+default case where there is no provider package list, then the
+implementation will use its own provider for
+&lt;code&gt;&lt;em&gt;protocol&lt;/em&gt;&lt;/code&gt;, or it will throw a
+&lt;code&gt;MalformedURLException&lt;/code&gt; if there is none.  An
+implementation may choose to find providers by other means.  For
+example, it may support the &lt;a
+href="http://java.sun.com/j2se/1.5.0/docs/guide/jar/jar.html#Service Provider"&gt;
+JAR conventions for service providers&lt;/a&gt;, where the service
+interface is &lt;code&gt;JMXConnectorProvider&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Every implementation must support the RMI connector protocols,
+specified with the string &lt;code&gt;rmi&lt;/code&gt; or
+&lt;code&gt;iiop&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once a provider is found, the result of the
+&lt;code&gt;newJMXConnector&lt;/code&gt; method is the result of calling {@link
+JMXConnectorProvider#newJMXConnector(JMXServiceURL,Map) newJMXConnector}
+on the provider.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;Map&lt;/code&gt; parameter passed to the
+&lt;code&gt;JMXConnectorProvider&lt;/code&gt; is a new read-only
+&lt;code&gt;Map&lt;/code&gt; that contains all the entries that were in the
+&lt;code&gt;environment&lt;/code&gt; parameter to {@link
+#newJMXConnector(JMXServiceURL,Map)
+JMXConnectorFactory.newJMXConnector}, if there was one.
+Additionally, if the
+&lt;code&gt;jmx.remote.protocol.provider.class.loader&lt;/code&gt; key is not
+present in the &lt;code&gt;environment&lt;/code&gt; parameter, it is added to
+the new read-only &lt;code&gt;Map&lt;/code&gt;.  The associated value is the
+calling thread's context class loader.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">JMXConnectorFactory</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315039_486941_9577"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315039_486941_9577"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::management::remote::JMXConnectorFactory</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

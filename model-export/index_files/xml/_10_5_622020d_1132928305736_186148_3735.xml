@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305736_186148_3735"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="KeyAdapter" refid="_9_5_f720368_1110473546565_24749_6583"/></annotatedElement><body humanName="Body" mode="s,e">An abstract adapter class for receiving keyboard events.
+The methods in this class are empty. This class exists as
+convenience for creating listener objects.
+&lt;P&gt;
+Extend this class to create a &lt;code&gt;KeyEvent&lt;/code&gt; listener
+and override the methods for the events of interest. (If you implement the
+&lt;code&gt;KeyListener&lt;/code&gt; interface, you have to define all of
+the methods in it. This abstract class defines null methods for them
+all, so you can only have to define methods for events you care about.)
+&lt;P&gt;
+Create a listener object using the extended class and then register it with
+a component using the component's &lt;code&gt;addKeyListener&lt;/code&gt;
+method. When a key is pressed, released, or typed,
+the relevant method in the listener object is invoked,
+and the &lt;code&gt;KeyEvent&lt;/code&gt; is passed to it.
+
+@author Carl Quinn
+@version 1.17 12/19/03
+
+@see KeyEvent
+@see KeyListener
+@see &lt;a href="http://java.sun.com/docs/books/tutorial/post1.0/ui/keylistener.html"&gt;Tutorial: Writing a Key Listener&lt;/a&gt;
+@see &lt;a href="http://www.awl.com/cp/javaseries/jcl1_2.html"&gt;Reference: The Java Class Libraries (update file)&lt;/a&gt;
+
+@since 1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="KeyAdapter" refid="_9_5_f720368_1110473546565_24749_6583"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="KeyAdapter" refid="_9_5_f720368_1110473546565_24749_6583"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

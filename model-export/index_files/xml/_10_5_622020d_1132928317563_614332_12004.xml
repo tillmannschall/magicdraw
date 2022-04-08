@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317563_614332_12004"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultCaret" refid="_9_5_f720368_1110473546784_435224_10439"/></annotatedElement><body humanName="Body" mode="s,e">A default implementation of Caret.  The caret is rendered as
+a vertical line in the color specified by the CaretColor property
+of the associated JTextComponent.  It can blink at the rate specified
+by the BlinkRate property.
+&lt;p&gt;
+This implementation expects two sources of asynchronous notification.
+The timer thread fires asynchronously, and causes the caret to simply
+repaint the most recent bounding box.  The caret also tracks change
+as the document is modified.  Typically this will happen on the
+event dispatch thread as a result of some mouse or keyboard event.
+The caret behavior on both synchronous and asynchronous documents updates
+is controlled by &lt;code&gt;UpdatePolicy&lt;/code&gt; property. The repaint of the
+new caret location will occur on the event thread in any case, as calls to
+&lt;code&gt;modelToView&lt;/code&gt; are only safe on the event thread.
+&lt;p&gt;
+The caret acts as a mouse and focus listener on the text component
+it has been installed in, and defines the caret semantics based upon
+those events.  The listener methods can be reimplemented to change the
+semantics.
+By default, the first mouse button will be used to set focus and caret
+position.  Dragging the mouse pointer with the first mouse button will
+sweep out a selection that is contiguous in the model.  If the associated
+text component is editable, the caret will become visible when focus
+is gained, and invisible when focus is lost.
+&lt;p&gt;
+The Highlighter bound to the associated text component is used to
+render the selection by default.
+Selection appearance can be customized by supplying a
+painter to use for the highlights.  By default a painter is used that
+will render a solid color as specified in the associated text component
+in the &lt;code&gt;SelectionColor&lt;/code&gt; property.  This can easily be changed
+by reimplementing the
+&lt;a href="#getSelectionHighlighter"&gt;getSelectionHighlighter&lt;/a&gt;
+method.
+&lt;p&gt;
+A customized caret appearance can be achieved by reimplementing
+the paint method.  If the paint method is changed, the damage method
+should also be reimplemented to cause a repaint for the area needed
+to render the caret.  The caret extends the Rectangle class which
+is used to hold the bounding box for where the caret was last rendered.
+This enables the caret to repaint in a thread-safe manner when the
+caret moves without making a call to modelToView which is unstable
+between model updates and view repair (i.e. the order of delivery
+to DocumentListeners is not guaranteed).
+&lt;p&gt;
+The magic caret position is set to null when the caret position changes.
+A timer is used to determine the new location (after the caret change).
+When the timer fires, if the magic caret position is still null it is
+reset to the current caret position. Any actions that change
+the caret position and want the magic caret position to remain the
+same, must remember the magic caret position, change the cursor, and
+then set the magic caret position to its original value. This has the
+benefit that only actions that want the magic caret position to persist
+(such as open/down) need to know about it.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@author  Timothy Prinzing
+@version 1.138 06/24/04
+@see     Caret
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DefaultCaret" refid="_9_5_f720368_1110473546784_435224_10439"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultCaret" refid="_9_5_f720368_1110473546784_435224_10439"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

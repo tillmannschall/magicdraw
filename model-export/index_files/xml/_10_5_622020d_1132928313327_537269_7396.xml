@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313327_537269_7396"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Entry" refid="_9_5_f720368_1110473547799_877742_18990"/></annotatedElement><body humanName="Body" mode="s,e">A map entry (key-value pair).  The &lt;tt&gt;Map.entrySet&lt;/tt&gt; method returns
+a collection-view of the map, whose elements are of this class.  The
+&lt;i&gt;only&lt;/i&gt; way to obtain a reference to a map entry is from the
+iterator of this collection-view.  These &lt;tt&gt;Map.Entry&lt;/tt&gt; objects are
+valid &lt;i&gt;only&lt;/i&gt; for the duration of the iteration; more formally,
+the behavior of a map entry is undefined if the backing map has been
+modified after the entry was returned by the iterator, except through
+the &lt;tt&gt;setValue&lt;/tt&gt; operation on the map entry.
+
+@see Map#entrySet()
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Entry" refid="_9_5_f720368_1110473547799_877742_18990"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Entry" refid="_9_5_f720368_1110473547799_877742_18990"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928314448_56956_8902"><documentation humanName="Documentation" mode="standard">&lt;code&gt;LSResourceResolver&lt;/code&gt; provides a way for applications to
+redirect references to external resources.
+&lt;p&gt; Applications needing to implement custom handling for external
+resources can implement this interface and register their implementation
+by setting the "resource-resolver" parameter of
+&lt;code&gt;DOMConfiguration&lt;/code&gt; objects attached to &lt;code&gt;LSParser&lt;/code&gt;
+and &lt;code&gt;LSSerializer&lt;/code&gt;. It can also be register on
+&lt;code&gt;DOMConfiguration&lt;/code&gt; objects attached to &lt;code&gt;Document&lt;/code&gt;
+if the "LS" feature is supported.
+&lt;p&gt; The &lt;code&gt;LSParser&lt;/code&gt; will then allow the application to intercept
+any external entities, including the external DTD subset and external
+parameter entities, before including them. The top-level document entity
+is never passed to the &lt;code&gt;resolveResource&lt;/code&gt; method.
+&lt;p&gt; Many DOM applications will not need to implement this interface, but it
+will be especially useful for applications that build XML documents from
+databases or other specialized input sources, or for applications that
+use URNs.
+&lt;p &gt;&lt;b&gt;Note:&lt;/b&gt;  &lt;code&gt;LSResourceResolver&lt;/code&gt; is based on the SAX2 [&lt;a href='http://www.saxproject.org/'&gt;SAX&lt;/a&gt;] &lt;code&gt;EntityResolver&lt;/code&gt;
+interface.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-LS-20040407'&gt;Document Object Model (DOM) Level 3 Load
+and Save Specification&lt;/a&gt;.
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">LSResourceResolver</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="ls" refid="_10_5_622020d_1132928314398_829926_8877"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314448_593600_8904"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314448_593600_8904"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="ls" refid="_10_5_622020d_1132928314398_829926_8877"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="ls" refid="_10_5_622020d_1132928314398_829926_8877"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="ls" refid="_10_5_622020d_1132928314398_829926_8877"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::w3c::dom::ls::LSResourceResolver</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

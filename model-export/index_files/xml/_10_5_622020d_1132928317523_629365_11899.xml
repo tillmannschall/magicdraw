@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317523_629365_11899"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MinimalHTMLWriter" refid="_9_5_f720368_1110473546768_805054_10375"/></annotatedElement><body humanName="Body" mode="s,e">MinimalHTMLWriter is a fallback writer used by the
+HTMLEditorKit to write out HTML for a document that
+is a not produced by the EditorKit.
+
+The format for the document is:
+&lt;pre&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+&lt;!-- list of named styles
+p.normal {
+font-family: SansSerif;
+margin-height: 0;
+font-size: 14
+}
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p style=normal&gt;
+&lt;b&gt;Bold, italic, and underline attributes
+of the run are emitted as HTML tags.
+The remaining attributes are emitted as
+part of the style attribute of a &lt;span&gt; tag.
+The syntax is similar to inline styles.&lt;/b&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;/pre&gt;
+
+@author Sunita Mani
+@version 1.14, 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MinimalHTMLWriter" refid="_9_5_f720368_1110473546768_805054_10375"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MinimalHTMLWriter" refid="_9_5_f720368_1110473546768_805054_10375"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

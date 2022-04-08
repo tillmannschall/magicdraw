@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_19_0_4_29b40597_1629178581543_137167_5553"><annotatedElement humanName="Annotated Element" mode="s,e"><property classType="Property" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="fetchType" refid="_16_8_19800330_1324641196483_472777_1678"/></annotatedElement><body humanName="Body" mode="s,e">Attribute fetchType defines the way how persistence frameworks deal with loading of references of this associations.  Depending on the concrete scenarios of your application you should choose the best matching fetch type.
+       
+The following options are available:
+       
+- SELECT means that the association will be loaded lazy (on access only). Persistence frameworks therefore will send an additional SQL statements to the database to load all referenced objects. If you are using this option then we strongly recommend to also make use of attribute batchSize. Otherwise you will run into the so called n+1 problem, which will end up in way too many SQL statements and poor performance due to that.
+       
+- JOIN means that associated objects will already be loaded when the object holding the association is loaded. This is also called eager loading. Persistence framework will be able to do so with only 1 SQL statement but you will load way more data into memory which might not be needed.
+       
+- NONE means that the fetch type will not be set in the persistence mapping. In this case the default behavior of the persistence framework will be used.
+We strongly recommend to only use this setting in early development stages  
+</body><documentation humanName="Documentation"/><owner classType="Property" humanName="Owner" humanType="Property" icon="index_files/icon_property_1173242441.jpg" mode="s,e" name="fetchType" refid="_16_8_19800330_1324641196483_472777_1678"/><owningElement classType="Property" humanName="Owning Element" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="fetchType" refid="_16_8_19800330_1324641196483_472777_1678"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

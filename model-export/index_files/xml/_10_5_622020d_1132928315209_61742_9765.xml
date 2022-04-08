@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315209_61742_9765"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MBeanServer" refid="_10_5_622020d_1132928315159_538503_9763"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;This is the interface for MBean manipulation on the agent
+side. It contains the methods necessary for the creation,
+registration, and deletion of MBeans as well as the access methods
+for registered MBeans.  This is the core component of the JMX
+infrastructure.&lt;/p&gt;
+
+&lt;p&gt;User code does not usually implement this interface.  Instead,
+an object that implements this interface is obtained with one of
+the methods in the {@link MBeanServerFactory} class.&lt;/p&gt;
+
+&lt;p&gt;Every MBean which is added to the MBean server becomes
+manageable: its attributes and operations become remotely
+accessible through the connectors/adaptors connected to that MBean
+server.  A Java object cannot be registered in the MBean server
+unless it is a JMX compliant MBean.&lt;/p&gt;
+
+&lt;p&gt;When an MBean is registered or unregistered in the MBean server
+a {@link javax.management.MBeanServerNotification
+MBeanServerNotification} Notification is emitted. To register an
+object as listener to MBeanServerNotifications you should call the
+MBean server method {@link #addNotificationListener
+addNotificationListener} with &lt;CODE&gt;ObjectName&lt;/CODE&gt; the
+&lt;CODE&gt;ObjectName&lt;/CODE&gt; of the {@link
+javax.management.MBeanServerDelegate MBeanServerDelegate}.  This
+&lt;CODE&gt;ObjectName&lt;/CODE&gt; is: &lt;BR&gt;
+&lt;CODE&gt;JMImplementation:type=MBeanServerDelegate&lt;/CODE&gt;.&lt;/p&gt;
+
+&lt;p&gt;An object obtained from the {@link
+MBeanServerFactory#createMBeanServer(String) createMBeanServer} or
+{@link MBeanServerFactory#newMBeanServer(String) newMBeanServer}
+methods of the {@link MBeanServerFactory} class applies security
+checks to its methods, as follows.&lt;/p&gt;
+
+&lt;p&gt;First, if there is no security manager ({@link
+System#getSecurityManager()} is null), then no checks are made.&lt;/p&gt;
+
+&lt;p&gt;Assuming there is a security manager, the checks are made as
+detailed below.  In what follows, &lt;code&gt;className&lt;/code&gt; is the
+string returned by {@link MBeanInfo#getClassName()} for the target
+MBean.&lt;/p&gt;
+
+&lt;p&gt;If a security check fails, the method throws {@link
+SecurityException}.&lt;/p&gt;
+
+&lt;p&gt;For methods that can throw {@link InstanceNotFoundException},
+this exception is thrown for a non-existent MBean, regardless of
+permissions.  This is because a non-existent MBean has no
+&lt;code&gt;className&lt;/code&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #invoke invoke} method, the caller's
+permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, operationName, name, "invoke")}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #getAttribute getAttribute} method, the
+caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, attribute, name, "getAttribute")}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #getAttributes getAttributes} method, the
+caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, name, "getAttribute")}.
+Additionally, for each attribute &lt;em&gt;a&lt;/em&gt; in the {@link
+AttributeList}, if the caller's permissions do not imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, &lt;em&gt;a&lt;/em&gt;, name, "getAttribute")}, the
+MBean server will behave as if that attribute had not been in the
+supplied list.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #setAttribute setAttribute} method, the
+caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, attrName, name, "setAttribute")}, where
+&lt;code&gt;attrName&lt;/code&gt; is {@link Attribute#getName()
+attribute.getName()}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #setAttributes setAttributes} method, the
+caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, name, "setAttribute")}.
+Additionally, for each attribute &lt;em&gt;a&lt;/em&gt; in the {@link
+AttributeList}, if the caller's permissions do not imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, &lt;em&gt;a&lt;/em&gt;, name, "setAttribute")}, the
+MBean server will behave as if that attribute had not been in the
+supplied list.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the &lt;code&gt;addNotificationListener&lt;/code&gt; methods,
+the caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, name,
+"addNotificationListener")}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the &lt;code&gt;removeNotificationListener&lt;/code&gt; methods,
+the caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, name,
+"removeNotificationListener")}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #getMBeanInfo getMBeanInfo} method, the
+caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, name, "getMBeanInfo")}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #getObjectInstance getObjectInstance} method,
+the caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, name, "getObjectInstance")}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #isInstanceOf isInstanceOf} method, the
+caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, name, "isInstanceOf")}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #queryMBeans queryMBeans} method, the
+caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(null, null, name, "queryMBeans")}.
+Additionally, for each MBean that matches &lt;code&gt;name&lt;/code&gt;,
+if the caller's permissions do not imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, name, "queryMBeans")}, the
+MBean server will behave as if that MBean did not exist.&lt;/p&gt;
+
+&lt;p&gt;Certain query elements perform operations on the MBean server.
+If the caller does not have the required permissions for a given
+MBean, that MBean will not be included in the result of the query.
+The standard query elements that are affected are {@link
+Query#attr(String)}, {@link Query#attr(String,String)}, and {@link
+Query#classattr()}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #queryNames queryNames} method, the checks
+are the same as for &lt;code&gt;queryMBeans&lt;/code&gt; except that
+&lt;code&gt;"queryNames"&lt;/code&gt; is used instead of
+&lt;code&gt;"queryMBeans"&lt;/code&gt; in the &lt;code&gt;MBeanPermission&lt;/code&gt;
+objects.  Note that a &lt;code&gt;"queryMBeans"&lt;/code&gt; permission implies
+the corresponding &lt;code&gt;"queryNames"&lt;/code&gt; permission.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #getDomains getDomains} method, the caller's
+permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(null, null, name, "getDomains")}.  Additionally,
+for each domain &lt;var&gt;d&lt;/var&gt; in the returned array, if the caller's
+permissions do not imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(null, null, new ObjectName("&lt;var&gt;d&lt;/var&gt;:x=x"),
+"getDomains")}, the domain is eliminated from the array.  Here,
+&lt;code&gt;x=x&lt;/code&gt; is any &lt;var&gt;key=value&lt;/var&gt; pair, needed to
+satisfy ObjectName's constructor but not otherwise relevant.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #getClassLoader getClassLoader} method, the
+caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, loaderName,
+"getClassLoader")}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #getClassLoaderFor getClassLoaderFor} method,
+the caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, mbeanName,
+"getClassLoaderFor")}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #getClassLoaderRepository
+getClassLoaderRepository} method, the caller's permissions must
+imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(null, null, null, "getClassLoaderRepository")}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the deprecated &lt;code&gt;deserialize&lt;/code&gt; methods, the
+required permissions are the same as for the methods that replace
+them.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the &lt;code&gt;instantiate&lt;/code&gt; methods, the caller's
+permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, null, "instantiate")}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #registerMBean registerMBean} method, the
+caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, name, "registerMBean")}.  Here
+&lt;code&gt;className&lt;/code&gt; is the string returned by {@link
+MBeanInfo#getClassName()} for an object of this class.
+
+&lt;p&gt;If the &lt;code&gt;MBeanPermission&lt;/code&gt; check succeeds, the MBean's
+class is validated by checking that its {@link
+java.security.ProtectionDomain ProtectionDomain} implies {@link
+MBeanTrustPermission#MBeanTrustPermission(String)
+MBeanTrustPermission("register")}.&lt;/p&gt;
+
+&lt;p&gt;Finally, if the &lt;code&gt;name&lt;/code&gt; argument is null, another
+&lt;code&gt;MBeanPermission&lt;/code&gt; check is made using the
+&lt;code&gt;ObjectName&lt;/code&gt; returned by {@link
+MBeanRegistration#preRegister MBeanRegistration.preRegister}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the &lt;code&gt;createMBean&lt;/code&gt; methods, the caller's
+permissions must imply the permissions needed by the equivalent
+&lt;code&gt;instantiate&lt;/code&gt; followed by
+&lt;code&gt;registerMBean&lt;/code&gt;.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;For the {@link #unregisterMBean unregisterMBean} method,
+the caller's permissions must imply {@link
+MBeanPermission#MBeanPermission(String,String,ObjectName,String)
+MBeanPermission(className, null, name, "unregisterMBean")}.&lt;/p&gt;
+
+&lt;/ul&gt;
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="MBeanServer" refid="_10_5_622020d_1132928315159_538503_9763"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MBeanServer" refid="_10_5_622020d_1132928315159_538503_9763"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

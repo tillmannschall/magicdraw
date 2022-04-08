@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306397_991781_4160"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTContainer" refid="_9_5_f720368_1110473547378_351073_16957"/></annotatedElement><body humanName="Body" mode="s,e">Inner class of Container used to provide default support for
+accessibility.  This class is not meant to be used directly by
+application developers, but is instead meant only to be
+subclassed by container developers.
+&lt;p&gt;
+The class used to obtain the accessible role for this object,
+as well as implementing many of the methods in the
+AccessibleContainer interface.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AccessibleAWTContainer" refid="_9_5_f720368_1110473547378_351073_16957"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTContainer" refid="_9_5_f720368_1110473547378_351073_16957"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

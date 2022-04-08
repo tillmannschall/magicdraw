@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_10_5_622020d_1132928316401_881359_10721"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::sql::rowset::BaseRowSet -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323371_492458_16646"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::sql::rowset::BaseRowSet -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928323371_920658_16647"/></clientDependency><documentation humanName="Documentation" mode="standard">An abstract class providing a &lt;code&gt;RowSet&lt;/code&gt; object with its basic functionality.
+The basic functions include having properties and sending event notifications,
+which all JavaBeans&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt; components must implement.
+&lt;P&gt;
+&lt;h3&gt;1.0 Overview&lt;/h3&gt;
+The &lt;code&gt;BaseRowSet&lt;/code&gt; class provides the core functionality
+for all &lt;code&gt;RowSet&lt;/code&gt; implementations,
+and all standard implementations &lt;b&gt;may&lt;/b&gt; use this class in combination with
+one or more &lt;code&gt;RowSet&lt;/code&gt; interfaces in order to provide a standard
+vendor-specific implementation.  To clarify, all implementations must implement
+at least one of the &lt;code&gt;RowSet&lt;/code&gt; interfaces (&lt;code&gt;JdbcRowSet&lt;/code&gt;,
+&lt;code&gt;CachedRowSet&lt;/code&gt;, &lt;code&gt;JoinRowSet&lt;/code&gt;, &lt;code&gt;FilteredRowSet&lt;/code&gt;,
+or &lt;code&gt;WebRowSet&lt;/code&gt;). This means that any implementation that extends
+the &lt;code&gt;BaseRowSet&lt;/code&gt; class must also implement one of the &lt;code&gt;RowSet&lt;/code&gt;
+interfaces.
+&lt;p&gt;
+The &lt;code&gt;BaseRowSet&lt;/code&gt; class provides the following:
+&lt;p&gt;
+&lt;UL&gt;
+&lt;LI&gt;&lt;b&gt;Properties&lt;/b&gt;
+&lt;ul&gt;
+&lt;li&gt;Fields for storing current properties
+&lt;li&gt;Methods for getting and setting properties
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;LI&gt;&lt;b&gt;Event notification&lt;/b&gt;
+&lt;P&gt;
+&lt;LI&gt;&lt;b&gt;A complete set of setter methods&lt;/b&gt; for setting the parameters in a
+&lt;code&gt;RowSet&lt;/code&gt; object's command
+&lt;p&gt;
+&lt;LI&gt; &lt;b&gt;Streams&lt;/b&gt;
+&lt;ul&gt;
+&lt;li&gt;Fields for storing stream instances
+&lt;li&gt;Constants for indicating the type of a stream
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;/UL&gt;
+
+&lt;h3&gt;2.0 Setting Properties&lt;/h3&gt;
+All rowsets maintain a set of properties, which will usually be set using
+a tool.  The number and kinds of properties a rowset has will vary,
+depending on what the &lt;code&gt;RowSet&lt;/code&gt; implementation does and how it gets
+its data.  For example,
+rowsets that get their data from a &lt;code&gt;ResultSet&lt;/code&gt; object need to
+set the properties that are required for making a database connection.
+If a &lt;code&gt;RowSet&lt;/code&gt; object uses the &lt;code&gt;DriverManager&lt;/code&gt; facility to make a
+connection, it needs to set a property for the JDBC URL that identifies the
+appropriate driver, and it needs to set the properties that give the
+user name and password.
+If, on the other hand, the rowset uses a &lt;code&gt;DataSource&lt;/code&gt; object
+to make the connection, which is the preferred method, it does not need to
+set the property for the JDBC URL.  Instead, it needs to set the property
+for the logical name of the data source along with the properties for
+the user name and password.
+&lt;P&gt;
+NOTE:  In order to use a &lt;code&gt;DataSource&lt;/code&gt; object for making a
+connection, the &lt;code&gt;DataSource&lt;/code&gt; object must have been registered
+with a naming service that uses the Java Naming and Directory
+Interface&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt; (JNDI) API.  This registration
+is usually done by a person acting in the capacity of a system administrator.
+&lt;P&gt;
+&lt;h3&gt;3.0 Setting the Command and Its Parameters&lt;/h3&gt;
+When a rowset gets its data from a relational database, it executes a command (a query)
+that produces a &lt;code&gt;ResultSet&lt;/code&gt; object.  This query is the command that is set
+for the &lt;code&gt;RowSet&lt;/code&gt; object's command property.  The rowset populates itself with data by reading the
+data from the &lt;code&gt;ResultSet&lt;/code&gt; object into itself. If the query
+contains placeholders for values to be set, the &lt;code&gt;BaseRowSet&lt;/code&gt; setter methods
+are used to set these values. All setter methods allow these values to be set
+to &lt;code&gt;null&lt;/code&gt; if required.
+&lt;P&gt;
+The following code fragment illustrates how the
+&lt;code&gt;CachedRowSet&lt;/code&gt;&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt;
+object &lt;code&gt;crs&lt;/code&gt; might have its command property set.  Note that if a
+tool is used to set properties, this is the code that the tool would use.
+&lt;PRE&gt;
+crs.setCommand("SELECT FIRST_NAME, LAST_NAME, ADDRESS FROM CUSTOMERS" +
+"WHERE CREDIT_LIMIT &gt; ? AND REGION = ?");
+&lt;/PRE&gt;
+&lt;P&gt;
+In this example, the values for &lt;code&gt;CREDIT_LIMIT&lt;/code&gt; and
+&lt;code&gt;REGION&lt;/code&gt; are placeholder parameters, which are indicated with a
+question mark (?).  The first question mark is placeholder parameter number
+&lt;code&gt;1&lt;/code&gt;, the second question mark is placeholder parameter number
+&lt;code&gt;2&lt;/code&gt;, and so on.  Any placeholder parameters must be set with
+values before the query can be executed. To set these
+placeholder parameters, the &lt;code&gt;BaseRowSet&lt;/code&gt; class provides a set of setter
+methods, similar to those provided by the &lt;code&gt;PreparedStatement&lt;/code&gt;
+interface, for setting values of each data type.  A &lt;code&gt;RowSet&lt;/code&gt; object stores the
+parameter values internally, and its &lt;code&gt;execute&lt;/code&gt; method uses them internally
+to set values for the placeholder parameters
+before it sends the command to the DBMS to be executed.
+&lt;P&gt;
+The following code fragment demonstrates
+setting the two parameters in the query from the previous example.
+&lt;PRE&gt;
+crs.setInt(1, 5000);
+crs.setString(2, "West");
+&lt;/PRE&gt;
+If the &lt;code&gt;execute&lt;/code&gt; method is called at this point, the query
+sent to the DBMS will be:
+&lt;PRE&gt;
+"SELECT FIRST_NAME, LAST_NAME, ADDRESS FROM CUSTOMERS" +
+"WHERE CREDIT_LIMIT &gt; 5000 AND REGION = 'West'"
+&lt;/PRE&gt;
+NOTE: Setting &lt;code&gt;Array&lt;/code&gt;, &lt;code&gt;Clob&lt;/code&gt;, &lt;code&gt;Blob&lt;/code&gt; and
+&lt;code&gt;Ref&lt;/code&gt; objects as a command parameter, stores these values as
+&lt;code&gt;SerialArray&lt;/code&gt;, &lt;code&gt;SerialClob&lt;/code&gt;, &lt;code&gt;SerialBlob&lt;/code&gt;
+and &lt;code&gt;SerialRef&lt;/code&gt; objects respectively.
+
+&lt;h3&gt;4.0 Handling of Parameters Behind the Scenes&lt;/h3&gt;
+
+NOTE: The &lt;code&gt;BaseRowSet&lt;/code&gt; class provides two kinds of setter methods,
+those that set properties and those that set placeholder parameters. The setter
+methods discussed in this section are those that set placeholder parameters.
+&lt;P&gt;
+The placeholder parameters set with the &lt;code&gt;BaseRowSet&lt;/code&gt; setter methods
+are stored as objects in an internal &lt;code&gt;Hashtable&lt;/code&gt; object.
+Primitives are stored as their &lt;code&gt;Object&lt;/code&gt; type. For example, &lt;code&gt;byte&lt;/code&gt;
+is stored as &lt;code&gt;Byte&lt;/code&gt; object, and &lt;code&gt;int&lt;/code&gt; is stored as
+an &lt;code&gt;Integer&lt;/code&gt; object.
+When the method &lt;code&gt;execute&lt;/code&gt; is called, the values in the
+&lt;code&gt;Hashtable&lt;/code&gt; object are substituted for the appropriate placeholder
+parameters in the command.
+&lt;P)&gt;
+A call to the method &lt;code&gt;getParams&lt;/code&gt; returns the values stored in the
+&lt;code&gt;Hashtable&lt;/code&gt; object as an array of &lt;code&gt;Object&lt;/code&gt; instances.
+An element in this array may be a simple &lt;code&gt;Object&lt;/code&gt; instance or an
+array (which is a type of &lt;code&gt;Object&lt;/code&gt;). The particular setter method used
+determines whether an element in this array is an &lt;code&gt;Object&lt;/code&gt; or an array.
+&lt;P&gt;
+The majority of methods for setting placeholder parameters take two parameters,
+with the first parameter
+indicating which placeholder parameter is to be set, and the second parameter
+giving the value to be set.  Methods such as &lt;code&gt;getInt&lt;/code&gt;,
+&lt;code&gt;getString&lt;/code&gt;, &lt;code&gt;getBoolean&lt;/code&gt;, and &lt;code&gt;getLong&lt;/code&gt; fall into
+this category.  After these methods have been called, a call to the method
+&lt;code&gt;getParams&lt;/code&gt; will return an array with the values that have been set. Each
+element in the array is an &lt;code&gt;Object&lt;/code&gt; instance representing the
+values that have been set. The order of these values in the array is determined by the
+&lt;code&gt;int&lt;/code&gt; (the first parameter) passed to the setter method. The values in the
+array are the values (the second parameter) passed to the setter method.
+In other words, the first element in the array is the value
+to be set for the first placeholder parameter in the &lt;code&gt;RowSet&lt;/code&gt; object's
+command. The second element is the value to
+be set for the second placeholder parameter, and so on.
+&lt;P&gt;
+Several setter methods send the driver and DBMS information beyond the value to be set.
+When the method &lt;code&gt;getParams&lt;/code&gt; is called after one of these setter methods has
+been used, the elements in the array will themselves be arrays to accommodate the
+additional information. In this category, the method &lt;code&gt;setNull&lt;/code&gt; is a special case
+because one version takes only
+two parameters (&lt;code&gt;setNull(int parameterIndex, int SqlType)&lt;/code&gt;). Nevertheless,
+it requires
+an array to contain the information that will be passed to the driver and DBMS.  The first
+element in this array is the value to be set, which is &lt;code&gt;null&lt;/code&gt;, and the
+second element is the &lt;code&gt;int&lt;/code&gt; supplied for &lt;i&gt;sqlType&lt;/i&gt;, which
+indicates the type of SQL value that is being set to &lt;code&gt;null&lt;/code&gt;. This information
+is needed by some DBMSs and is therefore required in order to ensure that applications
+are portable.
+The other version is intended to be used when the value to be set to &lt;code&gt;null&lt;/code&gt;
+is a user-defined type. It takes three parameters
+(&lt;code&gt;setNull(int parameterIndex, int sqlType, String typeName)&lt;/code&gt;) and also
+requires an array to contain the information to be passed to the driver and DBMS.
+The first two elements in this array are the same as for the first version of
+&lt;code&gt;setNull&lt;/code&gt;.  The third element, &lt;i&gt;typeName&lt;/i&gt;, gives the SQL name of
+the user-defined type. As is true with the other setter methods, the number of the
+placeholder parameter to be set is indicated by an element's position in the array
+returned by &lt;code&gt;getParams&lt;/code&gt;.  So, for example, if the parameter
+supplied to &lt;code&gt;setNull&lt;/code&gt; is &lt;code&gt;2&lt;/code&gt;, the second element in the array
+returned by &lt;code&gt;getParams&lt;/code&gt; will be an array of two or three elements.
+&lt;P&gt;
+Some methods, such as &lt;code&gt;setObject&lt;/code&gt; and &lt;code&gt;setDate&lt;/code&gt; have versions
+that take more than two parameters, with the extra parameters giving information
+to the driver or the DBMS. For example, the methods &lt;code&gt;setDate&lt;/code&gt;,
+&lt;code&gt;setTime&lt;/code&gt;, and &lt;code&gt;setTimestamp&lt;/code&gt; can take a &lt;code&gt;Calendar&lt;/code&gt;
+object as their third parameter.  If the DBMS does not store time zone information,
+the drivern uses the &lt;code&gt;Calendar&lt;/code&gt; object to construct the &lt;code&gt;Date&lt;/code&gt;,
+&lt;code&gt;Time&lt;/code&gt;, or &lt;code&gt;Timestamp&lt;/code&gt; object being set. As is true with other
+methods that provide additional information, the element in the array returned
+by &lt;code&gt;getParams&lt;/code&gt; is an array instead of a simple &lt;code&gt;Object&lt;/code&gt; instance.
+&lt;P&gt;
+The methods &lt;code&gt;setAsciiStream&lt;/code&gt;, &lt;code&gt;setBinaryStream&lt;/code&gt;,
+&lt;code&gt;setCharacterStream&lt;/code&gt;, and &lt;code&gt;setUnicodeStream&lt;/code&gt; (which is
+deprecated, so applications should use &lt;code&gt;getCharacterStream&lt;/code&gt; instead)
+take three parameters, so for them, the element in the array returned by
+&lt;code&gt;getParams&lt;/code&gt; is also an array.  What is different about these setter
+methods is that in addition to the information provided by parameters, the array contains
+one of the &lt;code&gt;BaseRowSet&lt;/code&gt; constants indicating the type of stream being set.
+&lt;p&gt;
+NOTE: The method &lt;code&gt;getParams&lt;/code&gt; is called internally by
+&lt;code&gt;RowSet&lt;/code&gt; implementations extending this class; it is not normally called by an
+application programmer directly.
+
+&lt;h3&gt;5.0 Event Notification&lt;/h3&gt;
+The &lt;code&gt;BaseRowSet&lt;/code&gt; class provides the event notification
+mechanism for rowsets.  It contains the field
+&lt;code&gt;listeners&lt;/code&gt;, methods for adding and removing listeners, and
+methods for notifying listeners of changes.
+&lt;P&gt;
+A listener is an object that has implemented the &lt;code&gt;RowSetListener&lt;/code&gt; interface.
+If it has been added to a &lt;code&gt;RowSet&lt;/code&gt; object's list of listeners, it will be notified
+when an event occurs on that &lt;code&gt;RowSet&lt;/code&gt; object.  Each listener's
+implementation of the &lt;code&gt;RowSetListener&lt;/code&gt; methods defines what that object
+will do when it is notified that an event has occurred.
+&lt;P&gt;
+There are three possible events for a &lt;code&gt;RowSet&lt;/code&gt; object:
+&lt;OL&gt;
+&lt;LI&gt;the cursor moves
+&lt;LI&gt;an individual row is changed (updated, deleted, or inserted)
+&lt;LI&gt;the contents of the entire &lt;code&gt;RowSet&lt;/code&gt; object  are changed
+&lt;/OL&gt;
+&lt;P&gt;
+The &lt;code&gt;BaseRowSet&lt;/code&gt; method used for the notification indicates the
+type of event that has occurred.  For example, the method
+&lt;code&gt;notifyRowChanged&lt;/code&gt; indicates that a row has been updated,
+deleted, or inserted.  Each of the notification methods creates a
+&lt;code&gt;RowSetEvent&lt;/code&gt; object, which is supplied to the listener in order to
+identify the &lt;code&gt;RowSet&lt;/code&gt; object on which the event occurred.
+What the listener does with this information, which may be nothing, depends on how it was
+implemented.
+&lt;p&gt;
+&lt;h3&gt;6.0 Default Behavior&lt;/h3&gt;
+A default &lt;code&gt;BaseRowSet&lt;/code&gt; object is initialized with many starting values.
+
+The following is true of a default &lt;code&gt;RowSet&lt;/code&gt; instance that extends
+the &lt;code&gt;BaseRowSet&lt;/code&gt; class:
+&lt;UL&gt;
+&lt;LI&gt;Has a scrollable cursor and does not show changes
+made by others.
+&lt;LI&gt;Is updatable.
+&lt;LI&gt;Does not show rows that have been deleted.
+&lt;LI&gt;Has no time limit for how long a driver may take to
+execute the &lt;code&gt;RowSet&lt;/code&gt; object's command.
+&lt;LI&gt;Has no limit for the number of rows it may contain.
+&lt;LI&gt;Has no limit for the number of bytes a column may contain. NOTE: This
+limit applies only to columns that hold values of the
+following types:  &lt;code&gt;BINARY&lt;/code&gt;, &lt;code&gt;VARBINARY&lt;/code&gt;,
+&lt;code&gt;LONGVARBINARY&lt;/code&gt;, &lt;code&gt;CHAR&lt;/code&gt;, &lt;code&gt;VARCHAR&lt;/code&gt;,
+and &lt;code&gt;LONGVARCHAR&lt;/code&gt;.
+&lt;LI&gt;Will not see uncommitted data (make "dirty" reads).
+&lt;LI&gt;Has escape processing turned on.
+&lt;LI&gt;Has its connection's type map set to &lt;code&gt;null&lt;/code&gt;.
+&lt;LI&gt;Has an empty &lt;code&gt;Vector&lt;/code&gt; object for storing the values set
+for the placeholder parameters in the &lt;code&gt;RowSet&lt;/code&gt; object's command.
+&lt;/UL&gt;
+&lt;p&gt;
+If other values are desired, an application must set the property values
+explicitly. For example, the following line of code sets the maximum number
+of rows for the &lt;code&gt;CachedRowSet&lt;/code&gt; object &lt;i&gt;crs&lt;/i&gt; to 500.
+&lt;PRE&gt;
+crs.setMaxRows(500);
+&lt;/PRE&gt;
+Methods implemented in extensions of this &lt;code&gt;BaseRowSet&lt;/code&gt; class &lt;b&gt;must&lt;/b&gt; throw an
+&lt;code&gt;SQLException&lt;/code&gt; object for any violation of the defined assertions.  Also, if the
+extending class overrides and reimplements any &lt;code&gt;BaseRowSet&lt;/code&gt; method and encounters
+connectivity or underlying data source issues, that method &lt;b&gt;may&lt;/b&gt; in addition throw an
+&lt;code&gt;SQLException&lt;/code&gt; object for that reason.
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::sql::rowset::BaseRowSet -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323371_492458_16646"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::sql::rowset::BaseRowSet -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928323371_920658_16647"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">BaseRowSet</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316471_778781_10723"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316471_778781_10723"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::sql::rowset::BaseRowSet -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323371_492458_16646"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::sql::rowset::BaseRowSet -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928323371_920658_16647"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sql::rowset::BaseRowSet</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

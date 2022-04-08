@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316291_648243_10689"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SQLInputImpl" refid="_10_5_622020d_1132928316291_775293_10687"/></annotatedElement><body humanName="Body" mode="s,e">An input stream used for custom mapping user-defined types (UDTs).
+An &lt;code&gt;SQLInputImpl&lt;/code&gt; object is an input stream that contains a
+stream of values that are the attributes of a UDT.
+&lt;p&gt;
+This class is used by the driver behind the scenes when the method
+&lt;code&gt;getObject&lt;/code&gt; is called on an SQL structured or distinct type
+that has a custom mapping; a programmer never invokes
+&lt;code&gt;SQLInputImpl&lt;/code&gt; methods directly. They are provided here as a
+convenience for those who write &lt;code&gt;RowSet&lt;/code&gt; implementations.
+&lt;P&gt;
+The &lt;code&gt;SQLInputImpl&lt;/code&gt; class provides a set of
+reader methods analogous to the &lt;code&gt;ResultSet&lt;/code&gt; getter
+methods.  These methods make it possible to read the values in an
+&lt;code&gt;SQLInputImpl&lt;/code&gt; object.
+&lt;P&gt;
+The method &lt;code&gt;wasNull&lt;/code&gt; is used to determine whether the
+the last value read was SQL &lt;code&gt;NULL&lt;/code&gt;.
+&lt;P&gt;When the method &lt;code&gt;getObject&lt;/code&gt; is called with an
+object of a class implementing the interface &lt;code&gt;SQLData&lt;/code&gt;,
+the JDBC driver calls the method &lt;code&gt;SQLData.getSQLType&lt;/code&gt;
+to determine the SQL type of the UDT being custom mapped. The driver
+creates an instance of &lt;code&gt;SQLInputImpl&lt;/code&gt;, populating it with the
+attributes of the UDT.  The driver then passes the input
+stream to the method &lt;code&gt;SQLData.readSQL&lt;/code&gt;, which in turn
+calls the &lt;code&gt;SQLInputImpl&lt;/code&gt; reader methods
+to read the attributes from the input stream.
+@see java.sql.SQLData
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SQLInputImpl" refid="_10_5_622020d_1132928316291_775293_10687"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SQLInputImpl" refid="_10_5_622020d_1132928316291_775293_10687"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

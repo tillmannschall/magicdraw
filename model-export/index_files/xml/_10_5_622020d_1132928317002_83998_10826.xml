@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317002_83998_10826"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SyntheticImage" refid="_9_5_f720368_1110473546753_91611_9825"/></annotatedElement><body humanName="Body" mode="s,e">A helper class to make computing synthetic images a little easier.
+All you need to do is define a subclass that overrides computeRow
+to compute a row of the image.  It is passed the y coordinate of the
+row and an array into which to put the pixels in
+&lt;a href="http://java.sun.com/products/jdk/1.1/docs/api/java.awt.image.ColorModel.html#getRGBdefault()"&gt;
+standard ARGB format&lt;/a&gt;.
+&lt;p&gt;Normal usage looks something like this:
+&lt;pre&gt;&amp;nbsp;Image i = createImage(new SyntheticImage(200, 100) {
+&amp;nbsp;    protected void computeRow(int y, int[] row) {
+&amp;nbsp;	for(int i = width; --i&gt;=0; ) {
+&amp;nbsp;	    int grey = i*255/(width-1);
+&amp;nbsp;	    row[i] = (255&lt;&lt;24)|(grey&lt;&lt;16)|(grey&lt;&lt;8)|grey;
+&amp;nbsp;	}
+&amp;nbsp;    }
+&amp;nbsp;}
+&lt;/pre&gt;This creates a image 200 pixels wide and 100 pixels high
+that is a horizontal grey ramp, going from black on the left to
+white on the right.
+&lt;p&gt;
+If the image is to be a movie, override isStatic to return false,
+&lt;i&gt;y&lt;/i&gt; cycling back to 0 is computeRow's signal that the next
+frame has started.  It is acceptable (expected?) for computeRow(0,r)
+to pause until the appropriate time to start the next frame.
+
+@version 1.24 12/19/03
+@author James Gosling
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="SyntheticImage" refid="_9_5_f720368_1110473546753_91611_9825"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SyntheticImage" refid="_9_5_f720368_1110473546753_91611_9825"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

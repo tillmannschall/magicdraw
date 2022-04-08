@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317663_843231_12095"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="JTextComponent" refid="_9_5_f720368_1110473546784_616890_10483"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;JTextComponent&lt;/code&gt; is the base class for swing text
+components.  It tries to be compatible with the
+&lt;code&gt;java.awt.TextComponent&lt;/code&gt; class
+where it can reasonably do so.  Also provided are other services
+for additional flexibility (beyond the pluggable UI and bean
+support).
+You can find information on how to use the functionality
+this class provides in
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/generaltext.html"&gt;General Rules for Using Text Components&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+
+&lt;p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;b&gt;&lt;font size=+1&gt;Caret Changes&lt;/font&gt;&lt;/b&gt;
+&lt;dd&gt;
+The caret is a pluggable object in swing text components.
+Notification of changes to the caret position and the selection
+are sent to implementations of the &lt;code&gt;CaretListener&lt;/code&gt;
+interface that have been registered with the text component.
+The UI will install a default caret unless a customized caret
+has been set. &lt;br&gt;
+By default the caret tracks all the document changes
+performed on the Event Dispatching Thread and updates it's position
+accordingly if an insertion occurs before or at the caret position
+or a removal occurs before the caret position. &lt;code&gt;DefaultCaret&lt;/code&gt;
+tries to make itself visible which may lead to scrolling
+of a text component within &lt;code&gt;JScrollPane&lt;/code&gt;. The default caret
+behavior can be changed by the {@link DefaultCaret#setUpdatePolicy} method.
+&lt;br&gt;
+&lt;b&gt;Note&lt;/b&gt;: Non-editable text components also have a caret though
+it may not be painted.
+
+&lt;p&gt;
+&lt;dt&gt;&lt;b&gt;&lt;font size=+1&gt;Commands&lt;/font&gt;&lt;/b&gt;
+&lt;dd&gt;
+Text components provide a number of commands that can be used
+to manipulate the component.  This is essentially the way that
+the component expresses its capabilities.  These are expressed
+in terms of the swing &lt;code&gt;Action&lt;/code&gt; interface,
+using the &lt;code&gt;TextAction&lt;/code&gt; implementation.
+The set of commands supported by the text component can be
+found with the {@link #getActions} method.  These actions
+can be bound to key events, fired from buttons, etc.
+
+&lt;p&gt;
+&lt;dt&gt;&lt;b&gt;&lt;font size=+1&gt;Text Input&lt;/font&gt;&lt;/b&gt;
+&lt;dd&gt;
+The text components support flexible and internationalized text input, using
+keymaps and the input method framework, while maintaining compatibility with
+the AWT listener model.
+&lt;p&gt;
+A {@link javax.swing.text.Keymap} lets an application bind key
+strokes to actions.
+In order to allow keymaps to be shared across multiple text components, they
+can use actions that extend &lt;code&gt;TextAction&lt;/code&gt;.
+&lt;code&gt;TextAction&lt;/code&gt; can determine which &lt;code&gt;JTextComponent&lt;/code&gt;
+most recently has or had focus and therefore is the subject of
+the action (In the case that the &lt;code&gt;ActionEvent&lt;/code&gt;
+sent to the action doesn't contain the target text component as its source).
+&lt;p&gt;
+The &lt;a href="../../../../guide/imf/spec.html"&gt;input method framework&lt;/a&gt;
+lets text components interact with input methods, separate software
+components that preprocess events to let users enter thousands of
+different characters using keyboards with far fewer keys.
+&lt;code&gt;JTextComponent&lt;/code&gt; is an &lt;em&gt;active client&lt;/em&gt; of
+the framework, so it implements the preferred user interface for interacting
+with input methods. As a consequence, some key events do not reach the text
+component because they are handled by an input method, and some text input
+reaches the text component as committed text within an {@link
+java.awt.event.InputMethodEvent} instead of as a key event.
+The complete text input is the combination of the characters in
+&lt;code&gt;keyTyped&lt;/code&gt; key events and committed text in input method events.
+&lt;p&gt;
+The AWT listener model lets applications attach event listeners to
+components in order to bind events to actions. Swing encourages the
+use of keymaps instead of listeners, but maintains compatibility
+with listeners by giving the listeners a chance to steal an event
+by consuming it.
+&lt;p&gt;
+Keyboard event and input method events are handled in the following stages,
+with each stage capable of consuming the event:
+
+&lt;table border=1 summary="Stages of keyboard and input method event handling"&gt;
+&lt;tr&gt;
+&lt;th id="stage"&gt;&lt;p align="left"&gt;Stage&lt;/p&gt;&lt;/th&gt;
+&lt;th id="ke"&gt;&lt;p align="left"&gt;KeyEvent&lt;/p&gt;&lt;/th&gt;
+&lt;th id="ime"&gt;&lt;p align="left"&gt;InputMethodEvent&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td headers="stage"&gt;1.   &lt;/td&gt;
+&lt;td headers="ke"&gt;input methods &lt;/td&gt;
+&lt;td headers="ime"&gt;(generated here)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td headers="stage"&gt;2.   &lt;/td&gt;
+&lt;td headers="ke"&gt;focus manager &lt;/td&gt;
+&lt;td headers="ime"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td headers="stage"&gt;3.   &lt;/td&gt;
+&lt;td headers="ke"&gt;registered key listeners&lt;/td&gt;
+&lt;td headers="ime"&gt;registered input method listeners&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td headers="stage"&gt;4.   &lt;/td&gt;
+&lt;td headers="ke"&gt;&lt;/td&gt;
+&lt;td headers="ime"&gt;input method handling in JTextComponent&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td headers="stage"&gt;5.   &lt;/td&gt;&lt;td headers="ke ime" colspan=2&gt;keymap handling using the current keymap&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td headers="stage"&gt;6.   &lt;/td&gt;&lt;td headers="ke"&gt;keyboard handling in JComponent (e.g. accelerators, component navigation, etc.)&lt;/td&gt;
+&lt;td headers="ime"&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;
+To maintain compatibility with applications that listen to key
+events but are not aware of input method events, the input
+method handling in stage 4 provides a compatibility mode for
+components that do not process input method events. For these
+components, the committed text is converted to keyTyped key events
+and processed in the key event pipeline starting at stage 3
+instead of in the input method event pipeline.
+&lt;p&gt;
+By default the component will create a keymap (named &lt;b&gt;DEFAULT_KEYMAP&lt;/b&gt;)
+that is shared by all JTextComponent instances as the default keymap.
+Typically a look-and-feel implementation will install a different keymap
+that resolves to the default keymap for those bindings not found in the
+different keymap. The minimal bindings include:
+&lt;ul&gt;
+&lt;li&gt;inserting content into the editor for the
+printable keys.
+&lt;li&gt;removing content with the backspace and del
+keys.
+&lt;li&gt;caret movement forward and backward
+&lt;/ul&gt;
+
+&lt;p&gt;
+&lt;dt&gt;&lt;b&gt;&lt;font size=+1&gt;Model/View Split&lt;/font&gt;&lt;/b&gt;
+&lt;dd&gt;
+The text components have a model-view split.  A text component pulls
+together the objects used to represent the model, view, and controller.
+The text document model may be shared by other views which act as observers
+of the model (e.g. a document may be shared by multiple components).
+
+&lt;p align=center&gt;&lt;img src="doc-files/editor.gif" alt="Diagram showing interaction between Controller, Document, events, and ViewFactory"
+HEIGHT=358 WIDTH=587&gt;&lt;/p&gt;
+
+&lt;p&gt;
+The model is defined by the {@link Document} interface.
+This is intended to provide a flexible text storage mechanism
+that tracks change during edits and can be extended to more sophisticated
+models.  The model interfaces are meant to capture the capabilities of
+expression given by SGML, a system used to express a wide variety of
+content.
+Each modification to the document causes notification of the
+details of the change to be sent to all observers in the form of a
+{@link DocumentEvent} which allows the views to stay up to date with the model.
+This event is sent to observers that have implemented the
+{@link DocumentListener}
+interface and registered interest with the model being observed.
+
+&lt;p&gt;
+&lt;dt&gt;&lt;b&gt;&lt;font size=+1&gt;Location Information&lt;/font&gt;&lt;/b&gt;
+&lt;dd&gt;
+The capability of determining the location of text in
+the view is provided.  There are two methods, {@link #modelToView}
+and {@link #viewToModel} for determining this information.
+
+&lt;p&gt;
+&lt;dt&gt;&lt;b&gt;&lt;font size=+1&gt;Undo/Redo support&lt;/font&gt;&lt;/b&gt;
+&lt;dd&gt;
+Support for an edit history mechanism is provided to allow
+undo/redo operations.  The text component does not itself
+provide the history buffer by default, but does provide
+the &lt;code&gt;UndoableEdit&lt;/code&gt; records that can be used in conjunction
+with a history buffer to provide the undo/redo support.
+The support is provided by the Document model, which allows
+one to attach UndoableEditListener implementations.
+
+&lt;p&gt;
+&lt;dt&gt;&lt;b&gt;&lt;font size=+1&gt;Thread Safety&lt;/font&gt;&lt;/b&gt;
+&lt;dd&gt;
+The swing text components provide some support of thread
+safe operations.  Because of the high level of configurability
+of the text components, it is possible to circumvent the
+protection provided.  The protection primarily comes from
+the model, so the documentation of &lt;code&gt;AbstractDocument&lt;/code&gt;
+describes the assumptions of the protection provided.
+The methods that are safe to call asynchronously are marked
+with comments.
+
+&lt;p&gt;
+&lt;dt&gt;&lt;b&gt;&lt;font size=+1&gt;Newlines&lt;/font&gt;&lt;/b&gt;
+&lt;dd&gt;
+For a discussion on how newlines are handled, see
+&lt;a href="DefaultEditorKit.html"&gt;DefaultEditorKit&lt;/a&gt;.
+&lt;/dl&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@beaninfo
+attribute: isContainer false
+
+@author  Timothy Prinzing
+@version 1.212 04/15/04
+@see Document
+@see DocumentEvent
+@see DocumentListener
+@see Caret
+@see CaretEvent
+@see CaretListener
+@see TextUI
+@see View
+@see ViewFactory
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="JTextComponent" refid="_9_5_f720368_1110473546784_616890_10483"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="JTextComponent" refid="_9_5_f720368_1110473546784_616890_10483"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

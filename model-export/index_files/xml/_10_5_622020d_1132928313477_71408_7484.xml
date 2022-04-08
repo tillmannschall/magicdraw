@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313477_71408_7484"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StringTokenizer" refid="_9_5_f720368_1110473546706_921379_8929"/></annotatedElement><body humanName="Body" mode="s,e">The string tokenizer class allows an application to break a
+string into tokens. The tokenization method is much simpler than
+the one used by the &lt;code&gt;StreamTokenizer&lt;/code&gt; class. The
+&lt;code&gt;StringTokenizer&lt;/code&gt; methods do not distinguish among
+identifiers, numbers, and quoted strings, nor do they recognize
+and skip comments.
+&lt;p&gt;
+The set of delimiters (the characters that separate tokens) may
+be specified either at creation time or on a per-token basis.
+&lt;p&gt;
+An instance of &lt;code&gt;StringTokenizer&lt;/code&gt; behaves in one of two
+ways, depending on whether it was created with the
+&lt;code&gt;returnDelims&lt;/code&gt; flag having the value &lt;code&gt;true&lt;/code&gt;
+or &lt;code&gt;false&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;If the flag is &lt;code&gt;false&lt;/code&gt;, delimiter characters serve to
+separate tokens. A token is a maximal sequence of consecutive
+characters that are not delimiters.
+&lt;li&gt;If the flag is &lt;code&gt;true&lt;/code&gt;, delimiter characters are themselves
+considered to be tokens. A token is thus either one delimiter
+character, or a maximal sequence of consecutive characters that are
+not delimiters.
+&lt;/ul&gt;&lt;p&gt;
+A &lt;tt&gt;StringTokenizer&lt;/tt&gt; object internally maintains a current
+position within the string to be tokenized. Some operations advance this
+current position past the characters processed.&lt;p&gt;
+A token is returned by taking a substring of the string that was used to
+create the &lt;tt&gt;StringTokenizer&lt;/tt&gt; object.
+&lt;p&gt;
+The following is one example of the use of the tokenizer. The code:
+&lt;blockquote&gt;&lt;pre&gt;
+StringTokenizer st = new StringTokenizer("this is a test");
+while (st.hasMoreTokens()) {
+System.out.println(st.nextToken());
+}
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+prints the following output:
+&lt;blockquote&gt;&lt;pre&gt;
+this
+is
+a
+test
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;
+&lt;tt&gt;StringTokenizer&lt;/tt&gt; is a legacy class that is retained for
+compatibility reasons although its use is discouraged in new code. It is
+recommended that anyone seeking this functionality use the &lt;tt&gt;split&lt;/tt&gt;
+method of &lt;tt&gt;String&lt;/tt&gt; or the java.util.regex package instead.
+&lt;p&gt;
+The following example illustrates how the &lt;tt&gt;String.split&lt;/tt&gt;
+method can be used to break up a string into its basic tokens:
+&lt;blockquote&gt;&lt;pre&gt;
+String[] result = "this is a test".split("\\s");
+for (int x=0; x&lt;result.length; x++)
+System.out.println(result[x]);
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+prints the following output:
+&lt;blockquote&gt;&lt;pre&gt;
+this
+is
+a
+test
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+@author  unascribed
+@version 1.34, 05/05/04
+@see     java.io.StreamTokenizer
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StringTokenizer" refid="_9_5_f720368_1110473546706_921379_8929"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StringTokenizer" refid="_9_5_f720368_1110473546706_921379_8929"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

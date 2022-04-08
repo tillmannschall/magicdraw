@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307047_980806_4562"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DataOutputStream" refid="_9_5_f720368_1110473546596_961436_7375"/></annotatedElement><body humanName="Body" mode="s,e">A data output stream lets an application write primitive Java data
+types to an output stream in a portable way. An application can
+then use a data input stream to read the data back in.
+
+@author  unascribed
+@version 1.43, 05/13/04
+@see     java.io.DataInputStream
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DataOutputStream" refid="_9_5_f720368_1110473546596_961436_7375"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DataOutputStream" refid="_9_5_f720368_1110473546596_961436_7375"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

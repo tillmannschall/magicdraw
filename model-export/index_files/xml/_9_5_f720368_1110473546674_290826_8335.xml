@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546674_290826_8335"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::PKIXCertPathValidatorResult -&gt; JDK 5.0 Classes::java::security::cert::CertPathValidatorResult]" refid="_10_5_622020d_1132928321859_317620_14132"/></clientDependency><documentation humanName="Documentation" mode="standard">This class represents the successful result of the PKIX certification
+path validation algorithm.
+
+&lt;p&gt;Instances of &lt;code&gt;PKIXCertPathValidatorResult&lt;/code&gt; are returned by the
+{@link CertPathValidator#validate validate} method of
+&lt;code&gt;CertPathValidator&lt;/code&gt; objects implementing the PKIX algorithm.
+
+&lt;p&gt; All &lt;code&gt;PKIXCertPathValidatorResult&lt;/code&gt; objects contain the
+valid policy tree and subject public key resulting from the
+validation algorithm, as well as a &lt;code&gt;TrustAnchor&lt;/code&gt; describing
+the certification authority (CA) that served as a trust anchor for the
+certification path.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Unless otherwise specified, the methods defined in this class are not
+thread-safe. Multiple threads that need to access a single
+object concurrently should synchronize amongst themselves and
+provide the necessary locking. Multiple threads each manipulating
+separate objects need not synchronize.
+
+@see CertPathValidatorResult
+
+@version 	1.9 12/19/03
+@since	1.4
+@author	Yassir Elley
+@author	Sean Mullan
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::PKIXCertPathValidatorResult -&gt; JDK 5.0 Classes::java::security::cert::CertPathValidatorResult]" refid="_10_5_622020d_1132928321859_317620_14132"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">PKIXCertPathValidatorResult</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309130_19230_5839"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309130_19230_5839"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::PKIXCertPathValidatorResult -&gt; JDK 5.0 Classes::java::security::cert::CertPathValidatorResult]" refid="_10_5_622020d_1132928321859_317620_14132"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::cert::PKIXCertPathValidatorResult</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CertPathValidatorResult" refid="_9_5_f720368_1110473546674_954274_8305"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

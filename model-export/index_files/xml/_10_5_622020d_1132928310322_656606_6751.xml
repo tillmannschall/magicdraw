@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310322_656606_6751"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Handler" refid="_9_5_f720368_1110473546690_550551_8727"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;tt&gt;Handler&lt;/tt&gt; object takes log messages from a &lt;tt&gt;Logger&lt;/tt&gt; and
+exports them.  It might for example, write them to a console
+or write them to a file, or send them to a network logging service,
+or forward them to an OS log, or whatever.
+&lt;p&gt;
+A &lt;tt&gt;Handler&lt;/tt&gt; can be disabled by doing a &lt;tt&gt;setLevel(Level.OFF)&lt;/tt&gt;
+and can  be re-enabled by doing a &lt;tt&gt;setLevel&lt;/tt&gt; with an appropriate level.
+&lt;p&gt;
+&lt;tt&gt;Handler&lt;/tt&gt; classes typically use &lt;tt&gt;LogManager&lt;/tt&gt; properties to set
+default values for the &lt;tt&gt;Handler&lt;/tt&gt;'s &lt;tt&gt;Filter&lt;/tt&gt;, &lt;tt&gt;Formatter&lt;/tt&gt;,
+and &lt;tt&gt;Level&lt;/tt&gt;.  See the specific documentation for each concrete
+&lt;tt&gt;Handler&lt;/tt&gt; class.
+
+
+@version 1.17, 01/12/04
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Handler" refid="_9_5_f720368_1110473546690_550551_8727"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Handler" refid="_9_5_f720368_1110473546690_550551_8727"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

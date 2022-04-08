@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310442_860257_6805"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="XmlSupport" refid="_9_5_f720368_1110473546690_824875_8773"/></annotatedElement><body humanName="Body" mode="s,e">XML Support for java.util.prefs. Methods to import and export preference
+nodes and subtrees.
+
+@author  Josh Bloch and Mark Reinhold
+@version 1.7, 01/12/04
+@see     Preferences
+@since   1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="XmlSupport" refid="_9_5_f720368_1110473546690_824875_8773"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="XmlSupport" refid="_9_5_f720368_1110473546690_824875_8773"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

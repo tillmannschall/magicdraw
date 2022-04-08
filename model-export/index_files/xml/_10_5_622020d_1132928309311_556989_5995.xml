@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309311_556989_5995"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DomainCombiner" refid="_9_5_f720368_1110473546674_440101_8443"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;DomainCombiner&lt;/code&gt; provides a means to dynamically
+update the ProtectionDomains associated with the current
+&lt;code&gt;AccessControlContext&lt;/code&gt;.
+
+&lt;p&gt; A &lt;code&gt;DomainCombiner&lt;/code&gt; is passed as a parameter to the
+appropriate constructor for &lt;code&gt;AccessControlContext&lt;/code&gt;.
+The newly constructed context is then passed to the
+&lt;code&gt;AccessController.doPrivileged(..., context)&lt;/code&gt; method
+to bind the provided context (and associated &lt;code&gt;DomainCombiner&lt;/code&gt;)
+with the current execution Thread.  Subsequent calls to
+&lt;code&gt;AccessController.getContext&lt;/code&gt; or
+&lt;code&gt;AccessController.checkPermission&lt;/code&gt;
+cause the &lt;code&gt;DomainCombiner.combine&lt;/code&gt; to get invoked.
+
+&lt;p&gt; The combine method takes two arguments.  The first argument represents
+an array of ProtectionDomains from the current execution Thread,
+since the most recent call to &lt;code&gt;AccessController.doPrivileged&lt;/code&gt;.
+If no call to doPrivileged was made, then the first argument will contain
+all the ProtectionDomains from the current execution Thread.
+The second argument represents an array of inherited ProtectionDomains,
+which may be &lt;code&gt;null&lt;/code&gt;.  ProtectionDomains may be inherited
+from a parent Thread, or from a privileged context.  If no call to
+doPrivileged was made, then the second argument will contain the
+ProtectionDomains inherited from the parent Thread.  If one or more calls
+to doPrivileged were made, and the most recent call was to
+doPrivileged(action, context), then the second argument will contain the
+ProtectionDomains from the privileged context.  If the most recent call
+was to doPrivileged(action), then there is no privileged context,
+and the second argument will be &lt;code&gt;null&lt;/code&gt;.
+
+&lt;p&gt; The &lt;code&gt;combine&lt;/code&gt; method investigates the two input arrays
+of ProtectionDomains and returns a single array containing the updated
+ProtectionDomains.  In the simplest case, the &lt;code&gt;combine&lt;/code&gt;
+method merges the two stacks into one.  In more complex cases,
+the &lt;code&gt;combine&lt;/code&gt; method returns a modified
+stack of ProtectionDomains.  The modification may have added new
+ProtectionDomains, removed certain ProtectionDomains, or simply
+updated existing ProtectionDomains.  Re-ordering and other optimizations
+to the ProtectionDomains are also permitted.  Typically the
+&lt;code&gt;combine&lt;/code&gt; method bases its updates on the information
+encapsulated in the &lt;code&gt;DomainCombiner&lt;/code&gt;.
+
+&lt;p&gt; After the &lt;code&gt;AccessController.getContext&lt;/code&gt; method
+receives the combined stack of ProtectionDomains back from
+the &lt;code&gt;DomainCombiner&lt;/code&gt;, it returns a new
+AccessControlContext that has both the combined ProtectionDomains
+as well as the &lt;code&gt;DomainCombiner&lt;/code&gt;.
+
+@see AccessController
+@see AccessControlContext
+@version 1.7, 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DomainCombiner" refid="_9_5_f720368_1110473546674_440101_8443"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DomainCombiner" refid="_9_5_f720368_1110473546674_440101_8443"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

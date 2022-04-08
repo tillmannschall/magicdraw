@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546565_365575_6801"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;IndexColorModel&lt;/code&gt; class is a &lt;code&gt;ColorModel&lt;/code&gt;
+class that works with pixel values consisting of a
+single sample that is an index into a fixed colormap in the default
+sRGB color space.  The colormap specifies red, green, blue, and
+optional alpha components corresponding to each index.  All components
+are represented in the colormap as 8-bit unsigned integral values.
+Some constructors allow the caller to specify "holes" in the colormap
+by indicating which colormap entries are valid and which represent
+unusable colors via the bits set in a &lt;code&gt;BigInteger&lt;/code&gt; object.
+This color model is similar to an X11 PseudoColor visual.
+&lt;p&gt;
+Some constructors provide a means to specify an alpha component
+for each pixel in the colormap, while others either provide no
+such means or, in some cases, a flag to indicate whether the
+colormap data contains alpha values.  If no alpha is supplied to
+the constructor, an opaque alpha component (alpha = 1.0) is
+assumed for each entry.
+An optional transparent pixel value can be supplied that indicates a
+pixel to be made completely transparent, regardless of any alpha
+component supplied or assumed for that pixel value.
+Note that the color components in the colormap of an
+&lt;code&gt;IndexColorModel&lt;/code&gt; objects are never pre-multiplied with
+the alpha components.
+&lt;p&gt;
+&lt;a name="transparency"&gt;
+The transparency of an &lt;code&gt;IndexColorModel&lt;/code&gt; object is
+determined by examining the alpha components of the colors in the
+colormap and choosing the most specific value after considering
+the optional alpha values and any transparent index specified.
+The transparency value is &lt;code&gt;Transparency.OPAQUE&lt;/code&gt;
+only if all valid colors in
+the colormap are opaque and there is no valid transparent pixel.
+If all valid colors
+in the colormap are either completely opaque (alpha = 1.0) or
+completely transparent (alpha = 0.0), which typically occurs when
+a valid transparent pixel is specified,
+the value is &lt;code&gt;Transparency.BITMASK&lt;/code&gt;.
+Otherwise, the value is &lt;code&gt;Transparency.TRANSLUCENT&lt;/code&gt;, indicating
+that some valid color has an alpha component that is
+neither completely transparent nor completely opaque (0.0 &lt; alpha &lt; 1.0).
+&lt;/a&gt;
+
+&lt;p&gt;
+If an &lt;code&gt;IndexColorModel&lt;/code&gt; object has
+a transparency value of &lt;code&gt;Transparency.OPAQUE&lt;/code&gt;,
+then the &lt;code&gt;hasAlpha&lt;/code&gt;
+and &lt;code&gt;getNumComponents&lt;/code&gt; methods
+(both inherited from &lt;code&gt;ColorModel&lt;/code&gt;)
+return false and 3, respectively.
+For any other transparency value,
+&lt;code&gt;hasAlpha&lt;/code&gt; returns true
+and &lt;code&gt;getNumComponents&lt;/code&gt; returns 4.
+
+&lt;p&gt;
+The index represented by a pixel value is stored in the least
+significant &lt;em&gt;n&lt;/em&gt; bits of the pixel representations passed to the
+methods of this class, where &lt;em&gt;n&lt;/em&gt; is the pixel size specified to the
+constructor for a particular &lt;code&gt;IndexColorModel&lt;/code&gt; object;
+&lt;em&gt;n&lt;/em&gt; must be between 1 and 16, inclusive.
+Higher order bits in pixel representations are assumed to be zero.
+For those methods that use a primitive array pixel representation of
+type &lt;code&gt;transferType&lt;/code&gt;, the array length is always one.
+The transfer types supported are &lt;code&gt;DataBuffer.TYPE_BYTE&lt;/code&gt; and
+&lt;code&gt;DataBuffer.TYPE_USHORT&lt;/code&gt;.  A single int pixel
+representation is valid for all objects of this class, since it is
+always possible to represent pixel values used with this class in a
+single int.  Therefore, methods that use this representation do
+not throw an &lt;code&gt;IllegalArgumentException&lt;/code&gt; due to an invalid
+pixel value.
+&lt;p&gt;
+Many of the methods in this class are final.  The reason for
+this is that the underlying native graphics code makes assumptions
+about the layout and operation of this class and those assumptions
+are reflected in the implementations of the methods here that are
+marked final.  You can subclass this class for other reasons, but
+you cannot override or modify the behaviour of those methods.
+
+@see ColorModel
+@see ColorSpace
+@see DataBuffer
+
+@version 10 Feb 1997
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321248_957972_13081"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">IndexColorModel</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306066_551857_3966"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321248_957972_13081"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306066_551857_3966"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::image::IndexColorModel</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ColorModel" refid="_9_5_f720368_1110473546565_334923_6763"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

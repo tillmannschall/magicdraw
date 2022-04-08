@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318344_636065_12741"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FactoryFinder" refid="_9_5_f720368_1110473546799_293889_10901"/></annotatedElement><body humanName="Body" mode="s,e">This class is duplicated for each JAXP subpackage so keep it in
+sync.  It is package private.
+
+This code is designed to implement the JAXP 1.1 spec pluggability
+feature and is designed to run on JDK version 1.1 and later including
+JVMs that perform early linking like the Microsoft JVM in IE 5.  Note
+however that it must be compiled on a JDK version 1.2 or later system
+since it calls Thread#getContextClassLoader().  The code also runs both
+as part of an unbundled jar file and when bundled as part of the JDK.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FactoryFinder" refid="_9_5_f720368_1110473546799_293889_10901"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FactoryFinder" refid="_9_5_f720368_1110473546799_293889_10901"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

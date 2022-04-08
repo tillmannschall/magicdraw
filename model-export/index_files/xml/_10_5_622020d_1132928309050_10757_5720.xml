@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309050_10757_5720"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MarshalledObject" refid="_9_5_f720368_1110473546674_717935_8225"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;MarshalledObject&lt;/code&gt; contains a byte stream with the serialized
+representation of an object given to its constructor.  The &lt;code&gt;get&lt;/code&gt;
+method returns a new copy of the original object, as deserialized from
+the contained byte stream.  The contained object is serialized and
+deserialized with the same serialization semantics used for marshaling
+and unmarshaling parameters and return values of RMI calls:  When the
+serialized form is created:
+
+&lt;ul&gt;
+&lt;li&gt; classes are annotated with a codebase URL from where the class
+can be loaded (if available), and
+&lt;li&gt; any remote object in the &lt;code&gt;MarshalledObject&lt;/code&gt; is
+represented by a serialized instance of its stub.
+&lt;/ul&gt;
+
+&lt;p&gt;When copy of the object is retrieved (via the &lt;code&gt;get&lt;/code&gt; method),
+if the class is not available locally, it will be loaded from the
+appropriate location (specified the URL annotated with the class descriptor
+when the class was serialized.
+
+&lt;p&gt;&lt;code&gt;MarshalledObject&lt;/code&gt; facilitates passing objects in RMI calls
+that are not automatically deserialized immediately by the remote peer.
+
+@version 1.33, 12/19/03
+@author  Ann Wollrath
+@author  Peter Jones
+@since   1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MarshalledObject" refid="_9_5_f720368_1110473546674_717935_8225"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MarshalledObject" refid="_9_5_f720368_1110473546674_717935_8225"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

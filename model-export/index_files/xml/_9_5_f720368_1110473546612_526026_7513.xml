@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546612_526026_7513"><documentation humanName="Documentation" mode="standard">Phantom reference objects, which are enqueued after the collector
+determines that their referents may otherwise be reclaimed.  Phantom
+references are most often used for scheduling pre-mortem cleanup actions in
+a more flexible way than is possible with the Java finalization mechanism.
+
+&lt;p&gt; If the garbage collector determines at a certain point in time that the
+referent of a phantom reference is &lt;a
+href="package-summary.html#reachability"&gt;phantom reachable&lt;/a&gt;, then at that
+time or at some later time it will enqueue the reference.
+
+&lt;p&gt; In order to ensure that a reclaimable object remains so, the referent of
+a phantom reference may not be retrieved: The &lt;code&gt;get&lt;/code&gt; method of a
+phantom reference always returns &lt;code&gt;null&lt;/code&gt;.
+
+&lt;p&gt; Unlike soft and weak references, phantom references are not
+automatically cleared by the garbage collector as they are enqueued.  An
+object that is reachable via phantom references will remain so until all
+such references are cleared or themselves become unreachable.
+
+@version  1.19, 12/19/03
+@author   Mark Reinhold
+@since    1.2
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321608_152941_13583"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">PhantomReference</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="ref" refid="_9_5_f720368_1110473547503_605120_17781"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307769_254293_4844"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928307769_981431_4840"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321608_152941_13583"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307769_254293_4844"/></ownedElement><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928307769_981431_4840"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="ref" refid="_9_5_f720368_1110473547503_605120_17781"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="ref" refid="_9_5_f720368_1110473547503_605120_17781"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="ref" refid="_9_5_f720368_1110473547503_605120_17781"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::ref::PhantomReference</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Reference&lt;T&gt;" refid="_10_5_622020d_1132928321608_706139_13579"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546737_878604_9619"><documentation humanName="Documentation" mode="standard">&lt;p&gt; &lt;code&gt;LoginModule&lt;/code&gt; describes the interface
+implemented by authentication technology providers.  LoginModules
+are plugged in under applications to provide a particular type of
+authentication.
+
+&lt;p&gt; While applications write to the &lt;code&gt;LoginContext&lt;/code&gt; API,
+authentication technology providers implement the
+&lt;code&gt;LoginModule&lt;/code&gt; interface.
+A &lt;code&gt;Configuration&lt;/code&gt; specifies the LoginModule(s)
+to be used with a particular login application.  Therefore different
+LoginModules can be plugged in under the application without
+requiring any modifications to the application itself.
+
+&lt;p&gt; The &lt;code&gt;LoginContext&lt;/code&gt; is responsible for reading the
+&lt;code&gt;Configuration&lt;/code&gt; and instantiating the appropriate
+LoginModules.  Each &lt;code&gt;LoginModule&lt;/code&gt; is initialized with
+a &lt;code&gt;Subject&lt;/code&gt;, a &lt;code&gt;CallbackHandler&lt;/code&gt;, shared
+&lt;code&gt;LoginModule&lt;/code&gt; state, and LoginModule-specific options.
+
+The &lt;code&gt;Subject&lt;/code&gt; represents the
+&lt;code&gt;Subject&lt;/code&gt; currently being authenticated and is updated
+with relevant Credentials if authentication succeeds.
+LoginModules use the &lt;code&gt;CallbackHandler&lt;/code&gt; to
+communicate with users.  The &lt;code&gt;CallbackHandler&lt;/code&gt; may be
+used to prompt for usernames and passwords, for example.
+Note that the &lt;code&gt;CallbackHandler&lt;/code&gt; may be null.  LoginModules
+which absolutely require a &lt;code&gt;CallbackHandler&lt;/code&gt; to authenticate
+the &lt;code&gt;Subject&lt;/code&gt; may throw a &lt;code&gt;LoginException&lt;/code&gt;.
+LoginModules optionally use the shared state to share information
+or data among themselves.
+
+&lt;p&gt; The LoginModule-specific options represent the options
+configured for this &lt;code&gt;LoginModule&lt;/code&gt; by an administrator or user
+in the login &lt;code&gt;Configuration&lt;/code&gt;.
+The options are defined by the &lt;code&gt;LoginModule&lt;/code&gt; itself
+and control the behavior within it.  For example, a
+&lt;code&gt;LoginModule&lt;/code&gt; may define options to support debugging/testing
+capabilities.  Options are defined using a key-value syntax,
+such as &lt;i&gt;debug=true&lt;/i&gt;.  The &lt;code&gt;LoginModule&lt;/code&gt;
+stores the options as a &lt;code&gt;Map&lt;/code&gt; so that the values may
+be retrieved using the key.  Note that there is no limit to the number
+of options a &lt;code&gt;LoginModule&lt;/code&gt; chooses to define.
+
+&lt;p&gt; The calling application sees the authentication process as a single
+operation.  However, the authentication process within the
+&lt;code&gt;LoginModule&lt;/code&gt; proceeds in two distinct phases.
+In the first phase, the LoginModule's
+&lt;code&gt;login&lt;/code&gt; method gets invoked by the LoginContext's
+&lt;code&gt;login&lt;/code&gt; method.  The &lt;code&gt;login&lt;/code&gt;
+method for the &lt;code&gt;LoginModule&lt;/code&gt; then performs
+the actual authentication (prompt for and verify a password for example)
+and saves its authentication status as private state
+information.  Once finished, the LoginModule's &lt;code&gt;login&lt;/code&gt;
+method either returns &lt;code&gt;true&lt;/code&gt; (if it succeeded) or
+&lt;code&gt;false&lt;/code&gt; (if it should be ignored), or throws a
+&lt;code&gt;LoginException&lt;/code&gt; to specify a failure.
+In the failure case, the &lt;code&gt;LoginModule&lt;/code&gt; must not retry the
+authentication or introduce delays.  The responsibility of such tasks
+belongs to the application.  If the application attempts to retry
+the authentication, the LoginModule's &lt;code&gt;login&lt;/code&gt; method will be
+called again.
+
+&lt;p&gt; In the second phase, if the LoginContext's overall authentication
+succeeded (the relevant REQUIRED, REQUISITE, SUFFICIENT and OPTIONAL
+LoginModules succeeded), then the &lt;code&gt;commit&lt;/code&gt;
+method for the &lt;code&gt;LoginModule&lt;/code&gt; gets invoked.
+The &lt;code&gt;commit&lt;/code&gt; method for a &lt;code&gt;LoginModule&lt;/code&gt; checks its
+privately saved state to see if its own authentication succeeded.
+If the overall &lt;code&gt;LoginContext&lt;/code&gt; authentication succeeded
+and the LoginModule's own authentication succeeded, then the
+&lt;code&gt;commit&lt;/code&gt; method associates the relevant
+Principals (authenticated identities) and Credentials (authentication data
+such as cryptographic keys) with the &lt;code&gt;Subject&lt;/code&gt;
+located within the &lt;code&gt;LoginModule&lt;/code&gt;.
+
+&lt;p&gt; If the LoginContext's overall authentication failed (the relevant
+REQUIRED, REQUISITE, SUFFICIENT and OPTIONAL LoginModules did not succeed),
+then the &lt;code&gt;abort&lt;/code&gt; method for each &lt;code&gt;LoginModule&lt;/code&gt;
+gets invoked.  In this case, the &lt;code&gt;LoginModule&lt;/code&gt; removes/destroys
+any authentication state originally saved.
+
+&lt;p&gt; Logging out a &lt;code&gt;Subject&lt;/code&gt; involves only one phase.
+The &lt;code&gt;LoginContext&lt;/code&gt; invokes the LoginModule's &lt;code&gt;logout&lt;/code&gt;
+method.  The &lt;code&gt;logout&lt;/code&gt; method for the &lt;code&gt;LoginModule&lt;/code&gt;
+then performs the logout procedures, such as removing Principals or
+Credentials from the &lt;code&gt;Subject&lt;/code&gt; or logging session information.
+
+&lt;p&gt; A &lt;code&gt;LoginModule&lt;/code&gt; implementation must have a constructor with
+no arguments.  This allows classes which load the &lt;code&gt;LoginModule&lt;/code&gt;
+to instantiate it.
+
+@version 1.53, 05/05/04
+@see javax.security.auth.login.LoginContext
+@see javax.security.auth.login.Configuration
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">LoginModule</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spi" refid="_9_5_f720368_1110473548081_233625_20757"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316070_572077_10472"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316070_572077_10472"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="spi" refid="_9_5_f720368_1110473548081_233625_20757"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spi" refid="_9_5_f720368_1110473548081_233625_20757"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spi" refid="_9_5_f720368_1110473548081_233625_20757"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::security::auth::spi::LoginModule</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307378_969041_4668"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PipedInputStream" refid="_9_5_f720368_1110473546612_386914_7459"/></annotatedElement><body humanName="Body" mode="s,e">A piped input stream should be connected
+to a piped output stream; the piped  input
+stream then provides whatever data bytes
+are written to the piped output  stream.
+Typically, data is read from a &lt;code&gt;PipedInputStream&lt;/code&gt;
+object by one thread  and data is written
+to the corresponding &lt;code&gt;PipedOutputStream&lt;/code&gt;
+by some  other thread. Attempting to use
+both objects from a single thread is not
+recommended, as it may deadlock the thread.
+The piped input stream contains a buffer,
+decoupling read operations from write operations,
+within limits.
+
+@author  James Gosling
+@version 1.35, 12/19/03
+@see     java.io.PipedOutputStream
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PipedInputStream" refid="_9_5_f720368_1110473546612_386914_7459"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PipedInputStream" refid="_9_5_f720368_1110473546612_386914_7459"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

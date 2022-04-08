@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309451_528707_6121"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecurityPermission" refid="_9_5_f720368_1110473546690_503308_8529"/></annotatedElement><body humanName="Body" mode="s,e">This class is for security permissions.
+A SecurityPermission contains a name (also referred to as a "target name")
+but no actions list; you either have the named permission
+or you don't.
+&lt;P&gt;
+The target name is the name of a security configuration parameter (see below).
+Currently the SecurityPermission object is used to guard access
+to the Policy, Security, Provider, Signer, and Identity
+objects.
+&lt;P&gt;
+The following table lists all the possible SecurityPermission target names,
+and for each provides a description of what the permission allows
+and a discussion of the risks of granting code the permission.
+&lt;P&gt;
+
+&lt;table border=1 cellpadding=5 summary="target name,what the permission allows, and associated risks"&gt;
+&lt;tr&gt;
+&lt;th&gt;Permission Target Name&lt;/th&gt;
+&lt;th&gt;What the Permission Allows&lt;/th&gt;
+&lt;th&gt;Risks of Allowing this Permission&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;createAccessControlContext&lt;/td&gt;
+&lt;td&gt;Creation of an AccessControlContext&lt;/td&gt;
+&lt;td&gt;This allows someone to instantiate an AccessControlContext
+with a &lt;code&gt;DomainCombiner&lt;/code&gt;.  Since DomainCombiners are given
+a reference to the ProtectionDomains currently on the stack,
+this could potentially lead to a privacy leak if the DomainCombiner
+is malicious.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;getDomainCombiner&lt;/td&gt;
+&lt;td&gt;Retrieval of an AccessControlContext's DomainCombiner&lt;/td&gt;
+&lt;td&gt;This allows someone to retrieve an AccessControlContext's
+&lt;code&gt;DomainCombiner&lt;/code&gt;.  Since DomainCombiners may contain
+sensitive information, this could potentially lead to a privacy leak.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;getPolicy&lt;/td&gt;
+&lt;td&gt;Retrieval of the system-wide security policy (specifically, of the
+currently-installed Policy object)&lt;/td&gt;
+&lt;td&gt;This allows someone to query the policy via the
+&lt;code&gt;getPermissions&lt;/code&gt; call,
+which discloses which permissions would be granted to a given CodeSource.
+While revealing the policy does not compromise the security of
+the system, it does provide malicious code with additional information
+which it may use to better aim an attack. It is wise
+not to divulge more information than necessary.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setPolicy&lt;/td&gt;
+&lt;td&gt;Setting of the system-wide security policy (specifically,
+the Policy object)&lt;/td&gt;
+&lt;td&gt;Granting this permission is extremely dangerous, as malicious
+code may grant itself all the necessary permissions it needs
+to successfully mount an attack on the system.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;getProperty.{key}&lt;/td&gt;
+&lt;td&gt;Retrieval of the security property with the specified key&lt;/td&gt;
+&lt;td&gt;Depending on the particular key for which access has
+been granted, the code may have access to the list of security
+providers, as well as the location of the system-wide and user
+security policies.  while revealing this information does not
+compromise the security of the system, it does provide malicious
+code with additional information which it may use to better aim
+an attack.
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setProperty.{key}&lt;/td&gt;
+&lt;td&gt;Setting of the security property with the specified key&lt;/td&gt;
+&lt;td&gt;This could include setting a security provider or defining
+the location of the the system-wide security policy.  Malicious
+code that has permission to set a new security provider may
+set a rogue provider that steals confidential information such
+as cryptographic private keys. In addition, malicious code with
+permission to set the location of the system-wide security policy
+may point it to a security policy that grants the attacker
+all the necessary permissions it requires to successfully mount
+an attack on the system.
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;insertProvider.{provider name}&lt;/td&gt;
+&lt;td&gt;Addition of a new provider, with the specified name&lt;/td&gt;
+&lt;td&gt;This would allow somebody to introduce a possibly
+malicious provider (e.g., one that discloses the private keys passed
+to it) as the highest-priority provider. This would be possible
+because the Security object (which manages the installed providers)
+currently does not check the integrity or authenticity of a provider
+before attaching it.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;removeProvider.{provider name}&lt;/td&gt;
+&lt;td&gt;Removal of the specified provider&lt;/td&gt;
+&lt;td&gt;This may change the behavior or disable execution of other
+parts of the program. If a provider subsequently requested by the
+program has been removed, execution may fail. Also, if the removed
+provider is not explicitly requested by the rest of the program, but
+it would normally be the provider chosen when a cryptography service
+is requested (due to its previous order in the list of providers),
+a different provider will be chosen instead, or no suitable provider
+will be found, thereby resulting in program failure.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setSystemScope&lt;/td&gt;
+&lt;td&gt;Setting of the system identity scope&lt;/td&gt;
+&lt;td&gt;This would allow an attacker to configure the system identity scope with
+certificates that should not be trusted, thereby granting applet or
+application code signed with those certificates privileges that
+would have been denied by the system's original identity scope&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setIdentityPublicKey&lt;/td&gt;
+&lt;td&gt;Setting of the public key for an Identity&lt;/td&gt;
+&lt;td&gt;If the identity is marked as "trusted", this allows an attacker to
+introduce a different public key (e.g., its own) that is not trusted
+by the system's identity scope, thereby granting applet or
+application code signed with that public key privileges that
+would have been denied otherwise.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setIdentityInfo&lt;/td&gt;
+&lt;td&gt;Setting of a general information string for an Identity&lt;/td&gt;
+&lt;td&gt;This allows attackers to set the general description for
+an identity.  This may trick applications into using a different
+identity than intended or may prevent applications from finding a
+particular identity.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;addIdentityCertificate&lt;/td&gt;
+&lt;td&gt;Addition of a certificate for an Identity&lt;/td&gt;
+&lt;td&gt;This allows attackers to set a certificate for
+an identity's public key.  This is dangerous because it affects
+the trust relationship across the system. This public key suddenly
+becomes trusted to a wider audience than it otherwise would be.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;removeIdentityCertificate&lt;/td&gt;
+&lt;td&gt;Removal of a certificate for an Identity&lt;/td&gt;
+&lt;td&gt;This allows attackers to remove a certificate for
+an identity's public key. This is dangerous because it affects
+the trust relationship across the system. This public key suddenly
+becomes considered less trustworthy than it otherwise would be.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;printIdentity&lt;/td&gt;
+&lt;td&gt;Viewing the name of a principal
+and optionally the scope in which it is used, and whether
+or not it is considered "trusted" in that scope&lt;/td&gt;
+&lt;td&gt;The scope that is printed out may be a filename, in which case
+it may convey local system information. For example, here's a sample
+printout of an identity named "carol", who is
+marked not trusted in the user's identity database:&lt;br&gt;
+carol[/home/luehe/identitydb.obj][not trusted]&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;clearProviderProperties.{provider name}&lt;/td&gt;
+&lt;td&gt;"Clearing" of a Provider so that it no longer contains the properties
+used to look up services implemented by the provider&lt;/td&gt;
+&lt;td&gt;This disables the lookup of services implemented by the provider.
+This may thus change the behavior or disable execution of other
+parts of the program that would normally utilize the Provider, as
+described under the "removeProvider.{provider name}" permission.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;putProviderProperty.{provider name}&lt;/td&gt;
+&lt;td&gt;Setting of properties for the specified Provider&lt;/td&gt;
+&lt;td&gt;The provider properties each specify the name and location
+of a particular service implemented by the provider. By granting
+this permission, you let code replace the service specification
+with another one, thereby specifying a different implementation.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;removeProviderProperty.{provider name}&lt;/td&gt;
+&lt;td&gt;Removal of properties from the specified Provider&lt;/td&gt;
+&lt;td&gt;This disables the lookup of services implemented by the
+provider. They are no longer accessible due to removal of the properties
+specifying their names and locations. This
+may change the behavior or disable execution of other
+parts of the program that would normally utilize the Provider, as
+described under the "removeProvider.{provider name}" permission.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;getSignerPrivateKey&lt;/td&gt;
+&lt;td&gt;Retrieval of a Signer's private key&lt;/td&gt;
+&lt;td&gt;It is very dangerous to allow access to a private key; private
+keys are supposed to be kept secret. Otherwise, code can use the
+private key to sign various files and claim the signature came from
+the Signer.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setSignerKeyPair&lt;/td&gt;
+&lt;td&gt;Setting of the key pair (public key and private key) for a Signer&lt;/td&gt;
+&lt;td&gt;This would allow an attacker to replace somebody else's (the "target's")
+keypair with a possibly weaker keypair (e.g., a keypair of a smaller
+keysize).  This also would allow the attacker to listen in on encrypted
+communication between the target and its peers. The target's peers
+might wrap an encryption session key under the target's "new" public
+key, which would allow the attacker (who possesses the corresponding
+private key) to unwrap the session key and decipher the communication
+data encrypted under that session key.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+
+@see java.security.BasicPermission
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionCollection
+@see java.lang.SecurityManager
+
+@version 1.27 03/12/19
+
+@author Marianne Mueller
+@author Roland Schemers
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SecurityPermission" refid="_9_5_f720368_1110473546690_503308_8529"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecurityPermission" refid="_9_5_f720368_1110473546690_503308_8529"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

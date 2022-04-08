@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315019_246595_9551"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RMIConnectorServer" refid="_10_5_622020d_1132928315019_820840_9549"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;A JMX API connector server that creates RMI-based connections
+from remote clients.  Usually, such connector servers are made
+using {@link javax.management.remote.JMXConnectorServerFactory
+JMXConnectorServerFactory}.  However, specialized applications can
+use this class directly, for example with an {@link RMIServerImpl}
+object.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RMIConnectorServer" refid="_10_5_622020d_1132928315019_820840_9549"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RMIConnectorServer" refid="_10_5_622020d_1132928315019_820840_9549"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

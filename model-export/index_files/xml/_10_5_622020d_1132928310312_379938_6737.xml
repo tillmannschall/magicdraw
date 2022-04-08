@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310312_379938_6737"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Unpacker" refid="_10_5_622020d_1132928310312_991242_6736"/></annotatedElement><body humanName="Body" mode="s,e">The unpacker engine converts the packed stream to a JAR file.
+An instance of the engine can be obtained
+using {@link #newUnpacker}.
+&lt;p&gt;
+Every JAR file produced by this engine will include the string
+"&lt;tt&gt;PACK200&lt;/tt&gt;" as a zip file comment.
+This allows a deployer to detect if a JAR archive was packed and unpacked.
+&lt;p&gt;
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Unpacker" refid="_10_5_622020d_1132928310312_991242_6736"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Unpacker" refid="_10_5_622020d_1132928310312_991242_6736"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

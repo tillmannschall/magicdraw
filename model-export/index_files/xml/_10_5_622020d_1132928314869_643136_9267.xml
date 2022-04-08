@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314869_643136_9267"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ImageWriter" refid="_9_5_f720368_1110473546721_720684_9109"/></annotatedElement><body humanName="Body" mode="s,e">An abstract superclass for encoding and writing images.  This class
+must be subclassed by classes that write out images in the context
+of the Java Image I/O framework.
+
+&lt;p&gt; &lt;code&gt;ImageWriter&lt;/code&gt; objects are normally instantiated by
+the service provider class for the specific format.  Service
+provider classes are registered with the &lt;code&gt;IIORegistry&lt;/code&gt;,
+which uses them for format recognition and presentation of
+available format readers and writers.
+
+&lt;p&gt;
+
+@see ImageReader
+@see ImageWriteParam
+@see javax.imageio.spi.IIORegistry
+@see javax.imageio.spi.ImageWriterSpi
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ImageWriter" refid="_9_5_f720368_1110473546721_720684_9109"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ImageWriter" refid="_9_5_f720368_1110473546721_720684_9109"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

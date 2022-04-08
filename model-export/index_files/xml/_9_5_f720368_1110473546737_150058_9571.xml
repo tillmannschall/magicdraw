@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546737_150058_9571"><documentation humanName="Documentation" mode="standard">&lt;p&gt; An application implements a &lt;code&gt;CallbackHandler&lt;/code&gt; and passes
+it to underlying security services so that they may interact with
+the application to retrieve specific authentication data,
+such as usernames and passwords, or to display certain information,
+such as error and warning messages.
+
+&lt;p&gt; CallbackHandlers are implemented in an application-dependent fashion.
+For example, implementations for an application with a graphical user
+interface (GUI) may pop up windows to prompt for requested information
+or to display error messages.  An implementation may also choose to obtain
+requested information from an alternate source without asking the end user.
+
+&lt;p&gt; Underlying security services make requests for different types
+of information by passing individual Callbacks to the
+&lt;code&gt;CallbackHandler&lt;/code&gt;.  The &lt;code&gt;CallbackHandler&lt;/code&gt;
+implementation decides how to retrieve and display information
+depending on the Callbacks passed to it.  For example,
+if the underlying service needs a username and password to
+authenticate a user, it uses a &lt;code&gt;NameCallback&lt;/code&gt; and
+&lt;code&gt;PasswordCallback&lt;/code&gt;.  The &lt;code&gt;CallbackHandler&lt;/code&gt;
+can then choose to prompt for a username and password serially,
+or to prompt for both in a single window.
+
+&lt;p&gt; A default &lt;code&gt;CallbackHandler&lt;/code&gt; class implementation
+may be specified in the &lt;i&gt;auth.login.defaultCallbackHandler&lt;/i&gt;
+security property.  The security property can be set
+in the Java security properties file located in the file named
+&lt;JAVA_HOME&gt;/lib/security/java.security, where &lt;JAVA_HOME&gt;
+refers to the directory where the JDK was installed.
+
+&lt;p&gt; If the security property is set to the fully qualified name of a
+&lt;code&gt;CallbackHandler&lt;/code&gt; implementation class,
+then a &lt;code&gt;LoginContext&lt;/code&gt; will load the specified
+&lt;code&gt;CallbackHandler&lt;/code&gt; and pass it to the underlying LoginModules.
+The &lt;code&gt;LoginContext&lt;/code&gt; only loads the default handler
+if it was not provided one.
+
+&lt;p&gt; All default handler implementations must provide a public
+zero-argument constructor.
+
+@version 1.17, 06/28/04
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">CallbackHandler</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="callback" refid="_9_5_f720368_1110473548065_755275_20683"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316000_406403_10408"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316000_406403_10408"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="callback" refid="_9_5_f720368_1110473548065_755275_20683"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="callback" refid="_9_5_f720368_1110473548065_755275_20683"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="callback" refid="_9_5_f720368_1110473548065_755275_20683"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::security::auth::callback::CallbackHandler</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::security::auth::login::LoginContext::SecureCallbackHandler -&gt; JDK 5.0 Classes::javax::security::auth::callback::CallbackHandler]" refid="_10_5_622020d_1132928323351_736657_16557"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

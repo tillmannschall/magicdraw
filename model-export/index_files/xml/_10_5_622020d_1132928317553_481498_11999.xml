@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317553_481498_11999"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CompositeView" refid="_9_5_f720368_1110473546784_235862_10435"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;CompositeView&lt;/code&gt; is an abstract &lt;code&gt;View&lt;/code&gt;
+implementation which manages one or more child views.
+(Note that &lt;code&gt;CompositeView&lt;/code&gt; is intended
+for managing relatively small numbers of child views.)
+&lt;code&gt;CompositeView&lt;/code&gt; is intended to be used as
+a starting point for &lt;code&gt;View&lt;/code&gt; implementations,
+such as &lt;code&gt;BoxView&lt;/code&gt;, that will contain child
+&lt;code&gt;View&lt;/code&gt;s. Subclasses that wish to manage the
+collection of child &lt;code&gt;View&lt;/code&gt;s should use the
+{@link #replace} method.  As &lt;code&gt;View&lt;/code&gt; invokes
+&lt;code&gt;replace&lt;/code&gt; during &lt;code&gt;DocumentListener&lt;/code&gt;
+notification, you normally won't need to directly
+invoke &lt;code&gt;replace&lt;/code&gt;.
+
+&lt;p&gt;While &lt;code&gt;CompositeView&lt;/code&gt;
+does not impose a layout policy on its child &lt;code&gt;View&lt;/code&gt;s,
+it does allow for inseting the child &lt;code&gt;View&lt;/code&gt;s
+it will contain.  The insets can be set by either
+{@link #setInsets} or {@link #setParagraphInsets}.
+
+&lt;p&gt;In addition to the abstract methods of
+{@link javax.swing.text.View},
+subclasses of &lt;code&gt;CompositeView&lt;/code&gt; will need to
+override:
+&lt;ul&gt;
+&lt;li&gt;{@link #isBefore} - Used to test if a given
+&lt;code&gt;View&lt;/code&gt; location is before the visual space
+of the &lt;code&gt;CompositeView&lt;/code&gt;.
+&lt;li&gt;{@link #isAfter} - Used to test if a given
+&lt;code&gt;View&lt;/code&gt; location is after the visual space
+of the &lt;code&gt;CompositeView&lt;/code&gt;.
+&lt;li&gt;{@link #getViewAtPoint} - Returns the view at
+a given visual location.
+&lt;li&gt;{@link #childAllocation} - Returns the bounds of
+a particular child &lt;code&gt;View&lt;/code&gt;.
+&lt;code&gt;getChildAllocation&lt;/code&gt; will invoke
+&lt;code&gt;childAllocation&lt;/code&gt; after offseting
+the bounds by the &lt;code&gt;Inset&lt;/code&gt;s of the
+&lt;code&gt;CompositeView&lt;/code&gt;.
+&lt;/ul&gt;
+
+@author  Timothy Prinzing
+@version 1.67 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="CompositeView" refid="_9_5_f720368_1110473546784_235862_10435"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CompositeView" refid="_9_5_f720368_1110473546784_235862_10435"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

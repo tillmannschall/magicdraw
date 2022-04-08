@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546549_907419_6451"><documentation humanName="Documentation" mode="standard">The ICC_ProfileRGB class is a subclass of the ICC_Profile class
+that represents profiles which meet the following criteria:
+&lt;ul&gt;
+&lt;li&gt;The profile's color space type is RGB.&lt;/li&gt;
+&lt;li&gt;The profile includes the &lt;code&gt;redColorantTag&lt;/code&gt;,
+&lt;code&gt;greenColorantTag&lt;/code&gt;, &lt;code&gt;blueColorantTag&lt;/code&gt;,
+&lt;code&gt;redTRCTag&lt;/code&gt;, &lt;code&gt;greenTRCTag&lt;/code&gt;,
+&lt;code&gt;blueTRCTag&lt;/code&gt;, and &lt;code&gt;mediaWhitePointTag&lt;/code&gt; tags.&lt;/li&gt;
+&lt;/ul&gt;
+The &lt;code&gt;ICC_Profile&lt;/code&gt; &lt;code&gt;getInstance&lt;/code&gt; method will
+return an &lt;code&gt;ICC_ProfileRGB&lt;/code&gt; object when these conditions are met.
+Three-component, matrix-based input profiles and RGB display profiles are
+examples of this type of profile.
+&lt;p&gt;
+This profile class provides color transform matrices and lookup tables
+that Java or native methods can use directly to
+optimize color conversion in some cases.
+&lt;p&gt;
+To transform from a device profile color space to the CIEXYZ Profile
+Connection Space, each device color component is first linearized by
+a lookup through the corresponding tone reproduction curve (TRC).
+The resulting linear RGB components are converted to the CIEXYZ PCS
+using a a 3x3 matrix constructed from the RGB colorants.
+&lt;pre&gt;
+
+&amp;nbsp;               linearR = redTRC[deviceR]
+
+&amp;nbsp;               linearG = greenTRC[deviceG]
+
+&amp;nbsp;               linearB = blueTRC[deviceB]
+
+&amp;nbsp; _      _       _                                             _   _         _
+&amp;nbsp;[  PCSX  ]     [  redColorantX  greenColorantX  blueColorantX  ] [  linearR  ]
+&amp;nbsp;[        ]     [                                               ] [           ]
+&amp;nbsp;[  PCSY  ]  =  [  redColorantY  greenColorantY  blueColorantY  ] [  linearG  ]
+&amp;nbsp;[        ]     [                                               ] [           ]
+&amp;nbsp;[_ PCSZ _]     [_ redColorantZ  greenColorantZ  blueColorantZ _] [_ linearB _]
+
+&lt;/pre&gt;
+The inverse transform is performed by converting PCS XYZ components to linear
+RGB components through the inverse of the above 3x3 matrix, and then converting
+linear RGB to device RGB through inverses of the TRCs.
+&lt;p&gt;
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928320527_179100_12873"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ICC_ProfileRGB</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="color" refid="_9_5_f720368_1110473547268_839923_16332"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305495_747842_3595"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928320527_179100_12873"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305495_747842_3595"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="color" refid="_9_5_f720368_1110473547268_839923_16332"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="color" refid="_9_5_f720368_1110473547268_839923_16332"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="color" refid="_9_5_f720368_1110473547268_839923_16332"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::color::ICC_ProfileRGB</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ICC_Profile" refid="_9_5_f720368_1110473546549_402776_6447"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

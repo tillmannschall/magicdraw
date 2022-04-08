@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316201_31739_10586"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SysexMessage" refid="_9_5_f720368_1110473546737_465141_9691"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;SysexMessage&lt;/code&gt; object represents a MIDI system exclusive message.
+&lt;p&gt;
+When a system exclusive message is read from a MIDI file, it always has
+a defined length.  Data from a system exclusive message from a MIDI file
+should be stored in the data array of a &lt;code&gt;SysexMessage&lt;/code&gt; as
+follows: the system exclusive message status byte (0xF0 or 0xF7), all
+message data bytes, and finally the end-of-exclusive flag (0xF7).
+The length reported by the &lt;code&gt;SysexMessage&lt;/code&gt; object is therefore
+the length of the system exclusive data plus two: one byte for the status
+byte and one for the end-of-exclusive flag.
+&lt;p&gt;
+As dictated by the Standard MIDI Files specification, two status byte values are legal
+for a &lt;code&gt;SysexMessage&lt;/code&gt; read from a MIDI file:
+&lt;ul&gt;
+&lt;li&gt;0xF0: System Exclusive message (same as in MIDI wire protocol)&lt;/li&gt;
+&lt;li&gt;0xF7: Special System Exclusive message&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+When Java Sound is used to handle system exclusive data that is being received
+using MIDI wire protocol, it should place the data in one or more
+&lt;code&gt;SysexMessages&lt;/code&gt;.  In this case, the length of the system exclusive data
+is not known in advance; the end of the system exclusive data is marked by an
+end-of-exclusive flag (0xF7) in the MIDI wire byte stream.
+&lt;ul&gt;
+&lt;li&gt;0xF0: System Exclusive message (same as in MIDI wire protocol)&lt;/li&gt;
+&lt;li&gt;0xF7: End of Exclusive (EOX)&lt;/li&gt;
+&lt;/ul&gt;
+The first &lt;code&gt;SysexMessage&lt;/code&gt; object containing data for a particular system
+exclusive message should have the status value 0xF0.  If this message contains all
+the system exclusive data
+for the message, it should end with the status byte 0xF7 (EOX).
+Otherwise, additional system exclusive data should be sent in one or more
+&lt;code&gt;SysexMessages&lt;/code&gt; with a status value of 0xF7.  The &lt;code&gt;SysexMessage&lt;/code&gt;
+containing the last of the data for the system exclusive message should end with the
+value 0xF7 (EOX) to mark the end of the system exclusive message.
+&lt;p&gt;
+If system exclusive data from &lt;code&gt;SysexMessages&lt;/code&gt; objects is being transmitted
+using MIDI wire protocol, only the initial 0xF0 status byte, the system exclusive
+data itself, and the final 0xF7 (EOX) byte should be propagated; any 0xF7 status
+bytes used to indicate that a &lt;code&gt;SysexMessage&lt;/code&gt; contains continuing system
+exclusive data should not be propagated via MIDI wire protocol.
+
+@version 1.26, 03/12/19
+@author David Rivas
+@author Kara Kytle
+@author Florian Bomers
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SysexMessage" refid="_9_5_f720368_1110473546737_465141_9691"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SysexMessage" refid="_9_5_f720368_1110473546737_465141_9691"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

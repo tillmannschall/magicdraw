@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318194_287456_12581"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LayoutFocusTraversalPolicy" refid="_9_5_f720368_1110473546799_826653_10803"/></annotatedElement><body humanName="Body" mode="s,e">A SortingFocusTraversalPolicy which sorts Components based on their size,
+position, and orientation. Based on their size and position, Components are
+roughly categorized into rows and columns. For a Container with horizontal
+orientation, columns run left-to-right or right-to-left, and rows run top-
+to-bottom. For a Container with vertical orientation, columns run top-to-
+bottom and rows run left-to-right or right-to-left. See
+&lt;code&gt;ComponentOrientation&lt;/code&gt; for more information. All columns in a
+row are fully traversed before proceeding to the next row.
+
+@version 1.10, 12/19/03
+@author David Mendenhall
+
+@see java.awt.ComponentOrientation
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="LayoutFocusTraversalPolicy" refid="_9_5_f720368_1110473546799_826653_10803"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LayoutFocusTraversalPolicy" refid="_9_5_f720368_1110473546799_826653_10803"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

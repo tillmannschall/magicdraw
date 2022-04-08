@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305776_750458_3773"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FontRenderContext" refid="_9_5_f720368_1110473546565_985487_6623"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;FontRenderContext&lt;/code&gt; class is a container for the
+information needed to correctly measure text.  The measurement of text
+can vary because of rules that map outlines to pixels, and rendering
+hints provided by an application.
+&lt;p&gt;
+One such piece of information is a transform that scales
+typographical points to pixels. (A point is defined to be exactly 1/72
+of an inch, which is slightly different than
+the traditional mechanical measurement of a point.)  A character that
+is rendered at 12pt on a 600dpi device might have a different size
+than the same character rendered at 12pt on a 72dpi device because of
+such factors as rounding to pixel boundaries and hints that the font
+designer may have specified.
+&lt;p&gt;
+Anti-aliasing and Fractional-metrics specified by an application can also
+affect the size of a character because of rounding to pixel
+boundaries.
+&lt;p&gt;
+Typically, instances of &lt;code&gt;FontRenderContext&lt;/code&gt; are
+obtained from a {@link java.awt.Graphics2D Graphics2D} object.  A
+&lt;code&gt;FontRenderContext&lt;/code&gt; which is directly constructed will
+most likely not represent any actual graphics device, and may lead
+to unexpected or incorrect results.
+&lt;p&gt;
+@see java.awt.RenderingHints#KEY_TEXT_ANTIALIASING
+@see java.awt.RenderingHints#KEY_FRACTIONALMETRICS
+@see java.awt.Graphics2D#getFontRenderContext()
+@see java.awt.font.LineMetrics
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FontRenderContext" refid="_9_5_f720368_1110473546565_985487_6623"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FontRenderContext" refid="_9_5_f720368_1110473546565_985487_6623"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

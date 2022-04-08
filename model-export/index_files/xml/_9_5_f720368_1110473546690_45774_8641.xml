@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_45774_8641"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::text::DateFormatSymbols -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321939_441914_14286"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::text::DateFormatSymbols -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928321939_294390_14287"/></clientDependency><documentation humanName="Documentation" mode="standard">&lt;code&gt;DateFormatSymbols&lt;/code&gt; is a public class for encapsulating
+localizable date-time formatting data, such as the names of the
+months, the names of the days of the week, and the time zone data.
+&lt;code&gt;DateFormat&lt;/code&gt; and &lt;code&gt;SimpleDateFormat&lt;/code&gt; both use
+&lt;code&gt;DateFormatSymbols&lt;/code&gt; to encapsulate this information.
+
+&lt;p&gt;
+Typically you shouldn't use &lt;code&gt;DateFormatSymbols&lt;/code&gt; directly.
+Rather, you are encouraged to create a date-time formatter with the
+&lt;code&gt;DateFormat&lt;/code&gt; class's factory methods: &lt;code&gt;getTimeInstance&lt;/code&gt;,
+&lt;code&gt;getDateInstance&lt;/code&gt;, or &lt;code&gt;getDateTimeInstance&lt;/code&gt;.
+These methods automatically create a &lt;code&gt;DateFormatSymbols&lt;/code&gt; for
+the formatter so that you don't have to. After the
+formatter is created, you may modify its format pattern using the
+&lt;code&gt;setPattern&lt;/code&gt; method. For more information about
+creating formatters using &lt;code&gt;DateFormat&lt;/code&gt;'s factory methods,
+see {@link DateFormat}.
+
+&lt;p&gt;
+If you decide to create a date-time formatter with a specific
+format pattern for a specific locale, you can do so with:
+&lt;blockquote&gt;
+&lt;pre&gt;
+new SimpleDateFormat(aPattern, new DateFormatSymbols(aLocale)).
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+&lt;code&gt;DateFormatSymbols&lt;/code&gt; objects are cloneable. When you obtain
+a &lt;code&gt;DateFormatSymbols&lt;/code&gt; object, feel free to modify the
+date-time formatting data. For instance, you can replace the localized
+date-time format pattern characters with the ones that you feel easy
+to remember. Or you can change the representative cities
+to your favorite ones.
+
+&lt;p&gt;
+New &lt;code&gt;DateFormatSymbols&lt;/code&gt; subclasses may be added to support
+&lt;code&gt;SimpleDateFormat&lt;/code&gt; for date-time formatting for additional locales.
+@see          DateFormat
+@see          SimpleDateFormat
+@see          java.util.SimpleTimeZone
+@version      1.41 12/19/03
+@author       Chen-Lieh Huang
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::text::DateFormatSymbols -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321939_441914_14286"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::text::DateFormatSymbols -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928321939_294390_14287"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">DateFormatSymbols</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309621_408507_6239"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309621_408507_6239"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::text::DateFormatSymbols -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321939_441914_14286"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::text::DateFormatSymbols -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928321939_294390_14287"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::text::DateFormatSymbols</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

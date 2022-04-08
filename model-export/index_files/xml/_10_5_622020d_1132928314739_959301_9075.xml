@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314739_959301_9075"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Locator" refid="_9_5_f720368_1110473546940_452233_13296"/></annotatedElement><body humanName="Body" mode="s,e">Interface for associating a SAX event with a document location.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;If a SAX parser provides location information to the SAX
+application, it does so by implementing this interface and then
+passing an instance to the application using the content
+handler's {@link org.xml.sax.ContentHandler#setDocumentLocator
+setDocumentLocator} method.  The application can use the
+object to obtain the location of any other SAX event
+in the XML source document.&lt;/p&gt;
+
+&lt;p&gt;Note that the results returned by the object will be valid only
+during the scope of each callback method: the application
+will receive unpredictable results if it attempts to use the
+locator at any other time, or after parsing completes.&lt;/p&gt;
+
+&lt;p&gt;SAX parsers are not required to supply a locator, but they are
+very strongly encouraged to do so.  If the parser supplies a
+locator, it must do so before reporting any other document events.
+If no locator has been set by the time the application receives
+the {@link org.xml.sax.ContentHandler#startDocument startDocument}
+event, the application should assume that a locator is not
+available.&lt;/p&gt;
+
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.ContentHandler#setDocumentLocator
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Locator" refid="_9_5_f720368_1110473546940_452233_13296"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Locator" refid="_9_5_f720368_1110473546940_452233_13296"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314708_274497_9065"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DTDHandler" refid="_9_5_f720368_1110473546940_692688_13286"/></annotatedElement><body humanName="Body" mode="s,e">Receive notification of basic DTD-related events.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;If a SAX application needs information about notations and
+unparsed entities, then the application implements this
+interface and registers an instance with the SAX parser using
+the parser's setDTDHandler method.  The parser uses the
+instance to report notation and unparsed entity declarations to
+the application.&lt;/p&gt;
+
+&lt;p&gt;Note that this interface includes only those DTD events that
+the XML recommendation &lt;em&gt;requires&lt;/em&gt; processors to report:
+notation and unparsed entity declarations.&lt;/p&gt;
+
+&lt;p&gt;The SAX parser may report these events in any order, regardless
+of the order in which the notations and unparsed entities were
+declared; however, all DTD events must be reported after the
+document handler's startDocument event, and before the first
+startElement event.
+(If the {@link org.xml.sax.ext.LexicalHandler LexicalHandler} is
+used, these events must also be reported before the endDTD event.)
+&lt;/p&gt;
+
+&lt;p&gt;It is up to the application to store the information for
+future use (perhaps in a hash table or object tree).
+If the application encounters attributes of type "NOTATION",
+"ENTITY", or "ENTITIES", it can use the information that it
+obtained through this interface to find the entity and/or
+notation corresponding with the attribute value.&lt;/p&gt;
+
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.XMLReader#setDTDHandler
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DTDHandler" refid="_9_5_f720368_1110473546940_692688_13286"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DTDHandler" refid="_9_5_f720368_1110473546940_692688_13286"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

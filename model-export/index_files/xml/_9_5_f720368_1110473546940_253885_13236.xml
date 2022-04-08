@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546940_253885_13236"><documentation humanName="Documentation" mode="standard">This interface represents a known entity, either parsed or unparsed, in an
+XML document. Note that this models the entity itself &lt;em&gt;not&lt;/em&gt; the entity declaration.
+&lt;p&gt;The &lt;code&gt;nodeName&lt;/code&gt; attribute that is inherited from
+&lt;code&gt;Node&lt;/code&gt; contains the name of the entity.
+&lt;p&gt;An XML processor may choose to completely expand entities before the
+structure model is passed to the DOM; in this case there will be no
+&lt;code&gt;EntityReference&lt;/code&gt; nodes in the document tree.
+&lt;p&gt;XML does not mandate that a non-validating XML processor read and
+process entity declarations made in the external subset or declared in
+parameter entities. This means that parsed entities declared in the
+external subset need not be expanded by some classes of applications, and
+that the replacement text of the entity may not be available. When the &lt;a href='http://www.w3.org/TR/2004/REC-xml-20040204#intern-replacement'&gt;
+replacement text&lt;/a&gt; is available, the corresponding &lt;code&gt;Entity&lt;/code&gt; node's child list
+represents the structure of that replacement value. Otherwise, the child
+list is empty.
+&lt;p&gt;DOM Level 3 does not support editing &lt;code&gt;Entity&lt;/code&gt; nodes; if a
+user wants to make changes to the contents of an &lt;code&gt;Entity&lt;/code&gt;,
+every related &lt;code&gt;EntityReference&lt;/code&gt; node has to be replaced in the
+structure model by a clone of the &lt;code&gt;Entity&lt;/code&gt;'s contents, and
+then the desired changes must be made to each of those clones instead.
+&lt;code&gt;Entity&lt;/code&gt; nodes and all their descendants are readonly.
+&lt;p&gt;An &lt;code&gt;Entity&lt;/code&gt; node does not have any parent.
+&lt;p &gt;&lt;b&gt;Note:&lt;/b&gt; If the entity contains an unbound namespace prefix, the
+&lt;code&gt;namespaceURI&lt;/code&gt; of the corresponding node in the
+&lt;code&gt;Entity&lt;/code&gt; node subtree is &lt;code&gt;null&lt;/code&gt;. The same is true
+for &lt;code&gt;EntityReference&lt;/code&gt; nodes that refer to this entity, when
+they are created using the &lt;code&gt;createEntityReference&lt;/code&gt; method of
+the &lt;code&gt;Document&lt;/code&gt; interface.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'&gt;Document Object Model (DOM) Level 3 Core Specification&lt;/a&gt;.
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Node" refid="_9_5_f720368_1110473546940_624353_13242"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322900_120688_15715"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Entity</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dom" refid="_9_5_f720368_1110473548831_889953_27433"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314628_845407_8985"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322900_120688_15715"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314628_845407_8985"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="dom" refid="_9_5_f720368_1110473548831_889953_27433"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dom" refid="_9_5_f720368_1110473548831_889953_27433"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dom" refid="_9_5_f720368_1110473548831_889953_27433"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::w3c::dom::Entity</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315740_228334_10219"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterMoreInfo" refid="_9_5_f720368_1110473546721_634966_9411"/></annotatedElement><body humanName="Body" mode="s,e">Class PrinterMoreInfo is a printing attribute class, a URI, that is used to
+obtain more information about this specific printer. For example, this
+could be an HTTP type URI referencing an HTML page accessible to a web
+browser. The information obtained from this URI is intended for end user
+consumption. Features outside the scope of the Print Service API can be
+accessed from this URI.
+The information is intended to be specific to this printer instance and
+site specific services (e.g. job pricing, services offered, end user
+assistance).
+&lt;P&gt;
+In contrast, the {@link PrinterMoreInfoManufacturer
+PrinterMoreInfoManufacturer} attribute is used to find out more information
+about this general kind of printer rather than this specific printer.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The string form returned by
+&lt;CODE&gt;toString()&lt;/CODE&gt;  gives the IPP uri value.
+The category name returned by &lt;CODE&gt;getName()&lt;/CODE&gt;
+gives the IPP attribute name.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PrinterMoreInfo" refid="_9_5_f720368_1110473546721_634966_9411"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterMoreInfo" refid="_9_5_f720368_1110473546721_634966_9411"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

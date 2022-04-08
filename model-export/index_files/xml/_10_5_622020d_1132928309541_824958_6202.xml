@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309541_824958_6202"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Time" refid="_9_5_f720368_1110473546690_682982_8601"/></annotatedElement><body humanName="Body" mode="s,e">&lt;P&gt;A thin wrapper around the &lt;code&gt;java.util.Date&lt;/code&gt; class that allows the JDBC
+API to identify this as an SQL &lt;code&gt;TIME&lt;/code&gt; value. The &lt;code&gt;Time&lt;/code&gt;
+class adds formatting and
+parsing operations to support the JDBC escape syntax for time
+values.
+&lt;p&gt;The date components should be set to the "zero epoch"
+value of January 1, 1970 and should not be accessed.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Time" refid="_9_5_f720368_1110473546690_682982_8601"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Time" refid="_9_5_f720368_1110473546690_682982_8601"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

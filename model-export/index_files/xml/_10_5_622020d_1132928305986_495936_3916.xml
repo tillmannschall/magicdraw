@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305986_495936_3916"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BufferedImage" refid="_9_5_f720368_1110473546565_729710_6751"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;BufferedImage&lt;/code&gt; subclass describes an {@link
+java.awt.Image Image} with an accessible buffer of image data.
+A &lt;code&gt;BufferedImage&lt;/code&gt; is comprised of a {@link ColorModel} and a
+{@link Raster} of image data.
+The number and types of bands in the {@link SampleModel} of the
+&lt;code&gt;Raster&lt;/code&gt; must match the number and types required by the
+&lt;code&gt;ColorModel&lt;/code&gt; to represent its color and alpha components.
+All &lt;code&gt;BufferedImage&lt;/code&gt; objects have an upper left corner
+coordinate of (0,&amp;nbsp;0).  Any &lt;code&gt;Raster&lt;/code&gt; used to construct a
+&lt;code&gt;BufferedImage&lt;/code&gt; must therefore have minX=0 and minY=0.
+
+&lt;p&gt;
+This class relies on the data fetching and setting methods
+of &lt;code&gt;Raster&lt;/code&gt;,
+and on the color characterization methods of &lt;code&gt;ColorModel&lt;/code&gt;.
+
+@see ColorModel
+@see Raster
+@see WritableRaster
+@version 10 Feb 1997
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BufferedImage" refid="_9_5_f720368_1110473546565_729710_6751"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BufferedImage" refid="_9_5_f720368_1110473546565_729710_6751"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

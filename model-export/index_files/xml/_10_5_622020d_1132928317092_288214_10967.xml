@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317092_288214_10967"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicComboBoxUI" refid="_9_5_f720368_1110473546753_316126_9945"/></annotatedElement><body humanName="Body" mode="s,e">Basic UI implementation for JComboBox.
+&lt;p&gt;
+The combo box is a compound component which means that it is an agregate of
+many simpler components. This class creates and manages the listeners
+on the combo box and the combo box model. These listeners update the user
+interface in response to changes in the properties and state of the combo box.
+&lt;p&gt;
+All event handling is handled by listener classes created with the
+&lt;code&gt;createxxxListener()&lt;/code&gt; methods and internal classes.
+You can change the behavior of this class by overriding the
+&lt;code&gt;createxxxListener()&lt;/code&gt; methods and supplying your own
+event listeners or subclassing from the ones supplied in this class.
+&lt;p&gt;
+For adding specific actions,
+overide &lt;code&gt;installKeyboardActions&lt;/code&gt; to add actions in response to
+KeyStroke bindings. See the article &lt;a href="http://java.sun.com/products/jfc/tsc/special_report/kestrel/keybindings.html"&gt;Keyboard Bindings in Swing&lt;/a&gt;
+at &lt;a href="http://java.sun.com/products/jfc/tsc"&gt;&lt;em&gt;The Swing Connection&lt;/em&gt;&lt;/a&gt;.
+
+@version 1.170 12/19/03
+@author Arnaud Weber
+@author Tom Santos
+@author Mark Davidson
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BasicComboBoxUI" refid="_9_5_f720368_1110473546753_316126_9945"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicComboBoxUI" refid="_9_5_f720368_1110473546753_316126_9945"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

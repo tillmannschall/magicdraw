@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314338_49972_8716"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CSSMediaRule" refid="_9_5_f720368_1110473546940_657088_13032"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;CSSMediaRule&lt;/code&gt; interface represents a @media rule in a CSS
+style sheet. A &lt;code&gt;@media&lt;/code&gt; rule can be used to delimit style
+rules for specific media types.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/REC-DOM-Level-2-Style-20001113'&gt;Document Object Model (DOM) Level 2 Style Specification&lt;/a&gt;.
+@since DOM Level 2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CSSMediaRule" refid="_9_5_f720368_1110473546940_657088_13032"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CSSMediaRule" refid="_9_5_f720368_1110473546940_657088_13032"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

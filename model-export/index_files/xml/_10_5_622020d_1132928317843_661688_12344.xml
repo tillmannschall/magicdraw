@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317843_661688_12344"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultDesktopManager" refid="_9_5_f720368_1110473546784_142565_10667"/></annotatedElement><body humanName="Body" mode="s,e">This is an implementation of the &lt;code&gt;DesktopManager&lt;/code&gt;.
+It currently implements the basic behaviors for managing
+&lt;code&gt;JInternalFrame&lt;/code&gt;s in an arbitrary parent.
+&lt;code&gt;JInternalFrame&lt;/code&gt;s that are not children of a
+&lt;code&gt;JDesktop&lt;/code&gt; will use this component
+to handle their desktop-like actions.
+&lt;p&gt;This class provides a policy for the various JInternalFrame methods,
+it is not meant to be called directly rather the various JInternalFrame
+methods will call into the DesktopManager.&lt;/p&gt;
+@see JDesktopPane
+@see JInternalFrame
+@version 1.52 12/19/03
+@author David Kloba
+@author Steve Wilson
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DefaultDesktopManager" refid="_9_5_f720368_1110473546784_142565_10667"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultDesktopManager" refid="_9_5_f720368_1110473546784_142565_10667"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

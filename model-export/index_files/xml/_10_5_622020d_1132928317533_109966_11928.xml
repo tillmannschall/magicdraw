@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317533_109966_11928"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StyleSheet" refid="_9_5_f720368_1110473546784_716541_10393"/></annotatedElement><body humanName="Body" mode="s,e">Support for defining the visual characteristics of
+HTML views being rendered.  The StyleSheet is used to
+translate the HTML model into visual characteristics.
+This enables views to be customized by a look-and-feel,
+multiple views over the same model can be rendered
+differently, etc.  This can be thought of as a CSS
+rule repository.  The key for CSS attributes is an
+object of type CSS.Attribute.  The type of the value
+is up to the StyleSheet implementation, but the
+&lt;code&gt;toString&lt;/code&gt; method is required
+to return a string representation of CSS value.
+&lt;p&gt;
+The primary entry point for HTML View implementations
+to get their attributes is the
+&lt;a href="#getViewAttributes"&gt;getViewAttributes&lt;/a&gt;
+method.  This should be implemented to establish the
+desired policy used to associate attributes with the view.
+Each HTMLEditorKit (i.e. and therefore each associated
+JEditorPane) can have its own StyleSheet, but by default one
+sheet will be shared by all of the HTMLEditorKit instances.
+HTMLDocument instance can also have a StyleSheet, which
+holds the document-specific CSS specifications.
+&lt;p&gt;
+In order for Views to store less state and therefore be
+more lightweight, the StyleSheet can act as a factory for
+painters that handle some of the rendering tasks.  This allows
+implementations to determine what they want to cache
+and have the sharing potentially at the level that a
+selector is common to multiple views.  Since the StyleSheet
+may be used by views over multiple documents and typically
+the HTML attributes don't effect the selector being used,
+the potential for sharing is significant.
+&lt;p&gt;
+The rules are stored as named styles, and other information
+is stored to translate the context of an element to a
+rule quickly.  The following code fragment will display
+the named styles, and therefore the CSS rules contained.
+&lt;code&gt;&lt;pre&gt;
+&amp;nbsp;
+&amp;nbsp; import java.util.*;
+&amp;nbsp; import javax.swing.text.*;
+&amp;nbsp; import javax.swing.text.html.*;
+&amp;nbsp;
+&amp;nbsp; public class ShowStyles {
+&amp;nbsp;
+&amp;nbsp;     public static void main(String[] args) {
+&amp;nbsp; 	HTMLEditorKit kit = new HTMLEditorKit();
+&amp;nbsp; 	HTMLDocument doc = (HTMLDocument) kit.createDefaultDocument();
+&amp;nbsp; 	StyleSheet styles = doc.getStyleSheet();
+&amp;nbsp;
+&amp;nbsp; 	Enumeration rules = styles.getStyleNames();
+&amp;nbsp; 	while (rules.hasMoreElements()) {
+&amp;nbsp; 	    String name = (String) rules.nextElement();
+&amp;nbsp; 	    Style rule = styles.getStyle(name);
+&amp;nbsp; 	    System.out.println(rule.toString());
+&amp;nbsp; 	}
+&amp;nbsp; 	System.exit(0);
+&amp;nbsp;     }
+&amp;nbsp; }
+&amp;nbsp;
+&lt;/pre&gt;&lt;/code&gt;
+&lt;p&gt;
+The semantics for when a CSS style should overide visual attributes
+defined by an element are not well defined. For example, the html
+&lt;code&gt;&lt;body bgcolor=red&gt;&lt;/code&gt; makes the body have a red
+background. But if the html file also contains the CSS rule
+&lt;code&gt;body { background: blue }&lt;/code&gt; it becomes less clear as to
+what color the background of the body should be. The current
+implemention gives visual attributes defined in the element the
+highest precedence, that is they are always checked before any styles.
+Therefore, in the previous example the background would have a
+red color as the body element defines the background color to be red.
+&lt;p&gt;
+As already mentioned this supports CSS. We don't support the full CSS
+spec. Refer to the javadoc of the CSS class to see what properties
+we support. The two major CSS parsing related
+concepts we do not currently
+support are pseudo selectors, such as &lt;code&gt;A:link { color: red }&lt;/code&gt;,
+and the &lt;code&gt;important&lt;/code&gt; modifier.
+&lt;p&gt;
+&lt;font color="red"&gt;Note: This implementation is currently
+incomplete.  It can be replaced with alternative implementations
+that are complete.  Future versions of this class will provide
+better CSS support.&lt;/font&gt;
+
+@author  Timothy Prinzing
+@author  Sunita Mani
+@author  Sara Swanson
+@author  Jill Nakata
+@version 1.84 07/23/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StyleSheet" refid="_9_5_f720368_1110473546784_716541_10393"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StyleSheet" refid="_9_5_f720368_1110473546784_716541_10393"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

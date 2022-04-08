@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317162_803570_11197"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BasicTextUI" refid="_9_5_f720368_1110473546753_662116_10031"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;
+Basis of a text components look-and-feel.  This provides the
+basic editor view and controller services that may be useful
+when creating a look-and-feel for an extension of
+&lt;code&gt;JTextComponent&lt;/code&gt;.
+&lt;p&gt;
+Most state is held in the associated &lt;code&gt;JTextComponent&lt;/code&gt;
+as bound properties, and the UI installs default values for the
+various properties.  This default will install something for
+all of the properties.  Typically, a LAF implementation will
+do more however.  At a minimum, a LAF would generally install
+key bindings.
+&lt;p&gt;
+This class also provides some concurrency support if the
+&lt;code&gt;Document&lt;/code&gt; associated with the JTextComponent is a subclass of
+&lt;code&gt;AbstractDocument&lt;/code&gt;.  Access to the View (or View hierarchy) is
+serialized between any thread mutating the model and the Swing
+event thread (which is expected to render, do model/view coordinate
+translation, etc).  &lt;em&gt;Any access to the root view should first
+acquire a read-lock on the AbstractDocument and release that lock
+in a finally block.&lt;/em&gt;
+&lt;p&gt;
+An important method to define is the {@link #getPropertyPrefix} method
+which is used as the basis of the keys used to fetch defaults
+from the UIManager.  The string should reflect the type of
+TextUI (eg. TextField, TextArea, etc) without the particular
+LAF part of the name (eg Metal, Motif, etc).
+&lt;p&gt;
+To build a view of the model, one of the following strategies
+can be employed.
+&lt;ol&gt;
+&lt;li&gt;
+One strategy is to simply redefine the
+ViewFactory interface in the UI.  By default, this UI itself acts
+as the factory for View implementations.  This is useful
+for simple factories.  To do this reimplement the
+{@link #create} method.
+&lt;li&gt;
+A common strategy for creating more complex types of documents
+is to have the EditorKit implementation return a factory.  Since
+the EditorKit ties all of the pieces necessary to maintain a type
+of document, the factory is typically an important part of that
+and should be produced by the EditorKit implementation.
+&lt;li&gt;
+A less common way to create more complex types is to have
+the UI implementation create a.
+separate object for the factory.  To do this, the
+{@link #createViewFactory} method should be reimplemented to
+return some factory.
+&lt;/ol&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@author  Timothy Prinzing
+@version 1.103 05/26/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="BasicTextUI" refid="_9_5_f720368_1110473546753_662116_10031"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BasicTextUI" refid="_9_5_f720368_1110473546753_662116_10031"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

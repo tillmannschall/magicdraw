@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317142_234233_11121"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicScrollPaneUI" refid="_9_5_f720368_1110473546753_883008_10007"/></annotatedElement><body humanName="Body" mode="s,e">A default L&amp;F implementation of ScrollPaneUI.
+
+@version 1.70 12/19/03
+@author Hans Muller
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BasicScrollPaneUI" refid="_9_5_f720368_1110473546753_883008_10007"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicScrollPaneUI" refid="_9_5_f720368_1110473546753_883008_10007"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

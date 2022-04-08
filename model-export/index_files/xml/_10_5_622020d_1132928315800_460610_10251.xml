@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315800_460610_10251"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AttributeSet" refid="_9_5_f720368_1110473546737_573250_9443"/></annotatedElement><body humanName="Body" mode="s,e">Interface AttributeSet specifies the interface for a set of printing
+attributes. A printing attribute is an object whose class implements
+interface {@link Attribute Attribute}.
+&lt;P&gt;
+An attribute set contains a group of &lt;I&gt;attribute values,&lt;/I&gt;
+where duplicate values are not allowed in the set.
+Furthermore, each value in an attribute set is
+a member of some &lt;I&gt;category,&lt;/I&gt; and at most one value in any particular
+category is allowed in the set. For an attribute set, the values are {@link
+Attribute Attribute} objects, and the categories are {@link java.lang.Class
+Class} objects. An attribute's category is the class (or interface) at the
+root of the class hierarchy for that kind of attribute. Note that an
+attribute object's category may be a superclass of the attribute object's
+class rather than the attribute object's class itself. An attribute
+object's
+category is determined by calling the {@link Attribute#getCategory()
+&lt;CODE&gt;getCategory()&lt;/CODE&gt;} method defined in interface {@link Attribute
+Attribute}.
+&lt;P&gt;
+The interfaces of an AttributeSet resemble those of the Java Collections
+API's java.util.Map interface, but is more restrictive in the types
+it will accept, and combines keys and values into an Attribute.
+&lt;P&gt;
+Attribute sets are used in several places in the Print Service API. In
+each context, only certain kinds of attributes are allowed to appear in the
+attribute set, as determined by the tagging interfaces which the attribute
+class implements -- {@link DocAttribute DocAttribute}, {@link
+PrintRequestAttribute PrintRequestAttribute}, {@link PrintJobAttribute
+PrintJobAttribute}, and {@link PrintServiceAttribute
+PrintServiceAttribute}.
+There are four specializations of an attribute set that are restricted to
+contain just one of the four kinds of attribute -- {@link DocAttributeSet
+DocAttributeSet}, {@link PrintRequestAttributeSet
+PrintRequestAttributeSet},
+{@link PrintJobAttributeSet PrintJobAttributeSet}, and {@link
+PrintServiceAttributeSet PrintServiceAttributeSet}, respectively. Note that
+many attribute classes implement more than one tagging interface and so may
+appear in more than one context.
+&lt;UL&gt;
+&lt;LI&gt;
+A {@link DocAttributeSet DocAttributeSet}, containing {@link DocAttribute
+DocAttribute}s, specifies the characteristics of an individual doc and the
+print job settings to be applied to an individual doc.
+&lt;P&gt;
+&lt;LI&gt;
+A {@link PrintRequestAttributeSet PrintRequestAttributeSet}, containing
+{@link PrintRequestAttribute PrintRequestAttribute}s, specifies the
+settings
+to be applied to a whole print job and to all the docs in the print job.
+&lt;P&gt;
+&lt;LI&gt;
+A {@link PrintJobAttributeSet PrintJobAttributeSet}, containing {@link
+PrintJobAttribute PrintJobAttribute}s, reports the status of a print job.
+&lt;P&gt;
+&lt;LI&gt;
+A {@link PrintServiceAttributeSet PrintServiceAttributeSet}, containing
+{@link PrintServiceAttribute PrintServiceAttribute}s, reports the status of
+a Print Service instance.
+&lt;/UL&gt;
+&lt;P&gt;
+In some contexts, the client is only allowed to examine an attribute set's
+contents but not change them (the set is read-only). In other places, the
+client is allowed both to examine and to change an attribute set's contents
+(the set is read-write). For a read-only attribute set, calling a mutating
+operation throws an UnmodifiableSetException.
+&lt;P&gt;
+The Print Service API provides one implementation of interface
+AttributeSet, class {@link HashAttributeSet HashAttributeSet}.
+A client can use class {@link
+HashAttributeSet HashAttributeSet} or provide its own implementation of
+interface AttributeSet. The Print Service API also provides
+implementations of interface AttributeSet's subinterfaces -- classes {@link
+HashDocAttributeSet HashDocAttributeSet},
+{@link HashPrintRequestAttributeSet
+HashPrintRequestAttributeSet}, {@link HashPrintJobAttributeSet
+HashPrintJobAttributeSet}, and {@link HashPrintServiceAttributeSet
+HashPrintServiceAttributeSet}.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="AttributeSet" refid="_9_5_f720368_1110473546737_573250_9443"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AttributeSet" refid="_9_5_f720368_1110473546737_573250_9443"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

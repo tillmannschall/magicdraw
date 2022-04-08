@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317893_696767_12407"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="JComponent" refid="_9_5_f720368_1110473546784_185658_10719"/></annotatedElement><body humanName="Body" mode="s,e">The base class for all Swing components except top-level containers.
+To use a component that inherits from &lt;code&gt;JComponent&lt;/code&gt;,
+you must place the component in a containment hierarchy
+whose root is a top-level Swing container.
+Top-level Swing containers --
+such as &lt;code&gt;JFrame&lt;/code&gt;, &lt;code&gt;JDialog&lt;/code&gt;,
+and &lt;code&gt;JApplet&lt;/code&gt; --
+are specialized components
+that provide a place for other Swing components to paint themselves.
+For an explanation of containment hierarchies, see
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/overview/hierarchy.html"&gt;Swing Components and the Containment Hierarchy&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+
+&lt;p&gt;
+The &lt;code&gt;JComponent&lt;/code&gt; class provides:
+&lt;ul&gt;
+&lt;li&gt;The base class for both standard and custom components
+that use the Swing architecture.
+&lt;li&gt;A "pluggable look and feel" (L&amp;F) that can be specified by the
+programmer or (optionally) selected by the user at runtime.
+The look and feel for each component is provided by a
+&lt;em&gt;UI delegate&lt;/em&gt; -- an object that descends from
+{@link javax.swing.plaf.ComponentUI}.
+See &lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/misc/plaf.html"&gt;How
+to Set the Look and Feel&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt;
+for more information.
+&lt;li&gt;Comprehensive keystroke handling.
+See the document &lt;a
+href="http://java.sun.com/products/jfc/tsc/special_report/kestrel/keybindings.html"&gt;Keyboard
+Bindings in Swing&lt;/a&gt;,
+an article in &lt;em&gt;The Swing Connection&lt;/em&gt;,
+for more information.
+&lt;li&gt;Support for tool tips --
+short descriptions that pop up when the cursor lingers
+over a component.
+See &lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/tooltip.html"&gt;How
+to Use Tool Tips&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt;
+for more information.
+&lt;li&gt;Support for accessibility.
+&lt;code&gt;JComponent&lt;/code&gt; contains all of the methods in the
+&lt;code&gt;Accessible&lt;/code&gt; interface,
+but it doesn't actually implement the interface.  That is the
+responsibility of the individual classes
+that extend &lt;code&gt;JComponent&lt;/code&gt;.
+&lt;li&gt;Support for component-specific properties.
+With the {@link #putClientProperty}
+and {@link #getClientProperty} methods,
+you can associate name-object pairs
+with any object that descends from &lt;code&gt;JComponent&lt;/code&gt;.
+&lt;li&gt;An infrastructure for painting
+that includes double buffering and support for borders.
+For more information see &lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/overview/draw.html"&gt;Painting&lt;/a&gt; and
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/border.html"&gt;How
+to Use Borders&lt;/a&gt;,
+both of which are sections in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;/ul&gt;
+For more information on these subjects, see the
+&lt;a href="package-summary.html#package_description"&gt;Swing package description&lt;/a&gt;
+and &lt;em&gt;The Java Tutorial&lt;/em&gt; section
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/jcomponent.html"&gt;The JComponent Class&lt;/a&gt;.
+&lt;p&gt;
+&lt;code&gt;JComponent&lt;/code&gt; and its subclasses document default values
+for certain properties.  For example, &lt;code&gt;JTable&lt;/code&gt; documents the
+default row height as 16.  Each &lt;code&gt;JComponent&lt;/code&gt; subclass
+that has a &lt;code&gt;ComponentUI&lt;/code&gt; will create the
+&lt;code&gt;ComponentUI&lt;/code&gt; as part of its constructor.  In order
+to provide a particular look and feel each
+&lt;code&gt;ComponentUI&lt;/code&gt; may set properties back on the
+&lt;code&gt;JComponent&lt;/code&gt; that created it.  For example, a custom
+look and feel may require &lt;code&gt;JTable&lt;/code&gt;s to have a row
+height of 24. The documented defaults are the value of a property
+BEFORE the &lt;code&gt;ComponentUI&lt;/code&gt; has been installed.  If you
+need a specific value for a particular property you should
+explicitly set it.
+&lt;p&gt;
+In release 1.4, the focus subsystem was rearchitected.
+For more information, see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/focus.html"&gt;
+How to Use the Focus Subsystem&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see KeyStroke
+@see Action
+@see #setBorder
+@see #registerKeyboardAction
+@see JOptionPane
+@see #setDebugGraphicsOptions
+@see #setToolTipText
+@see #setAutoscrolls
+
+@version 2.130 07/09/99
+@author Hans Muller
+@author Arnaud Weber
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="JComponent" refid="_9_5_f720368_1110473546784_185658_10719"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="JComponent" refid="_9_5_f720368_1110473546784_185658_10719"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

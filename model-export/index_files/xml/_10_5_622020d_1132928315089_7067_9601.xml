@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315089_7067_9601"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JMXServerErrorException" refid="_10_5_622020d_1132928315089_762253_9599"/></annotatedElement><body humanName="Body" mode="s,e">Exception thrown as the result of a remote {@link MBeanServer}
+method invocation when an &lt;code&gt;Error&lt;/code&gt; is thrown while
+processing the invocation in the remote MBean server.  A
+&lt;code&gt;JMXServerErrorException&lt;/code&gt; instance contains the original
+&lt;code&gt;Error&lt;/code&gt; that occurred as its cause.
+
+@see java.rmi.ServerError
+@since 1.5
+@since.unbundled 1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JMXServerErrorException" refid="_10_5_622020d_1132928315089_762253_9599"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JMXServerErrorException" refid="_10_5_622020d_1132928315089_762253_9599"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

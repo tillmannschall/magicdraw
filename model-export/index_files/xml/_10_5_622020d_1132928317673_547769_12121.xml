@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317673_547769_12121"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NumberFormatter" refid="_9_5_f720368_1110473546784_624787_10499"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;NumberFormatter&lt;/code&gt; subclasses &lt;code&gt;InternationalFormatter&lt;/code&gt;
+adding special behavior for numbers. Among the specializations are
+(these are only used if the &lt;code&gt;NumberFormatter&lt;/code&gt; does not display
+invalid nubers, eg &lt;code&gt;setAllowsInvalid(false)&lt;/code&gt;):
+&lt;ul&gt;
+&lt;li&gt;Pressing +/- (- is determined from the
+&lt;code&gt;DecimalFormatSymbols&lt;/code&gt; associated with the
+&lt;code&gt;DecimalFormat&lt;/code&gt;) in any field but the exponent
+field will attempt to change the sign of the number to
+positive/negative.
+&lt;li&gt;Pressing +/- (- is determined from the
+&lt;code&gt;DecimalFormatSymbols&lt;/code&gt; associated with the
+&lt;code&gt;DecimalFormat&lt;/code&gt;) in the exponent field will
+attemp to change the sign of the exponent to positive/negative.
+&lt;/ul&gt;
+&lt;p&gt;
+If you are displaying scientific numbers, you may wish to turn on
+overwrite mode, &lt;code&gt;setOverwriteMode(true)&lt;/code&gt;. For example:
+&lt;pre&gt;
+DecimalFormat decimalFormat = new DecimalFormat("0.000E0");
+NumberFormatter textFormatter = new NumberFormatter(decimalFormat);
+textFormatter.setOverwriteMode(true);
+textFormatter.setAllowsInvalid(false);
+&lt;/pre&gt;
+&lt;p&gt;
+If you are going to allow the user to enter decimal
+values, you should either force the DecimalFormat to contain at least
+one decimal (&lt;code&gt;#.0###&lt;/code&gt;), or allow the value to be invalid
+&lt;code&gt;setAllowsInvalid(true)&lt;/code&gt;. Otherwise users may not be able to
+input decimal values.
+&lt;p&gt;
+&lt;code&gt;NumberFormatter&lt;/code&gt; provides slightly different behavior to
+&lt;code&gt;stringToValue&lt;/code&gt; than that of its superclass. If you have
+specified a Class for values, {@link #setValueClass}, that is one of
+of &lt;code&gt;Integer&lt;/code&gt;, &lt;code&gt;Long&lt;/code&gt;, &lt;code&gt;Float&lt;/code&gt;,
+&lt;code&gt;Double&lt;/code&gt;, &lt;code&gt;Byte&lt;/code&gt; or &lt;code&gt;Short&lt;/code&gt; and
+the Format's &lt;code&gt;parseObject&lt;/code&gt; returns an instance of
+&lt;code&gt;Number&lt;/code&gt;, the corresponding instance of the value class
+will be created using the constructor appropriate for the primitive
+type the value class represents. For example:
+&lt;code&gt;setValueClass(Integer.class)&lt;/code&gt; will cause the resulting
+value to be created via
+&lt;code&gt;new Integer(((Number)formatter.parseObject(string)).intValue())&lt;/code&gt;.
+This is typically useful if you
+wish to set a min/max value as the various &lt;code&gt;Number&lt;/code&gt;
+implementations are generally not comparable to each other. This is also
+useful if for some reason you need a specific &lt;code&gt;Number&lt;/code&gt;
+implementation for your values.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.4 03/05/01
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="NumberFormatter" refid="_9_5_f720368_1110473546784_624787_10499"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NumberFormatter" refid="_9_5_f720368_1110473546784_624787_10499"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

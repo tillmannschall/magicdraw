@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315800_444654_10265"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DateTimeSyntax" refid="_9_5_f720368_1110473546737_558995_9447"/></annotatedElement><body humanName="Body" mode="s,e">Class DateTimeSyntax is an abstract base class providing the common
+implementation of all attributes whose value is a date and time.
+&lt;P&gt;
+Under the hood, a date-time attribute is stored as a value of class &lt;code&gt;
+java.util.Date&lt;/code&gt;}. You can get a date-time attribute's Date value by
+calling {@link #getValue() &lt;CODE&gt;getValue()&lt;/CODE&gt;}. A date-time attribute's
+Date value is established when it is constructed (see {@link
+#DateTimeSyntax(Date) &lt;CODE&gt;DateTimeSyntax(Date)&lt;/CODE&gt;}). Once
+constructed, a date-time attribute's value is immutable.
+&lt;P&gt;
+To construct a date-time attribute from separate values of the year, month,
+day, hour, minute, and so on, use a &lt;code&gt;java.util.Calendar&lt;/code&gt;
+object to construct a &lt;code&gt;java.util.Date&lt;/code&gt; object, then use the
+&lt;code&gt;java.util.Date&lt;/code &gt;object to construct the date-time attribute.
+To convert
+a date-time attribute to separate values of the year, month, day, hour,
+minute, and so on, create a &lt;code&gt;java.util.Calendar&lt;/code&gt; object and
+set it to the &lt;code&gt;java.util.Date&lt;/code&gt; from the date-time attribute. Class
+DateTimeSyntax stores its value in the form of a &lt;code&gt;java.util.Date
+&lt;/code&gt;
+rather than a &lt;code&gt;java.util.Calendar&lt;/code&gt; because it typically takes
+less memory to store and less time to compare a &lt;code&gt;java.util.Date&lt;/code&gt;
+than a &lt;code&gt;java.util.Calendar&lt;/code&gt;.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="DateTimeSyntax" refid="_9_5_f720368_1110473546737_558995_9447"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DateTimeSyntax" refid="_9_5_f720368_1110473546737_558995_9447"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

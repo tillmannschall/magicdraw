@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318113_854185_12518"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JSpinner" refid="_9_5_f720368_1110473546799_529436_10771"/></annotatedElement><body humanName="Body" mode="s,e">A single line input field that lets the user select a
+number or an object value from an ordered sequence. Spinners typically
+provide a pair of tiny arrow buttons for stepping through the elements
+of the sequence. The keyboard up/down arrow keys also cycle through the
+elements. The user may also be allowed to type a (legal) value directly
+into the spinner. Although combo boxes provide similar functionality,
+spinners are sometimes preferred because they don't require a drop down list
+that can obscure important data.
+&lt;p&gt;
+A &lt;code&gt;JSpinner&lt;/code&gt;'s sequence value is defined by its
+&lt;code&gt;SpinnerModel&lt;/code&gt;.
+The &lt;code&gt;model&lt;/code&gt; can be specified as a constructor argument and
+changed with the &lt;code&gt;model&lt;/code&gt; property.  &lt;code&gt;SpinnerModel&lt;/code&gt;
+classes for some common types are provided: &lt;code&gt;SpinnerListModel&lt;/code&gt;,
+&lt;code&gt;SpinnerNumberModel&lt;/code&gt;, and &lt;code&gt;SpinnerDateModel&lt;/code&gt;.
+&lt;p&gt;
+A &lt;code&gt;JSpinner&lt;/code&gt; has a single child component that's
+responsible for displaying
+and potentially changing the current element or &lt;i&gt;value&lt;/i&gt; of
+the model, which is called the &lt;code&gt;editor&lt;/code&gt;.  The editor is created
+by the &lt;code&gt;JSpinner&lt;/code&gt;'s constructor and can be changed with the
+&lt;code&gt;editor&lt;/code&gt; property.  The &lt;code&gt;JSpinner&lt;/code&gt;'s editor stays
+in sync with the model by listening for &lt;code&gt;ChangeEvent&lt;/code&gt;s. If the
+user has changed the value displayed by the &lt;code&gt;editor&lt;/code&gt; it is
+possible for the &lt;code&gt;model&lt;/code&gt;'s value to differ from that of
+the &lt;code&gt;editor&lt;/code&gt;. To make sure the &lt;code&gt;model&lt;/code&gt; has the same
+value as the editor use the &lt;code&gt;commitEdit&lt;/code&gt; method, eg:
+&lt;pre&gt;
+try {
+spinner.commitEdit();
+}
+catch (ParseException pe) {{
+Edited value is invalid, spinner.getValue() will return
+the last valid value, you could revert the spinner to show that:
+JComponent editor = spinner.getEditor()
+if (editor instanceof DefaultEditor) {
+((DefaultEditor)editor).getTextField().setValue(spinner.getValue();
+}
+reset the value to some known value:
+spinner.setValue(fallbackValue);
+or treat the last valid value as the current, in which
+case you don't need to do anything.
+}
+return spinner.getValue();
+&lt;/pre&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@beaninfo
+attribute: isContainer false
+description: A single line input field that lets the user select a
+number or an object value from an ordered set.
+
+@see SpinnerModel
+@see AbstractSpinnerModel
+@see SpinnerListModel
+@see SpinnerNumberModel
+@see SpinnerDateModel
+@see JFormattedTextField
+
+@version 1.38 05/12/04
+@author Hans Muller
+@author Lynn Monsanto (accessibility)
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JSpinner" refid="_9_5_f720368_1110473546799_529436_10771"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JSpinner" refid="_9_5_f720368_1110473546799_529436_10771"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

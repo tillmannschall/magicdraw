@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314749_582915_9089"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="XMLReader" refid="_9_5_f720368_1110473546956_743013_13310"/></annotatedElement><body humanName="Body" mode="s,e">Interface for reading an XML document using callbacks.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; despite its name, this interface does
+&lt;em&gt;not&lt;/em&gt; extend the standard Java {@link java.io.Reader Reader}
+interface, because reading XML is a fundamentally different activity
+than reading character data.&lt;/p&gt;
+
+&lt;p&gt;XMLReader is the interface that an XML parser's SAX2 driver must
+implement.  This interface allows an application to set and
+query features and properties in the parser, to register
+event handlers for document processing, and to initiate
+a document parse.&lt;/p&gt;
+
+&lt;p&gt;All SAX interfaces are assumed to be synchronous: the
+{@link #parse parse} methods must not return until parsing
+is complete, and readers must wait for an event-handler callback
+to return before reporting the next event.&lt;/p&gt;
+
+&lt;p&gt;This interface replaces the (now deprecated) SAX 1.0 {@link
+org.xml.sax.Parser Parser} interface.  The XMLReader interface
+contains two important enhancements over the old Parser
+interface (as well as some minor ones):&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;it adds a standard way to query and set features and
+properties; and&lt;/li&gt;
+&lt;li&gt;it adds Namespace support, which is required for many
+higher-level XML standards.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;There are adapters available to convert a SAX1 Parser to
+a SAX2 XMLReader and vice-versa.&lt;/p&gt;
+
+@since SAX 2.0
+@author David Megginson
+@version 2.0.1+ (sax2r3pre1)
+@see org.xml.sax.XMLFilter
+@see org.xml.sax.helpers.ParserAdapter
+@see org.xml.sax.helpers.XMLReaderAdapter
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="XMLReader" refid="_9_5_f720368_1110473546956_743013_13310"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="XMLReader" refid="_9_5_f720368_1110473546956_743013_13310"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

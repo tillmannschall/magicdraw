@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314478_861597_8936"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="NodeIterator" refid="_9_5_f720368_1110473546940_618384_13208"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;NodeIterators&lt;/code&gt; are used to step through a set of nodes, e.g.
+the set of nodes in a &lt;code&gt;NodeList&lt;/code&gt;, the document subtree
+governed by a particular &lt;code&gt;Node&lt;/code&gt;, the results of a query, or
+any other set of nodes. The set of nodes to be iterated is determined by
+the implementation of the &lt;code&gt;NodeIterator&lt;/code&gt;. DOM Level 2
+specifies a single &lt;code&gt;NodeIterator&lt;/code&gt; implementation for
+document-order traversal of a document subtree. Instances of these
+&lt;code&gt;NodeIterators&lt;/code&gt; are created by calling
+&lt;code&gt;DocumentTraversal&lt;/code&gt;&lt;code&gt;.createNodeIterator()&lt;/code&gt;.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/REC-DOM-Level-2-Traversal-Range-20001113'&gt;Document Object Model (DOM) Level 2 Traversal and Range Specification&lt;/a&gt;.
+@since DOM Level 2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="NodeIterator" refid="_9_5_f720368_1110473546940_618384_13208"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="NodeIterator" refid="_9_5_f720368_1110473546940_618384_13208"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

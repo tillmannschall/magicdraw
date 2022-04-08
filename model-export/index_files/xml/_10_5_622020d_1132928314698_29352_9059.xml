@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314698_29352_9059"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Attributes" refid="_9_5_f720368_1110473546940_845761_13280"/></annotatedElement><body humanName="Body" mode="s,e">Interface for a list of XML attributes.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This interface allows access to a list of attributes in
+three different ways:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;by attribute index;&lt;/li&gt;
+&lt;li&gt;by Namespace-qualified name; or&lt;/li&gt;
+&lt;li&gt;by qualified (prefixed) name.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The list will not contain attributes that were declared
+#IMPLIED but not specified in the start tag.  It will also not
+contain attributes used as Namespace declarations (xmlns*) unless
+the &lt;code&gt;http://xml.org/sax/features/namespace-prefixes&lt;/code&gt;
+feature is set to &lt;var&gt;true&lt;/var&gt; (it is &lt;var&gt;false&lt;/var&gt; by
+default).
+Because SAX2 conforms to the original "Namespaces in XML"
+recommendation, it normally does not
+give namespace declaration attributes a namespace URI.
+&lt;/p&gt;
+
+&lt;p&gt;Some SAX2 parsers may support using an optional feature flag
+(&lt;code&gt;http://xml.org/sax/features/xmlns-uris&lt;/code&gt;) to request
+that those attributes be given URIs, conforming to a later
+backwards-incompatible revision of that recommendation.  (The
+attribute's "local name" will be the prefix, or "xmlns" when
+defining a default element namespace.)  For portability, handler
+code should always resolve that conflict, rather than requiring
+parsers that can change the setting of that feature flag.  &lt;/p&gt;
+
+&lt;p&gt;If the namespace-prefixes feature (see above) is
+&lt;var&gt;false&lt;/var&gt;, access by qualified name may not be available; if
+the &lt;code&gt;http://xml.org/sax/features/namespaces&lt;/code&gt; feature is
+&lt;var&gt;false&lt;/var&gt;, access by Namespace-qualified names may not be
+available.&lt;/p&gt;
+
+&lt;p&gt;This interface replaces the now-deprecated SAX1 {@link
+org.xml.sax.AttributeList AttributeList} interface, which does not
+contain Namespace support.  In addition to Namespace support, it
+adds the &lt;var&gt;getIndex&lt;/var&gt; methods (below).&lt;/p&gt;
+
+&lt;p&gt;The order of attributes in the list is unspecified, and will
+vary from implementation to implementation.&lt;/p&gt;
+
+@since SAX 2.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.helpers.AttributesImpl
+@see org.xml.sax.ext.DeclHandler#attributeDecl
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Attributes" refid="_9_5_f720368_1110473546940_845761_13280"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Attributes" refid="_9_5_f720368_1110473546940_845761_13280"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

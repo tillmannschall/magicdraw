@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317593_984785_12046"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Document" refid="_9_5_f720368_1110473546784_150050_10453"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;
+The &lt;code&gt;Document&lt;/code&gt; is a container for text that serves
+as the model for swing text components.  The goal for this
+interface is to scale from very simple needs (a plain text textfield)
+to complex needs (an HTML or XML document, for example).
+
+&lt;p&gt;&lt;b&gt;&lt;font size=+1&gt;Content&lt;/font&gt;&lt;/b&gt;
+&lt;p&gt;
+At the simplest level, text can be
+modeled as a linear sequence of characters. To support
+internationalization, the Swing text model uses
+&lt;a href="http://www.unicode.org/"&gt;unicode&lt;/a&gt; characters.
+The sequence of characters displayed in a text component is
+generally referred to as the component's &lt;em&gt;content&lt;/em&gt;.
+&lt;p&gt;
+To refer to locations within the sequence, the coordinates
+used are the location between two characters.  As the diagram
+below shows, a location in a text document can be referred to
+as a position, or an offset. This position is zero-based.
+&lt;p align=center&gt;&lt;img src="doc-files/Document-coord.gif"
+alt="The following text describes this graphic."&gt;
+&lt;p&gt;
+In the example, if the content of a document is the
+sequence "The quick brown fox," as shown in the preceding diagram,
+the location just before the word "The" is 0, and the location after
+the word "The" and before the whitespace that follows it is 3.
+The entire sequence of characters in the sequence "The" is called a
+&lt;em&gt;range&lt;/em&gt;.
+&lt;p&gt;The following methods give access to the character data
+that makes up the content.
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#getLength()"&gt;getLength()&lt;/a&gt;
+&lt;li&gt;&lt;a href="#getText(int, int)"&gt;getText(int, int)&lt;/a&gt;
+&lt;li&gt;&lt;a href="#getText(int, int, javax.swing.text.Segment)"&gt;getText(int, int, Segment)&lt;/a&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;b&gt;&lt;font size=+1&gt;Structure&lt;/font&gt;&lt;/b&gt;
+&lt;p&gt;
+Text is rarely represented simply as featureless content. Rather,
+text typically has some sort of structure associated with it.
+Exactly what structure is modeled is up to a particular Document
+implementation.  It might be as simple as no structure (i.e. a
+simple text field), or it might be something like diagram below.
+&lt;p align=center&gt;&lt;img src="doc-files/Document-structure.gif"
+alt="Diagram shows Book-&gt;Chapter-&gt;Paragraph"&gt;
+&lt;p&gt;
+The unit of structure (i.e. a node of the tree) is referred to
+by the &lt;a href="Element.html"&gt;Element&lt;/a&gt; interface.  Each Element
+can be tagged with a set of attributes.  These attributes
+(name/value pairs) are defined by the
+&lt;a href="AttributeSet.html"&gt;AttributeSet&lt;/a&gt; interface.
+&lt;p&gt;The following methods give access to the document structure.
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#getDefaultRootElement()"&gt;getDefaultRootElement&lt;/a&gt;
+&lt;li&gt;&lt;a href="#getRootElements()"&gt;getRootElements&lt;/a&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;font size=+1&gt;Mutations&lt;/font&gt;&lt;/b&gt;
+&lt;p&gt;
+All documents need to be able to add and remove simple text.
+Typically, text is inserted and removed via gestures from
+a keyboard or a mouse.  What effect the insertion or removal
+has upon the document structure is entirely up to the
+implementation of the document.
+&lt;p&gt;The following methods are related to mutation of the
+document content:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#insertString(int, java.lang.String, javax.swing.text.AttributeSet)"&gt;insertString(int, String, AttributeSet)&lt;/a&gt;
+&lt;li&gt;&lt;a href="#remove(int, int)"&gt;remove(int, int)&lt;/a&gt;
+&lt;li&gt;&lt;a href="#createPosition(int)"&gt;createPosition(int)&lt;/a&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;font size=+1&gt;Notification&lt;/font&gt;&lt;/b&gt;
+&lt;p&gt;
+Mutations to the &lt;code&gt;Document&lt;/code&gt; must be communicated to
+interested observers.  The notification of change follows the event model
+guidelines that are specified for JavaBeans.  In the JavaBeans
+event model, once an event notification is dispatched, all listeners
+must be notified before any further mutations occur to the source
+of the event.  Further, order of delivery is not guaranteed.
+&lt;p&gt;
+Notification is provided as two separate events,
+&lt;a href="../event/DocumentEvent.html"&gt;DocumentEvent&lt;/a&gt;, and
+&lt;a href="../event/UndoableEditEvent.html"&gt;UndoableEditEvent&lt;/a&gt;.
+If a mutation is made to a &lt;code&gt;Document&lt;/code&gt; through its api,
+a &lt;code&gt;DocumentEvent&lt;/code&gt; will be sent to all of the registered
+&lt;code&gt;DocumentListeners&lt;/code&gt;.  If the &lt;code&gt;Document&lt;/code&gt;
+implementation supports undo/redo capabilities, an
+&lt;code&gt;UndoableEditEvent&lt;/code&gt; will be sent
+to all of the registered &lt;code&gt;UndoableEditListener&lt;/code&gt;s.
+If an undoable edit is undone, a &lt;code&gt;DocumentEvent&lt;/code&gt; should be
+fired from the Document to indicate it has changed again.
+In this case however, there should be no &lt;code&gt;UndoableEditEvent&lt;/code&gt;
+generated since that edit is actually the source of the change
+rather than a mutation to the &lt;code&gt;Document&lt;/code&gt; made through its
+api.
+&lt;p align=center&gt;&lt;img src="doc-files/Document-notification.gif"
+alt="The preceeding text describes this graphic."&gt;
+&lt;p&gt;
+Referring to the above diagram, suppose that the component shown
+on the left mutates the document object represented by the blue
+rectangle. The document responds by dispatching a DocumentEvent to
+both component views and sends an UndoableEditEvent to the listening
+logic, which maintains a history buffer.
+&lt;p&gt;
+Now suppose that the component shown on the right mutates the same
+document.  Again, the document dispatches a DocumentEvent to both
+component views and sends an UndoableEditEvent to the listening logic
+that is maintaining the history buffer.
+&lt;p&gt;
+If the history buffer is then rolled back (i.e. the last UndoableEdit
+undone), a DocumentEvent is sent to both views, causing both of them to
+reflect the undone mutation to the document (that is, the
+removal of the right component's mutation). If the history buffer again
+rolls back another change, another DocumentEvent is sent to both views,
+causing them to reflect the undone mutation to the document -- that is,
+the removal of the left component's mutation.
+&lt;p&gt;
+The methods related to observing mutations to the document are:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#addDocumentListener(javax.swing.event.DocumentListener)"&gt;addDocumentListener(DocumentListener)&lt;/a&gt;
+&lt;li&gt;&lt;a href="#removeDocumentListener(javax.swing.event.DocumentListener)"&gt;removeDocumentListener(DocumentListener)&lt;/a&gt;
+&lt;li&gt;&lt;a href="#addUndoableEditListener(javax.swing.event.UndoableEditListener)"&gt;addUndoableEditListener(UndoableEditListener)&lt;/a&gt;
+&lt;li&gt;&lt;a href="#removeUndoableEditListener(javax.swing.event.UndoableEditListener)"&gt;removeUndoableEditListener(UndoableEditListener)&lt;/a&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;font size=+1&gt;Properties&lt;/font&gt;&lt;/b&gt;
+&lt;p&gt;
+Document implementations will generally have some set of properties
+associated with them at runtime.  Two well known properties are the
+&lt;a href="#StreamDescriptionProperty"&gt;StreamDescriptionProperty&lt;/a&gt;,
+which can be used to describe where the &lt;code&gt;Document&lt;/code&gt; came from,
+and the &lt;a href="#TitleProperty"&gt;TitleProperty&lt;/a&gt;, which can be used to
+name the &lt;code&gt;Document&lt;/code&gt;.  The methods related to the properties are:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#getProperty(java.lang.Object)"&gt;getProperty(Object)&lt;/a&gt;
+&lt;li&gt;&lt;a href="#putProperty(java.lang.Object, java.lang.Object)"&gt;putProperty(Object, Object)&lt;/a&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For more information on the &lt;code&gt;Document&lt;/code&gt; class, see
+&lt;a href="http://java.sun.com/products/jfc/tsc"&gt;The Swing Connection&lt;/a&gt;
+and most particularly the article,
+&lt;a href="http://java.sun.com/products/jfc/tsc/articles/text/element_interface"&gt;
+The Element Interface&lt;/a&gt;.
+
+@author  Timothy Prinzing
+@version 1.43 12/19/03
+
+@see javax.swing.event.DocumentEvent
+@see javax.swing.event.DocumentListener
+@see javax.swing.event.UndoableEditEvent
+@see javax.swing.event.UndoableEditListener
+@see Element
+@see Position
+@see AttributeSet
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Document" refid="_9_5_f720368_1110473546784_150050_10453"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Document" refid="_9_5_f720368_1110473546784_150050_10453"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

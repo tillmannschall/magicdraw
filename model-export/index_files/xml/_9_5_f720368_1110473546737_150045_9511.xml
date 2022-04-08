@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546737_150045_9511"><documentation humanName="Documentation" mode="standard">This interface is used by a printing application to cancel a
+print job.  This interface extends {@link DocPrintJob}.  A
+&lt;code&gt;DocPrintJob&lt;/code&gt; implementation returned from a print
+service implements this interface if the print job can be
+cancelled.  Before trying to cancel
+a print job, the client needs to test if the
+&lt;code&gt;DocPrintJob&lt;/code&gt; object returned from the print service
+actually implements this interface.  Clients should never assume
+that a &lt;code&gt;DocPrintJob&lt;/code&gt; implements this interface.  A
+print service might support cancellation only for certain types
+of print data and representation class names.  This means that
+only some of the &lt;code&gt;DocPrintJob&lt;/code&gt; objects returned from
+a service will implement this interface.
+&lt;p&gt;
+Service implementors are encouraged to implement this optional interface
+and to deliver a javax.print.event.PrintJobEvent.JOB_CANCELLED event
+to any listeners if a job is successfully cancelled with an
+implementation of this interface. Services should also note that an
+implementation of this method may be made from a separate client thread
+than that which made the print request.  Thus the implementation of
+this interface must be made thread safe.
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DocPrintJob" refid="_9_5_f720368_1110473546737_36396_9517"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323331_323911_16485"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">CancelablePrintJob</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="print" refid="_9_5_f720368_1110473547987_687095_20189"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315830_441959_10329"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323331_323911_16485"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315830_441959_10329"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="print" refid="_9_5_f720368_1110473547987_687095_20189"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="print" refid="_9_5_f720368_1110473547987_687095_20189"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="print" refid="_9_5_f720368_1110473547987_687095_20189"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::print::CancelablePrintJob</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

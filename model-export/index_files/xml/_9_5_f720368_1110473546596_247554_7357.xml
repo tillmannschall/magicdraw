@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546596_247554_7357"><documentation humanName="Documentation" mode="standard">Write text to a character-output stream, buffering characters so as to
+provide for the efficient writing of single characters, arrays, and strings.
+
+&lt;p&gt; The buffer size may be specified, or the default size may be accepted.
+The default is large enough for most purposes.
+
+&lt;p&gt; A newLine() method is provided, which uses the platform's own notion of
+line separator as defined by the system property &lt;tt&gt;line.separator&lt;/tt&gt;.
+Not all platforms use the newline character ('\n') to terminate lines.
+Calling this method to terminate each output line is therefore preferred to
+writing a newline character directly.
+
+&lt;p&gt; In general, a Writer sends its output immediately to the underlying
+character or byte stream.  Unless prompt output is required, it is advisable
+to wrap a BufferedWriter around any Writer whose write() operations may be
+costly, such as FileWriters and OutputStreamWriters.  For example,
+
+&lt;pre&gt;
+PrintWriter out
+= new PrintWriter(new BufferedWriter(new FileWriter("foo.out")));
+&lt;/pre&gt;
+
+will buffer the PrintWriter's output to the file.  Without buffering, each
+invocation of a print() method would cause characters to be converted into
+bytes that would then be written immediately to the file, which can be very
+inefficient.
+
+@see PrintWriter
+@see FileWriter
+@see OutputStreamWriter
+
+@version 	1.26, 03/12/19
+@author	Mark Reinhold
+@since	JDK1.1
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321558_792552_13475"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">BufferedWriter</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307007_993548_4541"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321558_792552_13475"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307007_993548_4541"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::io::BufferedWriter</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Writer" refid="_9_5_f720368_1110473546612_916981_7507"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317302_594715_11602"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SynthSeparatorUI" refid="_10_5_622020d_1132928317302_570299_11600"/></annotatedElement><body humanName="Body" mode="s,e">A Synth L&amp;F implementation of SeparatorUI.  This implementation
+is a "combined" view/controller.
+
+@version 1.14 12/19/03
+@author Shannon Hickey
+@author Joshua Outwater
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SynthSeparatorUI" refid="_10_5_622020d_1132928317302_570299_11600"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SynthSeparatorUI" refid="_10_5_622020d_1132928317302_570299_11600"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

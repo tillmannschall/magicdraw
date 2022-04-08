@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310052_295033_6415"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReentrantReadWriteLock" refid="_10_5_622020d_1132928310032_179069_6403"/></annotatedElement><body humanName="Body" mode="s,e">An implementation of {@link ReadWriteLock} supporting similar
+semantics to {@link ReentrantLock}.
+&lt;p&gt;This class has the following properties:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Acquisition order&lt;/b&gt;
+
+&lt;p&gt; This class does not impose a reader or writer preference
+ordering for lock access.  However, it does support an optional
+&lt;em&gt;fairness&lt;/em&gt; policy.  When constructed as fair, threads
+contend for entry using an approximately arrival-order policy. When
+the write lock is released either the longest-waiting single writer
+will be assigned the write lock, or if there is a reader waiting
+longer than any writer, the set of readers will be assigned the
+read lock.  When constructed as non-fair, the order of entry to the
+lock need not be in arrival order.  In either case, if readers are
+active and a writer enters the lock then no subsequent readers will
+be granted the read lock until after that writer has acquired and
+released the write lock.
+
+&lt;li&gt;&lt;b&gt;Reentrancy&lt;/b&gt;
+&lt;p&gt;This lock allows both readers and writers to reacquire read or
+write locks in the style of a {@link ReentrantLock}. Readers are not
+allowed until all write locks held by the writing thread have been
+released.
+&lt;p&gt;Additionally, a writer can acquire the read lock - but not vice-versa.
+Among other applications, reentrancy can be useful when
+write locks are held during calls or callbacks to methods that
+perform reads under read locks.
+If a reader tries to acquire the write lock it will never succeed.
+
+&lt;li&gt;&lt;b&gt;Lock downgrading&lt;/b&gt;
+&lt;p&gt;Reentrancy also allows downgrading from the write lock to a read lock,
+by acquiring the write lock, then the read lock and then releasing the
+write lock. However, upgrading from a read lock to the write lock is
+&lt;b&gt;not&lt;/b&gt; possible.
+
+&lt;li&gt;&lt;b&gt;Interruption of lock acquisition&lt;/b&gt;
+&lt;p&gt;The read lock and write lock both support interruption during lock
+acquisition.
+
+&lt;li&gt;&lt;b&gt;{@link Condition} support&lt;/b&gt;
+&lt;p&gt;The write lock provides a {@link Condition} implementation that
+behaves in the same way, with respect to the write lock, as the
+{@link Condition} implementation provided by
+{@link ReentrantLock#newCondition} does for {@link ReentrantLock}.
+This {@link Condition} can, of course, only be used with the write lock.
+&lt;p&gt;The read lock does not support a {@link Condition} and
+&lt;tt&gt;readLock().newCondition()&lt;/tt&gt; throws
+&lt;tt&gt;UnsupportedOperationException&lt;/tt&gt;.
+
+&lt;li&gt;&lt;b&gt;Instrumentation&lt;/b&gt;
+&lt;P&gt; This class supports methods to determine whether locks
+are held or contended. These methods are designed for monitoring
+system state, not for synchronization control.
+&lt;/ul&gt;
+
+&lt;p&gt; Serialization of this class behaves in the same way as built-in
+locks: a deserialized lock is in the unlocked state, regardless of
+its state when serialized.
+
+&lt;p&gt;&lt;b&gt;Sample usages&lt;/b&gt;. Here is a code sketch showing how to exploit
+reentrancy to perform lock downgrading after updating a cache (exception
+handling is elided for simplicity):
+&lt;pre&gt;
+class CachedData {
+Object data;
+volatile boolean cacheValid;
+ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
+
+void processCachedData() {
+rwl.readLock().lock();
+if (!cacheValid) {
+upgrade lock manually
+rwl.readLock().unlock();   // must unlock first to obtain writelock
+rwl.writeLock().lock();
+if (!cacheValid) { // recheck
+data = ...
+cacheValid = true;
+}
+downgrade lock
+rwl.readLock().lock();  // reacquire read without giving up write lock
+rwl.writeLock().unlock(); // unlock write, still hold read
+}
+
+use(data);
+rwl.readLock().unlock();
+}
+}
+&lt;/pre&gt;
+
+ReentrantReadWriteLocks can be used to improve concurrency in some
+uses of some kinds of Collections. This is typically worthwhile
+only when the collections are expected to be large, accessed by
+more reader threads than writer threads, and entail operations with
+overhead that outweighs synchronization overhead. For example, here
+is a class using a TreeMap that is expected to be large and
+concurrently accessed.
+
+&lt;pre&gt;
+class RWDictionary {
+private final Map&lt;String, Data&gt;  m = new TreeMap&lt;String, Data&gt;();
+private final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
+private final Lock r = rwl.readLock();
+private final Lock w = rwl.writeLock();
+
+public Data get(String key) {
+r.lock(); try { return m.get(key); } finally { r.unlock(); }
+}
+public String[] allKeys() {
+r.lock(); try { return m.keySet().toArray(); } finally { r.unlock(); }
+}
+public Data put(String key, Data value) {
+w.lock(); try { return m.put(key, value); } finally { w.unlock(); }
+}
+public void clear() {
+w.lock(); try { m.clear(); } finally { w.unlock(); }
+}
+}
+&lt;/pre&gt;
+
+
+&lt;h3&gt;Implementation Notes&lt;/h3&gt;
+
+&lt;p&gt;A reentrant write lock intrinsically defines an owner and can
+only be released by the thread that acquired it.  In contrast, in
+this implementation, the read lock has no concept of ownership, and
+there is no requirement that the thread releasing a read lock is
+the same as the one that acquired it.  However, this property is
+not guaranteed to hold in future implementations of this class.
+
+&lt;p&gt; This lock supports a maximum of 65536 recursive write locks
+and 65536 read locks. Attempts to exceed these limits result in
+{@link Error} throws from locking methods.
+
+@since 1.5
+@author Doug Lea
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ReentrantReadWriteLock" refid="_10_5_622020d_1132928310032_179069_6403"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReentrantReadWriteLock" refid="_10_5_622020d_1132928310032_179069_6403"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317913_331646_12428"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractFormatter" refid="_9_5_f720368_1110473548378_844822_23779"/></annotatedElement><body humanName="Body" mode="s,e">Instances of &lt;code&gt;AbstractFormatter&lt;/code&gt; are used by
+&lt;code&gt;JFormattedTextField&lt;/code&gt; to handle the conversion both
+from an Object to a String, and back from a String to an Object.
+&lt;code&gt;AbstractFormatter&lt;/code&gt;s can also enfore editing policies,
+or navigation policies, or manipulate the
+&lt;code&gt;JFormattedTextField&lt;/code&gt; in any way it sees fit to
+enforce the desired policy.
+&lt;p&gt;
+An &lt;code&gt;AbstractFormatter&lt;/code&gt; can only be active in
+one &lt;code&gt;JFormattedTextField&lt;/code&gt; at a time.
+&lt;code&gt;JFormattedTextField&lt;/code&gt; invokes
+&lt;code&gt;install&lt;/code&gt; when it is ready to use it followed
+by &lt;code&gt;uninstall&lt;/code&gt; when done. Subclasses
+that wish to install additional state should override
+&lt;code&gt;install&lt;/code&gt; and message super appropriately.
+&lt;p&gt;
+Subclasses must override the conversion methods
+&lt;code&gt;stringToValue&lt;/code&gt; and &lt;code&gt;valueToString&lt;/code&gt;. Optionally
+they can override &lt;code&gt;getActions&lt;/code&gt;,
+&lt;code&gt;getNavigationFilter&lt;/code&gt; and &lt;code&gt;getDocumentFilter&lt;/code&gt;
+to restrict the &lt;code&gt;JFormattedTextField&lt;/code&gt; in a particular
+way.
+&lt;p&gt;
+Subclasses that allow the &lt;code&gt;JFormattedTextField&lt;/code&gt; to be in
+a temporarily invalid state should invoke &lt;code&gt;setEditValid&lt;/code&gt;
+at the appropriate times.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AbstractFormatter" refid="_9_5_f720368_1110473548378_844822_23779"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractFormatter" refid="_9_5_f720368_1110473548378_844822_23779"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

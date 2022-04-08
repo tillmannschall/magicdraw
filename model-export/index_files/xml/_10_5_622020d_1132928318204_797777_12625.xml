@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318204_797777_12625"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RootPaneContainer" refid="_9_5_f720368_1110473546799_410848_10839"/></annotatedElement><body humanName="Body" mode="s,e">This interface is implemented by components that have a single
+JRootPane child: JDialog, JFrame, JWindow, JApplet, JInternalFrame.
+The methods in  this interface are just &lt;i&gt;covers&lt;/i&gt; for the JRootPane
+properties, e.g. &lt;code&gt;getContentPane()&lt;/code&gt; is generally implemented
+like this:&lt;pre&gt;
+public Container getContentPane() {
+return getRootPane().getContentPane();
+}
+&lt;/pre&gt;
+This interface serves as a &lt;i&gt;marker&lt;/i&gt; for Swing GUI builders
+that need to treat components like JFrame, that contain a
+single JRootPane, specially.  For example in a GUI builder,
+dropping a component on a RootPaneContainer would be interpreted
+as &lt;code&gt;frame.getContentPane().add(child)&lt;/code&gt;.
+&lt;p&gt;
+For conveniance
+&lt;code&gt;JFrame&lt;/code&gt;, &lt;code&gt;JDialog&lt;/code&gt;, &lt;code&gt;JWindow&lt;/code&gt;,
+&lt;code&gt;JApplet&lt;/code&gt; and &lt;code&gt;JInternalFrame&lt;/code&gt;, by default,
+forward, by default, all calls to the &lt;code&gt;add&lt;/code&gt;,
+&lt;code&gt;remove&lt;/code&gt; and &lt;code&gt;setLayout&lt;/code&gt; methods, to the
+&lt;code&gt;contentPane&lt;/code&gt;. This means you can call:
+&lt;pre&gt;
+rootPaneContainer.add(component);
+&lt;/pre&gt;
+instead of:
+&lt;pre&gt;
+rootPaneContainer.getContentPane().add(component);
+&lt;/pre&gt;
+&lt;p&gt;
+The behavior of the &lt;code&gt;add&lt;/code&gt; and
+&lt;code&gt;setLayout&lt;/code&gt; methods for
+&lt;code&gt;JFrame&lt;/code&gt;, &lt;code&gt;JDialog&lt;/code&gt;, &lt;code&gt;JWindow&lt;/code&gt;,
+&lt;code&gt;JApplet&lt;/code&gt; and &lt;code&gt;JInternalFrame&lt;/code&gt; is controlled by
+the &lt;code&gt;rootPaneCheckingEnabled&lt;/code&gt; property. If this property is
+true (the default), then calls to these methods are
+forwarded to the &lt;code&gt;contentPane&lt;/code&gt;; if false, these
+methods operate directly on the &lt;code&gt;RootPaneContainer&lt;/code&gt;. This
+property is only intended for subclasses, and is therefore protected.
+
+@see JRootPane
+@see JFrame
+@see JDialog
+@see JWindow
+@see JApplet
+@see JInternalFrame
+
+@version 1.15 12/19/03
+@author Hans Muller
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="RootPaneContainer" refid="_9_5_f720368_1110473546799_410848_10839"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RootPaneContainer" refid="_9_5_f720368_1110473546799_410848_10839"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

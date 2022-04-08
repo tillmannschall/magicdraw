@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309040_210570_5708"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessException" refid="_9_5_f720368_1110473546674_797740_8215"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;AccessException&lt;/code&gt; is thrown by certain methods of the
+&lt;code&gt;java.rmi.Naming&lt;/code&gt; class (specifically &lt;code&gt;bind&lt;/code&gt;,
+&lt;code&gt;rebind&lt;/code&gt;, and &lt;code&gt;unbind&lt;/code&gt;) and methods of the
+&lt;code&gt;java.rmi.activation.ActivationSystem&lt;/code&gt; interface to
+indicate that the caller does not have permission to perform the action
+requested by the method call.  If the method was invoked from a non-local
+host, then an &lt;code&gt;AccessException&lt;/code&gt; is thrown.
+
+@version 1.12, 12/19/03
+@author  Ann Wollrath
+@author  Roger Riggs
+@since   JDK1.1
+@see     java.rmi.Naming
+@see     java.rmi.activation.ActivationSystem
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AccessException" refid="_9_5_f720368_1110473546674_797740_8215"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessException" refid="_9_5_f720368_1110473546674_797740_8215"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

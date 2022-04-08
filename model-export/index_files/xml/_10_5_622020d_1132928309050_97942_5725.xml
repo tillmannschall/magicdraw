@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309050_97942_5725"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NoSuchObjectException" refid="_9_5_f720368_1110473546674_496648_8229"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;NoSuchObjectException&lt;/code&gt; is thrown if an attempt is made to
+invoke a method on an object that no longer exists in the remote virtual
+machine.  If a &lt;code&gt;NoSuchObjectException&lt;/code&gt; occurs attempting to
+invoke a method on a remote object, the call may be retransmitted and still
+preserve RMI's "at most once" call semantics.
+
+A &lt;code&gt;NoSuchObjectException&lt;/code&gt; is also thrown by the method
+&lt;code&gt;java.rmi.server.RemoteObject.toStub&lt;/code&gt; and by the
+&lt;code&gt;unexportObject&lt;/code&gt; methods of
+&lt;code&gt;java.rmi.server.UnicastRemoteObject&lt;/code&gt; and
+&lt;code&gt;java.rmi.activation.Activatable&lt;/code&gt; and
+
+@version 1.12, 12/19/03
+@author  Ann Wollrath
+@since   JDK1.1
+@see     java.rmi.server.RemoteObject#toStub(Remote)
+@see     java.rmi.server.UnicastRemoteObject#unexportObject(Remote,boolean)
+@see     java.rmi.activation.Activatable#unexportObject(Remote,boolean)
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="NoSuchObjectException" refid="_9_5_f720368_1110473546674_496648_8229"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NoSuchObjectException" refid="_9_5_f720368_1110473546674_496648_8229"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

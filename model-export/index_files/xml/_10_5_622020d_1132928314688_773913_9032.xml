@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314688_773913_9032"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AttributeListImpl" refid="_9_5_f720368_1110473546940_240912_13256"/></annotatedElement><body humanName="Body" mode="s,e">Default implementation for AttributeList.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;AttributeList implements the deprecated SAX1 {@link
+org.xml.sax.AttributeList AttributeList} interface, and has been
+replaced by the new SAX2 {@link org.xml.sax.helpers.AttributesImpl
+AttributesImpl} interface.&lt;/p&gt;
+
+&lt;p&gt;This class provides a convenience implementation of the SAX
+{@link org.xml.sax.AttributeList AttributeList} interface.  This
+implementation is useful both for SAX parser writers, who can use
+it to provide attributes to the application, and for SAX application
+writers, who can use it to create a persistent copy of an element's
+attribute specifications:&lt;/p&gt;
+
+&lt;pre&gt;
+private AttributeList myatts;
+
+public void startElement (String name, AttributeList atts)
+{
+create a persistent copy of the attribute list
+for use outside this method
+myatts = new AttributeListImpl(atts);
+[...]
+}
+&lt;/pre&gt;
+
+&lt;p&gt;Please note that SAX parsers are not required to use this
+class to provide an implementation of AttributeList; it is
+supplied only as an optional convenience.  In particular,
+parser writers are encouraged to invent more efficient
+implementations.&lt;/p&gt;
+
+@deprecated This class implements a deprecated interface,
+{@link org.xml.sax.AttributeList AttributeList};
+that interface has been replaced by
+{@link org.xml.sax.Attributes Attributes},
+which is implemented in the
+{@link org.xml.sax.helpers.AttributesImpl
+AttributesImpl} helper class.
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.AttributeList
+@see org.xml.sax.DocumentHandler#startElement
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AttributeListImpl" refid="_9_5_f720368_1110473546940_240912_13256"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AttributeListImpl" refid="_9_5_f720368_1110473546940_240912_13256"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

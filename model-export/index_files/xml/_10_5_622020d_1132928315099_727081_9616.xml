@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315099_727081_9616"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TargetedNotification" refid="_10_5_622020d_1132928315099_524334_9614"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;A (Notification, Listener ID) pair.&lt;/p&gt;
+&lt;p&gt;This class is used to associate an emitted notification
+with the listener ID to which it is targeted.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="TargetedNotification" refid="_10_5_622020d_1132928315099_524334_9614"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TargetedNotification" refid="_10_5_622020d_1132928315099_524334_9614"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

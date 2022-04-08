@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546596_471691_7331"><documentation humanName="Documentation" mode="standard">A &lt;code&gt;Statement&lt;/code&gt; object represents a primitive statement
+in which a single method is applied to a target and
+a set of arguments - as in &lt;code&gt;"a.setFoo(b)"&lt;/code&gt;.
+Note that where this example uses names
+to denote the target and its argument, a statement
+object does not require a name space and is constructed with
+the values themselves.
+The statement object associates the named method
+with its environment as a simple set of values:
+the target and an array of argument values.
+
+@since 1.4
+
+@version 1.29 12/19/03
+@author Philip Milne
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Statement</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beans" refid="_9_5_f720368_1110473547440_999992_17398"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306977_451697_4519"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306977_451697_4519"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="beans" refid="_9_5_f720368_1110473547440_999992_17398"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beans" refid="_9_5_f720368_1110473547440_999992_17398"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beans" refid="_9_5_f720368_1110473547440_999992_17398"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::beans::Statement</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309912_580625_6326"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AtomicLongFieldUpdater" refid="_10_5_622020d_1132928309912_829861_6313"/></annotatedElement><body humanName="Body" mode="s,e">A reflection-based utility that enables atomic updates to
+designated &lt;tt&gt;volatile long&lt;/tt&gt; fields of designated classes.
+This class is designed for use in atomic data structures in which
+several fields of the same node are independently subject to atomic
+updates.
+
+&lt;p&gt; Note that the guarantees of the &lt;tt&gt;compareAndSet&lt;/tt&gt; method
+in this class are weaker than in other atomic classes. Because this
+class cannot ensure that all uses of the field are appropriate for
+purposes of atomic access, it can guarantee atomicity and volatile
+semantics only with respect to other invocations of
+&lt;tt&gt;compareAndSet&lt;/tt&gt; and &lt;tt&gt;set&lt;/tt&gt;.
+
+@since 1.5
+@author Doug Lea
+@param &lt;T&gt; The type of the object holding the updatable field
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AtomicLongFieldUpdater" refid="_10_5_622020d_1132928309912_829861_6313"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AtomicLongFieldUpdater" refid="_10_5_622020d_1132928309912_829861_6313"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

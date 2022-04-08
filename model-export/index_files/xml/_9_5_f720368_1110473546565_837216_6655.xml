@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546565_837216_6655"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::font::TextLayout -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928320617_204051_12974"/></clientDependency><documentation humanName="Documentation" mode="standard">&lt;code&gt;TextLayout&lt;/code&gt; is an immutable graphical representation of styled
+character data.
+&lt;p&gt;
+It provides the following capabilities:
+&lt;ul&gt;
+&lt;li&gt;implicit bidirectional analysis and reordering,
+&lt;li&gt;cursor positioning and movement, including split cursors for
+mixed directional text,
+&lt;li&gt;highlighting, including both logical and visual highlighting
+for mixed directional text,
+&lt;li&gt;multiple baselines (roman, hanging, and centered),
+&lt;li&gt;hit testing,
+&lt;li&gt;justification,
+&lt;li&gt;default font substitution,
+&lt;li&gt;metric information such as ascent, descent, and advance, and
+&lt;li&gt;rendering
+&lt;/ul&gt;
+&lt;p&gt;
+A &lt;code&gt;TextLayout&lt;/code&gt; object can be rendered using
+its &lt;code&gt;draw&lt;/code&gt; method.
+&lt;p&gt;
+&lt;code&gt;TextLayout&lt;/code&gt; can be constructed either directly or through
+the use of a {@link LineBreakMeasurer}.  When constructed directly, the
+source text represents a single paragraph.  &lt;code&gt;LineBreakMeasurer&lt;/code&gt;
+allows styled text to be broken into lines that fit within a particular
+width.  See the &lt;code&gt;LineBreakMeasurer&lt;/code&gt; documentation for more
+information.
+&lt;p&gt;
+&lt;code&gt;TextLayout&lt;/code&gt; construction logically proceeds as follows:
+&lt;ul&gt;
+&lt;li&gt;paragraph attributes are extracted and examined,
+&lt;li&gt;text is analyzed for bidirectional reordering, and reordering
+information is computed if needed,
+&lt;li&gt;text is segmented into style runs
+&lt;li&gt;fonts are chosen for style runs, first by using a font if the
+attribute {@link TextAttribute#FONT} is present, otherwise by computing
+a default font using the attributes that have been defined
+&lt;li&gt;if text is on multiple baselines, the runs or subruns are further
+broken into subruns sharing a common baseline,
+&lt;li&gt;glyphvectors are generated for each run using the chosen font,
+&lt;li&gt;final bidirectional reordering is performed on the glyphvectors
+&lt;/ul&gt;
+&lt;p&gt;
+All graphical information returned from a &lt;code&gt;TextLayout&lt;/code&gt;
+object's methods is relative to the origin of the
+&lt;code&gt;TextLayout&lt;/code&gt;, which is the intersection of the
+&lt;code&gt;TextLayout&lt;/code&gt; object's baseline with its left edge.  Also,
+coordinates passed into a &lt;code&gt;TextLayout&lt;/code&gt; object's methods
+are assumed to be relative to the &lt;code&gt;TextLayout&lt;/code&gt; object's
+origin.  Clients usually need to translate between a
+&lt;code&gt;TextLayout&lt;/code&gt; object's coordinate system and the coordinate
+system in another object (such as a
+{@link java.awt.Graphics Graphics} object).
+&lt;p&gt;
+&lt;code&gt;TextLayout&lt;/code&gt; objects are constructed from styled text,
+but they do not retain a reference to their source text.  Thus,
+changes in the text previously used to generate a &lt;code&gt;TextLayout&lt;/code&gt;
+do not affect the &lt;code&gt;TextLayout&lt;/code&gt;.
+&lt;p&gt;
+Three methods on a &lt;code&gt;TextLayout&lt;/code&gt; object
+(&lt;code&gt;getNextRightHit&lt;/code&gt;, &lt;code&gt;getNextLeftHit&lt;/code&gt;, and
+&lt;code&gt;hitTestChar&lt;/code&gt;) return instances of {@link TextHitInfo}.
+The offsets contained in these &lt;code&gt;TextHitInfo&lt;/code&gt; objects
+are relative to the start of the &lt;code&gt;TextLayout&lt;/code&gt;, &lt;b&gt;not&lt;/b&gt;
+to the text used to create the &lt;code&gt;TextLayout&lt;/code&gt;.  Similarly,
+&lt;code&gt;TextLayout&lt;/code&gt; methods that accept &lt;code&gt;TextHitInfo&lt;/code&gt;
+instances as parameters expect the &lt;code&gt;TextHitInfo&lt;/code&gt; object's
+offsets to be relative to the &lt;code&gt;TextLayout&lt;/code&gt;, not to any
+underlying text storage model.
+&lt;p&gt;
+&lt;strong&gt;Examples&lt;/strong&gt;:&lt;p&gt;
+Constructing and drawing a &lt;code&gt;TextLayout&lt;/code&gt; and its bounding
+rectangle:
+&lt;blockquote&gt;&lt;pre&gt;
+Graphics2D g = ...;
+Point2D loc = ...;
+Font font = Font.getFont("Helvetica-bold-italic");
+FontRenderContext frc = g.getFontRenderContext();
+TextLayout layout = new TextLayout("This is a string", font, frc);
+layout.draw(g, (float)loc.getX(), (float)loc.getY());
+
+Rectangle2D bounds = layout.getBounds();
+bounds.setRect(bounds.getX()+loc.getX(),
+bounds.getY()+loc.getY(),
+bounds.getWidth(),
+bounds.getHeight());
+g.draw(bounds);
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+Hit-testing a &lt;code&gt;TextLayout&lt;/code&gt; (determining which character is at
+a particular graphical location):
+&lt;blockquote&gt;&lt;pre&gt;
+Point2D click = ...;
+TextHitInfo hit = layout.hitTestChar(
+(float) (click.getX() - loc.getX()),
+(float) (click.getY() - loc.getY()));
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+Responding to a right-arrow key press:
+&lt;blockquote&gt;&lt;pre&gt;
+int insertionIndex = ...;
+TextHitInfo next = layout.getNextRightHit(insertionIndex);
+if (next != null) {
+translate graphics to origin of layout on screen
+g.translate(loc.getX(), loc.getY());
+Shape[] carets = layout.getCaretShapes(next.getInsertionIndex());
+g.draw(carets[0]);
+if (carets[1] != null) {
+g.draw(carets[1]);
+}
+}
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+Drawing a selection range corresponding to a substring in the source text.
+The selected area may not be visually contiguous:
+&lt;blockquote&gt;&lt;pre&gt;
+selStart, selLimit should be relative to the layout,
+not to the source text
+
+int selStart = ..., selLimit = ...;
+Color selectionColor = ...;
+Shape selection = layout.getLogicalHighlightShape(selStart, selLimit);
+selection may consist of disjoint areas
+graphics is assumed to be tranlated to origin of layout
+g.setColor(selectionColor);
+g.fill(selection);
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+Drawing a visually contiguous selection range.  The selection range may
+correspond to more than one substring in the source text.  The ranges of
+the corresponding source text substrings can be obtained with
+&lt;code&gt;getLogicalRangesForVisualSelection()&lt;/code&gt;:
+&lt;blockquote&gt;&lt;pre&gt;
+TextHitInfo selStart = ..., selLimit = ...;
+Shape selection = layout.getVisualHighlightShape(selStart, selLimit);
+g.setColor(selectionColor);
+g.fill(selection);
+int[] ranges = getLogicalRangesForVisualSelection(selStart, selLimit);
+ranges[0], ranges[1] is the first selection range,
+ranges[2], ranges[3] is the second selection range, etc.
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+@see LineBreakMeasurer
+@see TextAttribute
+@see TextHitInfo
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::font::TextLayout -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928320617_204051_12974"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CaretPolicy" refid="_9_5_f720368_1110473547315_156333_16552"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OptInfo" refid="_9_5_f720368_1110473547315_13811_16549"/></member><name humanName="Name" mode="s,e">TextLayout</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CaretPolicy" refid="_9_5_f720368_1110473547315_156333_16552"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OptInfo" refid="_9_5_f720368_1110473547315_13811_16549"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305886_781327_3806"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305886_781327_3806"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CaretPolicy" refid="_9_5_f720368_1110473547315_156333_16552"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::font::TextLayout -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928320617_204051_12974"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OptInfo" refid="_9_5_f720368_1110473547315_13811_16549"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CaretPolicy" refid="_9_5_f720368_1110473547315_156333_16552"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OptInfo" refid="_9_5_f720368_1110473547315_13811_16549"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::font::TextLayout</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

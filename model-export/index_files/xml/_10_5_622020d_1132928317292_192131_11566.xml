@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317292_192131_11566"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SynthPainter" refid="_10_5_622020d_1132928317292_862209_11564"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;SynthPainter&lt;/code&gt; is used for painting portions of
+&lt;code&gt;JComponent&lt;/code&gt;s. At a minimum each &lt;code&gt;JComponent&lt;/code&gt;
+has two paint methods: one for the border and one for the background. Some
+&lt;code&gt;JComponent&lt;/code&gt;s have more than one &lt;code&gt;Region&lt;/code&gt;, and as
+a consequence more paint methods.
+&lt;p&gt;
+Instances of &lt;code&gt;SynthPainter&lt;/code&gt; are obtained from the
+{@link javax.swing.plaf.synth.SynthStyle#getPainter} method.
+&lt;p&gt;
+You typically supply a &lt;code&gt;SynthPainter&lt;/code&gt; by way of Synth's
+&lt;a href="doc-files/synthFileFormat.html"&gt;file&lt;/a&gt; format. The following
+example registers a painter for all &lt;code&gt;JButton&lt;/code&gt;s that will
+render the image &lt;code&gt;myImage.png&lt;/code&gt;:
+&lt;pre&gt;
+&lt;style id="buttonStyle"&gt;
+&lt;imagePainter path="myImage.png" sourceInsets="2 2 2 2"
+paintCenter="true" stretch="true"/&gt;
+&lt;insets top="2" bottom="2" left="2" right="2"/&gt;
+&lt;/style&gt;
+&lt;bind style="buttonStyle" type="REGION" key="button"/&gt;
+&lt;/pre&gt;
+&lt;p&gt;
+&lt;code&gt;SynthPainter&lt;/code&gt; is abstract in so far as it does no painting,
+all the methods
+are empty. While none of these methods are typed to throw an exception,
+subclasses can assume that valid arguments are passed in, and if not
+they can throw a &lt;code&gt;NullPointerException&lt;/code&gt; or
+&lt;code&gt;IllegalArgumentException&lt;/code&gt; in response to invalid arguments.
+
+@version 1.10, 12/19/03
+@since 1.5
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="SynthPainter" refid="_10_5_622020d_1132928317292_862209_11564"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SynthPainter" refid="_10_5_622020d_1132928317292_862209_11564"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

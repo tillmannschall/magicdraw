@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316000_406403_10408"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CallbackHandler" refid="_9_5_f720368_1110473546737_150058_9571"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt; An application implements a &lt;code&gt;CallbackHandler&lt;/code&gt; and passes
+it to underlying security services so that they may interact with
+the application to retrieve specific authentication data,
+such as usernames and passwords, or to display certain information,
+such as error and warning messages.
+
+&lt;p&gt; CallbackHandlers are implemented in an application-dependent fashion.
+For example, implementations for an application with a graphical user
+interface (GUI) may pop up windows to prompt for requested information
+or to display error messages.  An implementation may also choose to obtain
+requested information from an alternate source without asking the end user.
+
+&lt;p&gt; Underlying security services make requests for different types
+of information by passing individual Callbacks to the
+&lt;code&gt;CallbackHandler&lt;/code&gt;.  The &lt;code&gt;CallbackHandler&lt;/code&gt;
+implementation decides how to retrieve and display information
+depending on the Callbacks passed to it.  For example,
+if the underlying service needs a username and password to
+authenticate a user, it uses a &lt;code&gt;NameCallback&lt;/code&gt; and
+&lt;code&gt;PasswordCallback&lt;/code&gt;.  The &lt;code&gt;CallbackHandler&lt;/code&gt;
+can then choose to prompt for a username and password serially,
+or to prompt for both in a single window.
+
+&lt;p&gt; A default &lt;code&gt;CallbackHandler&lt;/code&gt; class implementation
+may be specified in the &lt;i&gt;auth.login.defaultCallbackHandler&lt;/i&gt;
+security property.  The security property can be set
+in the Java security properties file located in the file named
+&lt;JAVA_HOME&gt;/lib/security/java.security, where &lt;JAVA_HOME&gt;
+refers to the directory where the JDK was installed.
+
+&lt;p&gt; If the security property is set to the fully qualified name of a
+&lt;code&gt;CallbackHandler&lt;/code&gt; implementation class,
+then a &lt;code&gt;LoginContext&lt;/code&gt; will load the specified
+&lt;code&gt;CallbackHandler&lt;/code&gt; and pass it to the underlying LoginModules.
+The &lt;code&gt;LoginContext&lt;/code&gt; only loads the default handler
+if it was not provided one.
+
+&lt;p&gt; All default handler implementations must provide a public
+zero-argument constructor.
+
+@version 1.17, 06/28/04
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CallbackHandler" refid="_9_5_f720368_1110473546737_150058_9571"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CallbackHandler" refid="_9_5_f720368_1110473546737_150058_9571"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

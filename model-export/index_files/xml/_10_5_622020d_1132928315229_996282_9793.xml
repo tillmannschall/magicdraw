@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928315229_996282_9793"><documentation humanName="Documentation" mode="standard">This permission represents "trust" in a signer or codebase.
+&lt;p&gt;
+MBeanTrustPermission contains a target name but no actions list.
+A single target name, "register", is defined for this permission.
+The target "*" is also allowed, permitting "register" and any future
+targets that may be defined.
+Only the null value or the empty string are allowed for the action
+to allow the policy object to create the permissions specified in
+the policy file.
+&lt;p&gt;
+If a signer, or codesource is granted this permission, then it is
+considered a trusted source for MBeans. Only MBeans from trusted
+sources may be registered in the MBeanServer.
+
+@since 1.5
+@since.unbundled JMX 1.2
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323111_716182_16078"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">MBeanTrustPermission</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315229_622209_9795"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323111_716182_16078"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315229_622209_9795"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928314869_787899_9268"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::management::MBeanTrustPermission</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BasicPermission" refid="_9_5_f720368_1110473546674_30641_8429"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

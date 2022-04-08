@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308339_263206_5273"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InetAddress" refid="_9_5_f720368_1110473546643_279990_7769"/></annotatedElement><body humanName="Body" mode="s,e">This class represents an Internet Protocol (IP) address.
+
+&lt;p&gt; An IP address is either a 32-bit or 128-bit unsigned number
+used by IP, a lower-level protocol on which protocols like UDP and
+TCP are built. The IP address architecture is defined by &lt;a
+href="http://www.ietf.org/rfc/rfc790.txt"&gt;&lt;i&gt;RFC&amp;nbsp;790:
+Assigned Numbers&lt;/i&gt;&lt;/a&gt;, &lt;a
+href="http://www.ietf.org/rfc/rfc1918.txt"&gt; &lt;i&gt;RFC&amp;nbsp;1918:
+Address Allocation for Private Internets&lt;/i&gt;&lt;/a&gt;, &lt;a
+href="http://www.ietf.org/rfc/rfc2365.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2365:
+Administratively Scoped IP Multicast&lt;/i&gt;&lt;/a&gt;, and &lt;a
+href="http://www.ietf.org/rfc/rfc2373.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2373: IP
+Version 6 Addressing Architecture&lt;/i&gt;&lt;/a&gt;. An instance of an
+InetAddress consists of an IP address and possibly its
+corresponding host name (depending on whether it is constructed
+with a host name or whether it has already done reverse host name
+resolution).
+
+&lt;h4&gt; Address types &lt;/h4&gt;
+
+&lt;blockquote&gt;&lt;table cellspacing=2 summary="Description of unicast and multicast address types"&gt;
+&lt;tr&gt;&lt;th valign=top&gt;&lt;i&gt;unicast&lt;/i&gt;&lt;/th&gt;
+&lt;td&gt;An identifier for a single interface. A packet sent to
+a unicast address is delivered to the interface identified by
+that address.
+
+&lt;p&gt; The Unspecified Address -- Also called anylocal or wildcard
+address. It must never be assigned to any node. It indicates the
+absence of an address. One example of its use is as the target of
+bind, which allows a server to accept a client connection on any
+interface, in case the server host has multiple interfaces.
+
+&lt;p&gt; The &lt;i&gt;unspecified&lt;/i&gt; address must not be used as
+the destination address of an IP packet.
+
+&lt;p&gt; The &lt;i&gt;Loopback&lt;/i&gt; Addresses -- This is the address
+assigned to the loopback interface. Anything sent to this
+IP address loops around and becomes IP input on the local
+host. This address is often used when testing a
+client.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th valign=top&gt;&lt;i&gt;multicast&lt;/i&gt;&lt;/th&gt;
+&lt;td&gt;An identifier for a set of interfaces (typically belonging
+to different nodes). A packet sent to a multicast address is
+delivered to all interfaces identified by that address.&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/blockquote&gt;
+
+&lt;h4&gt; IP address scope &lt;/h4&gt;
+
+&lt;p&gt; &lt;i&gt;Link-local&lt;/i&gt; addresses are designed to be used for addressing
+on a single link for purposes such as auto-address configuration,
+neighbor discovery, or when no routers are present.
+
+&lt;p&gt; &lt;i&gt;Site-local&lt;/i&gt; addresses are designed to be used for addressing
+inside of a site without the need for a global prefix.
+
+&lt;p&gt; &lt;i&gt;Global&lt;/i&gt; addresses are unique across the internet.
+
+&lt;h4&gt; Textual representation of IP addresses &lt;/h4&gt;
+
+The textual representation of an IP address is address family specific.
+
+&lt;p&gt;
+
+For IPv4 address format, please refer to &lt;A
+HREF="Inet4Address.html#format"&gt;Inet4Address#format&lt;/A&gt;; For IPv6
+address format, please refer to &lt;A
+HREF="Inet6Address.html#format"&gt;Inet6Address#format&lt;/A&gt;.
+
+&lt;h4&gt; Host Name Resolution &lt;/h4&gt;
+
+Host name-to-IP address &lt;i&gt;resolution&lt;/i&gt; is accomplished through
+the use of a combination of local machine configuration information
+and network naming services such as the Domain Name System (DNS)
+and Network Information Service(NIS). The particular naming
+services(s) being used is by default the local machine configured
+one. For any host name, its corresponding IP address is returned.
+
+&lt;p&gt; &lt;i&gt;Reverse name resolution&lt;/i&gt; means that for any IP address,
+the host associated with the IP address is returned.
+
+&lt;p&gt; The InetAddress class provides methods to resolve host names to
+their IP addresses and vise versa.
+
+&lt;h4&gt; InetAddress Caching &lt;/h4&gt;
+
+The InetAddress class has a cache to store successful as well as
+unsuccessful host name resolutions. The positive caching is there
+to guard against DNS spoofing attacks; while the negative caching
+is used to improve performance.
+
+&lt;p&gt; By default, the result of positive host name resolutions are
+cached forever, because there is no general rule to decide when it
+is safe to remove cache entries. The result of unsuccessful host
+name resolution is cached for a very short period of time (10
+seconds) to improve performance.
+
+&lt;p&gt; Under certain circumstances where it can be determined that DNS
+spoofing attacks are not possible, a Java security property can be
+set to a different Time-to-live (TTL) value for positive
+caching. Likewise, a system admin can configure a different
+negative caching TTL value when needed.
+
+&lt;p&gt; Two Java security properties control the TTL values used for
+positive and negative host name resolution caching:
+
+&lt;blockquote&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;b&gt;networkaddress.cache.ttl&lt;/b&gt; (default: -1)&lt;/dt&gt;
+&lt;dd&gt;Indicates the caching policy for successful name lookups from
+the name service. The value is specified as as integer to indicate
+the number of seconds to cache the successful lookup.
+&lt;p&gt;
+A value of -1 indicates "cache forever".
+&lt;/dd&gt;
+&lt;p&gt;
+&lt;dt&gt;&lt;b&gt;networkaddress.cache.negative.ttl&lt;/b&gt; (default: 10)&lt;/dt&gt;
+&lt;dd&gt;Indicates the caching policy for un-successful name lookups
+from the name service. The value is specified as as integer to
+indicate the number of seconds to cache the failure for
+un-successful lookups.
+&lt;p&gt;
+A value of 0 indicates "never cache".
+A value of -1 indicates "cache forever".
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/blockquote&gt;
+
+@author  Chris Warth
+@version 1.109, 04/19/04
+@see     java.net.InetAddress#getByAddress(byte[])
+@see     java.net.InetAddress#getByAddress(java.lang.String, byte[])
+@see     java.net.InetAddress#getAllByName(java.lang.String)
+@see     java.net.InetAddress#getByName(java.lang.String)
+@see     java.net.InetAddress#getLocalHost()
+@since JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InetAddress" refid="_9_5_f720368_1110473546643_279990_7769"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InetAddress" refid="_9_5_f720368_1110473546643_279990_7769"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

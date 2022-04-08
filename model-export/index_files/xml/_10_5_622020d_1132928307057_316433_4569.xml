@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307057_316433_4569"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="File" refid="_9_5_f720368_1110473546596_739862_7383"/></annotatedElement><body humanName="Body" mode="s,e">An abstract representation of file and directory pathnames.
+
+&lt;p&gt; User interfaces and operating systems use system-dependent &lt;em&gt;pathname
+strings&lt;/em&gt; to name files and directories.  This class presents an
+abstract, system-independent view of hierarchical pathnames.  An
+&lt;em&gt;abstract pathname&lt;/em&gt; has two components:
+
+&lt;ol&gt;
+&lt;li&gt; An optional system-dependent &lt;em&gt;prefix&lt;/em&gt; string,
+such as a disk-drive specifier, &lt;code&gt;"/"&lt;/code&gt;&amp;nbsp;for the UNIX root
+directory, or &lt;code&gt;"\\\\"&lt;/code&gt;&amp;nbsp;for a Microsoft Windows UNC pathname, and
+&lt;li&gt; A sequence of zero or more string &lt;em&gt;names&lt;/em&gt;.
+&lt;/ol&gt;
+
+Each name in an abstract pathname except for the last denotes a directory;
+the last name may denote either a directory or a file.  The &lt;em&gt;empty&lt;/em&gt;
+abstract pathname has no prefix and an empty name sequence.
+
+&lt;p&gt; The conversion of a pathname string to or from an abstract pathname is
+inherently system-dependent.  When an abstract pathname is converted into a
+pathname string, each name is separated from the next by a single copy of
+the default &lt;em&gt;separator character&lt;/em&gt;.  The default name-separator
+character is defined by the system property &lt;code&gt;file.separator&lt;/code&gt;, and
+is made available in the public static fields &lt;code&gt;{@link
+#separator}&lt;/code&gt; and &lt;code&gt;{@link #separatorChar}&lt;/code&gt; of this class.
+When a pathname string is converted into an abstract pathname, the names
+within it may be separated by the default name-separator character or by any
+other name-separator character that is supported by the underlying system.
+
+&lt;p&gt; A pathname, whether abstract or in string form, may be either
+&lt;em&gt;absolute&lt;/em&gt; or &lt;em&gt;relative&lt;/em&gt;.  An absolute pathname is complete in
+that no other information is required in order to locate the file that it
+denotes.  A relative pathname, in contrast, must be interpreted in terms of
+information taken from some other pathname.  By default the classes in the
+&lt;code&gt;java.io&lt;/code&gt; package always resolve relative pathnames against the
+current user directory.  This directory is named by the system property
+&lt;code&gt;user.dir&lt;/code&gt;, and is typically the directory in which the Java
+virtual machine was invoked.
+
+&lt;p&gt; The prefix concept is used to handle root directories on UNIX platforms,
+and drive specifiers, root directories and UNC pathnames on Microsoft Windows platforms,
+as follows:
+
+&lt;ul&gt;
+
+&lt;li&gt; For UNIX platforms, the prefix of an absolute pathname is always
+&lt;code&gt;"/"&lt;/code&gt;.  Relative pathnames have no prefix.  The abstract pathname
+denoting the root directory has the prefix &lt;code&gt;"/"&lt;/code&gt; and an empty
+name sequence.
+
+&lt;li&gt; For Microsoft Windows platforms, the prefix of a pathname that contains a drive
+specifier consists of the drive letter followed by &lt;code&gt;":"&lt;/code&gt; and
+possibly followed by &lt;code&gt;"\\"&lt;/code&gt; if the pathname is absolute.  The
+prefix of a UNC pathname is &lt;code&gt;"\\\\"&lt;/code&gt;; the hostname and the share
+name are the first two names in the name sequence.  A relative pathname that
+does not specify a drive has no prefix.
+
+&lt;/ul&gt;
+
+&lt;p&gt; Instances of the &lt;code&gt;File&lt;/code&gt; class are immutable; that is, once
+created, the abstract pathname represented by a &lt;code&gt;File&lt;/code&gt; object
+will never change.
+
+@version 1.122, 05/05/04
+@author  unascribed
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="File" refid="_9_5_f720368_1110473546596_739862_7383"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="File" refid="_9_5_f720368_1110473546596_739862_7383"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

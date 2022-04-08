@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315810_698_10283"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="IntegerSyntax" refid="_9_5_f720368_1110473546737_118217_9465"/></annotatedElement><body humanName="Body" mode="s,e">Class IntegerSyntax is an abstract base class providing the common
+implementation of all attributes with integer values.
+&lt;P&gt;
+Under the hood, an integer attribute is just an integer. You can get an
+integer attribute's integer value by calling {@link #getValue()
+&lt;CODE&gt;getValue()&lt;/CODE&gt;}. An integer attribute's integer value is
+established when it is constructed (see {@link #IntegerSyntax(int)
+&lt;CODE&gt;IntegerSyntax(int)&lt;/CODE&gt;}). Once constructed, an integer attribute's
+value is immutable.
+&lt;P&gt;
+
+@author  David Mendenhall
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="IntegerSyntax" refid="_9_5_f720368_1110473546737_118217_9465"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="IntegerSyntax" refid="_9_5_f720368_1110473546737_118217_9465"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

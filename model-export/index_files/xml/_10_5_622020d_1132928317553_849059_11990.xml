@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317553_849059_11990"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BoxView" refid="_9_5_f720368_1110473546784_76097_10427"/></annotatedElement><body humanName="Body" mode="s,e">A view that arranges its children into a box shape by tiling
+its children along an axis.  The box is somewhat like that
+found in TeX where there is alignment of the
+children, flexibility of the children is considered, etc.
+This is a building block that might be useful to represent
+things like a collection of lines, paragraphs,
+lists, columns, pages, etc.  The axis along which the children are tiled is
+considered the major axis.  The orthoginal axis is the minor axis.
+&lt;p&gt;
+Layout for each axis is handled separately by the methods
+&lt;code&gt;layoutMajorAxis&lt;/code&gt; and &lt;code&gt;layoutMinorAxis&lt;/code&gt;.
+Subclasses can change the layout algorithm by
+reimplementing these methods.    These methods will be called
+as necessary depending upon whether or not there is cached
+layout information and the cache is considered
+valid.  These methods are typically called if the given size
+along the axis changes, or if &lt;code&gt;layoutChanged&lt;/code&gt; is
+called to force an updated layout.  The &lt;code&gt;layoutChanged&lt;/code&gt;
+method invalidates cached layout information, if there is any.
+The requirements published to the parent view are calculated by
+the methods &lt;code&gt;calculateMajorAxisRequirements&lt;/code&gt;
+and  &lt;code&gt;calculateMinorAxisRequirements&lt;/code&gt;.
+If the layout algorithm is changed, these methods will
+likely need to be reimplemented.
+
+@author  Timothy Prinzing
+@version 1.61 03/05/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BoxView" refid="_9_5_f720368_1110473546784_76097_10427"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BoxView" refid="_9_5_f720368_1110473546784_76097_10427"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

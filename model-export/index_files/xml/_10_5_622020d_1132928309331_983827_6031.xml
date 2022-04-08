@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309331_983827_6031"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="KeyPairGenerator" refid="_9_5_f720368_1110473546690_289801_8473"/></annotatedElement><body humanName="Body" mode="s,e">The KeyPairGenerator class is used to generate pairs of
+public and private keys. Key pair generators are constructed using the
+&lt;code&gt;getInstance&lt;/code&gt; factory methods (static methods that
+return instances of a given class).
+
+&lt;p&gt;A Key pair generator for a particular algorithm creates a public/private
+key pair that can be used with this algorithm. It also associates
+algorithm-specific parameters with each of the generated keys.
+
+&lt;p&gt;There are two ways to generate a key pair: in an algorithm-independent
+manner, and in an algorithm-specific manner.
+The only difference between the two is the initialization of the object:
+
+&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Algorithm-Independent Initialization&lt;/b&gt;
+&lt;p&gt;All key pair generators share the concepts of a keysize and a
+source of randomness. The keysize is interpreted differently for different
+algorithms (e.g., in the case of the &lt;i&gt;DSA&lt;/i&gt; algorithm, the keysize
+corresponds to the length of the modulus).
+There is an
+{@link #initialize(int, java.security.SecureRandom) initialize}
+method in this KeyPairGenerator class that takes these two universally
+shared types of arguments. There is also one that takes just a
+&lt;code&gt;keysize&lt;/code&gt; argument, and uses the &lt;code&gt;SecureRandom&lt;/code&gt;
+implementation of the highest-priority installed provider as the source
+of randomness. (If none of the installed providers supply an implementation
+of &lt;code&gt;SecureRandom&lt;/code&gt;, a system-provided source of randomness is
+used.)
+
+&lt;p&gt;Since no other parameters are specified when you call the above
+algorithm-independent &lt;code&gt;initialize&lt;/code&gt; methods, it is up to the
+provider what to do about the algorithm-specific parameters (if any) to be
+associated with each of the keys.
+
+&lt;p&gt;If the algorithm is the &lt;i&gt;DSA&lt;/i&gt; algorithm, and the keysize (modulus
+size) is 512, 768, or 1024, then the &lt;i&gt;Sun&lt;/i&gt; provider uses a set of
+precomputed values for the &lt;code&gt;p&lt;/code&gt;, &lt;code&gt;q&lt;/code&gt;, and
+&lt;code&gt;g&lt;/code&gt; parameters. If the modulus size is not one of the above
+values, the &lt;i&gt;Sun&lt;/i&gt; provider creates a new set of parameters. Other
+providers might have precomputed parameter sets for more than just the
+three modulus sizes mentioned above. Still others might not have a list of
+precomputed parameters at all and instead always create new parameter sets.
+&lt;p&gt;
+
+&lt;li&gt;&lt;b&gt;Algorithm-Specific Initialization&lt;/b&gt;
+&lt;p&gt;For situations where a set of algorithm-specific parameters already
+exists (e.g., so-called &lt;i&gt;community parameters&lt;/i&gt; in DSA), there are two
+{@link #initialize(java.security.spec.AlgorithmParameterSpec)
+initialize} methods that have an &lt;code&gt;AlgorithmParameterSpec&lt;/code&gt;
+argument. One also has a &lt;code&gt;SecureRandom&lt;/code&gt; argument, while the
+the other uses the &lt;code&gt;SecureRandom&lt;/code&gt;
+implementation of the highest-priority installed provider as the source
+of randomness. (If none of the installed providers supply an implementation
+of &lt;code&gt;SecureRandom&lt;/code&gt;, a system-provided source of randomness is
+used.)
+&lt;/ul&gt;
+
+&lt;p&gt;In case the client does not explicitly initialize the KeyPairGenerator
+(via a call to an &lt;code&gt;initialize&lt;/code&gt; method), each provider must
+supply (and document) a default initialization.
+For example, the &lt;i&gt;Sun&lt;/i&gt; provider uses a default modulus size (keysize)
+of 1024 bits.
+
+&lt;p&gt;Note that this class is abstract and extends from
+&lt;code&gt;KeyPairGeneratorSpi&lt;/code&gt; for historical reasons.
+Application developers should only take notice of the methods defined in
+this &lt;code&gt;KeyPairGenerator&lt;/code&gt; class; all the methods in
+the superclass are intended for cryptographic service providers who wish to
+supply their own implementations of key pair generators.
+
+@author Benjamin Renaud
+
+@version 1.56, 01/28/04
+
+@see java.security.spec.AlgorithmParameterSpec
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="KeyPairGenerator" refid="_9_5_f720368_1110473546690_289801_8473"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="KeyPairGenerator" refid="_9_5_f720368_1110473546690_289801_8473"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

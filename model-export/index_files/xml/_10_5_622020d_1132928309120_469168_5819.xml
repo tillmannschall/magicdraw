@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309120_469168_5819"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CertStoreParameters" refid="_9_5_f720368_1110473546674_32690_8315"/></annotatedElement><body humanName="Body" mode="s,e">A specification of &lt;code&gt;CertStore&lt;/code&gt; parameters.
+&lt;p&gt;
+The purpose of this interface is to group (and provide type safety for)
+all &lt;code&gt;CertStore&lt;/code&gt; parameter specifications. All
+&lt;code&gt;CertStore&lt;/code&gt; parameter specifications must implement this
+interface.
+&lt;p&gt;
+Typically, a &lt;code&gt;CertStoreParameters&lt;/code&gt; object is passed as a parameter
+to one of the {@link CertStore#getInstance CertStore.getInstance} methods.
+The &lt;code&gt;getInstance&lt;/code&gt; method returns a &lt;code&gt;CertStore&lt;/code&gt; that
+is used for retrieving &lt;code&gt;Certificate&lt;/code&gt;s and &lt;code&gt;CRL&lt;/code&gt;s. The
+&lt;code&gt;CertStore&lt;/code&gt; that is returned is initialized with the specified
+parameters. The type of parameters needed may vary between different types
+of &lt;code&gt;CertStore&lt;/code&gt;s.
+
+@see CertStore#getInstance
+
+@version 	1.5 12/19/03
+@since	1.4
+@author	Steve Hanna
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CertStoreParameters" refid="_9_5_f720368_1110473546674_32690_8315"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CertStoreParameters" refid="_9_5_f720368_1110473546674_32690_8315"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

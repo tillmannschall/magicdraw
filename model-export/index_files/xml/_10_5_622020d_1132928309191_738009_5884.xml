@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309191_738009_5884"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RSAPrivateCrtKey" refid="_9_5_f720368_1110473546674_225594_8371"/></annotatedElement><body humanName="Body" mode="s,e">The interface to an RSA private key, as defined in the PKCS#1 standard,
+using the &lt;i&gt;Chinese Remainder Theorem&lt;/i&gt; (CRT) information values.
+
+@author Jan Luehe
+
+@version 1.12 03/12/19
+
+@see RSAPrivateKey
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="RSAPrivateCrtKey" refid="_9_5_f720368_1110473546674_225594_8371"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RSAPrivateCrtKey" refid="_9_5_f720368_1110473546674_225594_8371"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

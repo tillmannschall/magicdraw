@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317603_273204_12054"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StackItem" refid="_9_5_f720368_1110473548346_59814_23497"/></annotatedElement><body humanName="Body" mode="s,e">The StackItem class stores the element
+as well as a child index.  If the
+index is -1, then the element represented
+on the stack is the element itself.
+Otherwise, the index functions as as index
+into the vector of children of the element.
+In this case, the item on the stack
+represents the "index"th child of the element
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StackItem" refid="_9_5_f720368_1110473548346_59814_23497"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StackItem" refid="_9_5_f720368_1110473548346_59814_23497"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

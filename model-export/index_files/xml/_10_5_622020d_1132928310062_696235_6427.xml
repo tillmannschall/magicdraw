@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928310062_696235_6427"><documentation humanName="Documentation" mode="standard">A {@link java.util.Queue} that additionally supports operations
+that wait for the queue to become non-empty when retrieving an element,
+and wait for space to become available in the queue when storing an
+element.
+
+&lt;p&gt;A &lt;tt&gt;BlockingQueue&lt;/tt&gt; does not accept &lt;tt&gt;null&lt;/tt&gt; elements.
+Implementations throw &lt;tt&gt;NullPointerException&lt;/tt&gt; on attempts
+to &lt;tt&gt;add&lt;/tt&gt;, &lt;tt&gt;put&lt;/tt&gt; or &lt;tt&gt;offer&lt;/tt&gt; a &lt;tt&gt;null&lt;/tt&gt;.  A
+&lt;tt&gt;null&lt;/tt&gt; is used as a sentinel value to indicate failure of
+&lt;tt&gt;poll&lt;/tt&gt; operations.
+
+&lt;p&gt;A &lt;tt&gt;BlockingQueue&lt;/tt&gt; may be capacity bounded. At any given
+time it may have a &lt;tt&gt;remainingCapacity&lt;/tt&gt; beyond which no
+additional elements can be &lt;tt&gt;put&lt;/tt&gt; without blocking.
+A &lt;tt&gt;BlockingQueue&lt;/tt&gt; without any intrinsic capacity constraints always
+reports a remaining capacity of &lt;tt&gt;Integer.MAX_VALUE&lt;/tt&gt;.
+
+&lt;p&gt; &lt;tt&gt;BlockingQueue&lt;/tt&gt; implementations are designed to be used
+primarily for producer-consumer queues, but additionally support
+the {@link java.util.Collection} interface.  So, for example, it is
+possible to remove an arbitrary element from a queue using
+&lt;tt&gt;remove(x)&lt;/tt&gt;. However, such operations are in general
+&lt;em&gt;not&lt;/em&gt; performed very efficiently, and are intended for only
+occasional use, such as when a queued message is cancelled.
+
+&lt;p&gt; &lt;tt&gt;BlockingQueue&lt;/tt&gt; implementations are thread-safe.  All
+queuing methods achieve their effects atomically using internal
+locks or other forms of concurrency control. However, the
+&lt;em&gt;bulk&lt;/em&gt; Collection operations &lt;tt&gt;addAll&lt;/tt&gt;,
+&lt;tt&gt;containsAll&lt;/tt&gt;, &lt;tt&gt;retainAll&lt;/tt&gt; and &lt;tt&gt;removeAll&lt;/tt&gt; are
+&lt;em&gt;not&lt;/em&gt; necessarily performed atomically unless specified
+otherwise in an implementation. So it is possible, for example, for
+&lt;tt&gt;addAll(c)&lt;/tt&gt; to fail (throwing an exception) after adding
+only some of the elements in &lt;tt&gt;c&lt;/tt&gt;.
+
+&lt;p&gt;A &lt;tt&gt;BlockingQueue&lt;/tt&gt; does &lt;em&gt;not&lt;/em&gt; intrinsically support
+any kind of "close" or "shutdown" operation to
+indicate that no more items will be added.  The needs and usage of
+such features tend to be implementation-dependent. For example, a
+common tactic is for producers to insert special
+&lt;em&gt;end-of-stream&lt;/em&gt; or &lt;em&gt;poison&lt;/em&gt; objects, that are
+interpreted accordingly when taken by consumers.
+
+&lt;p&gt;
+Usage example, based on a typical producer-consumer scenario.
+Note that a &lt;tt&gt;BlockingQueue&lt;/tt&gt; can safely be used with multiple
+producers and multiple consumers.
+&lt;pre&gt;
+class Producer implements Runnable {
+private final BlockingQueue queue;
+Producer(BlockingQueue q) { queue = q; }
+public void run() {
+try {
+while(true) { queue.put(produce()); }
+} catch (InterruptedException ex) { ... handle ...}
+}
+Object produce() { ... }
+}
+
+class Consumer implements Runnable {
+private final BlockingQueue queue;
+Consumer(BlockingQueue q) { queue = q; }
+public void run() {
+try {
+while(true) { consume(queue.take()); }
+} catch (InterruptedException ex) { ... handle ...}
+}
+void consume(Object x) { ... }
+}
+
+class Setup {
+void main() {
+BlockingQueue q = new SomeQueueImplementation();
+Producer p = new Producer(q);
+Consumer c1 = new Consumer(q);
+Consumer c2 = new Consumer(q);
+new Thread(p).start();
+new Thread(c1).start();
+new Thread(c2).start();
+}
+}
+&lt;/pre&gt;
+
+&lt;p&gt;This interface is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@since 1.5
+@author Doug Lea
+@param &lt;E&gt; the type of elements held in this collection
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Queue&lt;E&gt;" refid="_10_5_622020d_1132928321999_800194_14363"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321999_981254_14366"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">BlockingQueue</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310062_486455_6432"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928310062_967032_6428"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321999_981254_14366"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310062_486455_6432"/></ownedElement><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928310062_967032_6428"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::concurrent::BlockingQueue</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

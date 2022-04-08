@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546799_892299_10861"><documentation humanName="Documentation" mode="standard">A model for a potentially unbounded sequence of object values.  This model
+is similar to &lt;code&gt;ListModel&lt;/code&gt; however there are some important differences:
+&lt;ul&gt;
+&lt;li&gt; The number of sequence elements isn't neccessarily bounded.
+&lt;li&gt; The model doesn't support indexed random access to sequence elements.
+Only three sequence values are accessible at a time: current, next and
+previous.
+&lt;li&gt; The current sequence element, can be set.
+&lt;/ul&gt;
+&lt;p&gt;
+A &lt;code&gt;SpinnerModel&lt;/code&gt; has three properties, only the first is read/write.
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;value&lt;/code&gt;
+&lt;dd&gt;The current element of the sequence.
+
+&lt;dt&gt;&lt;code&gt;nextValue&lt;/code&gt;
+&lt;dd&gt;The following element or null if &lt;code&gt;value&lt;/code&gt; is the
+last element of the sequence.
+
+&lt;dt&gt;&lt;code&gt;previousValue&lt;/code&gt;
+&lt;dd&gt;The preceeding element or null if &lt;code&gt;value&lt;/code&gt; is the
+first element of the sequence.
+&lt;/dl&gt;
+When the the &lt;code&gt;value&lt;/code&gt; property changes,
+&lt;code&gt;ChangeListeners&lt;/code&gt; are notified.  &lt;code&gt;SpinnerModel&lt;/code&gt; may
+choose to notify the &lt;code&gt;ChangeListeners&lt;/code&gt; under other circumstances.
+
+@see JSpinner
+@see AbstractSpinnerModel
+@see SpinnerListModel
+@see SpinnerNumberModel
+@see SpinnerDateModel
+
+@version 1.6 12/19/03
+@author Hans Muller
+@since 1.4
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SpinnerModel</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318224_679982_12647"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318224_679982_12647"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::SpinnerModel</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::AbstractSpinnerModel -&gt; JDK 5.0 Classes::javax::swing::SpinnerModel]" refid="_10_5_622020d_1132928323912_701949_18212"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

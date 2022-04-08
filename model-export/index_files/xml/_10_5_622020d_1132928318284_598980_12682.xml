@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318284_598980_12682"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ToolTipManager" refid="_9_5_f720368_1110473546799_927070_10881"/></annotatedElement><body humanName="Body" mode="s,e">Manages all the &lt;code&gt;ToolTips&lt;/code&gt; in the system.
+&lt;p&gt;
+ToolTipManager contains numerous properties for configuring how long it
+will take for the tooltips to become visible, and how long till they
+hide. Consider a component that has a different tooltip based on where
+the mouse is, such as JTree. When the mouse moves into the JTree and
+over a region that has a valid tooltip, the tooltip will become
+visibile after &lt;code&gt;initialDelay&lt;/code&gt; milliseconds. After
+&lt;code&gt;dismissDelay&lt;/code&gt; milliseconds the tooltip will be hidden. If
+the mouse is over a region that has a valid tooltip, and the tooltip
+is currently visible, when the mouse moves to a region that doesn't have
+a valid tooltip the tooltip will be hidden. If the mouse then moves back
+into a region that has a valid tooltip within &lt;code&gt;reshowDelay&lt;/code&gt;
+milliseconds, the tooltip will immediately be shown, otherwise the
+tooltip will be shown again after &lt;code&gt;initialDelay&lt;/code&gt; milliseconds.
+
+@see JComponent#createToolTip
+@version 1.70 01/16/04
+@author Dave Moore
+@author Rich Schiavi
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ToolTipManager" refid="_9_5_f720368_1110473546799_927070_10881"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ToolTipManager" refid="_9_5_f720368_1110473546799_927070_10881"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

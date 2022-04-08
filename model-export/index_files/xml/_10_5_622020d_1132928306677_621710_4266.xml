@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306677_621710_4266"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="List" refid="_9_5_f720368_1110473546581_433987_7069"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;List&lt;/code&gt; component presents the user with a
+scrolling list of text items. The list can be set up so that
+the user can choose either one item or multiple items.
+&lt;p&gt;
+For example, the code&amp;nbsp;.&amp;nbsp;.&amp;nbsp;.
+&lt;p&gt;
+&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+List lst = new List(4, false);
+lst.add("Mercury");
+lst.add("Venus");
+lst.add("Earth");
+lst.add("JavaSoft");
+lst.add("Mars");
+lst.add("Jupiter");
+lst.add("Saturn");
+lst.add("Uranus");
+lst.add("Neptune");
+lst.add("Pluto");
+cnt.add(lst);
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+where &lt;code&gt;cnt&lt;/code&gt; is a container, produces the following
+scrolling list:
+&lt;p&gt;
+&lt;img src="doc-files/List-1.gif"
+alt="Shows a list containing: Venus, Earth, JavaSoft, and Mars. Javasoft is selected." ALIGN=center HSPACE=10 VSPACE=7&gt;
+&lt;p&gt;
+If the List allows multiple selections, then clicking on
+an item that is already selected deselects it. In the preceding
+example, only one item from the scrolling list can be selected
+at a time, since the second argument when creating the new scrolling
+list is &lt;code&gt;false&lt;/code&gt;. If the List does not allow multiple
+selections, selecting an item causes any other selected item
+to be deselected.
+&lt;p&gt;
+Note that the list in the example shown was created with four visible
+rows.  Once the list has been created, the number of visible rows
+cannot be changed.  A default &lt;code&gt;List&lt;/code&gt; is created with
+four rows, so that &lt;code&gt;lst = new List()&lt;/code&gt; is equivalent to
+&lt;code&gt;list = new List(4, false)&lt;/code&gt;.
+&lt;p&gt;
+Beginning with Java&amp;nbsp;1.1, the Abstract Window Toolkit
+sends the &lt;code&gt;List&lt;/code&gt; object all mouse, keyboard, and focus events
+that occur over it. (The old AWT event model is being maintained
+only for backwards compatibility, and its use is discouraged.)
+&lt;p&gt;
+When an item is selected or deselected by the user, AWT sends an instance
+of &lt;code&gt;ItemEvent&lt;/code&gt; to the list.
+When the user double-clicks on an item in a scrolling list,
+AWT sends an instance of &lt;code&gt;ActionEvent&lt;/code&gt; to the
+list following the item event. AWT also generates an action event
+when the user presses the return key while an item in the
+list is selected.
+&lt;p&gt;
+If an application wants to perform some action based on an item
+in this list being selected or activated by the user, it should implement
+&lt;code&gt;ItemListener&lt;/code&gt; or &lt;code&gt;ActionListener&lt;/code&gt;
+as appropriate and register the new listener to receive
+events from this list.
+&lt;p&gt;
+For multiple-selection scrolling lists, it is considered a better
+user interface to use an external gesture (such as clicking on a
+button) to trigger the action.
+@version 	1.106, 05/18/04
+@author 	Sami Shaio
+@see         java.awt.event.ItemEvent
+@see         java.awt.event.ItemListener
+@see         java.awt.event.ActionEvent
+@see         java.awt.event.ActionListener
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="List" refid="_9_5_f720368_1110473546581_433987_7069"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="List" refid="_9_5_f720368_1110473546581_433987_7069"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

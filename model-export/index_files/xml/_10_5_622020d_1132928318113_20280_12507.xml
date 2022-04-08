@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318113_20280_12507"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultEditor" refid="_9_5_f720368_1110473548456_375399_24281"/></annotatedElement><body humanName="Body" mode="s,e">A simple base class for more specialized editors
+that displays a read-only view of the model's current
+value with a &lt;code&gt;JFormattedTextField&lt;code&gt;.  Subclasses
+can configure the &lt;code&gt;JFormattedTextField&lt;code&gt; to create
+an editor that's appropriate for the type of model they
+support and they may want to override
+the &lt;code&gt;stateChanged&lt;/code&gt; and &lt;code&gt;propertyChanged&lt;/code&gt;
+methods, which keep the model and the text field in sync.
+&lt;p&gt;
+This class defines a &lt;code&gt;dismiss&lt;/code&gt; method that removes the
+editors &lt;code&gt;ChangeListener&lt;/code&gt; from the &lt;code&gt;JSpinner&lt;/code&gt;
+that it's part of.   The &lt;code&gt;setEditor&lt;/code&gt; method knows about
+&lt;code&gt;DefaultEditor.dismiss&lt;/code&gt;, so if the developer
+replaces an editor that's derived from &lt;code&gt;JSpinner.DefaultEditor&lt;/code&gt;
+its &lt;code&gt;ChangeListener&lt;/code&gt; connection back to the
+&lt;code&gt;JSpinner&lt;/code&gt; will be removed.  However after that,
+it's up to the developer to manage their editor listeners.
+Similarly, if a subclass overrides &lt;code&gt;createEditor&lt;/code&gt;,
+it's up to the subclasser to deal with their editor
+subsequently being replaced (with &lt;code&gt;setEditor&lt;/code&gt;).
+We expect that in most cases, and in editor installed
+with &lt;code&gt;setEditor&lt;/code&gt; or created by a &lt;code&gt;createEditor&lt;/code&gt;
+override, will not be replaced anyway.
+&lt;p&gt;
+This class is the &lt;code&gt;LayoutManager&lt;code&gt; for it's single
+&lt;code&gt;JFormattedTextField&lt;/code&gt; child.   By default the
+child is just centered with the parents insets.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DefaultEditor" refid="_9_5_f720368_1110473548456_375399_24281"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultEditor" refid="_9_5_f720368_1110473548456_375399_24281"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

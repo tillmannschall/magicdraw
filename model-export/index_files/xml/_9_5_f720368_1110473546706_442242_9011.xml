@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546706_442242_9011"><documentation humanName="Documentation" mode="standard">An interface to be implemented by objects that can determine the
+settings of an &lt;code&gt;IIOMetadata&lt;/code&gt; object, either by putting
+up a GUI to obtain values from a user, or by other means.  This
+interface merely specifies a generic &lt;code&gt;activate&lt;/code&gt; method
+that invokes the controller, without regard for how the controller
+obtains values (&lt;i&gt;i.e.&lt;/i&gt;, whether the controller puts up a GUI
+or merely computes a set of values is irrelevant to this
+interface).
+
+&lt;p&gt; Within the &lt;code&gt;activate&lt;/code&gt; method, a controller obtains
+initial values by querying the &lt;code&gt;IIOMetadata&lt;/code&gt; object's
+settings, either using the XML DOM tree or a plug-in specific
+interface, modifies values by whatever means, then modifies the
+&lt;code&gt;IIOMetadata&lt;/code&gt; object's settings, using either the
+&lt;code&gt;setFromTree&lt;/code&gt; or &lt;code&gt;mergeTree&lt;/code&gt; methods, or a
+plug-in specific interface.  In general, applications may expect
+that when the &lt;code&gt;activate&lt;/code&gt; method returns
+&lt;code&gt;true&lt;/code&gt;, the &lt;code&gt;IIOMetadata&lt;/code&gt; object is ready for
+use in a write operation.
+
+&lt;p&gt; Vendors may choose to provide GUIs for the
+&lt;code&gt;IIOMetadata&lt;/code&gt; subclasses they define for a particular
+plug-in.  These can be set up as default controllers in the
+corresponding &lt;code&gt;IIOMetadata&lt;/code&gt; subclasses.
+
+&lt;p&gt; Alternatively, an algorithmic process such as a database lookup
+or the parsing of a command line could be used as a controller, in
+which case the &lt;code&gt;activate&lt;/code&gt; method would simply look up or
+compute the settings, call methods on &lt;code&gt;IIOMetadata&lt;/code&gt; to
+set its state, and return &lt;code&gt;true&lt;/code&gt;.
+
+@see IIOMetadata#setController
+@see IIOMetadata#getController
+@see IIOMetadata#getDefaultController
+@see IIOMetadata#hasController
+@see IIOMetadata#activateController
+
+@version 0.5
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">IIOMetadataController</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="metadata" refid="_9_5_f720368_1110473547924_355090_19855"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314779_426807_9165"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314779_426807_9165"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="metadata" refid="_9_5_f720368_1110473547924_355090_19855"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="metadata" refid="_9_5_f720368_1110473547924_355090_19855"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="metadata" refid="_9_5_f720368_1110473547924_355090_19855"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::imageio::metadata::IIOMetadataController</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

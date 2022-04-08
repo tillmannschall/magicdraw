@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317543_315418_11957"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="TextHandlingDestination" refid="_9_5_f720368_1110473548331_229451_23294"/></annotatedElement><body humanName="Body" mode="s,e">RTFReader.TextHandlingDestination provides basic text handling
+functionality. Subclasses must implement: &lt;dl&gt;
+&lt;dt&gt;deliverText()&lt;dd&gt;to handle a run of text with the same
+attributes
+&lt;dt&gt;finishParagraph()&lt;dd&gt;to end the current paragraph and
+set the paragraph's attributes
+&lt;dt&gt;endSection()&lt;dd&gt;to end the current section
+&lt;/dl&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="TextHandlingDestination" refid="_9_5_f720368_1110473548331_229451_23294"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="TextHandlingDestination" refid="_9_5_f720368_1110473548331_229451_23294"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

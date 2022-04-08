@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928310252_134742_6695"><documentation humanName="Documentation" mode="standard">An {@link ExecutorService} that executes each submitted task using
+one of possibly several pooled threads, normally configured
+using {@link Executors} factory methods.
+
+&lt;p&gt;Thread pools address two different problems: they usually
+provide improved performance when executing large numbers of
+asynchronous tasks, due to reduced per-task invocation overhead,
+and they provide a means of bounding and managing the resources,
+including threads, consumed when executing a collection of tasks.
+Each &lt;tt&gt;ThreadPoolExecutor&lt;/tt&gt; also maintains some basic
+statistics, such as the number of completed tasks.
+
+&lt;p&gt;To be useful across a wide range of contexts, this class
+provides many adjustable parameters and extensibility
+hooks. However, programmers are urged to use the more convenient
+{@link Executors} factory methods {@link
+Executors#newCachedThreadPool} (unbounded thread pool, with
+automatic thread reclamation), {@link Executors#newFixedThreadPool}
+(fixed size thread pool) and {@link
+Executors#newSingleThreadExecutor} (single background thread), that
+preconfigure settings for the most common usage
+scenarios. Otherwise, use the following guide when manually
+configuring and tuning this class:
+
+&lt;dl&gt;
+
+&lt;dt&gt;Core and maximum pool sizes&lt;/dt&gt;
+
+&lt;dd&gt;A &lt;tt&gt;ThreadPoolExecutor&lt;/tt&gt; will automatically adjust the
+pool size
+(see {@link ThreadPoolExecutor#getPoolSize})
+according to the bounds set by corePoolSize
+(see {@link ThreadPoolExecutor#getCorePoolSize})
+and
+maximumPoolSize
+(see {@link ThreadPoolExecutor#getMaximumPoolSize}).
+When a new task is submitted in method {@link
+ThreadPoolExecutor#execute}, and fewer than corePoolSize threads
+are running, a new thread is created to handle the request, even if
+other worker threads are idle.  If there are more than
+corePoolSize but less than maximumPoolSize threads running, a new
+thread will be created only if the queue is full.  By setting
+corePoolSize and maximumPoolSize the same, you create a fixed-size
+thread pool. By setting maximumPoolSize to an essentially unbounded
+value such as &lt;tt&gt;Integer.MAX_VALUE&lt;/tt&gt;, you allow the pool to
+accommodate an arbitrary number of concurrent tasks. Most typically,
+core and maximum pool sizes are set only upon construction, but they
+may also be changed dynamically using {@link
+ThreadPoolExecutor#setCorePoolSize} and {@link
+ThreadPoolExecutor#setMaximumPoolSize}. &lt;dd&gt;
+
+&lt;dt&gt; On-demand construction
+
+&lt;dd&gt; By default, even core threads are initially created and
+started only when needed by new tasks, but this can be overridden
+dynamically using method {@link
+ThreadPoolExecutor#prestartCoreThread} or
+{@link ThreadPoolExecutor#prestartAllCoreThreads}.  &lt;/dd&gt;
+
+&lt;dt&gt;Creating new threads&lt;/dt&gt;
+
+&lt;dd&gt;New threads are created using a {@link
+java.util.concurrent.ThreadFactory}.  If not otherwise specified, a
+{@link Executors#defaultThreadFactory} is used, that creates threads to all
+be in the same {@link ThreadGroup} and with the same
+&lt;tt&gt;NORM_PRIORITY&lt;/tt&gt; priority and non-daemon status. By supplying
+a different ThreadFactory, you can alter the thread's name, thread
+group, priority, daemon status, etc. If a &lt;tt&gt;ThreadFactory&lt;/tt&gt; fails to create
+a thread when asked by returning null from &lt;tt&gt;newThread&lt;/tt&gt;,
+the executor will continue, but might
+not be able to execute any tasks. &lt;/dd&gt;
+
+&lt;dt&gt;Keep-alive times&lt;/dt&gt;
+
+&lt;dd&gt;If the pool currently has more than corePoolSize threads,
+excess threads will be terminated if they have been idle for more
+than the keepAliveTime (see {@link
+ThreadPoolExecutor#getKeepAliveTime}). This provides a means of
+reducing resource consumption when the pool is not being actively
+used. If the pool becomes more active later, new threads will be
+constructed. This parameter can also be changed dynamically
+using method {@link ThreadPoolExecutor#setKeepAliveTime}. Using
+a value of &lt;tt&gt;Long.MAX_VALUE&lt;/tt&gt; {@link TimeUnit#NANOSECONDS}
+effectively disables idle threads from ever terminating prior
+to shut down.
+&lt;/dd&gt;
+
+&lt;dt&gt;Queuing&lt;/dt&gt;
+
+&lt;dd&gt;Any {@link BlockingQueue} may be used to transfer and hold
+submitted tasks.  The use of this queue interacts with pool sizing:
+
+&lt;ul&gt;
+
+&lt;li&gt; If fewer than corePoolSize threads are running, the Executor
+always prefers adding a new thread
+rather than queuing.&lt;/li&gt;
+
+&lt;li&gt; If corePoolSize or more threads are running, the Executor
+always prefers queuing a request rather than adding a new
+thread.&lt;/li&gt;
+
+&lt;li&gt; If a request cannot be queued, a new thread is created unless
+this would exceed maximumPoolSize, in which case, the task will be
+rejected.&lt;/li&gt;
+
+&lt;/ul&gt;
+
+There are three general strategies for queuing:
+&lt;ol&gt;
+
+&lt;li&gt; &lt;em&gt; Direct handoffs.&lt;/em&gt; A good default choice for a work
+queue is a {@link SynchronousQueue} that hands off tasks to threads
+without otherwise holding them. Here, an attempt to queue a task
+will fail if no threads are immediately available to run it, so a
+new thread will be constructed. This policy avoids lockups when
+handling sets of requests that might have internal dependencies.
+Direct handoffs generally require unbounded maximumPoolSizes to
+avoid rejection of new submitted tasks. This in turn admits the
+possibility of unbounded thread growth when commands continue to
+arrive on average faster than they can be processed.  &lt;/li&gt;
+
+&lt;li&gt;&lt;em&gt; Unbounded queues.&lt;/em&gt; Using an unbounded queue (for
+example a {@link LinkedBlockingQueue} without a predefined
+capacity) will cause new tasks to be queued in cases where all
+corePoolSize threads are busy. Thus, no more than corePoolSize
+threads will ever be created. (And the value of the maximumPoolSize
+therefore doesn't have any effect.)  This may be appropriate when
+each task is completely independent of others, so tasks cannot
+affect each others execution; for example, in a web page server.
+While this style of queuing can be useful in smoothing out
+transient bursts of requests, it admits the possibility of
+unbounded work queue growth when commands continue to arrive on
+average faster than they can be processed.  &lt;/li&gt;
+
+&lt;li&gt;&lt;em&gt;Bounded queues.&lt;/em&gt; A bounded queue (for example, an
+{@link ArrayBlockingQueue}) helps prevent resource exhaustion when
+used with finite maximumPoolSizes, but can be more difficult to
+tune and control.  Queue sizes and maximum pool sizes may be traded
+off for each other: Using large queues and small pools minimizes
+CPU usage, OS resources, and context-switching overhead, but can
+lead to artificially low throughput.  If tasks frequently block (for
+example if they are I/O bound), a system may be able to schedule
+time for more threads than you otherwise allow. Use of small queues
+generally requires larger pool sizes, which keeps CPUs busier but
+may encounter unacceptable scheduling overhead, which also
+decreases throughput.  &lt;/li&gt;
+
+&lt;/ol&gt;
+
+&lt;/dd&gt;
+
+&lt;dt&gt;Rejected tasks&lt;/dt&gt;
+
+&lt;dd&gt; New tasks submitted in method {@link
+ThreadPoolExecutor#execute} will be &lt;em&gt;rejected&lt;/em&gt; when the
+Executor has been shut down, and also when the Executor uses finite
+bounds for both maximum threads and work queue capacity, and is
+saturated.  In either case, the &lt;tt&gt;execute&lt;/tt&gt; method invokes the
+{@link RejectedExecutionHandler#rejectedExecution} method of its
+{@link RejectedExecutionHandler}.  Four predefined handler policies
+are provided:
+
+&lt;ol&gt;
+
+&lt;li&gt; In the
+default {@link ThreadPoolExecutor.AbortPolicy}, the handler throws a
+runtime {@link RejectedExecutionException} upon rejection. &lt;/li&gt;
+
+&lt;li&gt; In {@link
+ThreadPoolExecutor.CallerRunsPolicy}, the thread that invokes
+&lt;tt&gt;execute&lt;/tt&gt; itself runs the task. This provides a simple
+feedback control mechanism that will slow down the rate that new
+tasks are submitted. &lt;/li&gt;
+
+&lt;li&gt; In {@link ThreadPoolExecutor.DiscardPolicy},
+a task that cannot be executed is simply dropped.  &lt;/li&gt;
+
+&lt;li&gt;In {@link
+ThreadPoolExecutor.DiscardOldestPolicy}, if the executor is not
+shut down, the task at the head of the work queue is dropped, and
+then execution is retried (which can fail again, causing this to be
+repeated.) &lt;/li&gt;
+
+&lt;/ol&gt;
+
+It is possible to define and use other kinds of {@link
+RejectedExecutionHandler} classes. Doing so requires some care
+especially when policies are designed to work only under particular
+capacity or queuing policies. &lt;/dd&gt;
+
+&lt;dt&gt;Hook methods&lt;/dt&gt;
+
+&lt;dd&gt;This class provides &lt;tt&gt;protected&lt;/tt&gt; overridable {@link
+ThreadPoolExecutor#beforeExecute} and {@link
+ThreadPoolExecutor#afterExecute} methods that are called before and
+after execution of each task.  These can be used to manipulate the
+execution environment; for example, reinitializing ThreadLocals,
+gathering statistics, or adding log entries. Additionally, method
+{@link ThreadPoolExecutor#terminated} can be overridden to perform
+any special processing that needs to be done once the Executor has
+fully terminated.
+
+&lt;p&gt;If hook or callback methods throw
+exceptions, internal worker threads may in turn fail and
+abruptly terminate.&lt;/dd&gt;
+
+&lt;dt&gt;Queue maintenance&lt;/dt&gt;
+
+&lt;dd&gt; Method {@link ThreadPoolExecutor#getQueue} allows access to
+the work queue for purposes of monitoring and debugging.  Use of
+this method for any other purpose is strongly discouraged.  Two
+supplied methods, {@link ThreadPoolExecutor#remove} and {@link
+ThreadPoolExecutor#purge} are available to assist in storage
+reclamation when large numbers of queued tasks become
+cancelled.&lt;/dd&gt; &lt;/dl&gt;
+
+&lt;p&gt; &lt;b&gt;Extension example&lt;/b&gt;. Most extensions of this class
+override one or more of the protected hook methods. For example,
+here is a subclass that adds a simple pause/resume feature:
+
+&lt;pre&gt;
+class PausableThreadPoolExecutor extends ThreadPoolExecutor {
+private boolean isPaused;
+private ReentrantLock pauseLock = new ReentrantLock();
+private Condition unpaused = pauseLock.newCondition();
+
+public PausableThreadPoolExecutor(...) { super(...); }
+
+protected void beforeExecute(Thread t, Runnable r) {
+super.beforeExecute(t, r);
+pauseLock.lock();
+try {
+while (isPaused) unpaused.await();
+} catch(InterruptedException ie) {
+t.interrupt();
+} finally {
+pauseLock.unlock();
+}
+}
+
+public void pause() {
+pauseLock.lock();
+try {
+isPaused = true;
+} finally {
+pauseLock.unlock();
+}
+}
+
+public void resume() {
+pauseLock.lock();
+try {
+isPaused = false;
+unpaused.signalAll();
+} finally {
+pauseLock.unlock();
+}
+}
+}
+&lt;/pre&gt;
+@since 1.5
+@author Doug Lea
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322309_163824_14535"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AbortPolicy" refid="_10_5_622020d_1132928310252_976206_6700"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CallerRunsPolicy" refid="_10_5_622020d_1132928310252_830680_6698"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DiscardOldestPolicy" refid="_10_5_622020d_1132928310252_536603_6704"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DiscardPolicy" refid="_10_5_622020d_1132928310252_102730_6702"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Worker" refid="_10_5_622020d_1132928310252_613982_6696"/></member><name humanName="Name" mode="s,e">ThreadPoolExecutor</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AbortPolicy" refid="_10_5_622020d_1132928310252_976206_6700"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CallerRunsPolicy" refid="_10_5_622020d_1132928310252_830680_6698"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DiscardOldestPolicy" refid="_10_5_622020d_1132928310252_536603_6704"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DiscardPolicy" refid="_10_5_622020d_1132928310252_102730_6702"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Worker" refid="_10_5_622020d_1132928310252_613982_6696"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310292_12226_6707"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322309_163824_14535"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310292_12226_6707"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AbortPolicy" refid="_10_5_622020d_1132928310252_976206_6700"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CallerRunsPolicy" refid="_10_5_622020d_1132928310252_830680_6698"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DiscardOldestPolicy" refid="_10_5_622020d_1132928310252_536603_6704"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DiscardPolicy" refid="_10_5_622020d_1132928310252_102730_6702"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Worker" refid="_10_5_622020d_1132928310252_613982_6696"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AbortPolicy" refid="_10_5_622020d_1132928310252_976206_6700"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CallerRunsPolicy" refid="_10_5_622020d_1132928310252_830680_6698"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DiscardOldestPolicy" refid="_10_5_622020d_1132928310252_536603_6704"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DiscardPolicy" refid="_10_5_622020d_1132928310252_102730_6702"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Worker" refid="_10_5_622020d_1132928310252_613982_6696"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::concurrent::ThreadPoolExecutor</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractExecutorService" refid="_10_5_622020d_1132928310052_153927_6416"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

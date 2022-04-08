@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309120_149385_5823"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CollectionCertStoreParameters" refid="_9_5_f720368_1110473546674_488489_8319"/></annotatedElement><body humanName="Body" mode="s,e">Parameters used as input for the Collection &lt;code&gt;CertStore&lt;/code&gt;
+algorithm.
+&lt;p&gt;
+This class is used to provide necessary configuration parameters
+to implementations of the Collection &lt;code&gt;CertStore&lt;/code&gt;
+algorithm. The only parameter included in this class is the
+&lt;code&gt;Collection&lt;/code&gt; from which the &lt;code&gt;CertStore&lt;/code&gt; will
+retrieve certificates and CRLs.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Unless otherwise specified, the methods defined in this class are not
+thread-safe. Multiple threads that need to access a single
+object concurrently should synchronize amongst themselves and
+provide the necessary locking. Multiple threads each manipulating
+separate objects need not synchronize.
+
+@version 	1.8 05/05/04
+@since	1.4
+@author	Steve Hanna
+@see         java.util.Collection
+@see         CertStore
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CollectionCertStoreParameters" refid="_9_5_f720368_1110473546674_488489_8319"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CollectionCertStoreParameters" refid="_9_5_f720368_1110473546674_488489_8319"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

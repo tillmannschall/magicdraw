@@ -1,0 +1,1764 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313166_399799_7248"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Formatter" refid="_10_5_622020d_1132928310993_904211_7237"/></annotatedElement><body humanName="Body" mode="s,e">An interpreter for printf-style format strings.  This class provides support
+for layout justification and alignment, common formats for numeric, string,
+and date/time data, and locale-specific output.  Common Java types such as
+&lt;tt&gt;byte&lt;/tt&gt;, {@link java.math.BigDecimal BigDecimal}, and {@link Calendar}
+are supported.  Limited formatting customization for arbitrary user types is
+provided through the {@link Formattable} interface.
+
+&lt;p&gt; Formatters are not necessarily safe for multithreaded access.  Thread
+safety is optional and is the responsibility of users of methods in this
+class.
+
+&lt;p&gt; Formatted printing for the Java language is heavily inspired by C's
+&lt;tt&gt;printf&lt;/tt&gt;.  Although the format strings are similar to C, some
+customizations have been made to accommodate the Java language and exploit
+some of its features.  Also, Java formatting is more strict than C's; for
+example, if a conversion is incompatible with a flag, an exception will be
+thrown.  In C inapplicable flags are silently ignored.  The format strings
+are thus intended to be recognizable to C programmers but not necessarily
+completely compatible with those in C.
+
+&lt;p&gt; Examples of expected usage:
+
+&lt;blockquote&gt;&lt;pre&gt;
+StringBuilder sb = new StringBuilder();
+Send all output to the Appendable object sb
+Formatter formatter = new Formatter(sb, Locale.US);
+
+Explicit argument indices may be used to re-order output.
+formatter.format("%4$2s %3$2s %2$2s %1$2s", "a", "b", "c", "d")
+-&gt; " d  c  b  a"
+
+Optional locale as the first argument can be used to get
+locale-specific formatting of numbers.  The precision and width can be
+given to round and align the value.
+formatter.format(Locale.FRANCE, "e = %+10.4f", Math.E);
+-&gt; "e =    +2,7183"
+
+The '(' numeric flag may be used to format negative numbers with
+parentheses rather than a minus sign.  Group separators are
+automatically inserted.
+formatter.format("Amount gained or lost since last statement: $ %(,.2f",
+balanceDelta);
+-&gt; "Amount gained or lost since last statement: $ (6,217.58)"
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; Convenience methods for common formatting requests exist as illustrated
+by the following invocations:
+
+&lt;blockquote&gt;&lt;pre&gt;
+Writes a formatted string to System.out.
+System.out.format("Local time: %tT", Calendar.getInstance());
+-&gt; "Local time: 13:34:18"
+
+Writes formatted output to System.err.
+System.err.printf("Unable to open file '%1$s': %2$s",
+fileName, exception.getMessage());
+-&gt; "Unable to open file 'food': No such file or directory"
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; Like C's &lt;tt&gt;sprintf(3)&lt;/tt&gt;, Strings may be formatted using the static
+method {@link String#format(String,Object...) String.format}:
+
+&lt;blockquote&gt;&lt;pre&gt;
+Format a string containing a date.
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import static java.util.Calendar.*;
+
+Calendar c = new GregorianCalendar(1995, MAY, 23);
+String s = String.format("Duke's Birthday: %1$tm %1$te,%1$tY", c);
+-&gt; s == "Duke's Birthday: May 23, 1995"
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;a name="org"&gt;&lt;h3&gt; Organization &lt;/h3&gt;&lt;/a&gt;
+
+&lt;p&gt; This specification is divided into two sections.  The first section, &lt;a
+href="#summary"&gt;Summary&lt;/a&gt;, covers the basic formatting concepts.  This
+section is intended for users who want to get started quickly and are
+familiar with formatted printing in other programming languages.  The second
+section, &lt;a href="#detail"&gt;Details&lt;/a&gt;, covers the specific implementation
+details.  It is intended for users who want more precise specification of
+formatting behavior.
+
+&lt;a name="summary"&gt;&lt;h3&gt; Summary &lt;/h3&gt;&lt;/a&gt;
+
+&lt;p&gt; This section is intended to provide a brief overview of formatting
+concepts.  For precise behavioral details, refer to the &lt;a
+href="#detail"&gt;Details&lt;/a&gt; section.
+
+&lt;a name="syntax"&gt;&lt;h4&gt; Format String Syntax &lt;/h4&gt;&lt;/a&gt;
+
+&lt;p&gt; Every method which produces formatted output requires a &lt;i&gt;format
+string&lt;/i&gt; and an &lt;i&gt;argument list&lt;/i&gt;.  The format string is a {@link
+String} which may contain fixed text and one or more embedded &lt;i&gt;format
+specifiers&lt;/i&gt;.  Consider the following example:
+
+&lt;blockquote&gt;&lt;pre&gt;
+Calendar c = ...;
+String s = String.format("Duke's Birthday: %1$tm %1$te,%1$tY", c);
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+This format string is the first argument to the &lt;tt&gt;format&lt;/tt&gt; method.  It
+contains three format specifiers "&lt;tt&gt;%1$tm&lt;/tt&gt;", "&lt;tt&gt;%1$te&lt;/tt&gt;", and
+"&lt;tt&gt;%1$tY&lt;/tt&gt;" which indicate how the arguments should be processed and
+where they should be inserted in the text.  The remaining portions of the
+format string are fixed text including &lt;tt&gt;"Dukes Birthday: "&lt;/tt&gt; and any
+other spaces or punctuation.
+
+The argument list consists of all arguments passed to the method after the
+format string.  In the above example, the argument list is of size one and
+consists of the new {@link java.util.Calendar Calendar} object.
+
+&lt;ul&gt;
+
+&lt;li&gt; The format specifiers for general, character, and numeric types have
+the following syntax:
+
+&lt;blockquote&gt;&lt;pre&gt;
+%[argument_index$][flags][width][.precision]conversion
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; The optional &lt;i&gt;argument_index&lt;/i&gt; is a decimal integer indicating the
+position of the argument in the argument list.  The first argument is
+referenced by "&lt;tt&gt;1$&lt;/tt&gt;", the second by "&lt;tt&gt;2$&lt;/tt&gt;", etc.
+
+&lt;p&gt; The optional &lt;i&gt;flags&lt;/i&gt; is a set of characters that modify the output
+format.  The set of valid flags depends on the conversion.
+
+&lt;p&gt; The optional &lt;i&gt;width&lt;/i&gt; is a non-negative decimal integer indicating
+the minimum number of characters to be written to the output.
+
+&lt;p&gt; The optional &lt;i&gt;precision&lt;/i&gt; is a non-negative decimal integer usually
+used to restrict the number of characters.  The specific behavior depends on
+the conversion.
+
+&lt;p&gt; The required &lt;i&gt;conversion&lt;/i&gt; is a character indicating how the
+argument should be formatted.  The set of valid conversions for a given
+argument depends on the argument's data type.
+
+&lt;li&gt; The format specifiers for types which are used to represents dates and
+times have the following syntax:
+
+&lt;blockquote&gt;&lt;pre&gt;
+%[argument_index$][flags][width]conversion
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; The optional &lt;i&gt;argument_index&lt;/i&gt;, &lt;i&gt;flags&lt;/i&gt; and &lt;i&gt;width&lt;/i&gt; are
+defined as above.
+
+&lt;p&gt; The required &lt;i&gt;conversion&lt;/i&gt; is a two character sequence.  The first
+character is &lt;tt&gt;'t'&lt;/tt&gt; or &lt;tt&gt;'T'&lt;/tt&gt;.  The second character indicates
+the format to be used.  These characters are similar to but not completely
+identical to those defined by GNU &lt;tt&gt;date&lt;/tt&gt; and POSIX
+&lt;tt&gt;strftime(3c)&lt;/tt&gt;.
+
+&lt;li&gt; The format specifiers which do not correspond to arguments have the
+following syntax:
+
+&lt;blockquote&gt;&lt;pre&gt;
+%[flags][width]conversion
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; The optional &lt;i&gt;flags&lt;/i&gt; and &lt;i&gt;width&lt;/i&gt; is defined as above.
+
+&lt;p&gt; The required &lt;i&gt;conversion&lt;/i&gt; is a character indicating content to be
+inserted in the output.
+
+&lt;/ul&gt;
+
+&lt;h4&gt; Conversions &lt;/h4&gt;
+
+&lt;p&gt; Conversions are divided into the following categories:
+
+&lt;ol&gt;
+
+&lt;li&gt; &lt;b&gt;General&lt;/b&gt; - may be applied to any argument
+type
+
+&lt;li&gt; &lt;b&gt;Character&lt;/b&gt; - may be applied to basic types which represent
+Unicode characters: &lt;tt&gt;char&lt;/tt&gt;, {@link Character}, &lt;tt&gt;byte&lt;/tt&gt;, {@link
+Byte}, &lt;tt&gt;short&lt;/tt&gt;, and {@link Short}. This conversion may also be
+applied to the types &lt;tt&gt;int&lt;/tt&gt; and {@link Integer} when {@link
+Character#isValidCodePoint} returns &lt;tt&gt;true&lt;/tt&gt;
+
+&lt;li&gt; &lt;b&gt;Numeric&lt;/b&gt;
+
+&lt;ol&gt;
+
+&lt;li&gt; &lt;b&gt;Integral&lt;/b&gt; - may be applied to Java integral types: &lt;tt&gt;byte&lt;/tt&gt;,
+{@link Byte}, &lt;tt&gt;short&lt;/tt&gt;, {@link Short}, &lt;tt&gt;int&lt;/tt&gt; and {@link
+Integer}, &lt;tt&gt;long&lt;/tt&gt;, {@link Long}, and {@link java.math.BigInteger
+BigInteger}
+
+&lt;li&gt;&lt;b&gt;Floating Point&lt;/b&gt; - may be applied to Java floating-point types:
+&lt;tt&gt;float&lt;/tt&gt;, {@link Float}, &lt;tt&gt;double&lt;/tt&gt;, {@link Double}, and {@link
+java.math.BigDecimal BigDecimal}
+
+&lt;/ol&gt;
+
+&lt;li&gt; &lt;b&gt;Date/Time&lt;/b&gt; - may be applied to Java types which are capable of
+encoding a date or time: &lt;tt&gt;long&lt;/tt&gt;, {@link Long}, {@link Calendar}, and
+{@link Date}.
+
+&lt;li&gt; &lt;b&gt;Percent&lt;/b&gt; - produces a literal &lt;tt&gt;'%'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u0025'&lt;/tt&gt;)
+
+&lt;li&gt; &lt;b&gt;Line Separator&lt;/b&gt; - produces the platform-specific line separator
+
+&lt;/ol&gt;
+
+&lt;p&gt; The following table summarizes the supported conversions.  Conversions
+denoted by an upper-case character (i.e. &lt;tt&gt;'B'&lt;/tt&gt;, &lt;tt&gt;'H'&lt;/tt&gt;,
+&lt;tt&gt;'S'&lt;/tt&gt;, &lt;tt&gt;'C'&lt;/tt&gt;, &lt;tt&gt;'X'&lt;/tt&gt;, &lt;tt&gt;'E'&lt;/tt&gt;, &lt;tt&gt;'G'&lt;/tt&gt;,
+&lt;tt&gt;'A'&lt;/tt&gt;, and &lt;tt&gt;'T'&lt;/tt&gt;) are the same as those for the corresponding
+lower-case conversion characters except that the result is converted to
+upper case according to the rules of the prevailing {@link java.util.Locale
+Locale}.  The result is equivalent to the following invocation of {@link
+String#toUpperCase()}
+
+&lt;pre&gt;
+out.toUpperCase() &lt;/pre&gt;
+
+&lt;table cellpadding=5 summary="genConv"&gt;
+
+&lt;tr&gt;&lt;th valign="bottom"&gt; Conversion
+&lt;th valign="bottom"&gt; Argument Category
+&lt;th valign="bottom"&gt; Description
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'b'&lt;/tt&gt;, &lt;tt&gt;'B'&lt;/tt&gt;
+&lt;td valign="top"&gt; general
+&lt;td&gt; If the argument &lt;i&gt;arg&lt;/i&gt; is &lt;tt&gt;null&lt;/tt&gt;, then the result is
+"&lt;tt&gt;false&lt;/tt&gt;".  If &lt;i&gt;arg&lt;/i&gt; is a &lt;tt&gt;boolean&lt;/tt&gt; or {@link
+Boolean}, then the result is the string returned by {@link
+String#valueOf(boolean) String.valueOf()}.  Otherwise, the result is
+"true".
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'h'&lt;/tt&gt;, &lt;tt&gt;'H'&lt;/tt&gt;
+&lt;td valign="top"&gt; general
+&lt;td&gt; If the argument &lt;i&gt;arg&lt;/i&gt; is &lt;tt&gt;null&lt;/tt&gt;, then the result is
+"&lt;tt&gt;null&lt;/tt&gt;".  Otherwise, the result is obtained by invoking
+&lt;tt&gt;Integer.toHexString(arg.hashCode())&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'s'&lt;/tt&gt;, &lt;tt&gt;'S'&lt;/tt&gt;
+&lt;td valign="top"&gt; general
+&lt;td&gt; If the argument &lt;i&gt;arg&lt;/i&gt; is &lt;tt&gt;null&lt;/tt&gt;, then the result is
+"&lt;tt&gt;null&lt;/tt&gt;".  If &lt;i&gt;arg&lt;/i&gt; implements {@link Formattable}, then
+{@link Formattable#formatTo arg.formatTo} is invoked. Otherwise, the
+result is obtained by invoking &lt;tt&gt;arg.toString()&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'c'&lt;/tt&gt;, &lt;tt&gt;'C'&lt;/tt&gt;
+&lt;td valign="top"&gt; character
+&lt;td&gt; The result is a Unicode character
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'d'&lt;/tt&gt;
+&lt;td valign="top"&gt; integral
+&lt;td&gt; The result is formatted as a decimal integer
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'o'&lt;/tt&gt;
+&lt;td valign="top"&gt; integral
+&lt;td&gt; The result is formatted as an octal integer
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'x'&lt;/tt&gt;, &lt;tt&gt;'X'&lt;/tt&gt;
+&lt;td valign="top"&gt; integral
+&lt;td&gt; The result is formatted as a hexadecimal integer
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'e'&lt;/tt&gt;, &lt;tt&gt;'E'&lt;/tt&gt;
+&lt;td valign="top"&gt; floating point
+&lt;td&gt; The result is formatted as a decimal number in computerized
+scientific notation
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'f'&lt;/tt&gt;
+&lt;td valign="top"&gt; floating point
+&lt;td&gt; The result is formatted as a decimal number
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'g'&lt;/tt&gt;, &lt;tt&gt;'G'&lt;/tt&gt;
+&lt;td valign="top"&gt; floating point
+&lt;td&gt; The result is formatted using computerized scientific notation or
+decimal format, depending on the precision and the value after rounding.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'a'&lt;/tt&gt;, &lt;tt&gt;'A'&lt;/tt&gt;
+&lt;td valign="top"&gt; floating point
+&lt;td&gt; The result is formatted as a hexadecimal floating-point number with
+a significand and an exponent
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'t'&lt;/tt&gt;, &lt;tt&gt;'T'&lt;/tt&gt;
+&lt;td valign="top"&gt; date/time
+&lt;td&gt; Prefix for date and time conversion characters.  See &lt;a
+href="#dt"&gt;Date/Time Conversions&lt;/a&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'%'&lt;/tt&gt;
+&lt;td valign="top"&gt; percent
+&lt;td&gt; The result is a literal &lt;tt&gt;'%'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u0025'&lt;/tt&gt;)
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'n'&lt;/tt&gt;
+&lt;td valign="top"&gt; line separator
+&lt;td&gt; The result is the platform-specific line separator
+
+&lt;/table&gt;
+
+&lt;p&gt; Any characters not explicitly defined as conversions are illegal and are
+reserved for future extensions.
+
+&lt;a name="dt"&gt;&lt;h4&gt; Date/Time Conversions &lt;/h4&gt;&lt;/a&gt;
+
+&lt;p&gt; The following date and time conversion suffix characters are defined for
+the &lt;tt&gt;'t'&lt;/tt&gt; and &lt;tt&gt;'T'&lt;/tt&gt; conversions.  The types are similar to but
+not completely identical to those defined by GNU &lt;tt&gt;date&lt;/tt&gt; and POSIX
+&lt;tt&gt;strftime(3c)&lt;/tt&gt;.  Additional conversion types are provided to access
+Java-specific functionality (e.g. &lt;tt&gt;'L'&lt;/tt&gt; for milliseconds within the
+second).
+
+&lt;p&gt; The following conversion characters are used for formatting times:
+
+&lt;table cellpadding=5 summary="time"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'H'&lt;/tt&gt;
+&lt;td&gt; Hour of the day for the 24-hour clock, formatted as two digits with
+a leading zero as necessary i.e. &lt;tt&gt;00 - 23&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'I'&lt;/tt&gt;
+&lt;td&gt; Hour for the 12-hour clock, formatted as two digits with a leading
+zero as necessary, i.e.  &lt;tt&gt;01 - 12&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'k'&lt;/tt&gt;
+&lt;td&gt; Hour of the day for the 24-hour clock, i.e. &lt;tt&gt;0 - 23&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'l'&lt;/tt&gt;
+&lt;td&gt; Hour for the 12-hour clock, i.e. &lt;tt&gt;1 - 12&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'M'&lt;/tt&gt;
+&lt;td&gt; Minute within the hour formatted as two digits with a leading zero
+as necessary, i.e.  &lt;tt&gt;00 - 59&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'S'&lt;/tt&gt;
+&lt;td&gt; Seconds within the minute, formatted as two digits with a leading
+zero as necessary, i.e. &lt;tt&gt;00 - 60&lt;/tt&gt; ("&lt;tt&gt;60&lt;/tt&gt;" is a special
+value required to support leap seconds).
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'L'&lt;/tt&gt;
+&lt;td&gt; Millisecond within the second formatted as three digits with
+leading zeros as necessary, i.e. &lt;tt&gt;000 - 999&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'N'&lt;/tt&gt;
+&lt;td&gt; Nanosecond within the second, formatted as nine digits with leading
+zeros as necessary, i.e. &lt;tt&gt;000000000 - 999999999&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'p'&lt;/tt&gt;
+&lt;td&gt; Locale-specific {@linkplain
+java.text.DateFormatSymbols#getAmPmStrings morning or afternoon} marker
+in lower case, e.g."&lt;tt&gt;am&lt;/tt&gt;" or "&lt;tt&gt;pm&lt;/tt&gt;". Use of the conversion
+prefix &lt;tt&gt;'T'&lt;/tt&gt; forces this output to upper case.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'z'&lt;/tt&gt;
+&lt;td&gt; &lt;a href="http://www.ietf.org/rfc/rfc0822.txt"&gt;RFC&amp;nbsp;822&lt;/a&gt;
+style numeric time zone offset from GMT, e.g. &lt;tt&gt;-0800&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'Z'&lt;/tt&gt;
+&lt;td&gt; A string representing the abbreviation for the time zone.  The
+Formatter's locale will supersede the locale of the argument (if any).
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'s'&lt;/tt&gt;
+&lt;td&gt; Seconds since the beginning of the epoch starting at 1 January 1970
+&lt;tt&gt;00:00:00&lt;/tt&gt; UTC, i.e. &lt;tt&gt;Long.MIN_VALUE/1000&lt;/tt&gt; to
+&lt;tt&gt;Long.MAX_VALUE/1000&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'Q'&lt;/tt&gt;
+&lt;td&gt; Milliseconds since the beginning of the epoch starting at 1 January
+1970 &lt;tt&gt;00:00:00&lt;/tt&gt; UTC, i.e. &lt;tt&gt;Long.MIN_VALUE&lt;/tt&gt; to
+&lt;tt&gt;Long.MAX_VALUE&lt;/tt&gt;.
+
+&lt;/table&gt;
+
+&lt;p&gt; The following conversion characters are used for formatting dates:
+
+&lt;table cellpadding=5 summary="date"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'B'&lt;/tt&gt;
+&lt;td&gt; Locale-specific {@linkplain java.text.DateFormatSymbols#getMonths
+full month name}, e.g. &lt;tt&gt;"January"&lt;/tt&gt;, &lt;tt&gt;"February"&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'b'&lt;/tt&gt;
+&lt;td&gt; Locale-specific {@linkplain
+java.text.DateFormatSymbols#getShortMonths abbreviated month name},
+e.g. &lt;tt&gt;"Jan"&lt;/tt&gt;, &lt;tt&gt;"Feb"&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'h'&lt;/tt&gt;
+&lt;td&gt; Same as &lt;tt&gt;'b'&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'A'&lt;/tt&gt;
+&lt;td&gt; Locale-specific full name of the {@linkplain
+java.text.DateFormatSymbols#getWeekdays day of the week},
+e.g. &lt;tt&gt;"Sunday"&lt;/tt&gt;, &lt;tt&gt;"Monday"&lt;/tt&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'a'&lt;/tt&gt;
+&lt;td&gt; Locale-specific short name of the {@linkplain
+java.text.DateFormatSymbols#getShortWeekdays day of the week},
+e.g. &lt;tt&gt;"Sun"&lt;/tt&gt;, &lt;tt&gt;"Mon"&lt;/tt&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'C'&lt;/tt&gt;
+&lt;td&gt; Four-digit year divided by &lt;tt&gt;100&lt;/tt&gt;, formatted as two digits
+with leading zero as necessary, i.e. &lt;tt&gt;00 - 99&lt;/tt&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'Y'&lt;/tt&gt;
+&lt;td&gt; Year, formatted as at least four digits with leading zeros as
+necessary, e.g. &lt;tt&gt;0092&lt;/tt&gt; equals &lt;tt&gt;92&lt;/tt&gt; CE for the Gregorian
+calendar.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'y'&lt;/tt&gt;
+&lt;td&gt; Last two digits of the year, formatted with leading zeros as
+necessary, i.e. &lt;tt&gt;00 - 99&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'j'&lt;/tt&gt;
+&lt;td&gt; Day of year, formatted as three digits with leading zeros as
+necessary, e.g. &lt;tt&gt;001 - 366&lt;/tt&gt; for the Gregorian calendar.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'m'&lt;/tt&gt;
+&lt;td&gt; Month, formatted as two digits with leading zeros as necessary,
+i.e. &lt;tt&gt;01 - 13&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'d'&lt;/tt&gt;
+&lt;td&gt; Day of month, formatted as two digits with leading zeros as
+necessary, i.e. &lt;tt&gt;01 - 31&lt;/tt&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'e'&lt;/tt&gt;
+&lt;td&gt; Day of month, formatted as two digits, i.e. &lt;tt&gt;1 - 31&lt;/tt&gt;.
+
+&lt;/table&gt;
+
+&lt;p&gt; The following conversion characters are used for formatting common
+date/time compositions.
+
+&lt;table cellpadding=5 summary="composites"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'R'&lt;/tt&gt;
+&lt;td&gt; Time formatted for the 24-hour clock as &lt;tt&gt;"%tH:%tM"&lt;/tt&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'T'&lt;/tt&gt;
+&lt;td&gt; Time formatted for the 24-hour clock as &lt;tt&gt;"%tH:%tM:%tS"&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'r'&lt;/tt&gt;
+&lt;td&gt; Time formatted for the 12-hour clock as &lt;tt&gt;"%tI:%tM:%tS %Tp"&lt;/tt&gt;.
+The location of the morning or afternoon marker (&lt;tt&gt;'%Tp'&lt;/tt&gt;) may be
+locale-dependent.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'D'&lt;/tt&gt;
+&lt;td&gt; Date formatted as &lt;tt&gt;"%tm/%td/%ty"&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'F'&lt;/tt&gt;
+&lt;td&gt; &lt;a href="http://www.w3.org/TR/NOTE-datetime"&gt;ISO&amp;nbsp;8601&lt;/a&gt;
+complete date formatted as &lt;tt&gt;"%tY-%tm-%td"&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'c'&lt;/tt&gt;
+&lt;td&gt; Date and time formatted as &lt;tt&gt;"%ta %tb %td %tT %tZ %tY"&lt;/tt&gt;,
+e.g. &lt;tt&gt;"Sun Jul 20 16:17:00 EDT 1969"&lt;/tt&gt;.
+
+&lt;/table&gt;
+
+&lt;p&gt; Any characters not explicitly defined as date/time conversion suffixes
+are illegal and are reserved for future extensions.
+
+&lt;h4&gt; Flags &lt;/h4&gt;
+
+&lt;p&gt; The following table summarizes the supported flags.  &lt;i&gt;y&lt;/i&gt; means the
+flag is supported for the indicated argument types.
+
+&lt;table cellpadding=5 summary="genConv"&gt;
+
+&lt;tr&gt;&lt;th valign="bottom"&gt; Flag &lt;th valign="bottom"&gt; General
+&lt;th valign="bottom"&gt; Character &lt;th valign="bottom"&gt; Integral
+&lt;th valign="bottom"&gt; Floating Point
+&lt;th valign="bottom"&gt; Date/Time
+&lt;th valign="bottom"&gt; Description
+
+&lt;tr&gt;&lt;td&gt; '-' &lt;td align="center" valign="top"&gt; y
+&lt;td align="center" valign="top"&gt; y
+&lt;td align="center" valign="top"&gt; y
+&lt;td align="center" valign="top"&gt; y
+&lt;td align="center" valign="top"&gt; y
+&lt;td&gt; The result will be left-justified.
+
+&lt;tr&gt;&lt;td&gt; '#' &lt;td align="center" valign="top"&gt; y&lt;sup&gt;1&lt;/sup&gt;
+&lt;td align="center" valign="top"&gt; -
+&lt;td align="center" valign="top"&gt; y&lt;sup&gt;3&lt;/sup&gt;
+&lt;td align="center" valign="top"&gt; y
+&lt;td align="center" valign="top"&gt; -
+&lt;td&gt; The result should use a conversion-dependent alternate form
+
+&lt;tr&gt;&lt;td&gt; '+' &lt;td align="center" valign="top"&gt; -
+&lt;td align="center" valign="top"&gt; -
+&lt;td align="center" valign="top"&gt; y&lt;sup&gt;4&lt;/sup&gt;
+&lt;td align="center" valign="top"&gt; y
+&lt;td align="center" valign="top"&gt; -
+&lt;td&gt; The result will always include a sign
+
+&lt;tr&gt;&lt;td&gt; '&amp;nbsp;&amp;nbsp;' &lt;td align="center" valign="top"&gt; -
+&lt;td align="center" valign="top"&gt; -
+&lt;td align="center" valign="top"&gt; y&lt;sup&gt;4&lt;/sup&gt;
+&lt;td align="center" valign="top"&gt; y
+&lt;td align="center" valign="top"&gt; -
+&lt;td&gt; The result will include a leading space for positive values
+
+&lt;tr&gt;&lt;td&gt; '0' &lt;td align="center" valign="top"&gt; -
+&lt;td align="center" valign="top"&gt; -
+&lt;td align="center" valign="top"&gt; y
+&lt;td align="center" valign="top"&gt; y
+&lt;td align="center" valign="top"&gt; -
+&lt;td&gt; The result will be zero-padded
+
+&lt;tr&gt;&lt;td&gt; ',' &lt;td align="center" valign="top"&gt; -
+&lt;td align="center" valign="top"&gt; -
+&lt;td align="center" valign="top"&gt; y&lt;sup&gt;2&lt;/sup&gt;
+&lt;td align="center" valign="top"&gt; y&lt;sup&gt;5&lt;/sup&gt;
+&lt;td align="center" valign="top"&gt; -
+&lt;td&gt; The result will include locale-specific {@linkplain
+java.text.DecimalFormatSymbols#getGroupingSeparator grouping separators}
+
+&lt;tr&gt;&lt;td&gt; '(' &lt;td align="center" valign="top"&gt; -
+&lt;td align="center" valign="top"&gt; -
+&lt;td align="center" valign="top"&gt; y&lt;sup&gt;4&lt;/sup&gt;
+&lt;td align="center" valign="top"&gt; y&lt;sup&gt;5&lt;/sup&gt;
+&lt;td align="center"&gt; -
+&lt;td&gt; The result will enclose negative numbers in parentheses
+
+&lt;/table&gt;
+
+&lt;p&gt; &lt;sup&gt;1&lt;/sup&gt; Depends on the definition of {@link Formattable}.
+
+&lt;p&gt; &lt;sup&gt;2&lt;/sup&gt; For &lt;tt&gt;'d'&lt;/tt&gt; conversion only.
+
+&lt;p&gt; &lt;sup&gt;3&lt;/sup&gt; For &lt;tt&gt;'o'&lt;/tt&gt;, &lt;tt&gt;'x'&lt;/tt&gt;, and &lt;tt&gt;'X'&lt;/tt&gt;
+conversions only.
+
+&lt;p&gt; &lt;sup&gt;4&lt;/sup&gt; For &lt;tt&gt;'d'&lt;/tt&gt;, &lt;tt&gt;'o'&lt;/tt&gt;, &lt;tt&gt;'x'&lt;/tt&gt;, and
+&lt;tt&gt;'X'&lt;/tt&gt; conversions applied to {@link java.math.BigInteger BigInteger}
+or &lt;tt&gt;'d'&lt;/tt&gt; applied to &lt;tt&gt;byte&lt;/tt&gt;, {@link Byte}, &lt;tt&gt;short&lt;/tt&gt;, {@link
+Short}, &lt;tt&gt;int&lt;/tt&gt; and {@link Integer}, &lt;tt&gt;long&lt;/tt&gt;, and {@link Long}.
+
+&lt;p&gt; &lt;sup&gt;5&lt;/sup&gt; For &lt;tt&gt;'e'&lt;/tt&gt;, &lt;tt&gt;'E'&lt;/tt&gt;, &lt;tt&gt;'f'&lt;/tt&gt;,
+&lt;tt&gt;'g'&lt;/tt&gt;, and &lt;tt&gt;'G'&lt;/tt&gt; conversions only.
+
+&lt;p&gt; Any characters not explicitly defined as flags are illegal and are
+reserved for future extensions.
+
+&lt;h4&gt; Width &lt;/h4&gt;
+
+&lt;p&gt; The width is the minimum number of characters to be written to the
+output.  For the line separator conversion, width is not applicable; if it
+is provided, an exception will be thrown.
+
+&lt;h4&gt; Precision &lt;/h4&gt;
+
+&lt;p&gt; For general argument types, the precision is the maximum number of
+characters to be written to the output.
+
+&lt;p&gt; For the floating-point conversions &lt;tt&gt;'e'&lt;/tt&gt;, &lt;tt&gt;'E'&lt;/tt&gt;, and
+&lt;tt&gt;'f'&lt;/tt&gt; the precision is the number of digits after the decimal
+separator.  If the conversion is &lt;tt&gt;'g'&lt;/tt&gt; or &lt;tt&gt;'G'&lt;/tt&gt;, then the
+precision is the total number of digits in the resulting magnitude after
+rounding.  If the conversion is &lt;tt&gt;'a'&lt;/tt&gt; or &lt;tt&gt;'A'&lt;/tt&gt;, then the
+precision must not be specified.
+
+&lt;p&gt; For character, integral, and date/time argument types and the percent
+and line separator conversions, the precision is not applicable; if a
+precision is provided, an exception will be thrown.
+
+&lt;h4&gt; Argument Index &lt;/h4&gt;
+
+&lt;p&gt; The argument index is a decimal integer indicating the position of the
+argument in the argument list.  The first argument is referenced by
+"&lt;tt&gt;1$&lt;/tt&gt;", the second by "&lt;tt&gt;2$&lt;/tt&gt;", etc.
+
+&lt;p&gt; Another way to reference arguments by position is to use the
+&lt;tt&gt;'&lt;'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u003c'&lt;/tt&gt;) flag, which causes the argument for the
+previous format specifier to be re-used.  For example, the following two
+statements would produce identical strings:
+
+&lt;blockquote&gt;&lt;pre&gt;
+Calendar c = ...;
+String s1 = String.format("Duke's Birthday: %1$tm %1$te,%1$tY", c);
+
+String s2 = String.format("Duke's Birthday: %1$tm %&lt;$te,%&lt;$tY", c);
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;hr&gt;
+&lt;a name="detail"&gt;&lt;h3&gt; Details &lt;/h3&gt;&lt;/a&gt;
+
+&lt;p&gt; This section is intended to provide behavioral details for formatting,
+including conditions and exceptions, supported data types, localization, and
+interactions between flags, conversions, and data types.  For an overview of
+formatting concepts, refer to the &lt;a href="#summary"&gt;Summary&lt;/a&gt;
+
+&lt;p&gt; Any characters not explicitly defined as conversions, date/time
+conversion suffixes, or flags are illegal and are reserved for
+future extensions.  Use of such a character in a format string will
+cause an {@link UnknownFormatConversionException} or {@link
+UnknownFormatFlagsException} to be thrown.
+
+&lt;p&gt; If the format specifier contains a width or precision with an invalid
+value or which is otherwise unsupported, then a {@link
+IllegalFormatWidthException} or {@link IllegalFormatPrecisionException}
+respectively will be thrown.
+
+&lt;p&gt; If a format specifier contains a conversion character that is not
+applicable to the corresponding argument, then an {@link
+IllegalFormatConversionException} will be thrown.
+
+&lt;p&gt; All specified exceptions may be thrown by any of the &lt;tt&gt;format&lt;/tt&gt;
+methods of &lt;tt&gt;Formatter&lt;/tt&gt; as well as by any &lt;tt&gt;format&lt;/tt&gt; convenience
+methods such as {@link String#format(String,Object...) String.format} and
+{@link java.io.PrintStream#printf(String,Object...) PrintStream.printf}.
+
+&lt;p&gt; Conversions denoted by an upper-case character (i.e. &lt;tt&gt;'B'&lt;/tt&gt;,
+&lt;tt&gt;'H'&lt;/tt&gt;, &lt;tt&gt;'S'&lt;/tt&gt;, &lt;tt&gt;'C'&lt;/tt&gt;, &lt;tt&gt;'X'&lt;/tt&gt;, &lt;tt&gt;'E'&lt;/tt&gt;,
+&lt;tt&gt;'G'&lt;/tt&gt;, &lt;tt&gt;'A'&lt;/tt&gt;, and &lt;tt&gt;'T'&lt;/tt&gt;) are the same as those for the
+corresponding lower-case conversion characters except that the result is
+converted to upper case according to the rules of the prevailing {@link
+java.util.Locale Locale}.  The result is equivalent to the following
+invocation of {@link String#toUpperCase()}
+
+&lt;pre&gt;
+out.toUpperCase() &lt;/pre&gt;
+
+&lt;a name="dgen"&gt;&lt;h4&gt; General &lt;/h4&gt;&lt;/a&gt;
+
+&lt;p&gt; The following general conversions may be applied to any argument type:
+
+&lt;table cellpadding=5 summary="dgConv"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'b'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0062'&lt;/tt&gt;
+&lt;td&gt; Produces either "&lt;tt&gt;true&lt;/tt&gt;" or "&lt;tt&gt;false&lt;/tt&gt;" as returned by
+{@link Boolean#toString(boolean)}.
+
+&lt;p&gt; If the argument is &lt;tt&gt;null&lt;/tt&gt;, then the result is
+"&lt;tt&gt;false&lt;/tt&gt;".  If the argument is a &lt;tt&gt;boolean&lt;/tt&gt; or {@link
+Boolean}, then the result is the string returned by {@link
+String#valueOf(boolean) String.valueOf()}.  Otherwise, the result is
+"&lt;tt&gt;true&lt;/tt&gt;".
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given, then a {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'B'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0042'&lt;/tt&gt;
+&lt;td&gt; The upper-case variant of &lt;tt&gt;'b'&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'h'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0068'&lt;/tt&gt;
+&lt;td&gt; Produces a string representing the hash code value of the object.
+
+&lt;p&gt; If the argument, &lt;i&gt;arg&lt;/i&gt; is &lt;tt&gt;null&lt;/tt&gt;, then the
+result is "&lt;tt&gt;null&lt;/tt&gt;".  Otherwise, the result is obtained
+by invoking &lt;tt&gt;Integer.toHexString(arg.hashCode())&lt;/tt&gt;.
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given, then a {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'H'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0048'&lt;/tt&gt;
+&lt;td&gt; The upper-case variant of &lt;tt&gt;'h'&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'s'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0073'&lt;/tt&gt;
+&lt;td&gt; Produces a string.
+
+&lt;p&gt; If the argument is &lt;tt&gt;null&lt;/tt&gt;, then the result is
+"&lt;tt&gt;null&lt;/tt&gt;".  If the argument implements {@link Formattable}, then
+its {@link Formattable#formatTo formatTo} method is invoked.
+Otherwise, the result is obtained by invoking the argument's
+&lt;tt&gt;toString()&lt;/tt&gt; method.
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given and the argument is not a {@link
+Formattable} , then a {@link FormatFlagsConversionMismatchException}
+will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'S'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0053'&lt;/tt&gt;
+&lt;td&gt; The upper-case variant of &lt;tt&gt;'s'&lt;/tt&gt;.
+
+&lt;/table&gt;
+
+&lt;p&gt; The following flags apply to general conversions:
+
+&lt;a name="dFlags"&gt;&lt;table cellpadding=5 summary="dFlags"&gt;&lt;/a&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'-'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u002d'&lt;/tt&gt;
+&lt;td&gt; Left justifies the output.  Spaces (&lt;tt&gt;'&amp;#92;u0020'&lt;/tt&gt;) will be
+added at the end of the converted value as required to fill the minimum
+width of the field.  If the width is not provided, then a {@link
+MissingFormatWidthException} will be thrown.  If this flag is not given
+then the output will be right-justified.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'#'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0023'&lt;/tt&gt;
+&lt;td&gt; Requires the output use an alternate form.  The definition of the
+form is specified by the conversion.
+
+&lt;/table&gt;
+
+&lt;a name="genWidth"&gt;&lt;/a&gt;
+
+&lt;p&gt; The width is the minimum number of characters to be written to the
+output.  If the length of the converted value is less than the width then
+the output will be padded by &lt;tt&gt;'&amp;nbsp;&amp;nbsp;'&lt;/tt&gt; (&lt;tt&gt;&amp;#92;u0020'&lt;/tt&gt;)
+until the total number of characters equals the width.  The padding is on
+the left by default.  If the &lt;tt&gt;'-'&lt;/tt&gt; flag is given, then the padding
+will be on the right.  If the width is not specified then there is no
+minimum.
+
+&lt;p&gt; The precision is the maximum number of characters to be written to the
+output.  The precision is applied before the width, thus the output will be
+truncated to &lt;tt&gt;precision&lt;/tt&gt; characters even if the width is greater than
+the precision.  If the precision is not specified then there is no explicit
+limit on the number of characters.
+
+&lt;a name="dchar"&gt;&lt;h4&gt; Character &lt;/h4&gt;&lt;/a&gt;
+
+This conversion may be applied to &lt;tt&gt;char&lt;/tt&gt;, {@link Character},
+&lt;tt&gt;byte&lt;/tt&gt;, {@link Byte}, &lt;tt&gt;short&lt;/tt&gt;, and {@link Short}. This
+conversion may also be applied to the types &lt;tt&gt;int&lt;/tt&gt; and {@link Integer}
+when {@link Character#isValidCodePoint} returns &lt;tt&gt;true&lt;/tt&gt;.  If it
+returns &lt;tt&gt;false&lt;/tt&gt; then an {@link IllegalFormatCodePointException} will
+be thrown.
+
+&lt;table cellpadding=5 summary="charConv"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'c'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0063'&lt;/tt&gt;
+&lt;td&gt; Formats the argument as a Unicode character as described in &lt;a
+href="../lang/Character.html#unicode"&gt;Unicode Character
+Representation&lt;/a&gt;.  This may be more than one 16-bit &lt;tt&gt;char&lt;/tt&gt; in
+the case where the argument represents a supplementary character.
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given, then a {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'C'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0043'&lt;/tt&gt;
+&lt;td&gt; The upper-case variant of &lt;tt&gt;'c'&lt;/tt&gt;.
+
+&lt;/table&gt;
+
+&lt;p&gt; The &lt;tt&gt;'-'&lt;/tt&gt; flag defined for &lt;a href="#dFlags"&gt;General
+conversions&lt;/a&gt; applies.  If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given, then a {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;p&gt; The width is defined as for &lt;a href="#genWidth"&gt;General conversions&lt;/a&gt;.
+
+&lt;p&gt; The precision is not applicable.  If the precision is specified then an
+{@link IllegalFormatPrecisionException} will be thrown.
+
+&lt;a name="dnum"&gt;&lt;h4&gt; Numeric &lt;/h4&gt;&lt;/a&gt;
+
+&lt;p&gt; Numeric conversions are divided into the following categories:
+
+&lt;ol&gt;
+
+&lt;li&gt; &lt;a href="#dnint"&gt;&lt;b&gt;Byte, Short, Integer, and Long&lt;/b&gt;&lt;/a&gt;
+
+&lt;li&gt; &lt;a href="#dnbint"&gt;&lt;b&gt;BigInteger&lt;/b&gt;&lt;/a&gt;
+
+&lt;li&gt; &lt;a href="#dndec"&gt;&lt;b&gt;Float and Double&lt;/b&gt;&lt;/a&gt;
+
+&lt;li&gt; &lt;a href="#dndec"&gt;&lt;b&gt;BigDecimal&lt;/b&gt;&lt;/a&gt;
+
+&lt;/ol&gt;
+
+&lt;p&gt; Numeric types will be formatted according to the following algorithm:
+
+&lt;p&gt;&lt;b&gt;&lt;a name="l10n algorithm"&gt; Number Localization Algorithm&lt;a&gt;&lt;/b&gt;
+
+&lt;p&gt; After digits are obtained for the integer part, fractional part, and
+exponent (as appropriate for the data type), the following transformation
+is applied:
+
+&lt;ol&gt;
+
+&lt;li&gt; Each digit character &lt;i&gt;d&lt;/i&gt; in the string is replaced by a
+locale-specific digit computed relative to the current locale's
+{@linkplain java.text.DecimalFormatSymbols#getZeroDigit() zero digit}
+&lt;i&gt;z&lt;/i&gt;; that is &lt;i&gt;d&amp;nbsp;-&amp;nbsp;&lt;/i&gt; &lt;tt&gt;'0'&lt;/tt&gt;
+&lt;i&gt;&amp;nbsp;+&amp;nbsp;z&lt;/i&gt;.
+
+&lt;li&gt; If a decimal separator is present, a locale-specific {@linkplain
+java.text.DecimalFormatSymbols#getDecimalSeparator decimal separator} is
+substituted.
+
+&lt;li&gt; &lt;a name="l10n group"&gt;&lt;/a&gt; If the &lt;tt&gt;','&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u002c'&lt;/tt&gt;)
+flag is given, then the locale-specific {@linkplain
+java.text.DecimalFormatSymbols#getGroupingSeparator grouping separator} is
+inserted by scanning the integer part of the string from least significant
+to most significant digits and inserting a separator at intervals defined by
+the locale's {@linkplain java.text.DecimalFormat#getGroupingSize() grouping
+size}.
+
+&lt;li&gt; If the &lt;tt&gt;'0'&lt;/tt&gt; flag is given, then the locale-specific {@linkplain
+java.text.DecimalFormatSymbols#getZeroDigit() zero digits} are inserted
+after the sign character, if any, and before the first non-zero digit, until
+the length of the string is equal to the requested field width.
+
+&lt;li&gt; If the value is negative and the &lt;tt&gt;'('&lt;/tt&gt; flag is given, then a
+&lt;tt&gt;'('&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u0028'&lt;/tt&gt;) is prepended and a &lt;tt&gt;')'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u0029'&lt;/tt&gt;) is appended.
+
+&lt;li&gt; If the value is negative (or floating-point negative zero) and
+&lt;tt&gt;'('&lt;/tt&gt; flag is not given, then a &lt;tt&gt;'-'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u002d'&lt;/tt&gt;)
+is prepended.
+
+&lt;li&gt; If the &lt;tt&gt;'+'&lt;/tt&gt; flag is given and the value is positive or zero (or
+floating-point positive zero), then a &lt;tt&gt;'+'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u002b'&lt;/tt&gt;)
+will be prepended.
+
+&lt;/ol&gt;
+
+&lt;p&gt; If the value is NaN or positive infinity the literal strings "NaN" or
+"Infinity" respectively, will be output.  If the value is negative infinity,
+then the output will be "(Infinity)" if the &lt;tt&gt;'('&lt;/tt&gt; flag is given
+otherwise the output will be "-Infinity".  These values are not localized.
+
+&lt;p&gt;&lt;a name="dnint"&gt;&lt;b&gt; Byte, Short, Integer, and Long &lt;/b&gt;&lt;/a&gt;
+
+&lt;p&gt; The following conversions may be applied to &lt;tt&gt;byte&lt;/tt&gt;, {@link Byte},
+&lt;tt&gt;short&lt;/tt&gt;, {@link Short}, &lt;tt&gt;int&lt;/tt&gt; and {@link Integer},
+&lt;tt&gt;long&lt;/tt&gt;, and {@link Long}.
+
+&lt;table cellpadding=5 summary="IntConv"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'d'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0054'&lt;/tt&gt;
+&lt;td&gt; Formats the argument as a decimal integer. The &lt;a
+href="#l10n algorithm"&gt;localization algorithm&lt;/a&gt; is applied.
+
+&lt;p&gt; If the &lt;tt&gt;'0'&lt;/tt&gt; flag is given and the value is negative, then
+the zero padding will occur after the sign.
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given then a {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'o'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u006f'&lt;/tt&gt;
+&lt;td&gt; Formats the argument as an integer in base eight.  No localization
+is applied.
+
+&lt;p&gt; If &lt;i&gt;x&lt;/i&gt; is negative then the result will be an unsigned value
+generated by adding 2&lt;sup&gt;n&lt;/sup&gt; to the value where &lt;tt&gt;n&lt;/tt&gt; is the
+number of bits in the type as returned by the static &lt;tt&gt;SIZE&lt;/tt&gt; field
+in the {@linkplain Byte#SIZE Byte}, {@linkplain Short#SIZE Short},
+{@linkplain Integer#SIZE Integer}, or {@linkplain Long#SIZE Long}
+classes as appropriate.
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given then the output will always begin
+with the radix indicator &lt;tt&gt;'0'&lt;/tt&gt;.
+
+&lt;p&gt; If the &lt;tt&gt;'0'&lt;/tt&gt; flag is given then the output will be padded
+with leading zeros to the field width following any indication of sign.
+
+&lt;p&gt; If &lt;tt&gt;'('&lt;/tt&gt;, &lt;tt&gt;'+'&lt;/tt&gt;, '&amp;nbsp&amp;nbsp;', or &lt;tt&gt;','&lt;/tt&gt; flags
+are given then a {@link FormatFlagsConversionMismatchException} will be
+thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'x'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0078'&lt;/tt&gt;
+&lt;td&gt; Formats the argument as an integer in base sixteen. No
+localization is applied.
+
+&lt;p&gt; If &lt;i&gt;x&lt;/i&gt; is negative then the result will be an unsigned value
+generated by adding 2&lt;sup&gt;n&lt;/sup&gt; to the value where &lt;tt&gt;n&lt;/tt&gt; is the
+number of bits in the type as returned by the static &lt;tt&gt;SIZE&lt;/tt&gt; field
+in the {@linkplain Byte#SIZE Byte}, {@linkplain Short#SIZE Short},
+{@linkplain Integer#SIZE Integer}, or {@linkplain Long#SIZE Long}
+classes as appropriate.
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given then the output will always begin
+with the radix indicator &lt;tt&gt;"0x"&lt;/tt&gt;.
+
+&lt;p&gt; If the &lt;tt&gt;'0'&lt;/tt&gt; flag is given then the output will be padded to
+the field width with leading zeros after the radix indicator or sign (if
+present).
+
+&lt;p&gt; If &lt;tt&gt;'('&lt;/tt&gt;, &lt;tt&gt;'&amp;nbsp;&amp;nbsp;'&lt;/tt&gt;, &lt;tt&gt;'+'&lt;/tt&gt;, or
+&lt;tt&gt;','&lt;/tt&gt; flags are given then a {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'X'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0058'&lt;/tt&gt;
+&lt;td&gt; The upper-case variant of &lt;tt&gt;'x'&lt;/tt&gt;.  The entire string
+representing the number will be converted to {@linkplain
+String#toUpperCase upper case} including the &lt;tt&gt;'x'&lt;/tt&gt; (if any) and
+all hexadecimal digits &lt;tt&gt;'a'&lt;/tt&gt; - &lt;tt&gt;'f'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u0061'&lt;/tt&gt; -  &lt;tt&gt;'&amp;#92;u0066'&lt;/tt&gt;).
+
+&lt;/table&gt;
+
+&lt;p&gt; If the conversion is &lt;tt&gt;'o'&lt;/tt&gt;, &lt;tt&gt;'x'&lt;/tt&gt;, or &lt;tt&gt;'X'&lt;/tt&gt; and
+both the &lt;tt&gt;'#'&lt;/tt&gt; and the &lt;tt&gt;'0'&lt;/tt&gt; flags are given, then result will
+contain the radix indicator (&lt;tt&gt;'0'&lt;/tt&gt; for octal and &lt;tt&gt;"0x"&lt;/tt&gt; or
+&lt;tt&gt;"0X"&lt;/tt&gt; for hexadecimal), some number of zeros (based on the width),
+and the value.
+
+&lt;p&gt; If the &lt;tt&gt;'-'&lt;/tt&gt; flag is not given, then the space padding will occur
+before the sign.
+
+&lt;p&gt; The following flags apply to numeric integral conversions:
+
+&lt;table cellpadding=5 summary="intFlags"&gt;&lt;a name="intFlags"&gt;&lt;/a&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'+'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u002b'&lt;/tt&gt;
+&lt;td&gt; Requires the output to include a positive sign for all positive
+numbers.  If this flag is not given then only negative values will
+include a sign.
+
+&lt;p&gt; If both the &lt;tt&gt;'+'&lt;/tt&gt; and &lt;tt&gt;'&amp;nbsp;&amp;nbsp;'&lt;/tt&gt; flags are given
+then an {@link IllegalFormatFlagsException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'&amp;nbsp;&amp;nbsp;'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0020'&lt;/tt&gt;
+&lt;td&gt; Requires the output to include a single extra space
+(&lt;tt&gt;'&amp;#92;u0020'&lt;/tt&gt;) for non-negative values.
+
+&lt;p&gt; If both the &lt;tt&gt;'+'&lt;/tt&gt; and &lt;tt&gt;'&amp;nbsp;&amp;nbsp;'&lt;/tt&gt; flags are given
+then an {@link IllegalFormatFlagsException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'0'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0030'&lt;/tt&gt;
+&lt;td&gt; Requires the output to be padded with leading {@linkplain
+java.text.DecimalFormatSymbols#getZeroDigit zeros} to the minimum field
+width following any sign or radix indicator except when converting NaN
+or infinity.  If the width is not provided, then a {@link
+MissingFormatWidthException} will be thrown.
+
+&lt;p&gt; If both the &lt;tt&gt;'-'&lt;/tt&gt; and &lt;tt&gt;'0'&lt;/tt&gt; flags are given then an
+{@link IllegalFormatFlagsException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;','&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u002c'&lt;/tt&gt;
+&lt;td&gt; Requires the output to include the locale-specific {@linkplain
+java.text.DecimalFormatSymbols#getGroupingSeparator group separators} as
+described in the &lt;a href="#l10n group"&gt;"group" section&lt;/a&gt; of the
+localization algorithm.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'('&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0028'&lt;/tt&gt;
+&lt;td&gt; Requires the output to prepend a &lt;tt&gt;'('&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u0028'&lt;/tt&gt;) and append a &lt;tt&gt;')'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u0029'&lt;/tt&gt;) to negative values.
+
+&lt;/table&gt;
+
+&lt;a name="intdFlags"&gt;&lt;/a&gt;&lt;p&gt; If no flags are given the default formatting is
+as follows:
+
+&lt;ul&gt;
+
+&lt;li&gt; The output is right-justified within the &lt;tt&gt;width&lt;/tt&gt;
+
+&lt;li&gt; Negative numbers begin with a &lt;tt&gt;'-'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u002d'&lt;/tt&gt;)
+
+&lt;li&gt; Positive numbers and zero do not include a sign or extra leading
+space
+
+&lt;li&gt; No grouping separators are included
+
+&lt;/ul&gt;
+
+&lt;a name="intWidth"&gt;&lt;/a&gt;&lt;p&gt; The width is the minimum number of characters to
+be written to the output.  This includes any signs, digits, grouping
+separators, radix indicator, and parentheses.  If the length of the
+converted value is less than the width then the output will be padded by
+spaces (&lt;tt&gt;'&amp;#92;u0020'&lt;/tt&gt;) until the total number of characters equals
+width.  The padding is on the left by default.  If &lt;tt&gt;'-'&lt;/tt&gt; flag is
+given then the padding will be on the right.  If width is not specified then
+there is no minimum.
+
+&lt;p&gt; The precision is not applicable.  If precision is specified then an
+{@link IllegalFormatPrecisionException} will be thrown.
+
+&lt;p&gt;&lt;a name="dnbint"&gt;&lt;b&gt; BigInteger &lt;/b&gt;&lt;/a&gt;
+
+&lt;p&gt; The following conversions may be applied to {@link
+java.math.BigInteger}.
+
+&lt;table cellpadding=5 summary="BIntConv"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'d'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0054'&lt;/tt&gt;
+&lt;td&gt; Requires the output to be formatted as a decimal integer. The &lt;a
+href="#l10n algorithm"&gt;localization algorithm&lt;/a&gt; is applied.
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'o'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u006f'&lt;/tt&gt;
+&lt;td&gt; Requires the output to be formatted as an integer in base eight.
+No localization is applied.
+
+&lt;p&gt; If &lt;i&gt;x&lt;/i&gt; is negative then the result will be a signed value
+beginning with &lt;tt&gt;'-'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u002d'&lt;/tt&gt;).  Signed output is
+allowed for this type because unlike the primitive types it is not
+possible to create an unsigned equivalent without assuming an explicit
+data-type size.
+
+&lt;p&gt; If &lt;i&gt;x&lt;/i&gt; is positive or zero and the &lt;tt&gt;'+'&lt;/tt&gt; flag is given
+then the result will begin with &lt;tt&gt;'+'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u002b'&lt;/tt&gt;).
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given then the output will always begin
+with &lt;tt&gt;'0'&lt;/tt&gt; prefix.
+
+&lt;p&gt; If the &lt;tt&gt;'0'&lt;/tt&gt; flag is given then the output will be padded
+with leading zeros to the field width following any indication of sign.
+
+&lt;p&gt; If the &lt;tt&gt;','&lt;/tt&gt; flag is given then a {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'x'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0078'&lt;/tt&gt;
+&lt;td&gt; Requires the output to be formatted as an integer in base
+sixteen.  No localization is applied.
+
+&lt;p&gt; If &lt;i&gt;x&lt;/i&gt; is negative then the result will be a signed value
+beginning with &lt;tt&gt;'-'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u002d'&lt;/tt&gt;).  Signed output is
+allowed for this type because unlike the primitive types it is not
+possible to create an unsigned equivalent without assuming an explicit
+data-type size.
+
+&lt;p&gt; If &lt;i&gt;x&lt;/i&gt; is positive or zero and the &lt;tt&gt;'+'&lt;/tt&gt; flag is given
+then the result will begin with &lt;tt&gt;'+'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u002b'&lt;/tt&gt;).
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given then the output will always begin
+with the radix indicator &lt;tt&gt;"0x"&lt;/tt&gt;.
+
+&lt;p&gt; If the &lt;tt&gt;'0'&lt;/tt&gt; flag is given then the output will be padded to
+the field width with leading zeros after the radix indicator or sign (if
+present).
+
+&lt;p&gt; If the &lt;tt&gt;','&lt;/tt&gt; flag is given then a {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'X'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0058'&lt;/tt&gt;
+&lt;td&gt; The upper-case variant of &lt;tt&gt;'x'&lt;/tt&gt;.  The entire string
+representing the number will be converted to {@linkplain
+String#toUpperCase upper case} including the &lt;tt&gt;'x'&lt;/tt&gt; (if any) and
+all hexadecimal digits &lt;tt&gt;'a'&lt;/tt&gt; - &lt;tt&gt;'f'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u0061'&lt;/tt&gt; - &lt;tt&gt;'&amp;#92;u0066'&lt;/tt&gt;).
+
+&lt;/table&gt;
+
+&lt;p&gt; If the conversion is &lt;tt&gt;'o'&lt;/tt&gt;, &lt;tt&gt;'x'&lt;/tt&gt;, or &lt;tt&gt;'X'&lt;/tt&gt; and
+both the &lt;tt&gt;'#'&lt;/tt&gt; and the &lt;tt&gt;'0'&lt;/tt&gt; flags are given, then result will
+contain the base indicator (&lt;tt&gt;'0'&lt;/tt&gt; for octal and &lt;tt&gt;"0x"&lt;/tt&gt; or
+&lt;tt&gt;"0X"&lt;/tt&gt; for hexadecimal), some number of zeros (based on the width),
+and the value.
+
+&lt;p&gt; If the &lt;tt&gt;'0'&lt;/tt&gt; flag is given and the value is negative, then the
+zero padding will occur after the sign.
+
+&lt;p&gt; If the &lt;tt&gt;'-'&lt;/tt&gt; flag is not given, then the space padding will occur
+before the sign.
+
+&lt;p&gt; All &lt;a href="#intFlags"&gt;flags&lt;/a&gt; defined for Byte, Short, Integer, and
+Long apply.  The &lt;a href="#intdFlags"&gt;default behavior&lt;/a&gt; when no flags are
+given is the same as for Byte, Short, Integer, and Long.
+
+&lt;p&gt; The specification of &lt;a href="#intWidth"&gt;width&lt;/a&gt; is the same as
+defined for Byte, Short, Integer, and Long.
+
+&lt;p&gt; The precision is not applicable.  If precision is specified then an
+{@link IllegalFormatPrecisionException} will be thrown.
+
+&lt;p&gt;&lt;a name="dndec"&gt;&lt;b&gt; Float and Double&lt;/b&gt;&lt;a&gt;
+
+&lt;p&gt; The following conversions may be applied to &lt;tt&gt;float&lt;/tt&gt;, {@link
+Float}, &lt;tt&gt;double&lt;/tt&gt; and {@link Double}.
+
+&lt;table cellpadding=5 summary="floatConv"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'e'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0065'&lt;/tt&gt;
+&lt;td&gt; Requires the output to be formatted using &lt;a
+name="scientific"&gt;computerized scientific notation&lt;/a&gt;.  The &lt;a
+href="#l10n algorithm"&gt;localization algorithm&lt;/a&gt; is applied.
+
+&lt;p&gt; The formatting of the magnitude &lt;i&gt;m&lt;/i&gt; depends upon its value.
+
+&lt;p&gt; If &lt;i&gt;m&lt;/i&gt; is NaN or infinite, the literal strings "NaN" or
+"Infinity", respectively, will be output.  These values are not
+localized.
+
+&lt;p&gt; If &lt;i&gt;m&lt;/i&gt; is positive-zero or negative-zero, then the exponent
+will be &lt;tt&gt;"+00"&lt;/tt&gt;.
+
+&lt;p&gt; Otherwise, the result is a string that represents the sign and
+magnitude (absolute value) of the argument.  The formatting of the sign
+is described in the &lt;a href="#l10n algorithm"&gt;localization
+algorithm&lt;/a&gt;. The formatting of the magnitude &lt;i&gt;m&lt;/i&gt; depends upon its
+value.
+
+&lt;p&gt; Let &lt;i&gt;n&lt;/i&gt; be the unique integer such that 10&lt;sup&gt;&lt;i&gt;n&lt;/i&gt;&lt;/sup&gt;
+&lt;= &lt;i&gt;m&lt;/i&gt; &lt; 10&lt;sup&gt;&lt;i&gt;n&lt;/i&gt;+1&lt;/sup&gt;; then let &lt;i&gt;a&lt;/i&gt; be the
+mathematically exact quotient of &lt;i&gt;m&lt;/i&gt; and 10&lt;sup&gt;&lt;i&gt;n&lt;/i&gt;&lt;/sup&gt; so
+that 1 &lt;= &lt;i&gt;a&lt;/i&gt; &lt; 10. The magnitude is then represented as the
+integer part of &lt;i&gt;a&lt;/i&gt;, as a single decimal digit, followed by the
+decimal separator followed by decimal digits representing the fractional
+part of &lt;i&gt;a&lt;/i&gt;, followed by the exponent symbol &lt;tt&gt;'e'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u0065'&lt;/tt&gt;), followed by the sign of the exponent, followed
+by a representation of &lt;i&gt;n&lt;/i&gt; as a decimal integer, as produced by the
+method {@link Long#toString(long, int)}, and zero-padded to include at
+least two digits.
+
+&lt;p&gt; The number of digits in the result for the fractional part of
+&lt;i&gt;m&lt;/i&gt; or &lt;i&gt;a&lt;/i&gt; is equal to the precision.  If the precision is not
+specified then the default value is &lt;tt&gt;6&lt;/tt&gt;. If the precision is less
+than the number of digits which would appear after the decimal point in
+the string returned by {@link Float#toString(float)} or {@link
+Double#toString(double)} respectively, then the value will be rounded
+using the {@linkplain java.math.BigDecimal#ROUND_HALF_UP round half up
+algorithm}.  Otherwise, zeros may be appended to reach the precision.
+For a canonical representation of the value, use {@link
+Float#toString(float)} or {@link Double#toString(double)} as
+appropriate.
+
+&lt;p&gt;If the &lt;tt&gt;','&lt;/tt&gt; flag is given, then an {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'E'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0045'&lt;/tt&gt;
+&lt;td&gt; The upper-case variant of &lt;tt&gt;'e'&lt;/tt&gt;.  The exponent symbol
+will be &lt;tt&gt;'E'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u0045'&lt;/tt&gt;).
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'g'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0067'&lt;/tt&gt;
+&lt;td&gt; Requires the output to be formatted in general scientific notation
+as described below. The &lt;a href="#l10n algorithm"&gt;localization
+algorithm&lt;/a&gt; is applied.
+
+&lt;p&gt; After rounding for the precision, the formatting of the resulting
+magnitude &lt;i&gt;m&lt;/i&gt; depends on its value.
+
+&lt;p&gt; If &lt;i&gt;m&lt;/i&gt; is greater than or equal to 10&lt;sup&gt;-4&lt;/sup&gt; but less
+than 10&lt;sup&gt;precision&lt;/sup&gt; then it is represented in &lt;i&gt;&lt;a
+href="#decimal"&gt;decimal format&lt;/a&gt;&lt;/i&gt;.
+
+&lt;p&gt; If &lt;i&gt;m&lt;/i&gt; is less than 10&lt;sup&gt;-4&lt;sup&gt; or greater than or equal to
+10&lt;sup&gt;precision&lt;/sup&gt;, then it is represented in &lt;i&gt;&lt;a
+href="#scientific"&gt;computerized scientific notation&lt;/a&gt;&lt;/i&gt;.
+
+&lt;p&gt; The total number of significant digits in &lt;i&gt;m&lt;/i&gt; is equal to the
+precision.  If the precision is not specified, then the default value is
+&lt;tt&gt;6&lt;/tt&gt;.  If the precision is &lt;tt&gt;0&lt;/tt&gt;, then it is taken to be
+&lt;tt&gt;1&lt;/tt&gt;.
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given then an {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'G'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0047'&lt;/tt&gt;
+&lt;td&gt; The upper-case variant of &lt;tt&gt;'g'&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'f'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0066'&lt;/tt&gt;
+&lt;td&gt; Requires the output to be formatted using &lt;a name="decimal"&gt;decimal
+format&lt;/a&gt;.  The &lt;a href="#l10n algorithm"&gt;localization algorithm&lt;/a&gt; is
+applied.
+
+&lt;p&gt; The result is a string that represents the sign and magnitude
+(absolute value) of the argument.  The formatting of the sign is
+described in the &lt;a href="#l10n algorithm"&gt;localization
+algorithm&lt;/a&gt;. The formatting of the magnitude &lt;i&gt;m&lt;/i&gt; depends upon its
+value.
+
+&lt;p&gt; If &lt;i&gt;m&lt;/i&gt; NaN or infinite, the literal strings "NaN" or
+"Infinity", respectively, will be output.  These values are not
+localized.
+
+&lt;p&gt; The magnitude is formatted as the integer part of &lt;i&gt;m&lt;/i&gt;, with no
+leading zeroes, followed by the decimal separator followed by one or
+more decimal digits representing the fractional part of &lt;i&gt;m&lt;/i&gt;.
+
+&lt;p&gt; The number of digits in the result for the fractional part of
+&lt;i&gt;m&lt;/i&gt; or &lt;i&gt;a&lt;/i&gt; is equal to the precision.  If the precision is not
+specified then the default value is &lt;tt&gt;6&lt;/tt&gt;. If the precision is less
+than the number of digits which would appear after the decimal point in
+the string returned by {@link Float#toString(float)} or {@link
+Double#toString(double)} respectively, then the value will be rounded
+using the {@linkplain java.math.BigDecimal#ROUND_HALF_UP round half up
+algorithm}.  Otherwise, zeros may be appended to reach the precision.
+For a canonical representation of the value,use {@link
+Float#toString(float)} or {@link Double#toString(double)} as
+appropriate.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'a'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0061'&lt;/tt&gt;
+&lt;td&gt; Requires the output to be formatted in hexadecimal exponential
+form.  No localization is applied.
+
+&lt;p&gt; The result is a string that represents the sign and magnitude
+(absolute value) of the argument &lt;i&gt;x&lt;/i&gt;.
+
+&lt;p&gt; If &lt;i&gt;x&lt;/i&gt; is negative or a negative-zero value then the result
+will begin with &lt;tt&gt;'-'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u002d'&lt;/tt&gt;).
+
+&lt;p&gt; If &lt;i&gt;x&lt;/i&gt; is positive or a positive-zero value and the
+&lt;tt&gt;'+'&lt;/tt&gt; flag is given then the result will begin with &lt;tt&gt;'+'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u002b'&lt;/tt&gt;).
+
+&lt;p&gt; The formatting of the magnitude &lt;i&gt;m&lt;/i&gt; depends upon its value.
+
+&lt;ul&gt;
+
+&lt;li&gt; If the value is NaN or infinite, the literal strings "NaN" or
+"Infinity", respectively, will be output.
+
+&lt;li&gt; If &lt;i&gt;m&lt;/i&gt; is zero then it is represented by the string
+&lt;tt&gt;"0x0.0p0"&lt;/tt&gt;.
+
+&lt;li&gt; If &lt;i&gt;m&lt;/i&gt; is a &lt;tt&gt;double&lt;/tt&gt; value with a normalized
+representation then substrings are used to represent the significand and
+exponent fields.  The significand is represented by the characters
+&lt;tt&gt;"0x1."&lt;/tt&gt; followed by the hexadecimal representation of the rest
+of the significand as a fraction.  The exponent is represented by
+&lt;tt&gt;'p'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u0070'&lt;/tt&gt;) followed by a decimal string of the
+unbiased exponent as if produced by invoking {@link
+Integer#toString(int) Integer.toString} on the exponent value.
+
+&lt;li&gt; If &lt;i&gt;m&lt;/i&gt; is a &lt;tt&gt;double&lt;/tt&gt; value with a subnormal
+representation then the significand is represented by the characters
+&lt;tt&gt;'0x0.'&lt;/tt&gt; followed by the hexadecimal representation of the rest
+of the significand as a fraction.  The exponent is represented by
+&lt;tt&gt;'p-1022'&lt;/tt&gt;.  Note that there must be at least one nonzero digit
+in a subnormal significand.
+
+&lt;/ul&gt;
+
+&lt;p&gt; If the &lt;tt&gt;'('&lt;/tt&gt; or &lt;tt&gt;','&lt;/tt&gt; flags are given, then a {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'A'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0041'&lt;/tt&gt;
+&lt;td&gt; The upper-case variant of &lt;tt&gt;'a'&lt;/tt&gt;.  The entire string
+representing the number will be converted to upper case including the
+&lt;tt&gt;'x'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u0078'&lt;/tt&gt;) and &lt;tt&gt;'p'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u0070'&lt;/tt&gt; and all hexadecimal digits &lt;tt&gt;'a'&lt;/tt&gt; -
+&lt;tt&gt;'f'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u0061'&lt;/tt&gt; - &lt;tt&gt;'&amp;#92;u0066'&lt;/tt&gt;).
+
+&lt;/table&gt;
+
+&lt;p&gt; All &lt;a href="#intFlags"&gt;flags&lt;/a&gt; defined for Byte, Short, Integer, and
+Long apply.
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given, then the decimal separator will
+always be present.
+
+&lt;a name="floatdFlags"&gt;&lt;/a&gt;&lt;p&gt; If no flags are given the default formatting
+is as follows:
+
+&lt;ul&gt;
+
+&lt;li&gt; The output is right-justified within the &lt;tt&gt;width&lt;/tt&gt;
+
+&lt;li&gt; Negative numbers begin with a &lt;tt&gt;'-'&lt;/tt&gt;
+
+&lt;li&gt; Positive numbers and positive zero do not include a sign or extra
+leading space
+
+&lt;li&gt; No grouping separators are included
+
+&lt;li&gt; The decimal separator will only appear if a digit follows it
+
+&lt;/ul&gt;
+
+&lt;a name="floatDWidth"&gt;&lt;/a&gt;&lt;p&gt; The width is the minimum number of characters
+to be written to the output.  This includes any signs, digits, grouping
+separators, decimal separators, exponential symbol, radix indicator,
+parentheses, and strings representing infinity and NaN as applicable.  If
+the length of the converted value is less than the width then the output
+will be padded by spaces (&lt;tt&gt;'&amp;#92;u0020'&lt;/tt&gt;) until the total number of
+characters equals width.  The padding is on the left by default.  If the
+&lt;tt&gt;'-'&lt;/tt&gt; flag is given then the padding will be on the right.  If width
+is not specified then there is no minimum.
+
+&lt;a name="floatDPrec"&gt;&lt;/a&gt;&lt;p&gt; If the conversion is &lt;tt&gt;'e'&lt;/tt&gt;,
+&lt;tt&gt;'E'&lt;/tt&gt; or &lt;tt&gt;'f'&lt;/tt&gt;, then the precision is the number of digits
+after the decimal separator.  If the precision is not specified, then it is
+assumed to be &lt;tt&gt;6&lt;/tt&gt;.
+
+&lt;p&gt; If the conversion is &lt;tt&gt;'g'&lt;/tt&gt; or &lt;tt&gt;'G'&lt;/tt&gt;, then the precision is
+the total number of significant digits in the resulting magnitude after
+rounding.  If the precision is not specified, then the default value is
+&lt;tt&gt;6&lt;/tt&gt;.  If the precision is &lt;tt&gt;0&lt;/tt&gt;, then it is taken to be
+&lt;tt&gt;1&lt;/tt&gt;.
+
+&lt;p&gt; If the conversion is &lt;tt&gt;'a'&lt;/tt&gt; or &lt;tt&gt;'A'&lt;/tt&gt;, then the precision
+is the number of hexadecimal digits after the decimal separator.  If the
+precision is not provided, then all of the digits as returned by {@link
+Double#toHexString(double)} will be output.
+
+&lt;p&gt;&lt;a name="dndec"&gt;&lt;b&gt; BigDecimal &lt;/b&gt;&lt;a&gt;
+
+&lt;p&gt; The following conversions may be applied {@link java.math.BigDecimal
+BigDecimal}.
+
+&lt;table cellpadding=5 summary="floatConv"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'e'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0065'&lt;/tt&gt;
+&lt;td&gt; Requires the output to be formatted using &lt;a
+name="scientific"&gt;computerized scientific notation&lt;/a&gt;.  The &lt;a
+href="#l10n algorithm"&gt;localization algorithm&lt;/a&gt; is applied.
+
+&lt;p&gt; The formatting of the magnitude &lt;i&gt;m&lt;/i&gt; depends upon its value.
+
+&lt;p&gt; If &lt;i&gt;m&lt;/i&gt; is positive-zero or negative-zero, then the exponent
+will be &lt;tt&gt;"+00"&lt;/tt&gt;.
+
+&lt;p&gt; Otherwise, the result is a string that represents the sign and
+magnitude (absolute value) of the argument.  The formatting of the sign
+is described in the &lt;a href="#l10n algorithm"&gt;localization
+algorithm&lt;/a&gt;. The formatting of the magnitude &lt;i&gt;m&lt;/i&gt; depends upon its
+value.
+
+&lt;p&gt; Let &lt;i&gt;n&lt;/i&gt; be the unique integer such that 10&lt;sup&gt;&lt;i&gt;n&lt;/i&gt;&lt;/sup&gt;
+&lt;= &lt;i&gt;m&lt;/i&gt; &lt; 10&lt;sup&gt;&lt;i&gt;n&lt;/i&gt;+1&lt;/sup&gt;; then let &lt;i&gt;a&lt;/i&gt; be the
+mathematically exact quotient of &lt;i&gt;m&lt;/i&gt; and 10&lt;sup&gt;&lt;i&gt;n&lt;/i&gt;&lt;/sup&gt; so
+that 1 &lt;= &lt;i&gt;a&lt;/i&gt; &lt; 10. The magnitude is then represented as the
+integer part of &lt;i&gt;a&lt;/i&gt;, as a single decimal digit, followed by the
+decimal separator followed by decimal digits representing the fractional
+part of &lt;i&gt;a&lt;/i&gt;, followed by the exponent symbol &lt;tt&gt;'e'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u0065'&lt;/tt&gt;), followed by the sign of the exponent, followed
+by a representation of &lt;i&gt;n&lt;/i&gt; as a decimal integer, as produced by the
+method {@link Long#toString(long, int)}, and zero-padded to include at
+least two digits.
+
+&lt;p&gt; The number of digits in the result for the fractional part of
+&lt;i&gt;m&lt;/i&gt; or &lt;i&gt;a&lt;/i&gt; is equal to the precision.  If the precision is not
+specified then the default value is &lt;tt&gt;6&lt;/tt&gt;.  If the precision is
+less than the number of digits which would appear after the decimal
+point in the string returned by {@link Float#toString(float)} or {@link
+Double#toString(double)} respectively, then the value will be rounded
+using the {@linkplain java.math.BigDecimal#ROUND_HALF_UP round half up
+algorithm}.  Otherwise, zeros may be appended to reach the precision.
+For a canonical representation of the value, use {@link
+BigDecimal#toString()}.
+
+&lt;p&gt; If the &lt;tt&gt;','&lt;/tt&gt; flag is given, then an {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'E'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0045'&lt;/tt&gt;
+&lt;td&gt; The upper-case variant of &lt;tt&gt;'e'&lt;/tt&gt;.  The exponent symbol
+will be &lt;tt&gt;'E'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u0045'&lt;/tt&gt;).
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'g'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0067'&lt;/tt&gt;
+&lt;td&gt; Requires the output to be formatted in general scientific notation
+as described below. The &lt;a href="#l10n algorithm"&gt;localization
+algorithm&lt;/a&gt; is applied.
+
+&lt;p&gt; After rounding for the precision, the formatting of the resulting
+magnitude &lt;i&gt;m&lt;/i&gt; depends on its value.
+
+&lt;p&gt; If &lt;i&gt;m&lt;/i&gt; is greater than or equal to 10&lt;sup&gt;-4&lt;/sup&gt; but less
+than 10&lt;sup&gt;precision&lt;/sup&gt; then it is represented in &lt;i&gt;&lt;a
+href="#decimal"&gt;decimal format&lt;/a&gt;&lt;/i&gt;.
+
+&lt;p&gt; If &lt;i&gt;m&lt;/i&gt; is less than 10&lt;sup&gt;-4&lt;/sup&gt; or greater than or equal to
+10&lt;sup&gt;precision&lt;/sup&gt;, then it is represented in &lt;i&gt;&lt;a
+href="#scientific"&gt;computerized scientific notation&lt;/a&gt;&lt;/i&gt;.
+
+&lt;p&gt; The total number of significant digits in &lt;i&gt;m&lt;/i&gt; is equal to the
+precision.  If the precision is not specified, then the default value is
+&lt;tt&gt;6&lt;/tt&gt;.  If the precision is &lt;tt&gt;0&lt;/tt&gt;, then it is taken to be
+&lt;tt&gt;1&lt;/tt&gt;.
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given then an {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'G'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0047'&lt;/tt&gt;
+&lt;td&gt; The upper-case variant of &lt;tt&gt;'g'&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'f'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0066'&lt;/tt&gt;
+&lt;td&gt; Requires the output to be formatted using &lt;a name="decimal"&gt;decimal
+format&lt;/a&gt;.  The &lt;a href="#l10n algorithm"&gt;localization algorithm&lt;/a&gt; is
+applied.
+
+&lt;p&gt; The result is a string that represents the sign and magnitude
+(absolute value) of the argument.  The formatting of the sign is
+described in the &lt;a href="#l10n algorithm"&gt;localization
+algorithm&lt;/a&gt;. The formatting of the magnitude &lt;i&gt;m&lt;/i&gt; depends upon its
+value.
+
+&lt;p&gt; The magnitude is formatted as the integer part of &lt;i&gt;m&lt;/i&gt;, with no
+leading zeroes, followed by the decimal separator followed by one or
+more decimal digits representing the fractional part of &lt;i&gt;m&lt;/i&gt;.
+
+&lt;p&gt; The number of digits in the result for the fractional part of
+&lt;i&gt;m&lt;/i&gt; or &lt;i&gt;a&lt;/i&gt; is equal to the precision.  If the precision is not
+specified then the default value is &lt;tt&gt;6&lt;/tt&gt;.  If the precision is
+less than the number of digits which would appear after the decimal
+point in the string returned by {@link Float#toString(float)} or {@link
+Double#toString(double)} respectively, then the value will be rounded
+using the {@linkplain java.math.BigDecimal#ROUND_HALF_UP round half up
+algorithm}.  Otherwise, zeros may be appended to reach the precision.
+For a canonical representation of the value, use {@link
+BigDecimal#toString()}.
+
+&lt;/table&gt;
+
+&lt;p&gt; All &lt;a href="#intFlags"&gt;flags&lt;/a&gt; defined for Byte, Short, Integer, and
+Long apply.
+
+&lt;p&gt; If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given, then the decimal separator will
+always be present.
+
+&lt;p&gt; The &lt;a href="#floatdFlags"&gt;default behavior&lt;/a&gt; when no flags are
+given is the same as for Float and Double.
+
+&lt;p&gt; The specification of &lt;a href="#floatDWidth"&gt;width&lt;/a&gt; and &lt;a
+href="#floatDPrec"&gt;precision&lt;/a&gt; is the same as defined for Float and
+Double.
+
+&lt;a name="ddt"&gt;&lt;h4&gt; Date/Time &lt;/h4&gt;&lt;/a&gt;
+
+&lt;p&gt; This conversion may be applied to &lt;tt&gt;long&lt;/tt&gt;, {@link Long}, {@link
+Calendar}, and {@link Date}.
+
+&lt;table cellpadding=5 summary="DTConv"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'t'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0074'&lt;/tt&gt;
+&lt;td&gt; Prefix for date and time conversion characters.
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'T'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0054'&lt;/tt&gt;
+&lt;td&gt; The upper-case variant of &lt;tt&gt;'t'&lt;/tt&gt;.
+
+&lt;/table&gt;
+
+&lt;p&gt; The following date and time conversion character suffixes are defined
+for the &lt;tt&gt;'t'&lt;/tt&gt; and &lt;tt&gt;'T'&lt;/tt&gt; conversions.  The types are similar to
+but not completely identical to those defined by GNU &lt;tt&gt;date&lt;/tt&gt; and
+POSIX &lt;tt&gt;strftime(3c)&lt;/tt&gt;.  Additional conversion types are provided to
+access Java-specific functionality (e.g. &lt;tt&gt;'L'&lt;/tt&gt; for milliseconds
+within the second).
+
+&lt;p&gt; The following conversion characters are used for formatting times:
+
+&lt;table cellpadding=5 summary="time"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt; &lt;tt&gt;'H'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0048'&lt;/tt&gt;
+&lt;td&gt; Hour of the day for the 24-hour clock, formatted as two digits with
+a leading zero as necessary i.e. &lt;tt&gt;00 - 23&lt;/tt&gt;. &lt;tt&gt;00&lt;/tt&gt;
+corresponds to midnight.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'I'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0049'&lt;/tt&gt;
+&lt;td&gt; Hour for the 12-hour clock, formatted as two digits with a leading
+zero as necessary, i.e.  &lt;tt&gt;01 - 12&lt;/tt&gt;.  &lt;tt&gt;01&lt;/tt&gt; corresponds to
+one o'clock (either morning or afternoon).
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'k'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u006b'&lt;/tt&gt;
+&lt;td&gt; Hour of the day for the 24-hour clock, i.e. &lt;tt&gt;0 - 23&lt;/tt&gt;.
+&lt;tt&gt;0&lt;/tt&gt; corresponds to midnight.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'l'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u006c'&lt;/tt&gt;
+&lt;td&gt; Hour for the 12-hour clock, i.e. &lt;tt&gt;1 - 12&lt;/tt&gt;.  &lt;tt&gt;1&lt;/tt&gt;
+corresponds to one o'clock (either morning or afternoon).
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'M'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u004d'&lt;/tt&gt;
+&lt;td&gt; Minute within the hour formatted as two digits with a leading zero
+as necessary, i.e.  &lt;tt&gt;00 - 59&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'S'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0053'&lt;/tt&gt;
+&lt;td&gt; Seconds within the minute, formatted as two digits with a leading
+zero as necessary, i.e. &lt;tt&gt;00 - 60&lt;/tt&gt; ("&lt;tt&gt;60&lt;/tt&gt;" is a special
+value required to support leap seconds).
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'L'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u004c'&lt;/tt&gt;
+&lt;td&gt; Millisecond within the second formatted as three digits with
+leading zeros as necessary, i.e. &lt;tt&gt;000 - 999&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'N'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u004e'&lt;/tt&gt;
+&lt;td&gt; Nanosecond within the second, formatted as nine digits with leading
+zeros as necessary, i.e. &lt;tt&gt;000000000 - 999999999&lt;/tt&gt;.  The precision
+of this value is limited by the resolution of the underlying operating
+system or hardware.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'p'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0070'&lt;/tt&gt;
+&lt;td&gt; Locale-specific {@linkplain
+java.text.DateFormatSymbols#getAmPmStrings morning or afternoon} marker
+in lower case, e.g."&lt;tt&gt;am&lt;/tt&gt;" or "&lt;tt&gt;pm&lt;/tt&gt;".  Use of the
+conversion prefix &lt;tt&gt;'T'&lt;/tt&gt; forces this output to upper case.  (Note
+that &lt;tt&gt;'p'&lt;/tt&gt; produces lower-case output.  This is different from
+GNU &lt;tt&gt;date&lt;/tt&gt; and POSIX &lt;tt&gt;strftime(3c)&lt;/tt&gt; which produce
+upper-case output.)
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'z'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u007a'&lt;/tt&gt;
+&lt;td&gt; &lt;a href="http://www.ietf.org/rfc/rfc0822.txt"&gt;RFC&amp;nbsp;822&lt;/a&gt;
+style numeric time zone offset from GMT, e.g. &lt;tt&gt;-0800&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'Z'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u005a'&lt;/tt&gt;
+&lt;td&gt; A string representing the abbreviation for the time zone.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'s'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0073'&lt;/tt&gt;
+&lt;td&gt; Seconds since the beginning of the epoch starting at 1 January 1970
+&lt;tt&gt;00:00:00&lt;/tt&gt; UTC, i.e. &lt;tt&gt;Long.MIN_VALUE/1000&lt;/tt&gt; to
+&lt;tt&gt;Long.MAX_VALUE/1000&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'Q'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u004f'&lt;/tt&gt;
+&lt;td&gt; Milliseconds since the beginning of the epoch starting at 1 January
+1970 &lt;tt&gt;00:00:00&lt;/tt&gt; UTC, i.e. &lt;tt&gt;Long.MIN_VALUE&lt;/tt&gt; to
+&lt;tt&gt;Long.MAX_VALUE&lt;/tt&gt;. The precision of this value is limited by
+the resolution of the underlying operating system or hardware.
+
+&lt;/table&gt;
+
+&lt;p&gt; The following conversion characters are used for formatting dates:
+
+&lt;table cellpadding=5 summary="date"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'B'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0042'&lt;/tt&gt;
+&lt;td&gt; Locale-specific {@linkplain java.text.DateFormatSymbols#getMonths
+full month name}, e.g. &lt;tt&gt;"January"&lt;/tt&gt;, &lt;tt&gt;"February"&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'b'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0062'&lt;/tt&gt;
+&lt;td&gt; Locale-specific {@linkplain
+java.text.DateFormatSymbols#getShortMonths abbreviated month name},
+e.g. &lt;tt&gt;"Jan"&lt;/tt&gt;, &lt;tt&gt;"Feb"&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'h'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0068'&lt;/tt&gt;
+&lt;td&gt; Same as &lt;tt&gt;'b'&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'A'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0041'&lt;/tt&gt;
+&lt;td&gt; Locale-specific full name of the {@linkplain
+java.text.DateFormatSymbols#getWeekdays day of the week},
+e.g. &lt;tt&gt;"Sunday"&lt;/tt&gt;, &lt;tt&gt;"Monday"&lt;/tt&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'a'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0061'&lt;/tt&gt;
+&lt;td&gt; Locale-specific short name of the {@linkplain
+java.text.DateFormatSymbols#getShortWeekdays day of the week},
+e.g. &lt;tt&gt;"Sun"&lt;/tt&gt;, &lt;tt&gt;"Mon"&lt;/tt&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'C'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0043'&lt;/tt&gt;
+&lt;td&gt; Four-digit year divided by &lt;tt&gt;100&lt;/tt&gt;, formatted as two digits
+with leading zero as necessary, i.e. &lt;tt&gt;00 - 99&lt;/tt&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'Y'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0059'&lt;/tt&gt; &lt;td&gt; Year, formatted to at least
+four digits with leading zeros as necessary, e.g. &lt;tt&gt;0092&lt;/tt&gt; equals
+&lt;tt&gt;92&lt;/tt&gt; CE for the Gregorian calendar.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'y'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0079'&lt;/tt&gt;
+&lt;td&gt; Last two digits of the year, formatted with leading zeros as
+necessary, i.e. &lt;tt&gt;00 - 99&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'j'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u006a'&lt;/tt&gt;
+&lt;td&gt; Day of year, formatted as three digits with leading zeros as
+necessary, e.g. &lt;tt&gt;001 - 366&lt;/tt&gt; for the Gregorian calendar.
+&lt;tt&gt;001&lt;/tt&gt; corresponds to the first day of the year.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'m'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u006d'&lt;/tt&gt;
+&lt;td&gt; Month, formatted as two digits with leading zeros as necessary,
+i.e. &lt;tt&gt;01 - 13&lt;/tt&gt;, where "&lt;tt&gt;01&lt;/tt&gt;" is the first month of the
+year and ("&lt;tt&gt;13&lt;/tt&gt;" is a special value required to support lunar
+calendars).
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'d'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0064'&lt;/tt&gt;
+&lt;td&gt; Day of month, formatted as two digits with leading zeros as
+necessary, i.e. &lt;tt&gt;01 - 31&lt;/tt&gt;, where "&lt;tt&gt;01&lt;/tt&gt;" is the first day
+of the month.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'e'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0065'&lt;/tt&gt;
+&lt;td&gt; Day of month, formatted as two digits, i.e. &lt;tt&gt;1 - 31&lt;/tt&gt; where
+"&lt;tt&gt;1&lt;/tt&gt;" is the first day of the month.
+
+&lt;/table&gt;
+
+&lt;p&gt; The following conversion characters are used for formatting common
+date/time compositions.
+
+&lt;table cellpadding=5 summary="composites"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'R'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0052'&lt;/tt&gt;
+&lt;td&gt; Time formatted for the 24-hour clock as &lt;tt&gt;"%tH:%tM"&lt;/tt&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'T'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0054'&lt;/tt&gt;
+&lt;td&gt; Time formatted for the 24-hour clock as &lt;tt&gt;"%tH:%tM:%tS"&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'r'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0072'&lt;/tt&gt;
+&lt;td&gt; Time formatted for the 12-hour clock as &lt;tt&gt;"%tI:%tM:%tS
+%Tp"&lt;/tt&gt;.  The location of the morning or afternoon marker
+(&lt;tt&gt;'%Tp'&lt;/tt&gt;) may be locale-dependent.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'D'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0044'&lt;/tt&gt;
+&lt;td&gt; Date formatted as &lt;tt&gt;"%tm/%td/%ty"&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'F'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0046'&lt;/tt&gt;
+&lt;td&gt; &lt;a href="http://www.w3.org/TR/NOTE-datetime"&gt;ISO&amp;nbsp;8601&lt;/a&gt;
+complete date formatted as &lt;tt&gt;"%tY-%tm-%td"&lt;/tt&gt;.
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'c'&lt;/tt&gt;
+&lt;td valign="top"&gt; &lt;tt&gt;'&amp;#92;u0063'&lt;/tt&gt;
+&lt;td&gt; Date and time formatted as &lt;tt&gt;"%ta %tb %td %tT %tZ %tY"&lt;/tt&gt;,
+e.g. &lt;tt&gt;"Sun Jul 20 16:17:00 EDT 1969"&lt;/tt&gt;.
+
+&lt;/table&gt;
+
+&lt;p&gt; The &lt;tt&gt;'-'&lt;/tt&gt; flag defined for &lt;a href="#dFlags"&gt;General
+conversions&lt;/a&gt; applies.  If the &lt;tt&gt;'#'&lt;/tt&gt; flag is given, then a {@link
+FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;a name="dtWidth"&gt;&lt;/a&gt;&lt;p&gt; The width is the minimum number of characters to
+be written to the output.  If the length of the converted value is less than
+the &lt;tt&gt;width&lt;/tt&gt; then the output will be padded by spaces
+(&lt;tt&gt;'&amp;#92;u0020'&lt;/tt&gt;) until the total number of characters equals width.
+The padding is on the left by default.  If the &lt;tt&gt;'-'&lt;/tt&gt; flag is given
+then the padding will be on the right.  If width is not specified then there
+is no minimum.
+
+&lt;p&gt; The precision is not applicable.  If the precision is specified then an
+{@link IllegalFormatPrecisionException} will be thrown.
+
+&lt;a name="dper"&gt;&lt;h4&gt; Percent &lt;/h4&gt;&lt;/a&gt;
+
+&lt;p&gt; The conversion does not correspond to any argument.
+
+&lt;table cellpadding=5 summary="DTConv"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'%'&lt;/tt&gt;
+&lt;td&gt; The result is a literal &lt;tt&gt;'%'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u0025'&lt;/tt&gt;)
+
+&lt;a name="dtWidth"&gt;&lt;/a&gt;&lt;p&gt; The width is the minimum number of characters to
+be written to the output including the &lt;tt&gt;'%'&lt;/tt&gt;.  If the length of the
+converted value is less than the &lt;tt&gt;width&lt;/tt&gt; then the output will be
+padded by spaces (&lt;tt&gt;'&amp;#92;u0020'&lt;/tt&gt;) until the total number of
+characters equals width.  The padding is on the left.  If width is not
+specified then just the &lt;tt&gt;'%'&lt;/tt&gt; is output.
+
+&lt;p&gt; The &lt;tt&gt;'-'&lt;/tt&gt; flag defined for &lt;a href="#dFlags"&gt;General
+conversions&lt;/a&gt; applies.  If any other flags are provided, then a
+{@link FormatFlagsConversionMismatchException} will be thrown.
+
+&lt;p&gt; The precision is not applicable.  If the precision is specified an
+{@link IllegalFormatPrecisionException} will be thrown.
+
+&lt;/table&gt;
+
+&lt;a name="dls"&gt;&lt;h4&gt; Line Separator &lt;/h4&gt;&lt;/a&gt;
+
+&lt;p&gt; The conversion does not correspond to any argument.
+
+&lt;table cellpadding=5 summary="DTConv"&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;'n'&lt;/tt&gt;
+&lt;td&gt; the platform-specific line separator as returned by {@link
+System#getProperty System.getProperty("line.separator")}.
+
+&lt;/table&gt;
+
+&lt;p&gt; Flags, width, and precision are not applicable.  If any are provided an
+{@link IllegalFormatFlagsException}, {@link IllegalFormatWidthException},
+and {@link IllegalFormatPrecisionException}, respectively will be thrown.
+
+&lt;a name="dpos"&gt;&lt;h4&gt; Argument Index &lt;/h4&gt;&lt;/a&gt;
+
+&lt;p&gt; Format specifiers can reference arguments in three ways:
+
+&lt;ul&gt;
+
+&lt;li&gt; &lt;i&gt;Explicit indexing&lt;/i&gt; is used when the format specifier contains an
+argument index.  The argument index is a decimal integer indicating the
+position of the argument in the argument list.  The first argument is
+referenced by "&lt;tt&gt;1$&lt;/tt&gt;", the second by "&lt;tt&gt;2$&lt;/tt&gt;", etc.  An argument
+may be referenced more than once.
+
+&lt;p&gt; For example:
+
+&lt;blockquote&gt;&lt;pre&gt;
+formatter.format("%4$s %3$s %2$s %1$s %4$s %3$s %2$s %1$s",
+"a", "b", "c", "d")
+-&gt; "d c b a d c b a"
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;li&gt; &lt;i&gt;Relative indexing&lt;/i&gt; is used when the format specifier contains a
+&lt;tt&gt;'&lt;'&lt;/tt&gt; (&lt;tt&gt;'&amp;#92;u003c'&lt;/tt&gt;) flag which causes the argument for the
+previous format specifier to be re-used.  If there is no previous argument,
+then a {@link MissingFormatArgumentException} is thrown.
+
+&lt;blockquote&gt;&lt;pre&gt;
+formatter.format("%s %s %&lt;s %&lt;s", "a", "b", "c", "d")
+-&gt; "a b b b"
+"c" and "d" are ignored because they are not referenced
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;li&gt; &lt;i&gt;Ordinary indexing&lt;/i&gt; is used when the format specifier contains
+neither an argument index nor a &lt;tt&gt;'&lt;'&lt;/tt&gt; flag.  Each format specifier
+which uses ordinary indexing is assigned a sequential implicit index into
+argument list which is independent of the indices used by explicit or
+relative indexing.
+
+&lt;blockquote&gt;&lt;pre&gt;
+formatter.format("%s %s %s %s", "a", "b", "c", "d")
+-&gt; "a b c d"
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt; It is possible to have a format string which uses all forms of indexing,
+for example:
+
+&lt;blockquote&gt;&lt;pre&gt;
+formatter.format("%2$s %s %&lt;s %s", "a", "b", "c", "d")
+-&gt; "b a a b"
+"c" and "d" are ignored because they are not referenced
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; The maximum number of arguments is limited by the maximum dimension of a
+Java array as defined by the &lt;a
+href="http://java.sun.com/docs/books/vmspec/"&gt;Java Virtual Machine
+Specification&lt;/a&gt;.  If the argument index is does not correspond to an
+available argument, then a {@link MissingFormatArgumentException} is thrown.
+
+&lt;p&gt; If there are more arguments than format specifiers, the extra arguments
+are ignored.
+
+&lt;p&gt; Unless otherwise specified, passing a &lt;tt&gt;null&lt;/tt&gt; argument to any
+method or constructor in this class will cause a {@link
+NullPointerException} to be thrown.
+
+@author  Iris Garcia
+@version 	1.14, 07/16/04
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Formatter" refid="_10_5_622020d_1132928310993_904211_7237"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Formatter" refid="_10_5_622020d_1132928310993_904211_7237"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

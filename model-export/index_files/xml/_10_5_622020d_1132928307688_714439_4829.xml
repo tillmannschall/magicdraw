@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928307688_714439_4829"><documentation humanName="Documentation" mode="standard">Thread information. &lt;tt&gt;ThreadInfo&lt;/tt&gt; contains the information
+about a thread including:
+&lt;h4&gt;General thread information&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Thread ID.&lt;/li&gt;
+&lt;li&gt;Name of the thread.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Execution information&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Thread state.&lt;/tt&gt;
+&lt;li&gt;The object upon which the thread is blocked waiting to enter
+a synchronization block or waiting to be notified in
+a {@link Object#wait Object.wait} call.&lt;/li&gt;
+&lt;li&gt;The ID of the thread that owns the object
+that the thread is blocked.&lt;/li&gt;
+&lt;li&gt;Stack trace of the thread.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Synchronization statistics&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;The number of times that the thread has blocked for
+synchronization or waited for notification.&lt;/li&gt;
+&lt;li&gt;The accumulated elapsed time that the thread has blocked
+for synchronization or waited for notification
+since thread contention monitoring
+was enabled. Some Java virtual machine implementation
+may not support this.  The
+{@link ThreadMXBean#isThreadContentionMonitoringSupported()}
+method can be used to determine if a Java virtual machine
+supports this.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This thread information class is designed for use in monitoring of
+the system, not for synchronization control.
+
+&lt;h4&gt;MXBean Mapping&lt;/h4&gt;
+&lt;tt&gt;ThreadInfo&lt;/tt&gt; is mapped to a {@link CompositeData CompositeData}
+with attributes as specified in
+the {@link #from from} method.
+
+@see ThreadMXBean#isThreadContentionMonitoringSupported
+
+@author  Mandy Chung
+@version 1.16, 04/18/04
+@since   1.5
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ThreadInfo</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928307518_833692_4788"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307688_91930_4831"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307688_91930_4831"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="management" refid="_10_5_622020d_1132928307518_833692_4788"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928307518_833692_4788"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928307518_833692_4788"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::management::ThreadInfo</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

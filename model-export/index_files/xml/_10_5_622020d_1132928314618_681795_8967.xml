@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314618_681795_8967"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DOMException" refid="_9_5_f720368_1110473546940_405634_13230"/></annotatedElement><body humanName="Body" mode="s,e">DOM operations only raise exceptions in "exceptional" circumstances, i.e.,
+when an operation is impossible to perform (either for logical reasons,
+because data is lost, or because the implementation has become unstable).
+In general, DOM methods return specific error values in ordinary
+processing situations, such as out-of-bound errors when using
+&lt;code&gt;NodeList&lt;/code&gt;.
+&lt;p&gt;Implementations should raise other exceptions under other circumstances.
+For example, implementations should raise an implementation-dependent
+exception if a &lt;code&gt;null&lt;/code&gt; argument is passed when &lt;code&gt;null&lt;/code&gt;
+was not expected.
+&lt;p&gt;Some languages and object systems do not support the concept of
+exceptions. For such systems, error conditions may be indicated using
+native error reporting mechanisms. For some bindings, for example,
+methods may return error codes similar to those listed in the
+corresponding method descriptions.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'&gt;Document Object Model (DOM) Level 3 Core Specification&lt;/a&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DOMException" refid="_9_5_f720368_1110473546940_405634_13230"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DOMException" refid="_9_5_f720368_1110473546940_405634_13230"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

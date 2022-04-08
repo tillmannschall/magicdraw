@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309181_6368_5857"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="X509CRLSelector" refid="_9_5_f720368_1110473546674_459455_8353"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;CRLSelector&lt;/code&gt; that selects &lt;code&gt;X509CRLs&lt;/code&gt; that
+match all specified criteria. This class is particularly useful when
+selecting CRLs from a &lt;code&gt;CertStore&lt;/code&gt; to check revocation status
+of a particular certificate.
+&lt;p&gt;
+When first constructed, an &lt;code&gt;X509CRLSelector&lt;/code&gt; has no criteria
+enabled and each of the &lt;code&gt;get&lt;/code&gt; methods return a default
+value (&lt;code&gt;null&lt;/code&gt;). Therefore, the {@link #match match} method
+would return &lt;code&gt;true&lt;/code&gt; for any &lt;code&gt;X509CRL&lt;/code&gt;. Typically,
+several criteria are enabled (by calling {@link #setIssuers setIssuers}
+or {@link #setDateAndTime setDateAndTime}, for instance) and then the
+&lt;code&gt;X509CRLSelector&lt;/code&gt; is passed to
+{@link CertStore#getCRLs CertStore.getCRLs} or some similar
+method.
+&lt;p&gt;
+Please refer to RFC 2459 for definitions of the X.509 CRL fields and
+extensions mentioned below.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Unless otherwise specified, the methods defined in this class are not
+thread-safe. Multiple threads that need to access a single
+object concurrently should synchronize amongst themselves and
+provide the necessary locking. Multiple threads each manipulating
+separate objects need not synchronize.
+
+@see CRLSelector
+@see X509CRL
+
+@version 	1.16 07/16/04
+@since	1.4
+@author	Steve Hanna
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="X509CRLSelector" refid="_9_5_f720368_1110473546674_459455_8353"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="X509CRLSelector" refid="_9_5_f720368_1110473546674_459455_8353"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

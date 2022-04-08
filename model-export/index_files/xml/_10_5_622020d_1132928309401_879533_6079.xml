@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309401_879533_6079"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Permissions" refid="_9_5_f720368_1110473546690_972724_8495"/></annotatedElement><body humanName="Body" mode="s,e">This class represents a heterogeneous collection of Permissions. That is,
+it contains different types of Permission objects, organized into
+PermissionCollections. For example, if any
+&lt;code&gt;java.io.FilePermission&lt;/code&gt; objects are added to an instance of
+this class, they are all stored in a single
+PermissionCollection. It is the PermissionCollection returned by a call to
+the &lt;code&gt;newPermissionCollection&lt;/code&gt; method in the FilePermission class.
+Similarly, any &lt;code&gt;java.lang.RuntimePermission&lt;/code&gt; objects are
+stored in the PermissionCollection returned by a call to the
+&lt;code&gt;newPermissionCollection&lt;/code&gt; method in the
+RuntimePermission class. Thus, this class represents a collection of
+PermissionCollections.
+
+&lt;p&gt;When the &lt;code&gt;add&lt;/code&gt; method is called to add a Permission, the
+Permission is stored in the appropriate PermissionCollection. If no such
+collection exists yet, the Permission object's class is determined and the
+&lt;code&gt;newPermissionCollection&lt;/code&gt; method is called on that class to create
+the PermissionCollection and add it to the Permissions object. If
+&lt;code&gt;newPermissionCollection&lt;/code&gt; returns null, then a default
+PermissionCollection that uses a hashtable will be created and used. Each
+hashtable entry stores a Permission object as both the key and the value.
+
+&lt;p&gt; Enumerations returned via the &lt;code&gt;elements&lt;/code&gt; method are
+not &lt;em&gt;fail-fast&lt;/em&gt;.  Modifications to a collection should not be
+performed while enumerating over that collection.
+
+@see Permission
+@see PermissionCollection
+@see AllPermission
+
+@version 1.58, 04/05/05
+
+@author Marianne Mueller
+@author Roland Schemers
+
+@serial exclude
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Permissions" refid="_9_5_f720368_1110473546690_972724_8495"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Permissions" refid="_9_5_f720368_1110473546690_972724_8495"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

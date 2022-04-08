@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308369_174807_5295"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PlainSocketImpl" refid="_9_5_f720368_1110473546643_247592_7793"/></annotatedElement><body humanName="Body" mode="s,e">Default Socket Implementation. This implementation does
+not implement any security checks.
+Note this class should &lt;b&gt;NOT&lt;/b&gt; be public.
+
+@author  Steven B. Byrne
+@version 1.65, 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PlainSocketImpl" refid="_9_5_f720368_1110473546643_247592_7793"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PlainSocketImpl" refid="_9_5_f720368_1110473546643_247592_7793"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

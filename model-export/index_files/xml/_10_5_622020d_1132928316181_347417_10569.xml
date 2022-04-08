@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316181_347417_10569"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Patch" refid="_9_5_f720368_1110473546737_562849_9675"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;Patch&lt;/code&gt; object represents a location, on a MIDI
+synthesizer, into which a single instrument is stored (loaded).
+Every &lt;code&gt;Instrument&lt;/code&gt; object has its own &lt;code&gt;Patch&lt;/code&gt;
+object that specifies the memory location
+into which that instrument should be loaded. The
+location is specified abstractly by a bank index and a program number (not by
+any scheme that directly refers to a specific address or offset in RAM).
+This is a hierarchical indexing scheme: MIDI provides for up to 16384 banks,
+each of which contains up to 128 program locations.  For example, a
+minimal sort of synthesizer might have only one bank of instruments, and
+only 32 instruments (programs) in that bank.
+&lt;p&gt;
+To select what instrument should play the notes on a particular MIDI
+channel, two kinds of MIDI message are used that specify a patch location:
+a bank-select command, and a program-change channel command.  The Java Sound
+equivalent is the
+{@link MidiChannel#programChange(int, int) programChange(int, int)}
+method of &lt;code&gt;MidiChannel&lt;/code&gt;.
+
+@see Instrument
+@see Instrument#getPatch()
+@see MidiChannel#programChange(int, int)
+@see Synthesizer#loadInstruments(Soundbank, Patch[])
+@see Soundbank
+@see Sequence#getPatchList()
+
+@author Kara Kytle
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Patch" refid="_9_5_f720368_1110473546737_562849_9675"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Patch" refid="_9_5_f720368_1110473546737_562849_9675"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

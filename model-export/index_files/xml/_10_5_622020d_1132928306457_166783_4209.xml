@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306457_166783_4209"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GradientPaint" refid="_9_5_f720368_1110473546581_110545_7017"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;GradientPaint&lt;/code&gt; class provides a way to fill
+a {@link Shape} with a linear color gradient pattern.
+If {@link Point} P1 with {@link Color} C1 and &lt;code&gt;Point&lt;/code&gt; P2 with
+&lt;code&gt;Color&lt;/code&gt; C2 are specified in user space, the
+&lt;code&gt;Color&lt;/code&gt; on the P1, P2 connecting line is proportionally
+changed from C1 to C2.  Any point P not on the extended P1, P2
+connecting line has the color of the point P' that is the perpendicular
+projection of P on the extended P1, P2 connecting line.
+Points on the extended line outside of the P1, P2 segment can be colored
+in one of two ways.
+&lt;ul&gt;
+&lt;li&gt;
+If the gradient is cyclic then the points on the extended P1, P2
+connecting line cycle back and forth between the colors C1 and C2.
+&lt;li&gt;
+If the gradient is acyclic then points on the P1 side of the segment
+have the constant &lt;code&gt;Color&lt;/code&gt; C1 while points on the P2 side
+have the constant &lt;code&gt;Color&lt;/code&gt; C2.
+&lt;/ul&gt;
+
+@see Paint
+@see Graphics2D#setPaint
+@version 10 Feb 1997
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="GradientPaint" refid="_9_5_f720368_1110473546581_110545_7017"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GradientPaint" refid="_9_5_f720368_1110473546581_110545_7017"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

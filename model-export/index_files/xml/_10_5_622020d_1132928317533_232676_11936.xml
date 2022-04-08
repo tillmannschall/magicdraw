@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317533_232676_11936"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractFilter" refid="_9_5_f720368_1110473546784_406585_10399"/></annotatedElement><body humanName="Body" mode="s,e">A generic superclass for streams which read and parse text
+consisting of runs of characters interspersed with occasional
+``specials'' (formatting characters).
+
+&lt;p&gt; Most of the functionality
+of this class would be redundant except that the
+&lt;code&gt;ByteToChar&lt;/code&gt; converters
+are suddenly private API. Presumably this class will disappear
+when the API is made public again. (sigh) That will also let us handle
+multibyte character sets...
+
+&lt;P&gt; A subclass should override at least &lt;code&gt;write(char)&lt;/code&gt;
+and &lt;code&gt;writeSpecial(int)&lt;/code&gt;. For efficiency's sake it's a
+good idea to override &lt;code&gt;write(String)&lt;/code&gt; as well. The subclass'
+initializer may also install appropriate translation and specials tables.
+
+@see OutputStream
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AbstractFilter" refid="_9_5_f720368_1110473546784_406585_10399"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractFilter" refid="_9_5_f720368_1110473546784_406585_10399"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

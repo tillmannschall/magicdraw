@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310312_225919_6741"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ConsoleHandler" refid="_9_5_f720368_1110473546690_781832_8717"/></annotatedElement><body humanName="Body" mode="s,e">This &lt;tt&gt;Handler&lt;/tt&gt; publishes log records to &lt;tt&gt;System.err&lt;/tt&gt;.
+By default the &lt;tt&gt;SimpleFormatter&lt;/tt&gt; is used to generate brief summaries.
+&lt;p&gt;
+&lt;b&gt;Configuration:&lt;/b&gt;
+By default each &lt;tt&gt;ConsoleHandler&lt;/tt&gt; is initialized using the following
+&lt;tt&gt;LogManager&lt;/tt&gt; configuration properties.  If properties are not defined
+(or have invalid values) then the specified default values are used.
+&lt;ul&gt;
+&lt;li&gt;   java.util.logging.ConsoleHandler.level
+specifies the default level for the &lt;tt&gt;Handler&lt;/tt&gt;
+(defaults to &lt;tt&gt;Level.INFO&lt;/tt&gt;).
+&lt;li&gt;   java.util.logging.ConsoleHandler.filter
+specifies the name of a &lt;tt&gt;Filter&lt;/tt&gt; class to use
+(defaults to no &lt;tt&gt;Filter&lt;/tt&gt;).
+&lt;li&gt;   java.util.logging.ConsoleHandler.formatter
+specifies the name of a &lt;tt&gt;Formatter&lt;/tt&gt; class to use
+(defaults to &lt;tt&gt;java.util.logging.SimpleFormatter&lt;/tt&gt;).
+&lt;li&gt;   java.util.logging.ConsoleHandler.encoding
+the name of the character set encoding to use (defaults to
+the default platform encoding).
+&lt;/ul&gt;
+&lt;p&gt;
+@version 1.12, 12/19/03
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ConsoleHandler" refid="_9_5_f720368_1110473546690_781832_8717"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ConsoleHandler" refid="_9_5_f720368_1110473546690_781832_8717"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

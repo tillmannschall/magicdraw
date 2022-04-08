@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316972_6232_10757"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ConnectionPoolDataSource" refid="_9_5_f720368_1110473546753_15016_9755"/></annotatedElement><body humanName="Body" mode="s,e">A factory for &lt;code&gt;PooledConnection&lt;/code&gt;
+objects.  An object that implements this interface will typically be
+registered with a naming service that is based on the
+Java&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt; Naming and Directory Interface
+(JNDI).
+
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ConnectionPoolDataSource" refid="_9_5_f720368_1110473546753_15016_9755"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ConnectionPoolDataSource" refid="_9_5_f720368_1110473546753_15016_9755"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

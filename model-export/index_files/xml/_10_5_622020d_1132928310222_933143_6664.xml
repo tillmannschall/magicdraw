@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310222_933143_6664"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ScheduledThreadPoolExecutor" refid="_10_5_622020d_1132928310212_73589_6656"/></annotatedElement><body humanName="Body" mode="s,e">A {@link ThreadPoolExecutor} that can additionally schedule
+commands to run after a given delay, or to execute
+periodically. This class is preferable to {@link java.util.Timer}
+when multiple worker threads are needed, or when the additional
+flexibility or capabilities of {@link ThreadPoolExecutor} (which
+this class extends) are required.
+
+&lt;p&gt; Delayed tasks execute no sooner than they are enabled, but
+without any real-time guarantees about when, after they are
+enabled, they will commence. Tasks scheduled for exactly the same
+execution time are enabled in first-in-first-out (FIFO) order of
+submission.
+
+&lt;p&gt;While this class inherits from {@link ThreadPoolExecutor}, a few
+of the inherited tuning methods are not useful for it. In
+particular, because it acts as a fixed-sized pool using
+&lt;tt&gt;corePoolSize&lt;/tt&gt; threads and an unbounded queue, adjustments
+to &lt;tt&gt;maximumPoolSize&lt;/tt&gt; have no useful effect.
+
+@since 1.5
+@author Doug Lea
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ScheduledThreadPoolExecutor" refid="_10_5_622020d_1132928310212_73589_6656"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ScheduledThreadPoolExecutor" refid="_10_5_622020d_1132928310212_73589_6656"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

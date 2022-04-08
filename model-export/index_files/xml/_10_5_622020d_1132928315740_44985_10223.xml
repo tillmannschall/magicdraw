@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315740_44985_10223"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterName" refid="_9_5_f720368_1110473546721_568292_9415"/></annotatedElement><body humanName="Body" mode="s,e">Class PrinterName is a printing attribute class, a text attribute, that
+specifies the name of a printer. It is a name that is more end-user friendly
+than a URI. An administrator determines a printer's name and sets this
+attribute to that name. This name may be the last part of the printer's URI
+or it may be unrelated. In non-US-English locales, a name may contain
+characters that are not allowed in a URI.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The string value gives the IPP name value. The
+locale gives the IPP natural language. The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute name.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PrinterName" refid="_9_5_f720368_1110473546721_568292_9415"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterName" refid="_9_5_f720368_1110473546721_568292_9415"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

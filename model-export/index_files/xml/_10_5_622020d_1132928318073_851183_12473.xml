@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318073_851183_12473"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JPasswordField" refid="_9_5_f720368_1110473546799_912955_10751"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;JPasswordField&lt;/code&gt; is a lightweight component that allows
+the editing of a single line of text where the view indicates
+something was typed, but does not show the original characters.
+You can find further information and examples in
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/textfield.html"&gt;How to Use Text Fields&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+&lt;p&gt;
+&lt;code&gt;JPasswordField&lt;/code&gt; is intended
+to be source-compatible with &lt;code&gt;java.awt.TextField&lt;/code&gt;
+used with &lt;code&gt;echoChar&lt;/code&gt; set.  It is provided separately
+to make it easier to safely change the UI for the
+&lt;code&gt;JTextField&lt;/code&gt; without affecting password entries.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@beaninfo
+attribute: isContainer false
+description: Allows the editing of a line of text but doesn't show the characters.
+
+@author  Timothy Prinzing
+@version 1.54 06/02/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JPasswordField" refid="_9_5_f720368_1110473546799_912955_10751"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JPasswordField" refid="_9_5_f720368_1110473546799_912955_10751"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318214_773882_12636"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SizeRequirements" refid="_9_5_f720368_1110473546799_422382_10849"/></annotatedElement><body humanName="Body" mode="s,e">For the convenience of layout managers,
+calculates information about the size and position of components.
+All size and position calculation methods are class methods
+that take arrays of SizeRequirements as arguments.
+The SizeRequirements class supports two types of layout:
+
+&lt;blockquote&gt;
+&lt;dl&gt;
+&lt;dt&gt; tiled
+&lt;dd&gt; The components are placed end-to-end,
+starting either at coordinate 0 (the leftmost or topmost position)
+or at the coordinate representing the end of the allocated span
+(the rightmost or bottommost position).
+
+&lt;dt&gt; aligned
+&lt;dd&gt; The components are aligned as specified
+by each component's X or Y alignment value.
+&lt;/dl&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+
+Each SizeRequirements object contains information
+about either the width (and X alignment)
+or height (and Y alignment)
+of a single component or a group of components:
+
+&lt;blockquote&gt;
+&lt;dl&gt;
+&lt;dt&gt; &lt;code&gt;minimum&lt;/code&gt;
+&lt;dd&gt; The smallest reasonable width/height of the component
+or component group, in pixels.
+
+&lt;dt&gt; &lt;code&gt;preferred&lt;/code&gt;
+&lt;dd&gt; The natural width/height of the component
+or component group, in pixels.
+
+&lt;dt&gt; &lt;code&gt;maximum&lt;/code&gt;
+&lt;dd&gt; The largest reasonable width/height of the component
+or component group, in pixels.
+
+&lt;dt&gt; &lt;code&gt;alignment&lt;/code&gt;
+&lt;dd&gt; The X/Y alignment of the component
+or component group.
+&lt;/dl&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see Component#getMinimumSize
+@see Component#getPreferredSize
+@see Component#getMaximumSize
+@see Component#getAlignmentX
+@see Component#getAlignmentY
+
+@version 1.32 12/19/03
+@author Timothy Prinzing
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SizeRequirements" refid="_9_5_f720368_1110473546799_422382_10849"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SizeRequirements" refid="_9_5_f720368_1110473546799_422382_10849"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

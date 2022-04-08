@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315830_86841_10333"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="INPUT_STREAM" refid="_9_5_f720368_1110473548049_953002_20596"/></annotatedElement><body humanName="Body" mode="s,e">Class DocFlavor.INPUT_STREAM provides predefined static constant
+DocFlavor objects for example doc flavors using a byte stream ({@link
+java.io.InputStream &lt;CODE&gt;java.io.InputStream&lt;/CODE&gt;}) as the print
+data representation class.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="INPUT_STREAM" refid="_9_5_f720368_1110473548049_953002_20596"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="INPUT_STREAM" refid="_9_5_f720368_1110473548049_953002_20596"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

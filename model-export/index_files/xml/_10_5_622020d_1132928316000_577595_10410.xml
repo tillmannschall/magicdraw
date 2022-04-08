@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316000_577595_10410"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ChoiceCallback" refid="_9_5_f720368_1110473546737_310211_9573"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt; Underlying security services instantiate and pass a
+&lt;code&gt;ChoiceCallback&lt;/code&gt; to the &lt;code&gt;handle&lt;/code&gt;
+method of a &lt;code&gt;CallbackHandler&lt;/code&gt; to display a list of choices
+and to retrieve the selected choice(s).
+
+@version 1.17, 12/19/03
+@see javax.security.auth.callback.CallbackHandler
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ChoiceCallback" refid="_9_5_f720368_1110473546737_310211_9573"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ChoiceCallback" refid="_9_5_f720368_1110473546737_310211_9573"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

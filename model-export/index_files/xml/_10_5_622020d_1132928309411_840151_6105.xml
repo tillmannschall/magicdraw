@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309411_840151_6105"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Service" refid="_10_5_622020d_1132928309411_557320_6104"/></annotatedElement><body humanName="Body" mode="s,e">The description of a security service. It encapsulates the properties
+of a service and contains a factory method to obtain new implementation
+instances of this service.
+
+&lt;p&gt;Each service has a provider that offers the service, a type,
+an algorithm name, and the name of the class that implements the
+service. Optionally, it also includes a list of alternate algorithm
+names for this service (aliases) and attributes, which are a map of
+(name, value) String pairs.
+
+&lt;p&gt;This class defines the methods {@link #supportsParameter
+supportsParameter()} and {@link #newInstance newInstance()}
+which are used by the Java security framework when it searches for
+suitable services and instantes them. The valid arguments to those
+methods depend on the type of service. For the service types defined
+within J2SE, see the
+&lt;a href="../../../guide/security/CryptoSpec.html"&gt;
+Java Cryptography Architecture API Specification &amp; Reference &lt;/a&gt;
+for the valid values.
+Note that components outside of J2SE can define additional types of
+services and their behavior.
+
+&lt;p&gt;Instances of this class are immutable.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Service" refid="_10_5_622020d_1132928309411_557320_6104"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Service" refid="_10_5_622020d_1132928309411_557320_6104"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

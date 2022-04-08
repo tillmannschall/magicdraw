@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305996_407563_3926"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ColorConvertOp" refid="_9_5_f720368_1110473546565_56176_6761"/></annotatedElement><body humanName="Body" mode="s,e">This class performs a pixel-by-pixel color conversion of the data in
+the source image.  The resulting color values are scaled to the precision
+of the destination image.  Color conversion can be specified
+via an array of ColorSpace objects or an array of ICC_Profile objects.
+&lt;p&gt;
+If the source is a BufferedImage with premultiplied alpha, the
+color components are divided by the alpha component before color conversion.
+If the destination is a BufferedImage with premultiplied alpha, the
+color components are multiplied by the alpha component after conversion.
+Rasters are treated as having no alpha channel, i.e. all bands are
+color bands.
+&lt;p&gt;
+If a RenderingHints object is specified in the constructor, the
+color rendering hint and the dithering hint may be used to control
+color conversion.
+&lt;p&gt;
+Note that Source and Destination may be the same object.
+&lt;p&gt;
+@see java.awt.RenderingHints#KEY_COLOR_RENDERING
+@see java.awt.RenderingHints#KEY_DITHERING
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ColorConvertOp" refid="_9_5_f720368_1110473546565_56176_6761"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ColorConvertOp" refid="_9_5_f720368_1110473546565_56176_6761"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546565_424087_6625"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;GlyphJustificationInfo&lt;/code&gt; class represents information
+about the justification properties of a glyph.  A glyph is the visual
+representation of one or more characters.  Many different glyphs can
+be used to represent a single character or combination of characters.
+The four justification properties represented by
+&lt;code&gt;GlyphJustificationInfo&lt;/code&gt; are weight, priority, absorb and
+limit.
+&lt;p&gt;
+Weight is the overall 'weight' of the glyph in the line.  Generally it is
+proportional to the size of the font.  Glyphs with larger weight are
+allocated a correspondingly larger amount of the change in space.
+&lt;p&gt;
+Priority determines the justification phase in which this glyph is used.
+All glyphs of the same priority are examined before glyphs of the next
+priority.  If all the change in space can be allocated to these glyphs
+without exceeding their limits, then glyphs of the next priority are not
+examined. There are four priorities, kashida, whitespace, interchar,
+and none.  KASHIDA is the first priority examined. NONE is the last
+priority examined.
+&lt;p&gt;
+Absorb determines whether a glyph absorbs all change in space.  Within a
+given priority, some glyphs may absorb all the change in space.  If any of
+these glyphs are present, no glyphs of later priority are examined.
+&lt;p&gt;
+Limit determines the maximum or minimum amount by which the glyph can
+change. Left and right sides of the glyph can have different limits.
+&lt;p&gt;
+Each &lt;code&gt;GlyphJustificationInfo&lt;/code&gt; represents two sets of
+metrics, which are &lt;i&gt;growing&lt;/i&gt; and &lt;i&gt;shrinking&lt;/i&gt;.  Growing
+metrics are used when the glyphs on a line are to be
+spread apart to fit a larger width.  Shrinking metrics are used when
+the glyphs are to be moved together to fit a smaller width.
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">GlyphJustificationInfo</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305786_462019_3775"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305786_462019_3775"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::font::GlyphJustificationInfo</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546737_327342_9663"><documentation humanName="Documentation" mode="standard">&lt;code&gt;MidiDevice&lt;/code&gt; is the base interface for all MIDI devices.
+Common devices include synthesizers, sequencers, MIDI input ports, and MIDI
+output ports.
+
+&lt;p&gt;A &lt;code&gt;MidiDevice&lt;/code&gt; can be a transmitter or a receiver of
+MIDI events, or both. Therefore, it can provide {@link Transmitter}
+or {@link Receiver} instances (or both). Typically, MIDI IN ports
+provide transmitters, MIDI OUT ports and synthesizers provide
+receivers. A Sequencer typically provides transmitters for playback
+and receivers for recording.
+
+&lt;p&gt;A &lt;code&gt;MidiDevice&lt;/code&gt; can be opened and closed explicitly as
+well as implicitly. Explicit opening is accomplished by calling
+{@link #open}, explicit closing is done by calling {@link
+#close} on the &lt;code&gt;MidiDevice&lt;/code&gt; instance.
+If an application opens a &lt;code&gt;MidiDevice&lt;/code&gt;
+explicitly, it has to close it explicitly to free system resources
+and enable the application to exit cleanly. Implicit opening is
+done by calling {@link javax.sound.midi.MidiSystem#getReceiver
+MidiSystem.getReceiver} and {@link
+javax.sound.midi.MidiSystem#getTransmitter
+MidiSystem.getTransmitter}. The &lt;code&gt;MidiDevice&lt;/code&gt; used by
+&lt;code&gt;MidiSystem.getReceiver&lt;/code&gt; and
+&lt;code&gt;MidiSystem.getTransmitter&lt;/code&gt; is implementation-dependant
+unless the properties &lt;code&gt;javax.sound.midi.Receiver&lt;/code&gt;
+and &lt;code&gt;javax.sound.midi.Transmitter&lt;/code&gt; are used (see the
+description of properties to select default providers in
+{@link javax.sound.midi.MidiSystem}). A &lt;code&gt;MidiDevice&lt;/code&gt;
+that was opened implicitly, is closed implicitly by closing the
+&lt;code&gt;Receiver&lt;/code&gt; or &lt;code&gt;Transmitter&lt;/code&gt; that resulted in
+opening it. If more than one implicitly opening
+&lt;code&gt;Receiver&lt;/code&gt; or &lt;code&gt;Transmitter&lt;/code&gt; were obtained by
+the application, the decive is closed after the last
+&lt;code&gt;Receiver&lt;/code&gt; or &lt;code&gt;Transmitter&lt;/code&gt; has been
+closed. On the other hand, calling &lt;code&gt;getReceiver&lt;/code&gt; or
+&lt;code&gt;getTransmitter&lt;/code&gt; on the device instance directly does
+not open the device implicitly. Closing these
+&lt;code&gt;Transmitter&lt;/code&gt;s and &lt;code&gt;Receiver&lt;/code&gt;s does not close
+the device implicitly. To use a device with &lt;code&gt;Receiver&lt;/code&gt;s
+or &lt;code&gt;Transmitter&lt;/code&gt;s obtained this way, the device has to
+be opened and closed explicitly.
+
+&lt;p&gt;If implicit and explicit opening and closing are mixed on the
+same &lt;code&gt;MidiDevice&lt;/code&gt; instance, the following rules apply:
+
+&lt;ul&gt;
+&lt;li&gt;After an explicit open (either before or after implicit
+opens), the device will not be closed by implicit closing. The only
+way to close an explicitly opened device is an explicit close.&lt;/li&gt;
+
+&lt;li&gt;An explicit close always closes the device, even if it also has
+been opened implicitly. A subsequent implicit close has no further
+effect.&lt;/li&gt;
+&lt;/ul&gt;
+
+To detect if a MidiDevice represents a hardware MIDI port, the
+following programming technique can be used:
+
+&lt;pre&gt;
+MidiDevice device = ...;
+if ( ! (device instanceof Sequencer) &amp;&amp; ! (device instanceof Synthesizer)) {
+we're now sure that device represents a MIDI port
+...
+}
+&lt;/pre&gt;
+
+&lt;p&gt;
+A &lt;code&gt;MidiDevice&lt;/code&gt; includes a &lt;code&gt;{@link MidiDevice.Info}&lt;/code&gt; object
+to provide manufacturer information and so on.
+
+@see Synthesizer
+@see Sequencer
+@see Receiver
+@see Transmitter
+
+@version 1.38, 03/12/19
+@author Kara Kytle
+@author Florian Bomers
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548081_508251_20806"/></member><name humanName="Name" mode="s,e">MidiDevice</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548081_508251_20806"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316151_286766_10557"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316151_286766_10557"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548081_508251_20806"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548081_508251_20806"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sound::midi::MidiDevice</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

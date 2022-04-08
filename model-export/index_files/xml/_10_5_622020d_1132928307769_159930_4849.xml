@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307769_159930_4849"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Reference" refid="_9_5_f720368_1110473546612_294432_7515"/></annotatedElement><body humanName="Body" mode="s,e">Abstract base class for reference objects.  This class defines the
+operations common to all reference objects.	Because reference objects are
+implemented in close cooperation with the garbage collector, this class may
+not be subclassed directly.
+
+@version  1.41, 04/20/04
+@author   Mark Reinhold
+@since    1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Reference" refid="_9_5_f720368_1110473546612_294432_7515"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Reference" refid="_9_5_f720368_1110473546612_294432_7515"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

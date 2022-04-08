@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309120_401889_5813"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CertSelector" refid="_9_5_f720368_1110473546674_519070_8309"/></annotatedElement><body humanName="Body" mode="s,e">A selector that defines a set of criteria for selecting
+&lt;code&gt;Certificate&lt;/code&gt;s. Classes that implement this interface
+are often used to specify which &lt;code&gt;Certificate&lt;/code&gt;s should
+be retrieved from a &lt;code&gt;CertStore&lt;/code&gt;.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Unless otherwise specified, the methods defined in this interface are not
+thread-safe. Multiple threads that need to access a single
+object concurrently should synchronize amongst themselves and
+provide the necessary locking. Multiple threads each manipulating
+separate objects need not synchronize.
+
+@see Certificate
+@see CertStore
+@see CertStore#getCertificates
+
+@version 	1.5 12/19/03
+@author	Steve Hanna
+@since	1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CertSelector" refid="_9_5_f720368_1110473546674_519070_8309"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CertSelector" refid="_9_5_f720368_1110473546674_519070_8309"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

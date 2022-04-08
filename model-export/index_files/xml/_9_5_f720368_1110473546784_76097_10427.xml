@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546784_76097_10427"><documentation humanName="Documentation" mode="standard">A view that arranges its children into a box shape by tiling
+its children along an axis.  The box is somewhat like that
+found in TeX where there is alignment of the
+children, flexibility of the children is considered, etc.
+This is a building block that might be useful to represent
+things like a collection of lines, paragraphs,
+lists, columns, pages, etc.  The axis along which the children are tiled is
+considered the major axis.  The orthoginal axis is the minor axis.
+&lt;p&gt;
+Layout for each axis is handled separately by the methods
+&lt;code&gt;layoutMajorAxis&lt;/code&gt; and &lt;code&gt;layoutMinorAxis&lt;/code&gt;.
+Subclasses can change the layout algorithm by
+reimplementing these methods.    These methods will be called
+as necessary depending upon whether or not there is cached
+layout information and the cache is considered
+valid.  These methods are typically called if the given size
+along the axis changes, or if &lt;code&gt;layoutChanged&lt;/code&gt; is
+called to force an updated layout.  The &lt;code&gt;layoutChanged&lt;/code&gt;
+method invalidates cached layout information, if there is any.
+The requirements published to the parent view are calculated by
+the methods &lt;code&gt;calculateMajorAxisRequirements&lt;/code&gt;
+and  &lt;code&gt;calculateMinorAxisRequirements&lt;/code&gt;.
+If the layout algorithm is changed, these methods will
+likely need to be reimplemented.
+
+@author  Timothy Prinzing
+@version 1.61 03/05/04
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323852_751850_17932"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">BoxView</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317553_849059_11990"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323852_751850_17932"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317553_849059_11990"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::text::BoxView</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CompositeView" refid="_9_5_f720368_1110473546784_235862_10435"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

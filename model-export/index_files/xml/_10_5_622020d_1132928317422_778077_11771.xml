@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317422_778077_11771"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ContentModelState" refid="_9_5_f720368_1110473546768_839664_10305"/></annotatedElement><body humanName="Body" mode="s,e">A content model state. This is basically a list of pointers to
+the BNF expression representing the model (the ContentModel).
+Each element in a DTD has a content model which describes the
+elements that may occur inside, and the order in which they can
+occur.
+&lt;p&gt;
+Each time a token is reduced a new state is created.
+&lt;p&gt;
+See Annex H on page 556 of the SGML handbook for more information.
+
+@see Parser
+@see DTD
+@see Element
+@see ContentModel
+@author Arthur van Hoff
+@version 	1.11 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ContentModelState" refid="_9_5_f720368_1110473546768_839664_10305"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ContentModelState" refid="_9_5_f720368_1110473546768_839664_10305"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

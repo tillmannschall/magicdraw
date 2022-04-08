@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317723_392321_12177"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StyledInsertBreakAction" refid="_9_5_f720368_1110473548378_379866_23678"/></annotatedElement><body humanName="Body" mode="s,e">StyledInsertBreakAction has similar behavior to that of
+&lt;code&gt;DefaultEditorKit.InsertBreakAction&lt;/code&gt;. That is when
+its &lt;code&gt;actionPerformed&lt;/code&gt; method is invoked, a newline
+is inserted. Beyond that, this will reset the input attributes to
+what they were before the newline was inserted.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StyledInsertBreakAction" refid="_9_5_f720368_1110473548378_379866_23678"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StyledInsertBreakAction" refid="_9_5_f720368_1110473548378_379866_23678"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

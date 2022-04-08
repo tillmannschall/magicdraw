@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316791_993814_10735"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Joinable" refid="_10_5_622020d_1132928316791_93808_10733"/></annotatedElement><body humanName="Body" mode="s,e">&lt;h3&gt;1.0 Background&lt;/h3&gt;
+The &lt;code&gt;Joinable&lt;/code&gt; interface provides the methods for getting and
+setting a match column, which is the basis for forming the SQL &lt;code&gt;JOIN&lt;/code&gt;
+formed by adding &lt;code&gt;RowSet&lt;/code&gt; objects to a &lt;code&gt;JoinRowSet&lt;/code&gt;
+object.
+&lt;P&gt;
+Any standard &lt;code&gt;RowSet&lt;/code&gt; implementation &lt;b&gt;may&lt;/b&gt; implement
+the &lt;code&gt;Joinable&lt;/code&gt; interface in order to be
+added to a &lt;code&gt;JoinRowSet&lt;/code&gt; object. Implementing this interface gives
+a &lt;code&gt;RowSet&lt;/code&gt; object the ability to use &lt;code&gt;Joinable&lt;/code&gt; methods,
+which set, retrieve, and get information about match columns.  An
+application may add a
+&lt;code&gt;RowSet&lt;/code&gt; object that has not implemented the &lt;code&gt;Joinable&lt;/code&gt;
+interface to a &lt;code&gt;JoinRowSet&lt;/code&gt; object, but to do so it must use one
+of the &lt;code&gt;JoinRowSet.addRowSet&lt;/code&gt; methods that takes both a
+&lt;code&gt;RowSet&lt;/code&gt; object and a match column or an array of &lt;code&gt;RowSet&lt;/code&gt;
+objects and an array of match columns.
+&lt;P&gt;
+To get access to the methods in the &lt;code&gt;Joinable&lt;/code&gt; interface, a
+&lt;code&gt;RowSet&lt;/code&gt; object implements at least one of the
+five standard &lt;code&gt;RowSet&lt;/code&gt; interfaces and also implements the
+&lt;code&gt;Joinable&lt;/code&gt; interface.  In addition, most &lt;code&gt;RowSet&lt;/code&gt;
+objects extend the &lt;code&gt;BaseRowSet&lt;/code&gt; class.  For example:
+&lt;pre&gt;
+class MyRowSetImpl extends BaseRowSet implements CachedRowSet, Joinable {
+:
+:
+}
+&lt;/pre&gt;
+&lt;P&gt;
+&lt;h3&gt;2.0 Usage Guidelines&lt;/h3&gt;
+&lt;P&gt;
+The methods in the &lt;code&gt;Joinable&lt;/code&gt; interface allow a &lt;code&gt;RowSet&lt;/code&gt; object
+to set a match column, retrieve a match column, or unset a match column, which is
+the column upon which an SQL &lt;code&gt;JOIN&lt;/code&gt; can be based.
+An instance of a class that implements these methods can be added to a
+&lt;code&gt;JoinRowSet&lt;/code&gt; object to allow an SQL &lt;code&gt;JOIN&lt;/code&gt; relationship to
+be established.
+&lt;p&gt;
+&lt;pre&gt;
+CachedRowSet crs = new MyRowSetImpl();
+crs.populate((ResultSet)rs);
+(Joinable)crs.setMatchColumnIndex(1);
+
+JoinRowSet jrs = new JoinRowSetImpl();
+jrs.addRowSet(crs);
+&lt;/pre&gt;
+In the previous example, &lt;i&gt;crs&lt;/i&gt; is a &lt;code&gt;CachedRowSet&lt;/code&gt; object that
+has emplemented the &lt;code&gt;Joinable&lt;/code&gt; interface.  In the following example,
+&lt;i&gt;crs2&lt;/i&gt; has not, so it must supply the match column as an argument to the
+&lt;code&gt;addRowSet&lt;/code&gt; method. This example assumes that column 1 is the match
+column.
+&lt;PRE&gt;
+CachedRowSet crs2 = new MyRowSetImpl();
+crs2.populate((ResultSet)rs);
+
+JoinRowSet jrs2 = new JoinRowSetImpl();
+jrs2.addRowSet(crs2, 1);
+&lt;/PRE&gt;
+&lt;p&gt;
+The &lt;code&gt;JoinRowSet&lt;/code&gt; interface makes it possible to get data from one or
+more &lt;code&gt;RowSet&lt;/code&gt; objects consolidated into one table without having to incur
+the expense of creating a connection to a database. It is therefore ideally suited
+for use by disconnected &lt;code&gt;RowSet&lt;/code&gt; objects. Nevertheless, any
+&lt;code&gt;RowSet&lt;/code&gt; object &lt;b&gt;may&lt;/b&gt; implement this interface
+regardless of whether it is connected or disconnected. Note that a
+&lt;code&gt;JdbcRowSet&lt;/code&gt; object, being always connected to its data source, can
+become part of an SQL &lt;code&gt;JOIN&lt;/code&gt; directly without having to become part
+of a &lt;code&gt;JoinRowSet&lt;/code&gt; object.
+&lt;P&gt;
+&lt;h3&gt;3.0 Managing Multiple Match Columns&lt;/h3&gt;
+The index array passed into the &lt;code&gt;setMatchColumn&lt;/code&gt; methods indicates
+how many match columns are being set (the length of the array) in addition to
+which columns will be used for the match. For example:
+&lt;pre&gt;
+int[] i = {1, 2, 4, 7}; // indicates four match columns, with column
+indexes 1, 2, 4, 7 participating in the JOIN.
+Joinable.setMatchColumn(i);
+&lt;/pre&gt;
+Subsequent match columns may be added as follows to a different &lt;code&gt;Joinable&lt;/code&gt;
+object (a &lt;code&gt;RowSet&lt;/code&gt; object that has implemented the &lt;code&gt;Joinable&lt;/code&gt;
+interface).
+&lt;pre&gt;
+int[] w = {3, 2, 5, 3};
+Joinable2.setMatchColumn(w);
+&lt;/pre&gt;
+When an application adds two or more &lt;code&gt;RowSet&lt;/code&gt; objects to a
+&lt;code&gt;JoinRowSet&lt;/code&gt; object, the order of the indexes in the array is
+particularly important. Each index of
+the array maps directly to the corresponding index of the previously added
+&lt;code&gt;RowSet&lt;/code&gt; object. If overlap or underlap occurs, the match column
+data is maintained in the event an additional &lt;code&gt;Joinable&lt;/code&gt; RowSet is
+added and needs to relate to the match column data. Therefore, applications
+can set multiple match columns in any order, but
+this order has a direct effect on the outcome of the &lt;code&gt;SQL&lt;/code&gt; JOIN.
+&lt;p&gt;
+This assertion applies in exactly the same manner when column names are used
+rather than column indexes to indicate match columns.
+
+@see JoinRowSet
+@author  Jonathan Bruce
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Joinable" refid="_10_5_622020d_1132928316791_93808_10733"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Joinable" refid="_10_5_622020d_1132928316791_93808_10733"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

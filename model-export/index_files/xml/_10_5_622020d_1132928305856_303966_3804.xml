@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305856_303966_3804"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CaretPolicy" refid="_9_5_f720368_1110473547315_156333_16552"/></annotatedElement><body humanName="Body" mode="s,e">Defines a policy for determining the strong caret location.
+This class contains one method, &lt;code&gt;getStrongCaret&lt;/code&gt;, which
+is used to specify the policy that determines the strong caret in
+dual-caret text.  The strong caret is used to move the caret to the
+left or right. Instances of this class can be passed to
+&lt;code&gt;getCaretShapes&lt;/code&gt;, &lt;code&gt;getNextLeftHit&lt;/code&gt; and
+&lt;code&gt;getNextRightHit&lt;/code&gt; to customize strong caret
+selection.
+&lt;p&gt;
+To specify alternate caret policies, subclass &lt;code&gt;CaretPolicy&lt;/code&gt;
+and override &lt;code&gt;getStrongCaret&lt;/code&gt;.  &lt;code&gt;getStrongCaret&lt;/code&gt;
+should inspect the two &lt;code&gt;TextHitInfo&lt;/code&gt; arguments and choose
+one of them as the strong caret.
+&lt;p&gt;
+Most clients do not need to use this class.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CaretPolicy" refid="_9_5_f720368_1110473547315_156333_16552"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CaretPolicy" refid="_9_5_f720368_1110473547315_156333_16552"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

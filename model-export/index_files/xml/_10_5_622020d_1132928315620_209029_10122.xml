@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315620_209029_10122"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Destination" refid="_9_5_f720368_1110473546721_217844_9319"/></annotatedElement><body humanName="Body" mode="s,e">Class Destination is a printing attribute class, a URI, that is used to
+indicate an alternate destination for the spooled printer formatted
+data. Many PrintServices will not support the notion of a destination
+other than the printer device, and so will not support this attribute.
+&lt;p&gt;
+A common use for this attribute will be applications which want
+to redirect output to a local disk file : eg."file:out.prn".
+Note that proper construction of "file:" scheme URI instances should
+be performed using the &lt;code&gt;toURI()&lt;/code&gt; method of class
+{@link java.io.File File}.
+See the documentation on that class for more information.
+&lt;p&gt;
+If a destination URI is specified in a PrintRequest and it is not
+accessible for output by the PrintService, a PrintException will be thrown.
+The PrintException may implement URIException to provide a more specific
+cause.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; Destination is not an IPP attribute.
+&lt;P&gt;
+
+@author  Phil Race.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Destination" refid="_9_5_f720368_1110473546721_217844_9319"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Destination" refid="_9_5_f720368_1110473546721_217844_9319"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

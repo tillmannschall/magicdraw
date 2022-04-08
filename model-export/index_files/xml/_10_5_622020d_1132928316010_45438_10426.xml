@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316010_45438_10426"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DelegationPermission" refid="_9_5_f720368_1110473546737_989832_9589"/></annotatedElement><body humanName="Body" mode="s,e">This class is used to restrict the usage of the Kerberos
+delegation model, ie: forwardable and proxiable tickets.
+&lt;p&gt;
+The target name of this &lt;code&gt;Permission&lt;/code&gt; specifies a pair of
+kerberos service principals. The first is the subordinate service principal
+being entrusted to use the TGT. The second service principal designates
+the target service the subordinate service principal is to
+interact with on behalf of the initiating KerberosPrincipal. This
+latter service principal is specified to restrict the use of a
+proxiable ticket.
+&lt;p&gt;
+For example, to specify the "host" service use of a forwardable TGT the
+target permission is specified as follows:
+&lt;p&gt;
+&lt;pre&gt;
+DelegationPermission("\"host/foo.example.com@EXAMPLE.COM\" \"krbtgt/EXAMPLE.COM@EXAMPLE.COM\"");
+&lt;/pre&gt;
+&lt;p&gt;
+To give the "backup" service a proxiable nfs service ticket the target permission
+might be specified:
+&lt;p&gt;
+&lt;pre&gt;
+DelegationPermission("\"backup/bar.example.com@EXAMPLE.COM\" \"nfs/home.EXAMPLE.COM@EXAMPLE.COM\"");
+&lt;/pre&gt;
+
+@since JDK1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DelegationPermission" refid="_9_5_f720368_1110473546737_989832_9589"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DelegationPermission" refid="_9_5_f720368_1110473546737_989832_9589"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

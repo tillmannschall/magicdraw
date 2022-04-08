@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309811_48285_6278"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RuleBasedBreakIterator" refid="_9_5_f720368_1110473546690_897998_8677"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;A subclass of BreakIterator whose behavior is specified using a list of rules.&lt;/p&gt;
+
+&lt;p&gt;There are two kinds of rules, which are separated by semicolons: &lt;i&gt;substitutions&lt;/i&gt;
+and &lt;i&gt;regular expressions.&lt;/i&gt;&lt;/p&gt;
+
+&lt;p&gt;A substitution rule defines a name that can be used in place of an expression. It
+consists of a name, which is a string of characters contained in angle brackets, an equals
+sign, and an expression. (There can be no whitespace on either side of the equals sign.)
+To keep its syntactic meaning intact, the expression must be enclosed in parentheses or
+square brackets. A substitution is visible after its definition, and is filled in using
+simple textual substitution. Substitution definitions can contain other substitutions, as
+long as those substitutions have been defined first. Substitutions are generally used to
+make the regular expressions (which can get quite complex) shorted and easier to read.
+They typically define either character categories or commonly-used subexpressions.&lt;/p&gt;
+
+&lt;p&gt;There is one special substitution.&amp;nbsp; If the description defines a substitution
+called "&lt;ignore&gt;", the expression must be a [] expression, and the
+expression defines a set of characters (the "&lt;em&gt;ignore characters&lt;/em&gt;") that
+will be transparent to the BreakIterator.&amp;nbsp; A sequence of characters will break the
+same way it would if any ignore characters it contains are taken out.&amp;nbsp; Break
+positions never occur befoer ignore characters.&lt;/p&gt;
+
+&lt;p&gt;A regular expression uses a subset of the normal Unix regular-expression syntax, and
+defines a sequence of characters to be kept together. With one significant exception, the
+iterator uses a longest-possible-match algorithm when matching text to regular
+expressions. The iterator also treats descriptions containing multiple regular expressions
+as if they were ORed together (i.e., as if they were separated by |).&lt;/p&gt;
+
+&lt;p&gt;The special characters recognized by the regular-expression parser are as follows:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;table border="1" width="100%"&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;*&lt;/td&gt;
+&lt;td width="94%"&gt;Specifies that the expression preceding the asterisk may occur any number
+of times (including not at all).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;{}&lt;/td&gt;
+&lt;td width="94%"&gt;Encloses a sequence of characters that is optional.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;()&lt;/td&gt;
+&lt;td width="94%"&gt;Encloses a sequence of characters.&amp;nbsp; If followed by *, the sequence
+repeats.&amp;nbsp; Otherwise, the parentheses are just a grouping device and a way to delimit
+the ends of expressions containing |.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;|&lt;/td&gt;
+&lt;td width="94%"&gt;Separates two alternative sequences of characters.&amp;nbsp; Either one
+sequence or the other, but not both, matches this expression.&amp;nbsp; The | character can
+only occur inside ().&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;.&lt;/td&gt;
+&lt;td width="94%"&gt;Matches any character.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;*?&lt;/td&gt;
+&lt;td width="94%"&gt;Specifies a non-greedy asterisk.&amp;nbsp; *? works the same way as *, except
+when there is overlap between the last group of characters in the expression preceding the
+and the first group of characters following the *.&amp;nbsp; When there is this kind of
+overlap, * will match the longest sequence of characters that match the expression before
+the *, and *? will match the shortest sequence of characters matching the expression
+before the *?.&amp;nbsp; For example, if you have "xxyxyyyxyxyxxyxyxyy" in the text,
+"x[xy]*x" will match through to the last x (i.e., "&lt;strong&gt;xxyxyyyxyxyxxyxyx&lt;/strong&gt;yy",
+but "x[xy]*?x" will only match the first two xes ("&lt;strong&gt;xx&lt;/strong&gt;yxyyyxyxyxxyxyxyy").&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;[]&lt;/td&gt;
+&lt;td width="94%"&gt;Specifies a group of alternative characters.&amp;nbsp; A [] expression will
+match any single character that is specified in the [] expression.&amp;nbsp; For more on the
+syntax of [] expressions, see below.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;/&lt;/td&gt;
+&lt;td width="94%"&gt;Specifies where the break position should go if text matches this
+expression.&amp;nbsp; (e.g., "[a-z]&amp;#42;/[:Zs:]*[1-0]" will match if the iterator sees a run
+of letters, followed by a run of whitespace, followed by a digit, but the break position
+will actually go before the whitespace).&amp;nbsp; Expressions that don't contain / put the
+break position at the end of the matching text.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;\&lt;/td&gt;
+&lt;td width="94%"&gt;Escape character.&amp;nbsp; The \ itself is ignored, but causes the next
+character to be treated as literal character.&amp;nbsp; This has no effect for many
+characters, but for the characters listed above, this deprives them of their special
+meaning.&amp;nbsp; (There are no special escape sequences for Unicode characters, or tabs and
+newlines; these are all handled by a higher-level protocol.&amp;nbsp; In a Java string,
+"\n" will be converted to a literal newline character by the time the
+regular-expression parser sees it.&amp;nbsp; Of course, this means that \ sequences that are
+visible to the regexp parser must be written as \\ when inside a Java string.)&amp;nbsp; All
+characters in the ASCII range except for letters, digits, and control characters are
+reserved characters to the parser and must be preceded by \ even if they currently don't
+mean anything.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;!&lt;/td&gt;
+&lt;td width="94%"&gt;If ! appears at the beginning of a regular expression, it tells the regexp
+parser that this expression specifies the backwards-iteration behavior of the iterator,
+and not its normal iteration behavior.&amp;nbsp; This is generally only used in situations
+where the automatically-generated backwards-iteration brhavior doesn't produce
+satisfactory results and must be supplemented with extra client-specified rules.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;&lt;em&gt;(all others)&lt;/em&gt;&lt;/td&gt;
+&lt;td width="94%"&gt;All other characters are treated as literal characters, which must match
+the corresponding character(s) in the text exactly.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Within a [] expression, a number of other special characters can be used to specify
+groups of characters:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;table border="1" width="100%"&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;-&lt;/td&gt;
+&lt;td width="94%"&gt;Specifies a range of matching characters.&amp;nbsp; For example
+"[a-p]" matches all lowercase Latin letters from a to p (inclusive).&amp;nbsp; The -
+sign specifies ranges of continuous Unicode numeric values, not ranges of characters in a
+language's alphabetical order: "[a-z]" doesn't include capital letters, nor does
+it include accented letters such as a-umlaut.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;::&lt;/td&gt;
+&lt;td width="94%"&gt;A pair of colons containing a one- or two-letter code matches all
+characters in the corresponding Unicode category.&amp;nbsp; The two-letter codes are the same
+as the two-letter codes in the Unicode database (for example, "[:Sc::Sm:]"
+matches all currency symbols and all math symbols).&amp;nbsp; Specifying a one-letter code is
+the same as specifying all two-letter codes that begin with that letter (for example,
+"[:L:]" matches all letters, and is equivalent to
+"[:Lu::Ll::Lo::Lm::Lt:]").&amp;nbsp; Anything other than a valid two-letter Unicode
+category code or a single letter that begins a Unicode category code is illegal within
+colons.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;[]&lt;/td&gt;
+&lt;td width="94%"&gt;[] expressions can nest.&amp;nbsp; This has no effect, except when used in
+conjunction with the ^ token.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;^&lt;/td&gt;
+&lt;td width="94%"&gt;Excludes the character (or the characters in the [] expression) following
+it from the group of characters.&amp;nbsp; For example, "[a-z^p]" matches all Latin
+lowercase letters except p.&amp;nbsp; "[:L:^[&amp;#92;u4e00-&amp;#92;u9fff]]" matches all letters
+except the Han ideographs.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td width="6%"&gt;&lt;em&gt;(all others)&lt;/em&gt;&lt;/td&gt;
+&lt;td width="94%"&gt;All other characters are treated as literal characters.&amp;nbsp; (For
+example, "[aeiou]" specifies just the letters a, e, i, o, and u.)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For a more complete explanation, see &lt;a
+href="http://www.ibm.com/java/education/boundaries/boundaries.html"&gt;http://www.ibm.com/java/education/boundaries/boundaries.html&lt;/a&gt;.
+&amp;nbsp; For examples, see the resource data (which is annotated).&lt;/p&gt;
+
+@author Richard Gillam
+@version $RCSFile$ $Revision: 1.1 $ $Date: 1998/11/05 19:32:04 $
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RuleBasedBreakIterator" refid="_9_5_f720368_1110473546690_897998_8677"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RuleBasedBreakIterator" refid="_9_5_f720368_1110473546690_897998_8677"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310242_107299_6691"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SynchronousQueue" refid="_10_5_622020d_1132928310242_422265_6674"/></annotatedElement><body humanName="Body" mode="s,e">A {@linkplain BlockingQueue blocking queue} in which each
+&lt;tt&gt;put&lt;/tt&gt; must wait for a &lt;tt&gt;take&lt;/tt&gt;, and vice versa.  A
+synchronous queue does not have any internal capacity, not even a
+capacity of one. You cannot &lt;tt&gt;peek&lt;/tt&gt; at a synchronous queue
+because an element is only present when you try to take it; you
+cannot add an element (using any method) unless another thread is
+trying to remove it; you cannot iterate as there is nothing to
+iterate.  The &lt;em&gt;head&lt;/em&gt; of the queue is the element that the
+first queued thread is trying to add to the queue; if there are no
+queued threads then no element is being added and the head is
+&lt;tt&gt;null&lt;/tt&gt;.  For purposes of other &lt;tt&gt;Collection&lt;/tt&gt; methods
+(for example &lt;tt&gt;contains&lt;/tt&gt;), a &lt;tt&gt;SynchronousQueue&lt;/tt&gt; acts
+as an empty collection.  This queue does not permit &lt;tt&gt;null&lt;/tt&gt;
+elements.
+
+&lt;p&gt;Synchronous queues are similar to rendezvous channels used in
+CSP and Ada. They are well suited for handoff designs, in which an
+object running in one thread must sync up with an object running
+in another thread in order to hand it some information, event, or
+task.
+
+&lt;p&gt; This class supports an optional fairness policy for ordering
+waiting producer and consumer threads.  By default, this ordering
+is not guaranteed. However, a queue constructed with fairness set
+to &lt;tt&gt;true&lt;/tt&gt; grants threads access in FIFO order. Fairness
+generally decreases throughput but reduces variability and avoids
+starvation.
+
+&lt;p&gt;This class and its iterator implement all of the
+&lt;em&gt;optional&lt;/em&gt; methods of the {@link Collection} and {@link
+Iterator} interfaces.
+
+&lt;p&gt;This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@since 1.5
+@author Doug Lea
+@param &lt;E&gt; the type of elements held in this collection
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SynchronousQueue" refid="_10_5_622020d_1132928310242_422265_6674"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SynchronousQueue" refid="_10_5_622020d_1132928310242_422265_6674"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

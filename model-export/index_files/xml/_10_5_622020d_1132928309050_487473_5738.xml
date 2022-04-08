@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309050_487473_5738"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RMISecurityManager" refid="_9_5_f720368_1110473546674_304571_8239"/></annotatedElement><body humanName="Body" mode="s,e">A subclass of {@link SecurityManager} used by RMI applications that use
+downloaded code.  RMI's class loader will not download any classes from
+remote locations if no security manager has been set.
+&lt;code&gt;RMISecurityManager&lt;/code&gt; does not apply to applets, which run
+under the protection of their browser's security manager.
+
+&lt;code&gt;RMISecurityManager&lt;/code&gt; implements a policy that
+is no different than the policy implemented by {@link SecurityManager}.
+Therefore an RMI application should use the &lt;code&gt;SecurityManager&lt;/code&gt;
+class or another application-specific &lt;code&gt;SecurityManager&lt;/code&gt;
+implementation instead of this class.
+
+&lt;p&gt;To use a &lt;code&gt;SecurityManager&lt;/code&gt; in your application, add
+the following statement to your code (it needs to be executed before RMI
+can download code from remote hosts, so it most likely needs to appear
+in the &lt;code&gt;main&lt;/code&gt; method of your application):
+
+&lt;pre&gt;
+System.setSecurityManager(new SecurityManager());
+&lt;/pre&gt;
+
+@version 1.31, 12/19/03
+@author  Roger Riggs
+@author  Peter Jones
+@since JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RMISecurityManager" refid="_9_5_f720368_1110473546674_304571_8239"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RMISecurityManager" refid="_9_5_f720368_1110473546674_304571_8239"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

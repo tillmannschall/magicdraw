@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305655_63771_3657"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DragSourceEvent" refid="_9_5_f720368_1110473546565_368127_6507"/></annotatedElement><body humanName="Body" mode="s,e">This class is the base class for
+&lt;code&gt;DragSourceDragEvent&lt;/code&gt; and
+&lt;code&gt;DragSourceDropEvent&lt;/code&gt;.
+&lt;p&gt;
+&lt;code&gt;DragSourceEvent&lt;/code&gt;s are generated whenever the drag enters, moves
+over, or exits a drop site, when the drop action changes, and when the drag
+ends. The location for the generated &lt;code&gt;DragSourceEvent&lt;/code&gt; specifies
+the mouse cursor location in screen coordinates at the moment this event
+occured.
+&lt;p&gt;
+In a multi-screen environment without a virtual device, the cursor location is
+specified in the coordinate system of the &lt;i&gt;initiator&lt;/i&gt;
+&lt;code&gt;GraphicsConfiguration&lt;/code&gt;. The &lt;i&gt;initiator&lt;/i&gt;
+&lt;code&gt;GraphicsConfiguration&lt;/code&gt; is the &lt;code&gt;GraphicsConfiguration&lt;/code&gt;
+of the &lt;code&gt;Component&lt;/code&gt; on which the drag gesture for the current drag
+operation was recognized. If the cursor location is outside the bounds of
+the initiator &lt;code&gt;GraphicsConfiguration&lt;/code&gt;, the reported coordinates are
+clipped to fit within the bounds of that &lt;code&gt;GraphicsConfiguration&lt;/code&gt;.
+&lt;p&gt;
+In a multi-screen environment with a virtual device, the location is specified
+in the corresponding virtual coordinate system. If the cursor location is
+outside the bounds of the virtual device the reported coordinates are
+clipped to fit within the bounds of the virtual device.
+
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DragSourceEvent" refid="_9_5_f720368_1110473546565_368127_6507"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DragSourceEvent" refid="_9_5_f720368_1110473546565_368127_6507"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

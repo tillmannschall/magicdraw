@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317142_24098_11135"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ArrowButtonHandler" refid="_9_5_f720368_1110473548159_606679_21499"/></annotatedElement><body humanName="Body" mode="s,e">A handler for spinner arrow button mouse and action events.  When
+a left mouse pressed event occurs we look up the (enabled) spinner
+that's the source of the event and start the autorepeat timer.  The
+timer fires action events until any button is released at which
+point the timer is stopped and the reference to the spinner cleared.
+The timer doesn't start until after a 300ms delay, so often the
+source of the initial (and final) action event is just the button
+logic for mouse released - which means that we're relying on the fact
+that our mouse listener runs after the buttons mouse listener.
+&lt;p&gt;
+Note that one instance of this handler is shared by all slider previous
+arrow buttons and likewise for all of the next buttons,
+so it doesn't have any state that persists beyond the limits
+of a single button pressed/released gesture.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ArrowButtonHandler" refid="_9_5_f720368_1110473548159_606679_21499"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ArrowButtonHandler" refid="_9_5_f720368_1110473548159_606679_21499"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

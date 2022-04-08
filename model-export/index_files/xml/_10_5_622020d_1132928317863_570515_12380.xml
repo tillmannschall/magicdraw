@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317863_570515_12380"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JApplet" refid="_9_5_f720368_1110473546784_772428_10703"/></annotatedElement><body humanName="Body" mode="s,e">An extended version of &lt;code&gt;java.applet.Applet&lt;/code&gt; that adds support for
+the JFC/Swing component architecture.
+You can find task-oriented documentation about using &lt;code&gt;JApplet&lt;/code&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt;,
+in the section
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/applet.html"&gt;How to Make Applets&lt;/a&gt;.
+&lt;p&gt;
+The &lt;code&gt;JApplet&lt;/code&gt; class is slightly incompatible with
+&lt;code&gt;java.applet.Applet&lt;/code&gt;.  &lt;code&gt;JApplet&lt;/code&gt; contains a
+&lt;code&gt;JRootPane&lt;/code&gt; as its only child.  The &lt;code&gt;contentPane&lt;/code&gt;
+should be the parent of any children of the &lt;code&gt;JApplet&lt;/code&gt;.
+As a convenience &lt;code&gt;add&lt;/code&gt; and its variants, &lt;code&gt;remove&lt;/code&gt; and
+&lt;code&gt;setLayout&lt;/code&gt; have been overridden to forward to the
+&lt;code&gt;contentPane&lt;/code&gt; as necessary. This means you can write:
+&lt;pre&gt;
+applet.add(child);
+&lt;/pre&gt;
+
+And the child will be added to the &lt;code&gt;contentPane&lt;/code&gt;.
+The &lt;code&gt;contentPane&lt;/code&gt; will always be non-&lt;code&gt;null&lt;/code&gt;.
+Attempting to set it to &lt;code&gt;null&lt;/code&gt; will cause the
+&lt;code&gt;JApplet&lt;/code&gt; to throw an exception. The default
+&lt;code&gt;contentPane&lt;/code&gt; will have a &lt;code&gt;BorderLayout&lt;/code&gt;
+manager set on it.
+Refer to {@link javax.swing.RootPaneContainer}
+for details on adding, removing and setting the &lt;code&gt;LayoutManager&lt;/code&gt;
+of a &lt;code&gt;JApplet&lt;/code&gt;.
+&lt;p&gt;
+Please see the &lt;code&gt;JRootPane&lt;/code&gt; documentation for a
+complete description of the &lt;code&gt;contentPane&lt;/code&gt;, &lt;code&gt;glassPane&lt;/code&gt;,
+and &lt;code&gt;layeredPane&lt;/code&gt; properties.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see javax.swing.RootPaneContainer
+@beaninfo
+attribute: isContainer true
+attribute: containerDelegate getContentPane
+description: Swing's Applet subclass.
+
+@version 1.65 12/19/03
+@author Arnaud Weber
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JApplet" refid="_9_5_f720368_1110473546784_772428_10703"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JApplet" refid="_9_5_f720368_1110473546784_772428_10703"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

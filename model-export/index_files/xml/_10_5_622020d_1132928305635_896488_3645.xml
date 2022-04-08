@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305635_896488_3645"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DragGestureRecognizer" refid="_9_5_f720368_1110473546549_271466_6495"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;DragGestureRecognizer&lt;/code&gt; is an
+abstract base class for the specification
+of a platform-dependent listener that can be associated with a particular
+&lt;code&gt;Component&lt;/code&gt; in order to
+identify platform-dependent drag initiating gestures.
+&lt;p&gt;
+The appropriate &lt;code&gt;DragGestureRecognizer&lt;/code&gt;
+subclass is obtained from the
+&lt;code&gt;DragSource&lt;/code&gt; asssociated with
+a particular &lt;code&gt;Component&lt;/code&gt;, or from the &lt;code&gt;Toolkit&lt;/code&gt;
+object via its createDragGestureRecognizer() method.
+&lt;p&gt;
+Once the &lt;code&gt;DragGestureRecognizer&lt;/code&gt;
+is associated with a particular &lt;code&gt;Component&lt;/code&gt;
+it will register the appropriate listener interfaces on that
+&lt;code&gt;Component&lt;/code&gt;
+in order to track the input events delivered to the &lt;code&gt;Component&lt;/code&gt;.
+&lt;p&gt;
+Once the &lt;code&gt;DragGestureRecognizer&lt;/code&gt; identifies a sequence of events
+on the &lt;code&gt;Component&lt;/code&gt; as a drag initiating gesture, it will notify
+its unicast &lt;code&gt;DragGestureListener&lt;/code&gt; by
+invoking its gestureRecognized() method.
+&lt;P&gt;
+When a concrete &lt;code&gt;DragGestureRecognizer&lt;/code&gt;
+instance detects a drag initiating
+gesture on the &lt;code&gt;Component&lt;/code&gt; it is associated with,
+it will fire a &lt;code&gt;DragGestureEvent&lt;/code&gt; to
+the &lt;code&gt;DragGestureListener&lt;/code&gt; registered on
+its unicast event source for &lt;code&gt;DragGestureListener&lt;/code&gt;
+events. This &lt;code&gt;DragGestureListener&lt;/code&gt; is responsible
+for causing the associated
+&lt;code&gt;DragSource&lt;/code&gt; to start the Drag and Drop operation (if
+appropriate).
+&lt;P&gt;
+@author Laurence P. G. Cable
+@version 1.20
+@see java.awt.dnd.DragGestureListener
+@see java.awt.dnd.DragGestureEvent
+@see java.awt.dnd.DragSource
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="DragGestureRecognizer" refid="_9_5_f720368_1110473546549_271466_6495"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DragGestureRecognizer" refid="_9_5_f720368_1110473546549_271466_6495"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

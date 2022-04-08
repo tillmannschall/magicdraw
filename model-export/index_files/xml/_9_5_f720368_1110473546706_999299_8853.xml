@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546706_999299_8853"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Date -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322550_88230_14896"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Date -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322550_935921_14897"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Date -&gt; JDK 5.0 Classes::java::util::Comparable&lt;Date&gt;]" refid="_10_5_622020d_1132928322550_455315_14901"/></clientDependency><documentation humanName="Documentation" mode="standard">The class &lt;code&gt;Date&lt;/code&gt; represents a specific instant
+in time, with millisecond precision.
+&lt;p&gt;
+Prior to JDK&amp;nbsp;1.1, the class &lt;code&gt;Date&lt;/code&gt; had two additional
+functions.  It allowed the interpretation of dates as year, month, day, hour,
+minute, and second values.  It also allowed the formatting and parsing
+of date strings.  Unfortunately, the API for these functions was not
+amenable to internationalization.  As of JDK&amp;nbsp;1.1, the
+&lt;code&gt;Calendar&lt;/code&gt; class should be used to convert between dates and time
+fields and the &lt;code&gt;DateFormat&lt;/code&gt; class should be used to format and
+parse date strings.
+The corresponding methods in &lt;code&gt;Date&lt;/code&gt; are deprecated.
+&lt;p&gt;
+Although the &lt;code&gt;Date&lt;/code&gt; class is intended to reflect
+coordinated universal time (UTC), it may not do so exactly,
+depending on the host environment of the Java Virtual Machine.
+Nearly all modern operating systems assume that 1&amp;nbsp;day&amp;nbsp;=
+24&amp;nbsp;&amp;times;&amp;nbsp;60&amp;nbsp;&amp;times;&amp;nbsp;60&amp;nbsp;= 86400 seconds
+in all cases. In UTC, however, about once every year or two there
+is an extra second, called a "leap second." The leap
+second is always added as the last second of the day, and always
+on December 31 or June 30. For example, the last minute of the
+year 1995 was 61 seconds long, thanks to an added leap second.
+Most computer clocks are not accurate enough to be able to reflect
+the leap-second distinction.
+&lt;p&gt;
+Some computer standards are defined in terms of Greenwich mean
+time (GMT), which is equivalent to universal time (UT).  GMT is
+the "civil" name for the standard; UT is the
+"scientific" name for the same standard. The
+distinction between UTC and UT is that UTC is based on an atomic
+clock and UT is based on astronomical observations, which for all
+practical purposes is an invisibly fine hair to split. Because the
+earth's rotation is not uniform (it slows down and speeds up
+in complicated ways), UT does not always flow uniformly. Leap
+seconds are introduced as needed into UTC so as to keep UTC within
+0.9 seconds of UT1, which is a version of UT with certain
+corrections applied. There are other time and date systems as
+well; for example, the time scale used by the satellite-based
+global positioning system (GPS) is synchronized to UTC but is
+&lt;i&gt;not&lt;/i&gt; adjusted for leap seconds. An interesting source of
+further information is the U.S. Naval Observatory, particularly
+the Directorate of Time at:
+&lt;blockquote&gt;&lt;pre&gt;
+&lt;a href=http://tycho.usno.navy.mil&gt;http://tycho.usno.navy.mil&lt;/a&gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+and their definitions of "Systems of Time" at:
+&lt;blockquote&gt;&lt;pre&gt;
+&lt;a href=http://tycho.usno.navy.mil/systime.html&gt;http://tycho.usno.navy.mil/systime.html&lt;/a&gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+In all methods of class &lt;code&gt;Date&lt;/code&gt; that accept or return
+year, month, date, hours, minutes, and seconds values, the
+following representations are used:
+&lt;ul&gt;
+&lt;li&gt;A year &lt;i&gt;y&lt;/i&gt; is represented by the integer
+&lt;i&gt;y&lt;/i&gt;&amp;nbsp;&lt;code&gt;-&amp;nbsp;1900&lt;/code&gt;.
+&lt;li&gt;A month is represented by an integer from 0 to 11; 0 is January,
+1 is February, and so forth; thus 11 is December.
+&lt;li&gt;A date (day of month) is represented by an integer from 1 to 31
+in the usual manner.
+&lt;li&gt;An hour is represented by an integer from 0 to 23. Thus, the hour
+from midnight to 1 a.m. is hour 0, and the hour from noon to 1
+p.m. is hour 12.
+&lt;li&gt;A minute is represented by an integer from 0 to 59 in the usual manner.
+&lt;li&gt;A second is represented by an integer from 0 to 61; the values 60 and
+61 occur only for leap seconds and even then only in Java
+implementations that actually track leap seconds correctly. Because
+of the manner in which leap seconds are currently introduced, it is
+extremely unlikely that two leap seconds will occur in the same
+minute, but this specification follows the date and time conventions
+for ISO C.
+&lt;/ul&gt;
+&lt;p&gt;
+In all cases, arguments given to methods for these purposes need
+not fall within the indicated ranges; for example, a date may be
+specified as January 32 and is interpreted as meaning February 1.
+
+@author  James Gosling
+@author  Arthur van Hoff
+@author  Alan Liu
+@version 1.80, 05/18/04
+@see     java.text.DateFormat
+@see     java.util.Calendar
+@see     java.util.TimeZone
+@since   JDK1.0
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Date -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322550_88230_14896"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Date -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322550_935921_14897"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Date -&gt; JDK 5.0 Classes::java::util::Comparable&lt;Date&gt;]" refid="_10_5_622020d_1132928322550_455315_14901"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Date</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310933_715731_7174"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310933_715731_7174"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Date -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322550_88230_14896"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Date -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322550_935921_14897"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Date -&gt; JDK 5.0 Classes::java::util::Comparable&lt;Date&gt;]" refid="_10_5_622020d_1132928322550_455315_14901"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::Date</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Comparable&lt;Date&gt;" refid="_10_5_622020d_1132928322550_238139_14898"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

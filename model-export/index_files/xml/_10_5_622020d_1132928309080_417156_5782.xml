@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309080_417156_5782"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertificateFactory" refid="_9_5_f720368_1110473546674_175469_8279"/></annotatedElement><body humanName="Body" mode="s,e">This class defines the functionality of a certificate factory, which is
+used to generate certificate, certification path (&lt;code&gt;CertPath&lt;/code&gt;)
+and certificate revocation list (CRL) objects from their encodings.
+
+&lt;p&gt;For encodings consisting of multiple certificates, use
+&lt;code&gt;generateCertificates&lt;/code&gt; when you want to
+parse a collection of possibly unrelated certificates. Otherwise,
+use &lt;code&gt;generateCertPath&lt;/code&gt; when you want to generate
+a &lt;code&gt;CertPath&lt;/code&gt; (a certificate chain) and subsequently
+validate it with a &lt;code&gt;CertPathValidator&lt;/code&gt;.
+
+&lt;p&gt;A certificate factory for X.509 must return certificates that are an
+instance of &lt;code&gt;java.security.cert.X509Certificate&lt;/code&gt;, and CRLs
+that are an instance of &lt;code&gt;java.security.cert.X509CRL&lt;/code&gt;.
+
+&lt;p&gt;The following example reads a file with Base64 encoded certificates,
+which are each bounded at the beginning by -----BEGIN CERTIFICATE-----, and
+bounded at the end by -----END CERTIFICATE-----. We convert the
+&lt;code&gt;FileInputStream&lt;/code&gt; (which does not support &lt;code&gt;mark&lt;/code&gt;
+and &lt;code&gt;reset&lt;/code&gt;) to a &lt;code&gt;BufferedInputStream&lt;/code&gt; (which
+supports those methods), so that each call to
+&lt;code&gt;generateCertificate&lt;/code&gt; consumes only one certificate, and the
+read position of the input stream is positioned to the next certificate in
+the file:&lt;p&gt;
+
+&lt;pre&gt;
+FileInputStream fis = new FileInputStream(filename);
+BufferedInputStream bis = new BufferedInputStream(fis);
+
+CertificateFactory cf = CertificateFactory.getInstance("X.509");
+
+while (bis.available() &gt; 0) {
+Certificate cert = cf.generateCertificate(bis);
+System.out.println(cert.toString());
+}
+&lt;/pre&gt;
+
+&lt;p&gt;The following example parses a PKCS#7-formatted certificate reply stored
+in a file and extracts all the certificates from it:&lt;p&gt;
+
+&lt;pre&gt;
+FileInputStream fis = new FileInputStream(filename);
+CertificateFactory cf = CertificateFactory.getInstance("X.509");
+Collection c = cf.generateCertificates(fis);
+Iterator i = c.iterator();
+while (i.hasNext()) {
+Certificate cert = (Certificate)i.next();
+System.out.println(cert);
+}
+&lt;/pre&gt;
+
+@author Hemma Prafullchandra
+@author Jan Luehe
+@author Sean Mullan
+
+@version 1.28, 05/05/04
+
+@see Certificate
+@see X509Certificate
+@see CertPath
+@see CRL
+@see X509CRL
+
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CertificateFactory" refid="_9_5_f720368_1110473546674_175469_8279"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertificateFactory" refid="_9_5_f720368_1110473546674_175469_8279"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317893_409412_12395"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="KeySelectionManager" refid="_9_5_f720368_1110473548424_8714_24119"/></annotatedElement><body humanName="Body" mode="s,e">The interface that defines a &lt;code&gt;KeySelectionManager&lt;/code&gt;.
+To qualify as a &lt;code&gt;KeySelectionManager&lt;/code&gt;,
+the class needs to implement the method
+that identifies the list index given a character and the
+combo box data model.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="KeySelectionManager" refid="_9_5_f720368_1110473548424_8714_24119"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="KeySelectionManager" refid="_9_5_f720368_1110473548424_8714_24119"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

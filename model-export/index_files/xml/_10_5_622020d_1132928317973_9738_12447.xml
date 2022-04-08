@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317973_9738_12447"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JLayeredPane" refid="_9_5_f720368_1110473546799_11441_10737"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;JLayeredPane&lt;/code&gt; adds depth to a JFC/Swing container,
+allowing components to overlap each other when needed.
+An &lt;code&gt;Integer&lt;/code&gt; object specifies each component's depth in the
+container, where higher-numbered components sit "on top" of other
+components.
+For task-oriented documentation and examples of using layered panes see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/layeredpane.html"&gt;How to Use a Layered Pane&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;P&gt;
+&lt;TABLE ALIGN="RIGHT" BORDER="0" SUMMARY="layout"&gt;
+&lt;TR&gt;
+&lt;TD ALIGN="CENTER"&gt;
+&lt;P ALIGN="CENTER"&gt;&lt;IMG SRC="doc-files/JLayeredPane-1.gif"
+alt="The following text describes this image."
+WIDTH="269" HEIGHT="264" ALIGN="BOTTOM" BORDER="0"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+For convenience, &lt;code&gt;JLayeredPane&lt;/code&gt; divides the depth-range
+into several different layers. Putting a component into one of those
+layers makes it easy to ensure that components overlap properly,
+without having to worry about specifying numbers for specific depths:
+&lt;DL&gt;
+&lt;DT&gt;&lt;FONT SIZE="2"&gt;DEFAULT_LAYER&lt;/FONT&gt;&lt;/DT&gt;
+&lt;DD&gt;The standard layer, where most components go. This the bottommost
+layer.
+&lt;DT&gt;&lt;FONT SIZE="2"&gt;PALETTE_LAYER&lt;/FONT&gt;&lt;/DT&gt;
+&lt;DD&gt;The palette layer sits over the default layer. Useful for floating
+toolbars and palettes, so they can be positioned above other components.
+&lt;DT&gt;&lt;FONT SIZE="2"&gt;MODAL_LAYER&lt;/FONT&gt;&lt;/DT&gt;
+&lt;DD&gt;The layer used for modal dialogs. They will appear on top of any
+toolbars, palettes, or standard components in the container.
+&lt;DT&gt;&lt;FONT SIZE="2"&gt;POPUP_LAYER&lt;/FONT&gt;&lt;/DT&gt;
+&lt;DD&gt;The popup layer displays above dialogs. That way, the popup windows
+associated with combo boxes, tooltips, and other help text will appear
+above the component, palette, or dialog that generated them.
+&lt;DT&gt;&lt;FONT SIZE="2"&gt;DRAG_LAYER&lt;/FONT&gt;&lt;/DT&gt;
+&lt;DD&gt;When dragging a component, reassigning it to the drag layer ensures
+that it is positioned over every other component in the container. When
+finished dragging, it can be reassigned to its normal layer.
+&lt;/DL&gt;
+The &lt;code&gt;JLayeredPane&lt;/code&gt; methods &lt;code&gt;moveToFront(Component)&lt;/code&gt;,
+&lt;code&gt;moveToBack(Component)&lt;/code&gt; and &lt;code&gt;setPosition&lt;/code&gt; can be used
+to reposition a component within its layer. The &lt;code&gt;setLayer&lt;/code&gt; method
+can also be used to change the component's current layer.
+
+&lt;h2&gt;Details&lt;/h2&gt;
+&lt;code&gt;JLayeredPane&lt;/code&gt; manages its list of children like
+&lt;code&gt;Container&lt;/code&gt;, but allows for the definition of a several
+layers within itself. Children in the same layer are managed exactly
+like the normal &lt;code&gt;Container&lt;/code&gt; object,
+with the added feature that when children components overlap, children
+in higher layers display above the children in lower layers.
+&lt;p&gt;
+Each layer is a distinct integer number. The layer attribute can be set
+on a &lt;code&gt;Component&lt;/code&gt; by passing an &lt;code&gt;Integer&lt;/code&gt;
+object during the add call.&lt;br&gt; For example:
+&lt;PRE&gt;
+layeredPane.add(child, JLayeredPane.DEFAULT_LAYER);
+or
+layeredPane.add(child, new Integer(10));
+&lt;/PRE&gt;
+The layer attribute can also be set on a Component by calling&lt;PRE&gt;
+layeredPaneParent.setLayer(child, 10)&lt;/PRE&gt;
+on the &lt;code&gt;JLayeredPane&lt;/code&gt; that is the parent of component. The layer
+should be set &lt;i&gt;before&lt;/i&gt; adding the child to the parent.
+&lt;p&gt;
+Higher number layers display above lower number layers. So, using
+numbers for the layers and letters for individual components, a
+representative list order would look like this:&lt;PRE&gt;
+5a, 5b, 5c, 2a, 2b, 2c, 1a &lt;/PRE&gt;
+where the leftmost components are closest to the top of the display.
+&lt;p&gt;
+A component can be moved to the top or bottom position within its
+layer by calling &lt;code&gt;moveToFront&lt;/code&gt; or &lt;code&gt;moveToBack&lt;/code&gt;.
+&lt;p&gt;
+The position of a component within a layer can also be specified directly.
+Valid positions range from 0 up to one less than the number of
+components in that layer. A value of -1 indicates the bottommost
+position. A value of 0 indicates the topmost position. Unlike layer
+numbers, higher position values are &lt;i&gt;lower&lt;/i&gt; in the display.
+&lt;blockquote&gt;
+&lt;b&gt;Note:&lt;/b&gt; This sequence (defined by java.awt.Container) is the reverse
+of the layer numbering sequence. Usually though, you will use &lt;code&gt;moveToFront&lt;/code&gt;,
+&lt;code&gt;moveToBack&lt;/code&gt;, and &lt;code&gt;setLayer&lt;/code&gt;.
+&lt;/blockquote&gt;
+Here are some examples using the method add(Component, layer, position):
+Calling add(5x, 5, -1) results in:&lt;PRE&gt;
+5a, 5b, 5c, 5x, 2a, 2b, 2c, 1a &lt;/PRE&gt;
+
+Calling add(5z, 5, 2) results in:&lt;PRE&gt;
+5a, 5b, 5z, 5c, 5x, 2a, 2b, 2c, 1a &lt;/PRE&gt;
+
+Calling add(3a, 3, 7) results in:&lt;PRE&gt;
+5a, 5b, 5z, 5c, 5x, 3a, 2a, 2b, 2c, 1a &lt;/PRE&gt;
+
+Using normal paint/event mechanics results in 1a appearing at the bottom
+and 5a being above all other components.
+&lt;p&gt;
+&lt;b&gt;Note:&lt;/b&gt; that these layers are simply a logical construct and LayoutManagers
+will affect all child components of this container without regard for
+layer settings.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.36 02/02/00
+@author David Kloba
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JLayeredPane" refid="_9_5_f720368_1110473546799_11441_10737"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JLayeredPane" refid="_9_5_f720368_1110473546799_11441_10737"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

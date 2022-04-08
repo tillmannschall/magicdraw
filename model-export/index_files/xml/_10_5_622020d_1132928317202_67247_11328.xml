@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317202_67247_11328"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetalMenuBarUI" refid="_10_5_622020d_1132928317202_849979_11326"/></annotatedElement><body humanName="Body" mode="s,e">Metal implementation of &lt;code&gt;MenuBarUI&lt;/code&gt;. This class is responsible
+for providing the metal look and feel for &lt;code&gt;JMenuBar&lt;/code&gt;s.
+
+@version 1.5 12/19/03
+@see javax.swing.plaf.MenuBarUI
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MetalMenuBarUI" refid="_10_5_622020d_1132928317202_849979_11326"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetalMenuBarUI" refid="_10_5_622020d_1132928317202_849979_11326"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309181_565042_5863"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DSAKeyPairGenerator" refid="_9_5_f720368_1110473546674_655347_8359"/></annotatedElement><body humanName="Body" mode="s,e">An interface to an object capable of generating DSA key pairs.
+
+&lt;p&gt;The &lt;code&gt;initialize&lt;/code&gt; methods may each be called any number
+of times. If no &lt;code&gt;initialize&lt;/code&gt; method is called on a
+DSAKeyPairGenerator, the default is to generate 1024-bit keys, using
+precomputed p, q and g parameters and an instance of SecureRandom as
+the random bit source.
+
+&lt;p&gt;Users wishing to indicate DSA-specific parameters, and to generate a key
+pair suitable for use with the DSA algorithm typically
+
+&lt;ol&gt;
+
+&lt;li&gt;Get a key pair generator for the DSA algorithm by calling the
+KeyPairGenerator &lt;code&gt;getInstance&lt;/code&gt; method with "DSA"
+as its argument.&lt;p&gt;
+
+&lt;li&gt;Initialize the generator by casting the result to a DSAKeyPairGenerator
+and calling one of the
+&lt;code&gt;initialize&lt;/code&gt; methods from this DSAKeyPairGenerator interface.&lt;p&gt;
+
+&lt;li&gt;Generate a key pair by calling the &lt;code&gt;generateKeyPair&lt;/code&gt;
+method from the KeyPairGenerator class.
+
+&lt;/ol&gt;
+
+&lt;p&gt;Note: it is not always necessary to do do algorithm-specific
+initialization for a DSA key pair generator. That is, it is not always
+necessary to call an &lt;code&gt;initialize&lt;/code&gt; method in this interface.
+Algorithm-independent initialization using the &lt;code&gt;initialize&lt;/code&gt; method
+in the KeyPairGenerator
+interface is all that is needed when you accept defaults for algorithm-specific
+parameters.
+
+@see java.security.KeyPairGenerator
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DSAKeyPairGenerator" refid="_9_5_f720368_1110473546674_655347_8359"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DSAKeyPairGenerator" refid="_9_5_f720368_1110473546674_655347_8359"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

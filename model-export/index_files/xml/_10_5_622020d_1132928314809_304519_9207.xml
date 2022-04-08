@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314809_304519_9207"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PartiallyOrderedSet" refid="_9_5_f720368_1110473546706_465154_9053"/></annotatedElement><body humanName="Body" mode="s,e">A set of &lt;code&gt;Object&lt;/code&gt;s with pairwise orderings between them.
+The &lt;code&gt;iterator&lt;/code&gt; method provides the elements in
+topologically sorted order.  Elements participating in a cycle
+are not returned.
+
+Unlike the &lt;code&gt;SortedSet&lt;/code&gt; and &lt;code&gt;SortedMap&lt;/code&gt;
+interfaces, which require their elements to implement the
+&lt;code&gt;Comparable&lt;/code&gt; interface, this class receives ordering
+information via its &lt;code&gt;setOrdering&lt;/code&gt; and
+&lt;code&gt;unsetPreference&lt;/code&gt; methods.  This difference is due to
+the fact that the relevant ordering between elements is unlikely to
+be inherent in the elements themselves; rather, it is set
+dynamically accoring to application policy.  For example, in a
+service provider registry situation, an application might allow the
+user to set a preference order for service provider objects
+supplied by a trusted vendor over those supplied by another.
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PartiallyOrderedSet" refid="_9_5_f720368_1110473546706_465154_9053"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PartiallyOrderedSet" refid="_9_5_f720368_1110473546706_465154_9053"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

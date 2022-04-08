@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314929_691215_9334"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RequiredModelMBean" refid="_10_5_622020d_1132928314929_359671_9332"/></annotatedElement><body humanName="Body" mode="s,e">This class is the implementation of a ModelMBean. An appropriate
+implementation of a ModelMBean must be shipped with every JMX Agent
+and the class must be named RequiredModelMBean.
+&lt;P&gt;
+Java resources wishing to be manageable instantiate the
+RequiredModelMBean using the MBeanServer's createMBean method.
+The resource then sets the MBeanInfo and Descriptors for the
+RequiredModelMBean instance. The attributes and operations exposed
+via the ModelMBeanInfo for the ModelMBean are accessible
+from MBeans, connectors/adaptors like other MBeans. Through the
+Descriptors, values and methods in the managed application can be
+defined and mapped to attributes and operations of the ModelMBean.
+This mapping can be defined in an XML formatted file or dynamically and
+programmatically at runtime.
+&lt;P&gt;
+Every RequiredModelMBean which is instantiated in the MBeanServer
+becomes manageable:&lt;br&gt;
+its attributes and operations become remotely accessible through the
+connectors/adaptors connected to that MBeanServer.
+&lt;P&gt;
+A Java object cannot be registered in the MBeanServer unless it is a
+JMX compliant MBean. By instantiating a RequiredModelMBean, resources
+are guaranteed that the MBean is valid.
+
+MBeanException and RuntimeOperationsException must be thrown on every
+public method.  This allows for wrapping exceptions from distributed
+communications (RMI, EJB, etc.)
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RequiredModelMBean" refid="_10_5_622020d_1132928314929_359671_9332"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RequiredModelMBean" refid="_10_5_622020d_1132928314929_359671_9332"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

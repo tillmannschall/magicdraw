@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318143_962719_12550"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JToggleButton" refid="_9_5_f720368_1110473546799_602619_10785"/></annotatedElement><body humanName="Body" mode="s,e">An implementation of a two-state button.
+The &lt;code&gt;JRadioButton&lt;/code&gt; and &lt;code&gt;JCheckBox&lt;/code&gt; classes
+are subclasses of this class.
+For information on using them see
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/button.html"&gt;How to Use Buttons, Check Boxes, and Radio Buttons&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@beaninfo
+attribute: isContainer false
+description: An implementation of a two-state button.
+
+@see JRadioButton
+@see JCheckBox
+@version 1.59 12/19/03
+@author Jeff Dinkins
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JToggleButton" refid="_9_5_f720368_1110473546799_602619_10785"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JToggleButton" refid="_9_5_f720368_1110473546799_602619_10785"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307889_626004_4951"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Character" refid="_9_5_f720368_1110473546612_321995_7565"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Character&lt;/code&gt; class wraps a value of the primitive
+type &lt;code&gt;char&lt;/code&gt; in an object. An object of type
+&lt;code&gt;Character&lt;/code&gt; contains a single field whose type is
+&lt;code&gt;char&lt;/code&gt;.
+&lt;p&gt;
+In addition, this class provides several methods for determining
+a character's category (lowercase letter, digit, etc.) and for converting
+characters from uppercase to lowercase and vice versa.
+&lt;p&gt;
+Character information is based on the Unicode Standard, version 4.0.
+&lt;p&gt;
+The methods and data of class &lt;code&gt;Character&lt;/code&gt; are defined by
+the information in the &lt;i&gt;UnicodeData&lt;/i&gt; file that is part of the
+Unicode Character Database maintained by the Unicode
+Consortium. This file specifies various properties including name
+and general category for every defined Unicode code point or
+character range.
+&lt;p&gt;
+The file and its description are available from the Unicode Consortium at:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.unicode.org"&gt;http://www.unicode.org&lt;/a&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;&lt;a name="unicode"&gt;Unicode Character Representations&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;The &lt;code&gt;char&lt;/code&gt; data type (and therefore the value that a
+&lt;code&gt;Character&lt;/code&gt; object encapsulates) are based on the
+original Unicode specification, which defined characters as
+fixed-width 16-bit entities. The Unicode standard has since been
+changed to allow for characters whose representation requires more
+than 16 bits.  The range of legal &lt;em&gt;code point&lt;/em&gt;s is now
+U+0000 to U+10FFFF, known as &lt;em&gt;Unicode scalar value&lt;/em&gt;.
+(Refer to the &lt;a
+href="http://www.unicode.org/reports/tr27/#notation"&gt;&lt;i&gt;
+definition&lt;/i&gt;&lt;/a&gt; of the U+&lt;i&gt;n&lt;/i&gt; notation in the Unicode
+standard.)
+
+&lt;p&gt;The set of characters from U+0000 to U+FFFF is sometimes
+referred to as the &lt;em&gt;Basic Multilingual Plane (BMP)&lt;/em&gt;. &lt;a
+name="supplementary"&gt;Characters&lt;/a&gt; whose code points are greater
+than U+FFFF are called &lt;em&gt;supplementary character&lt;/em&gt;s.  The Java
+2 platform uses the UTF-16 representation in &lt;code&gt;char&lt;/code&gt;
+arrays and in the &lt;code&gt;String&lt;/code&gt; and &lt;code&gt;StringBuffer&lt;/code&gt;
+classes. In this representation, supplementary characters are
+represented as a pair of &lt;code&gt;char&lt;/code&gt; values, the first from
+the &lt;em&gt;high-surrogates&lt;/em&gt; range, (&amp;#92;uD800-&amp;#92;uDBFF), the
+second from the &lt;em&gt;low-surrogates&lt;/em&gt; range
+(&amp;#92;uDC00-&amp;#92;uDFFF).
+
+&lt;p&gt;A &lt;code&gt;char&lt;/code&gt; value, therefore, represents Basic
+Multilingual Plane (BMP) code points, including the surrogate
+code points, or code units of the UTF-16 encoding. An
+&lt;code&gt;int&lt;/code&gt; value represents all Unicode code points,
+including supplementary code points. The lower (least significant)
+21 bits of &lt;code&gt;int&lt;/code&gt; are used to represent Unicode code
+points and the upper (most significant) 11 bits must be zero.
+Unless otherwise specified, the behavior with respect to
+supplementary characters and surrogate &lt;code&gt;char&lt;/code&gt; values is
+as follows:
+
+&lt;ul&gt;
+&lt;li&gt;The methods that only accept a &lt;code&gt;char&lt;/code&gt; value cannot support
+supplementary characters. They treat &lt;code&gt;char&lt;/code&gt; values from the
+surrogate ranges as undefined characters. For example,
+&lt;code&gt;Character.isLetter('&amp;#92;uD840')&lt;/code&gt; returns &lt;code&gt;false&lt;/code&gt;, even though
+this specific value if followed by any low-surrogate value in a string
+would represent a letter.
+
+&lt;li&gt;The methods that accept an &lt;code&gt;int&lt;/code&gt; value support all
+Unicode characters, including supplementary characters. For
+example, &lt;code&gt;Character.isLetter(0x2F81A)&lt;/code&gt; returns
+&lt;code&gt;true&lt;/code&gt; because the code point value represents a letter
+(a CJK ideograph).
+&lt;/ul&gt;
+
+&lt;p&gt;In the J2SE API documentation, &lt;em&gt;Unicode code point&lt;/em&gt; is
+used for character values in the range between U+0000 and U+10FFFF,
+and &lt;em&gt;Unicode code unit&lt;/em&gt; is used for 16-bit
+&lt;code&gt;char&lt;/code&gt; values that are code units of the &lt;em&gt;UTF-16&lt;/em&gt;
+encoding. For more information on Unicode terminology, refer to the
+&lt;a href="http://www.unicode.org/glossary/"&gt;Unicode Glossary&lt;/a&gt;.
+
+@author  Lee Boynton
+@author  Guy Steele
+@author  Akira Tanaka
+@since   1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Character" refid="_9_5_f720368_1110473546612_321995_7565"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Character" refid="_9_5_f720368_1110473546612_321995_7565"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

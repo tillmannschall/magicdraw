@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318123_799360_12525"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JTabbedPane" refid="_9_5_f720368_1110473546799_537453_10775"/></annotatedElement><body humanName="Body" mode="s,e">A component that lets the user switch between a group of components by
+clicking on a tab with a given title and/or icon.
+For examples and information on using tabbed panes see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/tabbedpane.html"&gt;How to Use Tabbed Panes&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;p&gt;
+Tabs/components are added to a &lt;code&gt;TabbedPane&lt;/code&gt; object by using the
+&lt;code&gt;addTab&lt;/code&gt; and &lt;code&gt;insertTab&lt;/code&gt; methods.
+A tab is represented by an index corresponding
+to the position it was added in, where the first tab has an index equal to 0
+and the last tab has an index equal to the tab count minus 1.
+&lt;p&gt;
+The &lt;code&gt;TabbedPane&lt;/code&gt; uses a &lt;code&gt;SingleSelectionModel&lt;/code&gt;
+to represent the set
+of tab indices and the currently selected index.  If the tab count
+is greater than 0, then there will always be a selected index, which
+by default will be initialized to the first tab.  If the tab count is
+0, then the selected index will be -1.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@beaninfo
+attribute: isContainer true
+description: A component which provides a tab folder metaphor for
+displaying one component from a set of components.
+
+@version 1.140 04/02/04
+@author Dave Moore
+@author Philip Milne
+@author Amy Fowler
+
+@see SingleSelectionModel
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JTabbedPane" refid="_9_5_f720368_1110473546799_537453_10775"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JTabbedPane" refid="_9_5_f720368_1110473546799_537453_10775"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

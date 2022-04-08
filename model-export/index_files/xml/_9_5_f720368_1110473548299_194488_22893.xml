@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473548299_194488_22893"><UMLClass classType="Class" humanName="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CSS" refid="_9_5_f720368_1110473546768_216415_10337"/><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::text::html::CSS::CssValue -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323792_973696_17761"/></clientDependency><documentation humanName="Documentation" mode="standard">Base class to CSS values in the attribute sets.  This
+is intended to act as a convertor to/from other attribute
+formats.
+&lt;p&gt;
+The CSS parser uses the parseCssValue method to convert
+a string to whatever format is appropriate a given key
+(i.e. these convertors are stored in a map using the
+CSS.Attribute as a key and the CssValue as the value).
+&lt;p&gt;
+The HTML to CSS conversion process first converts the
+HTML.Attribute to a CSS.Attribute, and then calls
+the parseHtmlValue method on the value of the HTML
+attribute to produce the corresponding CSS value.
+&lt;p&gt;
+The StyleConstants to CSS conversion process first
+converts the StyleConstants attribute to a
+CSS.Attribute, and then calls the fromStyleConstants
+method to convert the StyleConstants value to a
+CSS value.
+&lt;p&gt;
+The CSS to StyleConstants conversion process first
+converts the StyleConstants attribute to a
+CSS.Attribute, and then calls the toStyleConstants
+method to convert the CSS value to a StyleConstants
+value.
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::text::html::CSS::CssValue -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323792_973696_17761"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">CssValue</name><namespace classType="Class" humanName="Namespace" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CSS" refid="_9_5_f720368_1110473546768_216415_10337"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317432_636948_11806"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317432_636948_11806"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::text::html::CSS::CssValue -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323792_973696_17761"/></ownedElement><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CSS" refid="_9_5_f720368_1110473546768_216415_10337"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::text::html::CSS::CssValue</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><redefinitionContext humanName="Redefinition Context"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CSS" refid="_9_5_f720368_1110473546768_216415_10337"/></redefinitionContext><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

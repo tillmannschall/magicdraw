@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546706_671366_8869"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::HashMap -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322560_713821_14942"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::HashMap -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322560_776409_14941"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::HashMap -&gt; JDK 5.0 Classes::java::util::concurrent::Map&lt;K, V&gt;]" refid="_10_5_622020d_1132928322560_696408_14940"/></clientDependency><documentation humanName="Documentation" mode="standard">Hash table based implementation of the &lt;tt&gt;Map&lt;/tt&gt; interface.  This
+implementation provides all of the optional map operations, and permits
+&lt;tt&gt;null&lt;/tt&gt; values and the &lt;tt&gt;null&lt;/tt&gt; key.  (The &lt;tt&gt;HashMap&lt;/tt&gt;
+class is roughly equivalent to &lt;tt&gt;Hashtable&lt;/tt&gt;, except that it is
+unsynchronized and permits nulls.)  This class makes no guarantees as to
+the order of the map; in particular, it does not guarantee that the order
+will remain constant over time.
+
+&lt;p&gt;This implementation provides constant-time performance for the basic
+operations (&lt;tt&gt;get&lt;/tt&gt; and &lt;tt&gt;put&lt;/tt&gt;), assuming the hash function
+disperses the elements properly among the buckets.  Iteration over
+collection views requires time proportional to the "capacity" of the
+&lt;tt&gt;HashMap&lt;/tt&gt; instance (the number of buckets) plus its size (the number
+of key-value mappings).  Thus, it's very important not to set the initial
+capacity too high (or the load factor too low) if iteration performance is
+important.
+
+&lt;p&gt;An instance of &lt;tt&gt;HashMap&lt;/tt&gt; has two parameters that affect its
+performance: &lt;i&gt;initial capacity&lt;/i&gt; and &lt;i&gt;load factor&lt;/i&gt;.  The
+&lt;i&gt;capacity&lt;/i&gt; is the number of buckets in the hash table, and the initial
+capacity is simply the capacity at the time the hash table is created.  The
+&lt;i&gt;load factor&lt;/i&gt; is a measure of how full the hash table is allowed to
+get before its capacity is automatically increased.  When the number of
+entries in the hash table exceeds the product of the load factor and the
+current capacity, the capacity is roughly doubled by calling the
+&lt;tt&gt;rehash&lt;/tt&gt; method.
+
+&lt;p&gt;As a general rule, the default load factor (.75) offers a good tradeoff
+between time and space costs.  Higher values decrease the space overhead
+but increase the lookup cost (reflected in most of the operations of the
+&lt;tt&gt;HashMap&lt;/tt&gt; class, including &lt;tt&gt;get&lt;/tt&gt; and &lt;tt&gt;put&lt;/tt&gt;).  The
+expected number of entries in the map and its load factor should be taken
+into account when setting its initial capacity, so as to minimize the
+number of &lt;tt&gt;rehash&lt;/tt&gt; operations.  If the initial capacity is greater
+than the maximum number of entries divided by the load factor, no
+&lt;tt&gt;rehash&lt;/tt&gt; operations will ever occur.
+
+&lt;p&gt;If many mappings are to be stored in a &lt;tt&gt;HashMap&lt;/tt&gt; instance,
+creating it with a sufficiently large capacity will allow the mappings to
+be stored more efficiently than letting it perform automatic rehashing as
+needed to grow the table.
+
+&lt;p&gt;&lt;b&gt;Note that this implementation is not synchronized.&lt;/b&gt; If multiple
+threads access this map concurrently, and at least one of the threads
+modifies the map structurally, it &lt;i&gt;must&lt;/i&gt; be synchronized externally.
+(A structural modification is any operation that adds or deletes one or
+more mappings; merely changing the value associated with a key that an
+instance already contains is not a structural modification.)  This is
+typically accomplished by synchronizing on some object that naturally
+encapsulates the map.  If no such object exists, the map should be
+"wrapped" using the &lt;tt&gt;Collections.synchronizedMap&lt;/tt&gt; method.  This is
+best done at creation time, to prevent accidental unsynchronized access to
+the map: &lt;pre&gt; Map m = Collections.synchronizedMap(new HashMap(...));
+&lt;/pre&gt;
+
+&lt;p&gt;The iterators returned by all of this class's "collection view methods"
+are &lt;i&gt;fail-fast&lt;/i&gt;: if the map is structurally modified at any time after
+the iterator is created, in any way except through the iterator's own
+&lt;tt&gt;remove&lt;/tt&gt; or &lt;tt&gt;add&lt;/tt&gt; methods, the iterator will throw a
+&lt;tt&gt;ConcurrentModificationException&lt;/tt&gt;.  Thus, in the face of concurrent
+modification, the iterator fails quickly and cleanly, rather than risking
+arbitrary, non-deterministic behavior at an undetermined time in the
+future.
+
+&lt;p&gt;Note that the fail-fast behavior of an iterator cannot be guaranteed
+as it is, generally speaking, impossible to make any hard guarantees in the
+presence of unsynchronized concurrent modification.  Fail-fast iterators
+throw &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt; on a best-effort basis.
+Therefore, it would be wrong to write a program that depended on this
+exception for its correctness: &lt;i&gt;the fail-fast behavior of iterators
+should be used only to detect bugs.&lt;/i&gt;
+
+&lt;p&gt;This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Doug Lea
+@author  Josh Bloch
+@author  Arthur van Hoff
+@author  Neal Gafter
+@version 1.63, 02/19/04
+@see     Object#hashCode()
+@see     Collection
+@see	    Map
+@see	    TreeMap
+@see	    Hashtable
+@since   1.2
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322560_33174_14943"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::HashMap -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322560_713821_14942"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::HashMap -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322560_776409_14941"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::HashMap -&gt; JDK 5.0 Classes::java::util::concurrent::Map&lt;K, V&gt;]" refid="_10_5_622020d_1132928322560_696408_14940"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Entry" refid="_9_5_f720368_1110473547862_885040_19502"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntryIterator" refid="_9_5_f720368_1110473547862_870099_19507"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntrySet" refid="_9_5_f720368_1110473547862_455158_19510"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="HashIterator" refid="_9_5_f720368_1110473547862_524047_19504"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyIterator" refid="_9_5_f720368_1110473547862_257249_19506"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeySet" refid="_9_5_f720368_1110473547862_105879_19508"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ValueIterator" refid="_9_5_f720368_1110473547862_843877_19505"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Values" refid="_9_5_f720368_1110473547862_629710_19509"/></member><name humanName="Name" mode="s,e">HashMap</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Entry" refid="_9_5_f720368_1110473547862_885040_19502"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntryIterator" refid="_9_5_f720368_1110473547862_870099_19507"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntrySet" refid="_9_5_f720368_1110473547862_455158_19510"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="HashIterator" refid="_9_5_f720368_1110473547862_524047_19504"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyIterator" refid="_9_5_f720368_1110473547862_257249_19506"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeySet" refid="_9_5_f720368_1110473547862_105879_19508"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ValueIterator" refid="_9_5_f720368_1110473547862_843877_19505"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Values" refid="_9_5_f720368_1110473547862_629710_19509"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313216_910939_7268"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313206_982769_7254"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322560_33174_14943"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313216_910939_7268"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Entry" refid="_9_5_f720368_1110473547862_885040_19502"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntryIterator" refid="_9_5_f720368_1110473547862_870099_19507"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntrySet" refid="_9_5_f720368_1110473547862_455158_19510"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="HashIterator" refid="_9_5_f720368_1110473547862_524047_19504"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::HashMap -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322560_713821_14942"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::HashMap -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322560_776409_14941"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::HashMap -&gt; JDK 5.0 Classes::java::util::concurrent::Map&lt;K, V&gt;]" refid="_10_5_622020d_1132928322560_696408_14940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyIterator" refid="_9_5_f720368_1110473547862_257249_19506"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeySet" refid="_9_5_f720368_1110473547862_105879_19508"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ValueIterator" refid="_9_5_f720368_1110473547862_843877_19505"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Values" refid="_9_5_f720368_1110473547862_629710_19509"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Entry" refid="_9_5_f720368_1110473547862_885040_19502"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntryIterator" refid="_9_5_f720368_1110473547862_870099_19507"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntrySet" refid="_9_5_f720368_1110473547862_455158_19510"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="HashIterator" refid="_9_5_f720368_1110473547862_524047_19504"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyIterator" refid="_9_5_f720368_1110473547862_257249_19506"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeySet" refid="_9_5_f720368_1110473547862_105879_19508"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ValueIterator" refid="_9_5_f720368_1110473547862_843877_19505"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Values" refid="_9_5_f720368_1110473547862_629710_19509"/></ownedMember><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313206_982769_7254"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::HashMap</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Map&lt;K, V&gt;" refid="_10_5_622020d_1132928322259_617753_14428"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AbstractMap&lt;K, V&gt;" refid="_10_5_622020d_1132928322009_950717_14375"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

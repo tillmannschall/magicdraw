@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317442_350786_11830"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SubmitThread" refid="_9_5_f720368_1110473548299_44908_22942"/></annotatedElement><body humanName="Body" mode="s,e">The SubmitThread is responsible for submitting the form.
+It performs a POST or GET based on the value of method
+attribute associated with  HTML.Tag.FORM.  In addition to
+submitting, it is also responsible for display the
+results of the form submission.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SubmitThread" refid="_9_5_f720368_1110473548299_44908_22942"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SubmitThread" refid="_9_5_f720368_1110473548299_44908_22942"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

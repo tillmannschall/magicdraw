@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317803_397658_12266"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StateEdit" refid="_9_5_f720368_1110473546784_331287_10599"/></annotatedElement><body humanName="Body" mode="s,e">&lt;P&gt;StateEdit is a general edit for objects that change state.
+Objects being edited must conform to the StateEditable interface.&lt;/P&gt;
+
+&lt;P&gt;This edit class works by asking an object to store it's state in
+Hashtables before and after editing occurs.  Upon undo or redo the
+object is told to restore it's state from these Hashtables.&lt;/P&gt;
+
+A state edit is used as follows:
+&lt;PRE&gt;
+Create the edit during the "before" state of the object
+StateEdit newEdit = new StateEdit(myObject);
+Modify the object
+myObject.someStateModifyingMethod();
+"end" the edit when you are done modifying the object
+newEdit.end();
+&lt;/PRE&gt;
+
+&lt;P&gt;&lt;EM&gt;Note that when a StateEdit ends, it removes redundant state from
+the Hashtables - A state Hashtable is not guaranteed to contain all
+keys/values placed into it when the state is stored!&lt;/EM&gt;&lt;/P&gt;
+
+@see StateEditable
+
+@version 1.14 05/05/04
+@author Ray Ryan
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StateEdit" refid="_9_5_f720368_1110473546784_331287_10599"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StateEdit" refid="_9_5_f720368_1110473546784_331287_10599"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

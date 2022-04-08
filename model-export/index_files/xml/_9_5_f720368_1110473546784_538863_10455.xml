@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546784_538863_10455"><documentation humanName="Documentation" mode="standard">&lt;code&gt;DocumentFilter&lt;/code&gt;, as the name implies, is a filter for the
+&lt;code&gt;Document&lt;/code&gt; mutation methods. When a &lt;code&gt;Document&lt;/code&gt;
+containing a &lt;code&gt;DocumentFilter&lt;/code&gt; is modified (either through
+&lt;code&gt;insert&lt;/code&gt; or &lt;code&gt;remove&lt;/code&gt;), it forwards the appropriate
+method invocation to the &lt;code&gt;DocumentFilter&lt;/code&gt;. The
+default implementation allows the modification to
+occur. Subclasses can filter the modifications by conditionally invoking
+methods on the superclass, or invoking the necessary methods on
+the passed in &lt;code&gt;FilterBypass&lt;/code&gt;. Subclasses should NOT call back
+into the Document for the modification
+instead call into the superclass or the &lt;code&gt;FilterBypass&lt;/code&gt;.
+&lt;p&gt;
+When &lt;code&gt;remove&lt;/code&gt; or &lt;code&gt;insertString&lt;/code&gt; is invoked
+on the &lt;code&gt;DocumentFilter&lt;/code&gt;, the &lt;code&gt;DocumentFilter&lt;/code&gt;
+may callback into the
+&lt;code&gt;FilterBypass&lt;/code&gt; multiple times, or for different regions, but
+it should not callback into the &lt;code&gt;FilterBypass&lt;/code&gt; after returning
+from the &lt;code&gt;remove&lt;/code&gt; or &lt;code&gt;insertString&lt;/code&gt; method.
+
+@see javax.swing.text.Document
+
+@version 1.6 12/19/03
+@since 1.4
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FilterBypass" refid="_9_5_f720368_1110473548346_310196_23491"/></member><name humanName="Name" mode="s,e">DocumentFilter</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FilterBypass" refid="_9_5_f720368_1110473548346_310196_23491"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317603_295357_12049"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317603_295357_12049"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FilterBypass" refid="_9_5_f720368_1110473548346_310196_23491"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FilterBypass" refid="_9_5_f720368_1110473548346_310196_23491"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::text::DocumentFilter</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

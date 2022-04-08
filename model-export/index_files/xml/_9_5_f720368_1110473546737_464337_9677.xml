@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546737_464337_9677"><documentation humanName="Documentation" mode="standard">A &lt;code&gt;Receiver&lt;/code&gt; receives &lt;code&gt;{@link MidiEvent}&lt;/code&gt; objects and
+typically does something useful in response, such as interpreting them to
+generate sound or raw MIDI output.  Common MIDI receivers include
+synthesizers and MIDI Out ports.
+
+@see MidiDevice
+@see Synthesizer
+@see Transmitter
+
+@version 1.21, 03/12/19
+@author Kara Kytle
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Receiver</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316191_835762_10571"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316191_835762_10571"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sound::midi::Receiver</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317452_770045_11857"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormAction" refid="_9_5_f720368_1110473548299_112783_23000"/></annotatedElement><body humanName="Body" mode="s,e">Action to support forms by building all of the elements
+used to represent form controls.  This will process
+the &lt;INPUT&gt;, &lt;TEXTAREA&gt;, &lt;SELECT&gt;,
+and &lt;OPTION&gt; tags.  The element created by
+this action is expected to have the attribute
+&lt;code&gt;StyleConstants.ModelAttribute&lt;/code&gt; set to
+the model that holds the state for the form control.
+This enables multiple views, and allows document to
+be iterated over picking up the data of the form.
+The following are the model assignments for the
+various type of form elements.
+&lt;table summary="model assignments for the various types of form elements"&gt;
+&lt;tr&gt;
+&lt;th&gt;Element Type
+&lt;th&gt;Model Type
+&lt;tr&gt;
+&lt;td&gt;input, type button
+&lt;td&gt;{@link DefaultButtonModel}
+&lt;tr&gt;
+&lt;td&gt;input, type checkbox
+&lt;td&gt;{@link javax.swing.JToggleButton.ToggleButtonModel}
+&lt;tr&gt;
+&lt;td&gt;input, type image
+&lt;td&gt;{@link DefaultButtonModel}
+&lt;tr&gt;
+&lt;td&gt;input, type password
+&lt;td&gt;{@link PlainDocument}
+&lt;tr&gt;
+&lt;td&gt;input, type radio
+&lt;td&gt;{@link javax.swing.JToggleButton.ToggleButtonModel}
+&lt;tr&gt;
+&lt;td&gt;input, type reset
+&lt;td&gt;{@link DefaultButtonModel}
+&lt;tr&gt;
+&lt;td&gt;input, type submit
+&lt;td&gt;{@link DefaultButtonModel}
+&lt;tr&gt;
+&lt;td&gt;input, type text or type is null.
+&lt;td&gt;{@link PlainDocument}
+&lt;tr&gt;
+&lt;td&gt;select
+&lt;td&gt;{@link DefaultComboBoxModel} or an {@link DefaultListModel}, with an item type of Option
+&lt;tr&gt;
+&lt;td&gt;textarea
+&lt;td&gt;{@link PlainDocument}
+&lt;/table&gt;
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FormAction" refid="_9_5_f720368_1110473548299_112783_23000"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormAction" refid="_9_5_f720368_1110473548299_112783_23000"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

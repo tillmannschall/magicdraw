@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309090_793074_5788"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertificateParsingException" refid="_9_5_f720368_1110473546674_840999_8285"/></annotatedElement><body humanName="Body" mode="s,e">Certificate Parsing Exception. This is thrown whenever an
+invalid DER-encoded certificate is parsed or unsupported DER features
+are found in the Certificate.
+
+@author Hemma Prafullchandra
+1.12
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CertificateParsingException" refid="_9_5_f720368_1110473546674_840999_8285"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertificateParsingException" refid="_9_5_f720368_1110473546674_840999_8285"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

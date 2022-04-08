@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318354_460290_12756"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DOMSource" refid="_9_5_f720368_1110473546799_861432_10913"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Acts as a holder for a transformation Source tree in the
+form of a Document Object Model (DOM) tree.&lt;/p&gt;
+
+&lt;p&gt;Note that XSLT requires namespace support. Attempting to transform a DOM
+that was not contructed with a namespace-aware parser may result in errors.
+Parsers can be made namespace aware by calling
+{@link javax.xml.parsers.DocumentBuilderFactory#setNamespaceAware(boolean awareness)}.&lt;/p&gt;
+
+@author &lt;a href="Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+@version $Revision: 1.5.14.1.2.2 $, $Date: 2004/07/13 22:27:49 $
+@see &lt;a href="http://www.w3.org/TR/DOM-Level-2"&gt;Document Object Model (DOM) Level 2 Specification&lt;/a&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DOMSource" refid="_9_5_f720368_1110473546799_861432_10913"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DOMSource" refid="_9_5_f720368_1110473546799_861432_10913"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

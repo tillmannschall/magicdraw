@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314789_975384_9175"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IIOMetadataNode" refid="_9_5_f720368_1110473546706_435467_9025"/></annotatedElement><body humanName="Body" mode="s,e">A class representing a node in a meta-data tree, which implements
+the &lt;a
+href="../../../../api/org/w3c/dom/Element.html"&gt;
+&lt;code&gt;org.w3c.dom.Element&lt;/code&gt;&lt;/a&gt; interface and additionally allows
+for the storage of non-textual objects via the
+&lt;code&gt;getUserObject&lt;/code&gt; and &lt;code&gt;setUserObject&lt;/code&gt; methods.
+
+&lt;p&gt; This class is not intended to be used for general XML
+processing. In particular, &lt;code&gt;Element&lt;/code&gt; nodes created
+within the Image I/O API are not compatible with those created by
+Sun's standard implementation of the &lt;code&gt;org.w3.dom&lt;/code&gt; API.
+In particular, the implementation is tuned for simple uses and may
+not perform well for intensive processing.
+
+&lt;p&gt; Namespaces are ignored in this implementation.  The terms "tag
+name" and "node name" are always considered to be synonymous.
+
+@see IIOMetadata#getAsTree
+@see IIOMetadata#setFromTree
+@see IIOMetadata#mergeTree
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="IIOMetadataNode" refid="_9_5_f720368_1110473546706_435467_9025"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IIOMetadataNode" refid="_9_5_f720368_1110473546706_435467_9025"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

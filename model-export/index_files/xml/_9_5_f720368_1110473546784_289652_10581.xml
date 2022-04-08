@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546784_289652_10581"><documentation humanName="Documentation" mode="standard">The interface that defines a suitable data model for a &lt;code&gt;JTree&lt;/code&gt;.
+For further information on tree models,
+including an example of a custom implementation,
+see &lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/tree.html"&gt;How to Use Trees&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+&lt;p&gt;
+&lt;code&gt;JTree&lt;/code&gt; and its related classes make extensive use of
+&lt;code&gt;TreePath&lt;/code&gt;s for indentifying nodes in the &lt;code&gt;TreeModel&lt;/code&gt;.
+If a &lt;code&gt;TreeModel&lt;/code&gt; returns the same object, as compared by
+&lt;code&gt;equals&lt;/code&gt;, at two different indices under the same parent
+than the resulting &lt;code&gt;TreePath&lt;/code&gt; objects will be considered equal
+as well. Some implementations may assume that if two
+&lt;code&gt;TreePath&lt;/code&gt;s are equal, they identify the same node. If this
+condition is not met, painting problems and other oddities may result.
+In other words, if &lt;code&gt;getChild&lt;/code&gt; for a given parent returns
+the same Object (as determined by &lt;code&gt;equals&lt;/code&gt;) problems may
+result, and it is recommended you avoid doing this.
+
+@see TreePath
+
+@version 1.23 12/19/03
+@author Rob Davis
+@author Ray Ryan
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">TreeModel</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="tree" refid="_9_5_f720368_1110473548393_894111_23934"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317793_264019_12246"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317793_264019_12246"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="tree" refid="_9_5_f720368_1110473548393_894111_23934"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="tree" refid="_9_5_f720368_1110473548393_894111_23934"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="tree" refid="_9_5_f720368_1110473548393_894111_23934"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::tree::TreeModel</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::tree::DefaultTreeModel -&gt; JDK 5.0 Classes::javax::swing::tree::TreeModel]" refid="_10_5_622020d_1132928323892_385452_18159"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

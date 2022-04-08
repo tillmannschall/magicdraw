@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308770_338813_5467"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CodingErrorAction" refid="_9_5_f720368_1110473546659_172709_7953"/></annotatedElement><body humanName="Body" mode="s,e">A typesafe enumeration for coding-error actions.
+
+&lt;p&gt; Instances of this class are used to specify how malformed-input and
+unmappable-character errors are to be handled by charset &lt;a
+href="CharsetDecoder.html#cae"&gt;decoders&lt;/a&gt; and &lt;a
+href="CharsetEncoder.html#cae"&gt;encoders&lt;/a&gt;.  &lt;/p&gt;
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.6, 03/12/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CodingErrorAction" refid="_9_5_f720368_1110473546659_172709_7953"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CodingErrorAction" refid="_9_5_f720368_1110473546659_172709_7953"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

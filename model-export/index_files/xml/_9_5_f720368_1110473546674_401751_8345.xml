@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546674_401751_8345"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::X509Certificate -&gt; JDK 5.0 Classes::java::security::cert::X509Extension]" refid="_10_5_622020d_1132928321859_778667_14134"/></clientDependency><documentation humanName="Documentation" mode="standard">&lt;p&gt;
+Abstract class for X.509 certificates. This provides a standard
+way to access all the attributes of an X.509 certificate.
+&lt;p&gt;
+In June of 1996, the basic X.509 v3 format was completed by
+ISO/IEC and ANSI X9, which is described below in ASN.1:
+&lt;pre&gt;
+Certificate  ::=  SEQUENCE  {
+tbsCertificate       TBSCertificate,
+signatureAlgorithm   AlgorithmIdentifier,
+signature            BIT STRING  }
+&lt;/pre&gt;
+&lt;p&gt;
+These certificates are widely used to support authentication and
+other functionality in Internet security systems. Common applications
+include Privacy Enhanced Mail (PEM), Transport Layer Security (SSL),
+code signing for trusted software distribution, and Secure Electronic
+Transactions (SET).
+&lt;p&gt;
+These certificates are managed and vouched for by &lt;em&gt;Certificate
+Authorities&lt;/em&gt; (CAs). CAs are services which create certificates by
+placing data in the X.509 standard format and then digitally signing
+that data. CAs act as trusted third parties, making introductions
+between principals who have no direct knowledge of each other.
+CA certificates are either signed by themselves, or by some other
+CA such as a "root" CA.
+&lt;p&gt;
+More information can be found in RFC 2459,
+"Internet X.509 Public Key Infrastructure Certificate and CRL
+Profile" at &lt;A HREF="http://www.ietf.org/rfc/rfc2459.txt"&gt;
+http://www.ietf.org/rfc/rfc2459.txt &lt;/A&gt;.
+&lt;p&gt;
+The ASN.1 definition of &lt;code&gt;tbsCertificate&lt;/code&gt; is:
+&lt;pre&gt;
+TBSCertificate  ::=  SEQUENCE  {
+version         [0]  EXPLICIT Version DEFAULT v1,
+serialNumber         CertificateSerialNumber,
+signature            AlgorithmIdentifier,
+issuer               Name,
+validity             Validity,
+subject              Name,
+subjectPublicKeyInfo SubjectPublicKeyInfo,
+issuerUniqueID  [1]  IMPLICIT UniqueIdentifier OPTIONAL,
+-- If present, version must be v2 or v3
+subjectUniqueID [2]  IMPLICIT UniqueIdentifier OPTIONAL,
+-- If present, version must be v2 or v3
+extensions      [3]  EXPLICIT Extensions OPTIONAL
+-- If present, version must be v3
+}
+&lt;/pre&gt;
+&lt;p&gt;
+Certificates are instantiated using a certificate factory. The following is
+an example of how to instantiate an X.509 certificate:
+&lt;pre&gt;
+InputStream inStream = new FileInputStream("fileName-of-cert");
+CertificateFactory cf = CertificateFactory.getInstance("X.509");
+X509Certificate cert = (X509Certificate)cf.generateCertificate(inStream);
+inStream.close();
+&lt;/pre&gt;
+
+@author Hemma Prafullchandra
+
+@version 1.39
+
+@see Certificate
+@see CertificateFactory
+@see X509Extension
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321859_37167_14135"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertificateRep" refid="_9_5_f720368_1110473547706_887322_18595"/></inheritedMember><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::X509Certificate -&gt; JDK 5.0 Classes::java::security::cert::X509Extension]" refid="_10_5_622020d_1132928321859_778667_14134"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertificateRep" refid="_9_5_f720368_1110473547706_887322_18595"/></member><name humanName="Name" mode="s,e">X509Certificate</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309171_979787_5849"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321859_37167_14135"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309171_979787_5849"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::X509Certificate -&gt; JDK 5.0 Classes::java::security::cert::X509Extension]" refid="_10_5_622020d_1132928321859_778667_14134"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::cert::X509Certificate</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="X509Extension" refid="_9_5_f720368_1110473546674_130610_8355"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Certificate" refid="_9_5_f720368_1110473546674_676607_8271"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

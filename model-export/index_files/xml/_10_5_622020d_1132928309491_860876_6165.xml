@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309491_860876_6165"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Date" refid="_9_5_f720368_1110473546690_186067_8563"/></annotatedElement><body humanName="Body" mode="s,e">&lt;P&gt;A thin wrapper around a millisecond value that allows
+JDBC to identify this as an SQL &lt;code&gt;DATE&lt;/code&gt; value.  A
+milliseconds value represents the number of milliseconds that
+have passed since January 1, 1970 00:00:00.000 GMT.
+&lt;p&gt;
+To conform with the definition of SQL &lt;code&gt;DATE&lt;/code&gt;, the
+millisecond values wrapped by a &lt;code&gt;java.sql.Date&lt;/code&gt; instance
+must be 'normalized' by setting the
+hours, minutes, seconds, and milliseconds to zero in the particular
+time zone with which the instance is associated.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Date" refid="_9_5_f720368_1110473546690_186067_8563"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Date" refid="_9_5_f720368_1110473546690_186067_8563"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

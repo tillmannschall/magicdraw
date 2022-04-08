@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306447_369240_4204"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FontMetrics" refid="_9_5_f720368_1110473546581_120641_7013"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;FontMetrics&lt;/code&gt; class defines a font metrics object, which
+encapsulates information about the rendering of a particular font on a
+particular screen.
+&lt;p&gt;
+&lt;b&gt;Note to subclassers&lt;/b&gt;: Since many of these methods form closed,
+mutually recursive loops, you must take care that you implement
+at least one of the methods in each such loop to prevent
+infinite recursion when your subclass is used.
+In particular, the following is the minimal suggested set of methods
+to override in order to ensure correctness and prevent infinite
+recursion (though other subsets are equally feasible):
+&lt;ul&gt;
+&lt;li&gt;{@link #getAscent()}
+&lt;li&gt;{@link #getLeading()}
+&lt;li&gt;{@link #getMaxAdvance()}
+&lt;li&gt;{@link #charWidth(char)}
+&lt;li&gt;{@link #charsWidth(char[], int, int)}
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;img src="doc-files/FontMetrics-1.gif" alt="The letter 'p' showing its 'reference point'" border=15 align
+ALIGN=right HSPACE=10 VSPACE=7&gt;
+Note that the implementations of these methods are
+inefficient, so they are usually overridden with more efficient
+toolkit-specific implementations.
+&lt;p&gt;
+When an application asks AWT to place a character at the position
+(&lt;i&gt;x&lt;/i&gt;,&amp;nbsp;&lt;i&gt;y&lt;/i&gt;), the character is placed so that its
+reference point (shown as the dot in the accompanying image) is
+put at that position. The reference point specifies a horizontal
+line called the &lt;i&gt;baseline&lt;/i&gt; of the character. In normal
+printing, the baselines of characters should align.
+&lt;p&gt;
+In addition, every character in a font has an &lt;i&gt;ascent&lt;/i&gt;, a
+&lt;i&gt;descent&lt;/i&gt;, and an &lt;i&gt;advance width&lt;/i&gt;. The ascent is the
+amount by which the character ascends above the baseline. The
+descent is the amount by which the character descends below the
+baseline. The advance width indicates the position at which AWT
+should place the next character.
+&lt;p&gt;
+An array of characters or a string can also have an ascent, a
+descent, and an advance width. The ascent of the array is the
+maximum ascent of any character in the array. The descent is the
+maximum descent of any character in the array. The advance width
+is the sum of the advance widths of each of the characters in the
+character array.  The advance of a &lt;code&gt;String&lt;/code&gt; is the
+distance along the baseline of the &lt;code&gt;String&lt;/code&gt;.  This
+distance is the width that should be used for centering or
+right-aligning the &lt;code&gt;String&lt;/code&gt;.
+Note that the advance of a &lt;code&gt;String&lt;/code&gt; is not necessarily
+the sum of the advances of its characters measured in isolation
+because the width of a character can vary depending on its context.
+For example, in Arabic text, the shape of a character can change
+in order to connect to other characters.  Also, in some scripts,
+certain character sequences can be represented by a single shape,
+called a &lt;em&gt;ligature&lt;/em&gt;.  Measuring characters individually does
+not account for these transformations.
+
+@version 	1.53 05/18/04
+@author 	Jim Graham
+@see         java.awt.Font
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="FontMetrics" refid="_9_5_f720368_1110473546581_120641_7013"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FontMetrics" refid="_9_5_f720368_1110473546581_120641_7013"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

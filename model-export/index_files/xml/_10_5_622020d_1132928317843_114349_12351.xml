@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317843_114349_12351"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultListCellRenderer" refid="_9_5_f720368_1110473546784_198990_10675"/></annotatedElement><body humanName="Body" mode="s,e">Renders an item in a list.
+&lt;p&gt;
+&lt;strong&gt;&lt;a name="override"&gt;Implementation Note:&lt;/a&gt;&lt;/strong&gt;
+This class overrides
+&lt;code&gt;invalidate&lt;/code&gt;,
+&lt;code&gt;validate&lt;/code&gt;,
+&lt;code&gt;revalidate&lt;/code&gt;,
+&lt;code&gt;repaint&lt;/code&gt;,
+&lt;code&gt;isOpaque&lt;/code&gt;,
+and
+&lt;code&gt;firePropertyChange&lt;/code&gt;
+solely to improve performance.
+If not overridden, these frequently called methods would execute code paths
+that are unnecessary for the default list cell renderer.
+If you write your own renderer,
+take care to weigh the benefits and
+drawbacks of overriding these methods.
+
+&lt;p&gt;
+
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.25 12/19/03
+@author Philip Milne
+@author Hans Muller
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DefaultListCellRenderer" refid="_9_5_f720368_1110473546784_198990_10675"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultListCellRenderer" refid="_9_5_f720368_1110473546784_198990_10675"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

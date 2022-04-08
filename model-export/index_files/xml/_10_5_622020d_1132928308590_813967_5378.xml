@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308590_813967_5378"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SelectorProvider" refid="_9_5_f720368_1110473546643_277122_7867"/></annotatedElement><body humanName="Body" mode="s,e">Service-provider class for selectors and selectable channels.
+
+&lt;p&gt; A selector provider is a concrete subclass of this class that has a
+zero-argument constructor and implements the abstract methods specified
+below.  A given invocation of the Java virtual machine maintains a single
+system-wide default provider instance, which is returned by the {@link
+#provider provider} method.  The first invocation of that method will locate
+the default provider as specified below.
+
+&lt;p&gt; The system-wide default provider is used by the static &lt;tt&gt;open&lt;/tt&gt;
+methods of the {@link java.nio.channels.DatagramChannel#open
+DatagramChannel}, {@link java.nio.channels.Pipe#open Pipe}, {@link
+java.nio.channels.Selector#open Selector}, {@link
+java.nio.channels.ServerSocketChannel#open ServerSocketChannel}, and {@link
+java.nio.channels.SocketChannel#open SocketChannel} classes.  It is also
+used by the {@link java.lang.System#inheritedChannel System.inheritedChannel()}
+method. A program may make use of a provider other than the default provider
+by instantiating that provider and then directly invoking the &lt;tt&gt;open&lt;/tt&gt;
+methods defined in this class.
+
+&lt;p&gt; All of the methods in this class are safe for use by multiple concurrent
+threads.  &lt;/p&gt;
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.26, 04/06/15
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="SelectorProvider" refid="_9_5_f720368_1110473546643_277122_7867"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SelectorProvider" refid="_9_5_f720368_1110473546643_277122_7867"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

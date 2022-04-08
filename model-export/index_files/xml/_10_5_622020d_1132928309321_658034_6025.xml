@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309321_658034_6025"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="KeyFactorySpi" refid="_9_5_f720368_1110473546690_564868_8467"/></annotatedElement><body humanName="Body" mode="s,e">This class defines the &lt;i&gt;Service Provider Interface&lt;/i&gt; (&lt;b&gt;SPI&lt;/b&gt;)
+for the &lt;code&gt;KeyFactory&lt;/code&gt; class.
+All the abstract methods in this class must be implemented by each
+cryptographic service provider who wishes to supply the implementation
+of a key factory for a particular algorithm.
+
+&lt;P&gt; Key factories are used to convert &lt;I&gt;keys&lt;/I&gt; (opaque
+cryptographic keys of type &lt;code&gt;Key&lt;/code&gt;) into &lt;I&gt;key specifications&lt;/I&gt;
+(transparent representations of the underlying key material), and vice
+versa.
+
+&lt;P&gt; Key factories are bi-directional. That is, they allow you to build an
+opaque key object from a given key specification (key material), or to
+retrieve the underlying key material of a key object in a suitable format.
+
+&lt;P&gt; Multiple compatible key specifications may exist for the same key.
+For example, a DSA public key may be specified using
+&lt;code&gt;DSAPublicKeySpec&lt;/code&gt; or
+&lt;code&gt;X509EncodedKeySpec&lt;/code&gt;. A key factory can be used to translate
+between compatible key specifications.
+
+&lt;P&gt; A provider should document all the key specifications supported by its
+key factory.
+
+@author Jan Luehe
+
+@version 1.12, 05/05/04
+
+@see KeyFactory
+@see Key
+@see PublicKey
+@see PrivateKey
+@see java.security.spec.KeySpec
+@see java.security.spec.DSAPublicKeySpec
+@see java.security.spec.X509EncodedKeySpec
+
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="KeyFactorySpi" refid="_9_5_f720368_1110473546690_564868_8467"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="KeyFactorySpi" refid="_9_5_f720368_1110473546690_564868_8467"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

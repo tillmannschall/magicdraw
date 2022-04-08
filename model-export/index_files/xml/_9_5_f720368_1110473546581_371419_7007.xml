@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546581_371419_7007"><documentation humanName="Documentation" mode="standard">A FocusTraversalPolicy defines the order in which Components with a
+particular focus cycle root are traversed. Instances can apply the policy to
+arbitrary focus cycle roots, allowing themselves to be shared across
+Containers. They do not need to be reinitialized when the focus cycle roots
+of a Component hierarchy change.
+&lt;p&gt;
+The core responsibility of a FocusTraversalPolicy is to provide algorithms
+determining the next and previous Components to focus when traversing
+forward or backward in a UI. Each FocusTraversalPolicy must also provide
+algorithms for determining the first, last, and default Components in a
+traversal cycle. First and last Components are used when normal forward and
+backward traversal, respectively, wraps. The default Component is the first
+to receive focus when traversing down into a new focus traversal cycle.
+A FocusTraversalPolicy can optionally provide an algorithm for determining
+a Window's initial Component. The initial Component is the first to receive
+focus when a Window is first made visible.
+&lt;p&gt;
+FocusTraversalPolicy takes into account &lt;a
+href="doc-files/FocusSpec.html#FocusTraversalPolicyProviders"&gt;focus traversal
+policy providers&lt;/a&gt;.  When searching for first/last/next/previous Component,
+if a focus traversal policy provider is encountered, its focus traversal
+policy is used to perform the search operation.
+&lt;p&gt;
+Please see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/focus.html"&gt;
+How to Use the Focus Subsystem&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;, and the
+&lt;a href="../../java/awt/doc-files/FocusSpec.html"&gt;Focus Specification&lt;/a&gt;
+for more information.
+
+@author David Mendenhall
+@version 1.7, 12/19/03
+
+@see Container#setFocusTraversalPolicy
+@see Container#getFocusTraversalPolicy
+@see Container#setFocusCycleRoot
+@see Container#isFocusCycleRoot
+@see Container#setFocusTraversalPolicyProvider
+@see Container#isFocusTraversalPolicyProvider
+@see KeyboardFocusManager#setDefaultFocusTraversalPolicy
+@see KeyboardFocusManager#getDefaultFocusTraversalPolicy
+@since 1.4
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">FocusTraversalPolicy</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306427_20463_4198"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306427_20463_4198"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::FocusTraversalPolicy</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

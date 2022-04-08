@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317583_215704_12027"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SafeDamager" refid="_10_5_622020d_1132928317583_865361_12026"/></annotatedElement><body humanName="Body" mode="s,e">This class invokes &lt;code&gt;mapper.damageRange&lt;/code&gt; in
+EventDispatchThread. The only one instance per Highlighter
+is cretaed. When a number of ranges should be damaged
+it collects them into queue and damages
+them in consecutive order in &lt;code&gt;run&lt;/code&gt;
+call.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SafeDamager" refid="_10_5_622020d_1132928317583_865361_12026"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SafeDamager" refid="_10_5_622020d_1132928317583_865361_12026"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

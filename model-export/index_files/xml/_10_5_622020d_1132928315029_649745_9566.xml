@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928315029_649745_9566"><documentation humanName="Documentation" mode="standard">&lt;p&gt;Interface to define how remote credentials are converted into a
+JAAS Subject.  This interface is used by the RMI Connector Server,
+and can be used by other connector servers.&lt;/p&gt;
+
+&lt;p&gt;The user-defined authenticator instance is passed to the
+connector server in the environment map as the value of the
+attribute {@link JMXConnectorServer#AUTHENTICATOR}.  For connector
+servers that use only this authentication system, if this attribute
+is not present or its value is &lt;code&gt;null&lt;/code&gt; then no user
+authentication will be performed and full access to the methods
+exported by the &lt;code&gt;MBeanServerConnection&lt;/code&gt; object will be
+allowed.&lt;/p&gt;
+
+&lt;p&gt;If authentication is successful then an authenticated
+{@link Subject subject} filled in with its associated
+{@link Principal principals} is returned. Authorization checks
+will be then performed based on the given set of principals.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">JMXAuthenticator</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315029_959229_9568"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315029_959229_9568"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::management::remote::JMXAuthenticator</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

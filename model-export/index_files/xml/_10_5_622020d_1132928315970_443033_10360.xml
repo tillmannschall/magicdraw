@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315970_443033_10360"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintService" refid="_9_5_f720368_1110473546737_754980_9531"/></annotatedElement><body humanName="Body" mode="s,e">Interface PrintService is the factory for a DocPrintJob. A PrintService
+describes the capabilities of a Printer and can be queried regarding
+a printer's supported attributes.
+&lt;P&gt;
+Example:
+&lt;PRE&gt;
+DocFlavor flavor = DocFlavor.INPUT_STREAM.POSTSCRIPT;
+PrintRequestAttributeSet aset = new HashPrintRequestHashAttributeSet();
+aset.add(MediaSizeName.ISO_A4);
+PrintService[] pservices =
+PrintServiceLookup.lookupPrintServices(flavor, aset);
+if (pservices.length &gt; 0) {
+DocPrintJob pj = pservices[0].createPrintJob();
+InputStreamDoc is an implementation of the Doc interface
+Doc doc = new InputStreamDoc("test.ps", flavor);
+try {
+pj.print(doc, aset);
+} catch (PrintException e) {
+}
+}
+&lt;/PRE&gt;
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="PrintService" refid="_9_5_f720368_1110473546737_754980_9531"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintService" refid="_9_5_f720368_1110473546737_754980_9531"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316972_120218_10771"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RowSetMetaData" refid="_9_5_f720368_1110473546753_793360_9769"/></annotatedElement><body humanName="Body" mode="s,e">An object that contains information about the columns in a
+&lt;code&gt;RowSet&lt;/code&gt; object.  This interface is
+an extension of the &lt;code&gt;ResultSetMetaData&lt;/code&gt; interface with
+methods for setting the values in a &lt;code&gt;RowSetMetaData&lt;/code&gt; object.
+When a &lt;code&gt;RowSetReader&lt;/code&gt; object reads data into a &lt;code&gt;RowSet&lt;/code&gt;
+object, it creates a &lt;code&gt;RowSetMetaData&lt;/code&gt; object and initializes it
+using the methods in the &lt;code&gt;RowSetMetaData&lt;/code&gt; interface.  Then the
+reader passes the &lt;code&gt;RowSetMetaData&lt;/code&gt; object to the rowset.
+&lt;P&gt;
+The methods in this interface are invoked internally when an application
+calls the method &lt;code&gt;RowSet.execute&lt;/code&gt;; an application
+programmer would not use them directly.
+
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="RowSetMetaData" refid="_9_5_f720368_1110473546753_793360_9769"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RowSetMetaData" refid="_9_5_f720368_1110473546753_793360_9769"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

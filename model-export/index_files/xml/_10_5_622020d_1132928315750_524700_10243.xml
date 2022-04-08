@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315750_524700_10243"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Severity" refid="_9_5_f720368_1110473546737_313212_9435"/></annotatedElement><body humanName="Body" mode="s,e">Class Severity is a printing attribute class, an enumeration, that denotes
+the severity of a {@link PrinterStateReason PrinterStateReason} attribute.
+&lt;P&gt;
+Instances of Severity do not appear in a Print Service's attribute set
+directly. Rather, a {@link PrinterStateReasons PrinterStateReasons}
+attribute appears in the Print Service's attribute set.
+The {@link PrinterStateReasons
+PrinterStateReasons} attribute contains zero, one, or more than one {@link
+PrinterStateReason PrinterStateReason} objects which pertain to the Print
+Service's status, and each {@link PrinterStateReason PrinterStateReason}
+object is associated with a Severity level of REPORT (least severe),
+WARNING, or ERROR (most severe).
+The printer adds a {@link PrinterStateReason
+PrinterStateReason} object to the Print Service's
+{@link PrinterStateReasons PrinterStateReasons} attribute when the
+corresponding condition becomes true
+of the printer, and the printer removes the {@link PrinterStateReason
+PrinterStateReason} object again when the corresponding condition becomes
+false, regardless of whether the Print Service's overall
+{@link PrinterState PrinterState} also changed.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt;
+&lt;code&gt;Severity.toString()&lt;/code&gt; returns either "error", "warning", or
+"report".  The string values returned by
+each individual {@link PrinterStateReason} and
+associated {@link Severity} object's &lt;CODE&gt;toString()&lt;/CODE&gt;
+methods, concatenated together with a hyphen (&lt;CODE&gt;"-"&lt;/CODE&gt;) in
+between, gives the IPP keyword value for a {@link PrinterStateReasons}.
+The category name returned by &lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP
+attribute name.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Severity" refid="_9_5_f720368_1110473546737_313212_9435"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Severity" refid="_9_5_f720368_1110473546737_313212_9435"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

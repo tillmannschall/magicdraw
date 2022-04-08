@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317012_109514_10858"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InternalFrameEvent" refid="_9_5_f720368_1110473546753_538099_9855"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;AWTEvent&lt;/code&gt; that adds support for
+&lt;code&gt;JInternalFrame&lt;/code&gt; objects as the event source.  This class has the
+same event types as &lt;code&gt;WindowEvent&lt;/code&gt;,
+although different IDs are used.
+Help on handling internal frame events
+is in
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/events/internalframelistener.html" target="_top"&gt;How to Write an Internal Frame Listener&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see java.awt.event.WindowEvent
+@see java.awt.event.WindowListener
+@see JInternalFrame
+@see InternalFrameListener
+
+@version 1.16 12/19/03
+@author Thomas Ball
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InternalFrameEvent" refid="_9_5_f720368_1110473546753_538099_9855"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InternalFrameEvent" refid="_9_5_f720368_1110473546753_538099_9855"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

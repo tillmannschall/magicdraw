@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309040_361566_5716"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MarshalException" refid="_9_5_f720368_1110473546674_555971_8223"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;MarshalException&lt;/code&gt; is thrown if a
+&lt;code&gt;java.io.IOException&lt;/code&gt; occurs while marshalling the remote call
+header, arguments or return value for a remote method call.  A
+&lt;code&gt;MarshalException&lt;/code&gt; is also thrown if the receiver does not
+support the protocol version of the sender.
+
+&lt;p&gt;If a &lt;code&gt;MarshalException&lt;/code&gt; occurs during a remote method call,
+the call may or may not have reached the server.  If the call did reach the
+server, parameters may have been deserialized.  A call may not be
+retransmitted after a &lt;code&gt;MarshalException&lt;/code&gt; and reliably preserve
+"at most once" call semantics.
+
+@version 1.12, 12/19/03
+@author  Ann Wollrath
+@since   JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MarshalException" refid="_9_5_f720368_1110473546674_555971_8223"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MarshalException" refid="_9_5_f720368_1110473546674_555971_8223"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

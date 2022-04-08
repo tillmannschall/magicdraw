@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308570_632344_5356"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="URLClassLoader" refid="_9_5_f720368_1110473546643_203154_7843"/></annotatedElement><body humanName="Body" mode="s,e">This class loader is used to load classes and resources from a search
+path of URLs referring to both JAR files and directories. Any URL that
+ends with a '/' is assumed to refer to a directory. Otherwise, the URL
+is assumed to refer to a JAR file which will be opened as needed.
+&lt;p&gt;
+The AccessControlContext of the thread that created the instance of
+URLClassLoader will be used when subsequently loading classes and
+resources.
+&lt;p&gt;
+The classes that are loaded are by default granted permission only to
+access the URLs specified when the URLClassLoader was created.
+
+@author  David Connelly
+@version 1.85, 08/02/04
+@since   1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="URLClassLoader" refid="_9_5_f720368_1110473546643_203154_7843"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="URLClassLoader" refid="_9_5_f720368_1110473546643_203154_7843"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

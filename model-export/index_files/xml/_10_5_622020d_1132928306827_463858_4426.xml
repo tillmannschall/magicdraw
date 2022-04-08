@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306827_463858_4426"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EventHandler" refid="_9_5_f720368_1110473546596_267156_7207"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;EventHandler&lt;/code&gt; class provides
+support for dynamically generating event listeners whose methods
+execute a simple statement involving an incoming event object
+and a target object.
+&lt;p&gt;
+The &lt;code&gt;EventHandler&lt;/code&gt; class is intended to be used by interactive tools, such as
+application builders, that allow developers to make connections between
+beans. Typically connections are made from a user interface bean
+(the event &lt;em&gt;source&lt;/em&gt;)
+to an application logic bean (the &lt;em&gt;target&lt;/em&gt;). The most effective
+connections of this kind isolate the application logic from the user
+interface.  For example, the &lt;code&gt;EventHandler&lt;/code&gt; for a
+connection from a &lt;code&gt;JCheckBox&lt;/code&gt; to a method
+that accepts a boolean value can deal with extracting the state
+of the check box and passing it directly to the method so that
+the method is isolated from the user interface layer.
+&lt;p&gt;
+Inner classes are another, more general way to handle events from
+user interfaces.  The &lt;code&gt;EventHandler&lt;/code&gt; class
+handles only a subset of what is possible using inner
+classes. However, &lt;code&gt;EventHandler&lt;/code&gt; works better
+with the long-term persistence scheme than inner classes.
+Also, using &lt;code&gt;EventHandler&lt;/code&gt; in large applications in
+which the same interface is implemented many times can
+reduce the disk and memory footprint of the application.
+&lt;p&gt;
+The reason that listeners created with &lt;code&gt;EventHandler&lt;/code&gt;
+have such a small
+footprint is that the &lt;code&gt;Proxy&lt;/code&gt; class, on which
+the &lt;code&gt;EventHandler&lt;/code&gt; relies, shares implementations
+of identical
+interfaces. For example, if you use
+the &lt;code&gt;EventHandler&lt;/code&gt; &lt;code&gt;create&lt;/code&gt; methods to make
+all the &lt;code&gt;ActionListener&lt;/code&gt;s in an application,
+all the action listeners will be instances of a single class
+(one created by the &lt;code&gt;Proxy&lt;/code&gt; class).
+In general, listeners based on
+the &lt;code&gt;Proxy&lt;/code&gt; class require one listener class
+to be created per &lt;em&gt;listener type&lt;/em&gt; (interface),
+whereas the inner class
+approach requires one class to be created per &lt;em&gt;listener&lt;/em&gt;
+(object that implements the interface).
+
+&lt;p&gt;
+You don't generally deal directly with &lt;code&gt;EventHandler&lt;/code&gt;
+instances.
+Instead, you use one of the &lt;code&gt;EventHandler&lt;/code&gt;
+&lt;code&gt;create&lt;/code&gt; methods to create
+an object that implements a given listener interface.
+This listener object uses an &lt;code&gt;EventHandler&lt;/code&gt; object
+behind the scenes to encapsulate information about the
+event, the object to be sent a message when the event occurs,
+the message (method) to be sent, and any argument
+to the method.
+The following section gives examples of how to create listener
+objects using the &lt;code&gt;create&lt;/code&gt; methods.
+
+&lt;h2&gt;Examples of Using EventHandler&lt;/h2&gt;
+
+The simplest use of &lt;code&gt;EventHandler&lt;/code&gt; is to install
+a listener that calls a method on the target object with no arguments.
+In the following example we create an &lt;code&gt;ActionListener&lt;/code&gt;
+that invokes the &lt;code&gt;toFront&lt;/code&gt; method on an instance
+of &lt;code&gt;javax.swing.JFrame&lt;/code&gt;.
+
+&lt;blockquote&gt;
+&lt;pre&gt;
+myButton.addActionListener(
+(ActionListener)EventHandler.create(ActionListener.class, frame, "toFront"));
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+When &lt;code&gt;myButton&lt;/code&gt; is pressed, the statement
+&lt;code&gt;frame.toFront()&lt;/code&gt; will be executed.  One could get
+the same effect, with some additional compile-time type safety,
+by defining a new implementation of the &lt;code&gt;ActionListener&lt;/code&gt;
+interface and adding an instance of it to the button:
+
+&lt;blockquote&gt;
+&lt;pre&gt;
+Equivalent code using an inner class instead of EventHandler.
+myButton.addActionListener(new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+frame.toFront();
+}
+});
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+The next simplest use of &lt;code&gt;EventHandler&lt;/code&gt; is
+to extract a property value from the first argument
+of the method in the listener interface (typically an event object)
+and use it to set the value of a property in the target object.
+In the following example we create an &lt;code&gt;ActionListener&lt;/code&gt; that
+sets the &lt;code&gt;nextFocusableComponent&lt;/code&gt; property of the target
+object to the value of the "source" property of the event.
+
+&lt;blockquote&gt;
+&lt;pre&gt;
+EventHandler.create(ActionListener.class, target, "nextFocusableComponent", "source")
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+This would correspond to the following inner class implementation:
+
+&lt;blockquote&gt;
+&lt;pre&gt;
+Equivalent code using an inner class instead of EventHandler.
+new ActionListener() {
+public void actionPerformed(ActionEvent e) {
+button.setNextFocusableComponent((Component)e.getSource());
+}
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+Probably the most common use of &lt;code&gt;EventHandler&lt;/code&gt;
+is to extract a property value from the
+&lt;em&gt;source&lt;/em&gt; of the event object and set this value as
+the value of a property of the target object.
+In the following example we create an &lt;code&gt;ActionListener&lt;/code&gt; that
+sets the "label" property of the target
+object to the value of the "text" property of the
+source (the value of the "source" property) of the event.
+
+&lt;blockquote&gt;
+&lt;pre&gt;
+EventHandler.create(ActionListener.class, button, "label", "source.text")
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+This would correspond to the following inner class implementation:
+
+&lt;blockquote&gt;
+&lt;pre&gt;
+Equivalent code using an inner class instead of EventHandler.
+new ActionListener {
+public void actionPerformed(ActionEvent e) {
+button.setLabel(((JTextField)e.getSource()).getText());
+}
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+The event property may be be "qualified" with an arbitrary number
+of property prefixes delimited with the "." character. The "qualifying"
+names that appear before the "." characters are taken as the names of
+properties that should be applied, left-most first, to
+the event object.
+&lt;p&gt;
+For example, the following action listener
+
+&lt;blockquote&gt;
+&lt;pre&gt;
+EventHandler.create(ActionListener.class, target, "a", "b.c.d")
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+might be written as the following inner class
+(assuming all the properties had canonical getter methods and
+returned the appropriate types):
+
+&lt;blockquote&gt;
+&lt;pre&gt;
+Equivalent code using an inner class instead of EventHandler.
+new ActionListener {
+public void actionPerformed(ActionEvent e) {
+target.setA(e.getB().getC().isD());
+}
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+@see java.lang.reflect.Proxy
+@see java.util.EventObject
+
+@since 1.4
+
+@author Mark Davidson
+@author Philip Milne
+@author Hans Muller
+
+@version 1.2 10/24/00
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="EventHandler" refid="_9_5_f720368_1110473546596_267156_7207"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EventHandler" refid="_9_5_f720368_1110473546596_267156_7207"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

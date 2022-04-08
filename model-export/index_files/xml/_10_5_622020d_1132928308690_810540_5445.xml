@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308690_810540_5445"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SocketChannel" refid="_9_5_f720368_1110473546659_986850_7931"/></annotatedElement><body humanName="Body" mode="s,e">A selectable channel for stream-oriented connecting sockets.
+
+&lt;p&gt; Socket channels are not a complete abstraction of connecting network
+sockets.  Binding, shutdown, and the manipulation of socket options must be
+done through an associated {@link java.net.Socket} object obtained by
+invoking the {@link #socket() socket} method.  It is not possible to create
+a channel for an arbitrary, pre-existing socket, nor is it possible to
+specify the {@link java.net.SocketImpl} object to be used by a socket
+associated with a socket channel.
+
+&lt;p&gt; A socket channel is created by invoking one of the {@link #open open}
+methods of this class.  A newly-created socket channel is open but not yet
+connected.  An attempt to invoke an I/O operation upon an unconnected
+channel will cause a {@link NotYetConnectedException} to be thrown.  A
+socket channel can be connected by invoking its {@link #connect connect}
+method; once connected, a socket channel remains connected until it is
+closed.  Whether or not a socket channel is connected may be determined by
+invoking its {@link #isConnected isConnected} method.
+
+&lt;p&gt; Socket channels support &lt;i&gt;non-blocking connection:&lt;/i&gt;&amp;nbsp;A socket
+channel may be created and the process of establishing the link to the
+remote socket may be initiated via the {@link #connect connect} method for
+later completion by the {@link #finishConnect finishConnect} method.
+Whether or not a connection operation is in progress may be determined by
+invoking the {@link #isConnectionPending isConnectionPending} method.
+
+&lt;p&gt; The input and output sides of a socket channel may independently be
+&lt;i&gt;shut down&lt;/i&gt; without actually closing the channel.  Shutting down the
+input side of a channel by invoking the {@link java.net.Socket#shutdownInput
+shutdownInput} method of an associated socket object will cause further
+reads on the channel to return &lt;tt&gt;-1&lt;/tt&gt;, the end-of-stream indication.
+Shutting down the output side of the channel by invoking the {@link
+java.net.Socket#shutdownOutput shutdownOutput} method of an associated
+socket object will cause further writes on the channel to throw a {@link
+ClosedChannelException}.
+
+&lt;p&gt; Socket channels support &lt;i&gt;asynchronous shutdown,&lt;/i&gt; which is similar
+to the asynchronous close operation specified in the {@link Channel} class.
+If the input side of a socket is shut down by one thread while another
+thread is blocked in a read operation on the socket's channel, then the read
+operation in the blocked thread will complete without reading any bytes and
+will return &lt;tt&gt;-1&lt;/tt&gt;.  If the output side of a socket is shut down by one
+thread while another thread is blocked in a write operation on the socket's
+channel, then the blocked thread will receive an {@link
+AsynchronousCloseException}.
+
+&lt;p&gt; Socket channels are safe for use by multiple concurrent threads.  They
+support concurrent reading and writing, though at most one thread may be
+reading and at most one thread may be writing at any given time.  The {@link
+#connect connect} and {@link #finishConnect finishConnect} methods are
+mutually synchronized against each other, and an attempt to initiate a read
+or write operation while an invocation of one of these methods is in
+progress will block until that invocation is complete.  &lt;/p&gt;
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.33, 03/12/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="SocketChannel" refid="_9_5_f720368_1110473546659_986850_7931"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SocketChannel" refid="_9_5_f720368_1110473546659_986850_7931"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

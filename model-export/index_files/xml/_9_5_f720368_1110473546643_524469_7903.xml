@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546643_524469_7903"><documentation humanName="Documentation" mode="standard">A channel that can be asynchronously closed and interrupted.
+
+&lt;p&gt; A channel that implements this interface is &lt;i&gt;asynchronously
+closeable:&lt;/i&gt; If a thread is blocked in an I/O operation on an
+interruptible channel then another thread may invoke the channel's {@link
+#close close} method.  This will cause the blocked thread to receive an
+{@link AsynchronousCloseException}.
+
+&lt;p&gt; A channel that implements this interface is also &lt;i&gt;interruptible:&lt;/i&gt;
+If a thread is blocked in an I/O operation on an interruptible channel then
+another thread may invoke the blocked thread's {@link Thread#interrupt()
+interrupt} method.  This will cause the channel to be closed, the blocked
+thread to receive a {@link ClosedByInterruptException}, and the blocked
+thread's interrupt status to be set.
+
+&lt;p&gt; If a thread's interrupt status is already set and it invokes a blocking
+I/O operation upon a channel then the channel will be closed and the thread
+will immediately receive a {@link ClosedByInterruptException}; its interrupt
+status will remain set.
+
+&lt;p&gt; A channel supports asynchronous closing and interruption if, and only
+if, it implements this interface.  This can be tested at runtime, if
+necessary, via the &lt;tt&gt;instanceof&lt;/tt&gt; operator.
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.5, 03/12/19
+@since 1.4
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Channel" refid="_9_5_f720368_1110473546643_379446_7877"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321749_318894_13863"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">InterruptibleChannel</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308640_683796_5415"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321749_318894_13863"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308640_683796_5415"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::nio::channels::InterruptibleChannel</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::nio::channels::spi::AbstractInterruptibleChannel -&gt; JDK 5.0 Classes::java::nio::channels::InterruptibleChannel]" refid="_10_5_622020d_1132928321729_762009_13832"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

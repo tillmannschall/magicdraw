@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306957_806058_4498"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PropertyChangeListenerProxy" refid="_9_5_f720368_1110473546596_730715_7315"/></annotatedElement><body humanName="Body" mode="s,e">A class which extends the &lt;code&gt;EventListenerProxy&lt;/code&gt; specifically
+for adding a named &lt;code&gt;PropertyChangeListener&lt;/code&gt;. Instances of
+this class can be added as &lt;code&gt;PropertyChangeListener&lt;/code&gt; to
+an object.
+&lt;p&gt;
+If the object has a &lt;code&gt;getPropertyChangeListeners()&lt;/code&gt;
+method then the array returned could be a mixture of
+&lt;code&gt;PropertyChangeListener&lt;/code&gt; and
+&lt;code&gt;PropertyChangeListenerProxy&lt;/code&gt; objects.
+
+@see java.util.EventListenerProxy
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PropertyChangeListenerProxy" refid="_9_5_f720368_1110473546596_730715_7315"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PropertyChangeListenerProxy" refid="_9_5_f720368_1110473546596_730715_7315"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

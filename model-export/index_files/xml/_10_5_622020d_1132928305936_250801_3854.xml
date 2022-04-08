@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305936_250801_3854"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PathIterator" refid="_9_5_f720368_1110473546565_108946_6697"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;PathIterator&lt;/code&gt; interface provides the mechanism
+for objects that implement the {@link java.awt.Shape Shape}
+interface to return the geometry of their boundary by allowing
+a caller to retrieve the path of that boundary a segment at a
+time.  This interface allows these objects to retrieve the path of
+their boundary a segment at a time by using 1st through 3rd order
+B&amp;eacute;zier curves, which are lines and quadratic or cubic
+B&amp;eacute;zier splines.
+&lt;p&gt;
+Multiple subpaths can be expressed by using a "MOVETO" segment to
+create a discontinuity in the geometry to move from the end of
+one subpath to the beginning of the next.
+&lt;p&gt;
+Each subpath can be closed manually by ending the last segment in
+the subpath on the same coordinate as the beginning "MOVETO" segment
+for that subpath or by using a "CLOSE" segment to append a line
+segment from the last point back to the first.
+Be aware that manually closing an outline as opposed to using a
+"CLOSE" segment to close the path might result in different line
+style decorations being used at the end points of the subpath.
+For example, the {@link java.awt.BasicStroke BasicStroke} object
+uses a line "JOIN" decoration to connect the first and last points
+if a "CLOSE" segment is encountered, whereas simply ending the path
+on the same coordinate as the beginning coordinate results in line
+"CAP" decorations being used at the ends.
+
+@see java.awt.Shape
+@see java.awt.BasicStroke
+
+@version 1.16, 12/19/03
+@author Jim Graham
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="PathIterator" refid="_9_5_f720368_1110473546565_108946_6697"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PathIterator" refid="_9_5_f720368_1110473546565_108946_6697"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

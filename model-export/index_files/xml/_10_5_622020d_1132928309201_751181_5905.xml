@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309201_751181_5905"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ECFieldFp" refid="_10_5_622020d_1132928309201_854821_5903"/></annotatedElement><body humanName="Body" mode="s,e">This immutable class defines an elliptic curve (EC) prime
+finite field.
+
+@see ECField
+
+@author Valerie Peng
+@version 1.3, 12/19/03
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ECFieldFp" refid="_10_5_622020d_1132928309201_854821_5903"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ECFieldFp" refid="_10_5_622020d_1132928309201_854821_5903"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

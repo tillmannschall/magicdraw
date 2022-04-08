@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305816_236988_3779"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GlyphVector" refid="_9_5_f720368_1110473546565_996054_6629"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;GlyphVector&lt;/code&gt; object is a collection of glyphs
+containing geometric information for the placement of each glyph
+in a transformed coordinate space which corresponds to the
+device on which the &lt;code&gt;GlyphVector&lt;/code&gt; is ultimately
+displayed.
+&lt;p&gt;
+The &lt;code&gt;GlyphVector&lt;/code&gt; does not attempt any interpretation of
+the sequence of glyphs it contains.  Relationships between adjacent
+glyphs in sequence are solely used to determine the placement of
+the glyphs in the visual coordinate space.
+&lt;p&gt;
+Instances of &lt;code&gt;GlyphVector&lt;/code&gt; are created by a {@link Font}.
+&lt;p&gt;
+In a text processing application that can cache intermediate
+representations of text, creation and subsequent caching of a
+&lt;code&gt;GlyphVector&lt;/code&gt; for use during rendering is the fastest
+method to present the visual representation of characters to a user.
+&lt;p&gt;
+A &lt;code&gt;GlyphVector&lt;/code&gt; is associated with exactly one
+&lt;code&gt;Font&lt;/code&gt;, and can provide data useful only in relation to
+this &lt;code&gt;Font&lt;/code&gt;.  In addition, metrics obtained from a
+&lt;code&gt;GlyphVector&lt;/code&gt; are not generally geometrically scaleable
+since the pixelization and spacing are dependent on grid-fitting
+algorithms within a &lt;code&gt;Font&lt;/code&gt;.  To facilitate accurate
+measurement of a &lt;code&gt;GlyphVector&lt;/code&gt; and its component
+glyphs, you must specify a scaling transform, anti-alias mode, and
+fractional metrics mode when creating the &lt;code&gt;GlyphVector&lt;/code&gt;.
+These characteristics can be derived from the destination device.
+&lt;p&gt;
+For each glyph in the &lt;code&gt;GlyphVector&lt;/code&gt;, you can obtain:
+&lt;ul&gt;
+&lt;li&gt;the position of the glyph
+&lt;li&gt;the transform associated with the glyph
+&lt;li&gt;the metrics of the glyph in the context of the
+&lt;code&gt;GlyphVector&lt;/code&gt;.  The metrics of the glyph may be
+different under different transforms, application specified
+rendering hints, and the specific instance of the glyph within
+the &lt;code&gt;GlyphVector&lt;/code&gt;.
+&lt;/ul&gt;
+&lt;p&gt;
+Altering the data used to create the &lt;code&gt;GlyphVector&lt;/code&gt; does not
+alter the state of the &lt;code&gt;GlyphVector&lt;/code&gt;.
+&lt;p&gt;
+Methods are provided to adjust the positions of the glyphs
+within the &lt;code&gt;GlyphVector&lt;/code&gt;.  These methods are most
+appropriate for applications that are performing justification
+operations for the presentation of the glyphs.
+&lt;p&gt;
+Methods are provided to transform individual glyphs within the
+&lt;code&gt;GlyphVector&lt;/code&gt;.  These methods are primarily useful for
+special effects.
+&lt;p&gt;
+Methods are provided to return both the visual, logical, and pixel bounds
+of the entire &lt;code&gt;GlyphVector&lt;/code&gt; or of individual glyphs within
+the &lt;code&gt;GlyphVector&lt;/code&gt;.
+&lt;p&gt;
+Methods are provided to return a {@link Shape} for the
+&lt;code&gt;GlyphVector&lt;/code&gt;, and for individual glyphs within the
+&lt;code&gt;GlyphVector&lt;/code&gt;.
+@see Font
+@see GlyphMetrics
+@see TextLayout
+@version 19 Mar 1998
+@author Charlton Innovations, Inc.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="GlyphVector" refid="_9_5_f720368_1110473546565_996054_6629"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GlyphVector" refid="_9_5_f720368_1110473546565_996054_6629"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

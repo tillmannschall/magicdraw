@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546737_869115_9537"><documentation humanName="Documentation" mode="standard">Services may optionally provide UIs which allow different styles
+of interaction in different roles.
+One role may be end-user browsing and setting of print options.
+Another role may be administering the print service.
+&lt;p&gt;
+Although the Print Service API does not presently provide standardised
+support for administering a print service, monitoring of the print
+service is possible and a UI may provide for private update mechanisms.
+&lt;p&gt;
+The basic design intent is to allow applications to lazily locate and
+initialize services only when needed without any API dependencies
+except in an environment in which they are used.
+&lt;p&gt;
+Swing UIs are preferred as they provide a more consistent L&amp;F and
+can support accessibility APIs.
+&lt;p&gt;
+Example usage:
+&lt;pre&gt;
+ServiceUIFactory factory = printService.getServiceUIFactory();
+if (factory != null) {
+JComponent swingui = (JComponent)factory.getUI(
+ServiceUIFactory.MAIN_UIROLE,
+ServiceUIFactory.JCOMPONENT_UI);
+if (swingui != null) {
+tabbedpane.add("Custom UI", swingui);
+}
+}
+&lt;/pre&gt;
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ServiceUIFactory</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="print" refid="_9_5_f720368_1110473547987_687095_20189"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315980_441961_10366"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315980_441961_10366"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="print" refid="_9_5_f720368_1110473547987_687095_20189"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="print" refid="_9_5_f720368_1110473547987_687095_20189"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="print" refid="_9_5_f720368_1110473547987_687095_20189"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::print::ServiceUIFactory</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

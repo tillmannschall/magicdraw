@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316211_456715_10604"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AudioFileFormat" refid="_9_5_f720368_1110473546737_944650_9707"/></annotatedElement><body humanName="Body" mode="s,e">An instance of the &lt;code&gt;AudioFileFormat&lt;/code&gt; class describes
+an audio file, including the file type, the file's length in bytes,
+the length in sample frames of the audio data contained in the file,
+and the format of the audio data.
+&lt;p&gt;
+The &lt;code&gt;{@link AudioSystem}&lt;/code&gt; class includes methods for determining the format
+of an audio file, obtaining an audio input stream from an audio file, and
+writing an audio file from an audio input stream.
+
+&lt;p&gt;An &lt;code&gt;AudioFileFormat&lt;/code&gt; object can
+include a set of properties. A property is a pair of key and value:
+the key is of type &lt;code&gt;String&lt;/code&gt;, the associated property
+value is an arbitrary object.
+Properties specify additional informational
+meta data (like a author, copyright, or file duration).
+Properties are optional information, and file reader and file
+writer implementations are not required to provide or
+recognize properties.
+
+&lt;p&gt;The following table lists some common properties that should
+be used in implementations:
+
+&lt;table border=1&gt;
+&lt;tr&gt;
+&lt;th&gt;Property key&lt;/th&gt;
+&lt;th&gt;Value type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"duration"&lt;/td&gt;
+&lt;td&gt;{@link java.lang.Long Long}&lt;/td&gt;
+&lt;td&gt;playback duration of the file in microseconds&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"author"&lt;/td&gt;
+&lt;td&gt;{@link java.lang.String String}&lt;/td&gt;
+&lt;td&gt;name of the author of this file&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"title"&lt;/td&gt;
+&lt;td&gt;{@link java.lang.String String}&lt;/td&gt;
+&lt;td&gt;title of this file&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"copyright"&lt;/td&gt;
+&lt;td&gt;{@link java.lang.String String}&lt;/td&gt;
+&lt;td&gt;copyright message&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"date"&lt;/td&gt;
+&lt;td&gt;{@link java.util.Date Date}&lt;/td&gt;
+&lt;td&gt;date of the recording or release&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"comment"&lt;/td&gt;
+&lt;td&gt;{@link java.lang.String String}&lt;/td&gt;
+&lt;td&gt;an arbitrary text&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+
+@author David Rivas
+@author Kara Kytle
+@author Florian Bomers
+@version 1.23 03/12/19
+@see AudioInputStream
+@since 1.3
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AudioFileFormat" refid="_9_5_f720368_1110473546737_944650_9707"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AudioFileFormat" refid="_9_5_f720368_1110473546737_944650_9707"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

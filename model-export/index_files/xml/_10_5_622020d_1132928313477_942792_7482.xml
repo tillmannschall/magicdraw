@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313477_942792_7482"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Stack" refid="_9_5_f720368_1110473546706_678755_8927"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Stack&lt;/code&gt; class represents a last-in-first-out
+(LIFO) stack of objects. It extends class &lt;tt&gt;Vector&lt;/tt&gt; with five
+operations that allow a vector to be treated as a stack. The usual
+&lt;tt&gt;push&lt;/tt&gt; and &lt;tt&gt;pop&lt;/tt&gt; operations are provided, as well as a
+method to &lt;tt&gt;peek&lt;/tt&gt; at the top item on the stack, a method to test
+for whether the stack is &lt;tt&gt;empty&lt;/tt&gt;, and a method to &lt;tt&gt;search&lt;/tt&gt;
+the stack for an item and discover how far it is from the top.
+&lt;p&gt;
+When a stack is first created, it contains no items.
+
+@author  Jonathan Payne
+@version 1.28, 12/19/03
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Stack" refid="_9_5_f720368_1110473546706_678755_8927"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Stack" refid="_9_5_f720368_1110473546706_678755_8927"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

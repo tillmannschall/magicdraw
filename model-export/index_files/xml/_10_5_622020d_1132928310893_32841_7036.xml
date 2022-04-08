@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310893_32841_7036"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UnmodifiableEntrySet" refid="_9_5_f720368_1110473547862_535817_19437"/></annotatedElement><body humanName="Body" mode="s,e">We need this class in addition to UnmodifiableSet as
+Map.Entries themselves permit modification of the backing Map
+via their setValue operation.  This class is subtle: there are
+many possible attacks that must be thwarted.
+
+@serial include
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="UnmodifiableEntrySet" refid="_9_5_f720368_1110473547862_535817_19437"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UnmodifiableEntrySet" refid="_9_5_f720368_1110473547862_535817_19437"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

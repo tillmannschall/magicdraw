@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546612_726383_7591"><documentation humanName="Documentation" mode="standard">This interface imposes a total ordering on the objects of each class that
+implements it.  This ordering is referred to as the class's &lt;i&gt;natural
+ordering&lt;/i&gt;, and the class's &lt;tt&gt;compareTo&lt;/tt&gt; method is referred to as
+its &lt;i&gt;natural comparison method&lt;/i&gt;.&lt;p&gt;
+
+Lists (and arrays) of objects that implement this interface can be sorted
+automatically by &lt;tt&gt;Collections.sort&lt;/tt&gt; (and &lt;tt&gt;Arrays.sort&lt;/tt&gt;).
+Objects that implement this interface can be used as keys in a sorted map
+or elements in a sorted set, without the need to specify a comparator.&lt;p&gt;
+
+The natural ordering for a class &lt;tt&gt;C&lt;/tt&gt; is said to be &lt;i&gt;consistent
+with equals&lt;/i&gt; if and only if &lt;tt&gt;(e1.compareTo((Object)e2) == 0)&lt;/tt&gt; has
+the same boolean value as &lt;tt&gt;e1.equals((Object)e2)&lt;/tt&gt; for every
+&lt;tt&gt;e1&lt;/tt&gt; and &lt;tt&gt;e2&lt;/tt&gt; of class &lt;tt&gt;C&lt;/tt&gt;.  Note that &lt;tt&gt;null&lt;/tt&gt;
+is not an instance of any class, and &lt;tt&gt;e.compareTo(null)&lt;/tt&gt; should
+throw a &lt;tt&gt;NullPointerException&lt;/tt&gt; even though &lt;tt&gt;e.equals(null)&lt;/tt&gt;
+returns &lt;tt&gt;false&lt;/tt&gt;.&lt;p&gt;
+
+It is strongly recommended (though not required) that natural orderings be
+consistent with equals.  This is so because sorted sets (and sorted maps)
+without explicit comparators behave "strangely" when they are used with
+elements (or keys) whose natural ordering is inconsistent with equals.  In
+particular, such a sorted set (or sorted map) violates the general contract
+for set (or map), which is defined in terms of the &lt;tt&gt;equals&lt;/tt&gt;
+method.&lt;p&gt;
+
+For example, if one adds two keys &lt;tt&gt;a&lt;/tt&gt; and &lt;tt&gt;b&lt;/tt&gt; such that
+&lt;tt&gt;(!a.equals((Object)b) &amp;&amp; a.compareTo((Object)b) == 0)&lt;/tt&gt; to a sorted
+set that does not use an explicit comparator, the second &lt;tt&gt;add&lt;/tt&gt;
+operation returns false (and the size of the sorted set does not increase)
+because &lt;tt&gt;a&lt;/tt&gt; and &lt;tt&gt;b&lt;/tt&gt; are equivalent from the sorted set's
+perspective.&lt;p&gt;
+
+Virtually all Java core classes that implement comparable have natural
+orderings that are consistent with equals.  One exception is
+&lt;tt&gt;java.math.BigDecimal&lt;/tt&gt;, whose natural ordering equates
+&lt;tt&gt;BigDecimal&lt;/tt&gt; objects with equal values and different precisions
+(such as 4.0 and 4.00).&lt;p&gt;
+
+For the mathematically inclined, the &lt;i&gt;relation&lt;/i&gt; that defines
+the natural ordering on a given class C is:&lt;pre&gt;
+{(x, y) such that x.compareTo((Object)y) &lt;= 0}.
+&lt;/pre&gt; The &lt;i&gt;quotient&lt;/i&gt; for this total order is: &lt;pre&gt;
+{(x, y) such that x.compareTo((Object)y) == 0}.
+&lt;/pre&gt;
+
+It follows immediately from the contract for &lt;tt&gt;compareTo&lt;/tt&gt; that the
+quotient is an &lt;i&gt;equivalence relation&lt;/i&gt; on &lt;tt&gt;C&lt;/tt&gt;, and that the
+natural ordering is a &lt;i&gt;total order&lt;/i&gt; on &lt;tt&gt;C&lt;/tt&gt;.  When we say that a
+class's natural ordering is &lt;i&gt;consistent with equals&lt;/i&gt;, we mean that the
+quotient for the natural ordering is the equivalence relation defined by
+the class's &lt;tt&gt;equals(Object)&lt;/tt&gt; method:&lt;pre&gt;
+{(x, y) such that x.equals((Object)y)}.
+&lt;/pre&gt;&lt;p&gt;
+
+This interface is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@version 1.22, 12/19/03
+@see java.util.Comparator
+@see java.util.Collections#sort(java.util.List)
+@see java.util.Arrays#sort(Object[])
+@see java.util.SortedSet
+@see java.util.SortedMap
+@see java.util.TreeSet
+@see java.util.TreeMap
+@since 1.2
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Comparable</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307939_671122_5000"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928307939_612079_4996"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307939_671122_5000"/></ownedElement><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928307939_612079_4996"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::Comparable</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

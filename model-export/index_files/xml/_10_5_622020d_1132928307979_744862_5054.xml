@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307979_744862_5054"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InheritableThreadLocal" refid="_9_5_f720368_1110473546612_679086_7625"/></annotatedElement><body humanName="Body" mode="s,e">This class extends &lt;tt&gt;ThreadLocal&lt;/tt&gt; to provide inheritance of values
+from parent thread to child thread: when a child thread is created, the
+child receives initial values for all inheritable thread-local variables
+for which the parent has values.  Normally the child's values will be
+identical to the parent's; however, the child's value can be made an
+arbitrary function of the parent's by overriding the &lt;tt&gt;childValue&lt;/tt&gt;
+method in this class.
+
+&lt;p&gt;Inheritable thread-local variables are used in preference to
+ordinary thread-local variables when the per-thread-attribute being
+maintained in the variable (e.g., User ID, Transaction ID) must be
+automatically transmitted to any child threads that are created.
+
+@author  Josh Bloch and Doug Lea
+@version 1.21, 02/09/04
+@see     ThreadLocal
+@since   1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InheritableThreadLocal" refid="_9_5_f720368_1110473546612_679086_7625"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InheritableThreadLocal" refid="_9_5_f720368_1110473546612_679086_7625"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

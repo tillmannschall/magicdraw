@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309611_510832_6228"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CollationElementIterator" refid="_9_5_f720368_1110473546690_427736_8631"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;CollationElementIterator&lt;/code&gt; class is used as an iterator
+to walk through each character of an international string. Use the iterator
+to return the ordering priority of the positioned character. The ordering
+priority of a character, which we refer to as a key, defines how a character
+is collated in the given collation object.
+
+&lt;p&gt;
+For example, consider the following in Spanish:
+&lt;blockquote&gt;
+&lt;pre&gt;
+"ca" -&gt; the first key is key('c') and second key is key('a').
+"cha" -&gt; the first key is key('ch') and second key is key('a').
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+And in German,
+&lt;blockquote&gt;
+&lt;pre&gt;
+"\u00e4b"-&gt; the first key is key('a'), the second key is key('e'), and
+the third key is key('b').
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+The key of a character is an integer composed of primary order(short),
+secondary order(byte), and tertiary order(byte). Java strictly defines
+the size and signedness of its primitive data types. Therefore, the static
+functions &lt;code&gt;primaryOrder&lt;/code&gt;, &lt;code&gt;secondaryOrder&lt;/code&gt;, and
+&lt;code&gt;tertiaryOrder&lt;/code&gt; return &lt;code&gt;int&lt;/code&gt;, &lt;code&gt;short&lt;/code&gt;,
+and &lt;code&gt;short&lt;/code&gt; respectively to ensure the correctness of the key
+value.
+
+&lt;p&gt;
+Example of the iterator usage,
+&lt;blockquote&gt;
+&lt;pre&gt;
+
+String testString = "This is a test";
+RuleBasedCollator ruleBasedCollator = (RuleBasedCollator)Collator.getInstance();
+CollationElementIterator collationElementIterator = ruleBasedCollator.getCollationElementIterator(testString);
+int primaryOrder = CollationElementIterator.primaryOrder(collationElementIterator.next());
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+&lt;code&gt;CollationElementIterator.next&lt;/code&gt; returns the collation order
+of the next character. A collation order consists of primary order,
+secondary order and tertiary order. The data type of the collation
+order is &lt;strong&gt;int&lt;/strong&gt;. The first 16 bits of a collation order
+is its primary order; the next 8 bits is the secondary order and the
+last 8 bits is the tertiary order.
+
+@see                Collator
+@see                RuleBasedCollator
+@version            1.24 07/27/98
+@author             Helena Shih, Laura Werner, Richard Gillam
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CollationElementIterator" refid="_9_5_f720368_1110473546690_427736_8631"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CollationElementIterator" refid="_9_5_f720368_1110473546690_427736_8631"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

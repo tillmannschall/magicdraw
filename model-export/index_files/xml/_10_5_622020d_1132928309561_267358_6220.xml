@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309561_267358_6220"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BreakIterator" refid="_9_5_f720368_1110473546690_986989_8619"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;BreakIterator&lt;/code&gt; class implements methods for finding
+the location of boundaries in text. Instances of &lt;code&gt;BreakIterator&lt;/code&gt;
+maintain a current position and scan over text
+returning the index of characters where boundaries occur.
+Internally, &lt;code&gt;BreakIterator&lt;/code&gt; scans text using a
+&lt;code&gt;CharacterIterator&lt;/code&gt;, and is thus able to scan text held
+by any object implementing that protocol. A &lt;code&gt;StringCharacterIterator&lt;/code&gt;
+is used to scan &lt;code&gt;String&lt;/code&gt; objects passed to &lt;code&gt;setText&lt;/code&gt;.
+
+&lt;p&gt;
+You use the factory methods provided by this class to create
+instances of various types of break iterators. In particular,
+use &lt;code&gt;getWordIterator&lt;/code&gt;, &lt;code&gt;getLineIterator&lt;/code&gt;,
+&lt;code&gt;getSentenceIterator&lt;/code&gt;, and &lt;code&gt;getCharacterIterator&lt;/code&gt;
+to create &lt;code&gt;BreakIterator&lt;/code&gt;s that perform
+word, line, sentence, and character boundary analysis respectively.
+A single &lt;code&gt;BreakIterator&lt;/code&gt; can work only on one unit
+(word, line, sentence, and so on). You must use a different iterator
+for each unit boundary analysis you wish to perform.
+
+&lt;p&gt;
+Line boundary analysis determines where a text string can be
+broken when line-wrapping. The mechanism correctly handles
+punctuation and hyphenated words.
+
+&lt;p&gt;
+Sentence boundary analysis allows selection with correct interpretation
+of periods within numbers and abbreviations, and trailing punctuation
+marks such as quotation marks and parentheses.
+
+&lt;p&gt;
+Word boundary analysis is used by search and replace functions, as
+well as within text editing applications that allow the user to
+select words with a double click. Word selection provides correct
+interpretation of punctuation marks within and following
+words. Characters that are not part of a word, such as symbols
+or punctuation marks, have word-breaks on both sides.
+
+&lt;p&gt;
+Character boundary analysis allows users to interact with characters
+as they expect to, for example, when moving the cursor through a text
+string. Character boundary analysis provides correct navigation of
+through character strings, regardless of how the character is stored.
+For example, an accented character might be stored as a base character
+and a diacritical mark. What users consider to be a character can
+differ between languages.
+
+&lt;p&gt;
+&lt;code&gt;BreakIterator&lt;/code&gt; is intended for use with natural
+languages only. Do not use this class to tokenize a programming language.
+
+&lt;P&gt;
+&lt;strong&gt;Examples&lt;/strong&gt;:&lt;P&gt;
+Creating and using text boundaries
+&lt;blockquote&gt;
+&lt;pre&gt;
+public static void main(String args[]) {
+if (args.length == 1) {
+String stringToExamine = args[0];
+print each word in order
+BreakIterator boundary = BreakIterator.getWordInstance();
+boundary.setText(stringToExamine);
+printEachForward(boundary, stringToExamine);
+print each sentence in reverse order
+boundary = BreakIterator.getSentenceInstance(Locale.US);
+boundary.setText(stringToExamine);
+printEachBackward(boundary, stringToExamine);
+printFirst(boundary, stringToExamine);
+printLast(boundary, stringToExamine);
+}
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+Print each element in order
+&lt;blockquote&gt;
+&lt;pre&gt;
+public static void printEachForward(BreakIterator boundary, String source) {
+int start = boundary.first();
+for (int end = boundary.next();
+end != BreakIterator.DONE;
+start = end, end = boundary.next()) {
+System.out.println(source.substring(start,end));
+}
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+Print each element in reverse order
+&lt;blockquote&gt;
+&lt;pre&gt;
+public static void printEachBackward(BreakIterator boundary, String source) {
+int end = boundary.last();
+for (int start = boundary.previous();
+start != BreakIterator.DONE;
+end = start, start = boundary.previous()) {
+System.out.println(source.substring(start,end));
+}
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+Print first element
+&lt;blockquote&gt;
+&lt;pre&gt;
+public static void printFirst(BreakIterator boundary, String source) {
+int start = boundary.first();
+int end = boundary.next();
+System.out.println(source.substring(start,end));
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+Print last element
+&lt;blockquote&gt;
+&lt;pre&gt;
+public static void printLast(BreakIterator boundary, String source) {
+int end = boundary.last();
+int start = boundary.previous();
+System.out.println(source.substring(start,end));
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+Print the element at a specified position
+&lt;blockquote&gt;
+&lt;pre&gt;
+public static void printAt(BreakIterator boundary, int pos, String source) {
+int end = boundary.following(pos);
+int start = boundary.previous();
+System.out.println(source.substring(start,end));
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+Find the next word
+&lt;blockquote&gt;
+&lt;pre&gt;
+public static int nextWordStartAfter(int pos, String text) {
+BreakIterator wb = BreakIterator.getWordInstance();
+wb.setText(text);
+int last = wb.following(pos);
+int current = wb.next();
+while (current != BreakIterator.DONE) {
+for (int p = last; p &lt; current; p++) {
+if (Character.isLetter(text.codePointAt(p))
+return last;
+}
+last = current;
+current = wb.next();
+}
+return BreakIterator.DONE;
+}
+&lt;/pre&gt;
+(The iterator returned by BreakIterator.getWordInstance() is unique in that
+the break positions it returns don't represent both the start and end of the
+thing being iterated over.  That is, a sentence-break iterator returns breaks
+that each represent the end of one sentence and the beginning of the next.
+With the word-break iterator, the characters between two boundaries might be a
+word, or they might be the punctuation or whitespace between two words.  The
+above code uses a simple heuristic to determine which boundary is the beginning
+of a word: If the characters between this boundary and the next boundary
+include at least one letter (this can be an alphabetical letter, a CJK ideograph,
+a Hangul syllable, a Kana character, etc.), then the text between this boundary
+and the next is a word; otherwise, it's the material between words.)
+&lt;/blockquote&gt;
+
+@see CharacterIterator
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="BreakIterator" refid="_9_5_f720368_1110473546690_986989_8619"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BreakIterator" refid="_9_5_f720368_1110473546690_986989_8619"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

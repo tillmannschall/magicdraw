@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314739_3891_9073"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InputSource" refid="_9_5_f720368_1110473546940_754695_13294"/></annotatedElement><body humanName="Body" mode="s,e">A single input source for an XML entity.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This class allows a SAX application to encapsulate information
+about an input source in a single object, which may include
+a public identifier, a system identifier, a byte stream (possibly
+with a specified encoding), and/or a character stream.&lt;/p&gt;
+
+&lt;p&gt;There are two places that the application can deliver an
+input source to the parser: as the argument to the Parser.parse
+method, or as the return value of the EntityResolver.resolveEntity
+method.&lt;/p&gt;
+
+&lt;p&gt;The SAX parser will use the InputSource object to determine how
+to read XML input.  If there is a character stream available, the
+parser will read that stream directly, disregarding any text
+encoding declaration found in that stream.
+If there is no character stream, but there is
+a byte stream, the parser will use that byte stream, using the
+encoding specified in the InputSource or else (if no encoding is
+specified) autodetecting the character encoding using an algorithm
+such as the one in the XML specification.  If neither a character
+stream nor a
+byte stream is available, the parser will attempt to open a URI
+connection to the resource identified by the system
+identifier.&lt;/p&gt;
+
+&lt;p&gt;An InputSource object belongs to the application: the SAX parser
+shall never modify it in any way (it may modify a copy if
+necessary).  However, standard processing of both byte and
+character streams is to close them on as part of end-of-parse cleanup,
+so applications should not attempt to re-use such streams after they
+have been handed to a parser.  &lt;/p&gt;
+
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.XMLReader#parse(org.xml.sax.InputSource)
+@see org.xml.sax.EntityResolver#resolveEntity
+@see java.io.InputStream
+@see java.io.Reader
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InputSource" refid="_9_5_f720368_1110473546940_754695_13294"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InputSource" refid="_9_5_f720368_1110473546940_754695_13294"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

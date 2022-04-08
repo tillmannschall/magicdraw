@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314708_361485_9067"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="EntityResolver" refid="_9_5_f720368_1110473546940_303190_13288"/></annotatedElement><body humanName="Body" mode="s,e">Basic interface for resolving entities.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;If a SAX application needs to implement customized handling
+for external entities, it must implement this interface and
+register an instance with the SAX driver using the
+{@link org.xml.sax.XMLReader#setEntityResolver setEntityResolver}
+method.&lt;/p&gt;
+
+&lt;p&gt;The XML reader will then allow the application to intercept any
+external entities (including the external DTD subset and external
+parameter entities, if any) before including them.&lt;/p&gt;
+
+&lt;p&gt;Many SAX applications will not need to implement this interface,
+but it will be especially useful for applications that build
+XML documents from databases or other specialised input sources,
+or for applications that use URI types other than URLs.&lt;/p&gt;
+
+&lt;p&gt;The following resolver would provide the application
+with a special character stream for the entity with the system
+identifier "http://www.myhost.com/today":&lt;/p&gt;
+
+&lt;pre&gt;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
+
+public class MyResolver implements EntityResolver {
+public InputSource resolveEntity (String publicId, String systemId)
+{
+if (systemId.equals("http://www.myhost.com/today")) {
+return a special input source
+MyReader reader = new MyReader();
+return new InputSource(reader);
+} else {
+use the default behaviour
+return null;
+}
+}
+}
+&lt;/pre&gt;
+
+&lt;p&gt;The application can also use this interface to redirect system
+identifiers to local URIs or to look up replacements in a catalog
+(possibly by using the public identifier).&lt;/p&gt;
+
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.XMLReader#setEntityResolver
+@see org.xml.sax.InputSource
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="EntityResolver" refid="_9_5_f720368_1110473546940_303190_13288"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="EntityResolver" refid="_9_5_f720368_1110473546940_303190_13288"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

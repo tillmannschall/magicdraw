@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306637_285818_4230"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GridLayout" refid="_9_5_f720368_1110473546581_125034_7041"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;GridLayout&lt;/code&gt; class is a layout manager that
+lays out a container's components in a rectangular grid.
+The container is divided into equal-sized rectangles,
+and one component is placed in each rectangle.
+For example, the following is an applet that lays out six buttons
+into three rows and two columns:
+&lt;p&gt;
+&lt;hr&gt;&lt;blockquote&gt;
+&lt;pre&gt;
+import java.awt.*;
+import java.applet.Applet;
+public class ButtonGrid extends Applet {
+public void init() {
+setLayout(new GridLayout(3,2));
+add(new Button("1"));
+add(new Button("2"));
+add(new Button("3"));
+add(new Button("4"));
+add(new Button("5"));
+add(new Button("6"));
+}
+}
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+If the container's &lt;code&gt;ComponentOrientation&lt;/code&gt; property is horizontal
+and left-to-right, the above example produces the output shown in Figure 1.
+If the container's &lt;code&gt;ComponentOrientation&lt;/code&gt; property is horizontal
+and right-to-left, the example produces the output shown in Figure 2.
+&lt;p&gt;
+&lt;center&gt;&lt;table COLS=2 WIDTH=600 summary="layout"&gt;
+&lt;tr ALIGN=CENTER&gt;
+&lt;td&gt;&lt;img SRC="doc-files/GridLayout-1.gif"
+alt="Shows 6 buttons in rows of 2. Row 1 shows buttons 1 then 2.
+Row 2 shows buttons 3 then 4. Row 3 shows buttons 5 then 6."&gt;
+&lt;/td&gt;
+
+&lt;td ALIGN=CENTER&gt;&lt;img SRC="doc-files/GridLayout-2.gif"
+alt="Shows 6 buttons in rows of 2. Row 1 shows buttons 2 then 1.
+Row 2 shows buttons 4 then 3. Row 3 shows buttons 6 then 5."&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr ALIGN=CENTER&gt;
+&lt;td&gt;Figure 1: Horizontal, Left-to-Right&lt;/td&gt;
+
+&lt;td&gt;Figure 2: Horizontal, Right-to-Left&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;&lt;/center&gt;
+&lt;p&gt;
+When both the number of rows and the number of columns have
+been set to non-zero values, either by a constructor or
+by the &lt;tt&gt;setRows&lt;/tt&gt; and &lt;tt&gt;setColumns&lt;/tt&gt; methods, the number of
+columns specified is ignored.  Instead, the number of
+columns is determined from the specified number or rows
+and the total number of components in the layout. So, for
+example, if three rows and two columns have been specified
+and nine components are added to the layout, they will
+be displayed as three rows of three columns.  Specifying
+the number of columns affects the layout only when the
+number of rows is set to zero.
+
+@version 1.39, 12/19/03
+@author  Arthur van Hoff
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="GridLayout" refid="_9_5_f720368_1110473546581_125034_7041"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GridLayout" refid="_9_5_f720368_1110473546581_125034_7041"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

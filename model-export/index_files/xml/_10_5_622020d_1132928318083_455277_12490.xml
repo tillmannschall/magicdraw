@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318083_455277_12490"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JRootPane" refid="_9_5_f720368_1110473546799_336138_10761"/></annotatedElement><body humanName="Body" mode="s,e">A lightweight container used behind the scenes by
+&lt;code&gt;JFrame&lt;/code&gt;, &lt;code&gt;JDialog&lt;/code&gt;, &lt;code&gt;JWindow&lt;/code&gt;,
+&lt;code&gt;JApplet&lt;/code&gt;, and &lt;code&gt;JInternalFrame&lt;/code&gt;.
+For task-oriented information on functionality provided by root panes
+see &lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/rootpane.html"&gt;How to Use Root Panes&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+
+&lt;p&gt;
+The following image shows the relationships between
+the classes that use root panes.
+&lt;p align=center&gt;&lt;img src="doc-files/JRootPane-1.gif"
+alt="The following text describes this graphic."
+HEIGHT=484 WIDTH=629&gt;&lt;/p&gt;
+The "heavyweight" components (those that delegate to a peer, or native
+component on the host system) are shown with a darker, heavier box. The four
+heavyweight JFC/Swing containers (&lt;code&gt;JFrame&lt;/code&gt;, &lt;code&gt;JDialog&lt;/code&gt;,
+&lt;code&gt;JWindow&lt;/code&gt;, and &lt;code&gt;JApplet&lt;/code&gt;) are
+shown in relation to the AWT classes they extend.
+These four components are the
+only heavyweight containers in the Swing library. The lightweight container
+&lt;code&gt;JInternalPane&lt;/code&gt; is also shown.
+All five of these JFC/Swing containers implement the
+&lt;code&gt;RootPaneContainer&lt;/code&gt; interface,
+and they all delegate their operations to a
+&lt;code&gt;JRootPane&lt;/code&gt; (shown with a little "handle" on top).
+&lt;blockquote&gt;
+&lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;JComponent&lt;/code&gt; method &lt;code&gt;getRootPane&lt;/code&gt;
+can be used to obtain the &lt;code&gt;JRootPane&lt;/code&gt; that contains
+a given component.
+&lt;/blockquote&gt;
+&lt;table align="right" border="0" summary="layout"&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;
+&lt;img src="doc-files/JRootPane-2.gif"
+alt="The following text describes this graphic." HEIGHT=386 WIDTH=349&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+The diagram at right shows the structure of a &lt;code&gt;JRootPane&lt;/code&gt;.
+A &lt;code&gt;JRootpane&lt;/code&gt; is made up of a &lt;code&gt;glassPane&lt;/code&gt;,
+an optional &lt;code&gt;menuBar&lt;/code&gt;, and a &lt;code&gt;contentPane&lt;/code&gt;.
+(The &lt;code&gt;JLayeredPane&lt;/code&gt; manages the &lt;code&gt;menuBar&lt;/code&gt;
+and the &lt;code&gt;contentPane&lt;/code&gt;.)
+The &lt;code&gt;glassPane&lt;/code&gt; sits over the top of everything,
+where it is in a position to intercept mouse movements.
+Since the &lt;code&gt;glassPane&lt;/code&gt; (like the &lt;code&gt;contentPane&lt;/code&gt;)
+can be an arbitrary component, it is also possible to set up the
+&lt;code&gt;glassPane&lt;/code&gt; for drawing. Lines and images on the
+&lt;code&gt;glassPane&lt;/code&gt; can then range
+over the frames underneath without being limited by their boundaries.
+&lt;p&gt;
+Although the &lt;code&gt;menuBar&lt;/code&gt; component is optional,
+the &lt;code&gt;layeredPane&lt;/code&gt;, &lt;code&gt;contentPane&lt;/code&gt;,
+and &lt;code&gt;glassPane&lt;/code&gt; always exist.
+Attempting to set them to &lt;code&gt;null&lt;/code&gt; generates an exception.
+&lt;p&gt;
+To add components to the &lt;code&gt;JRootPane&lt;/code&gt; (other than the
+optional menu bar), you add the object to the &lt;code&gt;contentPane&lt;/code&gt;
+of the &lt;code&gt;JRootPane&lt;/code&gt;, like this:
+&lt;pre&gt;
+rootPane.getContentPane().add(child);
+&lt;/pre&gt;
+The same principle holds true for setting layout managers, removing
+components, listing children, etc. All these methods are invoked on
+the &lt;code&gt;contentPane&lt;/code&gt; instead of on the &lt;code&gt;JRootPane&lt;/code&gt;.
+&lt;blockquote&gt;
+&lt;b&gt;Note:&lt;/b&gt; The default layout manager for the &lt;code&gt;contentPane&lt;/code&gt; is
+a &lt;code&gt;BorderLayout&lt;/code&gt; manager. However, the &lt;code&gt;JRootPane&lt;/code&gt;
+uses a custom &lt;code&gt;LayoutManager&lt;/code&gt;.
+So, when you want to change the layout manager for the components you added
+to a &lt;code&gt;JRootPane&lt;/code&gt;, be sure to use code like this:
+&lt;pre&gt;
+rootPane.getContentPane().setLayout(new BoxLayout());
+&lt;/pre&gt;&lt;/blockquote&gt;
+If a &lt;code&gt;JMenuBar&lt;/code&gt; component is set on the &lt;code&gt;JRootPane&lt;/code&gt;,
+it is positioned along the upper edge of the frame.
+The &lt;code&gt;contentPane&lt;/code&gt; is adjusted in location and size to
+fill the remaining area.
+(The &lt;code&gt;JMenuBar&lt;/code&gt; and the &lt;code&gt;contentPane&lt;/code&gt; are added to the
+&lt;code&gt;layeredPane&lt;/code&gt; component at the
+&lt;code&gt;JLayeredPane.FRAME_CONTENT_LAYER&lt;/code&gt; layer.)
+&lt;p&gt;
+The &lt;code&gt;layeredPane&lt;/code&gt; is the parent of all children in the
+&lt;code&gt;JRootPane&lt;/code&gt; -- both as the direct parent of the menu and
+the grandparent of all components added to the &lt;code&gt;contentPane&lt;/code&gt;.
+It is an instance of &lt;code&gt;JLayeredPane&lt;/code&gt;,
+which provides the ability to add components at several layers.
+This capability is very useful when working with menu popups,
+dialog boxes, and dragging -- situations in which you need to place
+a component on top of all other components in the pane.
+&lt;p&gt;
+The &lt;code&gt;glassPane&lt;/code&gt; sits on top of all other components in the
+&lt;code&gt;JRootPane&lt;/code&gt;.
+That provides a convenient place to draw above all other components,
+and makes it possible to intercept mouse events,
+which is useful both for dragging and for drawing.
+Developers can use &lt;code&gt;setVisible&lt;/code&gt; on the &lt;code&gt;glassPane&lt;/code&gt;
+to control when the &lt;code&gt;glassPane&lt;/code&gt; displays over the other children.
+By default the &lt;code&gt;glassPane&lt;/code&gt; is not visible.
+&lt;p&gt;
+The custom &lt;code&gt;LayoutManager&lt;/code&gt; used by &lt;code&gt;JRootPane&lt;/code&gt;
+ensures that:
+&lt;OL&gt;
+&lt;LI&gt;The &lt;code&gt;glassPane&lt;/code&gt; fills the entire viewable
+area of the &lt;code&gt;JRootPane&lt;/code&gt; (bounds - insets).
+&lt;LI&gt;The &lt;code&gt;layeredPane&lt;/code&gt; fills the entire viewable area of the
+&lt;code&gt;JRootPane&lt;/code&gt;. (bounds - insets)
+&lt;LI&gt;The &lt;code&gt;menuBar&lt;/code&gt; is positioned at the upper edge of the
+&lt;code&gt;layeredPane&lt;/code&gt;.
+&lt;LI&gt;The &lt;code&gt;contentPane&lt;/code&gt; fills the entire viewable area,
+minus the &lt;code&gt;menuBar&lt;/code&gt;, if present.
+&lt;/OL&gt;
+Any other views in the &lt;code&gt;JRootPane&lt;/code&gt; view hierarchy are ignored.
+&lt;p&gt;
+If you replace the &lt;code&gt;LayoutManager&lt;/code&gt; of the &lt;code&gt;JRootPane&lt;/code&gt;,
+you are responsible for managing all of these views.
+So ordinarily you will want to be sure that you
+change the layout manager for the &lt;code&gt;contentPane&lt;/code&gt; rather than
+for the &lt;code&gt;JRootPane&lt;/code&gt; itself!
+&lt;p&gt;
+The painting architecture of Swing requires an opaque
+&lt;code&gt;JComponent&lt;/code&gt;
+to exist in the containment hieararchy above all other components. This is
+typically provided by way of the content pane. If you replace the content
+pane, it is recommended that you make the content pane opaque
+by way of &lt;code&gt;setOpaque(true)&lt;/code&gt;. Additionally, if the content pane
+overrides &lt;code&gt;paintComponent&lt;/code&gt;, it
+will need to completely fill in the background in an opaque color in
+&lt;code&gt;paintComponent&lt;/code&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see JLayeredPane
+@see JMenuBar
+@see JWindow
+@see JFrame
+@see JDialog
+@see JApplet
+@see JInternalFrame
+@see JComponent
+@see BoxLayout
+
+@see &lt;a href="http://java.sun.com/products/jfc/swingdoc-archive/mixing.html"&gt;
+Mixing Heavy and Light Components&lt;/a&gt;
+
+@version 1.86 05/18/04
+@author David Kloba
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JRootPane" refid="_9_5_f720368_1110473546799_336138_10761"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JRootPane" refid="_9_5_f720368_1110473546799_336138_10761"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

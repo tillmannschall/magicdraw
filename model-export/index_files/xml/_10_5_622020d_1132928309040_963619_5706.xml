@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309040_963619_5706"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Unreferenced" refid="_9_5_f720368_1110473546674_425078_8213"/></annotatedElement><body humanName="Body" mode="s,e">A remote object implementation should implement the
+&lt;code&gt;Unreferenced&lt;/code&gt; interface to receive notification when there are
+no more clients that reference that remote object.
+
+@version 1.12, 12/19/03
+@author  Ann Wollrath
+@author  Roger Riggs
+@since   JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Unreferenced" refid="_9_5_f720368_1110473546674_425078_8213"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Unreferenced" refid="_9_5_f720368_1110473546674_425078_8213"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

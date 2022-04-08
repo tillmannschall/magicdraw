@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317953_893797_12436"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JFrame" refid="_9_5_f720368_1110473546799_529825_10731"/></annotatedElement><body humanName="Body" mode="s,e">An extended version of &lt;code&gt;java.awt.Frame&lt;/code&gt; that adds support for
+the JFC/Swing component architecture.
+You can find task-oriented documentation about using &lt;code&gt;JFrame&lt;/code&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt;, in the section
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/frame.html"&gt;How to Make Frames&lt;/a&gt;.
+
+&lt;p&gt;
+The &lt;code&gt;JFrame&lt;/code&gt; class is slightly incompatible with &lt;code&gt;Frame&lt;/code&gt;.
+Like all other JFC/Swing top-level containers,
+a &lt;code&gt;JFrame&lt;/code&gt; contains a &lt;code&gt;JRootPane&lt;/code&gt; as its only child.
+The &lt;b&gt;content pane&lt;/b&gt; provided by the root pane should,
+as a rule, contain
+all the non-menu components displayed by the &lt;code&gt;JFrame&lt;/code&gt;.
+This is different from the AWT &lt;code&gt;Frame&lt;/code&gt; case.
+As a conveniance &lt;code&gt;add&lt;/code&gt; and its variants, &lt;code&gt;remove&lt;/code&gt; and
+&lt;code&gt;setLayout&lt;/code&gt; have been overridden to forward to the
+&lt;code&gt;contentPane&lt;/code&gt; as necessary. This means you can write:
+&lt;pre&gt;
+frame.add(child);
+&lt;/pre&gt;
+And the child will be added to the contentPane.
+The content pane will
+always be non-null. Attempting to set it to null will cause the JFrame
+to throw an exception. The default content pane will have a BorderLayout
+manager set on it.
+Refer to {@link javax.swing.RootPaneContainer}
+for details on adding, removing and setting the &lt;code&gt;LayoutManager&lt;/code&gt;
+of a &lt;code&gt;JFrame&lt;/code&gt;.
+&lt;p&gt;
+Unlike a &lt;code&gt;Frame&lt;/code&gt;, a &lt;code&gt;JFrame&lt;/code&gt; has some notion of how to
+respond when the user attempts to close the window. The default behavior
+is to simply hide the JFrame when the user closes the window. To change the
+default behavior, you invoke the method
+{@link #setDefaultCloseOperation}.
+To make the &lt;code&gt;JFrame&lt;/code&gt; behave the same as a &lt;code&gt;Frame&lt;/code&gt;
+instance, use
+&lt;code&gt;setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE)&lt;/code&gt;.
+&lt;p&gt;
+For more information on content panes
+and other features that root panes provide,
+see &lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/toplevel.html"&gt;Using Top-Level Containers&lt;/a&gt; in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;p&gt;
+In a multi-screen environment, you can create a &lt;code&gt;JFrame&lt;/code&gt;
+on a different screen device.  See {@link java.awt.Frame} for more
+information.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see JRootPane
+@see #setDefaultCloseOperation
+@see java.awt.event.WindowListener#windowClosing
+@see javax.swing.RootPaneContainer
+
+@beaninfo
+attribute: isContainer true
+attribute: containerDelegate getContentPane
+description: A toplevel window which can be minimized to an icon.
+
+@version 1.104 12/19/03
+@author Jeff Dinkins
+@author Georges Saab
+@author David Kloba
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JFrame" refid="_9_5_f720368_1110473546799_529825_10731"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JFrame" refid="_9_5_f720368_1110473546799_529825_10731"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315660_241670_10140"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobKOctetsProcessed" refid="_9_5_f720368_1110473546721_66337_9337"/></annotatedElement><body humanName="Body" mode="s,e">Class JobKOctetsProcessed is an integer valued printing attribute class that
+specifies the total number of print data octets processed so far in K octets,
+i.e., in units of 1024 octets. The value must be rounded up, so that a job
+between 1 and 1024 octets inclusive must be indicated as being 1K octets,
+1025 to 2048 inclusive must be 2K, etc. For a multidoc print job (a job with
+multiple documents), the JobKOctetsProcessed value is computed by adding up
+the individual documents' number of octets processed so far, then rounding up
+to the next K octets value.
+&lt;P&gt;
+The JobKOctetsProcessed attribute describes the progress of the job. This
+attribute is intended to be a counter. That is, the JobKOctetsProcessed value
+for a job that has not started processing must be 0. When the job's {@link
+JobState JobState} is PROCESSING or PROCESSING_STOPPED, the
+JobKOctetsProcessed value is intended to increase as the job is processed; it
+indicates the amount of the job that has been processed at the time the Print
+Job's attribute set is queried or at the time a print job event is reported.
+When the job enters the COMPLETED, CANCELED, or ABORTED states, the
+JobKOctetsProcessed value is the final value for the job.
+&lt;P&gt;
+For implementations where multiple copies are produced by the interpreter
+with only a single pass over the data, the final value of the
+JobKOctetsProcessed attribute must be equal to the value of the {@link
+JobKOctets JobKOctets} attribute. For implementations where multiple copies
+are produced by the interpreter by processing the data for each copy, the
+final value must be a multiple of the value of the {@link JobKOctets
+JobKOctets} attribute.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The integer value gives the IPP integer value. The
+category name returned by &lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute
+name.
+&lt;P&gt;
+
+@see JobKOctets
+@see JobKOctetsSupported
+@see JobImpressionsCompleted
+@see JobMediaSheetsCompleted
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JobKOctetsProcessed" refid="_9_5_f720368_1110473546721_66337_9337"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobKOctetsProcessed" refid="_9_5_f720368_1110473546721_66337_9337"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

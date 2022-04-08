@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546737_152049_9437"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::SheetCollate -&gt; JDK 5.0 Classes::javax::print::attribute::DocAttribute]" refid="_10_5_622020d_1132928323311_733882_16403"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::SheetCollate -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323311_149550_16405"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::SheetCollate -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323311_48731_16404"/></clientDependency><documentation humanName="Documentation" mode="standard">Class SheetCollate is a printing attribute class, an enumeration, that
+specifies whether or not the media sheets of each copy of each printed
+document in a job are to be in sequence, when multiple copies of the document
+are specified by the {@link Copies Copies} attribute. When SheetCollate is
+COLLATED, each copy of each document is printed with the print-stream sheets
+in sequence. When SheetCollate is UNCOLLATED, each print-stream sheet is
+printed a number of times equal to the value of the {@link Copies Copies}
+attribute in succession. For example, suppose a document produces two media
+sheets as output, {@link Copies Copies} is 6, and SheetCollate is UNCOLLATED;
+in this case six copies of the first media sheet are printed followed by
+six copies of the second media sheet.
+&lt;P&gt;
+Whether the effect of sheet collation is achieved by placing copies of a
+document in multiple output bins or in the same output bin with
+implementation defined document separation is implementation dependent.
+Also whether it is achieved by making multiple passes over the job or by
+using an output sorter is implementation dependent.
+&lt;P&gt;
+If a printer does not support the SheetCollate attribute (meaning the client
+cannot specify any particular sheet collation), the printer must behave as
+though SheetCollate were always set to COLLATED.
+&lt;P&gt;
+The SheetCollate attribute interacts with the {@link MultipleDocumentHandling
+MultipleDocumentHandling} attribute. The {@link MultipleDocumentHandling
+MultipleDocumentHandling} attribute describes the collation of entire
+documents, and the SheetCollate attribute describes the semantics of
+collating individual pages within a document.
+&lt;P&gt;
+The effect of a SheetCollate attribute on a multidoc print job (a job with
+multiple documents) depends on whether all the docs have the same sheet
+collation specified or whether different docs have different sheet
+collations specified, and on the (perhaps defaulted) value of the {@link
+MultipleDocumentHandling MultipleDocumentHandling} attribute.
+&lt;UL&gt;
+&lt;LI&gt;
+If all the docs have the same sheet collation specified, then the following
+combinations of SheetCollate and {@link MultipleDocumentHandling
+MultipleDocumentHandling} are permitted, and the printer reports an error
+when the job is submitted if any other combination is specified:
+&lt;UL&gt;
+&lt;LI&gt;
+SheetCollate = COLLATED, {@link MultipleDocumentHandling
+MultipleDocumentHandling} = SINGLE_DOCUMENT -- All the input docs will be
+combined into one output document. Multiple copies of the output document
+will be produced with pages in collated order, i.e. pages 1, 2, 3, . . .,
+1, 2, 3, . . .
+&lt;P&gt;
+&lt;LI&gt;
+SheetCollate = COLLATED, {@link MultipleDocumentHandling
+MultipleDocumentHandling} = SINGLE_DOCUMENT_NEW_SHEET -- All the input docs
+will be combined into one output document, and the first impression of each
+input doc will always start on a new media sheet. Multiple copies of the
+output document will be produced with pages in collated order, i.e. pages
+1, 2, 3, . . ., 1, 2, 3, . . .
+&lt;P&gt;
+&lt;LI&gt;
+SheetCollate = COLLATED, {@link MultipleDocumentHandling
+MultipleDocumentHandling} = SEPARATE_DOCUMENTS_UNCOLLATED_COPIES -- Each
+input doc will remain a separate output document. Multiple copies of each
+output document (call them A, B, . . .) will be produced with each document's
+pages in collated order, but the documents themselves in uncollated order,
+i.e. pages A1, A2, A3, . . ., A1, A2, A3, . . ., B1, B2, B3, . . ., B1, B2,
+B3, . . .
+&lt;P&gt;
+&lt;LI&gt;
+SheetCollate = COLLATED, {@link MultipleDocumentHandling
+MultipleDocumentHandling} = SEPARATE_DOCUMENTS_COLLATED_COPIES -- Each input
+doc will remain a separate output document. Multiple copies of each output
+document (call them A, B, . . .) will be produced with each document's pages
+in collated order, with the documents themselves also in collated order, i.e.
+pages A1, A2, A3, . . ., B1, B2, B3, . . ., A1, A2, A3, . . ., B1, B2, B3,
+. . .
+&lt;P&gt;
+&lt;LI&gt;
+SheetCollate = UNCOLLATED, {@link MultipleDocumentHandling
+MultipleDocumentHandling} = SINGLE_DOCUMENT -- All the input docs will be
+combined into one output document. Multiple copies of the output document
+will be produced with pages in uncollated order, i.e. pages 1, 1, . . .,
+2, 2, . . ., 3, 3, . . .
+&lt;P&gt;
+&lt;LI&gt;
+SheetCollate = UNCOLLATED, {@link MultipleDocumentHandling
+MultipleDocumentHandling} = SINGLE_DOCUMENT_NEW_SHEET -- All the input docs
+will be combined into one output document, and the first impression of each
+input doc will always start on a new media sheet. Multiple copies of the
+output document will be produced with pages in uncollated order, i.e. pages
+1, 1, . . ., 2, 2, . . ., 3, 3, . . .
+&lt;P&gt;
+&lt;LI&gt;
+SheetCollate = UNCOLLATED, {@link MultipleDocumentHandling
+MultipleDocumentHandling} = SEPARATE_DOCUMENTS_UNCOLLATED_COPIES -- Each
+input doc will remain a separate output document. Multiple copies of each
+output document (call them A, B, . . .) will be produced with each document's
+pages in uncollated order, with the documents themselves also in uncollated
+order, i.e. pages A1, A1, . . ., A2, A2, . . ., A3, A3, . . ., B1, B1, . . .,
+B2, B2, . . ., B3, B3, . . .
+&lt;/UL&gt;
+&lt;P&gt;
+&lt;LI&gt;
+If different docs have different sheet collations specified, then only one
+value of {@link MultipleDocumentHandling MultipleDocumentHandling} is
+permitted, and the printer reports an error when the job is submitted if any
+other value is specified:
+&lt;UL&gt;
+&lt;LI&gt;
+{@link MultipleDocumentHandling MultipleDocumentHandling} =
+SEPARATE_DOCUMENTS_UNCOLLATED_COPIES -- Each input doc will remain a separate
+output document. Multiple copies of each output document (call them A, B,
+. . .) will be produced with each document's pages in collated or uncollated
+order as the corresponding input doc's SheetCollate attribute specifies, and
+with the documents themselves in uncollated order. If document A had
+SheetCollate = UNCOLLATED and document B had SheetCollate = COLLATED, the
+following pages would be produced: A1, A1, . . ., A2, A2, . . ., A3, A3,
+. . ., B1, B2, B3, . . ., B1, B2, B3, . . .
+&lt;/UL&gt;
+&lt;/UL&gt;
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; SheetCollate is not an IPP attribute at present.
+&lt;P&gt;
+
+@see  MultipleDocumentHandling
+
+@author  Alan Kaminsky
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323311_293879_16406"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::SheetCollate -&gt; JDK 5.0 Classes::javax::print::attribute::DocAttribute]" refid="_10_5_622020d_1132928323311_733882_16403"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::SheetCollate -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323311_149550_16405"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::SheetCollate -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323311_48731_16404"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">SheetCollate</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315760_24329_10245"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323311_293879_16406"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315760_24329_10245"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::SheetCollate -&gt; JDK 5.0 Classes::javax::print::attribute::DocAttribute]" refid="_10_5_622020d_1132928323311_733882_16403"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::SheetCollate -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323311_149550_16405"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::SheetCollate -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323311_48731_16404"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::print::attribute::standard::SheetCollate</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DocAttribute" refid="_9_5_f720368_1110473546737_117081_9449"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintJobAttribute" refid="_9_5_f720368_1110473546737_356648_9467"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintRequestAttribute" refid="_9_5_f720368_1110473546737_975548_9471"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="EnumSyntax" refid="_9_5_f720368_1110473546737_604249_9453"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

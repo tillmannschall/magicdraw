@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309311_227922_5999"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Guard" refid="_9_5_f720368_1110473546674_598634_8447"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt; This interface represents a guard, which is an object that is used
+to protect access to another object.
+
+&lt;p&gt;This interface contains a single method, &lt;code&gt;checkGuard&lt;/code&gt;,
+with a single &lt;code&gt;object&lt;/code&gt; argument. &lt;code&gt;checkGuard&lt;/code&gt; is
+invoked (by the GuardedObject &lt;code&gt;getObject&lt;/code&gt; method)
+to determine whether or not to allow access to the object.
+
+@see GuardedObject
+
+@version 1.12 03/12/19
+@author Roland Schemers
+@author Li Gong
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Guard" refid="_9_5_f720368_1110473546674_598634_8447"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Guard" refid="_9_5_f720368_1110473546674_598634_8447"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

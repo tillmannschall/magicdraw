@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305635_670367_3635"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Autoscroll" refid="_9_5_f720368_1110473546549_642202_6485"/></annotatedElement><body humanName="Body" mode="s,e">During DnD operations it is possible that a user may wish to drop the
+subject of the operation on a region of a scrollable GUI control that is
+not currently visible to the user.
+&lt;p&gt;
+In such situations it is desirable that the GUI control detect this
+and institute a scroll operation in order to make obscured region(s)
+visible to the user. This feature is known as autoscrolling.
+&lt;p&gt;
+If a GUI control is both an active &lt;code&gt;DropTarget&lt;/code&gt;
+and is also scrollable, it
+can receive notifications of autoscrolling gestures by the user from
+the DnD system by implementing this interface.
+&lt;p&gt;
+An autoscrolling gesture is initiated by the user by keeping the drag
+cursor motionless with a border region of the &lt;code&gt;Component&lt;/code&gt;,
+referred to as
+the "autoscrolling region", for a predefined period of time, this will
+result in repeated scroll requests to the &lt;code&gt;Component&lt;/code&gt;
+until the drag &lt;code&gt;Cursor&lt;/code&gt; resumes its motion.
+
+@version 	1.13, 12/19/03
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Autoscroll" refid="_9_5_f720368_1110473546549_642202_6485"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Autoscroll" refid="_9_5_f720368_1110473546549_642202_6485"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

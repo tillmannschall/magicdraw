@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309331_769548_6033"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="KeyPairGeneratorSpi" refid="_9_5_f720368_1110473546690_170500_8475"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt; This class defines the &lt;i&gt;Service Provider Interface&lt;/i&gt; (&lt;b&gt;SPI&lt;/b&gt;)
+for the &lt;code&gt;KeyPairGenerator&lt;/code&gt; class, which is used to generate
+pairs of public and private keys.
+
+&lt;p&gt; All the abstract methods in this class must be implemented by each
+cryptographic service provider who wishes to supply the implementation
+of a key pair generator for a particular algorithm.
+
+&lt;p&gt; In case the client does not explicitly initialize the KeyPairGenerator
+(via a call to an &lt;code&gt;initialize&lt;/code&gt; method), each provider must
+supply (and document) a default initialization.
+For example, the &lt;i&gt;Sun&lt;/i&gt; provider uses a default modulus size (keysize)
+of 1024 bits.
+
+@author Benjamin Renaud
+
+@version 1.14, 12/19/03
+
+@see KeyPairGenerator
+@see java.security.spec.AlgorithmParameterSpec
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="KeyPairGeneratorSpi" refid="_9_5_f720368_1110473546690_170500_8475"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="KeyPairGeneratorSpi" refid="_9_5_f720368_1110473546690_170500_8475"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

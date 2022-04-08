@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_10_5_622020d_1132928318374_859540_12815"><documentation humanName="Documentation" mode="standard">This class provides access to the type information determined
+by {@link ValidatorHandler}.
+
+&lt;p&gt;
+Some schema languages, such as W3C XML Schema, encourages a validator
+to report the "type" it assigns to each attribute/element.
+Those applications who wish to access this type information can invoke
+methods defined on this "interface" to access such type information.
+
+&lt;p&gt;
+Implementation of this "interface" can be obtained through the
+{@link ValidatorHandler#getTypeInfoProvider()} method.
+
+@author  &lt;a href="mailto:Kohsuke.Kawaguchi@Sun.com"&gt;Kohsuke Kawaguchi&lt;/a&gt;
+@version $Revision: 1.11 $, $Date: 2004/02/06 01:16:10 $
+@see org.w3c.dom.TypeInfo
+@since 1.5
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">TypeInfoProvider</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="validation" refid="_10_5_622020d_1132928318364_985729_12800"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318374_109161_12817"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318374_109161_12817"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="validation" refid="_10_5_622020d_1132928318364_985729_12800"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="validation" refid="_10_5_622020d_1132928318364_985729_12800"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="validation" refid="_10_5_622020d_1132928318364_985729_12800"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::xml::validation::TypeInfoProvider</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

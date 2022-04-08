@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546596_24965_7165"><documentation humanName="Documentation" mode="standard">&lt;p&gt;
+This interface is implemented by a JavaBean that does
+not directly have a BeanContext(Child) associated with
+it (via implementing that interface or a subinterface thereof),
+but has a public BeanContext(Child) delegated from it.
+For example, a subclass of java.awt.Container may have a BeanContext
+associated with it that all Component children of that Container shall
+be contained within.
+&lt;/p&gt;
+&lt;p&gt;
+An Object may not implement this interface and the
+BeanContextChild interface
+(or any subinterfaces thereof) they are mutually exclusive.
+&lt;/p&gt;
+&lt;p&gt;
+Callers of this interface shall examine the return type in order to
+obtain a particular subinterface of BeanContextChild as follows:
+&lt;code&gt;
+BeanContextChild bcc = o.getBeanContextProxy();
+
+if (bcc instanceof BeanContext) {
+...
+}
+&lt;/code&gt;
+or
+&lt;code&gt;
+BeanContextChild bcc = o.getBeanContextProxy();
+BeanContext      bc  = null;
+
+try {
+bc = (BeanContext)bcc;
+} catch (ClassCastException cce) {
+cast failed, bcc is not an instanceof BeanContext
+}
+&lt;/code&gt;
+&lt;/p&gt;
+&lt;p&gt;
+The return value is a constant for the lifetime of the implementing
+instance
+&lt;/p&gt;
+@author Laurence P. G. Cable
+@version 1.11, 12/19/03
+@since 1.2
+
+@see java.beans.beancontext.BeanContextChild
+@see java.beans.beancontext.BeanContextChildSupport
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">BeanContextProxy</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beancontext" refid="_9_5_f720368_1110473547440_320146_17399"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306787_735928_4382"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306787_735928_4382"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="beancontext" refid="_9_5_f720368_1110473547440_320146_17399"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beancontext" refid="_9_5_f720368_1110473547440_320146_17399"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beancontext" refid="_9_5_f720368_1110473547440_320146_17399"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::beans::beancontext::BeanContextProxy</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

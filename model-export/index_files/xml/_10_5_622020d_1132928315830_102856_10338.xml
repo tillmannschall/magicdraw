@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315830_102856_10338"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SERVICE_FORMATTED" refid="_9_5_f720368_1110473548049_411306_20611"/></annotatedElement><body humanName="Body" mode="s,e">Class DocFlavor.SERVICE_FORMATTED provides predefined static constant
+DocFlavor objects for example doc flavors for service formatted print
+data.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SERVICE_FORMATTED" refid="_9_5_f720368_1110473548049_411306_20611"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SERVICE_FORMATTED" refid="_9_5_f720368_1110473548049_411306_20611"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

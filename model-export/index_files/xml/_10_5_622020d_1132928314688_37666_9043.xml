@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314688_37666_9043"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NewInstance" refid="_9_5_f720368_1110473546940_333530_13266"/></annotatedElement><body humanName="Body" mode="s,e">Create a new instance of a class by name.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This class contains a static method for creating an instance of a
+class from an explicit class name.  It tries to use the thread's context
+ClassLoader if possible and falls back to using
+Class.forName(String).&lt;/p&gt;
+
+&lt;p&gt;This code is designed to compile and run on JDK version 1.1 and later
+including versions of Java 2.&lt;/p&gt;
+
+@author Edwin Goei, David Brownell
+@version 2.0.1 (sax2r2)
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="NewInstance" refid="_9_5_f720368_1110473546940_333530_13266"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NewInstance" refid="_9_5_f720368_1110473546940_333530_13266"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

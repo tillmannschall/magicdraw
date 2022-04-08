@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316781_771759_10726"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CachedRowSet" refid="_10_5_622020d_1132928316471_381863_10724"/></annotatedElement><body humanName="Body" mode="s,e">The interface that all standard implementations of
+&lt;code&gt;CachedRowSet&lt;/code&gt; must implement.
+&lt;P&gt;
+The reference implementation of the &lt;code&gt;CachedRowSet&lt;/code&gt; interface provided
+by Sun Microsystems is a standard implementation. Developers may use this implementation
+just as it is, they may extend it, or they may choose to write their own implementations
+of this interface.
+&lt;P&gt;
+A &lt;code&gt;CachedRowSet&lt;/code&gt; object is a container for rows of data
+that caches its rows in memory, which makes it possible to operate without always being
+connected to its data source. Further, it is a
+JavaBeans&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt; component and is scrollable,
+updatable, and serializable. A &lt;code&gt;CachedRowSet&lt;/code&gt; object typically
+contains rows from a result set, but it can also contain rows from any file
+with a tabular format, such as a spread sheet.  The reference implementation
+supports getting data only from a &lt;code&gt;ResultSet&lt;/code&gt; object, but
+developers can extend the &lt;code&gt;SyncProvider&lt;/code&gt; implementations to provide
+access to other tabular data sources.
+&lt;P&gt;
+An application can modify the data in a &lt;code&gt;CachedRowSet&lt;/code&gt; object, and
+those modifications can then be propagated back to the source of the data.
+&lt;P&gt;
+A &lt;code&gt;CachedRowSet&lt;/code&gt; object is a &lt;i&gt;disconnected&lt;/i&gt; rowset, which means
+that it makes use of a connection to its data source only briefly. It connects to its
+data source while it is reading data to populate itself with rows and again
+while it is propagating changes back to its underlying data source. The rest
+of the time, a &lt;code&gt;CachedRowSet&lt;/code&gt; object is disconnected, including
+while its data is being modified. Being disconnected makes a &lt;code&gt;RowSet&lt;/code&gt;
+object much leaner and therefore much easier to pass to another component.  For
+example, a disconnected &lt;code&gt;RowSet&lt;/code&gt; object can be serialized and passed
+over the wire to a thin client such as a personal digital assistant (PDA).
+&lt;P&gt;
+
+&lt;h3&gt;1.0 Creating a &lt;code&gt;CachedRowSet&lt;/code&gt; Object&lt;/h3&gt;
+The following line of code uses the default constructor for
+&lt;code&gt;CachedRowSet&lt;/code&gt;
+supplied in the reference implementation (RI) to create a default
+&lt;code&gt;CachedRowSet&lt;/code&gt; object.
+&lt;PRE&gt;
+CachedRowSetImpl crs = new CachedRowSetImpl();
+&lt;/PRE&gt;
+This new &lt;code&gt;CachedRowSet&lt;/code&gt; object will have its properties set to the
+default properties of a &lt;code&gt;BaseRowSet&lt;/code&gt; object, and, in addition, it will
+have an &lt;code&gt;RIOptimisticProvider&lt;/code&gt; object as its synchronization provider.
+&lt;code&gt;RIOptimisticProvider&lt;/code&gt;, one of two &lt;code&gt;SyncProvider&lt;/code&gt;
+implementations included in the RI, is the default provider that the
+&lt;code&gt;SyncFactory&lt;/code&gt; singleton will supply when no synchronization
+provider is specified.
+&lt;P&gt;
+A &lt;code&gt;SyncProvider&lt;/code&gt; object provides a &lt;code&gt;CachedRowSet&lt;/code&gt; object
+with a reader (a &lt;code&gt;RowSetReader&lt;/code&gt; object) for reading data from a
+data source to populate itself with data. A reader can be implemented to read
+data from a &lt;code&gt;ResultSet&lt;/code&gt; object or from a file with a tabular format.
+A &lt;code&gt;SyncProvider&lt;/code&gt; object also provides
+a writer (a &lt;code&gt;RowSetWriter&lt;/code&gt; object) for synchronizing any
+modifications to the &lt;code&gt;CachedRowSet&lt;/code&gt; object's data made while it was
+disconnected with the data in the underlying data source.
+&lt;P&gt;
+A writer can be implemented to exercise various degrees of care in checking
+for conflicts and in avoiding them.
+(A conflict occurs when a value in the data source has been changed after
+the rowset populated itself with that value.)
+The &lt;code&gt;RIOptimisticProvider&lt;/code&gt; implementation assumes there will be
+few or no conflicts and therefore sets no locks. It updates the data source
+with values from the &lt;code&gt;CachedRowSet&lt;/code&gt; object only if there are no
+conflicts.
+Other writers can be implemented so that they always write modified data to
+the data source, which can be accomplished either by not checking for conflicts
+or, on the other end of the spectrum, by setting locks sufficient to prevent data
+in the data source from being changed. Still other writer implementations can be
+somewhere in between.
+&lt;P&gt;
+A &lt;code&gt;CachedRowSet&lt;/code&gt; object may use any
+&lt;code&gt;SyncProvider&lt;/code&gt; implementation that has been registered
+with the &lt;code&gt;SyncFactory&lt;/code&gt; singleton. An application
+can find out which &lt;code&gt;SyncProvider&lt;/code&gt; implementations have been
+registered by calling the following line of code.
+&lt;PRE&gt;
+java.util.Enumeration providers = SyncFactory.getRegisteredProviders();
+&lt;/PRE&gt;
+&lt;P&gt;
+There are two ways for a &lt;code&gt;CachedRowSet&lt;/code&gt; object to specify which
+&lt;code&gt;SyncProvider&lt;/code&gt; object it will use.
+&lt;UL)
+&lt;LI&gt;Supplying the name of the implementation to the constructor&lt;BR&gt;
+The following line of code creates the &lt;code&gt;CachedRowSet&lt;/code&gt;
+object &lt;i&gt;crs2&lt;/i&gt; that is initialized with default values except that its
+&lt;code&gt;SyncProvider&lt;/code&gt; object is the one specified.
+&lt;PRE&gt;
+CachedRowSetImpl crs2 = new CachedRowSetImpl(
+"com.fred.providers.HighAvailabilityProvider");
+&lt;/PRE&gt;
+&lt;LI&gt;Setting the &lt;code&gt;SyncProvider&lt;/code&gt; using the &lt;code&gt;CachedRowSet&lt;/code&gt;
+method &lt;code&gt;setSyncProvider&lt;/code&gt;&lt;BR&gt;
+The following line of code resets the &lt;code&gt;SyncProvider&lt;/code&gt; object
+for &lt;i&gt;crs&lt;/i&gt;, the &lt;code&gt;CachedRowSet&lt;/code&gt; object created with the
+default constructor.
+&lt;PRE&gt;
+crs.setSyncProvider("com.fred.providers.HighAvailabilityProvider");
+&lt;/PRE&gt;
+&lt;/UL)
+See the comments for &lt;code&gt;SyncFactory&lt;/code&gt; and &lt;code&gt;SyncProvider&lt;/code&gt; for
+more details.
+
+&lt;P&gt;
+&lt;h3&gt;2.0 Retrieving Data from a &lt;code&gt;CachedRowSet&lt;/code&gt; Object&lt;/h3&gt;
+Data is retrieved from a &lt;code&gt;CachedRowSet&lt;/code&gt; object by using the
+getter methods inherited from the &lt;code&gt;ResultSet&lt;/code&gt;
+interface.  The following examples, in which &lt;code&gt;crs&lt;/code&gt; is a
+&lt;code&gt;CachedRowSet&lt;/code&gt;
+object, demonstrate how to iterate through the rows, retrieving the column
+values in each row.  The first example uses the version of the
+getter methods that take a column number; the second example
+uses the version that takes a column name. Column numbers are generally
+used when the &lt;code&gt;RowSet&lt;/code&gt; object's command
+is of the form &lt;code&gt;SELECT * FROM TABLENAME&lt;/code&gt;; column names are most
+commonly used when the command specifies columns by name.
+&lt;PRE&gt;
+while (crs.next()) {
+String name = crs.getString(1);
+int id = crs.getInt(2);
+Clob comment = crs.getClob(3);
+short dept = crs.getShort(4);
+System.out.println(name + "  " + id + "  " + comment + "  " + dept);
+}
+&lt;/PRE&gt;
+
+&lt;PRE&gt;
+while (crs.next()) {
+String name = crs.getString("NAME");
+int id = crs.getInt("ID");
+Clob comment = crs.getClob("COM");
+short dept = crs.getShort("DEPT");
+System.out.println(name + "  " + id + "  " + comment + "  " + dept);
+}
+&lt;/PRE&gt;
+&lt;h4&gt;2.1 Retrieving &lt;code&gt;RowSetMetaData&lt;/code&gt;&lt;/h4&gt;
+An application can get information about the columns in a &lt;code&gt;CachedRowSet&lt;/code&gt;
+object by calling &lt;code&gt;ResultSetMetaData&lt;/code&gt; and &lt;code&gt;RowSetMetaData&lt;/code&gt;
+methods on a &lt;code&gt;RowSetMetaData&lt;/code&gt; object. The following code fragment,
+in which &lt;i&gt;crs&lt;/i&gt; is a &lt;code&gt;CachedRowSet&lt;/code&gt; object, illustrates the process.
+The first line creates a &lt;code&gt;RowSetMetaData&lt;/code&gt; object with information
+about the columns in &lt;i&gt;crs&lt;/i&gt;.  The method &lt;code&gt;getMetaData&lt;/code&gt;,
+inherited from the &lt;code&gt;ResultSet&lt;/code&gt; interface, returns a
+&lt;code&gt;ResultSetMetaData&lt;/code&gt; object, which is cast to a
+&lt;code&gt;RowSetMetaData&lt;/code&gt; object before being assigned to the variable
+&lt;i&gt;rsmd&lt;/i&gt;.  The second line finds out how many columns &lt;i&gt;jrs&lt;/i&gt; has, and
+the third line gets the JDBC type of values stored in the second column of
+&lt;code&gt;jrs&lt;/code&gt;.
+&lt;PRE&gt;
+RowSetMetaData rsmd = (RowSetMetaData)crs.getMetaData();
+int count = rsmd.getColumnCount();
+int type = rsmd.getColumnType(2);
+&lt;/PRE&gt;
+The &lt;code&gt;RowSetMetaData&lt;/code&gt; interface differs from the
+&lt;code&gt;ResultSetMetaData&lt;/code&gt; interface in two ways.
+&lt;UL&gt;
+&lt;LI&gt;&lt;i&gt;It includes &lt;code&gt;setter&lt;/code&gt; methods:&lt;/i&gt; A &lt;code&gt;RowSet&lt;/code&gt;
+object uses these methods internally when it is populated with data from a
+different &lt;code&gt;ResultSet&lt;/code&gt; object.
+&lt;P&gt;
+&lt;LI&gt;&lt;i&gt;It contains fewer &lt;code&gt;getter&lt;/code&gt; methods:&lt;/i&gt; Some
+&lt;code&gt;ResultSetMetaData&lt;/code&gt; methods to not apply to a &lt;code&gt;RowSet&lt;/code&gt;
+object. For example, methods retrieving whether a column value is writable
+or read only do not apply because all of a &lt;code&gt;RowSet&lt;/code&gt; object's
+columns will be writable or read only, depending on whether the rowset is
+updatable or not.
+&lt;/UL&gt;
+NOTE: In order to return a &lt;code&gt;RowSetMetaData&lt;/code&gt; object, implementations must
+override the &lt;code&gt;getMetaData()&lt;/code&gt; method defined in
+&lt;code&gt;java.sql.ResultSet&lt;/code&gt; and return a &lt;code&gt;RowSetMetaData&lt;/code&gt; object.
+
+&lt;h3&gt;3.0 Updating a &lt;code&gt;CachedRowSet&lt;/code&gt; Object&lt;/h3&gt;
+Updating a &lt;code&gt;CachedRowSet&lt;/code&gt; object is similar to updating a
+&lt;code&gt;ResultSet&lt;/code&gt; object, but because the rowset is not connected to
+its data source while it is being updated, it must take an additional step
+to effect changes in its underlying data source. After calling the method
+&lt;code&gt;updateRow&lt;/code&gt; or &lt;code&gt;insertRow&lt;/code&gt;, a
+&lt;code&gt;CachedRowSet&lt;/code&gt;
+object must also call the method &lt;code&gt;acceptChanges&lt;/code&gt; to have updates
+written to the data source. The following example, in which the cursor is
+on a row in the &lt;code&gt;CachedRowSet&lt;/code&gt; object &lt;i&gt;crs&lt;/i&gt;, shows
+the code required to update two column values in the current row and also
+update the &lt;code&gt;RowSet&lt;/code&gt; object's underlying data source.
+&lt;PRE&gt;
+crs.updateShort(3, 58);
+crs.updateInt(4, 150000);
+crs.updateRow();
+crs.acceptChanges();
+&lt;/PRE&gt;
+&lt;P&gt;
+The next example demonstrates moving to the insert row, building a new
+row on the insert row, inserting it into the rowset, and then calling the
+method &lt;code&gt;acceptChanges&lt;/code&gt; to add the new row to the underlying data
+source.  Note that as with the getter methods, the  updater methods may take
+either a column index or a column name to designate the column being acted upon.
+&lt;PRE&gt;
+crs.moveToInsertRow();
+crs.updateString("Name", "Shakespeare");
+crs.updateInt("ID", 10098347);
+crs.updateShort("Age", 58);
+crs.updateInt("Sal", 150000);
+crs.insertRow();
+crs.moveToCurrentRow();
+crs.acceptChanges();
+&lt;/PRE&gt;
+&lt;P&gt;
+NOTE: Where the &lt;code&gt;insertRow()&lt;/code&gt; method inserts the contents of a
+&lt;code&gt;CachedRowSet&lt;/code&gt; object's insert row is implementation-defined.
+The reference implementation for the &lt;code&gt;CachedRowSet&lt;/code&gt; interface
+inserts a new row immediately following the current row, but it could be
+implemented to insert new rows in any number of other places.
+&lt;P&gt;
+Another thing to note about these examples is how they use the method
+&lt;code&gt;acceptChanges&lt;/code&gt;.  It is this method that propagates changes in
+a &lt;code&gt;CachedRowSet&lt;/code&gt; object back to the underlying data source,
+calling on the &lt;code&gt;RowSet&lt;/code&gt; object's writer internally to write
+changes to the data source. To do this, the writer has to incur the expense
+of establishing a connection with that data source. The
+preceding two code fragments call the method &lt;code&gt;acceptChanges&lt;/code&gt;
+immediately after calling &lt;code&gt;updateRow&lt;/code&gt; or &lt;code&gt;insertRow&lt;/code&gt;.
+However, when there are multiple rows being changed, it is more efficient to call
+&lt;code&gt;acceptChanges&lt;/code&gt; after all calls to &lt;code&gt;updateRow&lt;/code&gt;
+and &lt;code&gt;insertRow&lt;/code&gt; have been made.  If &lt;code&gt;acceptChanges&lt;/code&gt;
+is called only once, only one connection needs to be established.
+&lt;P&gt;
+&lt;h3&gt;4.0 Updating the Underlying Data Source&lt;/h3&gt;
+When the method &lt;code&gt;acceptChanges&lt;/code&gt; is executed, the
+&lt;code&gt;CachedRowSet&lt;/code&gt; object's writer, a &lt;code&gt;RowSetWriterImpl&lt;/code&gt;
+object, is called behind the scenes to write the changes made to the
+rowset to the underlying data source. The writer is implemented to make a
+connection to the data source and write updates to it.
+&lt;P&gt;
+A writer is made available through an implementation of the
+&lt;code&gt;SyncProvider&lt;/code&gt; interface, as discussed in section 1,
+"Creating a &lt;code&gt;CachedRowSet&lt;/code&gt; Object."
+The default reference implementation provider, &lt;code&gt;RIOptimisticProvider&lt;/code&gt;,
+has its writer implemented to use an optimistic concurrency control
+mechanism. That is, it maintains no locks in the underlying database while
+the rowset is disconnected from the database and simply checks to see if there
+are any conflicts before writing data to the data source.  If there are any
+conflicts, it does not write anything to the data source.
+&lt;P&gt;
+The reader/writer facility
+provided by the &lt;code&gt;SyncProvider&lt;/code&gt; class is pluggable, allowing for the
+customization of data retrieval and updating. If a different concurrency
+control mechanism is desired, a different implementation of
+&lt;code&gt;SyncProvider&lt;/code&gt; can be plugged in using the method
+&lt;code&gt;setSyncProvider&lt;/code&gt;.
+&lt;P&gt;
+In order to use the optimistic concurrency control routine, the
+&lt;code&gt;RIOptismisticProvider&lt;/code&gt; maintains both its current
+value and its original value (the value it had immediately preceding the
+current value). Note that if no changes have been made to the data in a
+&lt;code&gt;RowSet&lt;/code&gt; object, its current values and its original values are the same,
+both being the values with which the &lt;code&gt;RowSet&lt;/code&gt; object was initially
+populated.  However, once any values in the &lt;code&gt;RowSet&lt;/code&gt; object have been
+changed, the current values and the original values will be different, though at
+this stage, the original values are still the initial values. With any subsequent
+changes to data in a &lt;code&gt;RowSet&lt;/code&gt; object, its original values and current
+values will still differ, but its original values will be the values that
+were previously the current values.
+&lt;P&gt;
+Keeping track of original values allows the writer to compare the &lt;code&gt;RowSet&lt;/code&gt;
+object's original value with the value in the database. If the values in
+the database differ from the &lt;code&gt;RowSet&lt;/code&gt; object's original values, which means that
+the values in the database have been changed, there is a conflict.
+Whether a writer checks for conflicts, what degree of checking it does, and how
+it handles conflicts all depend on how it is implemented.
+&lt;P&gt;
+&lt;h3&gt;5.0 Registering and Notifying Listeners&lt;/h3&gt;
+Being JavaBeans components, all rowsets participate in the JavaBeans event
+model, inheriting methods for registering listeners and notifying them of
+changes from the &lt;code&gt;BaseRowSet&lt;/code&gt; class.  A listener for a
+&lt;code&gt;CachedRowSet&lt;/code&gt; object is a component that wants to be notified
+whenever there is a change in the rowset.  For example, if a
+&lt;code&gt;CachedRowSet&lt;/code&gt; object contains the results of a query and
+those
+results are being displayed in, say, a table and a bar graph, the table and
+bar graph could be registered as listeners with the rowset so that they can
+update themselves to reflect changes. To become listeners, the table and
+bar graph classes must implement the &lt;code&gt;RowSetListener&lt;/code&gt; interface.
+Then they can be added to the &lt;Code&gt;CachedRowSet&lt;/code&gt; object's list of
+listeners, as is illustrated in the following lines of code.
+&lt;PRE&gt;
+crs.addRowSetListener(table);
+crs.addRowSetListener(barGraph);
+&lt;/PRE&gt;
+Each &lt;code&gt;CachedRowSet&lt;/code&gt; method that moves the cursor or changes
+data also notifies registered listeners of the changes, so
+&lt;code&gt;table&lt;/code&gt; and &lt;code&gt;barGraph&lt;/code&gt; will be notified when there is
+a change in &lt;code&gt;crs&lt;/code&gt;.
+&lt;P&gt;
+&lt;h3&gt;6.0 Passing Data to Thin Clients&lt;/h3&gt;
+One of the main reasons to use a &lt;code&gt;CachedRowSet&lt;/code&gt; object is to
+pass data between different components of an application. Because it is
+serializable, a &lt;code&gt;CachedRowSet&lt;/code&gt; object can be used, for example,
+to send the result of a query executed by an enterprise JavaBeans component
+running in a server environment over a network to a client running in a
+web browser.
+&lt;P&gt;
+While a &lt;code&gt;CachedRowSet&lt;/code&gt; object is disconnected, it can be much
+leaner than a &lt;code&gt;ResultSet&lt;/code&gt; object with the same data.
+As a result, it can be especially suitable for sending data to a thin client
+such as a PDA, where it would be inappropriate to use a JDBC driver
+due to resource limitations or security considerations.
+Thus, a &lt;code&gt;CachedRowSet&lt;/code&gt; object provides a means to "get rows in"
+without the need to implement the full JDBC API.
+&lt;P&gt;
+&lt;h3&gt;7.0 Scrolling and Updating&lt;/h3&gt;
+A second major use for &lt;code&gt;CachedRowSet&lt;/code&gt; objects is to provide
+scrolling and updating for &lt;code&gt;ResultSet&lt;/code&gt; objects that
+do not provide these capabilities themselves.  In other words, a
+&lt;code&gt;CachedRowSet&lt;/code&gt; object can be used to augment the
+capabilities of a JDBC technology-enabled driver (hereafter called a
+"JDBC driver") when the DBMS does not provide full support for scrolling and
+updating. To achieve the effect of making a non-scrollble and read-only
+&lt;code&gt;ResultSet&lt;/code&gt; object scrollable and updatable, a programmer
+simply needs to create a &lt;code&gt;CachedRowSet&lt;/code&gt; object populated
+with that &lt;code&gt;ResultSet&lt;/code&gt; object's data.  This is demonstrated
+in the following code fragment, where &lt;code&gt;stmt&lt;/code&gt; is a
+&lt;code&gt;Statement&lt;/code&gt; object.
+&lt;PRE&gt;
+ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLOYEES");
+CachedRowSetImpl crs = new CachedRowSetImpl();
+crs.populate(rs);
+&lt;/PRE&gt;
+&lt;P&gt;
+The object &lt;code&gt;crs&lt;/code&gt; now contains the data from the table
+&lt;code&gt;EMPLOYEES&lt;/code&gt;, just as the object &lt;code&gt;rs&lt;/code&gt; does.
+The difference is that the cursor for &lt;code&gt;crs&lt;/code&gt; can be moved
+forward, backward, or to a particular row even if the cursor for
+&lt;code&gt;rs&lt;/code&gt; can move only forward.  In addition, &lt;code&gt;crs&lt;/code&gt; is
+updatable even if &lt;code&gt;rs&lt;/code&gt; is not because by default, a
+&lt;code&gt;CachedRowSet&lt;/code&gt; object is both scrollable and updatable.
+&lt;P&gt;
+In summary, a &lt;code&gt;CachedRowSet&lt;/code&gt; object can be thought of as simply
+a disconnected set of rows that are being cached outside of a data source.
+Being thin and serializable, it can easily be sent across a wire,
+and it is well suited to sending data to a thin client. However, a
+&lt;code&gt;CachedRowSet&lt;/code&gt; object does have a limitation: It is limited in
+size by the amount of data it can store in memory at one time.
+&lt;P&gt;
+&lt;h3&gt;8.0 Getting Universal Data Access&lt;/h3&gt;
+Another advantage of the &lt;code&gt;CachedRowSet&lt;/code&gt; class is that it makes it
+possible to retrieve and store data from sources other than a relational
+database. The reader for a rowset can be implemented to read and populate
+its rowset with data from any tabular data source, including a spreadsheet
+or flat file.
+Because both a &lt;code&gt;CachedRowSet&lt;/code&gt; object and its metadata can be
+created from scratch, a component that acts as a factory for rowsets
+can use this capability to create a rowset containing data from
+non-SQL data sources. Nevertheless, it is expected that most of the time,
+&lt;code&gt;CachedRowSet&lt;/code&gt; objects will contain data that was fetched
+from an SQL database using the JDBC API.
+&lt;P&gt;
+&lt;h3&gt;9.0 Setting Properties&lt;/h3&gt;
+All rowsets maintain a set of properties, which will usually be set using
+a tool.  The number and kinds of properties a rowset has will vary,
+depending on what the rowset does and how it gets its data.  For example,
+rowsets that get their data from a &lt;code&gt;ResultSet&lt;/code&gt; object need to
+set the properties that are required for making a database connection.
+If a rowset uses the &lt;code&gt;DriverManager&lt;/code&gt; facility to make a
+connection, it needs to set a property for the JDBC URL that identifies
+the appropriate driver, and it needs to set the properties that give the
+user name and password.
+If, on the other hand, the rowset uses a &lt;code&gt;DataSource&lt;/code&gt; object
+to make the connection, which is the preferred method, it does not need to
+set the property for the JDBC URL.  Instead, it needs to set
+properties for the logical name of the data source, for the user name,
+and for the password.
+&lt;P&gt;
+NOTE:  In order to use a &lt;code&gt;DataSource&lt;/code&gt; object for making a
+connection, the &lt;code&gt;DataSource&lt;/code&gt; object must have been registered
+with a naming service that uses the Java Naming and Directory
+Interface&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt; (JNDI) API.  This registration
+is usually done by a person acting in the capacity of a system
+administrator.
+&lt;P&gt;
+In order to be able to populate itself with data from a database, a rowset
+needs to set a command property.  This property is a query that is a
+&lt;code&gt;PreparedStatement&lt;/code&gt; object, which allows the query to have
+parameter placeholders that are set at run time, as opposed to design time.
+To set these placeholder parameters with values, a rowset provides
+setter methods for setting values of each data type,
+similar to the setter methods provided by the &lt;code&gt;PreparedStatement&lt;/code&gt;
+interface.
+&lt;P&gt;
+The following code fragment illustrates how the &lt;code&gt;CachedRowSet&lt;/code&gt;
+object &lt;code&gt;crs&lt;/code&gt; might have its command property set.  Note that if a
+tool is used to set properties, this is the code that the tool would use.
+&lt;PRE&gt;
+crs.setCommand("SELECT FIRST_NAME, LAST_NAME, ADDRESS FROM CUSTOMERS " +
+"WHERE CREDIT_LIMIT &gt; ? AND REGION = ?");
+&lt;/PRE&gt;
+&lt;P&gt;
+The values that will be used to set the command's placeholder parameters are
+contained in the &lt;code&gt;RowSet&lt;/code&gt; object's &lt;code&gt;params&lt;/code&gt; field, which is a
+&lt;code&gt;Vector&lt;/code&gt; object.
+The &lt;code&gt;CachedRowSet&lt;/code&gt; class provides a set of setter
+methods for setting the elements in its &lt;code&gt;params&lt;/code&gt; field.  The
+following code fragment demonstrates setting the two parameters in the
+query from the previous example.
+&lt;PRE&gt;
+crs.setInt(1, 5000);
+crs.setString(2, "West");
+&lt;/PRE&gt;
+&lt;P&gt;
+The &lt;code&gt;params&lt;/code&gt; field now contains two elements, each of which is
+an array two elements long.  The first element is the parameter number;
+the second is the value to be set.
+In this case, the first element of &lt;code&gt;params&lt;/code&gt; is
+&lt;code&gt;1&lt;/code&gt;, &lt;code&gt;5000&lt;/code&gt;, and the second element is &lt;code&gt;2&lt;/code&gt;,
+&lt;code&gt;"West"&lt;/code&gt;.  When an application calls the method
+&lt;code&gt;execute&lt;/code&gt;, it will in turn call on this &lt;code&gt;RowSet&lt;/code&gt; object's reader,
+which will in turn invoke its &lt;code&gt;readData&lt;/code&gt; method. As part of
+its implementation, &lt;code&gt;readData&lt;/code&gt; will get the values in
+&lt;code&gt;params&lt;/code&gt; and use them to set the command's placeholder
+parameters.
+The following code fragment gives an idea of how the reader
+does this, after obtaining the &lt;code&gt;Connection&lt;/code&gt; object
+&lt;code&gt;con&lt;/code&gt;.
+&lt;PRE&gt;
+PreparedStatement pstmt = con.prepareStatement(crs.getCommand());
+reader.decodeParams();
+decodeParams figures out which setter methods to use and does something
+like the following:
+for (i = 0; i &lt; params.length; i++) {
+pstmt.setObject(i + 1, params[i]);
+}
+&lt;/PRE&gt;
+&lt;P&gt;
+At this point, the command for &lt;code&gt;crs&lt;/code&gt; is the query &lt;code&gt;"SELECT
+FIRST_NAME, LAST_NAME, ADDRESS FROM CUSTOMERS WHERE CREDIT_LIMIT &gt; 5000
+AND REGION = "West"&lt;/code&gt;.  After the &lt;code&gt;readData&lt;/code&gt; method executes
+this command with the following line of code, it will have the data from
+&lt;code&gt;rs&lt;/code&gt; with which to populate &lt;code&gt;crs&lt;/code&gt;.
+&lt;PRE&gt;
+ResultSet rs = pstmt.executeQuery();
+&lt;/PRE&gt;
+&lt;P&gt;
+The preceding code fragments give an idea of what goes on behind the
+scenes; they would not appear in an application, which would not invoke
+methods like &lt;code&gt;readData&lt;/code&gt; and &lt;code&gt;decodeParams&lt;/code&gt;.
+In contrast, the following code fragment shows what an application might do.
+It sets the rowset's command, sets the command's parameters, and executes
+the command. Simply by calling the &lt;code&gt;execute&lt;/code&gt; method,
+&lt;code&gt;crs&lt;/code&gt; populates itself with the requested data from the
+table &lt;code&gt;CUSTOMERS&lt;/code&gt;.
+&lt;PRE&gt;
+crs.setCommand("SELECT FIRST_NAME, LAST_NAME, ADDRESS FROM CUSTOMERS" +
+"WHERE CREDIT_LIMIT &gt; ? AND REGION = ?");
+crs.setInt(1, 5000);
+crs.setString(2, "West");
+crs.execute();
+&lt;/PRE&gt;
+
+&lt;h3&gt;10.0 Paging Data&lt;/h3&gt;
+Because a &lt;code&gt;CachedRowSet&lt;/code&gt; object stores data in memory,
+the amount of data that it can contain at any one
+time is determined by the amount of memory available. To get around this limitation,
+a &lt;code&gt;CachedRowSet&lt;/code&gt; object can retrieve data from a &lt;code&gt;ResultSet&lt;/code&gt;
+object in chunks of data, called &lt;i&gt;pages&lt;/i&gt;. To take advantage of this mechanism,
+an application sets the number of rows to be included in a page using the method
+&lt;code&gt;setPageSize&lt;/code&gt;. In other words, if the page size is set to five, a chunk
+of five rows of
+data will be fetched from the data source at one time. An application can also
+optionally set the maximum number of rows that may be fetched at one time.  If the
+maximum number of rows is set to zero, or no maximum number of rows is set, there is
+no limit to the number of rows that may be fetched at a time.
+&lt;P&gt;
+After properties have been set,
+the &lt;code&gt;CachedRowSet&lt;/code&gt; object must be populated with data
+using either the method &lt;code&gt;populate&lt;/code&gt; or the method &lt;code&gt;execute&lt;/code&gt;.
+The following lines of code demonstrate using the method &lt;code&gt;populate&lt;/code&gt;.
+Note that this version of the method takes two parameters, a &lt;code&gt;ResultSet&lt;/code&gt;
+handle and the row in the &lt;code&gt;ResultSet&lt;/code&gt; object from which to start
+retrieving rows.
+&lt;PRE&gt;
+CachedRowSet crs = new CachedRowSetImpl();
+crs.setMaxRows(20);
+crs.setPageSize(4);
+crs.populate(rsHandle, 10);
+&lt;/PRE&gt;
+When this code runs, &lt;i&gt;crs&lt;/i&gt; will be populated with four rows from
+&lt;i&gt;rsHandle&lt;/i&gt; starting with the tenth row.
+&lt;P&gt;
+The next code fragment shows populating a &lt;code&gt;CachedRowSet&lt;/code&gt; object using the
+method &lt;code&gt;execute&lt;/code&gt;, which may or may not take a &lt;code&gt;Connection&lt;/code&gt;
+object as a parameter.  This code passes &lt;code&gt;execute&lt;/code&gt; the &lt;code&gt;Connection&lt;/code&gt;
+object &lt;i&gt;conHandle&lt;/i&gt;.
+&lt;P&gt;
+Note that there are two differences between the following code
+fragment and the previous one. First, the method &lt;code&gt;setMaxRows&lt;/code&gt; is not
+called, so there is no limit set for the number of rows that &lt;i&gt;crs&lt;/i&gt; may contain.
+(Remember that &lt;i&gt;crs&lt;/i&gt; always has the overriding limit of how much data it can
+store in memory.) The second difference is that the you cannot pass the method
+&lt;code&gt;execute&lt;/code&gt; the number of the row in the &lt;code&gt;ResultSet&lt;/code&gt; object
+from which to start retrieving rows. This method always starts with the first row.
+&lt;PRE&gt;
+CachedRowSet crs = new CachedRowSetImpl();
+crs.setPageSize(5);
+crs.execute(conHandle);
+&lt;/PRE&gt;
+After this code has run, &lt;i&gt;crs&lt;/i&gt; will contain five rows of data from the
+&lt;code&gt;ResultSet&lt;/code&gt; object produced by the command for &lt;i&gt;crs&lt;/i&gt;. The writer
+for &lt;i&gt;crs&lt;/i&gt; will use &lt;i&gt;conHandle&lt;/i&gt; to connect to the data source and
+execute the command for &lt;i&gt;crs&lt;/i&gt;. An application is then able to operate on the
+data in &lt;i&gt;crs&lt;/i&gt; in the same way that it would operate on data in any other
+&lt;code&gt;CachedRowSet&lt;/code&gt; object.
+&lt;P&gt;
+To access the next page (chunk of data), an application calls the method
+&lt;code&gt;nextPage&lt;/code&gt;.  This method creates a new &lt;code&gt;CachedRowSet&lt;/code&gt; object
+and fills it with the next page of data.  For example, assume that the
+&lt;code&gt;CachedRowSet&lt;/code&gt; object's command returns a &lt;code&gt;ResultSet&lt;/code&gt; object
+&lt;i&gt;rs&lt;/i&gt; with 1000 rows of data.  If the page size has been set to 100, the first
+call to the method &lt;code&gt;nextPage&lt;/code&gt; will create a &lt;code&gt;CachedRowSet&lt;/code&gt; object
+containing the first 100 rows of &lt;i&gt;rs&lt;/i&gt;. After doing what it needs to do with the
+data in these first 100 rows, the application can again call the method
+&lt;code&gt;nextPage&lt;/code&gt; to create another &lt;code&gt;CachedRowSet&lt;/code&gt; object
+with the second 100 rows from &lt;i&gt;rs&lt;/i&gt;. The data from the first &lt;code&gt;CachedRowSet&lt;/code&gt;
+object will no longer be in memory because it is replaced with the data from the
+second &lt;code&gt;CachedRowSet&lt;/code&gt; object. After the tenth call to the method &lt;code&gt;nextPage&lt;/code&gt;,
+the tenth &lt;code&gt;CachedRowSet&lt;/code&gt; object will contain the last 100 rows of data from
+&lt;i&gt;rs&lt;/i&gt;, which are stored in memory. At any given time, the data from only one
+&lt;code&gt;CachedRowSet&lt;/code&gt; object is stored in memory.
+&lt;P&gt;
+The method &lt;code&gt;nextPage&lt;/code&gt; returns &lt;code&gt;true&lt;/code&gt; as long as the current
+page is not the last page of rows and &lt;code&gt;false&lt;/code&gt; when there are no more pages.
+It can therefore be used in a &lt;code&gt;while&lt;/code&gt; loop to retrieve all of the pages,
+as is demonstrated in the following lines of code.
+&lt;PRE&gt;
+CachedRowSet crs = CachedRowSetImpl();
+crs.setPageSize(100);
+crs.execute(conHandle);
+
+while(crs.next() {
+. . . // operate on first chunk of 100 rows in crs, row by row
+}
+
+while(crs.nextPage()) {
+while(crs.next()) {
+. . . // operate on the subsequent chunks (of 100 rows each) in crs,
+row by row
+}
+}
+&lt;/PRE&gt;
+After this code fragment has been run, the application will have traversed all
+1000 rows, but it will have had no more than 100 rows in memory at a time.
+&lt;P&gt;
+The &lt;code&gt;CachedRowSet&lt;/code&gt; interface also defines the method &lt;code&gt;previousPage&lt;/code&gt;.
+Just as the method &lt;code&gt;nextPage&lt;/code&gt; is analogous to the &lt;code&gt;ResultSet&lt;/code&gt;
+method &lt;code&gt;next&lt;/code&gt;, the method &lt;code&gt;previousPage&lt;/code&gt; is analogous to
+the &lt;code&gt;ResultSet&lt;/code&gt; method &lt;code&gt;previous&lt;/code&gt;.  Similar to the method
+&lt;code&gt;nextPage&lt;/code&gt;, &lt;code&gt;previousPage&lt;/code&gt; creates a &lt;code&gt;CachedRowSet&lt;/code&gt;
+object containing the number of rows set as the page size.  So, for instance, the
+method &lt;code&gt;previousPage&lt;/code&gt; could be used in a &lt;code&gt;while&lt;/code&gt; loop at
+the end of the preceding code fragment to navigate back through the pages from the last
+page to the first page.
+The method &lt;code&gt;previousPage&lt;/code&gt; is also similar to &lt;code&gt;nextPage&lt;/code&gt;
+in that it can be used in a &lt;code&gt;while&lt;/code&gt;
+loop, except that it returns &lt;code&gt;true&lt;/code&gt; as long as there is another page
+preceding it and &lt;code&gt;false&lt;/code&gt; when there are no more pages ahead of it.
+&lt;P&gt;
+By positioning the cursor after the last row for each page,
+as is done in the following code fragment, the method &lt;code&gt;previous&lt;/code&gt;
+navigates from the last row to the first row in each page.
+The code could also have left the cursor before the first row on each page and then
+used the method &lt;code&gt;next&lt;/code&gt; in a &lt;code&gt;while&lt;/code&gt; loop to navigate each page
+from the first row to the last row.
+&lt;P&gt;
+The following code fragment assumes a continuation from the previous code fragment,
+meaning that the cursor for the tenth &lt;code&gt;CachedRowSet&lt;/code&gt; object is on the
+last row.  The code moves the cursor to after the last row so that the first
+call to the method &lt;code&gt;previous&lt;/code&gt; will put the cursor back on the last row.
+After going through all of the rows in the last page (the &lt;code&gt;CachedRowSet&lt;/code&gt;
+object &lt;i&gt;crs&lt;/i&gt;), the code then enters
+the &lt;code&gt;while&lt;/code&gt; loop to get to the ninth page, go through the rows backwards,
+go to the eighth page, go through the rows backwards, and so on to the first row
+of the first page.
+
+&lt;PRE&gt;
+crs.afterLast();
+while(crs.previous())  {
+. . . // navigate through the rows, last to first
+{
+while(crs.previousPage())  {
+crs.afterLast();
+while(crs.previous())  {
+. . . // go from the last row to the first row of each page
+}
+}
+&lt;/PRE&gt;
+
+@author Jonathan Bruce
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CachedRowSet" refid="_10_5_622020d_1132928316471_381863_10724"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CachedRowSet" refid="_10_5_622020d_1132928316471_381863_10724"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

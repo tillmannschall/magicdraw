@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308179_494405_5177"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="UncaughtExceptionHandler" refid="_10_5_622020d_1132928308179_829231_5176"/></annotatedElement><body humanName="Body" mode="s,e">Interface for handlers invoked when a &lt;tt&gt;Thread&lt;/tt&gt; abruptly
+terminates due to an uncaught exception.
+&lt;p&gt;When a thread is about to terminate due to an uncaught exception
+the Java Virtual Machine will query the thread for its
+&lt;tt&gt;UncaughtExceptionHandler&lt;/tt&gt; using
+{@link Thread#getUncaughtExceptionHandler} and will invoke the handler's
+&lt;tt&gt;uncaughtException&lt;/tt&gt; method, passing the thread and the
+exception as arguments.
+If a thread has not had its &lt;tt&gt;UncaughtExceptionHandler&lt;/tt&gt;
+explicitly set, then its &lt;tt&gt;ThreadGroup&lt;/tt&gt; object acts as its
+&lt;tt&gt;UncaughtExceptionHandler&lt;/tt&gt;. If the &lt;tt&gt;ThreadGroup&lt;/tt&gt; object
+has no
+special requirements for dealing with the exception, it can forward
+the invocation to the {@linkplain #getDefaultUncaughtExceptionHandler
+default uncaught exception handler}.
+
+@see #setDefaultUncaughtExceptionHandler
+@see #setUncaughtExceptionHandler
+@see ThreadGroup#uncaughtException
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="UncaughtExceptionHandler" refid="_10_5_622020d_1132928308179_829231_5176"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="UncaughtExceptionHandler" refid="_10_5_622020d_1132928308179_829231_5176"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

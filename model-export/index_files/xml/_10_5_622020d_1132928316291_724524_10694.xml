@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928316291_724524_10694"><documentation humanName="Documentation" mode="standard">The Service Provider Interface (SPI) mechanism that generates &lt;code&gt;SyncProvider&lt;/code&gt;
+instances to be used by disconnected &lt;code&gt;RowSet&lt;/code&gt; objects.
+The &lt;code&gt;SyncProvider&lt;/code&gt; instances in turn provide the
+&lt;code&gt;javax.sql.RowSetReader&lt;/code&gt; object the &lt;code&gt;RowSet&lt;/code&gt; object
+needs to populate itself with data and the
+&lt;code&gt;javax.sql.RowSetWriter&lt;/code&gt; object it needs to
+propagate changes to its
+data back to the underlying data source.
+&lt;P&gt;
+Because the methods in the &lt;code&gt;SyncFactory&lt;/code&gt; class are all static,
+there is only one &lt;code&gt;SyncFactory&lt;/code&gt; object
+per Java VM at any one time. This ensures that there is a single source from which a
+&lt;code&gt;RowSet&lt;/code&gt; implementation can obtain its &lt;code&gt;SyncProvider&lt;/code&gt;
+implementation.
+&lt;p&gt;
+&lt;h3&gt;1.0 Overview&lt;/h3&gt;
+The &lt;code&gt;SyncFactory&lt;/code&gt; class provides an internal registry of available
+synchronization provider implementations (&lt;code&gt;SyncProvider&lt;/code&gt; objects).
+This registry may be queried to determine which
+synchronization providers are available.
+The following line of code gets an enumeration of the providers currently registered.
+&lt;PRE&gt;
+java.util.Enumeration e = SyncFactory.getRegisteredProviders();
+&lt;/PRE&gt;
+All standard &lt;code&gt;RowSet&lt;/code&gt; implementations must provide at least two providers:
+&lt;UL&gt;
+&lt;LI&gt;an optimistic provider for use with a &lt;code&gt;CachedRowSet&lt;/code&gt; implementation
+or an implementation derived from it
+&lt;LI&gt;an XML provider, which is used for reading and writing XML, such as with
+&lt;code&gt;WebRowSet&lt;/code&gt; objects
+&lt;/UL&gt;
+Note that the JDBC RowSet Implementations include the &lt;code&gt;SyncProvider&lt;/code&gt;
+implemtations &lt;code&gt;RIOptimisticProvider&lt;/code&gt; and &lt;code&gt;RIXmlProvider&lt;/code&gt;,
+which satisfy this requirement.
+&lt;P&gt;
+The &lt;code&gt;SyncFactory&lt;/code&gt; class provides accessor methods to assist
+applications in determining which synchronization providers are currently
+registered with the &lt;code&gt;SyncFactory&lt;/code&gt;.
+&lt;p&gt;
+Other methods let &lt;code&gt;RowSet&lt;/code&gt; persistence providers be
+registered or de-registered with the factory mechanism. This
+allows additional synchronization provider implementations to be made
+available to &lt;code&gt;RowSet&lt;/code&gt; objects at run time.
+&lt;p&gt;
+Applications can apply a degree of filtering to determine the level of
+synchronization that a &lt;code&gt;SyncProvider&lt;/code&gt; implementation offers.
+The following criteria determine whether a provider is
+made available to a &lt;code&gt;RowSet&lt;/code&gt; object:
+&lt;ol&gt;
+&lt;li&gt;If a particular provider is specified by a &lt;code&gt;RowSet&lt;/code&gt; object, and
+the &lt;code&gt;SyncFactory&lt;/code&gt; does not contain a reference to this provider,
+a &lt;code&gt;SyncFactoryException&lt;/code&gt; is thrown stating that the synchronization
+provider could not be found.
+&lt;p&gt;
+&lt;li&gt;If a &lt;code&gt;RowSet&lt;/code&gt; implementation is instantiated with a specified
+provider and the specified provider has been properly registered, the
+requested provider is supplied. Otherwise a &lt;code&gt;SyncFactoryException&lt;/code&gt;
+is thrown.
+&lt;p&gt;
+&lt;li&gt;If a &lt;code&gt;RowSet&lt;/code&gt; object does not specify a
+&lt;code&gt;SyncProvider&lt;/code&gt; implementation and no additional
+&lt;code&gt;SyncProvider&lt;/code&gt; implementations are available, the reference
+implementation providers are supplied.
+&lt;/ol&gt;
+&lt;h3&gt;2.0 Registering &lt;code&gt;SyncProvider&lt;/code&gt; Implementations&lt;/h3&gt;
+&lt;p&gt;
+Both vendors and developers can register &lt;code&gt;SyncProvider&lt;/code&gt;
+implementations using one of the following mechanisms.
+&lt;ul&gt;
+&lt;LI&gt;&lt;B&gt;Using the command line&lt;/B&gt;&lt;BR&gt;
+The name of the provider is supplied on the command line, which will add
+the provider to the system properties.
+For example:
+&lt;PRE&gt;
+-Drowset.provider.classname=com.fred.providers.HighAvailabilityProvider
+&lt;/PRE&gt;
+&lt;li&gt;&lt;b&gt;Using the Standard Properties File&lt;/b&gt;&lt;BR&gt;
+The reference implementation is targeted
+to ship with J2SE 1.5, which will include an additional resource file
+that may be edited by hand. Here is an example of the properties file
+included in the reference implementation:
+&lt;PRE&gt;
+#Default JDBC RowSet sync providers listing
+#
+
+# Optimistic synchronization provider
+rowset.provider.classname.0=com.sun.rowset.providers.RIOptimisticProvider
+rowset.provider.vendor.0=Sun Microsystems Inc
+rowset.provider.version.0=1.0
+
+# XML Provider using standard XML schema
+rowset.provider.classname.1=com.sun.rowset.providers.RIXMLProvider
+rowset.provider.vendor.1=Sun Microsystems Inc.
+rowset.provider.version.1=1.0
+&lt;/PRE&gt;
+The &lt;code&gt;SyncFactory&lt;/code&gt; checks this file and registers the
+&lt;code&gt;SyncProvider&lt;/code&gt; implementations that it contains. A
+developer or vendor can add other implementations to this file.
+For example, here is a possible addition:
+&lt;PRE&gt;
+rowset.provider.classname.2=com.fred.providers.HighAvailabilityProvider
+rowset.provider.vendor.2=Fred, Inc.
+rowset.provider.version.2=1.0
+&lt;/PRE&gt;
+&lt;p&gt;
+&lt;li&gt;&lt;b&gt;Using a JNDI Context&lt;/b&gt;&lt;BR&gt;
+Available providers can be registered on a JNDI
+context, and the &lt;code&gt;SyncFactory&lt;/code&gt; will attempt to load
+&lt;code&gt;SyncProvider&lt;/code&gt; implementations from that JNDI context.
+For example, the following code fragment registers a provider implementation
+on a JNDI context.  This is something a deployer would normally do. In this
+example, &lt;code&gt;MyProvider&lt;/code&gt; is being registered on a CosNaming
+namespace, which is the namespace used by J2EE resources.
+&lt;PRE&gt;
+import javax.naming.*;
+
+Hashtable svrEnv = new  Hashtable();
+srvEnv.put(Context.INITIAL_CONTEXT_FACTORY, "CosNaming");
+
+Context ctx = new InitialContext(svrEnv);
+com.fred.providers.MyProvider = new MyProvider();
+ctx.rebind("providers/MyProvider", syncProvider);
+&lt;/PRE&gt;
+&lt;/ul&gt;
+Next, an application will register the JNDI context with the
+&lt;code&gt;SyncFactory&lt;/code&gt; instance.  This allows the &lt;code&gt;SyncFactory&lt;/code&gt;
+to browse within the JNDI context looking for &lt;code&gt;SyncProvider&lt;/code&gt;
+implementations.
+&lt;PRE&gt;
+Hashtable appEnv = new Hashtable();
+appEnv.put(Context.INITIAL_CONTEXT_FACTORY, "CosNaming");
+appEnv.put(Context.PROVIDER_URL, "iiop://hostname/providers");
+Context ctx = new InitialContext(appEnv);
+
+SyncFactory.registerJNDIContext(ctx);
+&lt;/PRE&gt;
+If a &lt;code&gt;RowSet&lt;/code&gt; object attempts to obtain a &lt;code&gt;MyProvider&lt;/code&gt;
+object, the &lt;code&gt;SyncFactory&lt;/code&gt; will try to locate it. First it searches
+for it in the system properties, then it looks in the resource files, and
+finally it checks the JNDI context that has been set. The &lt;code&gt;SyncFactory&lt;/code&gt;
+instance verifies that the requested provider is a valid extension of the
+&lt;code&gt;SyncProvider&lt;/code&gt; abstract class and then gives it to the
+&lt;code&gt;RowSet&lt;/code&gt; object. In the following code fragment, a new
+&lt;code&gt;CachedRowSet&lt;/code&gt; object is created and initialized with
+&lt;i&gt;env&lt;/i&gt;, which contains the binding to &lt;code&gt;MyProvider&lt;/code&gt;.
+&lt;PRE&gt;
+Hashtable env = new Hashtable();
+env.put(SyncFactory.ROWSET_SYNC_PROVIDER, "com.fred.providers.MyProvider");
+CachedRowSet crs = new com.sun.rowset.CachedRowSetImpl(env);
+&lt;/PRE&gt;
+Further details on these mechanisms are available in the
+&lt;code&gt;javax.sql.rowset.spi&lt;/code&gt; package specification.
+
+@author  Jonathan Bruce
+@see javax.sql.rowset.spi.SyncProvider
+@see javax.sql.rowset.spi.SyncFactoryException
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SyncFactory</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spi" refid="_10_5_622020d_1132928316291_669465_10693"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316331_301729_10696"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316331_301729_10696"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="spi" refid="_10_5_622020d_1132928316291_669465_10693"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spi" refid="_10_5_622020d_1132928316291_669465_10693"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spi" refid="_10_5_622020d_1132928316291_669465_10693"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sql::rowset::spi::SyncFactory</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318274_492384_12674"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TablePrintable" refid="_10_5_622020d_1132928318274_225284_12672"/></annotatedElement><body humanName="Body" mode="s,e">An implementation of &lt;code&gt;Printable&lt;/code&gt; for printing
+&lt;code&gt;JTable&lt;/code&gt;s.
+&lt;p&gt;
+This implementation spreads table rows naturally in sequence
+across multiple pages, fitting as many rows as possible per page.
+The distribution of columns, on the other hand, is controlled by a
+printing mode parameter passed to the constructor. When
+&lt;code&gt;JTable.PrintMode.NORMAL&lt;/code&gt; is used, the implementation
+handles columns in a similar manner to how it handles rows, spreading them
+across multiple pages (in an order consistent with the table's
+&lt;code&gt;ComponentOrientation&lt;/code&gt;).
+When &lt;code&gt;JTable.PrintMode.FIT_WIDTH&lt;/code&gt; is given, the implementation
+scales the output smaller if necessary, to ensure that all columns fit on
+the page. (Note that width and height are scaled equally, ensuring that the
+aspect ratio remains the same).
+&lt;p&gt;
+The portion of table printed on each page is headed by the
+appropriate section of the table's &lt;code&gt;JTableHeader&lt;/code&gt;.
+&lt;p&gt;
+Header and footer text can be added to the output by providing
+&lt;code&gt;MessageFormat&lt;/code&gt; instances to the constructor. The
+printing code requests Strings from the formats by calling
+their &lt;code&gt;format&lt;/code&gt; method with a single parameter:
+an &lt;code&gt;Object&lt;/code&gt; array containing a single element of type
+&lt;code&gt;Integer&lt;/code&gt;, representing the current page number.
+&lt;p&gt;
+There are certain circumstances where this &lt;code&gt;Printable&lt;code&gt;
+cannot fit items appropriately, resulting in clipped output.
+These are:
+&lt;ul&gt;
+&lt;li&gt;In any mode, when the header or footer text is too wide to
+fit completely in the printable area. The implementation
+prints as much of the text as possible starting from the beginning,
+as determined by the table's &lt;code&gt;ComponentOrientation&lt;/code&gt;.
+&lt;li&gt;In any mode, when a row is too tall to fit in the
+printable area. The upper most portion of the row
+is printed and no lower border is shown.
+&lt;li&gt;In &lt;code&gt;JTable.PrintMode.NORMAL&lt;/code&gt; when a column
+is too wide to fit in the printable area. The center of the
+column is printed and no left and right borders are shown.
+&lt;/ul&gt;
+&lt;p&gt;
+It is entirely valid for a developer to wrap this &lt;code&gt;Printable&lt;/code&gt;
+inside another in order to create complex reports and documents. They may
+even request that different pages be rendered into different sized
+printable areas. The implementation was designed to handle this by
+performing most of its calculations on the fly. However, providing different
+sizes works best when &lt;code&gt;JTable.PrintMode.FIT_WIDTH&lt;/code&gt; is used, or
+when only the printable width is changed between pages. This is because when
+it is printing a set of rows in &lt;code&gt;JTable.PrintMode.NORMAL&lt;/code&gt; and the
+implementation determines a need to distribute columns across pages,
+it assumes that all of those rows will fit on each subsequent page needed
+to fit the columns.
+&lt;p&gt;
+It is the responsibility of the developer to ensure that the table is not
+modified in any way after this &lt;code&gt;Printable&lt;/code&gt; is created (invalid
+modifications include changes in: size, renderers, or underlying data).
+The behavior of this &lt;code&gt;Printable&lt;/code&gt; is undefined if the table is
+changed at any time after creation.
+
+@author  Shannon Hickey
+@version 1.39 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="TablePrintable" refid="_10_5_622020d_1132928318274_225284_12672"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TablePrintable" refid="_10_5_622020d_1132928318274_225284_12672"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

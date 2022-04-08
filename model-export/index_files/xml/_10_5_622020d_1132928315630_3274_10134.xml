@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315630_3274_10134"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobImpressionsCompleted" refid="_9_5_f720368_1110473546721_885050_9331"/></annotatedElement><body humanName="Body" mode="s,e">Class JobImpressionsCompleted is an integer valued printing attribute class
+that specifies the number of impressions completed for the job so far. For
+printing devices, the impressions completed includes interpreting, marking,
+and stacking the output.
+&lt;P&gt;
+The JobImpressionsCompleted attribute describes the progress of the job. This
+attribute is intended to be a counter. That is, the JobImpressionsCompleted
+value for a job that has not started processing must be 0. When the job's
+{@link JobState JobState} is PROCESSING or PROCESSING_STOPPED, the
+JobImpressionsCompleted value is intended to increase as the job is
+processed; it indicates the amount of the job that has been processed at the
+time the Print Job's attribute set is queried or at the time a print job
+event is reported. When the job enters the COMPLETED, CANCELED, or ABORTED
+states, the JobImpressionsCompleted value is the final value for the job.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The integer value gives the IPP integer value. The
+category name returned by &lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute
+name.
+&lt;P&gt;
+
+@see JobImpressions
+@see JobImpressionsSupported
+@see JobKOctetsProcessed
+@see JobMediaSheetsCompleted
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JobImpressionsCompleted" refid="_9_5_f720368_1110473546721_885050_9331"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobImpressionsCompleted" refid="_9_5_f720368_1110473546721_885050_9331"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

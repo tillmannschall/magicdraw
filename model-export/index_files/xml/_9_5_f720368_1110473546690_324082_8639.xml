@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546690_324082_8639"><documentation humanName="Documentation" mode="standard">DateFormat is an abstract class for date/time formatting subclasses which
+formats and parses dates or time in a language-independent manner.
+The date/time formatting subclass, such as SimpleDateFormat, allows for
+formatting (i.e., date -&gt; text), parsing (text -&gt; date), and
+normalization.  The date is represented as a &lt;code&gt;Date&lt;/code&gt; object or
+as the milliseconds since January 1, 1970, 00:00:00 GMT.
+
+&lt;p&gt;DateFormat provides many class methods for obtaining default date/time
+formatters based on the default or a given locale and a number of formatting
+styles. The formatting styles include FULL, LONG, MEDIUM, and SHORT. More
+detail and examples of using these styles are provided in the method
+descriptions.
+
+&lt;p&gt;DateFormat helps you to format and parse dates for any locale.
+Your code can be completely independent of the locale conventions for
+months, days of the week, or even the calendar format: lunar vs. solar.
+
+&lt;p&gt;To format a date for the current Locale, use one of the
+static factory methods:
+&lt;pre&gt;
+myString = DateFormat.getDateInstance().format(myDate);
+&lt;/pre&gt;
+&lt;p&gt;If you are formatting multiple dates, it is
+more efficient to get the format and use it multiple times so that
+the system doesn't have to fetch the information about the local
+language and country conventions multiple times.
+&lt;pre&gt;
+DateFormat df = DateFormat.getDateInstance();
+for (int i = 0; i &lt; myDate.length; ++i) {
+output.println(df.format(myDate[i]) + "; ");
+}
+&lt;/pre&gt;
+&lt;p&gt;To format a date for a different Locale, specify it in the
+call to getDateInstance().
+&lt;pre&gt;
+DateFormat df = DateFormat.getDateInstance(DateFormat.LONG, Locale.FRANCE);
+&lt;/pre&gt;
+&lt;p&gt;You can use a DateFormat to parse also.
+&lt;pre&gt;
+myDate = df.parse(myString);
+&lt;/pre&gt;
+&lt;p&gt;Use getDateInstance to get the normal date format for that country.
+There are other static factory methods available.
+Use getTimeInstance to get the time format for that country.
+Use getDateTimeInstance to get a date and time format. You can pass in
+different options to these factory methods to control the length of the
+result; from SHORT to MEDIUM to LONG to FULL. The exact result depends
+on the locale, but generally:
+&lt;ul&gt;&lt;li&gt;SHORT is completely numeric, such as 12.13.52 or 3:30pm
+&lt;li&gt;MEDIUM is longer, such as Jan 12, 1952
+&lt;li&gt;LONG is longer, such as January 12, 1952 or 3:30:32pm
+&lt;li&gt;FULL is pretty completely specified, such as
+Tuesday, April 12, 1952 AD or 3:30:42pm PST.
+&lt;/ul&gt;
+
+&lt;p&gt;You can also set the time zone on the format if you wish.
+If you want even more control over the format or parsing,
+(or want to give your users more control),
+you can try casting the DateFormat you get from the factory methods
+to a SimpleDateFormat. This will work for the majority
+of countries; just remember to put it in a try block in case you
+encounter an unusual one.
+
+&lt;p&gt;You can also use forms of the parse and format methods with
+ParsePosition and FieldPosition to
+allow you to
+&lt;ul&gt;&lt;li&gt;progressively parse through pieces of a string.
+&lt;li&gt;align any particular field, or find out where it is for selection
+on the screen.
+&lt;/ul&gt;
+
+&lt;h4&gt;&lt;a name="synchronization"&gt;Synchronization&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;
+Date formats are not synchronized.
+It is recommended to create separate format instances for each thread.
+If multiple threads access a format concurrently, it must be synchronized
+externally.
+
+@see          Format
+@see          NumberFormat
+@see          SimpleDateFormat
+@see          java.util.Calendar
+@see          java.util.GregorianCalendar
+@see          java.util.TimeZone
+@version      1.51 04/12/04
+@author       Mark Davis, Chen-Lieh Huang, Alan Liu
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321939_925478_14284"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_45961_18947"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FieldDelegate" refid="_9_5_f720368_1110473547784_970079_18950"/></inheritedMember><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_830557_18931"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_45961_18947"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FieldDelegate" refid="_9_5_f720368_1110473547784_970079_18950"/></member><name humanName="Name" mode="s,e">DateFormat</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_830557_18931"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309621_596833_6237"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321939_925478_14284"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309621_596833_6237"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_830557_18931"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_830557_18931"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::text::DateFormat</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Format" refid="_9_5_f720368_1110473546690_941980_8657"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

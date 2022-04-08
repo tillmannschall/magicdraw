@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308269_329288_5245"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ContentHandlerFactory" refid="_9_5_f720368_1110473546628_747903_7747"/></annotatedElement><body humanName="Body" mode="s,e">This interface defines a factory for content handlers. An
+implementation of this interface should map a MIME type into an
+instance of &lt;code&gt;ContentHandler&lt;/code&gt;.
+&lt;p&gt;
+This interface is used by the &lt;code&gt;URLStreamHandler&lt;/code&gt; class
+to create a &lt;code&gt;ContentHandler&lt;/code&gt; for a MIME type.
+
+@author  James Gosling
+@version 1.12, 12/19/03
+@see     java.net.ContentHandler
+@see     java.net.URLStreamHandler
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ContentHandlerFactory" refid="_9_5_f720368_1110473546628_747903_7747"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ContentHandlerFactory" refid="_9_5_f720368_1110473546628_747903_7747"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

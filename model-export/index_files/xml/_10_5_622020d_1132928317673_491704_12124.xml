@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317673_491704_12124"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParagraphView" refid="_9_5_f720368_1110473546784_837851_10501"/></annotatedElement><body humanName="Body" mode="s,e">View of a simple line-wrapping paragraph that supports
+multiple fonts, colors, components, icons, etc.  It is
+basically a vertical box with a margin around it.  The
+contents of the box are a bunch of rows which are special
+horizontal boxes.  This view creates a collection of
+views that represent the child elements of the paragraph
+element.  Each of these views are placed into a row
+directly if they will fit, otherwise the &lt;code&gt;breakView&lt;/code&gt;
+method is called to try and carve the view into pieces
+that fit.
+
+@author  Timothy Prinzing
+@author  Scott Violet
+@version 1.90 04/16/03
+@see     View
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ParagraphView" refid="_9_5_f720368_1110473546784_837851_10501"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParagraphView" refid="_9_5_f720368_1110473546784_837851_10501"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

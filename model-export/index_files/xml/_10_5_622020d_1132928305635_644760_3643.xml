@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305635_644760_3643"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DragGestureListener" refid="_9_5_f720368_1110473546549_432249_6493"/></annotatedElement><body humanName="Body" mode="s,e">This interface is sourced from a &lt;code&gt;DragGestureRecognizer&lt;/code&gt;
+and is invoked
+when an object of that (sub)class detects a drag initiating
+gesture.
+&lt;p&gt;
+The implementor of this interface is responsible for starting the drag
+as a result of receiving such notification.
+
+@see java.awt.dnd.DragGestureRecognizer
+@see java.awt.dnd.DragGestureEvent
+@see java.awt.dnd.DragSource
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DragGestureListener" refid="_9_5_f720368_1110473546549_432249_6493"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DragGestureListener" refid="_9_5_f720368_1110473546549_432249_6493"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

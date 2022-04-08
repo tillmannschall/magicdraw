@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315610_294494_10110"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Compression" refid="_9_5_f720368_1110473546721_878747_9307"/></annotatedElement><body humanName="Body" mode="s,e">Class Compression is a printing attribute class, an enumeration, that
+specifies how print data is compressed. Compression is an attribute of the
+print data (the doc), not of the Print Job. If a Compression attribute is not
+specified for a doc, the printer assumes the doc's print data is uncompressed
+(i.e., the default Compression value is always {@link #NONE
+&lt;CODE&gt;NONE&lt;/CODE&gt;}).
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; is the IPP attribute name.  The enumeration's
+integer value is the IPP enum value.  The &lt;code&gt;toString()&lt;/code&gt; method
+returns the IPP string representation of the attribute value.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Compression" refid="_9_5_f720368_1110473546721_878747_9307"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Compression" refid="_9_5_f720368_1110473546721_878747_9307"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

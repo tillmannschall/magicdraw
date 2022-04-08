@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314979_749267_9460"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InvalidRoleValueException" refid="_10_5_622020d_1132928314979_677737_9458"/></annotatedElement><body humanName="Body" mode="s,e">Role value is invalid.
+This exception is raised when, in a role, the number of referenced MBeans
+in given value is less than expected minimum degree, or the number of
+referenced MBeans in provided value exceeds expected maximum degree, or
+one referenced MBean in the value is not an Object of the MBean
+class expected for that role, or an MBean provided for that role does not
+exist.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InvalidRoleValueException" refid="_10_5_622020d_1132928314979_677737_9458"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InvalidRoleValueException" refid="_10_5_622020d_1132928314979_677737_9458"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

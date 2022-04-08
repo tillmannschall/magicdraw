@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307118_553501_4610"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InvalidClassException" refid="_9_5_f720368_1110473546596_20244_7421"/></annotatedElement><body humanName="Body" mode="s,e">Thrown when the Serialization runtime detects one of the following
+problems with a Class.
+&lt;UL&gt;
+&lt;LI&gt; The serial version of the class does not match that of the class
+descriptor read from the stream
+&lt;LI&gt; The class contains unknown datatypes
+&lt;LI&gt; The class does not have an accessible no-arg constructor
+&lt;/UL&gt;
+
+@author  unascribed
+@version 1.20, 12/19/03
+@since   JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InvalidClassException" refid="_9_5_f720368_1110473546596_20244_7421"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InvalidClassException" refid="_9_5_f720368_1110473546596_20244_7421"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

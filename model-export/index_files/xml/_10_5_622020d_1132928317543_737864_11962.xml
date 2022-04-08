@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317543_737864_11962"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AttributeContext" refid="_9_5_f720368_1110473548331_536355_23328"/></annotatedElement><body humanName="Body" mode="s,e">An interface that can be used to allow MutableAttributeSet
+implementations to use pluggable attribute compression
+techniques.  Each mutation of the attribute set can be
+used to exchange a previous AttributeSet instance with
+another, preserving the possibility of the AttributeSet
+remaining immutable.  An implementation is provided by
+the StyleContext class.
+
+The Element implementations provided by this class use
+this interface to provide their MutableAttributeSet
+implementations, so that different AttributeSet compression
+techniques can be employed.  The method
+&lt;code&gt;getAttributeContext&lt;/code&gt; should be implemented to
+return the object responsible for implementing the desired
+compression technique.
+
+@see StyleContext
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="AttributeContext" refid="_9_5_f720368_1110473548331_536355_23328"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AttributeContext" refid="_9_5_f720368_1110473548331_536355_23328"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

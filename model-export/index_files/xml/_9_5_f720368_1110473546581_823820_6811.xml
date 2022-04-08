@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_823820_6811"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;MultiPixelPackedSampleModel&lt;/code&gt; class represents
+one-banded images and can pack multiple one-sample
+pixels into one data element.  Pixels are not allowed to span data elements.
+The data type can be DataBuffer.TYPE_BYTE, DataBuffer.TYPE_USHORT,
+or DataBuffer.TYPE_INT.  Each pixel must be a power of 2 number of bits
+and a power of 2 number of pixels must fit exactly in one data element.
+Pixel bit stride is equal to the number of bits per pixel.  Scanline
+stride is in data elements and the last several data elements might be
+padded with unused pixels.  Data bit offset is the offset in bits from
+the beginning of the {@link DataBuffer} to the first pixel and must be
+a multiple of pixel bit stride.
+&lt;p&gt;
+The following code illustrates extracting the bits for pixel
+&lt;code&gt;x,&amp;nbsp;y&lt;/code&gt; from &lt;code&gt;DataBuffer&lt;/code&gt; &lt;code&gt;data&lt;/code&gt;
+and storing the pixel data in data elements of type
+&lt;code&gt;dataType&lt;/code&gt;:
+&lt;pre&gt;
+int dataElementSize = DataBuffer.getDataTypeSize(dataType);
+int bitnum = dataBitOffset + x*pixelBitStride;
+int element = data.getElem(y*scanlineStride + bitnum/dataElementSize);
+int shift = dataElementSize - (bitnum &amp; (dataElementSize-1))
+- pixelBitStride;
+int pixel = (element &gt;&gt; shift) &amp; ((1 &lt;&lt; pixelBitStride) - 1);
+&lt;/pre&gt;
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321248_535357_13087"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">MultiPixelPackedSampleModel</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306086_154680_3976"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321248_535357_13087"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306086_154680_3976"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::image::MultiPixelPackedSampleModel</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SampleModel" refid="_9_5_f720368_1110473546581_614024_6833"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

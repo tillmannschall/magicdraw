@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308149_588632_5150"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StrictMath" refid="_9_5_f720368_1110473546612_67261_7689"/></annotatedElement><body humanName="Body" mode="s,e">The class &lt;code&gt;StrictMath&lt;/code&gt; contains methods for performing basic
+numeric operations such as the elementary exponential, logarithm,
+square root, and trigonometric functions.
+
+&lt;p&gt;To help ensure portability of Java programs, the definitions of
+some of the numeric functions in this package require that they
+produce the same results as certain published algorithms. These
+algorithms are available from the well-known network library
+&lt;code&gt;netlib&lt;/code&gt; as the package "Freely Distributable Math
+Library," &lt;a
+href="ftp://ftp.netlib.org/fdlibm.tar"&gt;&lt;code&gt;fdlibm&lt;/code&gt;&lt;/a&gt;. These
+algorithms, which are written in the C programming language, are
+then to be understood as executed with all floating-point
+operations following the rules of Java floating-point arithmetic.
+
+&lt;p&gt;The Java math library is defined with respect to
+&lt;code&gt;fdlibm&lt;/code&gt; version 5.3. Where &lt;code&gt;fdlibm&lt;/code&gt; provides
+more than one definition for a function (such as
+&lt;code&gt;acos&lt;/code&gt;), use the "IEEE 754 core function" version
+(residing in a file whose name begins with the letter
+&lt;code&gt;e&lt;/code&gt;).  The methods which require &lt;code&gt;fdlibm&lt;/code&gt;
+semantics are &lt;code&gt;sin&lt;/code&gt;, &lt;code&gt;cos&lt;/code&gt;, &lt;code&gt;tan&lt;/code&gt;,
+&lt;code&gt;asin&lt;/code&gt;, &lt;code&gt;acos&lt;/code&gt;, &lt;code&gt;atan&lt;/code&gt;,
+&lt;code&gt;exp&lt;/code&gt;, &lt;code&gt;log&lt;/code&gt;, &lt;code&gt;log10&lt;/code&gt;,
+&lt;code&gt;cbrt&lt;/code&gt;, &lt;code&gt;atan2&lt;/code&gt;, &lt;code&gt;pow&lt;/code&gt;,
+&lt;code&gt;sinh&lt;/code&gt;, &lt;code&gt;cosh&lt;/code&gt;, &lt;code&gt;tanh&lt;/code&gt;,
+&lt;code&gt;hypot&lt;/code&gt;, &lt;code&gt;expm1&lt;/code&gt;, and &lt;code&gt;log1p&lt;/code&gt;.
+
+@author  unascribed
+@author  Joseph D. Darcy
+@version 1.26, 06/14/04
+@since   1.3
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StrictMath" refid="_9_5_f720368_1110473546612_67261_7689"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StrictMath" refid="_9_5_f720368_1110473546612_67261_7689"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

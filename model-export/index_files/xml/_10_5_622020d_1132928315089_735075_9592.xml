@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315089_735075_9592"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="JMXConnectorServerProvider" refid="_10_5_622020d_1132928315089_916555_9590"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;A provider for creating JMX API connector servers using a given
+protocol.  Instances of this interface are created by {@link
+JMXConnectorServerFactory} as part of its {@link
+JMXConnectorServerFactory#newJMXConnectorServer(JMXServiceURL,Map,MBeanServer)
+newJMXConnectorServer} method.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="JMXConnectorServerProvider" refid="_10_5_622020d_1132928315089_916555_9590"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="JMXConnectorServerProvider" refid="_10_5_622020d_1132928315089_916555_9590"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

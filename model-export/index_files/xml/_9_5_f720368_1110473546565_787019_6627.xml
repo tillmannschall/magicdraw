@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546565_787019_6627"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;GlyphMetrics&lt;/code&gt; class represents infomation for a
+single glyph.   A glyph is the visual representation of one or more
+characters.  Many different glyphs can be used to represent a single
+character or combination of characters.  &lt;code&gt;GlyphMetrics&lt;/code&gt;
+instances are produced by {@link java.awt.Font Font} and are applicable
+to a specific glyph in a particular &lt;code&gt;Font&lt;/code&gt;.
+&lt;p&gt;
+Glyphs are either STANDARD, LIGATURE, COMBINING, or COMPONENT.
+&lt;ul&gt;
+&lt;li&gt;STANDARD glyphs are commonly used to represent single characters.
+&lt;li&gt;LIGATURE glyphs are used to represent sequences of characters.
+&lt;li&gt;COMPONENT glyphs in a {@link GlyphVector} do not correspond to a
+particular character in a text model. Instead, COMPONENT glyphs are
+added for typographical reasons, such as Arabic justification.
+&lt;li&gt;COMBINING glyphs embellish STANDARD or LIGATURE glyphs, such
+as accent marks.  Carets do not appear before COMBINING glyphs.
+&lt;/ul&gt;
+&lt;p&gt;
+Other metrics available through &lt;code&gt;GlyphMetrics&lt;/code&gt; are the
+components of the advance, the visual bounds, and the left and right
+side bearings.
+&lt;p&gt;
+Glyphs for a rotated font, or obtained from a &lt;code&gt;GlyphVector&lt;/code&gt;
+which has applied a rotation to the glyph, can have advances that
+contain both X and Y components.  Usually the advance only has one
+component.
+&lt;p&gt;
+The advance of a glyph is the distance from the glyph's origin to the
+origin of the next glyph along the baseline, which is either vertical
+or horizontal.  Note that, in a &lt;code&gt;GlyphVector&lt;/code&gt;,
+the distance from a glyph to its following glyph might not be the
+glyph's advance, because of kerning or other positioning adjustments.
+&lt;p&gt;
+The bounds is the smallest rectangle that completely contains the
+outline of the glyph.  The bounds rectangle is relative to the
+glyph's origin.  The left-side bearing is the distance from the glyph
+origin to the left of its bounds rectangle. If the left-side bearing is
+negative, part of the glyph is drawn to the left of its origin.  The
+right-side bearing is the distance from the right side of the bounds
+rectangle to the next glyph origin (the origin plus the advance).  If
+negative, part of the glyph is drawn to the right of the next glyph's
+origin.  Note that the bounds does not necessarily enclose all the pixels
+affected when rendering the glyph, because of rasterization and pixel
+adjustment effects.
+&lt;p&gt;
+Although instances of &lt;code&gt;GlyphMetrics&lt;/code&gt; can be directly
+constructed, they are almost always obtained from a
+&lt;code&gt;GlyphVector&lt;/code&gt;.  Once constructed, &lt;code&gt;GlyphMetrics&lt;/code&gt;
+objects are immutable.
+&lt;p&gt;
+&lt;strong&gt;Example&lt;/strong&gt;:&lt;p&gt;
+Querying a &lt;code&gt;Font&lt;/code&gt; for glyph information
+&lt;blockquote&gt;&lt;pre&gt;
+Font font = ...;
+int glyphIndex = ...;
+GlyphMetrics metrics = GlyphVector.getGlyphMetrics(glyphIndex);
+int isStandard = metrics.isStandard();
+float glyphAdvance = metrics.getAdvance();
+&lt;/pre&gt;&lt;/blockquote&gt;
+@see java.awt.Font
+@see GlyphVector
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">GlyphMetrics</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305816_92041_3777"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305816_92041_3777"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::font::GlyphMetrics</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

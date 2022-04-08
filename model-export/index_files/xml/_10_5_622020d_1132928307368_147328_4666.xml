@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307368_147328_4666"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OutputStreamWriter" refid="_9_5_f720368_1110473546612_957082_7457"/></annotatedElement><body humanName="Body" mode="s,e">An OutputStreamWriter is a bridge from character streams to byte streams:
+Characters written to it are encoded into bytes using a specified {@link
+java.nio.charset.Charset &lt;code&gt;charset&lt;/code&gt;}.  The charset that it uses
+may be specified by name or may be given explicitly, or the platform's
+default charset may be accepted.
+
+&lt;p&gt; Each invocation of a write() method causes the encoding converter to be
+invoked on the given character(s).  The resulting bytes are accumulated in a
+buffer before being written to the underlying output stream.  The size of
+this buffer may be specified, but by default it is large enough for most
+purposes.  Note that the characters passed to the write() methods are not
+buffered.
+
+&lt;p&gt; For top efficiency, consider wrapping an OutputStreamWriter within a
+BufferedWriter so as to avoid frequent converter invocations.  For example:
+
+&lt;pre&gt;
+Writer out
+= new BufferedWriter(new OutputStreamWriter(System.out));
+&lt;/pre&gt;
+
+&lt;p&gt; A &lt;i&gt;surrogate pair&lt;/i&gt; is a character represented by a sequence of two
+&lt;tt&gt;char&lt;/tt&gt; values: A &lt;i&gt;high&lt;/i&gt; surrogate in the range '&amp;#92;uD800' to
+'&amp;#92;uDBFF' followed by a &lt;i&gt;low&lt;/i&gt; surrogate in the range '&amp;#92;uDC00' to
+'&amp;#92;uDFFF'.  If the character represented by a surrogate pair cannot be
+encoded by a given charset then a charset-dependent &lt;i&gt;substitution
+sequence&lt;/i&gt; is written to the output stream.
+
+&lt;p&gt; A &lt;i&gt;malformed surrogate element&lt;/i&gt; is a high surrogate that is not
+followed by a low surrogate or a low surrogate that is not preceded by a
+high surrogate.  It is illegal to attempt to write a character stream
+containing malformed surrogate elements.  The behavior of an instance of
+this class when a malformed surrogate element is written is not specified.
+
+@see BufferedWriter
+@see OutputStream
+@see java.nio.charset.Charset
+
+@version 	1.47, 04/01/12
+@author	Mark Reinhold
+@since	JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="OutputStreamWriter" refid="_9_5_f720368_1110473546612_957082_7457"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OutputStreamWriter" refid="_9_5_f720368_1110473546612_957082_7457"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

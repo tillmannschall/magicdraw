@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315109_406289_9632"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TimerMBean" refid="_10_5_622020d_1132928315099_517227_9630"/></annotatedElement><body humanName="Body" mode="s,e">Exposes the management interface of the timer MBean.
+
+@version     4.25     02/10/04
+@author      Sun Microsystems, Inc
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="TimerMBean" refid="_10_5_622020d_1132928315099_517227_9630"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TimerMBean" refid="_10_5_622020d_1132928315099_517227_9630"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

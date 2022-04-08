@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317082_40827_10953"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicComboBoxEditor" refid="_9_5_f720368_1110473546753_32111_9941"/></annotatedElement><body humanName="Body" mode="s,e">The default editor for editable combo boxes. The editor is implemented as a JTextField.
+
+@version 1.26 12/19/03
+@author Arnaud Weber
+@author Mark Davidson
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BasicComboBoxEditor" refid="_9_5_f720368_1110473546753_32111_9941"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicComboBoxEditor" refid="_9_5_f720368_1110473546753_32111_9941"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

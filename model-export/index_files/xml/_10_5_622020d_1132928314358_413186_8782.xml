@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314358_413186_8782"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="HTMLCollection" refid="_9_5_f720368_1110473546940_240157_13098"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;HTMLCollection&lt;/code&gt; is a list of nodes. An individual node may
+be accessed by either ordinal index or the node's&lt;code&gt;name&lt;/code&gt; or
+&lt;code&gt;id&lt;/code&gt; attributes.  Note: Collections in the HTML DOM are assumed
+to be  live meaning that they are automatically updated when the
+underlying document is changed.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510'&gt;Document Object Model (DOM) Level 2 Specification&lt;/a&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="HTMLCollection" refid="_9_5_f720368_1110473546940_240157_13098"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="HTMLCollection" refid="_9_5_f720368_1110473546940_240157_13098"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

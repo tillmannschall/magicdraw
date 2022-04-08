@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317412_339857_11761"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TableColumn" refid="_9_5_f720368_1110473546768_843331_10295"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;TableColumn&lt;/code&gt; represents all the attributes of a column in a
+&lt;code&gt;JTable&lt;/code&gt;, such as width, resizibility, minimum and maximum width.
+In addition, the &lt;code&gt;TableColumn&lt;/code&gt; provides slots for a renderer and
+an editor that can be used to display and edit the values in this column.
+&lt;p&gt;
+It is also possible to specify renderers and editors on a per type basis
+rather than a per column basis - see the
+&lt;code&gt;setDefaultRenderer&lt;/code&gt; method in the &lt;code&gt;JTable&lt;/code&gt; class.
+This default mechanism is only used when the renderer (or
+editor) in the &lt;code&gt;TableColumn&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt;.
+&lt;p&gt;
+The &lt;code&gt;TableColumn&lt;/code&gt; stores the link between the columns in the
+&lt;code&gt;JTable&lt;/code&gt; and the columns in the &lt;code&gt;TableModel&lt;/code&gt;.
+The &lt;code&gt;modelIndex&lt;/code&gt; is the column in the
+&lt;code&gt;TableModel&lt;/code&gt;, which will be queried for the data values for the
+cells in this column. As the column moves around in the view this
+&lt;code&gt;modelIndex&lt;/code&gt; does not change.
+&lt;p&gt;
+&lt;b&gt;Note:&lt;/b&gt; Some implementations may assume that all
+&lt;code&gt;TableColumnModel&lt;/code&gt;s are unique, therefore we would
+recommend that the same &lt;code&gt;TableColumn&lt;/code&gt; instance
+not be added more than once to a &lt;code&gt;TableColumnModel&lt;/code&gt;.
+To show &lt;code&gt;TableColumn&lt;/code&gt;s with the same column of
+data from the model, create a new instance with the same
+&lt;code&gt;modelIndex&lt;/code&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.60 05/18/04
+@author Alan Chung
+@author Philip Milne
+@see javax.swing.table.TableColumnModel
+
+@see javax.swing.table.DefaultTableColumnModel
+@see javax.swing.table.JTableHeader#getDefaultRenderer()
+@see JTable#getDefaultRenderer(Class)
+@see JTable#getDefaultEditor(Class)
+@see JTable#getCellRenderer(int, int)
+@see JTable#getCellEditor(int, int)
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="TableColumn" refid="_9_5_f720368_1110473546768_843331_10295"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TableColumn" refid="_9_5_f720368_1110473546768_843331_10295"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

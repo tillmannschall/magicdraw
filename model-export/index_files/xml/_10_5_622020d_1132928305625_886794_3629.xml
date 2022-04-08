@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305625_886794_3629"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DragSourceContextPeer" refid="_9_5_f720368_1110473546549_460916_6479"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;
+This interface is supplied by the underlying window system platform to
+expose the behaviors of the Drag and Drop system to an originator of
+the same
+&lt;/p&gt;
+
+@version 	1.15, 12/19/03
+@since 1.2
+
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DragSourceContextPeer" refid="_9_5_f720368_1110473546549_460916_6479"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DragSourceContextPeer" refid="_9_5_f720368_1110473546549_460916_6479"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

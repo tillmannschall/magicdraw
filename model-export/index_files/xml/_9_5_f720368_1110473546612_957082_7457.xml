@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546612_957082_7457"><documentation humanName="Documentation" mode="standard">An OutputStreamWriter is a bridge from character streams to byte streams:
+Characters written to it are encoded into bytes using a specified {@link
+java.nio.charset.Charset &lt;code&gt;charset&lt;/code&gt;}.  The charset that it uses
+may be specified by name or may be given explicitly, or the platform's
+default charset may be accepted.
+
+&lt;p&gt; Each invocation of a write() method causes the encoding converter to be
+invoked on the given character(s).  The resulting bytes are accumulated in a
+buffer before being written to the underlying output stream.  The size of
+this buffer may be specified, but by default it is large enough for most
+purposes.  Note that the characters passed to the write() methods are not
+buffered.
+
+&lt;p&gt; For top efficiency, consider wrapping an OutputStreamWriter within a
+BufferedWriter so as to avoid frequent converter invocations.  For example:
+
+&lt;pre&gt;
+Writer out
+= new BufferedWriter(new OutputStreamWriter(System.out));
+&lt;/pre&gt;
+
+&lt;p&gt; A &lt;i&gt;surrogate pair&lt;/i&gt; is a character represented by a sequence of two
+&lt;tt&gt;char&lt;/tt&gt; values: A &lt;i&gt;high&lt;/i&gt; surrogate in the range '&amp;#92;uD800' to
+'&amp;#92;uDBFF' followed by a &lt;i&gt;low&lt;/i&gt; surrogate in the range '&amp;#92;uDC00' to
+'&amp;#92;uDFFF'.  If the character represented by a surrogate pair cannot be
+encoded by a given charset then a charset-dependent &lt;i&gt;substitution
+sequence&lt;/i&gt; is written to the output stream.
+
+&lt;p&gt; A &lt;i&gt;malformed surrogate element&lt;/i&gt; is a high surrogate that is not
+followed by a low surrogate or a low surrogate that is not preceded by a
+high surrogate.  It is illegal to attempt to write a character stream
+containing malformed surrogate elements.  The behavior of an instance of
+this class when a malformed surrogate element is written is not specified.
+
+@see BufferedWriter
+@see OutputStream
+@see java.nio.charset.Charset
+
+@version 	1.47, 04/01/12
+@author	Mark Reinhold
+@since	JDK1.1
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321588_868500_13539"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">OutputStreamWriter</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307368_147328_4666"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321588_868500_13539"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307368_147328_4666"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::io::OutputStreamWriter</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Writer" refid="_9_5_f720368_1110473546612_916981_7507"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

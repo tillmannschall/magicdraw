@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314408_579074_8892"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="LSOutput" refid="_10_5_622020d_1132928314408_900179_8890"/></annotatedElement><body humanName="Body" mode="s,e">This interface represents an output destination for data.
+&lt;p&gt; This interface allows an application to encapsulate information about
+an output destination in a single object, which may include a URI, a byte
+stream (possibly with a specified encoding), a base URI, and/or a
+character stream.
+&lt;p&gt; The exact definitions of a byte stream and a character stream are
+binding dependent.
+&lt;p&gt; The application is expected to provide objects that implement this
+interface whenever such objects are needed. The application can either
+provide its own objects that implement this interface, or it can use the
+generic factory method &lt;code&gt;DOMImplementationLS.createLSOutput()&lt;/code&gt;
+to create objects that implement this interface.
+&lt;p&gt; The &lt;code&gt;LSSerializer&lt;/code&gt; will use the &lt;code&gt;LSOutput&lt;/code&gt; object
+to determine where to serialize the output to. The
+&lt;code&gt;LSSerializer&lt;/code&gt; will look at the different outputs specified in
+the &lt;code&gt;LSOutput&lt;/code&gt; in the following order to know which one to
+output to, the first one that is not null and not an empty string will be
+used:
+&lt;ol&gt;
+&lt;li&gt; &lt;code&gt;LSOutput.characterStream&lt;/code&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;LSOutput.byteStream&lt;/code&gt;
+&lt;/li&gt;
+&lt;li&gt; &lt;code&gt;LSOutput.systemId&lt;/code&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt; &lt;code&gt;LSOutput&lt;/code&gt; objects belong to the application. The DOM
+implementation will never modify them (though it may make copies and
+modify the copies, if necessary).
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-LS-20040407'&gt;Document Object Model (DOM) Level 3 Load
+and Save Specification&lt;/a&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="LSOutput" refid="_10_5_622020d_1132928314408_900179_8890"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="LSOutput" refid="_10_5_622020d_1132928314408_900179_8890"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

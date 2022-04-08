@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315149_535540_9744"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MBeanInfo" refid="_10_5_622020d_1132928315149_376314_9741"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Describes the management interface exposed by an MBean; that is,
+the set of attributes and operations which are available for
+management operations.  Instances of this class are immutable.
+Subclasses may be mutable but this is not recommended.&lt;/p&gt;
+
+&lt;p&gt;The contents of the &lt;code&gt;MBeanInfo&lt;/code&gt; for a Dynamic MBean
+are determined by its {@link DynamicMBean#getMBeanInfo
+getMBeanInfo()} method.  This includes Open MBeans and Model
+MBeans, which are kinds of Dynamic MBeans.&lt;/p&gt;
+
+&lt;p&gt;The contents of the &lt;code&gt;MBeanInfo&lt;/code&gt; for a Standard MBean
+are determined by the MBean server as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;{@link #getClassName()} returns the Java class name of the MBean
+object;
+
+&lt;li&gt;{@link #getConstructors()} returns the list of all public
+constructors in that object;
+
+&lt;li&gt;{@link #getAttributes()} returns the list of all attributes
+whose existence is deduced from the presence in the MBean interface
+of a &lt;code&gt;get&lt;i&gt;Name&lt;/i&gt;&lt;/code&gt;, &lt;code&gt;is&lt;i&gt;Name&lt;/i&gt;&lt;/code&gt;, or
+&lt;code&gt;set&lt;i&gt;Name&lt;/i&gt;&lt;/code&gt; method that conforms to the conventions
+for Standard MBeans;
+
+&lt;li&gt;{@link #getOperations()} returns the list of all methods in
+the MBean interface that do not represent attributes;
+
+&lt;li&gt;{@link #getNotifications()} returns an empty array if the MBean
+does not implement the {@link NotificationBroadcaster} interface,
+otherwise the result of calling {@link
+NotificationBroadcaster#getNotificationInfo()} on it.
+
+&lt;/ul&gt;
+
+&lt;p&gt;The remaining details of the &lt;code&gt;MBeanInfo&lt;/code&gt; for a
+Standard MBean are not specified.  This includes the description of
+the &lt;code&gt;MBeanInfo&lt;/code&gt; and of any contained constructors,
+attributes, operations, and notifications; and the names and
+descriptions of parameters to constructors and operations.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MBeanInfo" refid="_10_5_622020d_1132928315149_376314_9741"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MBeanInfo" refid="_10_5_622020d_1132928315149_376314_9741"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

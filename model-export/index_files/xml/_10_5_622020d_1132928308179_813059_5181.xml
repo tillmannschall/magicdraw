@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308179_813059_5181"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ThreadDeath" refid="_9_5_f720368_1110473546612_429426_7705"/></annotatedElement><body humanName="Body" mode="s,e">An instance of &lt;code&gt;ThreadDeath&lt;/code&gt; is thrown in the victim
+thread when the &lt;code&gt;stop&lt;/code&gt; method with zero arguments in
+class &lt;code&gt;Thread&lt;/code&gt; is called.
+&lt;p&gt;
+An application should catch instances of this class only if it
+must clean up after being terminated asynchronously. If
+&lt;code&gt;ThreadDeath&lt;/code&gt; is caught by a method, it is important
+that it be rethrown so that the thread actually dies.
+&lt;p&gt;
+The top-level error handler does not print out a message if
+&lt;code&gt;ThreadDeath&lt;/code&gt; is never caught.
+&lt;p&gt;
+The class &lt;code&gt;ThreadDeath&lt;/code&gt; is specifically a subclass of
+&lt;code&gt;Error&lt;/code&gt; rather than &lt;code&gt;Exception&lt;/code&gt;, even though
+it is a "normal occurrence", because many applications
+catch all occurrences of &lt;code&gt;Exception&lt;/code&gt; and then discard
+the exception.
+
+@author unascribed
+@version 1.15, 12/19/03
+@see     java.lang.Thread#stop()
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ThreadDeath" refid="_9_5_f720368_1110473546612_429426_7705"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ThreadDeath" refid="_9_5_f720368_1110473546612_429426_7705"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

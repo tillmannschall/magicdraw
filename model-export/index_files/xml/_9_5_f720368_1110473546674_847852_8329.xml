@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546674_847852_8329"><documentation humanName="Documentation" mode="standard">Parameters used as input for the PKIX &lt;code&gt;CertPathBuilder&lt;/code&gt;
+algorithm.
+&lt;p&gt;
+A PKIX &lt;code&gt;CertPathBuilder&lt;/code&gt; uses these parameters to {@link
+CertPathBuilder#build build} a &lt;code&gt;CertPath&lt;/code&gt; which has been
+validated according to the PKIX certification path validation algorithm.
+
+&lt;p&gt;To instantiate a &lt;code&gt;PKIXBuilderParameters&lt;/code&gt; object, an
+application must specify one or more &lt;i&gt;most-trusted CAs&lt;/i&gt; as defined by
+the PKIX certification path validation algorithm. The most-trusted CA
+can be specified using one of two constructors. An application
+can call {@link #PKIXBuilderParameters(Set, CertSelector)
+PKIXBuilderParameters(Set, CertSelector)}, specifying a
+&lt;code&gt;Set&lt;/code&gt; of &lt;code&gt;TrustAnchor&lt;/code&gt; objects, each of which
+identifies a most-trusted CA. Alternatively, an application can call
+{@link #PKIXBuilderParameters(KeyStore, CertSelector)
+PKIXBuilderParameters(KeyStore, CertSelector)}, specifying a
+&lt;code&gt;KeyStore&lt;/code&gt; instance containing trusted certificate entries, each
+of which will be considered as a most-trusted CA.
+
+&lt;p&gt;In addition, an application must specify constraints on the target
+certificate that the &lt;code&gt;CertPathBuilder&lt;/code&gt; will attempt
+to build a path to. The constraints are specified as a
+&lt;code&gt;CertSelector&lt;/code&gt; object. These constraints should provide the
+&lt;code&gt;CertPathBuilder&lt;/code&gt; with enough search criteria to find the target
+certificate. Minimal criteria for an &lt;code&gt;X509Certificate&lt;/code&gt; usually
+include the subject name and/or one or more subject alternative names.
+If enough criteria is not specified, the &lt;code&gt;CertPathBuilder&lt;/code&gt;
+may throw a &lt;code&gt;CertPathBuilderException&lt;/code&gt;.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Unless otherwise specified, the methods defined in this class are not
+thread-safe. Multiple threads that need to access a single
+object concurrently should synchronize amongst themselves and
+provide the necessary locking. Multiple threads each manipulating
+separate objects need not synchronize.
+
+@see CertPathBuilder
+
+@version 	1.15 12/19/03
+@since 	1.4
+@author	Sean Mullan
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321859_420227_14128"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">PKIXBuilderParameters</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309130_88169_5833"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321859_420227_14128"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309130_88169_5833"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::cert::PKIXBuilderParameters</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PKIXParameters" refid="_9_5_f720368_1110473546674_725105_8337"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

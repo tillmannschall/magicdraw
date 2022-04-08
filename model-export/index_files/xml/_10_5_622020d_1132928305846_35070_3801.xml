@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305846_35070_3801"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TextHitInfo" refid="_9_5_f720368_1110473546565_607457_6651"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;TextHitInfo&lt;/code&gt; class represents a character position in a
+text model, and a &lt;b&gt;bias&lt;/b&gt;, or "side," of the character.  Biases are
+either &lt;EM&gt;leading&lt;/EM&gt; (the left edge, for a left-to-right character)
+or &lt;EM&gt;trailing&lt;/EM&gt; (the right edge, for a left-to-right character).
+Instances of &lt;code&gt;TextHitInfo&lt;/code&gt; are used to specify caret and
+insertion positions within text.
+&lt;p&gt;
+For example, consider the text "abc".  TextHitInfo.trailing(1)
+corresponds to the right side of the 'b' in the text.
+&lt;p&gt;
+&lt;code&gt;TextHitInfo&lt;/code&gt; is used primarily by {@link TextLayout} and
+clients of &lt;code&gt;TextLayout&lt;/code&gt;.  Clients of &lt;code&gt;TextLayout&lt;/code&gt;
+query &lt;code&gt;TextHitInfo&lt;/code&gt; instances for an insertion offset, where
+new text is inserted into the text model.  The insertion offset is equal
+to the character position in the &lt;code&gt;TextHitInfo&lt;/code&gt; if the bias
+is leading, and one character after if the bias is trailing.  The
+insertion offset for TextHitInfo.trailing(1) is 2.
+&lt;p&gt;
+Sometimes it is convenient to construct a &lt;code&gt;TextHitInfo&lt;/code&gt; with
+the same insertion offset as an existing one, but on the opposite
+character.  The &lt;code&gt;getOtherHit&lt;/code&gt; method constructs a new
+&lt;code&gt;TextHitInfo&lt;/code&gt; with the same insertion offset as an existing
+one, with a hit on the character on the other side of the insertion offset.
+Calling &lt;code&gt;getOtherHit&lt;/code&gt; on trailing(1) would return leading(2).
+In general, &lt;code&gt;getOtherHit&lt;/code&gt; for trailing(n) returns
+leading(n+1) and &lt;code&gt;getOtherHit&lt;/code&gt; for leading(n)
+returns trailing(n-1).
+&lt;p&gt;
+&lt;strong&gt;Example&lt;/strong&gt;:&lt;p&gt;
+Converting a graphical point to an insertion point within a text
+model
+&lt;blockquote&gt;&lt;pre&gt;
+TextLayout layout = ...;
+Point2D.Float hitPoint = ...;
+TextHitInfo hitInfo = layout.hitTestChar(hitPoint.x, hitPoint.y);
+int insPoint = hitInfo.getInsertionIndex();
+insPoint is relative to layout;  may need to adjust for use
+in a text model
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+@see TextLayout
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="TextHitInfo" refid="_9_5_f720368_1110473546565_607457_6651"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TextHitInfo" refid="_9_5_f720368_1110473546565_607457_6651"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314809_179450_9199"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ImageReaderSpi" refid="_9_5_f720368_1110473546706_974260_9045"/></annotatedElement><body humanName="Body" mode="s,e">The service provider interface (SPI) for &lt;code&gt;ImageReader&lt;/code&gt;s.
+For more information on service provider classes, see the class comment
+for the &lt;code&gt;IIORegistry&lt;/code&gt; class.
+
+&lt;p&gt; Each &lt;code&gt;ImageReaderSpi&lt;/code&gt; provides several types of information
+about the &lt;code&gt;ImageReader&lt;/code&gt; class with which it is associated.
+
+&lt;p&gt; The name of the vendor who defined the SPI class and a
+brief description of the class are available via the
+&lt;code&gt;getVendorName&lt;/code&gt;, &lt;code&gt;getDescription&lt;/code&gt;,
+and &lt;code&gt;getVersion&lt;/code&gt; methods.
+These methods may be internationalized to provide locale-specific
+output.  These methods are intended mainly to provide short,
+human-readable information that might be used to organize a pop-up
+menu or other list.
+
+&lt;p&gt; Lists of format names, file suffixes, and MIME types associated
+with the service may be obtained by means of the
+&lt;code&gt;getFormatNames&lt;/code&gt;, &lt;code&gt;getFileSuffixes&lt;/code&gt;, and
+&lt;code&gt;getMIMETypes&lt;/code&gt; methods.  These methods may be used to
+identify candidate &lt;code&gt;ImageReader&lt;/code&gt;s for decoding a
+particular file or stream based on manual format selection, file
+naming, or MIME associations (for example, when accessing a file
+over HTTP or as an email attachment).
+
+&lt;p&gt; A more reliable way to determine which &lt;code&gt;ImageReader&lt;/code&gt;s
+are likely to be able to parse a particular data stream is provided
+by the &lt;code&gt;canDecodeInput&lt;/code&gt; method.  This methods allows the
+service provider to inspect the actual stream contents.
+
+&lt;p&gt; Finally, an instance of the &lt;code&gt;ImageReader&lt;/code&gt; class
+associated with this service provider may be obtained by calling
+the &lt;code&gt;createReaderInstance&lt;/code&gt; method.  Any heavyweight
+initialization, such as the loading of native libraries or creation
+of large tables, should be deferred at least until the first
+invocation of this method.
+
+@see IIORegistry
+@see javax.imageio.ImageReader
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ImageReaderSpi" refid="_9_5_f720368_1110473546706_974260_9045"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ImageReaderSpi" refid="_9_5_f720368_1110473546706_974260_9045"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

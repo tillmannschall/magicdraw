@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309100_634218_5793"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertPathBuilder" refid="_9_5_f720368_1110473546674_28760_8289"/></annotatedElement><body humanName="Body" mode="s,e">A class for building certification paths (also known as certificate chains).
+&lt;p&gt;
+This class uses a provider-based architecture, as described in the Java
+Cryptography Architecture. To create a &lt;code&gt;CertPathBuilder&lt;/code&gt;, call
+one of the static &lt;code&gt;getInstance&lt;/code&gt; methods, passing in the
+algorithm name of the &lt;code&gt;CertPathBuilder&lt;/code&gt; desired and optionally
+the name of the provider desired.
+&lt;p&gt;
+Once a &lt;code&gt;CertPathBuilder&lt;/code&gt; object has been created, certification
+paths can be constructed by calling the {@link #build build} method and
+passing it an algorithm-specific set of parameters. If successful, the
+result (including the &lt;code&gt;CertPath&lt;/code&gt; that was built) is returned
+in an object that implements the &lt;code&gt;CertPathBuilderResult&lt;/code&gt;
+interface.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+The static methods of this class are guaranteed to be thread-safe.
+Multiple threads may concurrently invoke the static methods defined in
+this class with no ill effects.
+&lt;p&gt;
+However, this is not true for the non-static methods defined by this class.
+Unless otherwise documented by a specific provider, threads that need to
+access a single &lt;code&gt;CertPathBuilder&lt;/code&gt; instance concurrently should
+synchronize amongst themselves and provide the necessary locking. Multiple
+threads each manipulating a different &lt;code&gt;CertPathBuilder&lt;/code&gt; instance
+need not synchronize.
+
+@see CertPath
+
+@version 	1.9 06/28/04
+@since	1.4
+@author	Sean Mullan
+@author	Yassir Elley
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CertPathBuilder" refid="_9_5_f720368_1110473546674_28760_8289"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertPathBuilder" refid="_9_5_f720368_1110473546674_28760_8289"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

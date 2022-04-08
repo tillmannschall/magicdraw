@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_3616_6983"><documentation humanName="Documentation" mode="standard">A FocusTraversalPolicy that determines traversal order based on the order
+of child Components in a Container. From a particular focus cycle root, the
+policy makes a pre-order traversal of the Component hierarchy, and traverses
+a Container's children according to the ordering of the array returned by
+&lt;code&gt;Container.getComponents()&lt;/code&gt;. Portions of the hierarchy that are
+not visible and displayable will not be searched.
+&lt;p&gt;
+If client code has explicitly set the focusability of a Component by either
+overriding &lt;code&gt;Component.isFocusTraversable()&lt;/code&gt; or
+&lt;code&gt;Component.isFocusable()&lt;/code&gt;, or by calling
+&lt;code&gt;Component.setFocusable()&lt;/code&gt;, then a DefaultFocusTraversalPolicy
+behaves exactly like a ContainerOrderFocusTraversalPolicy. If, however, the
+Component is relying on default focusability, then a
+DefaultFocusTraversalPolicy will reject all Components with non-focusable
+peers. This is the default FocusTraversalPolicy for all AWT Containers.
+&lt;p&gt;
+The focusability of a peer is implementation-dependent. Sun recommends that
+all implementations for a particular native platform construct peers with
+the same focusability. The recommendations for Windows and Unix are that
+Canvases, Labels, Panels, Scrollbars, ScrollPanes, Windows, and lightweight
+Components have non-focusable peers, and all other Components have focusable
+peers. These recommendations are used in the Sun AWT implementations. Note
+that the focusability of a Component's peer is different from, and does not
+impact, the focusability of the Component itself.
+&lt;p&gt;
+Please see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/focus.html"&gt;
+How to Use the Focus Subsystem&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;, and the
+&lt;a href="../../java/awt/doc-files/FocusSpec.html"&gt;Focus Specification&lt;/a&gt;
+for more information.
+
+@author David Mendenhall
+@version 1.5, 12/19/03
+
+@see Container#getComponents
+@see Component#isFocusable
+@see Component#setFocusable
+@since 1.4
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321358_90340_13218"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">DefaultFocusTraversalPolicy</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306397_310095_4172"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321358_90340_13218"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306397_310095_4172"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::DefaultFocusTraversalPolicy</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ContainerOrderFocusTraversalPolicy" refid="_9_5_f720368_1110473546581_886528_6979"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

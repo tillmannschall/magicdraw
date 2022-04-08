@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315730_811715_10211"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterIsAcceptingJobs" refid="_9_5_f720368_1110473546721_926892_9403"/></annotatedElement><body humanName="Body" mode="s,e">Class PrinterIsAcceptingJobs is a printing attribute class, an enumeration,
+that indicates whether the printer is currently able to accept jobs. This
+value is independent of the {@link PrinterState PrinterState} and {@link
+PrinterStateReasons PrinterStateReasons} attributes because its value does
+not affect the current job; rather it affects future jobs. If the value is
+NOT_ACCEPTING_JOBS, the printer will reject jobs even when the {@link
+PrinterState PrinterState} is IDLE. If value is ACCEPTING_JOBS, the Printer
+will accept jobs even when the {@link PrinterState PrinterState} is STOPPED.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The IPP boolean value is "true" for ACCEPTING_JOBS
+and "false" for NOT_ACCEPTING_JOBS. TThe category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; is the IPP attribute name.  The enumeration's
+integer value is the IPP enum value.  The &lt;code&gt;toString()&lt;/code&gt; method
+returns the IPP string representation of the attribute value.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PrinterIsAcceptingJobs" refid="_9_5_f720368_1110473546721_926892_9403"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterIsAcceptingJobs" refid="_9_5_f720368_1110473546721_926892_9403"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

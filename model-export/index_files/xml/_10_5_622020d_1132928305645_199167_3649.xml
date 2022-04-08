@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305645_199167_3649"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DragSourceAdapter" refid="_9_5_f720368_1110473546549_410857_6499"/></annotatedElement><body humanName="Body" mode="s,e">An abstract adapter class for receiving drag source events. The methods in
+this class are empty. This class exists only as a convenience for creating
+listener objects.
+&lt;p&gt;
+Extend this class to create a &lt;code&gt;DragSourceEvent&lt;/code&gt; listener
+and override the methods for the events of interest. (If you implement the
+&lt;code&gt;DragSourceListener&lt;/code&gt; interface, you have to define all of
+the methods in it. This abstract class defines null methods for them
+all, so you only have to define methods for events you care about.)
+&lt;p&gt;
+Create a listener object using the extended class and then register it with
+a &lt;code&gt;DragSource&lt;/code&gt;. When the drag enters, moves over, or exits
+a drop site, when the drop action changes, and when the drag ends, the
+relevant method in the listener object is invoked, and the
+&lt;code&gt;DragSourceEvent&lt;/code&gt; is passed to it.
+&lt;p&gt;
+The drop site is &lt;i&gt;associated with the previous &lt;code&gt;dragEnter()&lt;/code&gt;
+invocation&lt;/i&gt; if the latest invocation of &lt;code&gt;dragEnter()&lt;/code&gt; on this
+adapter corresponds to that drop site and is not followed by a
+&lt;code&gt;dragExit()&lt;/code&gt; invocation on this adapter.
+
+@see DragSourceEvent
+@see DragSourceListener
+@see DragSourceMotionListener
+
+@author David Mendenhall
+@version 1.6, 12/19/03
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="DragSourceAdapter" refid="_9_5_f720368_1110473546549_410857_6499"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DragSourceAdapter" refid="_9_5_f720368_1110473546549_410857_6499"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

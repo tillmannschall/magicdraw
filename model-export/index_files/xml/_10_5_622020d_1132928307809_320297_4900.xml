@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307809_320297_4900"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Modifier" refid="_9_5_f720368_1110473546612_376896_7539"/></annotatedElement><body humanName="Body" mode="s,e">The Modifier class provides &lt;code&gt;static&lt;/code&gt; methods and
+constants to decode class and member access modifiers.  The sets of
+modifiers are represented as integers with distinct bit positions
+representing different modifiers.  The values for the constants
+representing the modifiers are taken from &lt;a
+href="http://java.sun.com/docs/books/vmspec/2nd-edition/html/VMSpecTOC.doc.html"&gt;&lt;i&gt;The
+Java&lt;/i&gt;&lt;sup&gt;&lt;small&gt;TM&lt;/small&gt;&lt;/sup&gt; &lt;i&gt;Virtual Machine Specification, Second
+edition&lt;/i&gt;&lt;/a&gt; tables
+&lt;a href="http://java.sun.com/docs/books/vmspec/2nd-edition/html/ClassFile.doc.html#75734"&gt;4.1&lt;/a&gt;,
+&lt;a href="http://java.sun.com/docs/books/vmspec/2nd-edition/html/ClassFile.doc.html#88358"&gt;4.4&lt;/a&gt;,
+&lt;a href="http://java.sun.com/docs/books/vmspec/2nd-edition/html/ClassFile.doc.html#75568"&gt;4.5&lt;/a&gt;, and
+&lt;a href="http://java.sun.com/docs/books/vmspec/2nd-edition/html/ClassFile.doc.html#88478"&gt;4.7&lt;/a&gt;.
+
+@see Class#getModifiers()
+@see Member#getModifiers()
+
+@author Nakul Saraiya
+@author Kenneth Russell
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Modifier" refid="_9_5_f720368_1110473546612_376896_7539"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Modifier" refid="_9_5_f720368_1110473546612_376896_7539"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

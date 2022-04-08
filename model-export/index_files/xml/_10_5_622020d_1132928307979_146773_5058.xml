@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307979_146773_5058"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InstantiationException" refid="_9_5_f720368_1110473546612_138336_7629"/></annotatedElement><body humanName="Body" mode="s,e">Thrown when an application tries to create an instance of a class
+using the &lt;code&gt;newInstance&lt;/code&gt; method in class
+&lt;code&gt;Class&lt;/code&gt;, but the specified class object cannot be
+instantiated because it is an interface or is an abstract class.
+
+@author  unascribed
+@version 1.17, 12/19/03
+@see     java.lang.Class#newInstance()
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InstantiationException" refid="_9_5_f720368_1110473546612_138336_7629"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InstantiationException" refid="_9_5_f720368_1110473546612_138336_7629"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

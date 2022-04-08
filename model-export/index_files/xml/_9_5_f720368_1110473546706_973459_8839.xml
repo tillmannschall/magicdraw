@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546706_973459_8839"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Calendar -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322470_574287_14738"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Calendar -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322470_338940_14739"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Calendar -&gt; JDK 5.0 Classes::java::util::Comparable&lt;Calendar&gt;]" refid="_10_5_622020d_1132928322480_372267_14743"/></clientDependency><documentation humanName="Documentation" mode="standard">The &lt;code&gt;Calendar&lt;/code&gt; class is an abstract class that provides methods
+for converting between a specific instant in time and a set of {@link
+#fields calendar fields} such as &lt;code&gt;YEAR&lt;/code&gt;, &lt;code&gt;MONTH&lt;/code&gt;,
+&lt;code&gt;DAY_OF_MONTH&lt;/code&gt;, &lt;code&gt;HOUR&lt;/code&gt;, and so on, and for
+manipulating the calendar fields, such as getting the date of the next
+week. An instant in time can be represented by a millisecond value that is
+an offset from the &lt;a name="Epoch"&gt;&lt;em&gt;Epoch&lt;/em&gt;&lt;/a&gt;, January 1, 1970
+00:00:00.000 GMT (Gregorian).
+
+&lt;p&gt;The class also provides additional fields and methods for
+implementing a concrete calendar system outside the package. Those
+fields and methods are defined as &lt;code&gt;protected&lt;/code&gt;.
+
+&lt;p&gt;
+Like other locale-sensitive classes, &lt;code&gt;Calendar&lt;/code&gt; provides a
+class method, &lt;code&gt;getInstance&lt;/code&gt;, for getting a generally useful
+object of this type. &lt;code&gt;Calendar&lt;/code&gt;'s &lt;code&gt;getInstance&lt;/code&gt; method
+returns a &lt;code&gt;Calendar&lt;/code&gt; object whose
+calendar fields have been initialized with the current date and time:
+&lt;blockquote&gt;
+&lt;pre&gt;
+Calendar rightNow = Calendar.getInstance();
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A &lt;code&gt;Calendar&lt;/code&gt; object can produce all the calendar field values
+needed to implement the date-time formatting for a particular language and
+calendar style (for example, Japanese-Gregorian, Japanese-Traditional).
+&lt;code&gt;Calendar&lt;/code&gt; defines the range of values returned by
+certain calendar fields, as well as their meaning.  For example,
+the first month of the calendar system has value &lt;code&gt;MONTH ==
+JANUARY&lt;/code&gt; for all calendars.  Other values are defined by the
+concrete subclass, such as &lt;code&gt;ERA&lt;/code&gt;.  See individual field
+documentation and subclass documentation for details.
+
+&lt;h4&gt;Getting and Setting Calendar Field Values&lt;/h4&gt;
+
+&lt;p&gt;The calendar field values can be set by calling the &lt;code&gt;set&lt;/code&gt;
+methods. Any field values set in a &lt;code&gt;Calendar&lt;/code&gt; will not be
+interpreted until it needs to calculate its time value (milliseconds from
+the Epoch) or values of the calendar fields. Calling the
+&lt;code&gt;get&lt;/code&gt;, &lt;code&gt;getTimeInMillis&lt;/code&gt;, &lt;code&gt;getTime&lt;/code&gt;,
+&lt;code&gt;add&lt;/code&gt; and &lt;code&gt;roll&lt;/code&gt; involves such calculation.
+
+&lt;h4&gt;Leniency&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;Calendar&lt;/code&gt; has two modes for interpreting the calendar
+fields, &lt;em&gt;lenient&lt;/em&gt; and &lt;em&gt;non-lenient&lt;/em&gt;.  When a
+&lt;code&gt;Calendar&lt;/code&gt; is in lenient mode, it accepts a wider range of
+calendar field values than it produces.  When a &lt;code&gt;Calendar&lt;/code&gt;
+recomputes calendar field values for return by &lt;code&gt;get()&lt;/code&gt;, all of
+the calendar fields are normalized. For example, a lenient
+&lt;code&gt;GregorianCalendar&lt;/code&gt; interprets &lt;code&gt;MONTH == JANUARY&lt;/code&gt;,
+&lt;code&gt;DAY_OF_MONTH == 32&lt;/code&gt; as February 1.
+&lt;p&gt;When a &lt;code&gt;Calendar&lt;/code&gt; is in non-lenient mode, it throws an
+exception if there is any inconsistency in its calendar fields. For
+example, a &lt;code&gt;GregorianCalendar&lt;/code&gt; always produces
+&lt;code&gt;DAY_OF_MONTH&lt;/code&gt; values between 1 and the length of the month. A
+non-lenient &lt;code&gt;GregorianCalendar&lt;/code&gt; throws an exception upon
+calculating its time or calendar field values if any out-of-range field
+value has been set.
+
+&lt;h4&gt;First Week&lt;/h4&gt;
+
+&lt;code&gt;Calendar&lt;/code&gt; defines a locale-specific seven day week using two
+parameters: the first day of the week and the minimal days in first week
+(from 1 to 7).  These numbers are taken from the locale resource data when a
+&lt;code&gt;Calendar&lt;/code&gt; is constructed.  They may also be specified explicitly
+through the methods for setting their values.
+
+&lt;p&gt;When setting or getting the &lt;code&gt;WEEK_OF_MONTH&lt;/code&gt; or
+&lt;code&gt;WEEK_OF_YEAR&lt;/code&gt; fields, &lt;code&gt;Calendar&lt;/code&gt; must determine the
+first week of the month or year as a reference point.  The first week of a
+month or year is defined as the earliest seven day period beginning on
+&lt;code&gt;getFirstDayOfWeek()&lt;/code&gt; and containing at least
+&lt;code&gt;getMinimalDaysInFirstWeek()&lt;/code&gt; days of that month or year.  Weeks
+numbered ..., -1, 0 precede the first week; weeks numbered 2, 3,... follow
+it.  Note that the normalized numbering returned by &lt;code&gt;get()&lt;/code&gt; may be
+different.  For example, a specific &lt;code&gt;Calendar&lt;/code&gt; subclass may
+designate the week before week 1 of a year as week &lt;code&gt;&lt;i&gt;n&lt;/i&gt;&lt;/code&gt; of
+the previous year.
+
+&lt;h4&gt;Calendar Fields Resolution&lt;/h4&gt;
+
+When computing a date and time from the calendar fields, there
+may be insufficient information for the computation (such as only
+year and month with no day of month), or there may be inconsistent
+information (such as Tuesday, July 15, 1996 (Gregorian) -- July 15,
+1996 is actually a Monday). &lt;code&gt;Calendar&lt;/code&gt; will resolve
+calendar field values to determine the date and time in the
+following way.
+
+&lt;p&gt;If there is any conflict in calendar field values,
+&lt;code&gt;Calendar&lt;/code&gt; gives priorities to calendar fields that have been set
+more recently. The following are the default combinations of the
+calendar fields. The most recent combination, as determined by the
+most recently set single field, will be used.
+
+&lt;p&gt;&lt;a name="date_resolution"&gt;For the date fields&lt;/a&gt;:
+&lt;blockquote&gt;
+&lt;pre&gt;
+YEAR + MONTH + DAY_OF_MONTH
+YEAR + MONTH + WEEK_OF_MONTH + DAY_OF_WEEK
+YEAR + MONTH + DAY_OF_WEEK_IN_MONTH + DAY_OF_WEEK
+YEAR + DAY_OF_YEAR
+YEAR + DAY_OF_WEEK + WEEK_OF_YEAR
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;a name="time_resolution"&gt;For the time of day fields&lt;/a&gt;:
+&lt;blockquote&gt;
+&lt;pre&gt;
+HOUR_OF_DAY
+AM_PM + HOUR
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;If there are any calendar fields whose values haven't been set in the selected
+field combination, &lt;code&gt;Calendar&lt;/code&gt; uses their default values. The default
+value of each field may vary by concrete calendar systems. For example, in
+&lt;code&gt;GregorianCalendar&lt;/code&gt;, the default of a field is the same as that
+of the start of the Epoch: i.e., &lt;code&gt;YEAR = 1970&lt;/code&gt;, &lt;code&gt;MONTH =
+JANUARY&lt;/code&gt;, &lt;code&gt;DAY_OF_MONTH = 1&lt;/code&gt;, etc.
+
+&lt;p&gt;
+&lt;strong&gt;Note:&lt;/strong&gt; There are certain possible ambiguities in
+interpretation of certain singular times, which are resolved in the
+following ways:
+&lt;ol&gt;
+&lt;li&gt; 23:59 is the last minute of the day and 00:00 is the first
+minute of the next day. Thus, 23:59 on Dec 31, 1999 &lt; 00:00 on
+Jan 1, 2000 &lt; 00:01 on Jan 1, 2000.
+
+&lt;li&gt; Although historically not precise, midnight also belongs to "am",
+and noon belongs to "pm", so on the same day,
+12:00 am (midnight) &lt; 12:01 am, and 12:00 pm (noon) &lt; 12:01 pm
+&lt;/ol&gt;
+
+&lt;p&gt;
+The date or time format strings are not part of the definition of a
+calendar, as those must be modifiable or overridable by the user at
+runtime. Use {@link DateFormat}
+to format dates.
+
+&lt;h4&gt;Field Manipulation&lt;/h4&gt;
+
+The calendar fields can be changed using three methods:
+&lt;code&gt;set()&lt;/code&gt;, &lt;code&gt;add()&lt;/code&gt;, and &lt;code&gt;roll()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;set(f, value)&lt;/code&gt;&lt;/strong&gt; changes calendar field
+&lt;code&gt;f&lt;/code&gt; to &lt;code&gt;value&lt;/code&gt;.  In addition, it sets an
+internal member variable to indicate that calendar field &lt;code&gt;f&lt;/code&gt; has
+been changed. Although calendar field &lt;code&gt;f&lt;/code&gt; is changed immediately,
+the calendar's time value in milliseconds is not recomputed until the next call to
+&lt;code&gt;get()&lt;/code&gt;, &lt;code&gt;getTime()&lt;/code&gt;, &lt;code&gt;getTimeInMillis()&lt;/code&gt;,
+&lt;code&gt;add()&lt;/code&gt;, or &lt;code&gt;roll()&lt;/code&gt; is made. Thus, multiple calls to
+&lt;code&gt;set()&lt;/code&gt; do not trigger multiple, unnecessary
+computations. As a result of changing a calendar field using
+&lt;code&gt;set()&lt;/code&gt;, other calendar fields may also change, depending on the
+calendar field, the calendar field value, and the calendar system. In addition,
+&lt;code&gt;get(f)&lt;/code&gt; will not necessarily return &lt;code&gt;value&lt;/code&gt; set by
+the call to the &lt;code&gt;set&lt;/code&gt; method
+after the calendar fields have been recomputed. The specifics are determined by
+the concrete calendar class.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Example&lt;/em&gt;: Consider a &lt;code&gt;GregorianCalendar&lt;/code&gt;
+originally set to August 31, 1999. Calling &lt;code&gt;set(Calendar.MONTH,
+Calendar.SEPTEMBER)&lt;/code&gt; sets the date to September 31,
+1999. This is a temporary internal representation that resolves to
+October 1, 1999 if &lt;code&gt;getTime()&lt;/code&gt;is then called. However, a
+call to &lt;code&gt;set(Calendar.DAY_OF_MONTH, 30)&lt;/code&gt; before the call to
+&lt;code&gt;getTime()&lt;/code&gt; sets the date to September 30, 1999, since
+no recomputation occurs after &lt;code&gt;set()&lt;/code&gt; itself.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;add(f, delta)&lt;/code&gt;&lt;/strong&gt; adds &lt;code&gt;delta&lt;/code&gt;
+to field &lt;code&gt;f&lt;/code&gt;.  This is equivalent to calling &lt;code&gt;set(f,
+get(f) + delta)&lt;/code&gt; with two adjustments:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Add rule 1&lt;/strong&gt;. The value of field &lt;code&gt;f&lt;/code&gt;
+after the call minus the value of field &lt;code&gt;f&lt;/code&gt; before the
+call is &lt;code&gt;delta&lt;/code&gt;, modulo any overflow that has occurred in
+field &lt;code&gt;f&lt;/code&gt;. Overflow occurs when a field value exceeds its
+range and, as a result, the next larger field is incremented or
+decremented and the field value is adjusted back into its range.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Add rule 2&lt;/strong&gt;. If a smaller field is expected to be
+invariant, but it is impossible for it to be equal to its
+prior value because of changes in its minimum or maximum after field
+&lt;code&gt;f&lt;/code&gt; is changed or other constraints, such as time zone
+offset changes, then its value is adjusted to be as close
+as possible to its expected value. A smaller field represents a
+smaller unit of time. &lt;code&gt;HOUR&lt;/code&gt; is a smaller field than
+&lt;code&gt;DAY_OF_MONTH&lt;/code&gt;. No adjustment is made to smaller fields
+that are not expected to be invariant. The calendar system
+determines what fields are expected to be invariant.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In addition, unlike &lt;code&gt;set()&lt;/code&gt;, &lt;code&gt;add()&lt;/code&gt; forces
+an immediate recomputation of the calendar's milliseconds and all
+fields.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Example&lt;/em&gt;: Consider a &lt;code&gt;GregorianCalendar&lt;/code&gt;
+originally set to August 31, 1999. Calling &lt;code&gt;add(Calendar.MONTH,
+13)&lt;/code&gt; sets the calendar to September 30, 2000. &lt;strong&gt;Add rule
+1&lt;/strong&gt; sets the &lt;code&gt;MONTH&lt;/code&gt; field to September, since
+adding 13 months to August gives September of the next year. Since
+&lt;code&gt;DAY_OF_MONTH&lt;/code&gt; cannot be 31 in September in a
+&lt;code&gt;GregorianCalendar&lt;/code&gt;, &lt;strong&gt;add rule 2&lt;/strong&gt; sets the
+&lt;code&gt;DAY_OF_MONTH&lt;/code&gt; to 30, the closest possible value. Although
+it is a smaller field, &lt;code&gt;DAY_OF_WEEK&lt;/code&gt; is not adjusted by
+rule 2, since it is expected to change when the month changes in a
+&lt;code&gt;GregorianCalendar&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;roll(f, delta)&lt;/code&gt;&lt;/strong&gt; adds
+&lt;code&gt;delta&lt;/code&gt; to field &lt;code&gt;f&lt;/code&gt; without changing larger
+fields. This is equivalent to calling &lt;code&gt;add(f, delta)&lt;/code&gt; with
+the following adjustment:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Roll rule&lt;/strong&gt;. Larger fields are unchanged after the
+call. A larger field represents a larger unit of
+time. &lt;code&gt;DAY_OF_MONTH&lt;/code&gt; is a larger field than
+&lt;code&gt;HOUR&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Example&lt;/em&gt;: See {@link java.util.GregorianCalendar#roll(int, int)}.
+
+&lt;p&gt;&lt;strong&gt;Usage model&lt;/strong&gt;. To motivate the behavior of
+&lt;code&gt;add()&lt;/code&gt; and &lt;code&gt;roll()&lt;/code&gt;, consider a user interface
+component with increment and decrement buttons for the month, day, and
+year, and an underlying &lt;code&gt;GregorianCalendar&lt;/code&gt;. If the
+interface reads January 31, 1999 and the user presses the month
+increment button, what should it read? If the underlying
+implementation uses &lt;code&gt;set()&lt;/code&gt;, it might read March 3, 1999. A
+better result would be February 28, 1999. Furthermore, if the user
+presses the month increment button again, it should read March 31,
+1999, not March 28, 1999. By saving the original date and using either
+&lt;code&gt;add()&lt;/code&gt; or &lt;code&gt;roll()&lt;/code&gt;, depending on whether larger
+fields should be affected, the user interface can behave as most users
+will intuitively expect.&lt;/p&gt;
+
+@see          java.lang.System#currentTimeMillis()
+@see          Date
+@see          GregorianCalendar
+@see          TimeZone
+@see          java.text.DateFormat
+@version      1.81, 07/26/04
+@author Mark Davis, David Goldsmith, Chen-Lieh Huang, Alan Liu
+@since JDK1.1
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Calendar -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322470_574287_14738"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Calendar -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322470_338940_14739"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Calendar -&gt; JDK 5.0 Classes::java::util::Comparable&lt;Calendar&gt;]" refid="_10_5_622020d_1132928322480_372267_14743"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Calendar</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310873_528210_6993"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310873_528210_6993"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Calendar -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322470_574287_14738"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Calendar -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322470_338940_14739"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::Calendar -&gt; JDK 5.0 Classes::java::util::Comparable&lt;Calendar&gt;]" refid="_10_5_622020d_1132928322480_372267_14743"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::Calendar</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Comparable&lt;Calendar&gt;" refid="_10_5_622020d_1132928322480_309783_14740"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

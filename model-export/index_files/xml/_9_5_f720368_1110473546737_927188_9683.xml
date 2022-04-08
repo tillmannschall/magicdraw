@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546737_927188_9683"><documentation humanName="Documentation" mode="standard">A &lt;code&gt;ShortMessage&lt;/code&gt; contains a MIDI message that has at most
+two data bytes following its status byte.  The types of MIDI message
+that satisfy this criterion are channel voice, channel mode, system common,
+and system real-time--in other words, everything except system exclusive
+and meta-events.  The &lt;code&gt;ShortMessage&lt;/code&gt; class provides methods
+for getting and setting the contents of the MIDI message.
+&lt;p&gt;
+A number of &lt;code&gt;ShortMessage&lt;/code&gt; methods have integer parameters by which
+you specify a MIDI status or data byte.  If you know the numeric value, you
+can express it directly.  For system common and system real-time messages,
+you can often use the corresponding fields of &lt;code&gt;ShortMessage&lt;/code&gt;, such as
+{@link #SYSTEM_RESET SYSTEM_RESET}.  For channel messages,
+the upper four bits of the status byte are specified by a command value and
+the lower four bits are specified by a MIDI channel number. To
+convert incoming MIDI data bytes that are in the form of Java's signed bytes,
+you can use the &lt;A HREF="MidiMessage.html#integersVsBytes"&gt;conversion code&lt;/A&gt;
+given in the &lt;code&gt;{@link MidiMessage}&lt;/code&gt; class description.
+
+@see SysexMessage
+@see MetaMessage
+
+@version 1.24, 03/12/19
+@author David Rivas
+@author Kara Kytle
+@author Florian Bomers
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323361_911911_16589"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ShortMessage</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316191_287367_10578"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323361_911911_16589"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316191_287367_10578"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sound::midi::ShortMessage</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="MidiMessage" refid="_9_5_f720368_1110473546737_33565_9669"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

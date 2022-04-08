@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313226_723712_7292"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Hashtable" refid="_9_5_f720368_1110473546706_512249_8873"/></annotatedElement><body humanName="Body" mode="s,e">This class implements a hashtable, which maps keys to values. Any
+non-&lt;code&gt;null&lt;/code&gt; object can be used as a key or as a value. &lt;p&gt;
+
+To successfully store and retrieve objects from a hashtable, the
+objects used as keys must implement the &lt;code&gt;hashCode&lt;/code&gt;
+method and the &lt;code&gt;equals&lt;/code&gt; method. &lt;p&gt;
+
+An instance of &lt;code&gt;Hashtable&lt;/code&gt; has two parameters that affect its
+performance: &lt;i&gt;initial capacity&lt;/i&gt; and &lt;i&gt;load factor&lt;/i&gt;.  The
+&lt;i&gt;capacity&lt;/i&gt; is the number of &lt;i&gt;buckets&lt;/i&gt; in the hash table, and the
+&lt;i&gt;initial capacity&lt;/i&gt; is simply the capacity at the time the hash table
+is created.  Note that the hash table is &lt;i&gt;open&lt;/i&gt;: in the case of a "hash
+collision", a single bucket stores multiple entries, which must be searched
+sequentially.  The &lt;i&gt;load factor&lt;/i&gt; is a measure of how full the hash
+table is allowed to get before its capacity is automatically increased.
+The initial capacity and load factor parameters are merely hints to
+the implementation.  The exact details as to when and whether the rehash
+method is invoked are implementation-dependent.&lt;p&gt;
+
+Generally, the default load factor (.75) offers a good tradeoff between
+time and space costs.  Higher values decrease the space overhead but
+increase the time cost to look up an entry (which is reflected in most
+&lt;tt&gt;Hashtable&lt;/tt&gt; operations, including &lt;tt&gt;get&lt;/tt&gt; and &lt;tt&gt;put&lt;/tt&gt;).&lt;p&gt;
+
+The initial capacity controls a tradeoff between wasted space and the
+need for &lt;code&gt;rehash&lt;/code&gt; operations, which are time-consuming.
+No &lt;code&gt;rehash&lt;/code&gt; operations will &lt;i&gt;ever&lt;/i&gt; occur if the initial
+capacity is greater than the maximum number of entries the
+&lt;tt&gt;Hashtable&lt;/tt&gt; will contain divided by its load factor.  However,
+setting the initial capacity too high can waste space.&lt;p&gt;
+
+If many entries are to be made into a &lt;code&gt;Hashtable&lt;/code&gt;,
+creating it with a sufficiently large capacity may allow the
+entries to be inserted more efficiently than letting it perform
+automatic rehashing as needed to grow the table. &lt;p&gt;
+
+This example creates a hashtable of numbers. It uses the names of
+the numbers as keys:
+&lt;p&gt;&lt;blockquote&gt;&lt;pre&gt;
+Hashtable numbers = new Hashtable();
+numbers.put("one", new Integer(1));
+numbers.put("two", new Integer(2));
+numbers.put("three", new Integer(3));
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+To retrieve a number, use the following code:
+&lt;p&gt;&lt;blockquote&gt;&lt;pre&gt;
+Integer n = (Integer)numbers.get("two");
+if (n != null) {
+System.out.println("two = " + n);
+}
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+As of the Java 2 platform v1.2, this class has been retrofitted to
+implement Map, so that it becomes a part of Java's collection framework.
+Unlike the new collection implementations, Hashtable is synchronized.&lt;p&gt;
+
+The Iterators returned by the iterator and listIterator methods
+of the Collections returned by all of Hashtable's "collection view methods"
+are &lt;em&gt;fail-fast&lt;/em&gt;: if the Hashtable is structurally modified
+at any time after the Iterator is created, in any way except through the
+Iterator's own remove or add methods, the Iterator will throw a
+ConcurrentModificationException.  Thus, in the face of concurrent
+modification, the Iterator fails quickly and cleanly, rather than risking
+arbitrary, non-deterministic behavior at an undetermined time in the future.
+The Enumerations returned by Hashtable's keys and values methods are
+&lt;em&gt;not&lt;/em&gt; fail-fast.
+
+&lt;p&gt;Note that the fail-fast behavior of an iterator cannot be guaranteed
+as it is, generally speaking, impossible to make any hard guarantees in the
+presence of unsynchronized concurrent modification.  Fail-fast iterators
+throw &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt; on a best-effort basis.
+Therefore, it would be wrong to write a program that depended on this
+exception for its correctness: &lt;i&gt;the fail-fast behavior of iterators
+should be used only to detect bugs.&lt;/i&gt;&lt;p&gt;
+
+This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Arthur van Hoff
+@author  Josh Bloch
+@author  Neal Gafter
+@version 1.105, 12/19/03
+@see     Object#equals(java.lang.Object)
+@see     Object#hashCode()
+@see     Hashtable#rehash()
+@see     Collection
+@see	    Map
+@see	    HashMap
+@see	    TreeMap
+@since JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Hashtable" refid="_9_5_f720368_1110473546706_512249_8873"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Hashtable" refid="_9_5_f720368_1110473546706_512249_8873"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_961222_6955"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::CheckboxGroup -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321328_79883_13178"/></clientDependency><documentation humanName="Documentation" mode="standard">The &lt;code&gt;CheckboxGroup&lt;/code&gt; class is used to group together
+a set of &lt;code&gt;Checkbox&lt;/code&gt; buttons.
+&lt;p&gt;
+Exactly one check box button in a &lt;code&gt;CheckboxGroup&lt;/code&gt; can
+be in the "on" state at any given time. Pushing any
+button sets its state to "on" and forces any other button that
+is in the "on" state into the "off" state.
+&lt;p&gt;
+The following code example produces a new check box group,
+with three check boxes:
+&lt;p&gt;
+&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+setLayout(new GridLayout(3, 1));
+CheckboxGroup cbg = new CheckboxGroup();
+add(new Checkbox("one", cbg, true));
+add(new Checkbox("two", cbg, false));
+add(new Checkbox("three", cbg, false));
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+This image depicts the check box group created by this example:
+&lt;p&gt;
+&lt;img src="doc-files/CheckboxGroup-1.gif"
+alt="Shows three checkboxes, arranged vertically, labeled one, two, and three. Checkbox one is in the on state."
+ALIGN=center HSPACE=10 VSPACE=7&gt;
+&lt;p&gt;
+@version 	1.36 05/18/04
+@author 	Sami Shaio
+@see         java.awt.Checkbox
+@since       JDK1.0
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::CheckboxGroup -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321328_79883_13178"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">CheckboxGroup</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306367_113254_4131"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306367_113254_4131"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::CheckboxGroup -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321328_79883_13178"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::CheckboxGroup</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

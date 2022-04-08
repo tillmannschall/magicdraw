@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308049_542365_5109"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Package" refid="_9_5_f720368_1110473546612_787058_7665"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;Package&lt;/code&gt; objects contain version information
+about the implementation and specification of a Java package.
+This versioning information is retrieved and made available
+by the {@link ClassLoader &lt;code&gt;ClassLoader&lt;/code&gt;} instance that
+loaded the class(es).  Typically, it is stored in the manifest that is
+distributed with the classes.
+
+&lt;p&gt;The set of classes that make up the package may implement a
+particular specification and if so the specification title, version number,
+and vendor strings identify that specification.
+An application can ask if the package is
+compatible with a particular version, see the {@link #isCompatibleWith
+&lt;code&gt;isCompatibleWith&lt;/code&gt;} method for details.
+
+&lt;p&gt;Specification version numbers use a syntax that consists of positive
+decimal integers separated by periods ".", for example "2.0" or
+"1.2.3.4.5.6.7".  This allows an extensible number to be used to represent
+major, minor, micro, etc. versions.  The version specification is described
+by the following formal grammar:
+&lt;blockquote&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;i&gt;SpecificationVersion:
+&lt;dd&gt;Digits RefinedVersion&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt;
+&lt;p&gt;&lt;dt&gt;&lt;i&gt;RefinedVersion:&lt;/i&gt;
+&lt;dd&gt;&lt;code&gt;.&lt;/code&gt; &lt;i&gt;Digits&lt;/i&gt;
+&lt;dd&gt;&lt;code&gt;.&lt;/code&gt; &lt;i&gt;Digits RefinedVersion&lt;/i&gt;
+
+&lt;p&gt;&lt;dt&gt;&lt;i&gt;Digits:
+&lt;dd&gt;Digit
+&lt;dd&gt;Digits&lt;/i&gt;
+
+&lt;p&gt;&lt;dt&gt;&lt;i&gt;Digit:&lt;/i&gt;
+&lt;dd&gt;any character for which {@link Character#isDigit} returns &lt;code&gt;true&lt;/code&gt;,
+e.g. 0, 1, 2, ...
+&lt;/dl&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The implementation title, version, and vendor strings identify an
+implementation and are made available conveniently to enable accurate
+reporting of the packages involved when a problem occurs. The contents
+all three implementation strings are vendor specific. The
+implementation version strings have no specified syntax and should
+only be compared for equality with desired version identifiers.
+
+&lt;p&gt;Within each &lt;code&gt;ClassLoader&lt;/code&gt; instance all classes from the same
+java package have the same Package object.  The static methods allow a package
+to be found by name or the set of all packages known to the current class
+loader to be found.
+
+@see ClassLoader#definePackage
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Package" refid="_9_5_f720368_1110473546612_787058_7665"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Package" refid="_9_5_f720368_1110473546612_787058_7665"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

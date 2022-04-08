@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306367_923804_4126"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CardLayout" refid="_9_5_f720368_1110473546581_627972_6951"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;CardLayout&lt;/code&gt; object is a layout manager for a
+container. It treats each component in the container as a card.
+Only one card is visible at a time, and the container acts as
+a stack of cards. The first component added to a
+&lt;code&gt;CardLayout&lt;/code&gt; object is the visible component when the
+container is first displayed.
+&lt;p&gt;
+The ordering of cards is determined by the container's own internal
+ordering of its component objects. &lt;code&gt;CardLayout&lt;/code&gt;
+defines a set of methods that allow an application to flip
+through these cards sequentially, or to show a specified card.
+The {@link CardLayout#addLayoutComponent}
+method can be used to associate a string identifier with a given card
+for fast random access.
+
+@version 	1.40 05/18/04
+@author 	Arthur van Hoff
+@see         java.awt.Container
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CardLayout" refid="_9_5_f720368_1110473546581_627972_6951"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CardLayout" refid="_9_5_f720368_1110473546581_627972_6951"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

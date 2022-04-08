@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314789_186577_9179"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BMPImageWriteParam" refid="_10_5_622020d_1132928314789_73744_9177"/></annotatedElement><body humanName="Body" mode="s,e">A subclass of &lt;code&gt;ImageWriteParam&lt;/code&gt; for encoding images in
+the BMP format.
+
+&lt;p&gt; This class allows for the specification of various parameters
+while writing a BMP format image file.  By default, the data layout
+is bottom-up, such that the pixels are stored in bottom-up order,
+the first scanline being stored last.
+
+&lt;p&gt;The particular compression scheme to be used can be specified by using
+the &lt;code&gt;setCompressionType()&lt;/code&gt; method with the appropriate type
+string.  The compression scheme specified will be honored if and only if it
+is compatible with the type of image being written. If the specified
+compression scheme is not compatible with the type of image being written
+then the &lt;code&gt;IOException&lt;/code&gt; will be thrown by the BMP image writer.
+If the compression type is not set explicitly then &lt;code&gt;getCompressionType()&lt;/code&gt;
+will return &lt;code&gt;null&lt;/code&gt;. In this case the BMP image writer will select
+a compression type that supports encoding of the given image without loss
+of the color resolution.
+&lt;p&gt;The compression type strings and the image type(s) each supports are
+listed in the following
+table:
+
+&lt;p&gt;&lt;table border=1&gt;
+&lt;caption&gt;&lt;b&gt;Compression Types&lt;/b&gt;&lt;/caption&gt;
+&lt;tr&gt;&lt;th&gt;Type String&lt;/th&gt; &lt;th&gt;Description&lt;/th&gt;  &lt;th&gt;Image Types&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;BI_RGB&lt;/td&gt;  &lt;td&gt;Uncompressed RLE&lt;/td&gt; &lt;td&gt;&lt;= 8-bits/sample&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;BI_RLE8&lt;/td&gt; &lt;td&gt;8-bit Run Length Encoding&lt;/td&gt; &lt;td&gt;&lt;= 8-bits/sample&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;BI_RLE4&lt;/td&gt; &lt;td&gt;4-bit Run Length Encoding&lt;/td&gt; &lt;td&gt;&lt;= 4-bits/sample&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;BI_BITFIELDS&lt;/td&gt; &lt;td&gt;Packed data&lt;/td&gt; &lt;td&gt; 16 or 32 bits/sample&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BMPImageWriteParam" refid="_10_5_622020d_1132928314789_73744_9177"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BMPImageWriteParam" refid="_10_5_622020d_1132928314789_73744_9177"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

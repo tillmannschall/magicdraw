@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310202_648926_6618"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FutureTask" refid="_10_5_622020d_1132928310192_546353_6611"/></annotatedElement><body humanName="Body" mode="s,e">A cancellable asynchronous computation.  This class provides a base
+implementation of {@link Future}, with methods to start and cancel
+a computation, query to see if the computation is complete, and
+retrieve the result of the computation.  The result can only be
+retrieved when the computation has completed; the &lt;tt&gt;get&lt;/tt&gt;
+method will block if the computation has not yet completed.  Once
+the computation has completed, the computation cannot be restarted
+or cancelled.
+
+&lt;p&gt;A &lt;tt&gt;FutureTask&lt;/tt&gt; can be used to wrap a {@link Callable} or
+{@link java.lang.Runnable} object.  Because &lt;tt&gt;FutureTask&lt;/tt&gt;
+implements &lt;tt&gt;Runnable&lt;/tt&gt;, a &lt;tt&gt;FutureTask&lt;/tt&gt; can be
+submitted to an {@link Executor} for execution.
+
+&lt;p&gt;In addition to serving as a standalone class, this class provides
+&lt;tt&gt;protected&lt;/tt&gt; functionality that may be useful when creating
+customized task classes.
+
+@since 1.5
+@author Doug Lea
+@param &lt;V&gt; The result type returned by this FutureTask's &lt;tt&gt;get&lt;/tt&gt; method
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FutureTask" refid="_10_5_622020d_1132928310192_546353_6611"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FutureTask" refid="_10_5_622020d_1132928310192_546353_6611"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

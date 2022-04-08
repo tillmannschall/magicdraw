@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309120_150527_5825"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CRL" refid="_9_5_f720368_1110473546674_467826_8321"/></annotatedElement><body humanName="Body" mode="s,e">This class is an abstraction of certificate revocation lists (CRLs) that
+have different formats but important common uses. For example, all CRLs
+share the functionality of listing revoked certificates, and can be queried
+on whether or not they list a given certificate.
+&lt;p&gt;
+Specialized CRL types can be defined by subclassing off of this abstract
+class.
+
+@author Hemma Prafullchandra
+
+@version 1.12, 12/19/03
+
+@see X509CRL
+@see CertificateFactory
+
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="CRL" refid="_9_5_f720368_1110473546674_467826_8321"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CRL" refid="_9_5_f720368_1110473546674_467826_8321"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306387_960744_4151"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ComponentOrientation" refid="_9_5_f720368_1110473546581_851221_6967"/></annotatedElement><body humanName="Body" mode="s,e">The ComponentOrientation class encapsulates the language-sensitive
+orientation that is to be used to order the elements of a component
+or of text. It is used to reflect the differences in this ordering
+between Western alphabets, Middle Eastern (such as Hebrew), and Far
+Eastern (such as Japanese).
+&lt;p&gt;
+Fundamentally, this governs items (such as characters) which are laid out
+in lines, with the lines then laid out in a block. This also applies
+to items in a widget: for example, in a check box where the box is
+positioned relative to the text.
+&lt;p&gt;
+There are four different orientations used in modern languages
+as in the following table.&lt;br&gt;
+&lt;pre&gt;
+LT          RT          TL          TR
+A B C       C B A       A D G       G D A
+D E F       F E D       B E H       H E B
+G H I       I H G       C F I       I F C
+&lt;/pre&gt;&lt;br&gt;
+(In the header, the two-letter abbreviation represents the item direction
+in the first letter, and the line direction in the second. For example,
+LT means "items left-to-right, lines top-to-bottom",
+BL means "items bottom-to-top, lines bottom-to-top", and so on.)
+&lt;p&gt;
+The orientations are:
+&lt;ul&gt;
+&lt;li&gt;LT - Western Europe (optional for Japanese, Chinese, Korean)
+&lt;li&gt;RT - Middle East (Arabic, Hebrew)
+&lt;li&gt;TR - Japanese, Chinese, Korean
+&lt;li&gt;TL - Mongolian
+&lt;/ul&gt;
+Components whose view and controller code depends on orientation
+should use the &lt;code&gt;isLeftToRight()&lt;/code&gt; and
+&lt;code&gt;isHorizontal()&lt;/code&gt; methods to
+determine their behavior. They should not include switch-like
+code that keys off of the constants, such as:
+&lt;pre&gt;
+if (orientation == LEFT_TO_RIGHT) {
+...
+} else if (orientation == RIGHT_TO_LEFT) {
+...
+} else {
+Oops
+}
+&lt;/pre&gt;
+This is unsafe, since more constants may be added in the future and
+since it is not guaranteed that orientation objects will be unique.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ComponentOrientation" refid="_9_5_f720368_1110473546581_851221_6967"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ComponentOrientation" refid="_9_5_f720368_1110473546581_851221_6967"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

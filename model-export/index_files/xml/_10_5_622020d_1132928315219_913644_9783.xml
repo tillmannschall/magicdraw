@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315219_913644_9783"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MBeanServerInvocationHandler" refid="_10_5_622020d_1132928315219_196625_9781"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;{@link InvocationHandler} that forwards methods in an MBean's
+management interface through the MBean server to the MBean.&lt;/p&gt;
+
+&lt;p&gt;Given an {@link MBeanServerConnection}, the {@link ObjectName}
+of an MBean within that MBean server, and a Java interface
+&lt;code&gt;Intf&lt;/code&gt; that describes the management interface of the
+MBean using the patterns for a Standard MBean, this class can be
+used to construct a proxy for the MBean.  The proxy implements
+the interface &lt;code&gt;Intf&lt;/code&gt; such that all of its methods are
+forwarded through the MBean server to the MBean.&lt;/p&gt;
+
+&lt;p&gt;If you have an MBean server &lt;code&gt;mbs&lt;/code&gt; containing an MBean
+with {@link ObjectName} &lt;code&gt;name&lt;/code&gt;, and if the MBean's
+management interface is described by the Java interface
+&lt;code&gt;Intf&lt;/code&gt;, you can construct a proxy for the MBean like
+this:&lt;/p&gt;
+
+&lt;pre&gt;
+Intf proxy = (Intf)
+MBeanServerInvocationHandler.{@link #newProxyInstance newProxyInstance}(mbs,
+name,
+Intf.class,
+false);
+&lt;/pre&gt;
+
+&lt;p&gt;Suppose, for example, &lt;code&gt;Intf&lt;/code&gt; looks like this:&lt;/p&gt;
+
+&lt;pre&gt;
+public interface Intf {
+public String getSomeAttribute();
+public void setSomeAttribute(String value);
+public void someOperation(String param1, int param2);
+}
+&lt;/pre&gt;
+
+&lt;p&gt;Then you can execute:&lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;code&gt;proxy.getSomeAttribute()&lt;/code&gt; which will result in a
+call to &lt;code&gt;mbs.&lt;/code&gt;{@link MBeanServerConnection#getAttribute
+getAttribute}&lt;code&gt;(name, "SomeAttribute")&lt;/code&gt;.
+
+&lt;li&gt;&lt;code&gt;proxy.setSomeAttribute("whatever")&lt;/code&gt; which will result
+in a call to &lt;code&gt;mbs.&lt;/code&gt;{@link MBeanServerConnection#setAttribute
+setAttribute}&lt;code&gt;(name, new Attribute("SomeAttribute", "whatever"))&lt;/code&gt;.
+
+&lt;li&gt;&lt;code&gt;proxy.someOperation("param1", 2)&lt;/code&gt; which will be
+translated into a call to &lt;code&gt;mbs.&lt;/code&gt;{@link
+MBeanServerConnection#invoke invoke}&lt;code&gt;(name, "someOperation", &lt;etc&gt;)&lt;/code&gt;.
+
+&lt;/ul&gt;
+
+&lt;p&gt;If the last parameter to {@link #newProxyInstance
+newProxyInstance} is &lt;code&gt;true&lt;/code&gt;, then the MBean is assumed
+to be a {@link NotificationBroadcaster} or {@link
+NotificationEmitter} and the returned proxy will implement {@link
+NotificationEmitter}.  A call to {@link
+NotificationBroadcaster#addNotificationListener} on the proxy will
+result in a call to {@link
+MBeanServerConnection#addNotificationListener(ObjectName,
+NotificationListener, NotificationFilter, Object)}, and likewise
+for the other methods of {@link NotificationBroadcaster} and {@link
+NotificationEmitter}.&lt;/p&gt;
+
+&lt;p&gt;The methods {@link Object#toString()}, {@link Object#hashCode()},
+and {@link Object#equals(Object)}, when invoked on a proxy using
+this invocation handler, are forwarded to the MBean server as
+methods on the proxied MBean.  This will only work if the MBean
+declares those methods in its management interface.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled JMX 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MBeanServerInvocationHandler" refid="_10_5_622020d_1132928315219_196625_9781"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MBeanServerInvocationHandler" refid="_10_5_622020d_1132928315219_196625_9781"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

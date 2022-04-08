@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308830_869812_5485"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ByteBuffer" refid="_9_5_f720368_1110473546659_818813_7971"/></annotatedElement><body humanName="Body" mode="s,e">A byte buffer.
+
+&lt;p&gt; This class defines six categories of operations upon
+byte buffers:
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; Absolute and relative {@link #get() &lt;/code&gt;&lt;i&gt;get&lt;/i&gt;&lt;code&gt;} and
+{@link #put(byte) &lt;/code&gt;&lt;i&gt;put&lt;/i&gt;&lt;code&gt;} methods that read and write
+single bytes; &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Relative {@link #get(byte[]) &lt;/code&gt;&lt;i&gt;bulk get&lt;/i&gt;&lt;code&gt;}
+methods that transfer contiguous sequences of bytes from this buffer
+into an array; &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Relative {@link #put(byte[]) &lt;/code&gt;&lt;i&gt;bulk put&lt;/i&gt;&lt;code&gt;}
+methods that transfer contiguous sequences of bytes from a
+byte array or some other byte
+buffer into this buffer; &lt;/p&gt;&lt;/li&gt;
+
+
+&lt;li&gt;&lt;p&gt; Absolute and relative {@link #getChar() &lt;/code&gt;&lt;i&gt;get&lt;/i&gt;&lt;code&gt;}
+and {@link #putChar(char) &lt;/code&gt;&lt;i&gt;put&lt;/i&gt;&lt;code&gt;} methods that read and
+write values of other primitive types, translating them to and from
+sequences of bytes in a particular byte order; &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Methods for creating &lt;i&gt;&lt;a href="#views"&gt;view buffers&lt;/a&gt;&lt;/i&gt;,
+which allow a byte buffer to be viewed as a buffer containing values of
+some other primitive type; and &lt;/p&gt;&lt;/li&gt;
+
+
+&lt;li&gt;&lt;p&gt; Methods for {@link #compact &lt;/code&gt;compacting&lt;code&gt;}, {@link
+#duplicate &lt;/code&gt;duplicating&lt;code&gt;}, and {@link #slice
+&lt;/code&gt;slicing&lt;code&gt;} a byte buffer.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt; Byte buffers can be created either by {@link #allocate
+&lt;/code&gt;&lt;i&gt;allocation&lt;/i&gt;&lt;code&gt;}, which allocates space for the buffer's
+
+
+content, or by {@link #wrap(byte[]) &lt;/code&gt;&lt;i&gt;wrapping&lt;/i&gt;&lt;code&gt;} an
+existing byte array  into a buffer.
+
+
+
+&lt;a name="direct"&gt;
+&lt;h4&gt; Direct &lt;i&gt;vs.&lt;/i&gt; non-direct buffers &lt;/h4&gt;
+
+&lt;p&gt; A byte buffer is either &lt;i&gt;direct&lt;/i&gt; or &lt;i&gt;non-direct&lt;/i&gt;.  Given a
+direct byte buffer, the Java virtual machine will make a best effort to
+perform native I/O operations directly upon it.  That is, it will attempt to
+avoid copying the buffer's content to (or from) an intermediate buffer
+before (or after) each invocation of one of the underlying operating
+system's native I/O operations.
+
+&lt;p&gt; A direct byte buffer may be created by invoking the {@link
+#allocateDirect(int) allocateDirect} factory method of this class.  The
+buffers returned by this method typically have somewhat higher allocation
+and deallocation costs than non-direct buffers.  The contents of direct
+buffers may reside outside of the normal garbage-collected heap, and so
+their impact upon the memory footprint of an application might not be
+obvious.  It is therefore recommended that direct buffers be allocated
+primarily for large, long-lived buffers that are subject to the underlying
+system's native I/O operations.  In general it is best to allocate direct
+buffers only when they yield a measureable gain in program performance.
+
+&lt;p&gt; A direct byte buffer may also be created by {@link
+java.nio.channels.FileChannel#map &lt;/code&gt;mapping&lt;code&gt;} a region of a file
+directly into memory.  An implementation of the Java platform may optionally
+support the creation of direct byte buffers from native code via JNI.  If an
+instance of one of these kinds of buffers refers to an inaccessible region
+of memory then an attempt to access that region will not change the buffer's
+content and will cause an unspecified exception to be thrown either at the
+time of the access or at some later time.
+
+&lt;p&gt; Whether a byte buffer is direct or non-direct may be determined by
+invoking its {@link #isDirect isDirect} method.  This method is provided so
+that explicit buffer management can be done in performance-critical code.
+
+
+&lt;a name="bin"&gt;
+&lt;h4&gt; Access to binary data &lt;/h4&gt;
+
+&lt;p&gt; This class defines methods for reading and writing values of all other
+primitive types, except &lt;tt&gt;boolean&lt;/tt&gt;.  Primitive values are translated
+to (or from) sequences of bytes according to the buffer's current byte
+order, which may be retrieved and modified via the {@link #order order}
+methods.  Specific byte orders are represented by instances of the {@link
+ByteOrder} class.  The initial order of a byte buffer is always {@link
+ByteOrder#BIG_ENDIAN BIG_ENDIAN}.
+
+&lt;p&gt; For access to heterogeneous binary data, that is, sequences of values of
+different types, this class defines a family of absolute and relative
+&lt;i&gt;get&lt;/i&gt; and &lt;i&gt;put&lt;/i&gt; methods for each type.  For 32-bit floating-point
+values, for example, this class defines:
+
+&lt;blockquote&gt;&lt;pre&gt;
+float  {@link #getFloat()}
+float  {@link #getFloat(int) getFloat(int index)}
+void  {@link #putFloat(float) putFloat(float f)}
+void  {@link #putFloat(int,float) putFloat(int index, float f)}&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; Corresponding methods are defined for the types &lt;tt&gt;char&lt;/tt&gt;,
+&lt;tt&gt;short&lt;/tt&gt;, &lt;tt&gt;int&lt;/tt&gt;, &lt;tt&gt;long&lt;/tt&gt;, and &lt;tt&gt;double&lt;/tt&gt;.  The index
+parameters of the absolute &lt;i&gt;get&lt;/i&gt; and &lt;i&gt;put&lt;/i&gt; methods are in terms of
+bytes rather than of the type being read or written.
+
+&lt;a name="views"&gt;
+
+&lt;p&gt; For access to homogeneous binary data, that is, sequences of values of
+the same type, this class defines methods that can create &lt;i&gt;views&lt;/i&gt; of a
+given byte buffer.  A &lt;i&gt;view buffer&lt;/i&gt; is simply another buffer whose
+content is backed by the byte buffer.  Changes to the byte buffer's content
+will be visible in the view buffer, and vice versa; the two buffers'
+position, limit, and mark values are independent.  The {@link
+#asFloatBuffer() asFloatBuffer} method, for example, creates an instance of
+the {@link FloatBuffer} class that is backed by the byte buffer upon which
+the method is invoked.  Corresponding view-creation methods are defined for
+the types &lt;tt&gt;char&lt;/tt&gt;, &lt;tt&gt;short&lt;/tt&gt;, &lt;tt&gt;int&lt;/tt&gt;, &lt;tt&gt;long&lt;/tt&gt;, and
+&lt;tt&gt;double&lt;/tt&gt;.
+
+&lt;p&gt; View buffers have three important advantages over the families of
+type-specific &lt;i&gt;get&lt;/i&gt; and &lt;i&gt;put&lt;/i&gt; methods described above:
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; A view buffer is indexed not in terms of bytes but rather in terms
+of the type-specific size of its values;  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; A view buffer provides relative bulk &lt;i&gt;get&lt;/i&gt; and &lt;i&gt;put&lt;/i&gt;
+methods that can transfer contiguous sequences of values between a buffer
+and an array or some other buffer of the same type; and  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; A view buffer is potentially much more efficient because it will
+be direct if, and only if, its backing byte buffer is direct.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt; The byte order of a view buffer is fixed to be that of its byte buffer
+at the time that the view is created.  &lt;/p&gt;
+
+
+
+
+&lt;h4&gt; Invocation chaining &lt;/h4&gt;
+
+&lt;p&gt; Methods in this class that do not otherwise have a value to return are
+specified to return the buffer upon which they are invoked.  This allows
+method invocations to be chained.
+
+
+The sequence of statements
+
+&lt;blockquote&gt;&lt;pre&gt;
+bb.putInt(0xCAFEBABE);
+bb.putShort(3);
+bb.putShort(45);&lt;/pre&gt;&lt;/blockquote&gt;
+
+can, for example, be replaced by the single statement
+
+&lt;blockquote&gt;&lt;pre&gt;
+bb.putInt(0xCAFEBABE).putShort(3).putShort(45);&lt;/pre&gt;&lt;/blockquote&gt;
+
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.56, 04/07/16
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ByteBuffer" refid="_9_5_f720368_1110473546659_818813_7971"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ByteBuffer" refid="_9_5_f720368_1110473546659_818813_7971"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

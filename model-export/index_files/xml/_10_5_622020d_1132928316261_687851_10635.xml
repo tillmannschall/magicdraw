@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316261_687851_10635"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548096_228899_20885"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;Line.Info&lt;/code&gt; object contains information about a line.
+The only information provided by &lt;code&gt;Line.Info&lt;/code&gt; itself
+is the Java class of the line.
+A subclass of &lt;code&gt;Line.Info&lt;/code&gt; adds other kinds of information
+about the line.  This additional information depends on which &lt;code&gt;Line&lt;/code&gt;
+subinterface is implemented by the kind of line that the &lt;code&gt;Line.Info&lt;/code&gt;
+subclass describes.
+&lt;p&gt;
+A &lt;code&gt;Line.Info&lt;/code&gt; can be retrieved using various methods of
+the &lt;code&gt;Line&lt;/code&gt;, &lt;code&gt;Mixer&lt;/code&gt;, and &lt;code&gt;AudioSystem&lt;/code&gt;
+interfaces.  Other such methods let you pass a &lt;code&gt;Line.Info&lt;/code&gt; as
+an argument, to learn whether lines matching the specified configuration
+are available and to obtain them.
+
+@author Kara Kytle
+@version 1.29, 04/07/14
+
+@see Line#getLineInfo
+@see Mixer#getSourceLineInfo
+@see Mixer#getTargetLineInfo
+@see Mixer#getLine &lt;code&gt;Mixer.getLine(Line.Info)&lt;/code&gt;
+@see Mixer#getSourceLineInfo(Line.Info) &lt;code&gt;Mixer.getSourceLineInfo(Line.Info)&lt;/code&gt;
+@see Mixer#getSourceLineInfo(Line.Info) &lt;code&gt;Mixer.getTargetLineInfo(Line.Info)&lt;/code&gt;
+@see Mixer#isLineSupported &lt;code&gt;Mixer.isLineSupported(Line.Info)&lt;/code&gt;
+@see AudioSystem#getLine &lt;code&gt;AudioSystem.getLine(Line.Info)&lt;/code&gt;
+@see AudioSystem#getSourceLineInfo &lt;code&gt;AudioSystem.getSourceLineInfo(Line.Info)&lt;/code&gt;
+@see AudioSystem#getTargetLineInfo &lt;code&gt;AudioSystem.getTargetLineInfo(Line.Info)&lt;/code&gt;
+@see AudioSystem#isLineSupported &lt;code&gt;AudioSystem.isLineSupported(Line.Info)&lt;/code&gt;
+@since 1.3
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Info" refid="_9_5_f720368_1110473548096_228899_20885"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548096_228899_20885"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

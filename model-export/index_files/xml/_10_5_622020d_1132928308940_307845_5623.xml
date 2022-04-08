@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308940_307845_5623"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Registry" refid="_9_5_f720368_1110473546674_416297_8159"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;Registry&lt;/code&gt; is a remote interface to a simple remote
+object registry that provides methods for storing and retrieving
+remote object references bound with arbitrary string names.  The
+&lt;code&gt;bind&lt;/code&gt;, &lt;code&gt;unbind&lt;/code&gt;, and &lt;code&gt;rebind&lt;/code&gt;
+methods are used to alter the name bindings in the registry, and
+the &lt;code&gt;lookup&lt;/code&gt; and &lt;code&gt;list&lt;/code&gt; methods are used to
+query the current name bindings.
+
+&lt;p&gt;In its typical usage, a &lt;code&gt;Registry&lt;/code&gt; enables RMI client
+bootstrapping: it provides a simple means for a client to obtain an
+initial reference to a remote object.  Therefore, a registry's
+remote object implementation is typically exported with a
+well-known address, such as with a well-known {@link
+java.rmi.server.ObjID#REGISTRY_ID ObjID} and TCP port number
+(default is {@link #REGISTRY_PORT 1099}).
+
+&lt;p&gt;The {@link LocateRegistry} class provides a programmatic API for
+constructing a bootstrap reference to a &lt;code&gt;Registry&lt;/code&gt; at a
+remote address (see the static &lt;code&gt;getRegistry&lt;/code&gt; methods)
+and for creating and exporting a &lt;code&gt;Registry&lt;/code&gt; in the
+current VM on a particular local address (see the static
+&lt;code&gt;createRegistry&lt;/code&gt; methods).
+
+&lt;p&gt;A &lt;code&gt;Registry&lt;/code&gt; implementation may choose to restrict
+access to some or all of its methods (for example, methods that
+mutate the registry's bindings may be restricted to calls
+originating from the local host).  If a &lt;code&gt;Registry&lt;/code&gt;
+method chooses to deny access for a given invocation, its
+implementation may throw {@link java.rmi.AccessException}, which
+(because it extends {@link java.rmi.RemoteException}) will be
+wrapped in a {@link java.rmi.ServerException} when caught by a
+remote client.
+
+&lt;p&gt;The names used for bindings in a &lt;code&gt;Registry&lt;/code&gt; are pure
+strings, not parsed.  A service which stores its remote reference
+in a &lt;code&gt;Registry&lt;/code&gt; may wish to use a package name as a
+prefix in the name binding to reduce the likelihood of name
+collisions in the registry.
+
+@author	Ann Wollrath
+@author	Peter Jones
+@version	1.18, 03/12/19
+@since	JDK1.1
+@see		LocateRegistry
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Registry" refid="_9_5_f720368_1110473546674_416297_8159"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Registry" refid="_9_5_f720368_1110473546674_416297_8159"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

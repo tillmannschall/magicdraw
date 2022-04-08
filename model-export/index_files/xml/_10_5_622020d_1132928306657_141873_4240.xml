@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306657_141873_4240"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Insets" refid="_9_5_f720368_1110473546581_424045_7051"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;Insets&lt;/code&gt; object is a representation of the borders
+of a container. It specifies the space that a container must leave
+at each of its edges. The space can be a border, a blank space, or
+a title.
+
+@version 	1.30, 12/19/03
+@author 	Arthur van Hoff
+@author 	Sami Shaio
+@see         java.awt.LayoutManager
+@see         java.awt.Container
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Insets" refid="_9_5_f720368_1110473546581_424045_7051"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Insets" refid="_9_5_f720368_1110473546581_424045_7051"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

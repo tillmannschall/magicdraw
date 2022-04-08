@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315730_811407_10207"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PresentationDirection" refid="_9_5_f720368_1110473546721_570396_9399"/></annotatedElement><body humanName="Body" mode="s,e">Class PresentationDirection is a printing attribute class, an enumeration,
+that is used in conjunction with the {@link  NumberUp NumberUp} attribute to
+indicate the layout of multiple print-stream pages to impose upon a
+single side of an instance of a selected medium.
+This is useful to mirror the text layout conventions of different scripts.
+For example, English is "toright-tobottom", Hebrew is "toleft-tobottom"
+and Japanese is usually "tobottom-toleft".
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt;  This attribute is not an IPP 1.1
+attribute; it is an attribute in the Production Printing Extension
+(&lt;a href="ftp://ftp.pwg.org/pub/pwg/standards/pwg5100.3.pdf"&gt;PDF&lt;/a&gt;)
+of IPP 1.1.  The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; is the IPP attribute name.  The enumeration's
+integer value is the IPP enum value.  The &lt;code&gt;toString()&lt;/code&gt; method
+returns the IPP string representation of the attribute value.
+&lt;P&gt;
+
+@author  Phil Race.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PresentationDirection" refid="_9_5_f720368_1110473546721_570396_9399"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PresentationDirection" refid="_9_5_f720368_1110473546721_570396_9399"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

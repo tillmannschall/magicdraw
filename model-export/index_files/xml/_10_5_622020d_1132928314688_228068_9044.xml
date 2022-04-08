@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314688_228068_9044"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AttributeListAdapter" refid="_9_5_f720368_1110473548862_582958_27660"/></annotatedElement><body humanName="Body" mode="s,e">Adapt a SAX1 AttributeList as a SAX2 Attributes object.
+
+&lt;p&gt;This class is in the Public Domain, and comes with NO
+WARRANTY of any kind.&lt;/p&gt;
+
+&lt;p&gt;This wrapper class is used only when Namespace support
+is disabled -- it provides pretty much a direct mapping
+from SAX1 to SAX2, except that names and types are
+interned whenever requested.&lt;/p&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AttributeListAdapter" refid="_9_5_f720368_1110473548862_582958_27660"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AttributeListAdapter" refid="_9_5_f720368_1110473548862_582958_27660"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309541_736510_6194"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SQLPermission" refid="_9_5_f720368_1110473546690_732174_8593"/></annotatedElement><body humanName="Body" mode="s,e">The permission for which the &lt;code&gt;SecurityManager&lt;/code&gt; will check
+when code that is running in an applet calls the
+&lt;code&gt;DriverManager.setLogWriter&lt;/code&gt; method or the
+&lt;code&gt;DriverManager.setLogStream&lt;/code&gt; (deprecated) method.
+If there is no &lt;code&gt;SQLPermission&lt;/code&gt; object, these methods
+throw a &lt;code&gt;java.lang.SecurityException&lt;/code&gt; as a runtime exception.
+&lt;P&gt;
+A &lt;code&gt;SQLPermission&lt;/code&gt; object contains
+a name (also referred to as a "target name") but no actions
+list; there is either a named permission or there is not.
+The target name is the name of the permission (see below). The
+naming convention follows the  hierarchical property naming convention.
+In addition, an asterisk
+may appear at the end of the name, following a ".", or by itself, to
+signify a wildcard match. For example: &lt;code&gt;loadLibrary.*&lt;/code&gt;
+or &lt;code&gt;*&lt;/code&gt; is valid,
+but &lt;code&gt;*loadLibrary&lt;/code&gt; or &lt;code&gt;a*b&lt;/code&gt; is not valid.
+&lt;P&gt;
+The following table lists all the possible &lt;code&gt;SQLPermission&lt;/code&gt; target names.
+Currently, the only name allowed is &lt;code&gt;setLog&lt;/code&gt;.
+The table gives a description of what the permission allows
+and a discussion of the risks of granting code the permission.
+&lt;P&gt;
+
+&lt;table border=1 cellpadding=5 summary="permission target name, what the permission allows, and associated risks"&gt;
+&lt;tr&gt;
+&lt;th&gt;Permission Target Name&lt;/th&gt;
+&lt;th&gt;What the Permission Allows&lt;/th&gt;
+&lt;th&gt;Risks of Allowing this Permission&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setLog&lt;/td&gt;
+&lt;td&gt;Setting of the logging stream&lt;/td&gt;
+&lt;td&gt;This is a dangerous permission to grant.
+The contents of the log may contain usernames and passwords,
+SQL statements, and SQL data.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+
+The person running an applet decides what permissions to allow
+and will run the &lt;code&gt;Policy Tool&lt;/code&gt; to create an
+&lt;code&gt;SQLPermission&lt;/code&gt; in a policy file.  A programmer does
+not use a constructor directly to create an instance of &lt;code&gt;SQLPermission&lt;/code&gt;
+but rather uses a tool.
+@since 1.3
+@see java.security.BasicPermission
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionCollection
+@see java.lang.SecurityManager
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SQLPermission" refid="_9_5_f720368_1110473546690_732174_8593"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SQLPermission" refid="_9_5_f720368_1110473546690_732174_8593"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

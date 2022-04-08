@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317803_374436_12272"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UndoableEditSupport" refid="_9_5_f720368_1110473546784_370238_10605"/></annotatedElement><body humanName="Body" mode="s,e">A support class used for managing &lt;code&gt;UndoableEdit&lt;/code&gt; listeners.
+
+@author Ray Ryan
+@version 1.20 05/05/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="UndoableEditSupport" refid="_9_5_f720368_1110473546784_370238_10605"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UndoableEditSupport" refid="_9_5_f720368_1110473546784_370238_10605"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

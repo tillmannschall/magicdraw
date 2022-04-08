@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546940_845761_13280"><documentation humanName="Documentation" mode="standard">Interface for a list of XML attributes.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This interface allows access to a list of attributes in
+three different ways:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;by attribute index;&lt;/li&gt;
+&lt;li&gt;by Namespace-qualified name; or&lt;/li&gt;
+&lt;li&gt;by qualified (prefixed) name.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The list will not contain attributes that were declared
+#IMPLIED but not specified in the start tag.  It will also not
+contain attributes used as Namespace declarations (xmlns*) unless
+the &lt;code&gt;http://xml.org/sax/features/namespace-prefixes&lt;/code&gt;
+feature is set to &lt;var&gt;true&lt;/var&gt; (it is &lt;var&gt;false&lt;/var&gt; by
+default).
+Because SAX2 conforms to the original "Namespaces in XML"
+recommendation, it normally does not
+give namespace declaration attributes a namespace URI.
+&lt;/p&gt;
+
+&lt;p&gt;Some SAX2 parsers may support using an optional feature flag
+(&lt;code&gt;http://xml.org/sax/features/xmlns-uris&lt;/code&gt;) to request
+that those attributes be given URIs, conforming to a later
+backwards-incompatible revision of that recommendation.  (The
+attribute's "local name" will be the prefix, or "xmlns" when
+defining a default element namespace.)  For portability, handler
+code should always resolve that conflict, rather than requiring
+parsers that can change the setting of that feature flag.  &lt;/p&gt;
+
+&lt;p&gt;If the namespace-prefixes feature (see above) is
+&lt;var&gt;false&lt;/var&gt;, access by qualified name may not be available; if
+the &lt;code&gt;http://xml.org/sax/features/namespaces&lt;/code&gt; feature is
+&lt;var&gt;false&lt;/var&gt;, access by Namespace-qualified names may not be
+available.&lt;/p&gt;
+
+&lt;p&gt;This interface replaces the now-deprecated SAX1 {@link
+org.xml.sax.AttributeList AttributeList} interface, which does not
+contain Namespace support.  In addition to Namespace support, it
+adds the &lt;var&gt;getIndex&lt;/var&gt; methods (below).&lt;/p&gt;
+
+&lt;p&gt;The order of attributes in the list is unspecified, and will
+vary from implementation to implementation.&lt;/p&gt;
+
+@since SAX 2.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.helpers.AttributesImpl
+@see org.xml.sax.ext.DeclHandler#attributeDecl
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Attributes</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314698_29352_9059"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314698_29352_9059"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::xml::sax::Attributes</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::helpers::AttributesImpl -&gt; JDK 5.0 Classes::org::xml::sax::Attributes]" refid="_10_5_622020d_1132928322900_420692_15732"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::helpers::ParserAdapter::AttributeListAdapter -&gt; JDK 5.0 Classes::org::xml::sax::Attributes]" refid="_10_5_622020d_1132928322900_267386_15740"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

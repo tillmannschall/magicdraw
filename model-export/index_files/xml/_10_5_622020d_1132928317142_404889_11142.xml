@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317142_404889_11142"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DividerLayout" refid="_9_5_f720368_1110473548159_871003_21514"/></annotatedElement><body humanName="Body" mode="s,e">Used to layout a &lt;code&gt;BasicSplitPaneDivider&lt;/code&gt;.
+Layout for the divider
+involves appropriately moving the left/right buttons around.
+&lt;p&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DividerLayout" refid="_9_5_f720368_1110473548159_871003_21514"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DividerLayout" refid="_9_5_f720368_1110473548159_871003_21514"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

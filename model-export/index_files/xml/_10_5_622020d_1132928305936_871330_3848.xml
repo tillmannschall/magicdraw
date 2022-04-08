@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305936_871330_3848"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Line2D" refid="_9_5_f720368_1110473546565_915789_6691"/></annotatedElement><body humanName="Body" mode="s,e">This &lt;code&gt;Line2D&lt;/code&gt; represents a line segment in (x,&amp;nbsp;y)
+coordinate space.  This class, like all of the Java 2D API, uses a
+default coordinate system called &lt;i&gt;user space&lt;/i&gt; in which the y-axis
+values increase downward and x-axis values increase to the right.  For
+more information on the user space coordinate system, see the
+&lt;a href="http://java.sun.com/j2se/1.3/docs/guide/2d/spec/j2d-intro.fm2.html#61857"&gt;
+Coordinate Systems&lt;/a&gt; section of the Java 2D Programmer's Guide.
+&lt;p&gt;
+This class is only the abstract superclass for all objects that
+store a 2D line segment.
+The actual storage representation of the coordinates is left to
+the subclass.
+
+@version 	1.28, 12/19/03
+@author	Jim Graham
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Line2D" refid="_9_5_f720368_1110473546565_915789_6691"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Line2D" refid="_9_5_f720368_1110473546565_915789_6691"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

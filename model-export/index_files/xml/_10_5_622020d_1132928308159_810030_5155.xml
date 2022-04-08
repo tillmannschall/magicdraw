@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928308159_810030_5155"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::lang::StringBuilder -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321699_252866_13751"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::lang::StringBuilder -&gt; JDK 5.0 Classes::java::lang::CharSequence]" refid="_10_5_622020d_1132928321699_17866_13752"/></clientDependency><documentation humanName="Documentation" mode="standard">A mutable sequence of characters.  This class provides an API compatible
+with &lt;code&gt;StringBuffer&lt;/code&gt;, but with no guarantee of synchronization.
+This class is designed for use as a drop-in replacement for
+&lt;code&gt;StringBuffer&lt;/code&gt; in places where the string buffer was being
+used by a single thread (as is generally the case).   Where possible,
+it is recommended that this class be used in preference to
+&lt;code&gt;StringBuffer&lt;/code&gt; as it will be faster under most implementations.
+
+&lt;p&gt;The principal operations on a &lt;code&gt;StringBuilder&lt;/code&gt; are the
+&lt;code&gt;append&lt;/code&gt; and &lt;code&gt;insert&lt;/code&gt; methods, which are
+overloaded so as to accept data of any type. Each effectively
+converts a given datum to a string and then appends or inserts the
+characters of that string to the string builder. The
+&lt;code&gt;append&lt;/code&gt; method always adds these characters at the end
+of the builder; the &lt;code&gt;insert&lt;/code&gt; method adds the characters at
+a specified point.
+&lt;p&gt;
+For example, if &lt;code&gt;z&lt;/code&gt; refers to a string builder object
+whose current contents are "&lt;code&gt;start&lt;/code&gt;", then
+the method call &lt;code&gt;z.append("le")&lt;/code&gt; would cause the string
+builder to contain "&lt;code&gt;startle&lt;/code&gt;", whereas
+&lt;code&gt;z.insert(4, "le")&lt;/code&gt; would alter the string builder to
+contain "&lt;code&gt;starlet&lt;/code&gt;".
+&lt;p&gt;
+In general, if sb refers to an instance of a &lt;code&gt;StringBuilder&lt;/code&gt;,
+then &lt;code&gt;sb.append(x)&lt;/code&gt; has the same effect as
+&lt;code&gt;sb.insert(sb.length(),&amp;nbsp;x)&lt;/code&gt;.
+
+Every string builder has a capacity. As long as the length of the
+character sequence contained in the string builder does not exceed
+the capacity, it is not necessary to allocate a new internal
+buffer. If the internal buffer overflows, it is automatically made larger.
+
+&lt;p&gt;Instances of &lt;code&gt;StringBuilder&lt;/code&gt; are not safe for
+use by multiple threads. If such synchronization is required then it is
+recommended that {@link java.lang.StringBuffer} be used.
+
+@author	Michael McCloskey
+@version 	1.9, 07/16/04
+@see         java.lang.StringBuffer
+@see         java.lang.String
+@since	1.5
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321699_878575_13753"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::lang::StringBuilder -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321699_252866_13751"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::lang::StringBuilder -&gt; JDK 5.0 Classes::java::lang::CharSequence]" refid="_10_5_622020d_1132928321699_17866_13752"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">StringBuilder</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308159_357809_5157"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321699_878575_13753"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308159_357809_5157"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::lang::StringBuilder -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321699_252866_13751"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::lang::StringBuilder -&gt; JDK 5.0 Classes::java::lang::CharSequence]" refid="_10_5_622020d_1132928321699_17866_13752"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::StringBuilder</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CharSequence" refid="_9_5_f720368_1110473546612_21020_7571"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractStringBuilder" refid="_10_5_622020d_1132928307869_383825_4926"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

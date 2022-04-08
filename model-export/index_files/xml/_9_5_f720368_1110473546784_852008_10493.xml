@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546784_852008_10493"><documentation humanName="Documentation" mode="standard">&lt;code&gt;MaskFormatter&lt;/code&gt; is used to format and edit strings. The behavior
+of a &lt;code&gt;MaskFormatter&lt;/code&gt; is controlled by way of a String mask
+that specifies the valid characters that can be contained at a particular
+location in the &lt;code&gt;Document&lt;/code&gt; model. The following characters can
+be specified:
+
+&lt;table border=1 summary="Valid characters and their descriptions"&gt;
+&lt;tr&gt;
+&lt;th&gt;Character&amp;nbsp;&lt;/th&gt;
+&lt;th&gt;&lt;p align="left"&gt;Description&lt;/p&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;#&lt;/td&gt;
+&lt;td&gt;Any valid number, uses &lt;code&gt;Character.isDigit&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;'&lt;/td&gt;
+&lt;td&gt;Escape character, used to escape any of the
+special formatting characters.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;U&lt;/td&gt;&lt;td&gt;Any character (&lt;code&gt;Character.isLetter&lt;/code&gt;). All
+lowercase letters are mapped to upper case.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;L&lt;/td&gt;&lt;td&gt;Any character (&lt;code&gt;Character.isLetter&lt;/code&gt;). All
+upper case letters are mapped to lower case.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;A&lt;/td&gt;&lt;td&gt;Any character or number (&lt;code&gt;Character.isLetter&lt;/code&gt;
+or &lt;code&gt;Character.isDigit&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;?&lt;/td&gt;&lt;td&gt;Any character
+(&lt;code&gt;Character.isLetter&lt;/code&gt;).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;*&lt;/td&gt;&lt;td&gt;Anything.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;H&lt;/td&gt;&lt;td&gt;Any hex character (0-9, a-f or A-F).&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;
+Typically characters correspond to one char, but in certain languages this
+is not the case. The mask is on a per character basis, and will thus
+adjust to fit as many chars as are needed.
+&lt;p&gt;
+You can further restrict the characters that can be input by the
+&lt;code&gt;setInvalidCharacters&lt;/code&gt; and &lt;code&gt;setValidCharacters&lt;/code&gt;
+methods. &lt;code&gt;setInvalidCharacters&lt;/code&gt; allows you to specify
+which characters are not legal. &lt;code&gt;setValidCharacters&lt;/code&gt; allows
+you to specify which characters are valid. For example, the following
+code block is equivalent to a mask of '0xHHH' with no invalid/valid
+characters:
+&lt;pre&gt;
+MaskFormatter formatter = new MaskFormatter("0x***");
+formatter.setValidCharacters("0123456789abcdefABCDEF");
+&lt;/pre&gt;
+&lt;p&gt;
+When initially formatting a value if the length of the string is
+less than the length of the mask, two things can happen. Either
+the placeholder string will be used, or the placeholder character will
+be used. Precedence is given to the placeholder string. For example:
+&lt;pre&gt;
+MaskFormatter formatter = new MaskFormatter("###-####");
+formatter.setPlaceholderCharacter('_');
+formatter.getDisplayValue(tf, "123");
+&lt;/pre&gt;
+&lt;p&gt;
+Would result in the string '123-____'. If
+&lt;code&gt;setPlaceholder("555-1212")&lt;/code&gt; was invoked '123-1212' would
+result. The placeholder String is only used on the initial format,
+on subsequent formats only the placeholder character will be used.
+&lt;p&gt;
+If a &lt;code&gt;MaskFormatter&lt;/code&gt; is configured to only allow valid characters
+(&lt;code&gt;setAllowsInvalid(false)&lt;/code&gt;) literal characters will be skipped as
+necessary when editing. Consider a &lt;code&gt;MaskFormatter&lt;/code&gt; with
+the mask "###-####" and current value "555-1212". Using the right
+arrow key to navigate through the field will result in (| indicates the
+position of the caret):
+&lt;pre&gt;
+|555-1212
+5|55-1212
+55|5-1212
+555-|1212
+555-1|212
+&lt;/pre&gt;
+The '-' is a literal (non-editable) character, and is skipped.
+&lt;p&gt;
+Similar behavior will result when editing. Consider inserting the string
+'123-45' and '12345' into the &lt;code&gt;MaskFormatter&lt;/code&gt; in the
+previous example. Both inserts will result in the same String,
+'123-45__'. When &lt;code&gt;MaskFormatter&lt;/code&gt;
+is processing the insert at character position 3 (the '-'), two things can
+happen:
+&lt;ol&gt;
+&lt;li&gt;If the inserted character is '-', it is accepted.
+&lt;li&gt;If the inserted character matches the mask for the next non-literal
+character, it is accepted at the new location.
+&lt;li&gt;Anything else results in an invalid edit
+&lt;/ol&gt;
+&lt;p&gt;
+By default &lt;code&gt;MaskFormatter&lt;/code&gt; will not allow invalid edits, you can
+change this with the &lt;code&gt;setAllowsInvalid&lt;/code&gt; method, and will
+commit edits on valid edits (use the &lt;code&gt;setCommitsOnValidEdit&lt;/code&gt; to
+change this).
+&lt;p&gt;
+By default, &lt;code&gt;MaskFormatter&lt;/code&gt; is in overwrite mode. That is as
+characters are typed a new character is not inserted, rather the character
+at the current location is replaced with the newly typed character. You
+can change this behavior by way of the method &lt;code&gt;setOverwriteMode&lt;/code&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.12 12/19/03
+@since 1.4
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323872_309313_18060"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultDocumentFilter" refid="_9_5_f720368_1110473548346_728150_23459"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultNavigationFilter" refid="_9_5_f720368_1110473548346_518850_23457"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReplaceHolder" refid="_9_5_f720368_1110473548346_960021_23454"/></inheritedMember><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AlphaNumericCharacter" refid="_9_5_f720368_1110473548362_379774_23581"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CharCharacter" refid="_9_5_f720368_1110473548362_648286_23583"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultDocumentFilter" refid="_9_5_f720368_1110473548346_728150_23459"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultNavigationFilter" refid="_9_5_f720368_1110473548346_518850_23457"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DigitMaskCharacter" refid="_9_5_f720368_1110473548362_156141_23575"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HexCharacter" refid="_9_5_f720368_1110473548362_241540_23585"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LiteralCharacter" refid="_9_5_f720368_1110473548362_588204_23573"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LowerCaseCharacter" refid="_9_5_f720368_1110473548362_551227_23579"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MaskCharacter" refid="_9_5_f720368_1110473548362_819300_23572"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReplaceHolder" refid="_9_5_f720368_1110473548346_960021_23454"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UpperCaseCharacter" refid="_9_5_f720368_1110473548362_846363_23577"/></member><name humanName="Name" mode="s,e">MaskFormatter</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AlphaNumericCharacter" refid="_9_5_f720368_1110473548362_379774_23581"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CharCharacter" refid="_9_5_f720368_1110473548362_648286_23583"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DigitMaskCharacter" refid="_9_5_f720368_1110473548362_156141_23575"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HexCharacter" refid="_9_5_f720368_1110473548362_241540_23585"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LiteralCharacter" refid="_9_5_f720368_1110473548362_588204_23573"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LowerCaseCharacter" refid="_9_5_f720368_1110473548362_551227_23579"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MaskCharacter" refid="_9_5_f720368_1110473548362_819300_23572"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UpperCaseCharacter" refid="_9_5_f720368_1110473548362_846363_23577"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317673_162417_12114"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323872_309313_18060"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317673_162417_12114"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AlphaNumericCharacter" refid="_9_5_f720368_1110473548362_379774_23581"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CharCharacter" refid="_9_5_f720368_1110473548362_648286_23583"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DigitMaskCharacter" refid="_9_5_f720368_1110473548362_156141_23575"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HexCharacter" refid="_9_5_f720368_1110473548362_241540_23585"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LiteralCharacter" refid="_9_5_f720368_1110473548362_588204_23573"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LowerCaseCharacter" refid="_9_5_f720368_1110473548362_551227_23579"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MaskCharacter" refid="_9_5_f720368_1110473548362_819300_23572"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UpperCaseCharacter" refid="_9_5_f720368_1110473548362_846363_23577"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AlphaNumericCharacter" refid="_9_5_f720368_1110473548362_379774_23581"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CharCharacter" refid="_9_5_f720368_1110473548362_648286_23583"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DigitMaskCharacter" refid="_9_5_f720368_1110473548362_156141_23575"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HexCharacter" refid="_9_5_f720368_1110473548362_241540_23585"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LiteralCharacter" refid="_9_5_f720368_1110473548362_588204_23573"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LowerCaseCharacter" refid="_9_5_f720368_1110473548362_551227_23579"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MaskCharacter" refid="_9_5_f720368_1110473548362_819300_23572"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UpperCaseCharacter" refid="_9_5_f720368_1110473548362_846363_23577"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::text::MaskFormatter</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultFormatter" refid="_9_5_f720368_1110473546784_343355_10443"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

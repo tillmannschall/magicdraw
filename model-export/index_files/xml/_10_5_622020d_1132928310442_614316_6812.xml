@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310442_614316_6812"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MatchResult" refid="_10_5_622020d_1132928310442_740444_6810"/></annotatedElement><body humanName="Body" mode="s,e">The result of a match operation.
+
+&lt;p&gt;This interface contains query methods used to determine the
+results of a match against a regular expression. The match boundaries,
+groups and group boundaries can be seen but not modified through
+a &lt;code&gt;MatchResult&lt;/code&gt;.
+
+@author  Michael McCloskey
+@version 1.5 06/28/04
+@see Matcher
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="MatchResult" refid="_10_5_622020d_1132928310442_740444_6810"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MatchResult" refid="_10_5_622020d_1132928310442_740444_6810"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

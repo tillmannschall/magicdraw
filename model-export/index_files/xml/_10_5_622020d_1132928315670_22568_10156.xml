@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315670_22568_10156"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobPriority" refid="_9_5_f720368_1110473546721_766906_9353"/></annotatedElement><body humanName="Body" mode="s,e">Class JobPriority is an integer valued printing attribute class that
+specifies a print job's priority.
+&lt;P&gt;
+If a JobPriority attribute is specified for a Print Job, it specifies a
+priority for scheduling the job. A higher value specifies a higher priority.
+The value 1 indicates the lowest possible priority. The value 100 indicates
+the highest possible priority. Among those jobs that are ready to print, a
+printer must print all jobs with a priority value of &lt;I&gt;n&lt;/I&gt; before printing
+those with a priority value of &lt;I&gt;n&lt;/I&gt;-1 for all &lt;I&gt;n.&lt;/I&gt;
+&lt;P&gt;
+If the client does not specify a JobPriority attribute for a Print Job and
+the printer does support the JobPriority attribute, the printer must use an
+implementation-defined default JobPriority value.
+&lt;P&gt;
+The client can always specify any job priority value from 1 to 100 for a job.
+However, a Print Service instance may support fewer than 100 different
+job priority levels. If this is the case, the Print Service instance
+automatically maps the client-specified job priority value to one of the
+supported job priority levels, dividing the 100 job priority values equally
+among the available job priority levels.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The integer value gives the IPP integer value. The
+category name returned by &lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute
+name.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JobPriority" refid="_9_5_f720368_1110473546721_766906_9353"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobPriority" refid="_9_5_f720368_1110473546721_766906_9353"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

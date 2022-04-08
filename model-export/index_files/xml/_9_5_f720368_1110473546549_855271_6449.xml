@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546549_855271_6449"><documentation humanName="Documentation" mode="standard">A subclass of the ICC_Profile class which represents profiles
+which meet the following criteria: the color space type of the
+profile is TYPE_GRAY and the profile includes the grayTRCTag and
+mediaWhitePointTag tags.  Examples of this kind of profile are
+monochrome input profiles, monochrome display profiles, and
+monochrome output profiles.  The getInstance methods in the
+ICC_Profile class will
+return an ICC_ProfileGray object when the above conditions are
+met.  The advantage of this class is that it provides a lookup
+table that Java or native methods may be able to use directly to
+optimize color conversion in some cases.
+&lt;p&gt;
+To transform from a GRAY device profile color space to the CIEXYZ Profile
+Connection Space, the device gray component is transformed by
+a lookup through the tone reproduction curve (TRC).  The result is
+treated as the achromatic component of the PCS.
+&lt;pre&gt;
+&amp;nbsp;               PCSY = grayTRC[deviceGray]
+&lt;/pre&gt;
+The inverse transform is done by converting the PCS Y components to
+device Gray via the inverse of the grayTRC.
+&lt;p&gt;
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928320527_578080_12872"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ICC_ProfileGray</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="color" refid="_9_5_f720368_1110473547268_839923_16332"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305495_513927_3593"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928320527_578080_12872"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305495_513927_3593"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="color" refid="_9_5_f720368_1110473547268_839923_16332"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="color" refid="_9_5_f720368_1110473547268_839923_16332"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="color" refid="_9_5_f720368_1110473547268_839923_16332"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::color::ICC_ProfileGray</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ICC_Profile" refid="_9_5_f720368_1110473546549_402776_6447"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

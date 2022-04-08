@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473548299_866677_22972"><UMLClass classType="Class" humanName="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HTMLDocument" refid="_9_5_f720368_1110473546768_420899_10355"/><documentation humanName="Documentation" mode="standard">An HTML reader to load an HTML document with an HTML
+element structure.  This is a set of callbacks from
+the parser, implemented to create a set of elements
+tagged with attributes.  The parse builds up tokens
+(ElementSpec) that describe the element subtree desired,
+and burst it into the document under the protection of
+a write lock using the insert method on the document
+outer class.
+&lt;p&gt;
+The reader can be configured by registering actions
+(of type &lt;code&gt;HTMLDocument.HTMLReader.TagAction&lt;/code&gt;)
+that describe how to handle the action.  The idea behind
+the actions provided is that the most natural text editing
+operations can be provided if the element structure boils
+down to paragraphs with runs of some kind of style
+in them.  Some things are more naturally specified
+structurally, so arbitrary structure should be allowed
+above the paragraphs, but will need to be edited with structural
+actions.  The implication of this is that some of the
+HTML elements specified in the stream being parsed will
+be collapsed into attributes, and in some cases paragraphs
+will be synthesized.  When HTML elements have been
+converted to attributes, the attribute key will be of
+type HTML.Tag, and the value will be of type AttributeSet
+so that no information is lost.  This enables many of the
+existing actions to work so that the user can type input,
+hit the return key, backspace, delete, etc and have a
+reasonable result.  Selections can be created, and attributes
+applied or removed, etc.  With this in mind, the work done
+by the reader can be categorized into the following kinds
+of tasks:
+&lt;dl&gt;
+&lt;dt&gt;Block
+&lt;dd&gt;Build the structure like it's specified in the stream.
+This produces elements that contain other elements.
+&lt;dt&gt;Paragraph
+&lt;dd&gt;Like block except that it's expected that the element
+will be used with a paragraph view so a paragraph element
+won't need to be synthesized.
+&lt;dt&gt;Character
+&lt;dd&gt;Contribute the element as an attribute that will start
+and stop at arbitrary text locations.  This will ultimately
+be mixed into a run of text, with all of the currently
+flattened HTML character elements.
+&lt;dt&gt;Special
+&lt;dd&gt;Produce an embedded graphical element.
+&lt;dt&gt;Form
+&lt;dd&gt;Produce an element that is like the embedded graphical
+element, except that it also has a component model associated
+with it.
+&lt;dt&gt;Hidden
+&lt;dd&gt;Create an element that is hidden from view when the
+document is being viewed read-only, and visible when the
+document is being edited.  This is useful to keep the
+model from losing information, and used to store things
+like comments and unrecognized tags.
+
+&lt;/dl&gt;
+&lt;p&gt;
+Currently, &lt;APPLET&gt;, &lt;PARAM&gt;, &lt;MAP&gt;, &lt;AREA&gt;, &lt;LINK&gt;,
+&lt;SCRIPT&gt; and &lt;STYLE&gt; are unsupported.
+
+&lt;p&gt;
+The assignment of the actions described is shown in the
+following table for the tags defined in &lt;code&gt;HTML.Tag&lt;/code&gt;.&lt;P&gt;
+&lt;table border=1 summary="HTML tags and assigned actions"&gt;
+&lt;tr&gt;&lt;th&gt;Tag&lt;/th&gt;&lt;th&gt;Action&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.A&lt;/code&gt;         &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.ADDRESS&lt;/code&gt;   &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.APPLET&lt;/code&gt;    &lt;td&gt;HiddenAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.AREA&lt;/code&gt;      &lt;td&gt;AreaAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.B&lt;/code&gt;         &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.BASE&lt;/code&gt;      &lt;td&gt;BaseAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.BASEFONT&lt;/code&gt;  &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.BIG&lt;/code&gt;       &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.BLOCKQUOTE&lt;/code&gt;&lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.BODY&lt;/code&gt;      &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.BR&lt;/code&gt;        &lt;td&gt;SpecialAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.CAPTION&lt;/code&gt;   &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.CENTER&lt;/code&gt;    &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.CITE&lt;/code&gt;      &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.CODE&lt;/code&gt;      &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.DD&lt;/code&gt;        &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.DFN&lt;/code&gt;       &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.DIR&lt;/code&gt;       &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.DIV&lt;/code&gt;       &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.DL&lt;/code&gt;        &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.DT&lt;/code&gt;        &lt;td&gt;ParagraphAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.EM&lt;/code&gt;        &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.FONT&lt;/code&gt;      &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.FORM&lt;/code&gt;      &lt;td&gt;As of 1.4 a BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.FRAME&lt;/code&gt;     &lt;td&gt;SpecialAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.FRAMESET&lt;/code&gt;  &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.H1&lt;/code&gt;        &lt;td&gt;ParagraphAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.H2&lt;/code&gt;        &lt;td&gt;ParagraphAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.H3&lt;/code&gt;        &lt;td&gt;ParagraphAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.H4&lt;/code&gt;        &lt;td&gt;ParagraphAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.H5&lt;/code&gt;        &lt;td&gt;ParagraphAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.H6&lt;/code&gt;        &lt;td&gt;ParagraphAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.HEAD&lt;/code&gt;      &lt;td&gt;HeadAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.HR&lt;/code&gt;        &lt;td&gt;SpecialAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.HTML&lt;/code&gt;      &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.I&lt;/code&gt;         &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.IMG&lt;/code&gt;       &lt;td&gt;SpecialAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.INPUT&lt;/code&gt;     &lt;td&gt;FormAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.ISINDEX&lt;/code&gt;   &lt;td&gt;IsndexAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.KBD&lt;/code&gt;       &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.LI&lt;/code&gt;        &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.LINK&lt;/code&gt;      &lt;td&gt;LinkAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.MAP&lt;/code&gt;       &lt;td&gt;MapAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.MENU&lt;/code&gt;      &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.META&lt;/code&gt;      &lt;td&gt;MetaAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.NOFRAMES&lt;/code&gt;  &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.OBJECT&lt;/code&gt;    &lt;td&gt;SpecialAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.OL&lt;/code&gt;        &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.OPTION&lt;/code&gt;    &lt;td&gt;FormAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.P&lt;/code&gt;         &lt;td&gt;ParagraphAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.PARAM&lt;/code&gt;     &lt;td&gt;HiddenAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.PRE&lt;/code&gt;       &lt;td&gt;PreAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.SAMP&lt;/code&gt;      &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.SCRIPT&lt;/code&gt;    &lt;td&gt;HiddenAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.SELECT&lt;/code&gt;    &lt;td&gt;FormAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.SMALL&lt;/code&gt;     &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.STRIKE&lt;/code&gt;    &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.S&lt;/code&gt;         &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.STRONG&lt;/code&gt;    &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.STYLE&lt;/code&gt;     &lt;td&gt;StyleAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.SUB&lt;/code&gt;       &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.SUP&lt;/code&gt;       &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.TABLE&lt;/code&gt;     &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.TD&lt;/code&gt;        &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.TEXTAREA&lt;/code&gt;  &lt;td&gt;FormAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.TH&lt;/code&gt;        &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.TITLE&lt;/code&gt;     &lt;td&gt;TitleAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.TR&lt;/code&gt;        &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.TT&lt;/code&gt;        &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.U&lt;/code&gt;         &lt;td&gt;CharacterAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.UL&lt;/code&gt;        &lt;td&gt;BlockAction
+&lt;tr&gt;&lt;td&gt;&lt;code&gt;HTML.Tag.VAR&lt;/code&gt;       &lt;td&gt;CharacterAction
+&lt;/table&gt;
+&lt;p&gt;
+Once &lt;/html&gt; is encountered, the Actions are no longer notified.
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323792_246382_17796"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AnchorAction" refid="_9_5_f720368_1110473548299_927472_22996"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AreaAction" refid="_9_5_f720368_1110473548299_73132_22990"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BaseAction" refid="_9_5_f720368_1110473548299_865713_22998"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BlockAction" refid="_9_5_f720368_1110473548299_257264_22976"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CharacterAction" refid="_9_5_f720368_1110473548299_125149_22993"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ConvertAction" refid="_9_5_f720368_1110473548299_848740_22994"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormAction" refid="_9_5_f720368_1110473548299_112783_23000"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormTagAction" refid="_9_5_f720368_1110473548299_625923_22977"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HeadAction" refid="_9_5_f720368_1110473548299_886678_22985"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HiddenAction" refid="_9_5_f720368_1110473548299_650261_22982"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IsindexAction" refid="_9_5_f720368_1110473548299_325255_22981"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LinkAction" refid="_9_5_f720368_1110473548299_431351_22987"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MapAction" refid="_9_5_f720368_1110473548299_56681_22989"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetaAction" refid="_9_5_f720368_1110473548299_4335_22983"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectAction" refid="_9_5_f720368_1110473548299_975340_22999"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParagraphAction" refid="_9_5_f720368_1110473548299_184957_22979"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PreAction" refid="_9_5_f720368_1110473548299_314344_22992"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SpecialAction" refid="_9_5_f720368_1110473548299_676919_22980"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StyleAction" refid="_9_5_f720368_1110473548299_45064_22991"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TagAction" refid="_9_5_f720368_1110473548299_351366_22974"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TitleAction" refid="_9_5_f720368_1110473548299_234404_22997"/></member><name humanName="Name" mode="s,e">HTMLReader</name><namespace classType="Class" humanName="Namespace" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HTMLDocument" refid="_9_5_f720368_1110473546768_420899_10355"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AnchorAction" refid="_9_5_f720368_1110473548299_927472_22996"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AreaAction" refid="_9_5_f720368_1110473548299_73132_22990"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BaseAction" refid="_9_5_f720368_1110473548299_865713_22998"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BlockAction" refid="_9_5_f720368_1110473548299_257264_22976"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CharacterAction" refid="_9_5_f720368_1110473548299_125149_22993"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ConvertAction" refid="_9_5_f720368_1110473548299_848740_22994"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormAction" refid="_9_5_f720368_1110473548299_112783_23000"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormTagAction" refid="_9_5_f720368_1110473548299_625923_22977"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HeadAction" refid="_9_5_f720368_1110473548299_886678_22985"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HiddenAction" refid="_9_5_f720368_1110473548299_650261_22982"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IsindexAction" refid="_9_5_f720368_1110473548299_325255_22981"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LinkAction" refid="_9_5_f720368_1110473548299_431351_22987"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MapAction" refid="_9_5_f720368_1110473548299_56681_22989"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetaAction" refid="_9_5_f720368_1110473548299_4335_22983"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectAction" refid="_9_5_f720368_1110473548299_975340_22999"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParagraphAction" refid="_9_5_f720368_1110473548299_184957_22979"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PreAction" refid="_9_5_f720368_1110473548299_314344_22992"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SpecialAction" refid="_9_5_f720368_1110473548299_676919_22980"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StyleAction" refid="_9_5_f720368_1110473548299_45064_22991"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TagAction" refid="_9_5_f720368_1110473548299_351366_22974"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TitleAction" refid="_9_5_f720368_1110473548299_234404_22997"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317462_977246_11858"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323792_246382_17796"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317462_977246_11858"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AnchorAction" refid="_9_5_f720368_1110473548299_927472_22996"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AreaAction" refid="_9_5_f720368_1110473548299_73132_22990"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BaseAction" refid="_9_5_f720368_1110473548299_865713_22998"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BlockAction" refid="_9_5_f720368_1110473548299_257264_22976"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CharacterAction" refid="_9_5_f720368_1110473548299_125149_22993"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ConvertAction" refid="_9_5_f720368_1110473548299_848740_22994"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormAction" refid="_9_5_f720368_1110473548299_112783_23000"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormTagAction" refid="_9_5_f720368_1110473548299_625923_22977"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HeadAction" refid="_9_5_f720368_1110473548299_886678_22985"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HiddenAction" refid="_9_5_f720368_1110473548299_650261_22982"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IsindexAction" refid="_9_5_f720368_1110473548299_325255_22981"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LinkAction" refid="_9_5_f720368_1110473548299_431351_22987"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MapAction" refid="_9_5_f720368_1110473548299_56681_22989"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetaAction" refid="_9_5_f720368_1110473548299_4335_22983"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectAction" refid="_9_5_f720368_1110473548299_975340_22999"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParagraphAction" refid="_9_5_f720368_1110473548299_184957_22979"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PreAction" refid="_9_5_f720368_1110473548299_314344_22992"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SpecialAction" refid="_9_5_f720368_1110473548299_676919_22980"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StyleAction" refid="_9_5_f720368_1110473548299_45064_22991"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TagAction" refid="_9_5_f720368_1110473548299_351366_22974"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TitleAction" refid="_9_5_f720368_1110473548299_234404_22997"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AnchorAction" refid="_9_5_f720368_1110473548299_927472_22996"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AreaAction" refid="_9_5_f720368_1110473548299_73132_22990"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BaseAction" refid="_9_5_f720368_1110473548299_865713_22998"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BlockAction" refid="_9_5_f720368_1110473548299_257264_22976"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CharacterAction" refid="_9_5_f720368_1110473548299_125149_22993"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ConvertAction" refid="_9_5_f720368_1110473548299_848740_22994"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormAction" refid="_9_5_f720368_1110473548299_112783_23000"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormTagAction" refid="_9_5_f720368_1110473548299_625923_22977"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HeadAction" refid="_9_5_f720368_1110473548299_886678_22985"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HiddenAction" refid="_9_5_f720368_1110473548299_650261_22982"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IsindexAction" refid="_9_5_f720368_1110473548299_325255_22981"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LinkAction" refid="_9_5_f720368_1110473548299_431351_22987"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MapAction" refid="_9_5_f720368_1110473548299_56681_22989"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetaAction" refid="_9_5_f720368_1110473548299_4335_22983"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectAction" refid="_9_5_f720368_1110473548299_975340_22999"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParagraphAction" refid="_9_5_f720368_1110473548299_184957_22979"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PreAction" refid="_9_5_f720368_1110473548299_314344_22992"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SpecialAction" refid="_9_5_f720368_1110473548299_676919_22980"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StyleAction" refid="_9_5_f720368_1110473548299_45064_22991"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TagAction" refid="_9_5_f720368_1110473548299_351366_22974"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TitleAction" refid="_9_5_f720368_1110473548299_234404_22997"/></ownedMember><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="HTMLDocument" refid="_9_5_f720368_1110473546768_420899_10355"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::text::html::HTMLDocument::HTMLReader</qualifiedName><redefinitionContext humanName="Redefinition Context"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HTMLDocument" refid="_9_5_f720368_1110473546768_420899_10355"/></redefinitionContext><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParserCallback" refid="_9_5_f720368_1110473548299_839887_23018"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

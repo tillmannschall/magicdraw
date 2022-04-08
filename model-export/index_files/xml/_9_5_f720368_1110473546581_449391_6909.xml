@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546581_449391_6909"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;Printable&lt;/code&gt; interface is implemented
+by the &lt;code&gt;print&lt;/code&gt; methods of the current
+page painter, which is called by the printing
+system to render a page.  When building a
+{@link Pageable}, pairs of {@link PageFormat}
+instances and instances that implement
+this interface are used to describe each page. The
+instance implementing &lt;code&gt;Printable&lt;/code&gt; is called to
+print the page's graphics.
+&lt;p&gt;
+A &lt;code&gt;Printable(..)&lt;/code&gt; may be set on a &lt;code&gt;PrinterJob&lt;/code&gt;.
+When the client subsequently initiates printing by calling
+&lt;code&gt;PrinterJob.print(..)&lt;/code&gt; control
+&lt;p&gt;
+is handed to the printing system until all pages have been printed.
+It does this by calling &lt;code&gt;Printable.print(..)&lt;/code&gt; until
+all pages in the document have been printed.
+In using the &lt;code&gt;Printable&lt;/code&gt; interface the printing
+commits to image the contents of a page whenever
+requested by the printing system.
+&lt;p&gt;
+The parameters to &lt;code&gt;Printable.print(..)&lt;/code&gt; include a
+&lt;code&gt;PageFormat&lt;/code&gt; which describes the printable area of
+the page, needed for calculating the contents that will fit the
+page, and the page index, which specifies the zero-based print
+stream index of the requested page.
+&lt;p&gt;
+For correct printing behaviour, the following points should be
+observed:
+&lt;ul&gt;
+&lt;li&gt; The printing system may request a page index more than once.
+On each occasion equal PageFormat parameters will be supplied.
+
+&lt;li&gt;The printing system will call &lt;code&gt;Printable.print(..)&lt;/code&gt;
+with page indexes which increase monotonically, although as noted above,
+the &lt;code&gt;Printable&lt;/code&gt; should expect multiple calls for a page index
+and that page indexes may be skipped, when page ranges are specified
+by the client, or by a user through a print dialog.
+
+&lt;li&gt;If multiple collated copies of a document are requested, and the
+printer cannot natively support this, then the document may be imaged
+multiple times. Printing will start each copy from the lowest print
+stream page index page.
+
+&lt;li&gt;With the exception of re-imaging an entire document for multiple
+collated copies, the increasing page index order means that when
+page N is requested if a client needs to calculate page break position,
+it may safely discard any state related to pages &lt; N, and make current
+that for page N. "State" usually is just the calculated position in the
+document that corresponds to the start of the page.
+
+&lt;li&gt;When called by the printing system the &lt;code&gt;Printable&lt;/code&gt; must
+inspect and honour the supplied PageFormat parameter as well as the
+page index.
+This is key to correct printing behaviour, and it has the
+implication that the client has the responsibility of tracking
+what content belongs on the specified page.
+
+&lt;li&gt;When the &lt;code&gt;Printable&lt;/code&gt; is obtained from a client-supplied
+&lt;code&gt;Pageable&lt;/code&gt; then the client may provide different PageFormats
+for each page index. Calculations of page breaks must account for this.
+&lt;/ul&gt;
+&lt;p&gt;
+@see java.awt.print.Pageable
+@see java.awt.print.PageFormat
+@see java.awt.print.PrinterJob
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Printable</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="print" refid="_9_5_f720368_1110473547362_235630_16875"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306196_113571_4080"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306196_113571_4080"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="print" refid="_9_5_f720368_1110473547362_235630_16875"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="print" refid="_9_5_f720368_1110473547362_235630_16875"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="print" refid="_9_5_f720368_1110473547362_235630_16875"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::print::Printable</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JTable::ThreadSafePrintable -&gt; JDK 5.0 Classes::java::awt::print::Printable]" refid="_10_5_622020d_1132928324142_492238_18543"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::TablePrintable -&gt; JDK 5.0 Classes::java::awt::print::Printable]" refid="_10_5_622020d_1132928324172_44474_18680"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

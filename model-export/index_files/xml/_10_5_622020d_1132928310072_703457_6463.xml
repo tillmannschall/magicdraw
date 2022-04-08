@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310072_703457_6463"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HashEntry" refid="_10_5_622020d_1132928310072_445859_6457"/></annotatedElement><body humanName="Body" mode="s,e">ConcurrentHashMap list entry. Note that this is never exported
+out as a user-visible Map.Entry.
+
+Because the value field is volatile, not final, it is legal wrt
+the Java Memory Model for an unsynchronized reader to see null
+instead of initial value when read via a data race.  Although a
+reordering leading to this is not likely to ever actually
+occur, the Segment.readValueUnderLock method is used as a
+backup in case a null (pre-initialized) value is ever seen in
+an unsynchronized access method.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="HashEntry" refid="_10_5_622020d_1132928310072_445859_6457"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HashEntry" refid="_10_5_622020d_1132928310072_445859_6457"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

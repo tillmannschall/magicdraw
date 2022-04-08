@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317272_962114_11508"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SynthConstants" refid="_10_5_622020d_1132928317262_167549_11506"/></annotatedElement><body humanName="Body" mode="s,e">Constants used by Synth. Not all Components support all states. A
+Component will at least be in one of the primary states. That is, the
+return value from &lt;code&gt;SynthContext.getComponentState()&lt;/code&gt; will at
+least be one of &lt;code&gt;ENABLED&lt;/code&gt;, &lt;code&gt;MOUSE_OVER&lt;/code&gt;,
+&lt;code&gt;PRESSED&lt;/code&gt; or &lt;code&gt;DISABLED&lt;/code&gt;, and may also contain
+&lt;code&gt;FOCUSED&lt;/code&gt;, &lt;code&gt;SELECTED&lt;/code&gt; or &lt;code&gt;DEFAULT&lt;/code&gt;.
+
+@version 1.7, 12/19/03
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="SynthConstants" refid="_10_5_622020d_1132928317262_167549_11506"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SynthConstants" refid="_10_5_622020d_1132928317262_167549_11506"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

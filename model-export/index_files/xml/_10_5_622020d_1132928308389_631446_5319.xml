@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308389_631446_5319"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Socket" refid="_9_5_f720368_1110473546643_951564_7803"/></annotatedElement><body humanName="Body" mode="s,e">This class implements client sockets (also called just
+"sockets"). A socket is an endpoint for communication
+between two machines.
+&lt;p&gt;
+The actual work of the socket is performed by an instance of the
+&lt;code&gt;SocketImpl&lt;/code&gt; class. An application, by changing
+the socket factory that creates the socket implementation,
+can configure itself to create sockets appropriate to the local
+firewall.
+
+@author  unascribed
+@version 1.108, 05/18/04
+@see     java.net.Socket#setSocketImplFactory(java.net.SocketImplFactory)
+@see     java.net.SocketImpl
+@see     java.nio.channels.SocketChannel
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Socket" refid="_9_5_f720368_1110473546643_951564_7803"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Socket" refid="_9_5_f720368_1110473546643_951564_7803"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

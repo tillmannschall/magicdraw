@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314759_557641_9119"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AccessibleKeyBinding" refid="_9_5_f720368_1110473546706_184903_8973"/></annotatedElement><body humanName="Body" mode="s,e">The AccessibleKeyBinding interface should be supported by any object
+that has a keyboard bindings such as a keyboard mnemonic and/or keyboard
+shortcut which can be used to select the object.  This interface provides
+the standard mechanism for an assistive technology to determine the
+key bindings which exist for this object.
+Any object that has such key bindings should support this
+interface.  Applications can determine if an object supports the
+AccessibleKeyBinding interface by first obtaining its AccessibleContext
+(see @link Accessible} and then calling the
+{@link AccessibleContext#getAccessibleKeyBinding} method.  If the return
+value is not null, the object supports this interface.
+
+@see Accessible
+@see Accessible#getAccessibleContext
+@see AccessibleContext
+@see AccessibleContext#getAccessibleKeyBinding
+
+@version     1.4 12/19/03
+@author	Lynn Monsanto
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="AccessibleKeyBinding" refid="_9_5_f720368_1110473546706_184903_8973"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AccessibleKeyBinding" refid="_9_5_f720368_1110473546706_184903_8973"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

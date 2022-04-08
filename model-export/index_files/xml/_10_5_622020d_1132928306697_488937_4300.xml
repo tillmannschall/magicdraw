@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306697_488937_4300"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PaintContext" refid="_9_5_f720368_1110473546581_660863_7093"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;PaintContext&lt;/code&gt; interface defines the encapsulated
+and optimized environment to generate color patterns in device
+space for fill or stroke operations on a
+{@link Graphics2D}.  The &lt;code&gt;PaintContext&lt;/code&gt; provides
+the necessary colors for &lt;code&gt;Graphics2D&lt;/code&gt; operations in the
+form of a {@link Raster} associated with a {@link ColorModel}.
+The &lt;code&gt;PaintContext&lt;/code&gt; maintains state for a particular paint
+operation.  In a multi-threaded environment, several
+contexts can exist simultaneously for a single {@link Paint} object.
+@see Paint
+@version 10 Feb 1997
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="PaintContext" refid="_9_5_f720368_1110473546581_660863_7093"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PaintContext" refid="_9_5_f720368_1110473546581_660863_7093"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

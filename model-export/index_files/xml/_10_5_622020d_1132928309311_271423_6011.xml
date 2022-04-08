@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309311_271423_6011"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="IdentityScope" refid="_9_5_f720368_1110473546674_136691_8453"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;This class represents a scope for identities. It is an Identity
+itself, and therefore has a name and can have a scope. It can also
+optionally have a public key and associated certificates.
+
+&lt;p&gt;An IdentityScope can contain Identity objects of all kinds, including
+Signers. All types of Identity objects can be retrieved, added, and
+removed using the same methods. Note that it is possible, and in fact
+expected, that different types of identity scopes will
+apply different policies for their various operations on the
+various types of Identities.
+
+&lt;p&gt;There is a one-to-one mapping between keys and identities, and
+there can only be one copy of one key per scope. For example, suppose
+&lt;b&gt;Acme Software, Inc&lt;/b&gt; is a software publisher known to a user.
+Suppose it is an Identity, that is, it has a public key, and a set of
+associated certificates. It is named in the scope using the name
+"Acme Software". No other named Identity in the scope has the same
+public  key. Of course, none has the same name as well.
+
+@see Identity
+@see Signer
+@see Principal
+@see Key
+
+@version 1.54 04/05/18
+@author Benjamin Renaud
+
+@deprecated This class is no longer used. Its functionality has been
+replaced by &lt;code&gt;java.security.KeyStore&lt;/code&gt;, the
+&lt;code&gt;java.security.cert&lt;/code&gt; package, and
+&lt;code&gt;java.security.Principal&lt;/code&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="IdentityScope" refid="_9_5_f720368_1110473546674_136691_8453"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="IdentityScope" refid="_9_5_f720368_1110473546674_136691_8453"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

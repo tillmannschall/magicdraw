@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546565_699518_6805"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::LookupOp -&gt; JDK 5.0 Classes::java::awt::image::BufferedImageOp]" refid="_10_5_622020d_1132928321248_508426_13083"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::LookupOp -&gt; JDK 5.0 Classes::java::awt::image::RasterOp]" refid="_10_5_622020d_1132928321248_203335_13084"/></clientDependency><documentation humanName="Documentation" mode="standard">This class implements a lookup operation from the source
+to the destination.  The LookupTable object may contain a single array
+or multiple arrays, subject to the restrictions below.
+&lt;p&gt;
+For Rasters, the lookup operates on bands.  The number of
+lookup arrays may be one, in which case the same array is
+applied to all bands, or it must equal the number of Source
+Raster bands.
+&lt;p&gt;
+For BufferedImages, the lookup operates on color and alpha components.
+The number of lookup arrays may be one, in which case the
+same array is applied to all color (but not alpha) components.
+Otherwise, the number of lookup arrays may
+equal the number of Source color components, in which case no
+lookup of the alpha component (if present) is performed.
+If neither of these cases apply, the number of lookup arrays
+must equal the number of Source color components plus alpha components,
+in which case lookup is performed for all color and alpha components.
+This allows non-uniform rescaling of multi-band BufferedImages.
+&lt;p&gt;
+BufferedImage sources with premultiplied alpha data are treated in the same
+manner as non-premultiplied images for purposes of the lookup.  That is,
+the lookup is done per band on the raw data of the BufferedImage source
+without regard to whether the data is premultiplied.  If a color conversion
+is required to the destination ColorModel, the premultiplied state of
+both source and destination will be taken into account for this step.
+&lt;p&gt;
+Images with an IndexColorModel cannot be used.
+&lt;p&gt;
+If a RenderingHints object is specified in the constructor, the
+color rendering hint and the dithering hint may be used when color
+conversion is required.
+&lt;p&gt;
+This class allows the Source to be the same as the Destination.
+
+@version 10 Feb 1997
+@see LookupTable
+@see java.awt.RenderingHints#KEY_COLOR_RENDERING
+@see java.awt.RenderingHints#KEY_DITHERING
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::LookupOp -&gt; JDK 5.0 Classes::java::awt::image::BufferedImageOp]" refid="_10_5_622020d_1132928321248_508426_13083"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::LookupOp -&gt; JDK 5.0 Classes::java::awt::image::RasterOp]" refid="_10_5_622020d_1132928321248_203335_13084"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">LookupOp</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306086_168182_3970"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306086_168182_3970"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::LookupOp -&gt; JDK 5.0 Classes::java::awt::image::BufferedImageOp]" refid="_10_5_622020d_1132928321248_508426_13083"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::LookupOp -&gt; JDK 5.0 Classes::java::awt::image::RasterOp]" refid="_10_5_622020d_1132928321248_203335_13084"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::image::LookupOp</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BufferedImageOp" refid="_9_5_f720368_1110473546565_282435_6755"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RasterOp" refid="_9_5_f720368_1110473546581_850797_6823"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

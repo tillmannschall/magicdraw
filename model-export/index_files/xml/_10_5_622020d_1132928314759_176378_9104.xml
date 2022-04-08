@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314759_176378_9104"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AccessibleEditableText" refid="_9_5_f720368_1110473546706_90789_8961"/></annotatedElement><body humanName="Body" mode="s,e">&lt;P&gt;The AccessibleEditableText interface should be implemented by all
+classes that present editable textual information on the display.
+Along with the AccessibleText interface, this interface provides
+the standard mechanism for an assistive technology to access
+that text via its content, attributes, and spatial location.
+Applications can determine if an object supports the AccessibleEditableText
+interface by first obtaining its AccessibleContext (see {@link Accessible})
+and then calling the {@link AccessibleContext#getAccessibleEditableText}
+method of AccessibleContext.  If the return value is not null, the object
+supports this interface.
+
+@see Accessible
+@see Accessible#getAccessibleContext
+@see AccessibleContext
+@see AccessibleContext#getAccessibleText
+@see AccessibleContext#getAccessibleEditableText
+
+@version	1.4 @(#)AccessibleEditableText.java	1.4
+@author	Lynn Monsanto
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="AccessibleEditableText" refid="_9_5_f720368_1110473546706_90789_8961"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AccessibleEditableText" refid="_9_5_f720368_1110473546706_90789_8961"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

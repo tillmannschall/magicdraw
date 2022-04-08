@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308760_553490_5459"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CharsetDecoder" refid="_9_5_f720368_1110473546659_157365_7945"/></annotatedElement><body humanName="Body" mode="s,e">An engine that can transform a sequence of bytes in a specific charset into a sequence of
+sixteen-bit Unicode characters.
+
+&lt;a name="steps"&gt;
+
+&lt;p&gt; The input byte sequence is provided in a byte buffer or a series
+of such buffers.  The output character sequence is written to a character buffer
+or a series of such buffers.  A decoder should always be used by making
+the following sequence of method invocations, hereinafter referred to as a
+&lt;i&gt;decoding operation&lt;/i&gt;:
+
+&lt;ol&gt;
+
+&lt;li&gt;&lt;p&gt; Reset the decoder via the {@link #reset reset} method, unless it
+has not been used before; &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Invoke the {@link #decode decode} method zero or more times, as
+long as additional input may be available, passing &lt;tt&gt;false&lt;/tt&gt; for the
+&lt;tt&gt;endOfInput&lt;/tt&gt; argument and filling the input buffer and flushing the
+output buffer between invocations; &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Invoke the {@link #decode decode} method one final time, passing
+&lt;tt&gt;true&lt;/tt&gt; for the &lt;tt&gt;endOfInput&lt;/tt&gt; argument; and then &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Invoke the {@link #flush flush} method so that the decoder can
+flush any internal state to the output buffer. &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ol&gt;
+
+Each invocation of the {@link #decode decode} method will decode as many
+bytes as possible from the input buffer, writing the resulting characters
+to the output buffer.  The {@link #decode decode} method returns when more
+input is required, when there is not enough room in the output buffer, or
+when a decoding error has occurred.  In each case a {@link CoderResult}
+object is returned to describe the reason for termination.  An invoker can
+examine this object and fill the input buffer, flush the output buffer, or
+attempt to recover from a decoding error, as appropriate, and try again.
+
+&lt;a name="ce"&gt;
+
+&lt;p&gt; There are two general types of decoding errors.  If the input byte
+sequence is not legal for this charset then the input is considered &lt;i&gt;malformed&lt;/i&gt;.  If
+the input byte sequence is legal but cannot be mapped to a valid
+Unicode character then an &lt;i&gt;unmappable character&lt;/i&gt; has been encountered.
+
+&lt;a name="cae"&gt;
+
+&lt;p&gt; How a decoding error is handled depends upon the action requested for
+that type of error, which is described by an instance of the {@link
+CodingErrorAction} class.  The possible error actions are to {@link
+CodingErrorAction#IGNORE &lt;/code&gt;ignore&lt;code&gt;} the erroneous input, {@link
+CodingErrorAction#REPORT &lt;/code&gt;report&lt;code&gt;} the error to the invoker via
+the returned {@link CoderResult} object, or {@link CodingErrorAction#REPLACE
+&lt;/code&gt;replace&lt;code&gt;} the erroneous input with the current value of the
+replacement string.  The replacement
+
+has the initial value &lt;tt&gt;"&amp;#92;uFFFD"&lt;/tt&gt;;
+
+its value may be changed via the {@link #replaceWith(java.lang.String)
+replaceWith} method.
+
+&lt;p&gt; The default action for malformed-input and unmappable-character errors
+is to {@link CodingErrorAction#REPORT &lt;/code&gt;report&lt;code&gt;} them.  The
+malformed-input error action may be changed via the {@link
+#onMalformedInput(CodingErrorAction) onMalformedInput} method; the
+unmappable-character action may be changed via the {@link
+#onUnmappableCharacter(CodingErrorAction) onUnmappableCharacter} method.
+
+&lt;p&gt; This class is designed to handle many of the details of the decoding
+process, including the implementation of error actions.  A decoder for a
+specific charset, which is a concrete subclass of this class, need only
+implement the abstract {@link #decodeLoop decodeLoop} method, which
+encapsulates the basic decoding loop.  A subclass that maintains internal
+state should, additionally, override the {@link #flush flush} and {@link
+#reset reset} methods.
+
+&lt;p&gt; Instances of this class are not safe for use by multiple concurrent
+threads.  &lt;/p&gt;
+
+
+@version 1.40, 04/06/19
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@since 1.4
+
+@see ByteBuffer
+@see CharBuffer
+@see Charset
+@see CharsetEncoder
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="CharsetDecoder" refid="_9_5_f720368_1110473546659_157365_7945"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CharsetDecoder" refid="_9_5_f720368_1110473546659_157365_7945"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

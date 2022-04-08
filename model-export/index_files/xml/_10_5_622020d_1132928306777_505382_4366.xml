@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306777_505382_4366"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BeanContext" refid="_9_5_f720368_1110473546596_171017_7149"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;
+The BeanContext acts a logical hierarchical container for JavaBeans.
+&lt;/p&gt;
+
+@author Laurence P. G. Cable
+@version 1.23, 12/19/03
+@since 1.2
+
+@see java.beans.Beans
+@see java.beans.beancontext.BeanContextChild
+@see java.beans.beancontext.BeanContextMembershipListener
+@see java.beans.PropertyChangeEvent
+@see java.beans.VetoableChangeEvent
+@see java.beans.DesignMode
+@see java.beans.Visibility
+@see java.util.Collection
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="BeanContext" refid="_9_5_f720368_1110473546596_171017_7149"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BeanContext" refid="_9_5_f720368_1110473546596_171017_7149"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

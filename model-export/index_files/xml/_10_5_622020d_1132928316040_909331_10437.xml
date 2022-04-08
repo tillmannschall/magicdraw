@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316040_909331_10437"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ServicePermission" refid="_9_5_f720368_1110473546737_674409_9601"/></annotatedElement><body humanName="Body" mode="s,e">This class is used to protect Kerberos services and the
+credentials necessary to access those services. There is a one to
+one mapping of a service principal and the credentials necessary
+to access the service. Therefore granting access to a service
+principal implicitly grants access to the credential necessary to
+establish a security context with the service principal. This
+applies regardless of whether the credentials are in a cache
+or acquired via an exchange with the KDC. The credential can
+be either a ticket granting ticket, a service ticket or a secret
+key from a key table.
+&lt;p&gt;
+A ServicePermission contains a service principal name and
+a list of actions which specify the context the credential can be
+used within.
+&lt;p&gt;
+The service principal name is the canonical name of the
+&lt;code&gt;KereberosPrincipal&lt;/code&gt; supplying the service, that is
+the KerberosPrincipal represents a Kerberos service
+principal. This name is treated in a case sensitive manner.
+An asterisk may appear by itself, to signify any service principal.
+&lt;p&gt;
+Granting this permission implies that the caller can use a cached
+credential (TGT, service ticket or secret key) within the context
+designated by the action. In the case of the TGT, granting this
+permission also implies that the TGT can be obtained by an
+Authentication Service exchange.
+&lt;p&gt;
+The possible actions are:
+&lt;p&gt;
+&lt;pre&gt;
+initiate -              allow the caller to use the credential to
+initiate a security context with a service
+principal.
+
+accept -                allow the caller to use the credential to
+accept security context as a particular
+principal.
+&lt;/pre&gt;
+
+For example, to specify the permission to access to the TGT to
+initiate a security context the permission is constructed as follows:
+&lt;p&gt;
+&lt;pre&gt;
+ServicePermission("krbtgt/EXAMPLE.COM@EXAMPLE.COM", "initiate");
+&lt;/pre&gt;
+&lt;p&gt;
+To obtain a service ticket to initiate a context with the "host"
+service the permission is constructed as follows:
+&lt;pre&gt;
+ServicePermission("host/foo.example.com@EXAMPLE.COM", "initiate");
+&lt;/pre&gt;
+&lt;p&gt;
+For a Kerberized server the action is "accept". For example, the permission
+necessary to access and use the secret key of the  Kerberized "host"
+service (telnet and the likes)  would be constructed as follows:
+&lt;p&gt;
+&lt;pre&gt;
+ServicePermission("host/foo.example.com@EXAMPLE.COM", "accept");
+&lt;/pre&gt;
+
+@since JDK1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ServicePermission" refid="_9_5_f720368_1110473546737_674409_9601"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ServicePermission" refid="_9_5_f720368_1110473546737_674409_9601"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

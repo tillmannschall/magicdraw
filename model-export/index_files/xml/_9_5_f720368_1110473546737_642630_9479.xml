@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546737_642630_9479"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::ResolutionSyntax -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323331_675235_16468"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::ResolutionSyntax -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928323331_922307_16469"/></clientDependency><documentation humanName="Documentation" mode="standard">Class ResolutionSyntax is an abstract base class providing the common
+implementation of all attributes denoting a printer resolution.
+&lt;P&gt;
+A resolution attribute's value consists of two items, the cross feed
+direction resolution and the feed direction resolution. A resolution
+attribute may be constructed by supplying the two values and indicating the
+units in which the values are measured. Methods are provided to return a
+resolution attribute's values, indicating the units in which the values are
+to be returned. The two most common resolution units are dots per inch (dpi)
+and dots per centimeter (dpcm), and exported constants {@link #DPI
+&lt;CODE&gt;DPI&lt;/CODE&gt;} and {@link #DPCM &lt;CODE&gt;DPCM&lt;/CODE&gt;} are provided for
+indicating those units.
+&lt;P&gt;
+Once constructed, a resolution attribute's value is immutable.
+&lt;P&gt;
+&lt;B&gt;Design&lt;/B&gt;
+&lt;P&gt;
+A resolution attribute's cross feed direction resolution and feed direction
+resolution values are stored internally using units of dots per 100 inches
+(dphi). Storing the values in dphi rather than, say, metric units allows
+precise integer arithmetic conversions between dpi and dphi and between dpcm
+and dphi: 1 dpi = 100 dphi, 1 dpcm = 254 dphi. Thus, the values can be stored
+into and retrieved back from a resolution attribute in either units with no
+loss of precision. This would not be guaranteed if a floating point
+representation were used. However, roundoff error will in general occur if a
+resolution attribute's values are created in one units and retrieved in
+different units; for example, 600 dpi will be rounded to 236 dpcm, whereas
+the true value (to five figures) is 236.22 dpcm.
+&lt;P&gt;
+Storing the values internally in common units of dphi lets two resolution
+attributes be compared without regard to the units in which they were
+created; for example, 300 dpcm will compare equal to 762 dpi, as they both
+are stored as 76200 dphi. In particular, a lookup service can
+match resolution attributes based on equality of their serialized
+representations regardless of the units in which they were created. Again,
+using integers for internal storage allows precise equality comparisons to be
+done, which would not be guaranteed if a floating point representation were
+used.
+&lt;P&gt;
+The exported constant {@link #DPI &lt;CODE&gt;DPI&lt;/CODE&gt;} is actually the
+conversion factor by which to multiply a value in dpi to get the value in
+dphi. Likewise, the exported constant {@link #DPCM &lt;CODE&gt;DPCM&lt;/CODE&gt;} is the
+conversion factor by which to multiply a value in dpcm to get the value in
+dphi. A client can specify a resolution value in units other than dpi or dpcm
+by supplying its own conversion factor. However, since the internal units of
+dphi was chosen with supporting only the external units of dpi and dpcm in
+mind, there is no guarantee that the conversion factor for the client's units
+will be an exact integer. If the conversion factor isn't an exact integer,
+resolution values in the client's units won't be stored precisely.
+&lt;P&gt;
+
+@author  David Mendenhall
+@author  Alan Kaminsky
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::ResolutionSyntax -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323331_675235_16468"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::ResolutionSyntax -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928323331_922307_16469"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ResolutionSyntax</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="attribute" refid="_9_5_f720368_1110473547987_11292_20190"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315820_683065_10297"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315820_683065_10297"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::ResolutionSyntax -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323331_675235_16468"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::ResolutionSyntax -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928323331_922307_16469"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="attribute" refid="_9_5_f720368_1110473547987_11292_20190"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="attribute" refid="_9_5_f720368_1110473547987_11292_20190"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="attribute" refid="_9_5_f720368_1110473547987_11292_20190"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::print::attribute::ResolutionSyntax</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

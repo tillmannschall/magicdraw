@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314929_862895_9331"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ModelMBeanOperationInfo" refid="_10_5_622020d_1132928314929_813822_9329"/></annotatedElement><body humanName="Body" mode="s,e">The ModelMBeanOperationInfo object describes a management operation of the ModelMBean.
+It is a subclass of MBeanOperationInfo with the addition of an associated Descriptor
+and an implementation of the DescriptorAccess interface.
+&lt;P&gt;
+&lt;PRE&gt;
+The fields in the descriptor are defined, but not limited to, the following:
+name           : operation name
+descriptorType : must be "operation"
+class          : class where method is defined (fully qualified)
+role           : must be "operation", "getter", or "setter
+targetObject   : object on which to execute this method
+targetType     : type of object reference for targetObject. Can be: ObjectReference | Handle | EJBHandle | IOR | RMIReference.
+value          : cached value for operation
+currencyTimeLimit : how long cached value is valid
+lastUpdatedTimeStamp : when cached value was set
+visibility            : 1-4 where 1: always visible 4: rarely visible
+presentationString :  xml formatted string to describe how to present operation
+&lt;/PRE&gt;
+The default descriptor will have name, descriptorType, displayName and role fields set.
+
+&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; because of inconsistencies in previous versions of
+this specification, it is recommended not to use negative or zero
+values for &lt;code&gt;currencyTimeLimit&lt;/code&gt;.  To indicate that a
+cached value is never valid, omit the
+&lt;code&gt;currencyTimeLimit&lt;/code&gt; field.  To indicate that it is
+always valid, use a very large number for this field.&lt;/p&gt;
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ModelMBeanOperationInfo" refid="_10_5_622020d_1132928314929_813822_9329"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ModelMBeanOperationInfo" refid="_10_5_622020d_1132928314929_813822_9329"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

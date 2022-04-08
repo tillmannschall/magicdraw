@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314799_561214_9187"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JPEGQTable" refid="_9_5_f720368_1110473546706_159264_9033"/></annotatedElement><body humanName="Body" mode="s,e">A class encapsulating a single JPEG quantization table.  The
+elements appear in natural order (as opposed to zig-zag order).
+Static variables are provided for the "standard" tables taken from
+Annex K of the JPEG spec, as well as the default tables
+conventionally used for visually lossless encoding.
+
+&lt;p&gt;
+For more information about the operation of the built-in JPEG plug-ins,
+see the &lt;A HREF="../../metadata/doc-files/jpeg_metadata.html"&gt;JPEG
+metadata format specification and usage notes&lt;/A&gt;.
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JPEGQTable" refid="_9_5_f720368_1110473546706_159264_9033"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JPEGQTable" refid="_9_5_f720368_1110473546706_159264_9033"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

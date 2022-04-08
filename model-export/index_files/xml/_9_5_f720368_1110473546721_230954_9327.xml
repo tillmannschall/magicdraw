@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546721_230954_9327"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobHoldUntil -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323261_275492_16261"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobHoldUntil -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323261_696836_16260"/></clientDependency><documentation humanName="Documentation" mode="standard">Class JobHoldUntil is a printing attribute class, a date-time attribute, that
+specifies the exact date and time at which the job must become a candidate
+for printing.
+&lt;P&gt;
+If the value of this attribute specifies a date-time that is in the future,
+the printer should add the {@link JobStateReason JobStateReason} value of
+JOB_HOLD_UNTIL_SPECIFIED to the job's {@link JobStateReasons JobStateReasons}
+attribute, must move the job to the PENDING_HELD state, and must not schedule
+the job for printing until the specified date-time arrives.
+&lt;P&gt;
+When the specified date-time arrives, the printer must remove the {@link
+JobStateReason JobStateReason} value of JOB_HOLD_UNTIL_SPECIFIED from the
+job's {@link JobStateReasons JobStateReasons} attribute, if present. If there
+are no other job state reasons that keep the job in the PENDING_HELD state,
+the printer must consider the job as a candidate for processing by moving the
+job to the PENDING state.
+&lt;P&gt;
+If the specified date-time has already passed, the job must be a candidate
+for processing immediately. Thus, one way to make the job immediately become
+a candidate for processing is to specify a JobHoldUntil attribute constructed
+like this (denoting a date-time of January 1, 1970, 00:00:00 GMT):
+&lt;PRE&gt;
+JobHoldUntil immediately = new JobHoldUntil (new Date (0L));
+&lt;/PRE&gt;
+&lt;P&gt;
+If the client does not supply this attribute in a Print Request and the
+printer supports this attribute, the printer must use its
+(implementation-dependent) default JobHoldUntil value at job submission time
+(unlike most job template attributes that are used if necessary at job
+processing time).
+&lt;P&gt;
+To construct a JobHoldUntil attribute from separate values of the year,
+month, day, hour, minute, and so on, use a {@link java.util.Calendar
+Calendar} object to construct a {@link java.util.Date Date} object, then use
+the {@link java.util.Date Date} object to construct the JobHoldUntil
+attribute. To convert a JobHoldUntil attribute to separate values of the
+year, month, day, hour, minute, and so on, create a {@link java.util.Calendar
+Calendar} object and set it to the {@link java.util.Date Date} from the
+JobHoldUntil attribute.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; Although IPP supports a "job-hold-until" attribute
+specified as a keyword, IPP does not at this time support a "job-hold-until"
+attribute specified as a date and time. However, the date and time can be
+converted to one of the standard IPP keywords with some loss of precision;
+for example, a JobHoldUntil value with today's date and 9:00pm local time
+might be converted to the standard IPP keyword "night". The category name
+returned by &lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute name.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323261_442133_16262"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobHoldUntil -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323261_275492_16261"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobHoldUntil -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323261_696836_16260"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">JobHoldUntil</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315630_55125_10130"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323261_442133_16262"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315630_55125_10130"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobHoldUntil -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323261_275492_16261"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobHoldUntil -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323261_696836_16260"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::print::attribute::standard::JobHoldUntil</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintJobAttribute" refid="_9_5_f720368_1110473546737_356648_9467"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintRequestAttribute" refid="_9_5_f720368_1110473546737_975548_9471"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DateTimeSyntax" refid="_9_5_f720368_1110473546737_558995_9447"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314688_807_9038"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LocatorImpl" refid="_9_5_f720368_1110473546940_227062_13262"/></annotatedElement><body humanName="Body" mode="s,e">Provide an optional convenience implementation of Locator.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This class is available mainly for application writers, who
+can use it to make a persistent snapshot of a locator at any
+point during a document parse:&lt;/p&gt;
+
+&lt;pre&gt;
+Locator locator;
+Locator startloc;
+
+public void setLocator (Locator locator)
+{
+note the locator
+this.locator = locator;
+}
+
+public void startDocument ()
+{
+save the location of the start of the document
+for future use.
+Locator startloc = new LocatorImpl(locator);
+}
+&lt;/pre&gt;
+
+&lt;p&gt;Normally, parser writers will not use this class, since it
+is more efficient to provide location information only when
+requested, rather than constantly updating a Locator object.&lt;/p&gt;
+
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.Locator Locator
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="LocatorImpl" refid="_9_5_f720368_1110473546940_227062_13262"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LocatorImpl" refid="_9_5_f720368_1110473546940_227062_13262"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

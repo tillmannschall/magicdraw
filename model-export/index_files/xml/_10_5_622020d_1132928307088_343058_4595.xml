@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307088_343058_4595"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FilterOutputStream" refid="_9_5_f720368_1110473546596_615551_7409"/></annotatedElement><body humanName="Body" mode="s,e">This class is the superclass of all classes that filter output
+streams. These streams sit on top of an already existing output
+stream (the &lt;i&gt;underlying&lt;/i&gt; output stream) which it uses as its
+basic sink of data, but possibly transforming the data along the
+way or providing additional functionality.
+&lt;p&gt;
+The class &lt;code&gt;FilterOutputStream&lt;/code&gt; itself simply overrides
+all methods of &lt;code&gt;OutputStream&lt;/code&gt; with versions that pass
+all requests to the underlying output stream. Subclasses of
+&lt;code&gt;FilterOutputStream&lt;/code&gt; may further override some of these
+methods as well as provide additional methods and fields.
+
+@author  Jonathan Payne
+@version 1.31, 12/19/03
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FilterOutputStream" refid="_9_5_f720368_1110473546596_615551_7409"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FilterOutputStream" refid="_9_5_f720368_1110473546596_615551_7409"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

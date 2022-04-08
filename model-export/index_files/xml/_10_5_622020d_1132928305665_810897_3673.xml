@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305665_810897_3673"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetDropEvent" refid="_9_5_f720368_1110473546565_847256_6521"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;DropTargetDropEvent&lt;/code&gt; is delivered
+via the &lt;code&gt;DropTargetListener&lt;/code&gt; drop() method.
+&lt;p&gt;
+The &lt;code&gt;DropTargetDropEvent&lt;/code&gt; reports the &lt;i&gt;source drop actions&lt;/i&gt;
+and the &lt;i&gt;user drop action&lt;/i&gt; that reflect the current state of the
+drag-and-drop operation.
+&lt;p&gt;
+&lt;i&gt;Source drop actions&lt;/i&gt; is a bitwise mask of &lt;code&gt;DnDConstants&lt;/code&gt;
+that represents the set of drop actions supported by the drag source for
+this drag-and-drop operation.
+&lt;p&gt;
+&lt;i&gt;User drop action&lt;/i&gt; depends on the drop actions supported by the drag
+source and the drop action selected by the user. The user can select a drop
+action by pressing modifier keys during the drag operation:
+&lt;pre&gt;
+Ctrl + Shift -&gt; ACTION_LINK
+Ctrl         -&gt; ACTION_COPY
+Shift        -&gt; ACTION_MOVE
+&lt;/pre&gt;
+If the user selects a drop action, the &lt;i&gt;user drop action&lt;/i&gt; is one of
+&lt;code&gt;DnDConstants&lt;/code&gt; that represents the selected drop action if this
+drop action is supported by the drag source or
+&lt;code&gt;DnDConstants.ACTION_NONE&lt;/code&gt; if this drop action is not supported
+by the drag source.
+&lt;p&gt;
+If the user doesn't select a drop action, the set of
+&lt;code&gt;DnDConstants&lt;/code&gt; that represents the set of drop actions supported
+by the drag source is searched for &lt;code&gt;DnDConstants.ACTION_MOVE&lt;/code&gt;,
+then for &lt;code&gt;DnDConstants.ACTION_COPY&lt;/code&gt;, then for
+&lt;code&gt;DnDConstants.ACTION_LINK&lt;/code&gt; and the &lt;i&gt;user drop action&lt;/i&gt; is the
+first constant found. If no constant is found the &lt;i&gt;user drop action&lt;/i&gt;
+is &lt;code&gt;DnDConstants.ACTION_NONE&lt;/code&gt;.
+
+@version 	1.28, 05/05/04
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DropTargetDropEvent" refid="_9_5_f720368_1110473546565_847256_6521"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetDropEvent" refid="_9_5_f720368_1110473546565_847256_6521"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

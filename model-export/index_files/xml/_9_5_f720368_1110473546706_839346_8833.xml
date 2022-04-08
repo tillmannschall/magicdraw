@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546706_839346_8833"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::ArrayList -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322470_199710_14731"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::ArrayList -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322470_589380_14730"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::ArrayList -&gt; JDK 5.0 Classes::java::util::concurrent::List&lt;E&gt;]" refid="_10_5_622020d_1132928322470_623841_14728"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::ArrayList -&gt; JDK 5.0 Classes::java::util::RandomAccess]" refid="_10_5_622020d_1132928322470_26399_14729"/></clientDependency><documentation humanName="Documentation" mode="standard">Resizable-array implementation of the &lt;tt&gt;List&lt;/tt&gt; interface.  Implements
+all optional list operations, and permits all elements, including
+&lt;tt&gt;null&lt;/tt&gt;.  In addition to implementing the &lt;tt&gt;List&lt;/tt&gt; interface,
+this class provides methods to manipulate the size of the array that is
+used internally to store the list.  (This class is roughly equivalent to
+&lt;tt&gt;Vector&lt;/tt&gt;, except that it is unsynchronized.)&lt;p&gt;
+
+The &lt;tt&gt;size&lt;/tt&gt;, &lt;tt&gt;isEmpty&lt;/tt&gt;, &lt;tt&gt;get&lt;/tt&gt;, &lt;tt&gt;set&lt;/tt&gt;,
+&lt;tt&gt;iterator&lt;/tt&gt;, and &lt;tt&gt;listIterator&lt;/tt&gt; operations run in constant
+time.  The &lt;tt&gt;add&lt;/tt&gt; operation runs in &lt;i&gt;amortized constant time&lt;/i&gt;,
+that is, adding n elements requires O(n) time.  All of the other operations
+run in linear time (roughly speaking).  The constant factor is low compared
+to that for the &lt;tt&gt;LinkedList&lt;/tt&gt; implementation.&lt;p&gt;
+
+Each &lt;tt&gt;ArrayList&lt;/tt&gt; instance has a &lt;i&gt;capacity&lt;/i&gt;.  The capacity is
+the size of the array used to store the elements in the list.  It is always
+at least as large as the list size.  As elements are added to an ArrayList,
+its capacity grows automatically.  The details of the growth policy are not
+specified beyond the fact that adding an element has constant amortized
+time cost.&lt;p&gt;
+
+An application can increase the capacity of an &lt;tt&gt;ArrayList&lt;/tt&gt; instance
+before adding a large number of elements using the &lt;tt&gt;ensureCapacity&lt;/tt&gt;
+operation.  This may reduce the amount of incremental reallocation.&lt;p&gt;
+
+&lt;strong&gt;Note that this implementation is not synchronized.&lt;/strong&gt; If
+multiple threads access an &lt;tt&gt;ArrayList&lt;/tt&gt; instance concurrently, and at
+least one of the threads modifies the list structurally, it &lt;i&gt;must&lt;/i&gt; be
+synchronized externally.  (A structural modification is any operation that
+adds or deletes one or more elements, or explicitly resizes the backing
+array; merely setting the value of an element is not a structural
+modification.)  This is typically accomplished by synchronizing on some
+object that naturally encapsulates the list.  If no such object exists, the
+list should be "wrapped" using the &lt;tt&gt;Collections.synchronizedList&lt;/tt&gt;
+method.  This is best done at creation time, to prevent accidental
+unsynchronized access to the list:
+&lt;pre&gt;
+List list = Collections.synchronizedList(new ArrayList(...));
+&lt;/pre&gt;&lt;p&gt;
+
+The iterators returned by this class's &lt;tt&gt;iterator&lt;/tt&gt; and
+&lt;tt&gt;listIterator&lt;/tt&gt; methods are &lt;i&gt;fail-fast&lt;/i&gt;: if list is structurally
+modified at any time after the iterator is created, in any way except
+through the iterator's own remove or add methods, the iterator will throw a
+ConcurrentModificationException.  Thus, in the face of concurrent
+modification, the iterator fails quickly and cleanly, rather than risking
+arbitrary, non-deterministic behavior at an undetermined time in the
+future.&lt;p&gt;
+
+Note that the fail-fast behavior of an iterator cannot be guaranteed
+as it is, generally speaking, impossible to make any hard guarantees in the
+presence of unsynchronized concurrent modification.  Fail-fast iterators
+throw &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt; on a best-effort basis.
+Therefore, it would be wrong to write a program that depended on this
+exception for its correctness: &lt;i&gt;the fail-fast behavior of iterators
+should be used only to detect bugs.&lt;/i&gt;&lt;p&gt;
+
+This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@author  Neal Gafter
+@version 1.47, 12/19/03
+@see	    Collection
+@see	    List
+@see	    LinkedList
+@see	    Vector
+@see	    Collections#synchronizedList(List)
+@since   1.2
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322470_546719_14732"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::ArrayList -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322470_199710_14731"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::ArrayList -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322470_589380_14730"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::ArrayList -&gt; JDK 5.0 Classes::java::util::concurrent::List&lt;E&gt;]" refid="_10_5_622020d_1132928322470_623841_14728"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::ArrayList -&gt; JDK 5.0 Classes::java::util::RandomAccess]" refid="_10_5_622020d_1132928322470_26399_14729"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ArrayList</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310813_875960_6983"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928310813_212850_6979"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322470_546719_14732"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310813_875960_6983"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::ArrayList -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928322470_199710_14731"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::ArrayList -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928322470_589380_14730"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::ArrayList -&gt; JDK 5.0 Classes::java::util::concurrent::List&lt;E&gt;]" refid="_10_5_622020d_1132928322470_623841_14728"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::ArrayList -&gt; JDK 5.0 Classes::java::util::RandomAccess]" refid="_10_5_622020d_1132928322470_26399_14729"/></ownedElement><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928310813_212850_6979"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::ArrayList</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="List&lt;E&gt;" refid="_10_5_622020d_1132928322259_732594_14433"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RandomAccess" refid="_9_5_f720368_1110473546706_6812_8913"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AbstractList&lt;E&gt;" refid="_10_5_622020d_1132928322259_282425_14444"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

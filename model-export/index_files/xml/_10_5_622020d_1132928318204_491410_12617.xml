@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318204_491410_12617"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ProgressMonitor" refid="_9_5_f720368_1110473546799_614566_10831"/></annotatedElement><body humanName="Body" mode="s,e">A class to monitor the progress of some operation. If it looks
+like the operation will take a while, a progress dialog will be popped up.
+When the ProgressMonitor is created it is given a numeric range and a
+descriptive string. As the operation progresses, call the setProgress method
+to indicate how far along the [min,max] range the operation is.
+Initially, there is no ProgressDialog. After the first millisToDecideToPopup
+milliseconds (default 500) the progress monitor will predict how long
+the operation will take.  If it is longer than millisToPopup (default 2000,
+2 seconds) a ProgressDialog will be popped up.
+&lt;p&gt;
+From time to time, when the Dialog box is visible, the progress bar will
+be updated when setProgress is called.  setProgress won't always update
+the progress bar, it will only be done if the amount of progress is
+visibly significant.
+
+&lt;p&gt;
+
+For further documentation and examples see
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/progress.html"&gt;How to Monitor Progress&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+
+@see ProgressMonitorInputStream
+@author James Gosling
+@author Lynn Monsanto (accessibility)
+@version 1.30 04/15/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ProgressMonitor" refid="_9_5_f720368_1110473546799_614566_10831"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ProgressMonitor" refid="_9_5_f720368_1110473546799_614566_10831"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

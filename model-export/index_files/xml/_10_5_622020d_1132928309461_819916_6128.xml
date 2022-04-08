@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309461_819916_6128"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SignatureSpi" refid="_9_5_f720368_1110473546690_783711_8535"/></annotatedElement><body humanName="Body" mode="s,e">This class defines the &lt;i&gt;Service Provider Interface&lt;/i&gt; (&lt;b&gt;SPI&lt;/b&gt;)
+for the &lt;code&gt;Signature&lt;/code&gt; class, which is used to provide the
+functionality of a digital signature algorithm. Digital signatures are used
+for authentication and integrity assurance of digital data.
+.
+&lt;p&gt; All the abstract methods in this class must be implemented by each
+cryptographic service provider who wishes to supply the implementation
+of a particular signature algorithm.
+
+@author Benjamin Renaud
+
+@version 1.24, 05/18/04
+
+@see Signature
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="SignatureSpi" refid="_9_5_f720368_1110473546690_783711_8535"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SignatureSpi" refid="_9_5_f720368_1110473546690_783711_8535"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

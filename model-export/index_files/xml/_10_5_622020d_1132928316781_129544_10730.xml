@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928316781_129544_10730"><documentation humanName="Documentation" mode="standard">The standard interface that all standard implementations of
+&lt;code&gt;JdbcRowSet&lt;/code&gt; must implement.
+
+&lt;h3&gt;1.0 Overview&lt;/h3&gt;
+A wrapper around a &lt;code&gt;ResultSet&lt;/code&gt; object that makes it possible
+to use the result set as a JavaBeans&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt;
+component.  Thus, a &lt;code&gt;JdbcRowSet&lt;/code&gt; object can be one of the Beans that
+a tool makes available for composing an application.  Because
+a &lt;code&gt;JdbcRowSet&lt;/code&gt; is a connected rowset, that is, it continually
+maintains its connection to a database using a JDBC technology-enabled
+driver, it also effectively makes the driver a JavaBeans component.
+&lt;P&gt;
+Because it is always connected to its database, an instance of
+&lt;code&gt;JdbcRowSet&lt;/code&gt;
+can simply take calls invoked on it and in turn call them on its
+&lt;code&gt;ResultSet&lt;/code&gt; object. As a consequence, a result set can, for
+example, be a component in a Swing application.
+&lt;P&gt;
+Another advantage of a &lt;code&gt;JdbcRowSet&lt;/code&gt; object is that it can be
+used to make a &lt;code&gt;ResultSet&lt;/code&gt; object scrollable and updatable.  All
+&lt;code&gt;RowSet&lt;/code&gt; objects are by default scrollable and updatable. If
+the driver and database being used do not support scrolling and/or updating
+of result sets, an application can populate a &lt;code&gt;JdbcRowSet&lt;/code&gt; object
+with the data of a &lt;code&gt;ResultSet&lt;/code&gt; object and then operate on the
+&lt;code&gt;JdbcRowSet&lt;/code&gt; object as if it were the &lt;code&gt;ResultSet&lt;/code&gt;
+object.
+&lt;P&gt;
+&lt;h3&gt;2.0 Creating a &lt;code&gt;JdbcRowSet&lt;/code&gt; Object&lt;/h3&gt;
+The reference implementation of the &lt;code&gt;JdbcRowSet&lt;/code&gt; interface,
+&lt;code&gt;JdbcRowSetImpl&lt;/code&gt;, provides an implementation of
+the default constructor.  A new instance is initialized with
+default values, which can be set with new values as needed. A
+new instance is not really functional until its &lt;code&gt;execute&lt;/code&gt;
+method is called. In general, this method does the following:
+&lt;UL&gt;
+&lt;LI&gt; establishes a connection with a database
+&lt;LI&gt; creates a &lt;code&gt;PreparedStatement&lt;/code&gt; object and sets any of its
+placeholder parameters
+&lt;LI&gt; executes the statement to create a &lt;code&gt;ResultSet&lt;/code&gt; object
+&lt;/UL&gt;
+If the &lt;code&gt;execute&lt;/code&gt; method is successful, it will set the
+appropriate private &lt;code&gt;JdbcRowSet&lt;/code&gt; fields with the following:
+&lt;UL&gt;
+&lt;LI&gt; a &lt;code&gt;Connection&lt;/code&gt; object -- the connection between the rowset
+and the database
+&lt;LI&gt; a &lt;code&gt;PreparedStatement&lt;/code&gt; object -- the query that produces
+the result set
+&lt;LI&gt; a &lt;code&gt;ResultSet&lt;/code&gt; object -- the result set that the rowset's
+command produced and that is being made, in effect, a JavaBeans
+component
+&lt;/UL&gt;
+If these fields have not been set, meaning that the &lt;code&gt;execute&lt;/code&gt;
+method has not executed successfully, no methods other than
+&lt;code&gt;execute&lt;/code&gt; and &lt;code&gt;close&lt;/code&gt; may be called on the
+rowset.  All other public methods will throw an exception.
+&lt;P&gt;
+Before calling the &lt;code&gt;execute&lt;/code&gt; method, however, the command
+and properties needed for establishing a connection must be set.
+The following code fragment creates a &lt;code&gt;JdbcRowSetImpl&lt;/code&gt; object,
+sets the command and connection properties, sets the placeholder parameter,
+and then invokes the method &lt;code&gt;execute&lt;/code&gt;.
+&lt;PRE&gt;
+JdbcRowSetImpl jrs = new JdbcRowSetImpl();
+jrs.setCommand("SELECT * FROM TITLES WHERE TYPE = ?");
+jrs.setURL("jdbc:myDriver:myAttribute");
+jrs.setUsername("cervantes");
+jrs.setPassword("sancho");
+jrs.setString(1, "BIOGRAPHY");
+jrs.execute();
+&lt;/PRE&gt;
+The variable &lt;code&gt;jrs&lt;/code&gt; now represents an instance of
+&lt;code&gt;JdbcRowSetImpl&lt;/code&gt; that is a thin wrapper around the
+&lt;code&gt;ResultSet&lt;/code&gt; object containing all the rows in the
+table &lt;code&gt;TITLES&lt;/code&gt; where the type of book is biography.
+At this point, operations called on &lt;code&gt;jrs&lt;/code&gt; will
+affect the rows in the result set, which is effectively a JavaBeans
+component.
+&lt;P&gt;
+The implementation of the &lt;code&gt;RowSet&lt;/code&gt; method &lt;code&gt;execute&lt;/code&gt; in the
+&lt;code&gt;JdbcRowSet&lt;/code&gt; reference implementation differs from that in the
+&lt;code&gt;CachedRowSet&lt;/code&gt;&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt;
+reference implementation to account for the different
+requirements of connected and disconnected &lt;code&gt;RowSet&lt;/code&gt; objects.
+&lt;p&gt;
+
+@author Jonathan Bruce
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Joinable" refid="_10_5_622020d_1132928316791_93808_10733"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RowSet" refid="_9_5_f720368_1110473546753_419892_9761"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323381_187218_16651"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323381_952295_16652"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">JdbcRowSet</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316791_379537_10732"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323381_187218_16651"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323381_952295_16652"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316791_379537_10732"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sql::rowset::JdbcRowSet</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

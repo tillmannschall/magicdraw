@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546674_814973_8461"><documentation humanName="Documentation" mode="standard">The Key interface is the top-level interface for all keys. It
+defines the functionality shared by all key objects. All keys
+have three characteristics:
+
+&lt;UL&gt;
+
+&lt;LI&gt;An Algorithm
+
+&lt;P&gt;This is the key algorithm for that key. The key algorithm is usually
+an encryption or asymmetric operation algorithm (such as DSA or
+RSA), which will work with those algorithms and with related
+algorithms (such as MD5 with RSA, SHA-1 with RSA, Raw DSA, etc.)
+The name of the algorithm of a key is obtained using the
+{@link #getAlgorithm() getAlgorithm} method.&lt;P&gt;
+
+&lt;LI&gt;An Encoded Form
+
+&lt;P&gt;This is an external encoded form for the key used when a standard
+representation of the key is needed outside the Java Virtual Machine,
+as when transmitting the key to some other party. The key
+is encoded according to a standard format (such as
+X.509 &lt;code&gt;SubjectPublicKeyInfo&lt;/code&gt; or PKCS#8), and
+is returned using the {@link #getEncoded() getEncoded} method.
+Note: The syntax of the ASN.1 type &lt;code&gt;SubjectPublicKeyInfo&lt;/code&gt;
+is defined as follows:
+
+&lt;pre&gt;
+SubjectPublicKeyInfo ::= SEQUENCE {
+algorithm AlgorithmIdentifier,
+subjectPublicKey BIT STRING }
+
+AlgorithmIdentifier ::= SEQUENCE {
+algorithm OBJECT IDENTIFIER,
+parameters ANY DEFINED BY algorithm OPTIONAL }
+&lt;/pre&gt;
+
+For more information, see
+&lt;a href="http://www.ietf.org/rfc/rfc2459.txt"&gt;RFC 2459:
+Internet X.509 Public Key Infrastructure Certificate and CRL Profile&lt;/a&gt;.
+&lt;P&gt;
+
+&lt;LI&gt;A Format
+
+&lt;P&gt;This is the name of the format of the encoded key. It is returned
+by the {@link #getFormat() getFormat} method.&lt;P&gt;
+
+&lt;/UL&gt;
+
+Keys are generally obtained through key generators, certificates,
+or various Identity classes used to manage keys.
+Keys may also be obtained from key specifications (transparent
+representations of the underlying key material) through the use of a key
+factory (see {@link KeyFactory}).
+
+&lt;p&gt; A Key should use KeyRep as its serialized representation.
+Note that a serialized Key may contain sensitive information
+which should not be exposed in untrusted environments.  See the
+&lt;a href="../../../guide/serialization/spec/security.html"&gt;
+Security Appendix&lt;/a&gt;
+of the Serialization Specification for more information.
+
+@see PublicKey
+@see PrivateKey
+@see KeyPair
+@see KeyPairGenerator
+@see KeyFactory
+@see KeyRep
+@see java.security.spec.KeySpec
+@see Identity
+@see Signer
+
+@version 1.54 03/12/19
+@author Benjamin Renaud
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321889_447562_14199"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Key</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309321_324972_6019"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321889_447562_14199"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309321_324972_6019"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::Key</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

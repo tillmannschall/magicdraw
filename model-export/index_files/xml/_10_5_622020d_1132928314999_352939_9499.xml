@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314999_352939_9499"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RelationTypeSupport" refid="_10_5_622020d_1132928314999_117651_9497"/></annotatedElement><body humanName="Body" mode="s,e">A RelationTypeSupport object implements the RelationType interface.
+&lt;P&gt;It represents a relation type, providing role information for each role
+expected to be supported in every relation of that type.
+
+&lt;P&gt;A relation type includes a relation type name and a list of
+role infos (represented by RoleInfo objects).
+
+&lt;P&gt;A relation type has to be declared in the Relation Service:
+&lt;P&gt;- either using the createRelationType() method, where a RelationTypeSupport
+object will be created and kept in the Relation Service
+&lt;P&gt;- either using the addRelationType() method where the user has to create
+an object implementing the RelationType interface, and this object will be
+used as representing a relation type in the Relation Service.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RelationTypeSupport" refid="_10_5_622020d_1132928314999_117651_9497"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RelationTypeSupport" refid="_10_5_622020d_1132928314999_117651_9497"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

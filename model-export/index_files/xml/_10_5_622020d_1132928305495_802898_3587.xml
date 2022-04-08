@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305495_802898_3587"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ColorSpace" refid="_9_5_f720368_1110473546549_240108_6443"/></annotatedElement><body humanName="Body" mode="s,e">This abstract class is used to serve as a color space tag to identify the
+specific color space of a Color object or, via a ColorModel object,
+of an Image, a BufferedImage, or a GraphicsDevice.  It contains
+methods that transform colors in a specific color space to/from sRGB
+and to/from a well-defined CIEXYZ color space.
+&lt;p&gt;
+For purposes of the methods in this class, colors are represented as
+arrays of color components represented as floats in a normalized range
+defined by each ColorSpace.  For many ColorSpaces (e.g. sRGB), this
+range is 0.0 to 1.0.  However, some ColorSpaces have components whose
+values have a different range.  Methods are provided to inquire per
+component minimum and maximum normalized values.
+&lt;p&gt;
+Several variables are defined for purposes of referring to color
+space types (e.g. TYPE_RGB, TYPE_XYZ, etc.) and to refer to specific
+color spaces (e.g. CS_sRGB and CS_CIEXYZ).
+sRGB is a proposed standard RGB color space.  For more information,
+see &lt;A href="http://www.w3.org/pub/WWW/Graphics/Color/sRGB.html"&gt;
+http://www.w3.org/pub/WWW/Graphics/Color/sRGB.html
+&lt;/A&gt;.
+&lt;p&gt;
+The purpose of the methods to transform to/from the well-defined
+CIEXYZ color space is to support conversions between any two color
+spaces at a reasonably high degree of accuracy.  It is expected that
+particular implementations of subclasses of ColorSpace (e.g.
+ICC_ColorSpace) will support high performance conversion based on
+underlying platform color management systems.
+&lt;p&gt;
+The CS_CIEXYZ space used by the toCIEXYZ/fromCIEXYZ methods can be
+described as follows:
+&lt;pre&gt;
+&amp;nbsp;     CIEXYZ
+&amp;nbsp;     viewing illuminance: 200 lux
+&amp;nbsp;     viewing white point: CIE D50
+&amp;nbsp;     media white point: "that of a perfectly reflecting diffuser" -- D50
+&amp;nbsp;     media black point: 0 lux or 0 Reflectance
+&amp;nbsp;     flare: 1 percent
+&amp;nbsp;     surround: 20percent of the media white point
+&amp;nbsp;     media description: reflection print (i.e., RLAB, Hunt viewing media)
+&amp;nbsp;     note: For developers creating an ICC profile for this conversion
+&amp;nbsp;           space, the following is applicable.  Use a simple Von Kries
+&amp;nbsp;           white point adaptation folded into the 3X3 matrix parameters
+&amp;nbsp;           and fold the flare and surround effects into the three
+&amp;nbsp;           one-dimensional lookup tables (assuming one uses the minimal
+&amp;nbsp;           model for monitors).
+&lt;/pre&gt;
+
+&lt;p&gt;
+@see ICC_ColorSpace
+@version 10 Feb 1997
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ColorSpace" refid="_9_5_f720368_1110473546549_240108_6443"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ColorSpace" refid="_9_5_f720368_1110473546549_240108_6443"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

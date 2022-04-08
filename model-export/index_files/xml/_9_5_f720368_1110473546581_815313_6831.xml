@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546581_815313_6831"><documentation humanName="Documentation" mode="standard">This class provides an easy way to create an ImageFilter which modifies
+the pixels of an image in the default RGB ColorModel.  It is meant to
+be used in conjunction with a FilteredImageSource object to produce
+filtered versions of existing images.  It is an abstract class that
+provides the calls needed to channel all of the pixel data through a
+single method which converts pixels one at a time in the default RGB
+ColorModel regardless of the ColorModel being used by the ImageProducer.
+The only method which needs to be defined to create a useable image
+filter is the filterRGB method.  Here is an example of a definition
+of a filter which swaps the red and blue components of an image:
+&lt;pre&gt;
+
+class RedBlueSwapFilter extends RGBImageFilter {
+public RedBlueSwapFilter() {
+The filter's operation does not depend on the
+pixel's location, so IndexColorModels can be
+filtered directly.
+canFilterIndexColorModel = true;
+}
+
+public int filterRGB(int x, int y, int rgb) {
+return ((rgb &amp; 0xff00ff00)
+| ((rgb &amp; 0xff0000) &gt;&gt; 16)
+| ((rgb &amp; 0xff) &lt;&lt; 16));
+}
+}
+
+&lt;/pre&gt;
+
+@see FilteredImageSource
+@see ImageFilter
+@see ColorModel#getRGBdefault
+
+@version	1.24 12/19/03
+@author 	Jim Graham
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321258_375249_13095"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">RGBImageFilter</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306116_733133_3996"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321258_375249_13095"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306116_733133_3996"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::image::RGBImageFilter</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ImageFilter" refid="_9_5_f720368_1110473546565_874967_6793"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

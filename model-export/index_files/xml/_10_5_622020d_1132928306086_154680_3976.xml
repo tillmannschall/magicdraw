@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306086_154680_3976"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MultiPixelPackedSampleModel" refid="_9_5_f720368_1110473546581_823820_6811"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;MultiPixelPackedSampleModel&lt;/code&gt; class represents
+one-banded images and can pack multiple one-sample
+pixels into one data element.  Pixels are not allowed to span data elements.
+The data type can be DataBuffer.TYPE_BYTE, DataBuffer.TYPE_USHORT,
+or DataBuffer.TYPE_INT.  Each pixel must be a power of 2 number of bits
+and a power of 2 number of pixels must fit exactly in one data element.
+Pixel bit stride is equal to the number of bits per pixel.  Scanline
+stride is in data elements and the last several data elements might be
+padded with unused pixels.  Data bit offset is the offset in bits from
+the beginning of the {@link DataBuffer} to the first pixel and must be
+a multiple of pixel bit stride.
+&lt;p&gt;
+The following code illustrates extracting the bits for pixel
+&lt;code&gt;x,&amp;nbsp;y&lt;/code&gt; from &lt;code&gt;DataBuffer&lt;/code&gt; &lt;code&gt;data&lt;/code&gt;
+and storing the pixel data in data elements of type
+&lt;code&gt;dataType&lt;/code&gt;:
+&lt;pre&gt;
+int dataElementSize = DataBuffer.getDataTypeSize(dataType);
+int bitnum = dataBitOffset + x*pixelBitStride;
+int element = data.getElem(y*scanlineStride + bitnum/dataElementSize);
+int shift = dataElementSize - (bitnum &amp; (dataElementSize-1))
+- pixelBitStride;
+int pixel = (element &gt;&gt; shift) &amp; ((1 &lt;&lt; pixelBitStride) - 1);
+&lt;/pre&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MultiPixelPackedSampleModel" refid="_9_5_f720368_1110473546581_823820_6811"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MultiPixelPackedSampleModel" refid="_9_5_f720368_1110473546581_823820_6811"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

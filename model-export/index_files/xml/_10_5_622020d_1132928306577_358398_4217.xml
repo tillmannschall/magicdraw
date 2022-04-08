@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306577_358398_4217"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GraphicsConfigTemplate" refid="_9_5_f720368_1110473546581_755709_7027"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;GraphicsConfigTemplate&lt;/code&gt; class is used to obtain a valid
+{@link GraphicsConfiguration}.  A user instantiates one of these
+objects and then sets all non-default attributes as desired.  The
+{@link GraphicsDevice#getBestConfiguration} method found in the
+{@link GraphicsDevice} class is then called with this
+&lt;code&gt;GraphicsConfigTemplate&lt;/code&gt;.  A valid
+&lt;code&gt;GraphicsConfiguration&lt;/code&gt; is returned that meets or exceeds
+what was requested in the &lt;code&gt;GraphicsConfigTemplate&lt;/code&gt;.
+@see GraphicsDevice
+@see GraphicsConfiguration
+
+@version 	1.16, 12/19/03
+@since       1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="GraphicsConfigTemplate" refid="_9_5_f720368_1110473546581_755709_7027"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GraphicsConfigTemplate" refid="_9_5_f720368_1110473546581_755709_7027"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

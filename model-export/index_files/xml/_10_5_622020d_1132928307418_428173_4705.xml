@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307418_428173_4705"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StringWriter" refid="_9_5_f720368_1110473546612_404922_7493"/></annotatedElement><body humanName="Body" mode="s,e">A character stream that collects its output in a string buffer, which can
+then be used to construct a string.
+&lt;p&gt;
+Closing a &lt;tt&gt;StringWriter&lt;/tt&gt; has no effect. The methods in this class
+can be called after the stream has been closed without generating an
+&lt;tt&gt;IOException&lt;/tt&gt;.
+
+@version 	1.24, 04/07/16
+@author	Mark Reinhold
+@since	JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StringWriter" refid="_9_5_f720368_1110473546612_404922_7493"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StringWriter" refid="_9_5_f720368_1110473546612_404922_7493"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

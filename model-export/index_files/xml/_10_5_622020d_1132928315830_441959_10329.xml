@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315830_441959_10329"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CancelablePrintJob" refid="_9_5_f720368_1110473546737_150045_9511"/></annotatedElement><body humanName="Body" mode="s,e">This interface is used by a printing application to cancel a
+print job.  This interface extends {@link DocPrintJob}.  A
+&lt;code&gt;DocPrintJob&lt;/code&gt; implementation returned from a print
+service implements this interface if the print job can be
+cancelled.  Before trying to cancel
+a print job, the client needs to test if the
+&lt;code&gt;DocPrintJob&lt;/code&gt; object returned from the print service
+actually implements this interface.  Clients should never assume
+that a &lt;code&gt;DocPrintJob&lt;/code&gt; implements this interface.  A
+print service might support cancellation only for certain types
+of print data and representation class names.  This means that
+only some of the &lt;code&gt;DocPrintJob&lt;/code&gt; objects returned from
+a service will implement this interface.
+&lt;p&gt;
+Service implementors are encouraged to implement this optional interface
+and to deliver a javax.print.event.PrintJobEvent.JOB_CANCELLED event
+to any listeners if a job is successfully cancelled with an
+implementation of this interface. Services should also note that an
+implementation of this method may be made from a separate client thread
+than that which made the print request.  Thus the implementation of
+this interface must be made thread safe.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CancelablePrintJob" refid="_9_5_f720368_1110473546737_150045_9511"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CancelablePrintJob" refid="_9_5_f720368_1110473546737_150045_9511"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

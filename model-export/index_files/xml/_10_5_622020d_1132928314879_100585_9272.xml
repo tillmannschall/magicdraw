@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314879_100585_9272"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ClassLoaderRepository" refid="_10_5_622020d_1132928314869_87503_9270"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Instances of this interface are used to keep the list of ClassLoaders
+registered in an MBean Server.
+They provide the necessary methods to load classes using the registered
+ClassLoaders.&lt;/p&gt;
+
+&lt;p&gt;The first ClassLoader in a &lt;code&gt;ClassLoaderRepository&lt;/code&gt; is
+always the MBean Server's own ClassLoader.&lt;/p&gt;
+
+&lt;p&gt;When an MBean is registered in an MBean Server, if it is of a
+subclass of {@link java.lang.ClassLoader} and if it does not
+implement the interface {@link PrivateClassLoader}, it is added to
+the end of the MBean Server's &lt;code&gt;ClassLoaderRepository&lt;/code&gt;.
+If it is subsequently unregistered from the MBean Server, it is
+removed from the &lt;code&gt;ClassLoaderRepository&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The order of MBeans in the &lt;code&gt;ClassLoaderRepository&lt;/code&gt; is
+significant.  For any two MBeans &lt;em&gt;X&lt;/em&gt; and &lt;em&gt;Y&lt;/em&gt; in the
+&lt;code&gt;ClassLoaderRepository&lt;/code&gt;, &lt;em&gt;X&lt;/em&gt; must appear before
+&lt;em&gt;Y&lt;/em&gt; if the registration of &lt;em&gt;X&lt;/em&gt; was completed before
+the registration of &lt;em&gt;Y&lt;/em&gt; started.  If &lt;em&gt;X&lt;/em&gt; and
+&lt;em&gt;Y&lt;/em&gt; were registered concurrently, their order is
+indeterminate.  The registration of an MBean corresponds to the
+call to {@link MBeanServer#registerMBean} or one of the {@link
+MBeanServer}&lt;code&gt;.createMBean&lt;/code&gt; methods.&lt;/p&gt;
+
+@see javax.management.MBeanServerFactory
+
+@since 1.5
+@since.unbundled JMX 1.1
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ClassLoaderRepository" refid="_10_5_622020d_1132928314869_87503_9270"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ClassLoaderRepository" refid="_10_5_622020d_1132928314869_87503_9270"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

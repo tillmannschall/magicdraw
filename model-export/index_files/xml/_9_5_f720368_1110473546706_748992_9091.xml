@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546706_748992_9091"><documentation humanName="Documentation" mode="standard">A simple container class to aggregate an image, a set of
+thumbnail (preview) images, and an object representing metadata
+associated with the image.
+
+&lt;p&gt; The image data may take the form of either a
+&lt;code&gt;RenderedImage&lt;/code&gt;, or a &lt;code&gt;Raster&lt;/code&gt;.  Reader
+methods that return an &lt;code&gt;IIOImage&lt;/code&gt; will always return a
+&lt;code&gt;BufferedImage&lt;/code&gt; using the &lt;code&gt;RenderedImage&lt;/code&gt;
+reference.  Writer methods that accept an &lt;code&gt;IIOImage&lt;/code&gt;
+will always accept a &lt;code&gt;RenderedImage&lt;/code&gt;, and may optionally
+accept a &lt;code&gt;Raster&lt;/code&gt;.
+
+&lt;p&gt; Exactly one of &lt;code&gt;getRenderedImage&lt;/code&gt; and
+&lt;code&gt;getRaster&lt;/code&gt; will return a non-&lt;code&gt;null&lt;/code&gt; value.
+Subclasses are responsible for ensuring this behavior.
+
+@see ImageReader#readAll(int, ImageReadParam)
+@see ImageReader#readAll(java.util.Iterator)
+@see ImageWriter#write(javax.imageio.metadata.IIOMetadata,
+IIOImage, ImageWriteParam)
+@see ImageWriter#write(IIOImage)
+@see ImageWriter#writeToSequence(IIOImage, ImageWriteParam)
+@see ImageWriter#writeInsert(int, IIOImage, ImageWriteParam)
+
+@version 0.5
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">IIOImage</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="imageio" refid="_9_5_f720368_1110473547924_635917_19843"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314859_957461_9248"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314859_957461_9248"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="imageio" refid="_9_5_f720368_1110473547924_635917_19843"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="imageio" refid="_9_5_f720368_1110473547924_635917_19843"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="imageio" refid="_9_5_f720368_1110473547924_635917_19843"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::imageio::IIOImage</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

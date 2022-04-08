@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314779_812790_9157"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="IIOWriteProgressListener" refid="_9_5_f720368_1110473546706_21727_9003"/></annotatedElement><body humanName="Body" mode="s,e">An interface used by &lt;code&gt;ImageWriter&lt;/code&gt; implementations to notify
+callers of their image writing methods of progress.
+
+@see javax.imageio.ImageWriter#write
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="IIOWriteProgressListener" refid="_9_5_f720368_1110473546706_21727_9003"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="IIOWriteProgressListener" refid="_9_5_f720368_1110473546706_21727_9003"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

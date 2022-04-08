@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546721_66337_9337"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobKOctetsProcessed -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323271_866171_16273"/></clientDependency><documentation humanName="Documentation" mode="standard">Class JobKOctetsProcessed is an integer valued printing attribute class that
+specifies the total number of print data octets processed so far in K octets,
+i.e., in units of 1024 octets. The value must be rounded up, so that a job
+between 1 and 1024 octets inclusive must be indicated as being 1K octets,
+1025 to 2048 inclusive must be 2K, etc. For a multidoc print job (a job with
+multiple documents), the JobKOctetsProcessed value is computed by adding up
+the individual documents' number of octets processed so far, then rounding up
+to the next K octets value.
+&lt;P&gt;
+The JobKOctetsProcessed attribute describes the progress of the job. This
+attribute is intended to be a counter. That is, the JobKOctetsProcessed value
+for a job that has not started processing must be 0. When the job's {@link
+JobState JobState} is PROCESSING or PROCESSING_STOPPED, the
+JobKOctetsProcessed value is intended to increase as the job is processed; it
+indicates the amount of the job that has been processed at the time the Print
+Job's attribute set is queried or at the time a print job event is reported.
+When the job enters the COMPLETED, CANCELED, or ABORTED states, the
+JobKOctetsProcessed value is the final value for the job.
+&lt;P&gt;
+For implementations where multiple copies are produced by the interpreter
+with only a single pass over the data, the final value of the
+JobKOctetsProcessed attribute must be equal to the value of the {@link
+JobKOctets JobKOctets} attribute. For implementations where multiple copies
+are produced by the interpreter by processing the data for each copy, the
+final value must be a multiple of the value of the {@link JobKOctets
+JobKOctets} attribute.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The integer value gives the IPP integer value. The
+category name returned by &lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute
+name.
+&lt;P&gt;
+
+@see JobKOctets
+@see JobKOctetsSupported
+@see JobImpressionsCompleted
+@see JobMediaSheetsCompleted
+
+@author  Alan Kaminsky
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323271_568028_16274"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobKOctetsProcessed -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323271_866171_16273"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">JobKOctetsProcessed</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315660_241670_10140"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323271_568028_16274"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315660_241670_10140"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobKOctetsProcessed -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323271_866171_16273"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::print::attribute::standard::JobKOctetsProcessed</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintJobAttribute" refid="_9_5_f720368_1110473546737_356648_9467"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="IntegerSyntax" refid="_9_5_f720368_1110473546737_118217_9465"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

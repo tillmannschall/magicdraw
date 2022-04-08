@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314869_806071_9265"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ImageWriteParam" refid="_9_5_f720368_1110473546706_834798_9107"/></annotatedElement><body humanName="Body" mode="s,e">A class describing how a stream is to be encoded.  Instances of
+this class or its subclasses are used to supply prescriptive
+"how-to" information to instances of &lt;code&gt;ImageWriter&lt;/code&gt;.
+
+&lt;p&gt; A plug-in for a specific image format may define a subclass of
+this class, and return objects of that class from the
+&lt;code&gt;getDefaultWriteParam&lt;/code&gt; method of its
+&lt;code&gt;ImageWriter&lt;/code&gt; implementation.  For example, the built-in
+JPEG writer plug-in will return instances of
+&lt;code&gt;javax.imageio.plugins.jpeg.JPEGImageWriteParam&lt;/code&gt;.
+
+&lt;p&gt; The region of the image to be written is determined by first
+intersecting the actual bounds of the image with the rectangle
+specified by &lt;code&gt;IIOParam.setSourceRegion&lt;/code&gt;, if any.  If the
+resulting rectangle has a width or height of zero, the writer will
+throw an &lt;code&gt;IIOException&lt;/code&gt;. If the intersection is
+non-empty, writing will commence with the first subsampled pixel
+and include additional pixels within the intersected bounds
+according to the horizontal and vertical subsampling factors
+specified by {@link IIOParam#setSourceSubsampling
+&lt;code&gt;IIOParam.setSourceSubsampling&lt;/code&gt;}.
+
+&lt;p&gt; Individual features such as tiling, progressive encoding, and
+compression may be set in one of four modes.
+&lt;code&gt;MODE_DISABLED&lt;/code&gt; disables the features;
+&lt;code&gt;MODE_DEFAULT&lt;/code&gt; enables the feature with
+writer-controlled parameter values; &lt;code&gt;MODE_EXPLICIT&lt;/code&gt;
+enables the feature and allows the use of a &lt;code&gt;set&lt;/code&gt; method
+to provide additional parameters; and
+&lt;code&gt;MODE_COPY_FROM_METADATA&lt;/code&gt; copies relevant parameter
+values from the stream and image metadata objects passed to the
+writer.  The default for all features is
+&lt;code&gt;MODE_COPY_FROM_METADATA&lt;/code&gt;.  Non-standard features
+supplied in subclasses are encouraged, but not required to use a
+similar scheme.
+
+&lt;p&gt; Plug-in writers may extend the functionality of
+&lt;code&gt;ImageWriteParam&lt;/code&gt; by providing a subclass that implements
+additional, plug-in specific interfaces.  It is up to the plug-in
+to document what interfaces are available and how they are to be
+used.  Writers will silently ignore any extended features of an
+&lt;code&gt;ImageWriteParam&lt;/code&gt; subclass of which they are not aware.
+Also, they may ignore any optional features that they normally
+disable when creating their own &lt;code&gt;ImageWriteParam&lt;/code&gt;
+instances via &lt;code&gt;getDefaultWriteParam&lt;/code&gt;.
+
+&lt;p&gt; Note that unless a query method exists for a capability, it must
+be supported by all &lt;code&gt;ImageWriter&lt;/code&gt; implementations
+(&lt;i&gt;e.g.&lt;/i&gt; progressive encoding is optional, but subsampling must be
+supported).
+
+@version 0.5
+
+@see ImageReadParam
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ImageWriteParam" refid="_9_5_f720368_1110473546706_834798_9107"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ImageWriteParam" refid="_9_5_f720368_1110473546706_834798_9107"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

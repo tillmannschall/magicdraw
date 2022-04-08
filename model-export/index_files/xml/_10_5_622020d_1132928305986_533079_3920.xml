@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305986_533079_3920"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BufferedImageOp" refid="_9_5_f720368_1110473546565_282435_6755"/></annotatedElement><body humanName="Body" mode="s,e">This interface describes single-input/single-output
+operations performed on &lt;CODE&gt;BufferedImage&lt;/CODE&gt; objects.
+It is implemented by &lt;CODE&gt;AffineTransformOp&lt;/CODE&gt;,
+&lt;CODE&gt;ConvolveOp&lt;/CODE&gt;, &lt;CODE&gt;ColorConvertOp&lt;/CODE&gt;, &lt;CODE&gt;RescaleOp&lt;/CODE&gt;,
+and &lt;CODE&gt;LookupOp&lt;/CODE&gt;.  These objects can be passed into
+a &lt;CODE&gt;BufferedImageFilter&lt;/CODE&gt; to operate on a
+&lt;CODE&gt;BufferedImage&lt;/CODE&gt; in the
+ImageProducer-ImageFilter-ImageConsumer paradigm.
+&lt;p&gt;
+Classes that implement this
+interface must specify whether or not they allow in-place filtering--
+filter operations where the source object is equal to the destination
+object.
+&lt;p&gt;
+This interface cannot be used to describe more sophisticated operations
+such as those that take multiple sources. Note that this restriction also
+means that the values of the destination pixels prior to the operation are
+not used as input to the filter operation.
+@see BufferedImage
+@see BufferedImageFilter
+@see AffineTransformOp
+@see BandCombineOp
+@see ColorConvertOp
+@see ConvolveOp
+@see LookupOp
+@see RescaleOp
+@version 10 Feb 1997
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="BufferedImageOp" refid="_9_5_f720368_1110473546565_282435_6755"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BufferedImageOp" refid="_9_5_f720368_1110473546565_282435_6755"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315099_880498_9613"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SubjectDelegationPermission" refid="_10_5_622020d_1132928315099_501278_9611"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Permission required by an authentication identity to perform
+operations on behalf of an authorization identity.&lt;/p&gt;
+
+&lt;p&gt;A SubjectDelegationPermission contains a name (also referred
+to as a "target name") but no actions list; you either have the
+named permission or you don't.&lt;/p&gt;
+
+&lt;p&gt;The target name is the name of the authorization principal
+classname followed by a period and the authorization principal
+name, that is
+&lt;code&gt;"&lt;em&gt;PrincipalClassName&lt;/em&gt;.&lt;em&gt;PrincipalName&lt;/em&gt;"&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;An asterisk may appear by itself, or if immediately preceded
+by a "." may appear at the end of the target name, to signify a
+wildcard match.&lt;/p&gt;
+
+&lt;p&gt;For example, "*", "javax.management.remote.JMXPrincipal.*" and
+"javax.management.remote.JMXPrincipal.delegate" are valid target
+names. The first one denotes any principal name from any principal
+class, the second one denotes any principal name of the concrete
+principal class &lt;code&gt;javax.management.remote.JMXPrincipal&lt;/code&gt;
+and the third one denotes a concrete principal name
+&lt;code&gt;delegate&lt;/code&gt; of the concrete principal class
+&lt;code&gt;javax.management.remote.JMXPrincipal&lt;/code&gt;.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SubjectDelegationPermission" refid="_10_5_622020d_1132928315099_501278_9611"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SubjectDelegationPermission" refid="_10_5_622020d_1132928315099_501278_9611"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306667_134252_4253"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="KeyEventDispatcher" refid="_9_5_f720368_1110473546581_835580_7059"/></annotatedElement><body humanName="Body" mode="s,e">A KeyEventDispatcher cooperates with the current KeyboardFocusManager in the
+targeting and dispatching of all KeyEvents. KeyEventDispatchers registered
+with the current KeyboardFocusManager will receive KeyEvents before they are
+dispatched to their targets, allowing each KeyEventDispatcher to retarget
+the event, consume it, dispatch the event itself, or make other changes.
+&lt;p&gt;
+Note that KeyboardFocusManager itself implements KeyEventDispatcher. By
+default, the current KeyboardFocusManager will be the sink for all KeyEvents
+not dispatched by the registered KeyEventDispatchers. The current
+KeyboardFocusManager cannot be completely deregistered as a
+KeyEventDispatcher. However, if a KeyEventDispatcher reports that it
+dispatched the KeyEvent, regardless of whether it actually did so, the
+KeyboardFocusManager will take no further action with regard to the
+KeyEvent. (While it is possible for client code to register the current
+KeyboardFocusManager as a KeyEventDispatcher one or more times, this is
+usually unnecessary and not recommended.)
+
+@author David Mendenhall
+@version 1.5, 12/19/03
+
+@see KeyboardFocusManager#addKeyEventDispatcher
+@see KeyboardFocusManager#removeKeyEventDispatcher
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="KeyEventDispatcher" refid="_9_5_f720368_1110473546581_835580_7059"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="KeyEventDispatcher" refid="_9_5_f720368_1110473546581_835580_7059"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

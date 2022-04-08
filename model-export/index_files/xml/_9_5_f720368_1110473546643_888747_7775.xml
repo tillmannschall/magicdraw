@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546643_888747_7775"><documentation humanName="Documentation" mode="standard">This class implements an IP Socket Address (IP address + port number)
+It can also be a pair (hostname + port number), in which case an attempt
+will be made to resolve the hostname. If resolution fails then the address
+is said to be &lt;I&gt;unresolved&lt;/I&gt; but can still be used on some circumstances
+like connecting through a proxy.
+&lt;p&gt;
+It provides an immutable object used by sockets for binding, connecting, or
+as returned values.
+&lt;p&gt;
+The &lt;i&gt;wildcard&lt;/i&gt; is a special local IP address. It usually means "any"
+and can only be used for &lt;code&gt;bind&lt;/code&gt; operations.
+
+@see	java.net.Socket
+@see	java.net.ServerSocket
+@since 1.4
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321719_488986_13796"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">InetSocketAddress</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308349_642395_5277"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321719_488986_13796"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308349_642395_5277"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::net::InetSocketAddress</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SocketAddress" refid="_9_5_f720368_1110473546643_574878_7805"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

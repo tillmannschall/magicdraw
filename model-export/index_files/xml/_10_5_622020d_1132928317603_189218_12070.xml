@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317603_189218_12070"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GapVector" refid="_9_5_f720368_1110473546784_304890_10469"/></annotatedElement><body humanName="Body" mode="s,e">An implementation of a gapped buffer similar to that used by
+emacs.  The underlying storage is a java array of some type,
+which is known only by the subclass of this class.  The array
+has a gap somewhere.  The gap is moved to the location of changes
+to take advantage of common behavior where most changes occur
+in the same location.  Changes that occur at a gap boundary are
+generally cheap and moving the gap is generally cheaper than
+moving the array contents directly to accomodate the change.
+
+@author  Timothy Prinzing
+@version 1.12 12/19/03
+@see GapContent
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="GapVector" refid="_9_5_f720368_1110473546784_304890_10469"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GapVector" refid="_9_5_f720368_1110473546784_304890_10469"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

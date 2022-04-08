@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314799_429150_9197"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ImageOutputStreamSpi" refid="_9_5_f720368_1110473546706_824403_9043"/></annotatedElement><body humanName="Body" mode="s,e">The service provider interface (SPI) for
+&lt;code&gt;ImageOutputStream&lt;/code&gt;s.  For more information on service
+provider interfaces, see the class comment for the
+&lt;code&gt;IIORegistry&lt;/code&gt; class.
+
+&lt;p&gt; This interface allows arbitrary objects to be "wrapped" by
+instances of &lt;code&gt;ImageOutputStream&lt;/code&gt;.  For example, a
+particular &lt;code&gt;ImageOutputStreamSpi&lt;/code&gt; might allow a generic
+&lt;code&gt;OutputStream&lt;/code&gt; to be used as a destination; another
+might output to a &lt;code&gt;File&lt;/code&gt; or to a device such as a serial
+port.
+
+&lt;p&gt; By treating the creation of &lt;code&gt;ImageOutputStream&lt;/code&gt;s as
+a pluggable service, it becomes possible to handle future output
+destinations without changing the API.  Also, high-performance
+implementations of &lt;code&gt;ImageOutputStream&lt;/code&gt; (for example,
+native implementations for a particular platform) can be installed
+and used transparently by applications.
+
+@see IIORegistry
+@see javax.imageio.stream.ImageOutputStream
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ImageOutputStreamSpi" refid="_9_5_f720368_1110473546706_824403_9043"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ImageOutputStreamSpi" refid="_9_5_f720368_1110473546706_824403_9043"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

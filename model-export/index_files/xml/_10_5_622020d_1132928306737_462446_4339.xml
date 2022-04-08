@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306737_462446_4339"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Shape" refid="_9_5_f720368_1110473546596_367284_7125"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Shape&lt;/code&gt; interface provides definitions for objects
+that represent some form of geometric shape.  The &lt;code&gt;Shape&lt;/code&gt;
+is described by a {@link PathIterator} object, which can express the
+outline of the &lt;code&gt;Shape&lt;/code&gt; as well as a rule for determining
+how the outline divides the 2D plane into interior and exterior
+points.  Each &lt;code&gt;Shape&lt;/code&gt; object provides callbacks to get the
+bounding box of the geometry, determine whether points or
+rectangles lie partly or entirely within the interior
+of the &lt;code&gt;Shape&lt;/code&gt;, and retrieve a &lt;code&gt;PathIterator&lt;/code&gt;
+object that describes the trajectory path of the &lt;code&gt;Shape&lt;/code&gt;
+outline.
+&lt;p&gt;
+&lt;b&gt;Definition of insideness:&lt;/b&gt;
+A point is considered to lie inside a
+&lt;code&gt;Shape&lt;/code&gt; if and only if:
+&lt;ul&gt;
+&lt;li&gt; it lies completely
+inside the&lt;code&gt;Shape&lt;/code&gt; boundary &lt;i&gt;or&lt;/i&gt;
+&lt;li&gt;
+it lies exactly on the &lt;code&gt;Shape&lt;/code&gt; boundary &lt;i&gt;and&lt;/i&gt; the
+space immediately adjacent to the
+point in the increasing &lt;code&gt;X&lt;/code&gt; direction is
+entirely inside the boundary &lt;i&gt;or&lt;/i&gt;
+&lt;li&gt;
+it lies exactly on a horizontal boundary segment &lt;b&gt;and&lt;/b&gt; the
+space immediately adjacent to the point in the
+increasing &lt;code&gt;Y&lt;/code&gt; direction is inside the boundary.
+&lt;/ul&gt;
+&lt;p&gt;The &lt;code&gt;contains&lt;/code&gt; and &lt;code&gt;intersects&lt;/code&gt; methods
+consider the interior of a &lt;code&gt;Shape&lt;/code&gt; to be the area it
+encloses as if it were filled.  This means that these methods
+consider
+unclosed shapes to be implicitly closed for the purpose of
+determining if a shape contains or intersects a rectangle or if a
+shape contains a point.
+
+@see java.awt.geom.PathIterator
+@see java.awt.geom.AffineTransform
+@see java.awt.geom.FlatteningPathIterator
+@see java.awt.geom.GeneralPath
+
+@version 1.19 06/24/98
+@author Jim Graham
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Shape" refid="_9_5_f720368_1110473546596_367284_7125"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Shape" refid="_9_5_f720368_1110473546596_367284_7125"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

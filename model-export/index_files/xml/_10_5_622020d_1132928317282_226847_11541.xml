@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317282_226847_11541"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SynthInternalFrameUI" refid="_10_5_622020d_1132928317282_123189_11539"/></annotatedElement><body humanName="Body" mode="s,e">Synth's InternalFrameUI.
+
+@version 1.20 04/16/04
+@author David Kloba
+@author Joshua Outwater
+@author Rich Schiavi
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SynthInternalFrameUI" refid="_10_5_622020d_1132928317282_123189_11539"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SynthInternalFrameUI" refid="_10_5_622020d_1132928317282_123189_11539"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310322_964842_6753"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Level" refid="_9_5_f720368_1110473546690_863145_8729"/></annotatedElement><body humanName="Body" mode="s,e">The Level class defines a set of standard logging levels that
+can be used to control logging output.  The logging Level objects
+are ordered and are specified by ordered integers.  Enabling logging
+at a given level also enables logging at all higher levels.
+&lt;p&gt;
+Clients should normally use the predefined Level constants such
+as Level.SEVERE.
+&lt;p&gt;
+The levels in descending order are:
+&lt;ul&gt;
+&lt;li&gt;SEVERE (highest value)
+&lt;li&gt;WARNING
+&lt;li&gt;INFO
+&lt;li&gt;CONFIG
+&lt;li&gt;FINE
+&lt;li&gt;FINER
+&lt;li&gt;FINEST  (lowest value)
+&lt;/ul&gt;
+In addition there is a level OFF that can be used to turn
+off logging, and a level ALL that can be used to enable
+logging of all messages.
+&lt;p&gt;
+It is possible for third parties to define additional logging
+levels by subclassing Level.  In such cases subclasses should
+take care to chose unique integer level values and to ensure that
+they maintain the Object uniqueness property across serialization
+by defining a suitable readResolve method.
+
+@version 1.19, 02/25/04
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Level" refid="_9_5_f720368_1110473546690_863145_8729"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Level" refid="_9_5_f720368_1110473546690_863145_8729"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305846_679161_3791"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NumericShaper" refid="_9_5_f720368_1110473546565_941252_6641"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;NumericShaper&lt;/code&gt; class is used to convert Latin-1 (European)
+digits to other Unicode decimal digits.  Users of this class will
+primarily be people who wish to present data using
+national digit shapes, but find it more convenient to represent the
+data internally using Latin-1 (European) digits.  This does not
+interpret the deprecated numeric shape selector character (U+206E).
+&lt;p&gt;
+Instances of &lt;code&gt;NumericShaper&lt;/code&gt; are typically applied
+as attributes to text with the
+{@link TextAttribute#NUMERIC_SHAPING NUMERIC_SHAPING} attribute
+of the &lt;code&gt;TextAttribute&lt;/code&gt; class.
+For example, this code snippet causes a &lt;code&gt;TextLayout&lt;/code&gt; to
+shape European digits to Arabic in an Arabic context:&lt;br&gt;
+&lt;blockquote&gt;&lt;pre&gt;
+Map map = new HashMap();
+map.put(TextAttribute.NUMERIC_SHAPING,
+NumericShaper.getContextualShaper(NumericShaper.ARABIC));
+FontRenderContext frc = ...;
+TextLayout layout = new TextLayout(text, map, frc);
+layout.draw(g2d, x, y);
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;br&gt;
+It is also possible to perform numeric shaping explicitly using instances
+of &lt;code&gt;NumericShaper&lt;/code&gt;, as this code snippet demonstrates:&lt;br&gt;
+&lt;blockquote&gt;&lt;pre&gt;
+char[] text = ...;
+shape all EUROPEAN digits (except zero) to ARABIC digits
+NumericShaper shaper = NumericShaper.getShaper(NumericShaper.ARABIC);
+shaper.shape(text, start, count);
+
+shape European digits to ARABIC digits if preceeding text is Arabic, or
+shape European digits to TAMIL digits if preceeding text is Tamil, or
+leave European digits alone if there is no preceeding text, or
+preceeding text is neither Arabic nor Tamil
+NumericShaper shaper =
+NumericShaper.getContextualShaper(NumericShaper.ARABIC |
+NumericShaper.TAMIL,
+NumericShaper.EUROPEAN);
+shaper.shape(text. start, count);
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="NumericShaper" refid="_9_5_f720368_1110473546565_941252_6641"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NumericShaper" refid="_9_5_f720368_1110473546565_941252_6641"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

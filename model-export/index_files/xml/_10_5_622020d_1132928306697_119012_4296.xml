@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306697_119012_4296"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PageAttributes" refid="_9_5_f720368_1110473546581_998788_7089"/></annotatedElement><body humanName="Body" mode="s,e">A set of attributes which control the output of a printed page.
+&lt;p&gt;
+Instances of this class control the color state, paper size (media type),
+orientation, logical origin, print quality, and resolution of every
+page which uses the instance. Attribute names are compliant with the
+Internet Printing Protocol (IPP) 1.1 where possible. Attribute values
+are partially compliant where possible.
+&lt;p&gt;
+To use a method which takes an inner class type, pass a reference to
+one of the constant fields of the inner class. Client code cannot create
+new instances of the inner class types because none of those classes
+has a public constructor. For example, to set the color state to
+monochrome, use the following code:
+&lt;pre&gt;
+import java.awt.PageAttributes;
+
+public class MonochromeExample {
+public void setMonochrome(PageAttributes pageAttributes) {
+pageAttributes.setColor(PageAttributes.ColorType.MONOCHROME);
+}
+}
+&lt;/pre&gt;
+&lt;p&gt;
+Every IPP attribute which supports an &lt;i&gt;attributeName&lt;/i&gt;-default value
+has a corresponding &lt;code&gt;set&lt;i&gt;attributeName&lt;/i&gt;ToDefault&lt;/code&gt; method.
+Default value fields are not provided.
+
+@version	1.7, 12/19/03
+@author	David Mendenhall
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PageAttributes" refid="_9_5_f720368_1110473546581_998788_7089"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PageAttributes" refid="_9_5_f720368_1110473546581_998788_7089"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

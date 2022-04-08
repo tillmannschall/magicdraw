@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306687_954770_4276"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MenuBar" refid="_9_5_f720368_1110473546581_1996_7079"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;MenuBar&lt;/code&gt; class encapsulates the platform's
+concept of a menu bar bound to a frame. In order to associate
+the menu bar with a &lt;code&gt;Frame&lt;/code&gt; object, call the
+frame's &lt;code&gt;setMenuBar&lt;/code&gt; method.
+&lt;p&gt;
+&lt;A NAME="mbexample"&gt;&lt;/A&gt;&lt;!-- target for cross references --&gt;
+This is what a menu bar might look like:
+&lt;p&gt;
+&lt;img src="doc-files/MenuBar-1.gif"
+&lt;alt="Diagram of MenuBar containing 2 menus: Examples and Options.
+Examples menu is expanded showing items: Basic, Simple, Check, and More Examples."&gt;
+ALIGN=center HSPACE=10 VSPACE=7&gt;
+&lt;p&gt;
+A menu bar handles keyboard shortcuts for menu items, passing them
+along to its child menus.
+(Keyboard shortcuts, which are optional, provide the user with
+an alternative to the mouse for invoking a menu item and the
+action that is associated with it.)
+Each menu item can maintain an instance of &lt;code&gt;MenuShortcut&lt;/code&gt;.
+The &lt;code&gt;MenuBar&lt;/code&gt; class defines several methods,
+{@link MenuBar#shortcuts} and
+{@link MenuBar#getShortcutMenuItem}
+that retrieve information about the shortcuts a given
+menu bar is managing.
+
+@version 1.69, 05/18/04
+@author Sami Shaio
+@see        java.awt.Frame
+@see        java.awt.Frame#setMenuBar(java.awt.MenuBar)
+@see        java.awt.Menu
+@see        java.awt.MenuItem
+@see        java.awt.MenuShortcut
+@since      JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MenuBar" refid="_9_5_f720368_1110473546581_1996_7079"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MenuBar" refid="_9_5_f720368_1110473546581_1996_7079"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317553_478780_11995"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Invalidator" refid="_9_5_f720368_1110473548331_673330_23366"/></annotatedElement><body humanName="Body" mode="s,e">This class feeds the invalidate back to the
+hosting View.  This is needed to get the View
+hierarchy to consider giving the component
+a different size (i.e. layout may have been
+cached between the associated view and the
+container hosting this component).
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Invalidator" refid="_9_5_f720368_1110473548331_673330_23366"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Invalidator" refid="_9_5_f720368_1110473548331_673330_23366"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

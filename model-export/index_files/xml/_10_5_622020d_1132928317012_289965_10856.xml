@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317012_289965_10856"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="InternalFrameAdapter" refid="_9_5_f720368_1110473546753_272690_9853"/></annotatedElement><body humanName="Body" mode="s,e">An abstract adapter class for receiving internal frame events.
+The methods in this class are empty. This class exists as
+convenience for creating listener objects, and is functionally
+equivalent to the WindowAdapter class in the AWT.
+&lt;p&gt;
+See &lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/events/internalframelistener.html"&gt;How to Write an Internal Frame Listener&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt; and
+&lt;a href="http://www.awl.com/cp/javaseries/jcl1_2.html"&gt;The Java Class Libraries (update)&lt;/a&gt;
+
+@see InternalFrameEvent
+@see InternalFrameListener
+@see java.awt.event.WindowListener
+
+@version 1.12 12/19/03
+@author Thomas Ball
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="InternalFrameAdapter" refid="_9_5_f720368_1110473546753_272690_9853"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="InternalFrameAdapter" refid="_9_5_f720368_1110473546753_272690_9853"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

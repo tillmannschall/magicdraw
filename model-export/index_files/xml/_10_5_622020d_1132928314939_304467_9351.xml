@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314939_304467_9351"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GaugeMonitor" refid="_10_5_622020d_1132928314929_820668_9347"/></annotatedElement><body humanName="Body" mode="s,e">Defines a monitor MBean designed to observe the values of a gauge attribute.
+
+&lt;P&gt; A gauge monitor observes an attribute that is continuously
+variable with time.  A gauge monitor sends notifications as
+follows:
+
+&lt;UL&gt;
+
+&lt;LI&gt; if the attribute value is increasing and becomes equal to or
+greater than the high threshold value, a {@link
+MonitorNotification#THRESHOLD_HIGH_VALUE_EXCEEDED threshold high
+notification} is sent.  The notify high flag must be set to
+&lt;CODE&gt;true&lt;/CODE&gt;
+
+&lt;BR&gt;Subsequent crossings of the high threshold value do not cause
+further notifications unless the attribute value becomes equal to
+or less than the low threshold value.
+
+&lt;LI&gt; if the attribute value is decreasing and becomes equal to or
+less than the low threshold value, a {@link
+MonitorNotification#THRESHOLD_LOW_VALUE_EXCEEDED threshold low
+notification} is sent.  The notify low flag must be set to
+&lt;CODE&gt;true&lt;/CODE&gt;.
+
+&lt;BR&gt;Subsequent crossings of the low threshold value do not cause
+further notifications unless the attribute value becomes equal to
+or greater than the high threshold value.
+
+&lt;/UL&gt;
+
+This provides a hysteresis mechanism to avoid repeated triggering
+of notifications when the attribute value makes small oscillations
+around the high or low threshold value.
+
+&lt;P&gt; If the gauge difference mode is used, the value of the derived
+gauge is calculated as the difference between the observed gauge
+values for two successive observations.
+
+&lt;BR&gt;The derived gauge value (V[t]) is calculated using the following method:
+&lt;UL&gt;
+&lt;LI&gt;V[t] = gauge[t] - gauge[t-GP]
+&lt;/UL&gt;
+
+This implementation of the gauge monitor requires the observed
+attribute to be of the type integer or floating-point
+(&lt;CODE&gt;Byte&lt;/CODE&gt;, &lt;CODE&gt;Integer&lt;/CODE&gt;, &lt;CODE&gt;Short&lt;/CODE&gt;,
+&lt;CODE&gt;Long&lt;/CODE&gt;, &lt;CODE&gt;Float&lt;/CODE&gt;, &lt;CODE&gt;Double&lt;/CODE&gt;).
+
+@version     1.73     05/18/04
+@author      Sun Microsystems, Inc
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="GaugeMonitor" refid="_10_5_622020d_1132928314929_820668_9347"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GaugeMonitor" refid="_10_5_622020d_1132928314929_820668_9347"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

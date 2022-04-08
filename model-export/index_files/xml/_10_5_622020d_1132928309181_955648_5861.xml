@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309181_955648_5861"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DSAKey" refid="_9_5_f720368_1110473546674_277637_8357"/></annotatedElement><body humanName="Body" mode="s,e">The interface to a DSA public or private key. DSA (Digital Signature
+Algorithm) is defined in NIST's FIPS-186.
+
+@see DSAParams
+@see java.security.Key
+@see java.security.Signature
+
+@version 1.17 03/12/19
+@author Benjamin Renaud
+@author Josh Bloch
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DSAKey" refid="_9_5_f720368_1110473546674_277637_8357"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DSAKey" refid="_9_5_f720368_1110473546674_277637_8357"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305716_244703_3713"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FocusListener" refid="_9_5_f720368_1110473546565_10343_6561"/></annotatedElement><body humanName="Body" mode="s,e">The listener interface for receiving keyboard focus events on
+a component.
+The class that is interested in processing a focus event
+either implements this interface (and all the methods it
+contains) or extends the abstract &lt;code&gt;FocusAdapter&lt;/code&gt; class
+(overriding only the methods of interest).
+The listener object created from that class is then registered with a
+component using the component's &lt;code&gt;addFocusListener&lt;/code&gt;
+method. When the component gains or loses the keyboard focus,
+the relevant method in the listener object
+is invoked, and the &lt;code&gt;FocusEvent&lt;/code&gt; is passed to it.
+
+@see FocusAdapter
+@see FocusEvent
+@see &lt;a href="http://java.sun.com/docs/books/tutorial/post1.0/ui/focuslistener.html"&gt;Tutorial: Writing a Focus Listener&lt;/a&gt;
+@see &lt;a href="http://www.awl.com/cp/javaseries/jcl1_2.html"&gt;Reference: The Java Class Libraries (update file)&lt;/a&gt;
+
+@author Carl Quinn
+@version 1.15 12/19/03
+@since 1.1
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="FocusListener" refid="_9_5_f720368_1110473546565_10343_6561"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FocusListener" refid="_9_5_f720368_1110473546565_10343_6561"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

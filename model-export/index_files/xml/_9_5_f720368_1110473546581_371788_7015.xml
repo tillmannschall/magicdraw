@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_371788_7015"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::Frame -&gt; JDK 5.0 Classes::java::awt::MenuContainer]" refid="_10_5_622020d_1132928321368_454370_13236"/></clientDependency><documentation humanName="Documentation" mode="standard">A &lt;code&gt;Frame&lt;/code&gt; is a top-level window with a title and a border.
+&lt;p&gt;
+The size of the frame includes any area designated for the
+border.  The dimensions of the border area may be obtained
+using the &lt;code&gt;getInsets&lt;/code&gt; method, however, since
+these dimensions are platform-dependent, a valid insets
+value cannot be obtained until the frame is made displayable
+by either calling &lt;code&gt;pack&lt;/code&gt; or &lt;code&gt;show&lt;/code&gt;.
+Since the border area is included in the overall size of the
+frame, the border effectively obscures a portion of the frame,
+constraining the area available for rendering and/or displaying
+subcomponents to the rectangle which has an upper-left corner
+location of &lt;code&gt;(insets.left, insets.top)&lt;/code&gt;, and has a size of
+&lt;code&gt;width - (insets.left + insets.right)&lt;/code&gt; by
+&lt;code&gt;height - (insets.top + insets.bottom)&lt;/code&gt;.
+&lt;p&gt;
+The default layout for a frame is &lt;code&gt;BorderLayout&lt;/code&gt;.
+&lt;p&gt;
+A frame may have its native decorations (i.e. &lt;code&gt;Frame&lt;/code&gt;
+and &lt;code&gt;Titlebar&lt;/code&gt;) turned off
+with &lt;code&gt;setUndecorated&lt;/code&gt;. This can only be done while the frame
+is not {@link Component#isDisplayable() displayable}.
+&lt;p&gt;
+In a multi-screen environment, you can create a &lt;code&gt;Frame&lt;/code&gt;
+on a different screen device by constructing the &lt;code&gt;Frame&lt;/code&gt;
+with {@link #Frame(GraphicsConfiguration)} or
+{@link #Frame(String title, GraphicsConfiguration)}.  The
+&lt;code&gt;GraphicsConfiguration&lt;/code&gt; object is one of the
+&lt;code&gt;GraphicsConfiguration&lt;/code&gt; objects of the target screen
+device.
+&lt;p&gt;
+In a virtual device multi-screen environment in which the desktop
+area could span multiple physical screen devices, the bounds of all
+configurations are relative to the virtual-coordinate system.  The
+origin of the virtual-coordinate system is at the upper left-hand
+corner of the primary physical screen.  Depending on the location
+of the primary screen in the virtual device, negative coordinates
+are possible, as shown in the following figure.
+&lt;p&gt;
+&lt;img src="doc-files/MultiScreen.gif"
+alt="Diagram of virtual device encompassing three physical screens and one primary physical screen. The primary physical screen
+shows (0,0) coords while a different physical screen shows (-80,-100) coords."
+ALIGN=center HSPACE=10 VSPACE=7&gt;
+&lt;p&gt;
+In such an environment, when calling &lt;code&gt;setLocation&lt;/code&gt;,
+you must pass a virtual coordinate to this method.  Similarly,
+calling &lt;code&gt;getLocationOnScreen&lt;/code&gt; on a &lt;code&gt;Frame&lt;/code&gt;
+returns virtual device coordinates.  Call the &lt;code&gt;getBounds&lt;/code&gt;
+method of a &lt;code&gt;GraphicsConfiguration&lt;/code&gt; to find its origin in
+the virtual coordinate system.
+&lt;p&gt;
+The following code sets the
+location of the &lt;code&gt;Frame&lt;/code&gt; at (10, 10) relative
+to the origin of the physical screen of the corresponding
+&lt;code&gt;GraphicsConfiguration&lt;/code&gt;.  If the bounds of the
+&lt;code&gt;GraphicsConfiguration&lt;/code&gt; is not taken into account, the
+&lt;code&gt;Frame&lt;/code&gt; location would be set at (10, 10) relative to the
+virtual-coordinate system and would appear on the primary physical
+screen, which might be different from the physical screen of the
+specified &lt;code&gt;GraphicsConfiguration&lt;/code&gt;.
+
+&lt;pre&gt;
+Frame f = new Frame(GraphicsConfiguration gc);
+Rectangle bounds = gc.getBounds();
+f.setLocation(10 + bounds.x, 10 + bounds.y);
+&lt;/pre&gt;
+
+&lt;p&gt;
+Frames are capable of generating the following types of
+&lt;code&gt;WindowEvent&lt;/code&gt;s:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;WINDOW_OPENED&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;WINDOW_CLOSING&lt;/code&gt;:
+&lt;br&gt;If the program doesn't
+explicitly hide or dispose the window while processing
+this event, the window close operation is canceled.
+&lt;li&gt;&lt;code&gt;WINDOW_CLOSED&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;WINDOW_ICONIFIED&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;WINDOW_DEICONIFIED&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;WINDOW_ACTIVATED&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;WINDOW_DEACTIVATED&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;WINDOW_GAINED_FOCUS&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;WINDOW_LOST_FOCUS&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;WINDOW_STATE_CHANGED&lt;/code&gt;
+&lt;/ul&gt;
+
+@version 	1.147, 05/18/04
+@author 	Sami Shaio
+@see WindowEvent
+@see Window#addWindowListener
+@since       JDK1.0
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321368_254125_13237"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleAWTComponent" refid="_9_5_f720368_1110473547378_128539_16940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTContainer" refid="_9_5_f720368_1110473547378_351073_16957"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTWindow" refid="_9_5_f720368_1110473547424_716093_17151"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTTreeLock" refid="_9_5_f720368_1110473547378_254209_16930"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BltBufferStrategy" refid="_9_5_f720368_1110473547378_697224_16934"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetEventTargetFilter" refid="_9_5_f720368_1110473547378_301053_16955"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="EventTargetFilter" refid="_9_5_f720368_1110473547378_222743_16951"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlipBufferStrategy" refid="_9_5_f720368_1110473547378_178907_16932"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MouseEventTargetFilter" refid="_9_5_f720368_1110473547378_805902_16953"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeInLightFixer" refid="_9_5_f720368_1110473547378_946319_16938"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SingleBufferStrategy" refid="_9_5_f720368_1110473547378_190538_16936"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WakingRunnable" refid="_10_5_622020d_1132928306387_890973_4158"/></inheritedMember><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::Frame -&gt; JDK 5.0 Classes::java::awt::MenuContainer]" refid="_10_5_622020d_1132928321368_454370_13236"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleAWTComponent" refid="_9_5_f720368_1110473547378_128539_16940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTContainer" refid="_9_5_f720368_1110473547378_351073_16957"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTFrame" refid="_9_5_f720368_1110473547393_523464_16996"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTWindow" refid="_9_5_f720368_1110473547424_716093_17151"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTTreeLock" refid="_9_5_f720368_1110473547378_254209_16930"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BltBufferStrategy" refid="_9_5_f720368_1110473547378_697224_16934"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetEventTargetFilter" refid="_9_5_f720368_1110473547378_301053_16955"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="EventTargetFilter" refid="_9_5_f720368_1110473547378_222743_16951"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlipBufferStrategy" refid="_9_5_f720368_1110473547378_178907_16932"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MouseEventTargetFilter" refid="_9_5_f720368_1110473547378_805902_16953"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeInLightFixer" refid="_9_5_f720368_1110473547378_946319_16938"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SingleBufferStrategy" refid="_9_5_f720368_1110473547378_190538_16936"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WakingRunnable" refid="_10_5_622020d_1132928306387_890973_4158"/></member><name humanName="Name" mode="s,e">Frame</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTFrame" refid="_9_5_f720368_1110473547393_523464_16996"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306457_989259_4207"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321368_254125_13237"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306457_989259_4207"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTFrame" refid="_9_5_f720368_1110473547393_523464_16996"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::Frame -&gt; JDK 5.0 Classes::java::awt::MenuContainer]" refid="_10_5_622020d_1132928321368_454370_13236"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTFrame" refid="_9_5_f720368_1110473547393_523464_16996"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::Frame</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MenuContainer" refid="_9_5_f720368_1110473546581_187052_7083"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Window" refid="_9_5_f720368_1110473546596_890326_7145"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309701_665852_6245"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DictionaryBasedBreakIterator" refid="_9_5_f720368_1110473546690_981272_8647"/></annotatedElement><body humanName="Body" mode="s,e">A subclass of RuleBasedBreakIterator that adds the ability to use a dictionary
+to further subdivide ranges of text beyond what is possible using just the
+state-table-based algorithm.  This is necessary, for example, to handle
+word and line breaking in Thai, which doesn't use spaces between words.  The
+state-table-based algorithm used by RuleBasedBreakIterator is used to divide
+up text as far as possible, and then contiguous ranges of letters are
+repeatedly compared against a list of known words (i.e., the dictionary)
+to divide them up into words.
+
+DictionaryBasedBreakIterator uses the same rule language as RuleBasedBreakIterator,
+but adds one more special substitution name: &lt;dictionary&gt;.  This substitution
+name is used to identify characters in words in the dictionary.  The idea is that
+if the iterator passes over a chunk of text that includes two or more characters
+in a row that are included in &lt;dictionary&gt;, it goes back through that range and
+derives additional break positions (if possible) using the dictionary.
+
+DictionaryBasedBreakIterator is also constructed with the filename of a dictionary
+file.  It follows a prescribed search path to locate the dictionary (right now,
+it looks for it in /com/ibm/text/resources in each directory in the classpath,
+and won't find it in JAR files, but this location is likely to change).  The
+dictionary file is in a serialized binary format.  We have a very primitive (and
+slow) BuildDictionaryFile utility for creating dictionary files, but aren't
+currently making it public.  Contact us for help.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DictionaryBasedBreakIterator" refid="_9_5_f720368_1110473546690_981272_8647"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DictionaryBasedBreakIterator" refid="_9_5_f720368_1110473546690_981272_8647"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

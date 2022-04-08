@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309541_711336_6204"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Timestamp" refid="_9_5_f720368_1110473546690_574195_8603"/></annotatedElement><body humanName="Body" mode="s,e">&lt;P&gt;A thin wrapper around &lt;code&gt;java.util.Date&lt;/code&gt; that allows
+the JDBC API to identify this as an SQL &lt;code&gt;TIMESTAMP&lt;/code&gt; value.
+It adds the ability
+to hold the SQL &lt;code&gt;TIMESTAMP&lt;/code&gt; nanos value and provides formatting and
+parsing operations to support the JDBC escape syntax for timestamp values.
+
+&lt;P&gt;&lt;B&gt;Note:&lt;/B&gt; This type is a composite of a &lt;code&gt;java.util.Date&lt;/code&gt; and a
+separate nanoseconds value. Only integral seconds are stored in the
+&lt;code&gt;java.util.Date&lt;/code&gt; component. The fractional seconds - the nanos - are
+separate.  The &lt;code&gt;Timestamp.equals(Object)&lt;/code&gt; method never returns
+&lt;code&gt;true&lt;/code&gt; when passed a value of type &lt;code&gt;java.util.Date&lt;/code&gt;
+because the nanos component of a date is unknown.
+As a result, the &lt;code&gt;Timestamp.equals(Object)&lt;/code&gt;
+method is not symmetric with respect to the
+&lt;code&gt;java.util.Date.equals(Object)&lt;/code&gt;
+method.  Also, the &lt;code&gt;hashcode&lt;/code&gt; method uses the underlying
+&lt;code&gt;java.util.Date&lt;/code&gt;
+implementation and therefore does not include nanos in its computation.
+&lt;P&gt;
+Due to the differences between the &lt;code&gt;Timestamp&lt;/code&gt; class
+and the &lt;code&gt;java.util.Date&lt;/code&gt;
+class mentioned above, it is recommended that code not view
+&lt;code&gt;Timestamp&lt;/code&gt; values generically as an instance of
+&lt;code&gt;java.util.Date&lt;/code&gt;.  The
+inheritance relationship between &lt;code&gt;Timestamp&lt;/code&gt;
+and &lt;code&gt;java.util.Date&lt;/code&gt; really
+denotes implementation inheritance, and not type inheritance.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Timestamp" refid="_9_5_f720368_1110473546690_574195_8603"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Timestamp" refid="_9_5_f720368_1110473546690_574195_8603"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

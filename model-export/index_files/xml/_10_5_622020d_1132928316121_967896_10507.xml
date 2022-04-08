@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316121_967896_10507"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AuthenticationException" refid="_10_5_622020d_1132928316121_619631_10505"/></annotatedElement><body humanName="Body" mode="s,e">This exception is thrown by a SASL mechanism implementation
+to indicate that the SASL
+exchange has failed due to reasons related to authentication, such as
+an invalid identity, passphrase, or key.
+&lt;p&gt;
+Note that the lack of an AuthenticationException does not mean that
+the failure was not due to an authentication error.  A SASL mechanism
+implementation might throw the more general SaslException instead of
+AuthenticationException if it is unable to determine the nature
+of the failure, or if does not want to disclose the nature of
+the failure, for example, due to security reasons.
+
+@since 1.5
+
+@author Rosanna Lee
+@author Rob Weltman
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AuthenticationException" refid="_10_5_622020d_1132928316121_619631_10505"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AuthenticationException" refid="_10_5_622020d_1132928316121_619631_10505"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

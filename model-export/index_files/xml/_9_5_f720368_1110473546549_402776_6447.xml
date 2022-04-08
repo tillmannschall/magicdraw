@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546549_402776_6447"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::color::ICC_Profile -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928320527_832297_12871"/></clientDependency><documentation humanName="Documentation" mode="standard">A representation of color profile data for device independent and
+device dependent color spaces based on the International Color
+Consortium Specification ICC.1:2001-12, File Format for Color Profiles,
+(see &lt;A href="http://www.color.org"&gt; http://www.color.org&lt;/A&gt;).
+&lt;p&gt;
+An ICC_ColorSpace object can be constructed from an appropriate
+ICC_Profile.
+Typically, an ICC_ColorSpace would be associated with an ICC
+Profile which is either an input, display, or output profile (see
+the ICC specification).  There are also device link, abstract,
+color space conversion, and named color profiles.  These are less
+useful for tagging a color or image, but are useful for other
+purposes (in particular device link profiles can provide improved
+performance for converting from one device's color space to
+another's).
+&lt;p&gt;
+ICC Profiles represent transformations from the color space of
+the profile (e.g. a monitor) to a Profile Connection Space (PCS).
+Profiles of interest for tagging images or colors have a PCS
+which is one of the two specific device independent
+spaces (one CIEXYZ space and one CIELab space) defined in the
+ICC Profile Format Specification.  Most profiles of interest
+either have invertible transformations or explicitly specify
+transformations going both directions.
+&lt;p&gt;
+@version 10 Feb 1997
+@see ICC_ColorSpace
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::color::ICC_Profile -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928320527_832297_12871"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ICC_Profile</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="color" refid="_9_5_f720368_1110473547268_839923_16332"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305495_307660_3591"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305495_307660_3591"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::color::ICC_Profile -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928320527_832297_12871"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="color" refid="_9_5_f720368_1110473547268_839923_16332"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="color" refid="_9_5_f720368_1110473547268_839923_16332"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="color" refid="_9_5_f720368_1110473547268_839923_16332"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::color::ICC_Profile</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

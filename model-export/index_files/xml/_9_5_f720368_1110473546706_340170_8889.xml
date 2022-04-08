@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546706_340170_8889"><documentation humanName="Documentation" mode="standard">&lt;code&gt;ListResourceBundle&lt;/code&gt; is an abstract subclass of
+&lt;code&gt;ResourceBundle&lt;/code&gt; that manages resources for a locale
+in a convenient and easy to use list. See &lt;code&gt;ResourceBundle&lt;/code&gt; for
+more information about resource bundles in general.
+
+&lt;P&gt;
+Subclasses must override &lt;code&gt;getContents&lt;/code&gt; and provide an array,
+where each item in the array is a pair of objects.
+The first element of each pair is the key, which must be a
+&lt;code&gt;String&lt;/code&gt;, and the second element is the value associated with
+that key.
+
+&lt;p&gt;
+The following &lt;a name="sample"&gt;example&lt;/a&gt; shows two members of a resource
+bundle family with the base name "MyResources".
+"MyResources" is the default member of the bundle family, and
+"MyResources_fr" is the French member.
+These members are based on &lt;code&gt;ListResourceBundle&lt;/code&gt;
+(a related &lt;a href="PropertyResourceBundle.html#sample"&gt;example&lt;/a&gt; shows
+how you can add a bundle to this family that's based on a properties file).
+The keys in this example are of the form "s1" etc. The actual
+keys are entirely up to your choice, so long as they are the same as
+the keys you use in your program to retrieve the objects from the bundle.
+Keys are case-sensitive.
+&lt;blockquote&gt;
+&lt;pre&gt;
+
+public class MyResources extends ListResourceBundle {
+public Object[][] getContents() {
+return contents;
+}
+static final Object[][] contents = {
+LOCALIZE THIS
+{"s1", "The disk \"{1}\" contains {0}."},  // MessageFormat pattern
+{"s2", "1"},                               // location of {0} in pattern
+{"s3", "My Disk"},                         // sample disk name
+{"s4", "no files"},                        // first ChoiceFormat choice
+{"s5", "one file"},                        // second ChoiceFormat choice
+{"s6", "{0,number} files"},                // third ChoiceFormat choice
+{"s7", "3 Mar 96"},                        // sample date
+{"s8", new Dimension(1,5)}                 // real object, not just string
+END OF MATERIAL TO LOCALIZE
+};
+}
+
+public class MyResources_fr extends ListResourceBundle {
+public Object[][] getContents() {
+return contents;
+}
+static final Object[][] contents = {
+LOCALIZE THIS
+{"s1", "Le disque \"{1}\" {0}."},          // MessageFormat pattern
+{"s2", "1"},                               // location of {0} in pattern
+{"s3", "Mon disque"},                      // sample disk name
+{"s4", "ne contient pas de fichiers"},     // first ChoiceFormat choice
+{"s5", "contient un fichier"},             // second ChoiceFormat choice
+{"s6", "contient {0,number} fichiers"},    // third ChoiceFormat choice
+{"s7", "3 mars 1996"},                     // sample date
+{"s8", new Dimension(1,3)}                 // real object, not just string
+END OF MATERIAL TO LOCALIZE
+};
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+@see ResourceBundle
+@see PropertyResourceBundle
+@since JDK1.1
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322620_619209_15066"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LoaderReference" refid="_10_5_622020d_1132928313357_233904_7450"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ResourceCacheKey" refid="_9_5_f720368_1110473547878_819105_19567"/></inheritedMember><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LoaderReference" refid="_10_5_622020d_1132928313357_233904_7450"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ResourceCacheKey" refid="_9_5_f720368_1110473547878_819105_19567"/></member><name humanName="Name" mode="s,e">ListResourceBundle</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313327_662935_7383"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322620_619209_15066"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313327_662935_7383"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::ListResourceBundle</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ResourceBundle" refid="_9_5_f720368_1110473546706_397401_8915"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

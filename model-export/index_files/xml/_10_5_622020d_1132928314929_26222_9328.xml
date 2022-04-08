@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314929_26222_9328"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ModelMBeanNotificationInfo" refid="_10_5_622020d_1132928314919_422176_9326"/></annotatedElement><body humanName="Body" mode="s,e">The ModelMBeanNotificationInfo object describes a notification emitted
+by a ModelMBean.
+It is a subclass of MBeanNotificationInfo with the addition of an
+associated Descriptor and an implementation of the Descriptor interface.
+&lt;P&gt;
+The fields in the descriptor are defined, but not limited to,
+the following:
+&lt;PRE&gt;
+name           : notification name
+descriptorType : must be "notification"
+severity       : 0-6 where 0: unknown; 1: non-recoverable;
+2: critical, failure; 3: major, severe;
+4: minor, marginal, error; 5: warning;
+6: normal, cleared, informative
+messageID      : unique key for message text (to allow translation,
+analysis)
+messageText    : text of notification
+log            : T - log message F - do not log message
+logfile        : string fully qualified file name appropriate for
+operating system
+visibility     : 1-4 where 1: always visible 4: rarely visible
+presentationString : xml formatted string to allow presentation of data
+&lt;/PRE&gt;
+The default descriptor contains the name, descriptorType, displayName
+and severity(=6) fields.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ModelMBeanNotificationInfo" refid="_10_5_622020d_1132928314919_422176_9326"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ModelMBeanNotificationInfo" refid="_10_5_622020d_1132928314919_422176_9326"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

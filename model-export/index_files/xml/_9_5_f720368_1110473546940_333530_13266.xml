@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546940_333530_13266"><documentation humanName="Documentation" mode="standard">Create a new instance of a class by name.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This class contains a static method for creating an instance of a
+class from an explicit class name.  It tries to use the thread's context
+ClassLoader if possible and falls back to using
+Class.forName(String).&lt;/p&gt;
+
+&lt;p&gt;This code is designed to compile and run on JDK version 1.1 and later
+including versions of Java 2.&lt;/p&gt;
+
+@author Edwin Goei, David Brownell
+@version 2.0.1 (sax2r2)
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">NewInstance</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314688_37666_9043"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314688_37666_9043"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::xml::sax::helpers::NewInstance</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

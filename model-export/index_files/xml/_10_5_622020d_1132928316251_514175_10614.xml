@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316251_514175_10614"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AudioSystem" refid="_9_5_f720368_1110473546737_617748_9715"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;AudioSystem&lt;/code&gt; class acts as the entry point to the
+sampled-audio system resources. This class lets you query and
+access the mixers that are installed on the system.
+&lt;code&gt;AudioSystem&lt;/code&gt; includes a number of
+methods for converting audio data between different formats, and for
+translating between audio files and streams. It also provides a method
+for obtaining a &lt;code&gt;{@link Line}&lt;/code&gt; directly from the
+&lt;code&gt;AudioSystem&lt;/code&gt; without dealing explicitly
+with mixers.
+
+&lt;p&gt;Properties can be used to specify the default mixer
+for specific line types.
+Both system properties and a properties file are considered.
+In the Sun reference implementation, the properties file is
+"lib/sound.properties" in the JRE
+directory. If a property exists both as a system property and in the
+properties file, the system property takes precedence. If none is
+specified, a suitable default is chosen among the available devices.
+The syntax of the properties file is specified in
+{@link java.util.Properties#load(InputStream) Properties.load}. The
+following table lists the available property keys and which methods
+consider them:
+
+&lt;table border=0&gt;
+&lt;tr&gt;
+&lt;th&gt;Property Key&lt;/th&gt;
+&lt;th&gt;Interface&lt;/th&gt;
+&lt;th&gt;Affected Method(s)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;javax.sound.sampled.Clip&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{@link Clip}&lt;/td&gt;
+&lt;td&gt;{@link #getLine}, {@link #getClip}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;javax.sound.sampled.Port&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{@link Port}&lt;/td&gt;
+&lt;td&gt;{@link #getLine}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;javax.sound.sampled.SourceDataLine&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{@link SourceDataLine}&lt;/td&gt;
+&lt;td&gt;{@link #getLine}, {@link #getSourceDataLine}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;javax.sound.sampled.TargetDataLine&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{@link TargetDataLine}&lt;/td&gt;
+&lt;td&gt;{@link #getLine}, {@link #getTargetDataLine}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+The property value consists of the provider class name
+and the mixer name, separated by the hash mark ("#").
+The provider class name is the fully-qualified
+name of a concrete {@link javax.sound.sampled.spi.MixerProvider
+mixer provider} class. The mixer name is matched against
+the &lt;code&gt;String&lt;/code&gt; returned by the &lt;code&gt;getName&lt;/code&gt;
+method of &lt;code&gt;Mixer.Info&lt;/code&gt;.
+Either the class name, or the mixer name may be omitted.
+If only the class name is specified, the trailing hash mark
+is optional.
+
+&lt;p&gt;If the provider class is specified, and it can be
+successully retrieved from the installed providers, the list of
+&lt;code&gt;Mixer.Info&lt;/code&gt; objects is retrieved
+from the provider. Otherwise, or when these mixers
+do not provide a subsequent match, the list is retrieved
+from {@link #getMixerInfo} to contain
+all available &lt;code&gt;Mixer.Info&lt;/code&gt; objects.
+
+&lt;p&gt;If a mixer name is specified, the resulting list of
+&lt;code&gt;Mixer.Info&lt;/code&gt; objects is searched:
+the first one with a matching name, and whose
+&lt;code&gt;Mixer&lt;/code&gt; provides the
+respective line interface, will be returned.
+If no matching &lt;code&gt;Mixer.Info&lt;/code&gt; object
+is found, or the mixer name is not specified,
+the first mixer from the resulting
+list, which provides the respective line
+interface, will be returned.
+
+For example, the property &lt;code&gt;javax.sound.sampled.Clip&lt;/code&gt;
+with a value
+&lt;code&gt;"com.sun.media.sound.MixerProvider#SunClip"&lt;/code&gt;
+will have the following consequences when
+&lt;code&gt;getLine&lt;/code&gt; is called requesting a &lt;code&gt;Clip&lt;/code&gt;
+instance:
+if the class &lt;code&gt;com.sun.media.sound.MixerProvider&lt;/code&gt; exists
+in the list of installed mixer providers,
+the first &lt;code&gt;Clip&lt;/code&gt; from the first mixer with name
+&lt;code&gt;"SunClip"&lt;/code&gt; will be returned. If it cannot
+be found, the first &lt;code&gt;Clip&lt;/code&gt; from the first mixer
+of the specified provider will be returned, regardless of name.
+If there is none, the first &lt;code&gt;Clip&lt;/code&gt; from the first
+&lt;code&gt;Mixer&lt;/code&gt; with name
+&lt;code&gt;"SunClip"&lt;/code&gt; in the list of all mixers
+(as returned by &lt;code&gt;getMixerInfo&lt;/code&gt;) will be returned,
+or, if not found, the first &lt;code&gt;Clip&lt;/code&gt; of the first
+&lt;code&gt;Mixer&lt;/code&gt;that can be found in the list of all
+mixers is returned.
+If that fails, too, an &lt;code&gt;IllegalArgumentException&lt;/code&gt;
+is thrown.
+
+@author Kara Kytle
+@author Florian Bomers
+@author Matthias Pfisterer
+@author Kevin P. Smith
+@version 1.81, 04/07/14
+
+@see AudioFormat
+@see AudioInputStream
+@see Mixer
+@see Line
+@see Line.Info
+@since 1.3
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AudioSystem" refid="_9_5_f720368_1110473546737_617748_9715"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AudioSystem" refid="_9_5_f720368_1110473546737_617748_9715"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

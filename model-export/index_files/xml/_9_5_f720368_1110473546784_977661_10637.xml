@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546784_977661_10637"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::ButtonGroup -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323952_725582_18230"/></clientDependency><documentation humanName="Documentation" mode="standard">This class is used to create a multiple-exclusion scope for
+a set of buttons. Creating a set of buttons with the
+same &lt;code&gt;ButtonGroup&lt;/code&gt; object means that
+turning "on" one of those buttons
+turns off all other buttons in the group.
+&lt;p&gt;
+A &lt;code&gt;ButtonGroup&lt;/code&gt; can be used with
+any set of objects that inherit from &lt;code&gt;AbstractButton&lt;/code&gt;.
+Typically a button group contains instances of
+&lt;code&gt;JRadioButton&lt;/code&gt;,
+&lt;code&gt;JRadioButtonMenuItem&lt;/code&gt;,
+or &lt;code&gt;JToggleButton&lt;/code&gt;.
+It wouldn't make sense to put an instance of
+&lt;code&gt;JButton&lt;/code&gt; or &lt;code&gt;JMenuItem&lt;/code&gt;
+in a button group
+because &lt;code&gt;JButton&lt;/code&gt; and &lt;code&gt;JMenuItem&lt;/code&gt;
+don't implement the selected state.
+&lt;p&gt;
+Initially, all buttons in the group are unselected. Once any button is
+selected, one button is always selected in the group. There is no way
+to turn a button programmatically to "off", in order to clear the button
+group. To give the appearance of "none selected", add an invisible radio
+button to the group and then programmatically select that button to
+turn off all the displayed radio buttons. For example, a normal button
+with the label "none" could be wired to select the invisible radio button.
+&lt;p&gt;
+For examples and further information on using button groups see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/button.html#radiobutton"&gt;How to Use Radio Buttons&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.37 05/05/04
+@author Jeff Dinkins
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::ButtonGroup -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323952_725582_18230"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ButtonGroup</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317833_718867_12312"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317833_718867_12312"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::ButtonGroup -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323952_725582_18230"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::ButtonGroup</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546674_239521_8255"><documentation humanName="Documentation" mode="standard">Interface representing an Access Control List (ACL).  An Access
+Control List is a data structure used to guard access to
+resources.&lt;p&gt;
+
+An ACL can be thought of as a data structure with multiple ACL
+entries.  Each ACL entry, of interface type AclEntry, contains a
+set of permissions associated with a particular principal. (A
+principal represents an entity such as an individual user or a
+group). Additionally, each ACL entry is specified as being either
+positive or negative. If positive, the permissions are to be
+granted to the associated principal. If negative, the permissions
+are to be denied.&lt;p&gt;
+
+The ACL Entries in each ACL observe the following rules:&lt;p&gt;
+
+&lt;ul&gt; &lt;li&gt;Each principal can have at most one positive ACL entry and
+one negative entry; that is, multiple positive or negative ACL
+entries are not allowed for any principal.  Each entry specifies
+the set of permissions that are to be granted (if positive) or
+denied (if negative). &lt;p&gt;
+
+&lt;li&gt;If there is no entry for a particular principal, then the
+principal is considered to have a null (empty) permission set.&lt;p&gt;
+
+&lt;li&gt;If there is a positive entry that grants a principal a
+particular permission, and a negative entry that denies the
+principal the same permission, the result is as though the
+permission was never granted or denied. &lt;p&gt;
+
+&lt;li&gt;Individual permissions always override permissions of the
+group(s) to which the individual belongs. That is, individual
+negative permissions (specific denial of permissions) override the
+groups' positive permissions. And individual positive permissions
+override the groups' negative permissions.&lt;p&gt;
+
+&lt;/ul&gt;
+
+The &lt;code&gt; java.security.acl &lt;/code&gt; package provides the
+interfaces to the ACL and related data structures (ACL entries,
+groups, permissions, etc.), and the &lt;code&gt; sun.security.acl &lt;/code&gt;
+classes provide a default implementation of the interfaces. For
+example, &lt;code&gt; java.security.acl.Acl &lt;/code&gt; provides the
+interface to an ACL and the &lt;code&gt; sun.security.acl.AclImpl &lt;/code&gt;
+class provides the default implementation of the interface.&lt;p&gt;
+
+The &lt;code&gt; java.security.acl.Acl &lt;/code&gt; interface extends the
+&lt;code&gt; java.security.acl.Owner &lt;/code&gt; interface. The Owner
+interface is used to maintain a list of owners for each ACL.  Only
+owners are allowed to modify an ACL. For example, only an owner can
+call the ACL's &lt;code&gt;addEntry&lt;/code&gt; method to add a new ACL entry
+to the ACL.
+
+@see java.security.acl.AclEntry
+@see java.security.acl.Owner
+@see java.security.acl.Acl#getPermissions
+
+@version 1.23, 04/05/05
+@author Satish Dharmaraj
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Owner" refid="_9_5_f720368_1110473546674_556324_8267"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321849_687304_14100"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Acl</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="acl" refid="_9_5_f720368_1110473547706_197903_18578"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309070_264375_5757"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321849_687304_14100"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309070_264375_5757"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="acl" refid="_9_5_f720368_1110473547706_197903_18578"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="acl" refid="_9_5_f720368_1110473547706_197903_18578"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="acl" refid="_9_5_f720368_1110473547706_197903_18578"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::acl::Acl</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

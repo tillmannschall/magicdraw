@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546753_170674_9847"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::event::EventListenerList -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323411_384973_16712"/></clientDependency><documentation humanName="Documentation" mode="standard">A class that holds a list of EventListeners.  A single instance
+can be used to hold all listeners (of all types) for the instance
+using the list.  It is the responsiblity of the class using the
+EventListenerList to provide type-safe API (preferably conforming
+to the JavaBeans spec) and methods which dispatch event notification
+methods to appropriate Event Listeners on the list.
+
+The main benefits that this class provides are that it is relatively
+cheap in the case of no listeners, and it provides serialization for
+event-listener lists in a single place, as well as a degree of MT safety
+(when used correctly).
+
+Usage example:
+Say one is defining a class that sends out FooEvents, and one wants
+to allow users of the class to register FooListeners and receive
+notification when FooEvents occur.  The following should be added
+to the class definition:
+&lt;pre&gt;
+EventListenerList listenerList = new EventListenerList();
+FooEvent fooEvent = null;
+
+public void addFooListener(FooListener l) {
+listenerList.add(FooListener.class, l);
+}
+
+public void removeFooListener(FooListener l) {
+listenerList.remove(FooListener.class, l);
+}
+
+
+Notify all listeners that have registered interest for
+notification on this event type.  The event instance
+is lazily created using the parameters passed into
+the fire method.
+
+protected void fireFooXXX() {
+Guaranteed to return a non-null array
+Object[] listeners = listenerList.getListenerList();
+Process the listeners last to first, notifying
+those that are interested in this event
+for (int i = listeners.length-2; i&gt;=0; i-=2) {
+if (listeners[i]==FooListener.class) {
+Lazily create the event:
+if (fooEvent == null)
+fooEvent = new FooEvent(this);
+((FooListener)listeners[i+1]).fooXXX(fooEvent);
+}
+}
+}
+&lt;/pre&gt;
+foo should be changed to the appropriate name, and fireFooXxx to the
+appropriate method name.  One fire method should exist for each
+notification method in the FooListener interface.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.36 05/05/04
+@author Georges Saab
+@author Hans Muller
+@author James Gosling
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::event::EventListenerList -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323411_384973_16712"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">EventListenerList</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="event" refid="_9_5_f720368_1110473548112_674241_21020"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317012_786059_10849"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317012_786059_10849"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::event::EventListenerList -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323411_384973_16712"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="event" refid="_9_5_f720368_1110473548112_674241_21020"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="event" refid="_9_5_f720368_1110473548112_674241_21020"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="event" refid="_9_5_f720368_1110473548112_674241_21020"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::event::EventListenerList</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

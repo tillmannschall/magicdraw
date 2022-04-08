@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318063_437680_12467"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JOptionPane" refid="_9_5_f720368_1110473546799_655737_10747"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;JOptionPane&lt;/code&gt; makes it easy to pop up a standard dialog box that
+prompts users for a value or informs them of something.
+For information about using &lt;code&gt;JOptionPane&lt;/code&gt;, see
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/dialog.html"&gt;How to Make Dialogs&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+
+&lt;p&gt;
+
+While the &lt;code&gt;JOptionPane&lt;/code&gt;
+class may appear complex because of the large number of methods, almost
+all uses of this class are one-line calls to one of the static
+&lt;code&gt;showXxxDialog&lt;/code&gt; methods shown below:
+&lt;blockquote&gt;
+
+
+&lt;table border=1 summary="Common JOptionPane method names and their descriptions"&gt;
+&lt;tr&gt;
+&lt;th&gt;Method Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;showConfirmDialog&lt;/td&gt;
+&lt;td&gt;Asks a confirming question, like yes/no/cancel.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;showInputDialog&lt;/td&gt;
+&lt;td&gt;Prompt for some input.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;showMessageDialog&lt;/td&gt;
+&lt;td&gt;Tell the user about something that has happened.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;showOptionDialog&lt;/td&gt;
+&lt;td&gt;The Grand Unification of the above three.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/blockquote&gt;
+Each of these methods also comes in a &lt;code&gt;showInternalXXX&lt;/code&gt;
+flavor, which uses an internal frame to hold the dialog box (see
+{@link JInternalFrame}).
+Multiple convenience methods have also been defined -- overloaded
+versions of the basic methods that use different parameter lists.
+&lt;p&gt;
+All dialogs are modal. Each &lt;code&gt;showXxxDialog&lt;/code&gt; method blocks
+the current thread until the user's interaction is complete.
+&lt;p&gt;
+
+&lt;table cellspacing=6 cellpadding=4 border=0 align=right summary="layout"&gt;
+&lt;tr&gt;
+&lt;td bgcolor=#FFe0d0 rowspan=2&gt;icon&lt;/td&gt;
+&lt;td bgcolor=#FFe0d0&gt;message&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td bgcolor=#FFe0d0&gt;input value&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td bgcolor=#FFe0d0 colspan=2&gt;option buttons&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+The basic appearance of one of these dialog boxes is generally
+similar to the picture at the right, although the various
+look-and-feels are
+ultimately responsible for the final result.  In particular, the
+look-and-feels will adjust the layout to accommodate the option pane's
+&lt;code&gt;ComponentOrientation&lt;/code&gt; property.
+&lt;br clear=all&gt;
+&lt;p&gt;
+&lt;b&gt;Parameters:&lt;/b&gt;&lt;br&gt;
+The parameters to these methods follow consistent patterns:
+&lt;blockquote&gt;
+&lt;dl compact&gt;
+&lt;dt&gt;parentComponent&lt;dd&gt;
+Defines the &lt;code&gt;Component&lt;/code&gt; that is to be the parent of this
+dialog box.
+It is used in two ways: the &lt;code&gt;Frame&lt;/code&gt; that contains
+it is used as the &lt;code&gt;Frame&lt;/code&gt;
+parent for the dialog box, and its screen coordinates are used in
+the placement of the dialog box. In general, the dialog box is placed
+just below the component. This parameter may be &lt;code&gt;null&lt;/code&gt;,
+in which case a default &lt;code&gt;Frame&lt;/code&gt; is used as the parent,
+and the dialog will be
+centered on the screen (depending on the L&amp;F).
+&lt;dt&gt;&lt;a name=message&gt;message&lt;/a&gt;&lt;dd&gt;
+A descriptive message to be placed in the dialog box.
+In the most common usage, message is just a &lt;code&gt;String&lt;/code&gt; or
+&lt;code&gt;String&lt;/code&gt; constant.
+However, the type of this parameter is actually &lt;code&gt;Object&lt;/code&gt;. Its
+interpretation depends on its type:
+&lt;dl compact&gt;
+&lt;dt&gt;Object[]&lt;dd&gt;An array of objects is interpreted as a series of
+messages (one per object) arranged in a vertical stack.
+The interpretation is recursive -- each object in the
+array is interpreted according to its type.
+&lt;dt&gt;Component&lt;dd&gt;The &lt;code&gt;Component&lt;/code&gt; is displayed in the dialog.
+&lt;dt&gt;Icon&lt;dd&gt;The &lt;code&gt;Icon&lt;/code&gt; is wrapped in a &lt;code&gt;JLabel&lt;/code&gt;
+and displayed in the dialog.
+&lt;dt&gt;others&lt;dd&gt;The object is converted to a &lt;code&gt;String&lt;/code&gt; by calling
+its &lt;code&gt;toString&lt;/code&gt; method. The result is wrapped in a
+&lt;code&gt;JLabel&lt;/code&gt; and displayed.
+&lt;/dl&gt;
+&lt;dt&gt;messageType&lt;dd&gt;Defines the style of the message. The Look and Feel
+manager may lay out the dialog differently depending on this value, and
+will often provide a default icon. The possible values are:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ERROR_MESSAGE&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;INFORMATION_MESSAGE&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;WARNING_MESSAGE&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;QUESTION_MESSAGE&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;PLAIN_MESSAGE&lt;/code&gt;
+&lt;/ul&gt;
+&lt;dt&gt;optionType&lt;dd&gt;Defines the set of option buttons that appear at
+the bottom of the dialog box:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DEFAULT_OPTION&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;YES_NO_OPTION&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;YES_NO_CANCEL_OPTION&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;OK_CANCEL_OPTION&lt;/code&gt;
+&lt;/ul&gt;
+You aren't limited to this set of option buttons.  You can provide any
+buttons you want using the options parameter.
+&lt;dt&gt;options&lt;dd&gt;A more detailed description of the set of option buttons
+that will appear at the bottom of the dialog box.
+The usual value for the options parameter is an array of
+&lt;code&gt;String&lt;/code&gt;s. But
+the parameter type is an array of &lt;code&gt;Objects&lt;/code&gt;.
+A button is created for each object depending on its type:
+&lt;dl compact&gt;
+&lt;dt&gt;Component&lt;dd&gt;The component is added to the button row directly.
+&lt;dt&gt;Icon&lt;dd&gt;A &lt;code&gt;JButton&lt;/code&gt; is created with this as its label.
+&lt;dt&gt;other&lt;dd&gt;The &lt;code&gt;Object&lt;/code&gt; is converted to a string using its
+&lt;code&gt;toString&lt;/code&gt; method and the result is used to
+label a &lt;code&gt;JButton&lt;/code&gt;.
+&lt;/dl&gt;
+&lt;dt&gt;icon&lt;dd&gt;A decorative icon to be placed in the dialog box. A default
+value for this is determined by the &lt;code&gt;messageType&lt;/code&gt; parameter.
+&lt;dt&gt;title&lt;dd&gt;The title for the dialog box.
+&lt;dt&gt;initialValue&lt;dd&gt;The default selection (input value).
+&lt;/dl&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+When the selection is changed, &lt;code&gt;setValue&lt;/code&gt; is invoked,
+which generates a &lt;code&gt;PropertyChangeEvent&lt;/code&gt;.
+&lt;p&gt;
+If a &lt;code&gt;JOptionPane&lt;/code&gt; has configured to all input
+&lt;code&gt;setWantsInput&lt;/code&gt;
+the bound property &lt;code&gt;JOptionPane.INPUT_VALUE_PROPERTY&lt;/code&gt;
+can also be listened
+to, to determine when the user has input or selected a value.
+&lt;p&gt;
+When one of the &lt;code&gt;showXxxDialog&lt;/code&gt; methods returns an integer,
+the possible values are:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;YES_OPTION&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;NO_OPTION&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;CANCEL_OPTION&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;OK_OPTION&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;CLOSED_OPTION&lt;/code&gt;
+&lt;/ul&gt;
+&lt;b&gt;Examples:&lt;/b&gt;
+&lt;dl&gt;
+&lt;dt&gt;Show an error dialog that displays the message, 'alert':
+&lt;dd&gt;&lt;code&gt;
+JOptionPane.showMessageDialog(null, "alert", "alert", JOptionPane.ERROR_MESSAGE);
+&lt;/code&gt;&lt;p&gt;
+&lt;dt&gt;Show an internal information dialog with the message, 'information':
+&lt;dd&gt;&lt;code&gt;
+JOptionPane.showInternalMessageDialog(frame, "information",&lt;br&gt;
+&lt;ul&gt;&lt;ul&gt;"information", JOptionPane.INFORMATION_MESSAGE);&lt;/ul&gt;&lt;/ul&gt;
+&lt;/code&gt;&lt;p&gt;
+&lt;dt&gt;Show an information panel with the options yes/no and message 'choose one':
+&lt;dd&gt;&lt;code&gt;JOptionPane.showConfirmDialog(null,
+&lt;ul&gt;&lt;ul&gt;"choose one", "choose one", JOptionPane.YES_NO_OPTION);&lt;/ul&gt;&lt;/ul&gt;
+&lt;/code&gt;&lt;p&gt;
+&lt;dt&gt;Show an internal information dialog with the options yes/no/cancel and
+message 'please choose one' and title information:
+&lt;dd&gt;&lt;code&gt;JOptionPane.showInternalConfirmDialog(frame,
+&lt;ul&gt;&lt;ul&gt;"please choose one", "information",&lt;/ul&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;ul&gt;JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);&lt;/ul&gt;&lt;/ul&gt;
+&lt;/code&gt;&lt;p&gt;
+&lt;dt&gt;Show a warning dialog with the options OK, CANCEL, title 'Warning', and
+message 'Click OK to continue':
+&lt;dd&gt;&lt;code&gt;
+Object[] options = { "OK", "CANCEL" };&lt;br&gt;
+JOptionPane.showOptionDialog(null, "Click OK to continue", "Warning",
+&lt;ul&gt;&lt;ul&gt;JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,&lt;/ul&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;ul&gt;null, options, options[0]);&lt;/ul&gt;&lt;/ul&gt;
+&lt;/code&gt;&lt;p&gt;
+&lt;dt&gt;Show a dialog asking the user to type in a String:
+&lt;dd&gt;&lt;code&gt;
+String inputValue = JOptionPane.showInputDialog("Please input a value");
+&lt;/code&gt;&lt;p&gt;
+&lt;dt&gt;Show a dialog asking the user to select a String:
+&lt;dd&gt;&lt;code&gt;
+Object[] possibleValues = { "First", "Second", "Third" };&lt;br&gt;
+Object selectedValue = JOptionPane.showInputDialog(null,
+&lt;ul&gt;&lt;ul&gt;"Choose one", "Input",&lt;/ul&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;ul&gt;JOptionPane.INFORMATION_MESSAGE, null,&lt;/ul&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;ul&gt;possibleValues, possibleValues[0]);&lt;/ul&gt;&lt;/ul&gt;
+&lt;/code&gt;&lt;p&gt;
+&lt;/dl&gt;
+&lt;b&gt;Direct Use:&lt;/b&gt;&lt;br&gt;
+To create and use an &lt;code&gt;JOptionPane&lt;/code&gt; directly, the
+standard pattern is roughly as follows:
+&lt;pre&gt;
+JOptionPane pane = new JOptionPane(&lt;i&gt;arguments&lt;/i&gt;);
+pane.set&lt;i&gt;.Xxxx(...); // Configure&lt;/i&gt;
+JDialog dialog = pane.createDialog(&lt;i&gt;parentComponent, title&lt;/i&gt;);
+dialog.show();
+Object selectedValue = pane.getValue();
+if(selectedValue == null)
+return CLOSED_OPTION;
+&lt;i&gt;//If there is &lt;b&gt;not&lt;/b&gt; an array of option buttons:&lt;/i&gt;
+if(options == null) {
+if(selectedValue instanceof Integer)
+return ((Integer)selectedValue).intValue();
+return CLOSED_OPTION;
+}
+&lt;i&gt;//If there is an array of option buttons:&lt;/i&gt;
+for(int counter = 0, maxCounter = options.length;
+counter &lt; maxCounter; counter++) {
+if(options[counter].equals(selectedValue))
+return counter;
+}
+return CLOSED_OPTION;
+&lt;/pre&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see JInternalFrame
+
+@beaninfo
+attribute: isContainer true
+description: A component which implements standard dialog box controls.
+
+@version 1.91 03/04/04
+@author James Gosling
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JOptionPane" refid="_9_5_f720368_1110473546799_655737_10747"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JOptionPane" refid="_9_5_f720368_1110473546799_655737_10747"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

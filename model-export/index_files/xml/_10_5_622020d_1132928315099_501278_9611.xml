@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928315099_501278_9611"><documentation humanName="Documentation" mode="standard">&lt;p&gt;Permission required by an authentication identity to perform
+operations on behalf of an authorization identity.&lt;/p&gt;
+
+&lt;p&gt;A SubjectDelegationPermission contains a name (also referred
+to as a "target name") but no actions list; you either have the
+named permission or you don't.&lt;/p&gt;
+
+&lt;p&gt;The target name is the name of the authorization principal
+classname followed by a period and the authorization principal
+name, that is
+&lt;code&gt;"&lt;em&gt;PrincipalClassName&lt;/em&gt;.&lt;em&gt;PrincipalName&lt;/em&gt;"&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;An asterisk may appear by itself, or if immediately preceded
+by a "." may appear at the end of the target name, to signify a
+wildcard match.&lt;/p&gt;
+
+&lt;p&gt;For example, "*", "javax.management.remote.JMXPrincipal.*" and
+"javax.management.remote.JMXPrincipal.delegate" are valid target
+names. The first one denotes any principal name from any principal
+class, the second one denotes any principal name of the concrete
+principal class &lt;code&gt;javax.management.remote.JMXPrincipal&lt;/code&gt;
+and the third one denotes a concrete principal name
+&lt;code&gt;delegate&lt;/code&gt; of the concrete principal class
+&lt;code&gt;javax.management.remote.JMXPrincipal&lt;/code&gt;.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323071_760312_16005"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">SubjectDelegationPermission</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315099_880498_9613"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323071_760312_16005"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315099_880498_9613"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::management::remote::SubjectDelegationPermission</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BasicPermission" refid="_9_5_f720368_1110473546674_30641_8429"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

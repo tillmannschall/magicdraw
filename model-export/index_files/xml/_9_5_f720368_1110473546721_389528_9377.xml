@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546721_389528_9377"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::MultipleDocumentHandling -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323291_914497_16323"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::MultipleDocumentHandling -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323281_181436_16322"/></clientDependency><documentation humanName="Documentation" mode="standard">Class MultipleDocumentHandling is a printing attribute class, an enumeration,
+that controls finishing operations and the placement of one or more
+print-stream pages into impressions and onto media sheets. When the value of
+the {@link Copies Copies} attribute exceeds 1, MultipleDocumentHandling also
+controls the order in which the copies that result from processing the
+documents are produced. This attribute is relevant only for a multidoc print
+job consisting of two or more individual docs.
+&lt;P&gt;
+Briefly, MultipleDocumentHandling determines the relationship between the
+multiple input (electronic) documents fed into a multidoc print job and the
+output (physical) document or documents produced by the multidoc print job.
+There are two possibilities:
+&lt;UL&gt;
+&lt;LI&gt;
+The multiple input documents are combined into a single output document.
+Finishing operations ({@link Finishings Finishings}),
+are performed on this single output
+document. The {@link Copies Copies} attribute tells how many copies of this
+single output document to produce. The MultipleDocumentHandling values
+SINGLE_DOCUMENT and SINGLE_DOCUMENT_NEW_SHEET specify two variations of
+this  possibility.
+&lt;P&gt;
+&lt;LI&gt;
+The multiple input documents remain separate output documents. Finishing
+operations ({@link Finishings Finishings}),
+are performed on each output document
+separately. The {@link Copies Copies} attribute tells how many copies of each
+separate output document to produce. The MultipleDocumentHandling values
+SEPARATE_DOCUMENTS_UNCOLLATED_COPIES and SEPARATE_DOCUMENTS_COLLATED_COPIES
+specify two variations of this possibility.
+&lt;/UL&gt;
+&lt;P&gt;
+In the detailed explanations below, if "&lt;CODE&gt;a&lt;/CODE&gt;" represents an
+instance of document data, then the result of processing the data in
+document "&lt;CODE&gt;a&lt;/CODE&gt;" is a sequence of media sheets represented by
+"&lt;CODE&gt;a(*)&lt;/CODE&gt;".
+&lt;P&gt;
+The standard MultipleDocumentHandling values are:
+&lt;UL&gt;
+&lt;LI&gt;
+&lt;A NAME="sdfi"&gt;{@link #SINGLE_DOCUMENT
+&lt;B&gt;&lt;CODE&gt;SINGLE_DOCUMENT&lt;/CODE&gt;&lt;/B&gt;}&lt;/A&gt;. If a print job has multiple
+documents -- say, the document data is called &lt;CODE&gt;a&lt;/CODE&gt; and
+&lt;CODE&gt;b&lt;/CODE&gt; -- then the result of processing all the document data
+(&lt;CODE&gt;a&lt;/CODE&gt; and then &lt;CODE&gt;b&lt;/CODE&gt;) must be treated as a single sequence
+of media sheets for finishing operations; that is, finishing would be
+performed on the concatenation of the sequences &lt;CODE&gt;a(*),b(*)&lt;/CODE&gt;. The
+printer must not force the data in each document instance to be formatted
+onto a new print-stream page, nor to start a new impression on a new media
+sheet. If more than one copy is made, the ordering of the sets of media
+sheets resulting from processing the document data must be
+&lt;CODE&gt;a(*),b(*),a(*),b(*),...&lt;/CODE&gt;, and the printer object must force
+each copy (&lt;CODE&gt;a(*),b(*)&lt;/CODE&gt;) to start on a new media sheet.
+&lt;P&gt;
+&lt;LI&gt;
+&lt;A NAME="sducfi"&gt;{@link #SEPARATE_DOCUMENTS_UNCOLLATED_COPIES
+&lt;B&gt;&lt;CODE&gt;SEPARATE_DOCUMENTS_UNCOLLATED_COPIES&lt;/CODE&gt;&lt;/B&gt;}&lt;/A&gt;. If a print job
+has multiple documents -- say, the document data is called &lt;CODE&gt;a&lt;/CODE&gt; and
+&lt;CODE&gt;b&lt;/CODE&gt; -- then the result of processing the data in each document
+instance must be treated as a single sequence of media sheets for finishing
+operations; that is, the sets &lt;CODE&gt;a(*)&lt;/CODE&gt; and &lt;CODE&gt;b(*)&lt;/CODE&gt; would
+each be finished separately. The printer must force each copy of the result
+of processing the data in a single document to start on a new media sheet.
+If more than one copy is made, the ordering of the sets of media sheets
+resulting from processing the document data must be
+&lt;CODE&gt;a(*),a(*),...,b(*),b(*)...&lt;/CODE&gt;.
+&lt;P&gt;
+&lt;LI&gt;
+&lt;A NAME="sdccfi"&gt;{@link #SEPARATE_DOCUMENTS_COLLATED_COPIES
+&lt;B&gt;&lt;CODE&gt;SEPARATE_DOCUMENTS_COLLATED_COPIES&lt;/CODE&gt;&lt;/B&gt;}&lt;/A&gt;. If a print job
+has multiple documents -- say, the document data is called &lt;CODE&gt;a&lt;/CODE&gt; and
+&lt;CODE&gt;b&lt;/CODE&gt; -- then the result of processing the data in each document
+instance must be treated as a single sequence of media sheets for finishing
+operations; that is, the sets &lt;CODE&gt;a(*)&lt;/CODE&gt; and &lt;CODE&gt;b(*)&lt;/CODE&gt; would
+each be finished separately. The printer must force each copy of the result
+of processing the data in a single document to start on a new media sheet.
+If more than one copy is made, the ordering of the sets of media sheets
+resulting from processing the document data must be
+&lt;CODE&gt;a(*),b(*),a(*),b(*),...&lt;/CODE&gt;.
+&lt;P&gt;
+&lt;LI&gt;
+&lt;A NAME="sdnsfi"&gt;{@link #SINGLE_DOCUMENT_NEW_SHEET
+&lt;B&gt;&lt;CODE&gt;SINGLE_DOCUMENT_NEW_SHEET&lt;/CODE&gt;&lt;/B&gt;}&lt;/A&gt;. Same as SINGLE_DOCUMENT,
+except that the printer must ensure that the first impression of each
+document instance in the job is placed on a new media sheet. This value
+allows multiple documents to be stapled together with a single staple where
+each document starts on a new sheet.
+&lt;/UL&gt;
+&lt;P&gt;
+SINGLE_DOCUMENT is the same as SEPARATE_DOCUMENTS_COLLATED_COPIES with
+respect to ordering of print-stream pages, but not media sheet generation,
+since SINGLE_DOCUMENT will put the first page of the next document on the
+back side of a sheet if an odd number of pages have been produced so far
+for the job, while SEPARATE_DOCUMENTS_COLLATED_COPIES always forces the
+next document or document copy on to a new sheet.
+&lt;P&gt;
+In addition, if a {@link Finishings Finishings} attribute of
+{@link Finishings#STAPLE &lt;CODE&gt;STAPLE&lt;/CODE&gt;} is specified, then:
+&lt;UL&gt;
+&lt;LI&gt;
+With SINGLE_DOCUMENT, documents &lt;CODE&gt;a&lt;/CODE&gt; and &lt;CODE&gt;b&lt;/CODE&gt; are
+stapled together as a single document with no regard to new sheets.
+&lt;P&gt;
+&lt;LI&gt;
+With SINGLE_DOCUMENT_NEW_SHEET, documents &lt;CODE&gt;a&lt;/CODE&gt; and &lt;CODE&gt;b&lt;/CODE&gt;
+are stapled together as a single document, but document &lt;CODE&gt;b&lt;/CODE&gt;
+starts on a new sheet.
+&lt;P&gt;
+&lt;LI&gt;
+With SEPARATE_DOCUMENTS_UNCOLLATED_COPIES and
+SEPARATE_DOCUMENTS_COLLATED_COPIES, documents &lt;CODE&gt;a&lt;/CODE&gt; and
+&lt;CODE&gt;b&lt;/CODE&gt; are stapled separately.
+&lt;/UL&gt;
+&lt;P&gt;
+&lt;I&gt;Note:&lt;/I&gt; None of these values provide means to produce uncollated
+sheets within a document, i.e., where multiple copies of sheet &lt;I&gt;n&lt;/I&gt;
+are produced before sheet &lt;I&gt;n&lt;/I&gt;+1 of the same document.
+To specify that, see the {@link SheetCollate SheetCollate} attribute.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; is the IPP attribute name.  The enumeration's
+integer value is the IPP enum value.  The &lt;code&gt;toString()&lt;/code&gt; method
+returns the IPP string representation of the attribute value.
+&lt;P&gt;
+
+@see  Copies
+@see  Finishings
+@see  NumberUp
+@see  PageRanges
+@see  SheetCollate
+@see  Sides
+
+@author  David Mendenhall
+@author  Alan Kaminsky
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323291_197759_16324"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::MultipleDocumentHandling -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323291_914497_16323"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::MultipleDocumentHandling -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323281_181436_16322"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">MultipleDocumentHandling</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315690_693375_10185"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323291_197759_16324"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315690_693375_10185"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::MultipleDocumentHandling -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323291_914497_16323"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::MultipleDocumentHandling -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323281_181436_16322"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::print::attribute::standard::MultipleDocumentHandling</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintJobAttribute" refid="_9_5_f720368_1110473546737_356648_9467"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintRequestAttribute" refid="_9_5_f720368_1110473546737_975548_9471"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="EnumSyntax" refid="_9_5_f720368_1110473546737_604249_9453"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

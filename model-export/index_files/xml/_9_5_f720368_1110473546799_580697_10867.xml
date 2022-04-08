@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546799_580697_10867"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::SpringLayout -&gt; JDK 5.0 Classes::java::awt::LayoutManager2]" refid="_10_5_622020d_1132928324172_410084_18669"/></clientDependency><documentation humanName="Documentation" mode="standard">A &lt;code&gt;SpringLayout&lt;/code&gt; lays out the children of its associated container
+according to a set of constraints.
+See &lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/layout/spring.html"&gt;How to Use SpringLayout&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt; for examples of using
+&lt;code&gt;SpringLayout&lt;/code&gt;.
+
+&lt;p&gt;
+Each constraint,
+represented by a &lt;code&gt;Spring&lt;/code&gt; object,
+controls the vertical or horizontal distance
+between two component edges.
+The edges can belong to
+any child of the container,
+or to the container itself.
+For example,
+the allowable width of a component
+can be expressed using a constraint
+that controls the distance between the west (left) and east (right)
+edges of the component.
+The allowable &lt;em&gt;y&lt;/em&gt; coordinates for a component
+can be expressed by constraining the distance between
+the north (top) edge of the component
+and the north edge of its container.
+
+&lt;P&gt;
+Every child of a &lt;code&gt;SpringLayout&lt;/code&gt;-controlled container,
+as well as the container itself,
+has exactly one set of constraints
+associated with it.
+These constraints are represented by
+a &lt;code&gt;SpringLayout.Constraints&lt;/code&gt; object.
+By default,
+&lt;code&gt;SpringLayout&lt;/code&gt; creates constraints
+that make their associated component
+have the minimum, preferred, and maximum sizes
+returned by the component's
+{@link java.awt.Component#getMinimumSize},
+{@link java.awt.Component#getPreferredSize}, and
+{@link java.awt.Component#getMaximumSize}
+methods. The &lt;em&gt;x&lt;/em&gt; and &lt;em&gt;y&lt;/em&gt; positions are initially not
+constrained, so that until you constrain them the &lt;code&gt;Component&lt;/code&gt;
+will be positioned at 0,0 relative to the &lt;code&gt;Insets&lt;/code&gt; of the
+parent &lt;code&gt;Container&lt;/code&gt;.
+
+&lt;p&gt;
+You can change
+a component's constraints in several ways.
+You can
+use one of the
+{@link #putConstraint putConstraint}
+methods
+to establish a spring
+linking the edges of two components within the same container.
+Or you can get the appropriate &lt;code&gt;SpringLayout.Constraints&lt;/code&gt;
+object using
+{@link #getConstraints getConstraints}
+and then modify one or more of its springs.
+Or you can get the spring for a particular edge of a component
+using {@link #getConstraint getConstraint},
+and modify it.
+You can also associate
+your own &lt;code&gt;SpringLayout.Constraints&lt;/code&gt; object
+with a component by specifying the constraints object
+when you add the component to its container
+(using
+{@link Container#add(Component, Object)}).
+
+&lt;p&gt;
+The &lt;code&gt;Spring&lt;/code&gt; object representing each constraint
+has a minimum, preferred, maximum, and current value.
+The current value of the spring
+is somewhere between the minimum and maximum values,
+according to the formula given in the
+{@link Spring#sum} method description.
+When the minimum, preferred, and maximum values are the same,
+the current value is always equal to them;
+this inflexible spring is called a &lt;em&gt;strut&lt;/em&gt;.
+You can create struts using the factory method
+{@link Spring#constant(int)}.
+The &lt;code&gt;Spring&lt;/code&gt; class also provides factory methods
+for creating other kinds of springs,
+including springs that depend on other springs.
+
+&lt;p&gt;
+In a &lt;code&gt;SpringLayout&lt;/code&gt;, the position of each edge is dependent on
+the position of just one other edge. If a constraint is subsequently added
+to create a new binding for an edge, the previous binding is discarded
+and the edge remains dependent on a single edge.
+Springs should only be attached
+between edges of the container and its immediate children; the behavior
+of the &lt;code&gt;SpringLayout&lt;/code&gt; when presented with constraints linking
+the edges of components from different containers (either internal or
+external) is undefined.
+
+&lt;h3&gt;
+SpringLayout vs. Other Layout Managers
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;hr&gt;
+&lt;strong&gt;Note:&lt;/strong&gt;
+Unlike many layout managers,
+&lt;code&gt;SpringLayout&lt;/code&gt; doesn't automatically set the location of
+the components it manages.
+If you hand-code a GUI that uses &lt;code&gt;SpringLayout&lt;/code&gt;,
+remember to initialize component locations by constraining the west/east
+and north/south locations.
+&lt;p&gt;
+Depending on the constraints you use,
+you may also need to set the size of the container explicitly.
+&lt;hr&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+Despite the simplicity of &lt;code&gt;SpringLayout&lt;/code&gt;,
+it can emulate the behavior of most other layout managers.
+For some features,
+such as the line breaking provided by &lt;code&gt;FlowLayout&lt;/code&gt;,
+you'll need to
+create a special-purpose subclass of the &lt;code&gt;Spring&lt;/code&gt; class.
+
+&lt;p&gt;
+&lt;code&gt;SpringLayout&lt;/code&gt; also provides a way to solve
+many of the difficult layout
+problems that cannot be solved by nesting combinations
+of &lt;code&gt;Box&lt;/code&gt;es. That said, &lt;code&gt;SpringLayout&lt;/code&gt; honors the
+&lt;code&gt;LayoutManager2&lt;/code&gt; contract correctly and so can be nested with
+other layout managers -- a technique that can be preferable to
+creating the constraints implied by the other layout managers.
+&lt;p&gt;
+The asymptotic complexity of the layout operation of a &lt;code&gt;SpringLayout&lt;/code&gt;
+is linear in the number of constraints (and/or components).
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see Spring
+@see SpringLayout.Constraints
+
+@version  1.19 12/19/03
+@author 	Philip Milne
+@author 	Joe Winchester
+@since       1.4
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::SpringLayout -&gt; JDK 5.0 Classes::java::awt::LayoutManager2]" refid="_10_5_622020d_1132928324172_410084_18669"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Constraints" refid="_9_5_f720368_1110473548471_533353_24471"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SpringProxy" refid="_9_5_f720368_1110473548471_888137_24474"/></member><name humanName="Name" mode="s,e">SpringLayout</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Constraints" refid="_9_5_f720368_1110473548471_533353_24471"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SpringProxy" refid="_9_5_f720368_1110473548471_888137_24474"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318264_810842_12657"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318264_810842_12657"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Constraints" refid="_9_5_f720368_1110473548471_533353_24471"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::SpringLayout -&gt; JDK 5.0 Classes::java::awt::LayoutManager2]" refid="_10_5_622020d_1132928324172_410084_18669"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SpringProxy" refid="_9_5_f720368_1110473548471_888137_24474"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Constraints" refid="_9_5_f720368_1110473548471_533353_24471"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SpringProxy" refid="_9_5_f720368_1110473548471_888137_24474"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::SpringLayout</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="LayoutManager2" refid="_9_5_f720368_1110473546581_384048_7067"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317192_192239_11289"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetalComboPopup" refid="_9_5_f720368_1110473548237_21834_22250"/></annotatedElement><body humanName="Body" mode="s,e">This inner class is marked "public" due to a compiler bug.
+This class should be treated as a "protected" inner class.
+Instantiate it only within subclasses of &lt;FooUI&gt;.
+
+This class is now obsolete and doesn't do anything and
+is only included for backwards API compatibility. Do not call or
+override.
+
+@deprecated As of Java 2 platform v1.4.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MetalComboPopup" refid="_9_5_f720368_1110473548237_21834_22250"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetalComboPopup" refid="_9_5_f720368_1110473548237_21834_22250"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

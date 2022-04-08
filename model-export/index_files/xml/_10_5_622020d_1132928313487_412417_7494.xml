@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313487_412417_7494"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="TimeZone" refid="_9_5_f720368_1110473546706_290048_8939"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;TimeZone&lt;/code&gt; represents a time zone offset, and also figures out daylight
+savings.
+
+&lt;p&gt;
+Typically, you get a &lt;code&gt;TimeZone&lt;/code&gt; using &lt;code&gt;getDefault&lt;/code&gt;
+which creates a &lt;code&gt;TimeZone&lt;/code&gt; based on the time zone where the program
+is running. For example, for a program running in Japan, &lt;code&gt;getDefault&lt;/code&gt;
+creates a &lt;code&gt;TimeZone&lt;/code&gt; object based on Japanese Standard Time.
+
+&lt;p&gt;
+You can also get a &lt;code&gt;TimeZone&lt;/code&gt; using &lt;code&gt;getTimeZone&lt;/code&gt;
+along with a time zone ID. For instance, the time zone ID for the
+U.S. Pacific Time zone is "America/Los_Angeles". So, you can get a
+U.S. Pacific Time &lt;code&gt;TimeZone&lt;/code&gt; object with:
+&lt;blockquote&gt;&lt;pre&gt;
+TimeZone tz = TimeZone.getTimeZone("America/Los_Angeles");
+&lt;/pre&gt;&lt;/blockquote&gt;
+You can use the &lt;code&gt;getAvailableIDs&lt;/code&gt; method to iterate through
+all the supported time zone IDs. You can then choose a
+supported ID to get a &lt;code&gt;TimeZone&lt;/code&gt;.
+If the time zone you want is not represented by one of the
+supported IDs, then a custom time zone ID can be specified to
+produce a TimeZone. The syntax of a custom time zone ID is:
+
+&lt;blockquote&gt;&lt;pre&gt;
+&lt;a name="CustomID"&gt;&lt;i&gt;CustomID:&lt;/i&gt;&lt;/a&gt;
+&lt;code&gt;GMT&lt;/code&gt; &lt;i&gt;Sign&lt;/i&gt; &lt;i&gt;Hours&lt;/i&gt; &lt;code&gt;:&lt;/code&gt; &lt;i&gt;Minutes&lt;/i&gt;
+&lt;code&gt;GMT&lt;/code&gt; &lt;i&gt;Sign&lt;/i&gt; &lt;i&gt;Hours&lt;/i&gt; &lt;i&gt;Minutes&lt;/i&gt;
+&lt;code&gt;GMT&lt;/code&gt; &lt;i&gt;Sign&lt;/i&gt; &lt;i&gt;Hours&lt;/i&gt;
+&lt;i&gt;Sign:&lt;/i&gt; one of
+&lt;code&gt;+ -&lt;/code&gt;
+&lt;i&gt;Hours:&lt;/i&gt;
+&lt;i&gt;Digit&lt;/i&gt;
+&lt;i&gt;Digit&lt;/i&gt; &lt;i&gt;Digit&lt;/i&gt;
+&lt;i&gt;Minutes:&lt;/i&gt;
+&lt;i&gt;Digit&lt;/i&gt; &lt;i&gt;Digit&lt;/i&gt;
+&lt;i&gt;Digit:&lt;/i&gt; one of
+&lt;code&gt;0 1 2 3 4 5 6 7 8 9&lt;/code&gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;i&gt;Hours&lt;/i&gt; must be between 0 to 23 and &lt;i&gt;Minutes&lt;/i&gt; must be
+between 00 to 59.  For example, "GMT+10" and "GMT+0010" mean ten
+hours and ten minutes ahead of GMT, respectively.
+&lt;p&gt;
+The format is locale independent and digits must be taken from the
+Basic Latin block of the Unicode standard. No daylight saving time
+transition schedule can be specified with a custom time zone ID. If
+the specified string doesn't match the syntax, &lt;code&gt;"GMT"&lt;/code&gt;
+is used.
+&lt;p&gt;
+When creating a &lt;code&gt;TimeZone&lt;/code&gt;, the specified custom time
+zone ID is normalized in the following syntax:
+&lt;blockquote&gt;&lt;pre&gt;
+&lt;a name="NormalizedCustomID"&gt;&lt;i&gt;NormalizedCustomID:&lt;/i&gt;&lt;/a&gt;
+&lt;code&gt;GMT&lt;/code&gt; &lt;i&gt;Sign&lt;/i&gt; &lt;i&gt;TwoDigitHours&lt;/i&gt; &lt;code&gt;:&lt;/code&gt; &lt;i&gt;Minutes&lt;/i&gt;
+&lt;i&gt;Sign:&lt;/i&gt; one of
+&lt;code&gt;+ -&lt;/code&gt;
+&lt;i&gt;TwoDigitHours:&lt;/i&gt;
+&lt;i&gt;Digit&lt;/i&gt; &lt;i&gt;Digit&lt;/i&gt;
+&lt;i&gt;Minutes:&lt;/i&gt;
+&lt;i&gt;Digit&lt;/i&gt; &lt;i&gt;Digit&lt;/i&gt;
+&lt;i&gt;Digit:&lt;/i&gt; one of
+&lt;code&gt;0 1 2 3 4 5 6 7 8 9&lt;/code&gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+For example, TimeZone.getTimeZone("GMT-8").getID() returns "GMT-08:00".
+
+&lt;h4&gt;Three-letter time zone IDs&lt;/h4&gt;
+
+For compatibility with JDK 1.1.x, some other three-letter time zone IDs
+(such as "PST", "CTT", "AST") are also supported. However, &lt;strong&gt;their
+use is deprecated&lt;/strong&gt; because the same abbreviation is often used
+for multiple time zones (for example, "CST" could be U.S. "Central Standard
+Time" and "China Standard Time"), and the Java platform can then only
+recognize one of them.
+
+
+@see          Calendar
+@see          GregorianCalendar
+@see          SimpleTimeZone
+@version      1.68 01/12/04
+@author       Mark Davis, David Goldsmith, Chen-Lieh Huang, Alan Liu
+@since        JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="TimeZone" refid="_9_5_f720368_1110473546706_290048_8939"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="TimeZone" refid="_9_5_f720368_1110473546706_290048_8939"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

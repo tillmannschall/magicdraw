@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308780_63530_5479"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Buffer" refid="_9_5_f720368_1110473546659_688010_7965"/></annotatedElement><body humanName="Body" mode="s,e">A container for data of a specific primitive type.
+
+&lt;p&gt; A buffer is a linear, finite sequence of elements of a specific
+primitive type.  Aside from its content, the essential properties of a
+buffer are its capacity, limit, and position: &lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&lt;p&gt; A buffer's &lt;i&gt;capacity&lt;/i&gt; is the number of elements it contains.  The
+capacity of a buffer is never negative and never changes.  &lt;/p&gt;
+
+&lt;p&gt; A buffer's &lt;i&gt;limit&lt;/i&gt; is the index of the first element that should
+not be read or written.  A buffer's limit is never negative and is never
+greater than its capacity.  &lt;/p&gt;
+
+&lt;p&gt; A buffer's &lt;i&gt;position&lt;/i&gt; is the index of the next element to be
+read or written.  A buffer's position is never negative and is never
+greater than its limit.  &lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt; There is one subclass of this class for each non-boolean primitive type.
+
+
+&lt;h4&gt; Transferring data &lt;/h4&gt;
+
+&lt;p&gt; Each subclass of this class defines two categories of &lt;i&gt;get&lt;/i&gt; and
+&lt;i&gt;put&lt;/i&gt; operations: &lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&lt;p&gt; &lt;i&gt;Relative&lt;/i&gt; operations read or write one or more elements starting
+at the current position and then increment the position by the number of
+elements transferred.  If the requested transfer exceeds the limit then a
+relative &lt;i&gt;get&lt;/i&gt; operation throws a {@link BufferUnderflowException}
+and a relative &lt;i&gt;put&lt;/i&gt; operation throws a {@link
+BufferOverflowException}; in either case, no data is transferred.  &lt;/p&gt;
+
+&lt;p&gt; &lt;i&gt;Absolute&lt;/i&gt; operations take an explicit element index and do not
+affect the position.  Absolute &lt;i&gt;get&lt;/i&gt; and &lt;i&gt;put&lt;/i&gt; operations throw
+an {@link IndexOutOfBoundsException} if the index argument exceeds the
+limit.  &lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt; Data may also, of course, be transferred in to or out of a buffer by the
+I/O operations of an appropriate channel, which are always relative to the
+current position.
+
+
+&lt;h4&gt; Marking and resetting &lt;/h4&gt;
+
+&lt;p&gt; A buffer's &lt;i&gt;mark&lt;/i&gt; is the index to which its position will be reset
+when the {@link #reset reset} method is invoked.  The mark is not always
+defined, but when it is defined it is never negative and is never greater
+than the position.  If the mark is defined then it is discarded when the
+position or the limit is adjusted to a value smaller than the mark.  If the
+mark is not defined then invoking the {@link #reset reset} method causes an
+{@link InvalidMarkException} to be thrown.
+
+
+&lt;h4&gt; Invariants &lt;/h4&gt;
+
+&lt;p&gt; The following invariant holds for the mark, position, limit, and
+capacity values:
+
+&lt;blockquote&gt;
+&lt;tt&gt;0&lt;/tt&gt; &lt;tt&gt;&lt;=&lt;/tt&gt;
+&lt;i&gt;mark&lt;/i&gt; &lt;tt&gt;&lt;=&lt;/tt&gt;
+&lt;i&gt;position&lt;/i&gt; &lt;tt&gt;&lt;=&lt;/tt&gt;
+&lt;i&gt;limit&lt;/i&gt; &lt;tt&gt;&lt;=&lt;/tt&gt;
+&lt;i&gt;capacity&lt;/i&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt; A newly-created buffer always has a position of zero and a mark that is
+undefined.  The initial limit may be zero, or it may be some other value
+that depends upon the type of the buffer and the manner in which it is
+constructed.  The initial content of a buffer is, in general,
+undefined.
+
+
+&lt;h4&gt; Clearing, flipping, and rewinding &lt;/h4&gt;
+
+&lt;p&gt; In addition to methods for accessing the position, limit, and capacity
+values and for marking and resetting, this class also defines the following
+operations upon buffers:
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; {@link #clear} makes a buffer ready for a new sequence of
+channel-read or relative &lt;i&gt;put&lt;/i&gt; operations: It sets the limit to the
+capacity and the position to zero.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; {@link #flip} makes a buffer ready for a new sequence of
+channel-write or relative &lt;i&gt;get&lt;/i&gt; operations: It sets the limit to the
+current position and then sets the position to zero.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; {@link #rewind} makes a buffer ready for re-reading the data that
+it already contains: It leaves the limit unchanged and sets the position
+to zero.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+
+&lt;h4&gt; Read-only buffers &lt;/h4&gt;
+
+&lt;p&gt; Every buffer is readable, but not every buffer is writable.  The
+mutation methods of each buffer class are specified as &lt;i&gt;optional
+operations&lt;/i&gt; that will throw a {@link ReadOnlyBufferException} when
+invoked upon a read-only buffer.  A read-only buffer does not allow its
+content to be changed, but its mark, position, and limit values are mutable.
+Whether or not a buffer is read-only may be determined by invoking its
+{@link #isReadOnly isReadOnly} method.
+
+
+&lt;h4&gt; Thread safety &lt;/h4&gt;
+
+&lt;p&gt; Buffers are not safe for use by multiple concurrent threads.  If a
+buffer is to be used by more than one thread then access to the buffer
+should be controlled by appropriate synchronization.
+
+
+&lt;h4&gt; Invocation chaining &lt;/h4&gt;
+
+&lt;p&gt; Methods in this class that do not otherwise have a value to return are
+specified to return the buffer upon which they are invoked.  This allows
+method invocations to be chained; for example, the sequence of statements
+
+&lt;blockquote&gt;&lt;pre&gt;
+b.flip();
+b.position(23);
+b.limit(42);&lt;/pre&gt;&lt;/blockquote&gt;
+
+can be replaced by the single, more compact statement
+
+&lt;blockquote&gt;&lt;pre&gt;
+b.flip().position(23).limit(42);&lt;/pre&gt;&lt;/blockquote&gt;
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.34, 04/06/14
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Buffer" refid="_9_5_f720368_1110473546659_688010_7965"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Buffer" refid="_9_5_f720368_1110473546659_688010_7965"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

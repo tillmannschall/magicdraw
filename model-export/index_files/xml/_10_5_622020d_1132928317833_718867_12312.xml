@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317833_718867_12312"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ButtonGroup" refid="_9_5_f720368_1110473546784_977661_10637"/></annotatedElement><body humanName="Body" mode="s,e">This class is used to create a multiple-exclusion scope for
+a set of buttons. Creating a set of buttons with the
+same &lt;code&gt;ButtonGroup&lt;/code&gt; object means that
+turning "on" one of those buttons
+turns off all other buttons in the group.
+&lt;p&gt;
+A &lt;code&gt;ButtonGroup&lt;/code&gt; can be used with
+any set of objects that inherit from &lt;code&gt;AbstractButton&lt;/code&gt;.
+Typically a button group contains instances of
+&lt;code&gt;JRadioButton&lt;/code&gt;,
+&lt;code&gt;JRadioButtonMenuItem&lt;/code&gt;,
+or &lt;code&gt;JToggleButton&lt;/code&gt;.
+It wouldn't make sense to put an instance of
+&lt;code&gt;JButton&lt;/code&gt; or &lt;code&gt;JMenuItem&lt;/code&gt;
+in a button group
+because &lt;code&gt;JButton&lt;/code&gt; and &lt;code&gt;JMenuItem&lt;/code&gt;
+don't implement the selected state.
+&lt;p&gt;
+Initially, all buttons in the group are unselected. Once any button is
+selected, one button is always selected in the group. There is no way
+to turn a button programmatically to "off", in order to clear the button
+group. To give the appearance of "none selected", add an invisible radio
+button to the group and then programmatically select that button to
+turn off all the displayed radio buttons. For example, a normal button
+with the label "none" could be wired to select the invisible radio button.
+&lt;p&gt;
+For examples and further information on using button groups see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/button.html#radiobutton"&gt;How to Use Radio Buttons&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.37 05/05/04
+@author Jeff Dinkins
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ButtonGroup" refid="_9_5_f720368_1110473546784_977661_10637"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ButtonGroup" refid="_9_5_f720368_1110473546784_977661_10637"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

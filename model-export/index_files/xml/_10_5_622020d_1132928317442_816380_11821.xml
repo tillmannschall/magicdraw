@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317442_816380_11821"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CSSParser" refid="_9_5_f720368_1110473546768_879330_10339"/></annotatedElement><body humanName="Body" mode="s,e">A CSS parser. This works by way of a delegate that implements the
+CSSParserCallback interface. The delegate is notified of the following
+events:
+&lt;ul&gt;
+&lt;li&gt;Import statement: &lt;code&gt;handleImport&lt;/code&gt;
+&lt;li&gt;Selectors &lt;code&gt;handleSelector&lt;/code&gt;. This is invoked for each
+string. For example if the Reader contained p, bar , a {}, the delegate
+would be notified 4 times, for 'p,' 'bar' ',' and 'a'.
+&lt;li&gt;When a rule starts, &lt;code&gt;startRule&lt;/code&gt;
+&lt;li&gt;Properties in the rule via the &lt;code&gt;handleProperty&lt;/code&gt;. This
+is invoked one per property/value key, eg font size: foo;, would
+cause the delegate to be notified once with a value of 'font size'.
+&lt;li&gt;Values in the rule via the &lt;code&gt;handleValue&lt;/code&gt;, this is notified
+for the total value.
+&lt;li&gt;When a rule ends, &lt;code&gt;endRule&lt;/code&gt;
+&lt;/ul&gt;
+This will parse much more than CSS 1, and loosely implements the
+recommendation for &lt;i&gt;Forward-compatible parsing&lt;/i&gt; in section
+7.1 of the CSS spec found at:
+&lt;a href=http://www.w3.org/TR/REC-CSS1&gt;http://www.w3.org/TR/REC-CSS1&lt;/a&gt;.
+If an error results in parsing, a RuntimeException will be thrown.
+&lt;p&gt;
+This will preserve case. If the callback wishes to treat certain poritions
+case insensitively (such as selectors), it should use toLowerCase, or
+something similar.
+
+@author Scott Violet
+@version 1.8 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CSSParser" refid="_9_5_f720368_1110473546768_879330_10339"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CSSParser" refid="_9_5_f720368_1110473546768_879330_10339"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

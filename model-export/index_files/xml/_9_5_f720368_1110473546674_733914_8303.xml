@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546674_733914_8303"><documentation humanName="Documentation" mode="standard">An exception indicating one of a variety of problems encountered when
+validating a certification path.
+&lt;p&gt;
+A &lt;code&gt;CertPathValidatorException&lt;/code&gt; provides support for wrapping
+exceptions. The {@link #getCause getCause} method returns the throwable,
+if any, that caused this exception to be thrown.
+&lt;p&gt;
+A &lt;code&gt;CertPathValidatorException&lt;/code&gt; may also include the
+certification path that was being validated when the exception was thrown
+and the index of the certificate in the certification path that caused the
+exception to be thrown. Use the {@link #getCertPath getCertPath} and
+{@link #getIndex getIndex} methods to retrieve this information.
+
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Unless otherwise specified, the methods defined in this class are not
+thread-safe. Multiple threads that need to access a single
+object concurrently should synchronize amongst themselves and
+provide the necessary locking. Multiple threads each manipulating
+separate objects need not synchronize.
+
+@see CertPathValidator
+
+@version 	1.10 12/19/03
+@since	1.4
+@author 	Yassir Elley
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321859_13499_14119"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">CertPathValidatorException</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309110_23398_5807"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321859_13499_14119"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309110_23398_5807"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::cert::CertPathValidatorException</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GeneralSecurityException" refid="_9_5_f720368_1110473546674_120188_8445"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306727_172269_4337"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SequencedEvent" refid="_9_5_f720368_1110473546596_13726_7123"/></annotatedElement><body humanName="Body" mode="s,e">A mechanism for ensuring that a series of AWTEvents are executed in a
+precise order, even across multiple AppContexts. The nested events will be
+dispatched in the order in which their wrapping SequencedEvents were
+constructed. The only exception to this rule is if the peer of the target of
+the nested event was destroyed (with a call to Component.removeNotify)
+before the wrapping SequencedEvent was able to be dispatched. In this case,
+the nested event is never dispatched.
+
+@version 1.10, 12/19/03
+@author David Mendenhall
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SequencedEvent" refid="_9_5_f720368_1110473546596_13726_7123"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SequencedEvent" refid="_9_5_f720368_1110473546596_13726_7123"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

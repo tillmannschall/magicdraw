@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928314448_429860_8905"><documentation humanName="Documentation" mode="standard">A &lt;code&gt;LSSerializer&lt;/code&gt; provides an API for serializing (writing) a
+DOM document out into XML. The XML data is written to a string or an
+output stream. Any changes or fixups made during the serialization affect
+only the serialized data. The &lt;code&gt;Document&lt;/code&gt; object and its
+children are never altered by the serialization operation.
+&lt;p&gt; During serialization of XML data, namespace fixup is done as defined in [&lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'&gt;DOM Level 3 Core&lt;/a&gt;]
+, Appendix B. [&lt;a href='http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113'&gt;DOM Level 2 Core&lt;/a&gt;]
+allows empty strings as a real namespace URI. If the
+&lt;code&gt;namespaceURI&lt;/code&gt; of a &lt;code&gt;Node&lt;/code&gt; is empty string, the
+serialization will treat them as &lt;code&gt;null&lt;/code&gt;, ignoring the prefix
+if any.
+&lt;p&gt; &lt;code&gt;LSSerializer&lt;/code&gt; accepts any node type for serialization. For
+nodes of type &lt;code&gt;Document&lt;/code&gt; or &lt;code&gt;Entity&lt;/code&gt;, well-formed
+XML will be created when possible (well-formedness is guaranteed if the
+document or entity comes from a parse operation and is unchanged since it
+was created). The serialized output for these node types is either as a
+XML document or an External XML Entity, respectively, and is acceptable
+input for an XML parser. For all other types of nodes the serialized form
+is implementation dependent.
+&lt;p&gt;Within a &lt;code&gt;Document&lt;/code&gt;, &lt;code&gt;DocumentFragment&lt;/code&gt;, or
+&lt;code&gt;Entity&lt;/code&gt; being serialized, &lt;code&gt;Nodes&lt;/code&gt; are processed as
+follows
+&lt;ul&gt;
+&lt;li&gt; &lt;code&gt;Document&lt;/code&gt; nodes are written, including the XML
+declaration (unless the parameter "xml-declaration" is set to
+&lt;code&gt;false&lt;/code&gt;) and a DTD subset, if one exists in the DOM. Writing a
+&lt;code&gt;Document&lt;/code&gt; node serializes the entire document.
+&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;Entity&lt;/code&gt; nodes, when written directly by
+&lt;code&gt;LSSerializer.write&lt;/code&gt;, outputs the entity expansion but no
+namespace fixup is done. The resulting output will be valid as an
+external entity.
+&lt;/li&gt;
+&lt;li&gt; If the parameter "&lt;a href='http://www.w3.org/TR/DOM-Level-3-Core/core.html#parameter-entities'&gt;
+entities&lt;/a&gt;" is set to &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;EntityReference&lt;/code&gt; nodes are
+serialized as an entity reference of the form "
+&lt;code&gt;&amp;entityName;&lt;/code&gt;" in the output. Child nodes (the expansion)
+of the entity reference are ignored. If the parameter "&lt;a href='http://www.w3.org/TR/DOM-Level-3-Core/core.html#parameter-entities'&gt;
+entities&lt;/a&gt;" is set to &lt;code&gt;false&lt;/code&gt;, only the children of the entity reference
+are serialized. &lt;code&gt;EntityReference&lt;/code&gt; nodes with no children (no
+corresponding &lt;code&gt;Entity&lt;/code&gt; node or the corresponding
+&lt;code&gt;Entity&lt;/code&gt; nodes have no children) are always serialized.
+&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;CDATAsections&lt;/code&gt; containing content characters that cannot be
+represented in the specified output encoding are handled according to the
+"&lt;a href='http://www.w3.org/TR/DOM-Level-3-Core/core.html#parameter-split-cdata-sections'&gt;
+split-cdata-sections&lt;/a&gt;" parameter.  If the parameter is set to &lt;code&gt;true&lt;/code&gt;,
+&lt;code&gt;CDATAsections&lt;/code&gt; are split, and the unrepresentable characters
+are serialized as numeric character references in ordinary content. The
+exact position and number of splits is not specified.  If the parameter
+is set to &lt;code&gt;false&lt;/code&gt;, unrepresentable characters in a
+&lt;code&gt;CDATAsection&lt;/code&gt; are reported as
+&lt;code&gt;"wf-invalid-character"&lt;/code&gt; errors if the parameter "&lt;a href='http://www.w3.org/TR/DOM-Level-3-Core/core.html#parameter-well-formed'&gt;
+well-formed&lt;/a&gt;" is set to &lt;code&gt;true&lt;/code&gt;. The error is not recoverable - there is no
+mechanism for supplying alternative characters and continuing with the
+serialization.
+&lt;/li&gt;
+&lt;li&gt; &lt;code&gt;DocumentFragment&lt;/code&gt; nodes are serialized by
+serializing the children of the document fragment in the order they
+appear in the document fragment.
+&lt;/li&gt;
+&lt;li&gt; All other node types (Element, Text,
+etc.) are serialized to their corresponding XML source form.
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p &gt;&lt;b&gt;Note:&lt;/b&gt;  The serialization of a &lt;code&gt;Node&lt;/code&gt; does not always
+generate a well-formed XML document, i.e. a &lt;code&gt;LSParser&lt;/code&gt; might
+throw fatal errors when parsing the resulting serialization.
+&lt;p&gt; Within the character data of a document (outside of markup), any
+characters that cannot be represented directly are replaced with
+character references. Occurrences of '&lt;' and '&amp;' are replaced by
+the predefined entities &lt; and &amp;. The other predefined
+entities (&gt;, ', and ") might not be used, except
+where needed (e.g. using &gt; in cases such as ']]&gt;'). Any
+characters that cannot be represented directly in the output character
+encoding are serialized as numeric character references (and since
+character encoding standards commonly use hexadecimal representations of
+characters, using the hexadecimal representation when serializing
+character references is encouraged).
+&lt;p&gt; To allow attribute values to contain both single and double quotes, the
+apostrophe or single-quote character (') may be represented as
+"'", and the double-quote character (")  as """. New
+line characters and other characters that cannot be represented directly
+in attribute values in the output character encoding are serialized as a
+numeric character reference.
+&lt;p&gt; Within markup, but outside of attributes, any occurrence of a character
+that cannot be represented in the output character encoding is reported
+as a &lt;code&gt;DOMError&lt;/code&gt; fatal error. An example would be serializing
+the element &lt;LaCa\u00f1ada/&gt; with &lt;code&gt;encoding="us-ascii"&lt;/code&gt;.
+This will result with a generation of a &lt;code&gt;DOMError&lt;/code&gt;
+"wf-invalid-character-in-node-name" (as proposed in "&lt;a href='http://www.w3.org/TR/DOM-Level-3-Core/core.html#parameter-well-formed'&gt;
+well-formed&lt;/a&gt;").
+&lt;p&gt; When requested by setting the parameter "&lt;a href='http://www.w3.org/TR/DOM-Level-3-Core/core.html#parameter-normalize-characters'&gt;
+normalize-characters&lt;/a&gt;" on &lt;code&gt;LSSerializer&lt;/code&gt; to true, character normalization is
+performed according to the definition of &lt;a href='http://www.w3.org/TR/2004/REC-xml11-20040204/#dt-fullnorm'&gt;fully
+normalized&lt;/a&gt; characters included in appendix E of [&lt;a href='http://www.w3.org/TR/2004/REC-xml11-20040204/'&gt;XML 1.1&lt;/a&gt;] on all
+data to be serialized, both markup and character data. The character
+normalization process affects only the data as it is being written; it
+does not alter the DOM's view of the document after serialization has
+completed.
+&lt;p&gt; Implementations are required to support the encodings "UTF-8",
+"UTF-16", "UTF-16BE", and "UTF-16LE" to guarantee that data is
+serializable in all encodings that are required to be supported by all
+XML parsers. When the encoding is UTF-8, whether or not a byte order mark
+is serialized, or if the output is big-endian or little-endian, is
+implementation dependent. When the encoding is UTF-16, whether or not the
+output is big-endian or little-endian is implementation dependent, but a
+Byte Order Mark must be generated for non-character outputs, such as
+&lt;code&gt;LSOutput.byteStream&lt;/code&gt; or &lt;code&gt;LSOutput.systemId&lt;/code&gt;. If
+the Byte Order Mark is not generated, a "byte-order-mark-needed" warning
+is reported. When the encoding is UTF-16LE or UTF-16BE, the output is
+big-endian (UTF-16BE) or little-endian (UTF-16LE) and the Byte Order Mark
+is not be generated. In all cases, the encoding declaration, if
+generated, will correspond to the encoding used during the serialization
+(e.g. &lt;code&gt;encoding="UTF-16"&lt;/code&gt; will appear if UTF-16 was
+requested).
+&lt;p&gt; Namespaces are fixed up during serialization, the serialization process
+will verify that namespace declarations, namespace prefixes and the
+namespace URI associated with elements and attributes are consistent. If
+inconsistencies are found, the serialized form of the document will be
+altered to remove them. The method used for doing the namespace fixup
+while serializing a document is the algorithm defined in Appendix B.1,
+"Namespace normalization", of [&lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'&gt;DOM Level 3 Core&lt;/a&gt;]
+.
+&lt;p&gt; While serializing a document, the parameter "discard-default-content"
+controls whether or not non-specified data is serialized.
+&lt;p&gt; While serializing, errors and warnings are reported to the application
+through the error handler (&lt;code&gt;LSSerializer.domConfig&lt;/code&gt;'s "&lt;a href='http://www.w3.org/TR/DOM-Level-3-Core/core.html#parameter-error-handler'&gt;
+error-handler&lt;/a&gt;" parameter). This specification does in no way try to define all possible
+errors and warnings that can occur while serializing a DOM node, but some
+common error and warning cases are defined. The types (
+&lt;code&gt;DOMError.type&lt;/code&gt;) of errors and warnings defined by this
+specification are:
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;"no-output-specified" [fatal]&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt; Raised when
+writing to a &lt;code&gt;LSOutput&lt;/code&gt; if no output is specified in the
+&lt;code&gt;LSOutput&lt;/code&gt;. &lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;"unbound-prefix-in-entity-reference" [fatal]&lt;/code&gt; &lt;/dt&gt;
+&lt;dd&gt; Raised if the
+configuration parameter "&lt;a href='http://www.w3.org/TR/DOM-Level-3-Core/core.html#parameter-namespaces'&gt;
+namespaces&lt;/a&gt;" is set to &lt;code&gt;true&lt;/code&gt; and an entity whose replacement text
+contains unbound namespace prefixes is referenced in a location where
+there are no bindings for the namespace prefixes. &lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;"unsupported-encoding" [fatal]&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt; Raised if an unsupported
+encoding is encountered. &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt; In addition to raising the defined errors and warnings, implementations
+are expected to raise implementation specific errors and warnings for any
+other error and warning cases such as IO errors (file not found,
+permission denied,...) and so on.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-LS-20040407'&gt;Document Object Model (DOM) Level 3 Load
+and Save Specification&lt;/a&gt;.
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">LSSerializer</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="ls" refid="_10_5_622020d_1132928314398_829926_8877"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314468_12317_8907"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314468_12317_8907"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="ls" refid="_10_5_622020d_1132928314398_829926_8877"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="ls" refid="_10_5_622020d_1132928314398_829926_8877"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="ls" refid="_10_5_622020d_1132928314398_829926_8877"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::w3c::dom::ls::LSSerializer</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

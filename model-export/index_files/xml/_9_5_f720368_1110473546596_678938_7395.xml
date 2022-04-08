@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546596_678938_7395"><documentation humanName="Documentation" mode="standard">A file output stream is an output stream for writing data to a
+&lt;code&gt;File&lt;/code&gt; or to a &lt;code&gt;FileDescriptor&lt;/code&gt;. Whether or not
+a file is available or may be created depends upon the underlying
+platform.  Some platforms, in particular, allow a file to be opened
+for writing by only one &lt;tt&gt;FileOutputStream&lt;/tt&gt; (or other
+file-writing object) at a time.  In such situations the constructors in
+this class will fail if the file involved is already open.
+
+&lt;p&gt;&lt;code&gt;FileOutputStream&lt;/code&gt; is meant for writing streams of raw bytes
+such as image data. For writing streams of characters, consider using
+&lt;code&gt;FileWriter&lt;/code&gt;.
+
+@author  Arthur van Hoff
+@version 1.57, 12/19/03
+@see     java.io.File
+@see     java.io.FileDescriptor
+@see     java.io.FileInputStream
+@since   JDK1.0
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321568_663471_13494"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">FileOutputStream</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307068_121238_4581"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321568_663471_13494"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307068_121238_4581"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::io::FileOutputStream</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="OutputStream" refid="_9_5_f720368_1110473546612_985863_7455"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

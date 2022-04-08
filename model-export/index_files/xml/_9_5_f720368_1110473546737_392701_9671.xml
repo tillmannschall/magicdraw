@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546737_392701_9671"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;MidiSystem&lt;/code&gt; class provides access to the installed MIDI
+system resources, including devices such as synthesizers, sequencers, and
+MIDI input and output ports.  A typical simple MIDI application might
+begin by invoking one or more &lt;code&gt;MidiSystem&lt;/code&gt; methods to learn
+what devices are installed and to obtain the ones needed in that
+application.
+&lt;p&gt;
+The class also has methods for reading files, streams, and  URLs that
+contain standard MIDI file data or soundbanks.  You can query the
+&lt;code&gt;MidiSystem&lt;/code&gt; for the format of a specified MIDI file.
+&lt;p&gt;
+You cannot instantiate a &lt;code&gt;MidiSystem&lt;/code&gt;; all the methods are
+static.
+
+&lt;p&gt;Properties can be used to specify default MIDI devices.
+Both system properties and a properties file are considered.
+The properties file is "lib/sound.properties" in the JRE
+directory. If a property exists both as a system property and in the
+properties file, the system property takes precedence. If none is
+specified, a suitable default is chosen among the available devices.
+The syntax of the properties file is specified in
+{@link java.util.Properties#load(InputStream) Properties.load}. The
+following table lists the available property keys and which methods
+consider them:
+
+&lt;table border=0&gt;
+&lt;tr&gt;
+&lt;th&gt;Property Key&lt;/th&gt;
+&lt;th&gt;Interface&lt;/th&gt;
+&lt;th&gt;Affected Method&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;javax.sound.midi.Receiver&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{@link Receiver}&lt;/td&gt;
+&lt;td&gt;{@link #getReceiver}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;javax.sound.midi.Sequencer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{@link Sequencer}&lt;/td&gt;
+&lt;td&gt;{@link #getSequencer}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;javax.sound.midi.Synthesizer&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{@link Synthesizer}&lt;/td&gt;
+&lt;td&gt;{@link #getSynthesizer}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;javax.sound.midi.Transmitter&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;{@link Transmitter}&lt;/td&gt;
+&lt;td&gt;{@link #getTransmitter}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+The property value consists of the provider class name
+and the device name, separated by the hash mark ("#").
+The provider class name is the fully-qualified
+name of a concrete {@link javax.sound.midi.spi.MidiDeviceProvider
+MIDI device provider} class. The device name is matched against
+the &lt;code&gt;String&lt;/code&gt; returned by the &lt;code&gt;getName&lt;/code&gt;
+method of &lt;code&gt;MidiDevice.Info&lt;/code&gt;.
+Either the class name, or the device name may be omitted.
+If only the class name is specified, the trailing hash mark
+is optional.
+
+&lt;p&gt;If the provider class is specified, and it can be
+successully retrieved from the installed providers,
+the list of
+&lt;code&gt;MidiDevice.Info&lt;/code&gt; objects is retrieved
+from the provider. Otherwise, or when these devices
+do not provide a subsequent match, the list is retrieved
+from {@link #getMidiDeviceInfo} to contain
+all available &lt;code&gt;MidiDevice.Info&lt;/code&gt; objects.
+
+&lt;p&gt;If a device name is specified, the resulting list of
+&lt;code&gt;MidiDevice.Info&lt;/code&gt; objects is searched:
+the first one with a matching name, and whose
+&lt;code&gt;MidiDevice&lt;/code&gt; implements the
+respective interface, will be returned.
+If no matching &lt;code&gt;MidiDevice.Info&lt;/code&gt; object
+is found, or the device name is not specified,
+the first suitable device from the resulting
+list will be returned. For Sequencer and Synthesizer,
+a device is suitable if it implements the respective
+interface; whereas for Receiver and Transmitter, a device is
+suitable if it
+implements neither Sequencer nor Synthesizer and provides
+at least one Receiver or Transmitter, respectively.
+
+For example, the property &lt;code&gt;javax.sound.midi.Receiver&lt;/code&gt;
+with a value
+&lt;code&gt;"com.sun.media.sound.MidiProvider#SunMIDI1"&lt;/code&gt;
+will have the following consequences when
+&lt;code&gt;getReceiver&lt;/code&gt; is called:
+if the class &lt;code&gt;com.sun.media.sound.MidiProvider&lt;/code&gt; exists
+in the list of installed MIDI device providers,
+the first &lt;code&gt;Receiver&lt;/code&gt; device with name
+&lt;code&gt;"SunMIDI1"&lt;/code&gt; will be returned. If it cannot
+be found, the first &lt;code&gt;Receiver&lt;/code&gt; from that provider
+will be returned, regardless of name.
+If there is none, the first &lt;code&gt;Receiver&lt;/code&gt; with name
+&lt;code&gt;"SunMIDI1"&lt;/code&gt; in the list of all devices
+(as returned by &lt;code&gt;getMidiDeviceInfo&lt;/code&gt;) will be returned,
+or, if not found, the first &lt;code&gt;Receiver&lt;/code&gt; that can
+be found in the list of all devices is returned.
+If that fails, too, a &lt;code&gt;MidiUnavailableException&lt;/code&gt;
+is thrown.
+
+@version 1.66, 04/04/15
+@author Kara Kytle
+@author Florian Bomers
+@author Matthias Pfisterer
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">MidiSystem</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316181_106178_10565"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316181_106178_10565"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sound::midi::MidiSystem</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

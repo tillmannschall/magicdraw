@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546799_533208_10765"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JScrollPane -&gt; JDK 5.0 Classes::javax::accessibility::Accessible]" refid="_10_5_622020d_1132928324122_406077_18467"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JScrollPane -&gt; JDK 5.0 Classes::javax::swing::ScrollPaneConstants]" refid="_10_5_622020d_1132928324122_23444_18466"/></clientDependency><documentation humanName="Documentation" mode="standard">Provides a scrollable view of a lightweight component.
+A &lt;code&gt;JScrollPane&lt;/code&gt; manages a viewport, optional
+vertical and horizontal scroll bars, and optional row and
+column heading viewports.
+You can find task-oriented documentation of &lt;code&gt;JScrollPane&lt;/code&gt; in
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/scrollpane.html"&gt;How to Use Scroll Panes&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.  Note that
+&lt;code&gt;JScrollPane&lt;/code&gt; does not support heavyweight components.
+&lt;p&gt;
+&lt;TABLE ALIGN="RIGHT" BORDER="0" SUMMARY="layout"&gt;
+&lt;TR&gt;
+&lt;TD ALIGN="CENTER"&gt;
+&lt;P ALIGN="CENTER"&gt;&lt;IMG SRC="doc-files/JScrollPane-1.gif"
+alt="The following text describes this image."
+WIDTH="256" HEIGHT="248" ALIGN="BOTTOM" BORDER="0"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+The &lt;code&gt;JViewport&lt;/code&gt; provides a window,
+or "viewport" onto a data
+source -- for example, a text file. That data source is the
+"scrollable client" (aka data model) displayed by the
+&lt;code&gt;JViewport&lt;/code&gt; view.
+A &lt;code&gt;JScrollPane&lt;/code&gt; basically consists of &lt;code&gt;JScrollBar&lt;/code&gt;s,
+a &lt;code&gt;JViewport&lt;/code&gt;, and the wiring between them,
+as shown in the diagram at right.
+&lt;p&gt;
+In addition to the scroll bars and viewport,
+a &lt;code&gt;JScrollPane&lt;/code&gt; can have a
+column header and a row header. Each of these is a
+&lt;code&gt;JViewport&lt;/code&gt; object that
+you specify with &lt;code&gt;setRowHeaderView&lt;/code&gt;,
+and &lt;code&gt;setColumnHeaderView&lt;/code&gt;.
+The column header viewport automatically scrolls left and right, tracking
+the left-right scrolling of the main viewport.
+(It never scrolls vertically, however.)
+The row header acts in a similar fashion.
+&lt;p&gt;
+By default, the corners are empty.
+You can put a component into a corner using
+&lt;code&gt;setCorner&lt;/code&gt;,
+in case you there is some function or decoration you
+would like to add to the scroll pane. The size of corner components is
+entirely determined by the size of the headers and scroll bars that
+surround them.
+&lt;p&gt;
+To add a border around the main viewport,
+you can use &lt;code&gt;setViewportBorder&lt;/code&gt;.
+(Of course, you can also add a border around the whole scroll pane using
+&lt;code&gt;setBorder&lt;/code&gt;.)
+&lt;p&gt;
+A common operation to want to do is to set the background color that will
+be used if the main viewport view is smaller than the viewport, or is
+not opaque. This can be accomplished by setting the background color
+of the viewport, via &lt;code&gt;scrollPane.getViewport().setBackground()&lt;/code&gt;.
+The reason for setting the color of the viewport and not the scrollpane
+is that by default &lt;code&gt;JViewport&lt;/code&gt; is opaque
+which, among other things, means it will completely fill
+in its background using its background color.  Therefore when
+&lt;code&gt;JScrollPane&lt;/code&gt; draws its background the viewport will
+usually draw over it.
+&lt;p&gt;
+By default &lt;code&gt;JScrollPane&lt;/code&gt; uses &lt;code&gt;ScrollPaneLayout&lt;/code&gt;
+to handle the layout of its child Components. &lt;code&gt;ScrollPaneLayout&lt;/code&gt;
+determines the size to make the viewport view in one of two ways:
+&lt;ol&gt;
+&lt;li&gt;If the view implements &lt;code&gt;Scrollable&lt;/code&gt;
+a combination of &lt;code&gt;getPreferredScrollableViewportSize&lt;/code&gt;,
+&lt;code&gt;getScrollableTracksViewportWidth&lt;/code&gt; and
+&lt;code&gt;getScrollableTracksViewportHeight&lt;/code&gt;is used, otherwise
+&lt;li&gt;&lt;code&gt;getPreferredSize&lt;/code&gt; is used.
+&lt;/ol&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see JScrollBar
+@see JViewport
+@see ScrollPaneLayout
+@see Scrollable
+@see Component#getPreferredSize
+@see #setViewportView
+@see #setRowHeaderView
+@see #setColumnHeaderView
+@see #setCorner
+@see #setViewportBorder
+
+@beaninfo
+attribute: isContainer true
+attribute: containerDelegate getViewport
+description: A specialized container that manages a viewport, optional scrollbars and headers
+
+@version 1.100 @(#)JScrollPane.java	1.100
+@author Hans Muller
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928324122_924356_18468"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleAWTComponent" refid="_9_5_f720368_1110473547378_128539_16940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTContainer" refid="_9_5_f720368_1110473547378_351073_16957"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleJComponent" refid="_9_5_f720368_1110473548284_820453_22824"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ActionStandin" refid="_9_5_f720368_1110473548424_437924_24127"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTTreeLock" refid="_9_5_f720368_1110473547378_254209_16930"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BltBufferStrategy" refid="_9_5_f720368_1110473547378_697224_16934"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetEventTargetFilter" refid="_9_5_f720368_1110473547378_301053_16955"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="EventTargetFilter" refid="_9_5_f720368_1110473547378_222743_16951"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlipBufferStrategy" refid="_9_5_f720368_1110473547378_178907_16932"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IntVector" refid="_9_5_f720368_1110473548424_160466_24129"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyboardState" refid="_9_5_f720368_1110473548424_79807_24131"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MouseEventTargetFilter" refid="_9_5_f720368_1110473547378_805902_16953"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeInLightFixer" refid="_9_5_f720368_1110473547378_946319_16938"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReadObjectCallback" refid="_9_5_f720368_1110473548424_745921_24140"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SingleBufferStrategy" refid="_9_5_f720368_1110473547378_190538_16936"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WakingRunnable" refid="_10_5_622020d_1132928306387_890973_4158"/></inheritedMember><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JScrollPane -&gt; JDK 5.0 Classes::javax::accessibility::Accessible]" refid="_10_5_622020d_1132928324122_406077_18467"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JScrollPane -&gt; JDK 5.0 Classes::javax::swing::ScrollPaneConstants]" refid="_10_5_622020d_1132928324122_23444_18466"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleAWTComponent" refid="_9_5_f720368_1110473547378_128539_16940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTContainer" refid="_9_5_f720368_1110473547378_351073_16957"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleJComponent" refid="_9_5_f720368_1110473548284_820453_22824"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleJScrollPane" refid="_9_5_f720368_1110473548456_102561_24268"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ActionStandin" refid="_9_5_f720368_1110473548424_437924_24127"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTTreeLock" refid="_9_5_f720368_1110473547378_254209_16930"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BltBufferStrategy" refid="_9_5_f720368_1110473547378_697224_16934"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetEventTargetFilter" refid="_9_5_f720368_1110473547378_301053_16955"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="EventTargetFilter" refid="_9_5_f720368_1110473547378_222743_16951"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlipBufferStrategy" refid="_9_5_f720368_1110473547378_178907_16932"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IntVector" refid="_9_5_f720368_1110473548424_160466_24129"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyboardState" refid="_9_5_f720368_1110473548424_79807_24131"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MouseEventTargetFilter" refid="_9_5_f720368_1110473547378_805902_16953"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeInLightFixer" refid="_9_5_f720368_1110473547378_946319_16938"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReadObjectCallback" refid="_9_5_f720368_1110473548424_745921_24140"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ScrollBar" refid="_9_5_f720368_1110473548456_38825_24266"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SingleBufferStrategy" refid="_9_5_f720368_1110473547378_190538_16936"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WakingRunnable" refid="_10_5_622020d_1132928306387_890973_4158"/></member><name humanName="Name" mode="s,e">JScrollPane</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleJScrollPane" refid="_9_5_f720368_1110473548456_102561_24268"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ScrollBar" refid="_9_5_f720368_1110473548456_38825_24266"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318103_741636_12498"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928324122_924356_18468"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318103_741636_12498"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleJScrollPane" refid="_9_5_f720368_1110473548456_102561_24268"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JScrollPane -&gt; JDK 5.0 Classes::javax::accessibility::Accessible]" refid="_10_5_622020d_1132928324122_406077_18467"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JScrollPane -&gt; JDK 5.0 Classes::javax::swing::ScrollPaneConstants]" refid="_10_5_622020d_1132928324122_23444_18466"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ScrollBar" refid="_9_5_f720368_1110473548456_38825_24266"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleJScrollPane" refid="_9_5_f720368_1110473548456_102561_24268"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ScrollBar" refid="_9_5_f720368_1110473548456_38825_24266"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::JScrollPane</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Accessible" refid="_9_5_f720368_1110473546706_827345_8951"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ScrollPaneConstants" refid="_9_5_f720368_1110473546799_950352_10843"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="JComponent" refid="_9_5_f720368_1110473546784_185658_10719"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

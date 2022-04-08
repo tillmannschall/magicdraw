@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546737_935844_9439"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::Sides -&gt; JDK 5.0 Classes::javax::print::attribute::DocAttribute]" refid="_10_5_622020d_1132928323311_747197_16407"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::Sides -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323311_880150_16409"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::Sides -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323311_974192_16408"/></clientDependency><documentation humanName="Documentation" mode="standard">Class Sides is a printing attribute class, an enumeration, that specifies
+how print-stream pages are to be imposed upon the sides of an instance of a
+selected medium, i.e., an impression.
+&lt;P&gt;
+The effect of a Sides attribute on a multidoc print job (a job with multiple
+documents) depends on whether all the docs have the same sides values
+specified or whether different docs have different sides values specified,
+and on the (perhaps defaulted) value of the {@link MultipleDocumentHandling
+MultipleDocumentHandling} attribute.
+&lt;UL&gt;
+&lt;LI&gt;
+If all the docs have the same sides value &lt;I&gt;n&lt;/I&gt; specified, then any value
+of {@link MultipleDocumentHandling MultipleDocumentHandling} makes sense,
+and the printer's processing depends on the {@link MultipleDocumentHandling
+MultipleDocumentHandling} value:
+&lt;UL&gt;
+&lt;LI&gt;
+SINGLE_DOCUMENT -- All the input docs will be combined together into one
+output document. Each media sheet will consist of &lt;I&gt;n&lt;/I&gt; impressions from
+the output document.
+&lt;P&gt;
+&lt;LI&gt;
+SINGLE_DOCUMENT_NEW_SHEET -- All the input docs will be combined together
+into one output document. Each media sheet will consist of &lt;I&gt;n&lt;/I&gt;
+impressions from the output document. However, the first impression of each
+input doc will always start on a new media sheet; this means the last media
+sheet of an input doc may have only one impression on it.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_UNCOLLATED_COPIES -- The input docs will remain separate.
+Each media sheet will consist of &lt;I&gt;n&lt;/I&gt; impressions from the input doc.
+Since the input docs are separate, the first impression of each input doc
+will always start on a new media sheet; this means the last media sheet of
+an input doc may have only one impression on it.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_COLLATED_COPIES -- The input docs will remain separate.
+Each media sheet will consist of &lt;I&gt;n&lt;/I&gt; impressions from the input doc.
+Since the input docs are separate, the first impression of each input doc
+will always start on a new media sheet; this means the last media sheet of
+an input doc may have only one impression on it.
+&lt;/UL&gt;
+&lt;P&gt;
+&lt;UL&gt;
+&lt;LI&gt;
+SINGLE_DOCUMENT -- All the input docs will be combined together into one
+output document. Each media sheet will consist of &lt;I&gt;n&lt;SUB&gt;i&lt;/SUB&gt;&lt;/I&gt;
+impressions from the output document, where &lt;I&gt;i&lt;/I&gt; is the number of the
+input doc corresponding to that point in the output document. When the next
+input doc has a different sides value from the previous input doc, the first
+print-stream page of the next input doc goes at the start of the next media
+sheet, possibly leaving only one impression on the previous media sheet.
+&lt;P&gt;
+&lt;LI&gt;
+SINGLE_DOCUMENT_NEW_SHEET -- All the input docs will be combined together
+into one output document. Each media sheet will consist of &lt;I&gt;n&lt;/I&gt;
+impressions from the output document. However, the first impression of each
+input doc will always start on a new media sheet; this means the last
+impression of an input doc may have only one impression on it.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_UNCOLLATED_COPIES -- The input docs will remain separate.
+For input doc &lt;I&gt;i,&lt;/I&gt; each media sheet will consist of &lt;I&gt;n&lt;SUB&gt;i&lt;/SUB&gt;&lt;/I&gt;
+impressions from the input doc. Since the input docs are separate, the first
+impression of each input doc will always start on a new media sheet; this
+means the last media sheet of an input doc may have only one impression on
+it.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_COLLATED_COPIES -- The input docs will remain separate.
+For input doc &lt;I&gt;i,&lt;/I&gt; each media sheet will consist of &lt;I&gt;n&lt;SUB&gt;i&lt;/SUB&gt;&lt;/I&gt;
+impressions from the input doc. Since the input docs are separate, the first
+impression of each input doc will always start on a new media sheet; this
+means the last media sheet of an input doc may have only one impression on
+it.
+&lt;/UL&gt;
+&lt;/UL&gt;
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; is the IPP attribute name.  The enumeration's
+integer value is the IPP enum value.  The &lt;code&gt;toString()&lt;/code&gt; method
+returns the IPP string representation of the attribute value.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323311_758726_16410"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::Sides -&gt; JDK 5.0 Classes::javax::print::attribute::DocAttribute]" refid="_10_5_622020d_1132928323311_747197_16407"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::Sides -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323311_880150_16409"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::Sides -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323311_974192_16408"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">Sides</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315760_613118_10247"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323311_758726_16410"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315760_613118_10247"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::Sides -&gt; JDK 5.0 Classes::javax::print::attribute::DocAttribute]" refid="_10_5_622020d_1132928323311_747197_16407"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::Sides -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323311_880150_16409"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::Sides -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323311_974192_16408"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::print::attribute::standard::Sides</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DocAttribute" refid="_9_5_f720368_1110473546737_117081_9449"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintJobAttribute" refid="_9_5_f720368_1110473546737_356648_9467"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintRequestAttribute" refid="_9_5_f720368_1110473546737_975548_9471"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="EnumSyntax" refid="_9_5_f720368_1110473546737_604249_9453"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

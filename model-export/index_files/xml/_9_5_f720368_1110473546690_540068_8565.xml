@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546690_540068_8565"><documentation humanName="Documentation" mode="standard">The interface that every driver class must implement.
+&lt;P&gt;The Java SQL framework allows for multiple database drivers.
+
+&lt;P&gt;Each driver should supply a class that implements
+the Driver interface.
+
+&lt;P&gt;The DriverManager will try to load as many drivers as it can
+find and then for any given connection request, it will ask each
+driver in turn to try to connect to the target URL.
+
+&lt;P&gt;It is strongly recommended that each Driver class should be
+small and standalone so that the Driver class can be loaded and
+queried without bringing in vast quantities of supporting code.
+
+&lt;P&gt;When a Driver class is loaded, it should create an instance of
+itself and register it with the DriverManager. This means that a
+user can load and register a driver by calling
+&lt;pre&gt;
+&lt;code&gt;Class.forName("foo.bah.Driver")&lt;/code&gt;
+&lt;/pre&gt;
+
+@see DriverManager
+@see Connection
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Driver</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309491_934555_6167"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309491_934555_6167"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::sql::Driver</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

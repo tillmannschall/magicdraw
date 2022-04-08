@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305485_234678_3581"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AppletStub" refid="_9_5_f720368_1110473546549_379369_6437"/></annotatedElement><body humanName="Body" mode="s,e">When an applet is first created, an applet stub is attached to it
+using the applet's &lt;code&gt;setStub&lt;/code&gt; method. This stub
+serves as the interface between the applet and the browser
+environment or applet viewer environment in which the application
+is running.
+
+@author 	Arthur van Hoff
+@version     1.25, 12/19/03
+@see         java.applet.Applet#setStub(java.applet.AppletStub)
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="AppletStub" refid="_9_5_f720368_1110473546549_379369_6437"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AppletStub" refid="_9_5_f720368_1110473546549_379369_6437"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317503_812568_11864"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HTMLDocument" refid="_9_5_f720368_1110473546768_420899_10355"/></annotatedElement><body humanName="Body" mode="s,e">A document that models HTML.  The purpose of this model
+is to support both browsing and editing.  As a result,
+the structure described by an HTML document is not
+exactly replicated by default.  The element structure that
+is modeled by default, is built by the class
+&lt;code&gt;HTMLDocument.HTMLReader&lt;/code&gt;, which implements
+the &lt;code&gt;HTMLEditorKit.ParserCallback&lt;/code&gt; protocol
+that the parser expects.  To change the structure one
+can subclass &lt;code&gt;HTMLReader&lt;/code&gt;, and reimplement the method
+{@link #getReader(int)} to return the new reader
+implementation.  The documentation for &lt;code&gt;HTMLReader&lt;/code&gt;
+should be consulted for the details of
+the default structure created.  The intent is that
+the document be non-lossy (although reproducing the
+HTML format may result in a different format).
+&lt;p&gt;
+The document models only HTML, and makes no attempt to
+store view attributes in it.  The elements are identified
+by the &lt;code&gt;StyleContext.NameAttribute&lt;/code&gt; attribute,
+which should always have a value of type &lt;code&gt;HTML.Tag&lt;/code&gt;
+that identifies the kind of element.  Some of the elements
+(such as comments) are synthesized.  The &lt;code&gt;HTMLFactory&lt;/code&gt;
+uses this attribute to determine what kind of view to build.
+&lt;p&gt;
+This document supports incremental loading.  The
+&lt;code&gt;TokenThreshold&lt;/code&gt; property controls how
+much of the parse is buffered before trying to update
+the element structure of the document.  This property
+is set by the &lt;code&gt;EditorKit&lt;/code&gt; so that subclasses can disable
+it.
+&lt;p&gt;
+The &lt;code&gt;Base&lt;/code&gt; property determines the URL
+against which relative URLs are resolved.
+By default, this will be the
+&lt;code&gt;Document.StreamDescriptionProperty&lt;/code&gt; if
+the value of the property is a URL.  If a &lt;BASE&gt;
+tag is encountered, the base will become the URL specified
+by that tag.  Because the base URL is a property, it
+can of course be set directly.
+&lt;p&gt;
+The default content storage mechanism for this document
+is a gap buffer (&lt;code&gt;GapContent&lt;/code&gt;).
+Alternatives can be supplied by using the constructor
+that takes a &lt;code&gt;Content&lt;/code&gt; implementation.
+
+@author  Timothy Prinzing
+@author  Scott Violet
+@author  Sunita Mani
+@version 1.167 05/05/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="HTMLDocument" refid="_9_5_f720368_1110473546768_420899_10355"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HTMLDocument" refid="_9_5_f720368_1110473546768_420899_10355"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

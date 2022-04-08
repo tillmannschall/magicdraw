@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317252_616140_11476"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Region" refid="_10_5_622020d_1132928317252_769642_11474"/></annotatedElement><body humanName="Body" mode="s,e">A distinct rendering area of a Swing component.  A component may
+support one or more regions.  Specific component regions are defined
+by the typesafe enumeration in this class.
+&lt;p&gt;
+Regions are typically used as a way to identify the &lt;code&gt;Component&lt;/code&gt;s
+and areas a particular style is to apply to. Synth's file format allows you
+to bind styles based on the name of a &lt;code&gt;Region&lt;/code&gt;.
+The name is derived from the field name of the constant:
+&lt;ol&gt;
+&lt;li&gt;Map all characters to lowercase.
+&lt;li&gt;Map the first character to uppercase.
+&lt;li&gt;Map the first character after underscores to uppercase.
+&lt;li&gt;Remove all underscores.
+&lt;/ol&gt;
+For example, to identify the &lt;code&gt;SPLIT_PANE&lt;/code&gt;
+&lt;code&gt;Region&lt;/code&gt; you would use &lt;code&gt;SplitPane&lt;/code&gt;.
+The following shows a custom &lt;code&gt;SynthStyleFactory&lt;/code&gt;
+that returns a specific style for split panes:
+&lt;pre&gt;
+public SynthStyle getStyle(JComponent c, Region id) {
+if (id == Region.SPLIT_PANE) {
+return splitPaneStyle;
+}
+...
+}
+&lt;/pre&gt;
+The following &lt;a href="doc-files/synthFileFormat.html"&gt;xml&lt;/a&gt;
+accomplishes the same thing:
+&lt;pre&gt;
+&lt;style id="splitPaneStyle"&gt;
+...
+&lt;/style&gt;
+&lt;bind style="splitPaneStyle" type="region" key="SplitPane"/&gt;
+&lt;/pre&gt;
+
+@version 1.30, 02/19/04
+@since 1.5
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Region" refid="_10_5_622020d_1132928317252_769642_11474"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Region" refid="_10_5_622020d_1132928317252_769642_11474"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

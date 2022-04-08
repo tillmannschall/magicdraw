@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546612_853074_7585"><documentation humanName="Documentation" mode="standard">Thrown when an application tries to load in a class through its
+string name using:
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;forName&lt;/code&gt; method in class &lt;code&gt;Class&lt;/code&gt;.
+&lt;li&gt;The &lt;code&gt;findSystemClass&lt;/code&gt; method in class
+&lt;code&gt;ClassLoader&lt;/code&gt; .
+&lt;li&gt;The &lt;code&gt;loadClass&lt;/code&gt; method in class &lt;code&gt;ClassLoader&lt;/code&gt;.
+&lt;/ul&gt;
+&lt;p&gt;
+but no definition for the class with the specified name could be found.
+
+&lt;p&gt;As of release 1.4, this exception has been retrofitted to conform to
+the general purpose exception-chaining mechanism.  The "optional exception
+that was raised while loading the class" that may be provided at
+construction time and accessed via the {@link #getException()} method is
+now known as the &lt;i&gt;cause&lt;/i&gt;, and may be accessed via the {@link
+Throwable#getCause()} method, as well as the aforementioned "legacy method."
+
+@author  unascribed
+@version 1.20, 02/19/04
+@see     java.lang.Class#forName(java.lang.String)
+@see     java.lang.ClassLoader#findSystemClass(java.lang.String)
+@see     java.lang.ClassLoader#loadClass(java.lang.String, boolean)
+@since   JDK1.0
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321638_840825_13640"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ClassNotFoundException</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307929_145780_4991"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321638_840825_13640"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307929_145780_4991"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::ClassNotFoundException</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Exception" refid="_9_5_f720368_1110473546612_465691_7599"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

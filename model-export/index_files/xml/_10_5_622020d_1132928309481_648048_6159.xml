@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309481_648048_6159"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Connection" refid="_9_5_f720368_1110473546690_184416_8557"/></annotatedElement><body humanName="Body" mode="s,e">&lt;P&gt;A connection (session) with a specific
+database. SQL statements are executed and results are returned
+within the context of a connection.
+&lt;P&gt;
+A &lt;code&gt;Connection&lt;/code&gt; object's database is able to provide information
+describing its tables, its supported SQL grammar, its stored
+procedures, the capabilities of this connection, and so on. This
+information is obtained with the &lt;code&gt;getMetaData&lt;/code&gt; method.
+
+&lt;P&gt;&lt;B&gt;Note:&lt;/B&gt; By default a &lt;code&gt;Connection&lt;/code&gt; object is in
+auto-commit mode, which means that it automatically commits changes
+after executing each statement. If auto-commit mode has been
+disabled, the method &lt;code&gt;commit&lt;/code&gt; must be called explicitly in
+order to commit changes; otherwise, database changes will not be saved.
+&lt;P&gt;
+A new &lt;code&gt;Connection&lt;/code&gt; object created using the JDBC 2.1 core API
+has an initially empty type map associated with it. A user may enter a
+custom mapping for a UDT in this type map.
+When a UDT is retrieved from a data source with the
+method &lt;code&gt;ResultSet.getObject&lt;/code&gt;, the &lt;code&gt;getObject&lt;/code&gt; method
+will check the connection's type map to see if there is an entry for that
+UDT.  If so, the &lt;code&gt;getObject&lt;/code&gt; method will map the UDT to the
+class indicated.  If there is no entry, the UDT will be mapped using the
+standard mapping.
+&lt;p&gt;
+A user may create a new type map, which is a &lt;code&gt;java.util.Map&lt;/code&gt;
+object, make an entry in it, and pass it to the &lt;code&gt;java.sql&lt;/code&gt;
+methods that can perform custom mapping.  In this case, the method
+will use the given type map instead of the one associated with
+the connection.
+&lt;p&gt;
+For example, the following code fragment specifies that the SQL
+type &lt;code&gt;ATHLETES&lt;/code&gt; will be mapped to the class
+&lt;code&gt;Athletes&lt;/code&gt; in the Java programming language.
+The code fragment retrieves the type map for the &lt;code&gt;Connection
+&lt;/code&gt; object &lt;code&gt;con&lt;/code&gt;, inserts the entry into it, and then sets
+the type map with the new entry as the connection's type map.
+&lt;pre&gt;
+java.util.Map map = con.getTypeMap();
+map.put("mySchemaName.ATHLETES", Class.forName("Athletes"));
+con.setTypeMap(map);
+&lt;/pre&gt;
+
+@see DriverManager#getConnection
+@see Statement
+@see ResultSet
+@see DatabaseMetaData
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Connection" refid="_9_5_f720368_1110473546690_184416_8557"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Connection" refid="_9_5_f720368_1110473546690_184416_8557"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

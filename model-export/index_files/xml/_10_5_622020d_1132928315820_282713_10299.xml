@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315820_282713_10299"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SetOfIntegerSyntax" refid="_9_5_f720368_1110473546737_447059_9481"/></annotatedElement><body humanName="Body" mode="s,e">Class SetOfIntegerSyntax is an abstract base class providing the common
+implementation of all attributes whose value is a set of nonnegative
+integers. This includes attributes whose value is a single range of integers
+and attributes whose value is a set of ranges of integers.
+&lt;P&gt;
+You can construct an instance of SetOfIntegerSyntax by giving it in "string
+form." The string consists of zero or more comma-separated integer groups.
+Each integer group consists of either one integer, two integers separated by
+a hyphen (&lt;CODE&gt;-&lt;/CODE&gt;), or two integers separated by a colon
+(&lt;CODE&gt;:&lt;/CODE&gt;). Each integer consists of one or more decimal digits
+(&lt;CODE&gt;0&lt;/CODE&gt; through &lt;CODE&gt;9&lt;/CODE&gt;). Whitespace characters cannot
+appear within an integer but are otherwise ignored. For example:
+&lt;CODE&gt;""&lt;/CODE&gt;, &lt;CODE&gt;"1"&lt;/CODE&gt;, &lt;CODE&gt;"5-10"&lt;/CODE&gt;, &lt;CODE&gt;"1:2,
+4"&lt;/CODE&gt;.
+&lt;P&gt;
+You can also construct an instance of SetOfIntegerSyntax by giving it in
+"array form." Array form consists of an array of zero or more integer groups
+where each integer group is a length-1 or length-2 array of
+&lt;CODE&gt;int&lt;/CODE&gt;s; for example, &lt;CODE&gt;int[0][]&lt;/CODE&gt;,
+&lt;CODE&gt;int[][]{{1}}&lt;/CODE&gt;, &lt;CODE&gt;int[][]{{5,10}}&lt;/CODE&gt;,
+&lt;CODE&gt;int[][]{{1,2},{4}}&lt;/CODE&gt;.
+&lt;P&gt;
+In both string form and array form, each successive integer group gives a
+range of integers to be included in the set. The first integer in each group
+gives the lower bound of the range; the second integer in each group gives
+the upper bound of the range; if there is only one integer in the group, the
+upper bound is the same as the lower bound. If the upper bound is less than
+the lower bound, it denotes a null range (no values). If the upper bound is
+equal to the lower bound, it denotes a range consisting of a single value. If
+the upper bound is greater than the lower bound, it denotes a range
+consisting of more than one value. The ranges may appear in any order and are
+allowed to overlap. The union of all the ranges gives the set's contents.
+Once a SetOfIntegerSyntax instance is constructed, its value is immutable.
+&lt;P&gt;
+The SetOfIntegerSyntax object's value is actually stored in "&lt;I&gt;canonical&lt;/I&gt;
+array form." This is the same as array form, except there are no null ranges;
+the members of the set are represented in as few ranges as possible (i.e.,
+overlapping ranges are coalesced); the ranges appear in ascending order; and
+each range is always represented as a length-two array of &lt;CODE&gt;int&lt;/CODE&gt;s
+in the form {lower bound, upper bound}. An empty set is represented as a
+zero-length array.
+&lt;P&gt;
+Class SetOfIntegerSyntax has operations to return the set's members in
+canonical array form, to test whether a given integer is a member of the
+set, and to iterate through the members of the set.
+&lt;P&gt;
+
+@author  David Mendenhall
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="SetOfIntegerSyntax" refid="_9_5_f720368_1110473546737_447059_9481"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SetOfIntegerSyntax" refid="_9_5_f720368_1110473546737_447059_9481"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928307859_836151_4913"><documentation humanName="Documentation" mode="standard">TypeVariable is the common superinterface for type variables of kinds.
+A type variable is created the first time it is needed by a reflective
+method, as specified in this package.  If a type variable t is referenced
+by a type (i.e, class, interface or annotation type) T, and T is declared
+by the nth enclosing class of T (see JLS 8.1.2), then the creation of t
+requires the resolution (see JVMS 5) of the ith enclosing class of T,
+for i = 0 to n, inclusive. Creating a type variable must not cause the
+creation of its bounds. Repeated creation of a type variable has no effect.
+
+&lt;p&gt;Multiple objects may be instantiated at run-time to
+represent a given type variable. Even though a type variable is
+created only once, this does not imply any requirement to cache
+instances representing the type variable. However, all instances
+representing a type variable must be equal() to each other.
+As a consequence, users of type variables must not rely on the identity
+of instances of classes implementing this interface.
+
+&lt;p&gt;The type parameter D represents the type of generic declaration
+that declared the underlying type variable.
+
+@since 1.5
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Type" refid="_10_5_622020d_1132928307859_269629_4910"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321618_295253_13605"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">TypeVariable</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="reflect" refid="_9_5_f720368_1110473547503_114953_17805"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307869_154184_4918"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928307859_377895_4914"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321618_295253_13605"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307869_154184_4918"/></ownedElement><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928307859_377895_4914"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="reflect" refid="_9_5_f720368_1110473547503_114953_17805"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="reflect" refid="_9_5_f720368_1110473547503_114953_17805"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="reflect" refid="_9_5_f720368_1110473547503_114953_17805"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::reflect::TypeVariable</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

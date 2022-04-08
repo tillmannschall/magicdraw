@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315159_77341_9756"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MBeanPermission" refid="_10_5_622020d_1132928315149_442862_9754"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Permission controlling access to MBeanServer operations.  If a
+security manager has been set using {@link
+System#setSecurityManager}, most operations on the MBean Server
+require that the caller's permissions imply an MBeanPermission
+appropriate for the operation.  This is described in detail in the
+documentation for the {@link MBeanServer} interface.&lt;/p&gt;
+
+&lt;p&gt;As with other {@link Permission} objects, an MBeanPermission can
+represent either a permission that you &lt;em&gt;have&lt;/em&gt; or a
+permission that you &lt;em&gt;need&lt;/em&gt;.  When a sensitive operation is
+being checked for permission, an MBeanPermission is constructed
+representing the permission you need.  The operation is only
+allowed if the permissions you have {@link #implies imply} the
+permission you need.&lt;/p&gt;
+
+&lt;p&gt;An MBeanPermission contains four items of information:&lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt;The &lt;em&gt;action&lt;/em&gt;.  For a permission you need,
+this is one of the actions in the list &lt;a
+href="#action-list"&gt;below&lt;/a&gt;.  For a permission you have, this is
+a comma-separated list of those actions, or &lt;code&gt;*&lt;/code&gt;,
+representing all actions.&lt;/p&gt;
+
+&lt;p&gt;The action is returned by {@link #getActions()}.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;The &lt;em&gt;class name&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;For a permission you need, this is the class name of an MBean
+you are accessing, as returned by {@link
+MBeanServer#getMBeanInfo(ObjectName)
+MBeanServer.getMBeanInfo(name)}.{@link MBeanInfo#getClassName()
+getClassName()}.  Certain operations do not reference a class name,
+in which case the class name is null.&lt;/p&gt;
+
+&lt;p&gt;For a permission you have, this is either empty or a &lt;em&gt;class
+name pattern&lt;/em&gt;.  A class name pattern is a string following the
+Java conventions for dot-separated class names.  It may end with
+"&lt;code&gt;.*&lt;/code&gt;" meaning that the permission grants access to any
+class that begins with the string preceding "&lt;code&gt;.*&lt;/code&gt;".  For
+instance, "&lt;code&gt;javax.management.*&lt;/code&gt;" grants access to
+&lt;code&gt;javax.management.MBeanServerDelegate&lt;/code&gt; and
+&lt;code&gt;javax.management.timer.Timer&lt;/code&gt;, among other classes.&lt;/p&gt;
+
+&lt;p&gt;A class name pattern can also be empty or the single character
+"&lt;code&gt;*&lt;/code&gt;", both of which grant access to any class.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;The &lt;em&gt;member&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;For a permission you need, this is the name of the attribute or
+operation you are accessing.  For operations that do not reference
+an attribute or operation, the member is null.&lt;/p&gt;
+
+&lt;p&gt;For a permission you have, this is either the name of an attribute
+or operation you can access, or it is empty or the single character
+"&lt;code&gt;*&lt;/code&gt;", both of which grant access to any member.&lt;/p&gt;
+
+&lt;li&gt;&lt;p&gt;The &lt;em&gt;object name&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;For a permission you need, this is the {@link ObjectName} of the
+MBean you are accessing.  For operations that do not reference a
+single MBean, it is null.  It is never an object name pattern.&lt;/p&gt;
+
+&lt;p&gt;For a permission you have, this is the {@link ObjectName} of the
+MBean or MBeans you can access.  It may be an object name pattern
+to grant access to all MBeans whose names match the pattern.  It
+may also be empty, which grants access to all MBeans whatever their
+name.&lt;/p&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt;If you have an MBeanPermission, it allows operations only if all
+four of the items match.&lt;/p&gt;
+
+&lt;p&gt;The class name, member, and object name can be written together
+as a single string, which is the &lt;em&gt;name&lt;/em&gt; of this permission.
+The name of the permission is the string returned by {@link
+Permission#getName() getName()}.  The format of the string is:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;code&gt;className#member[objectName]&lt;/code&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The object name is written using the usual syntax for {@link
+ObjectName}.  It may contain any legal characters, including
+&lt;code&gt;]&lt;/code&gt;.  It is terminated by a &lt;code&gt;]&lt;/code&gt; character
+that is the last character in the string.&lt;/p&gt;
+
+&lt;p&gt;One or more of the &lt;code&gt;className&lt;/code&gt;, &lt;code&gt;member&lt;/code&gt;,
+or &lt;code&gt;objectName&lt;/code&gt; may be omitted.  If the
+&lt;code&gt;member&lt;/code&gt; is omitted, the &lt;code&gt;#&lt;/code&gt; may be too (but
+does not have to be).  If the &lt;code&gt;objectName&lt;/code&gt; is omitted,
+the &lt;code&gt;[]&lt;/code&gt; may be too (but does not have to be).  It is
+not legal to omit all three items, that is to have a &lt;em&gt;name&lt;/em&gt;
+that is the empty string.&lt;/p&gt;
+
+&lt;p&gt;One or more of the &lt;code&gt;className&lt;/code&gt;, &lt;code&gt;member&lt;/code&gt;,
+or &lt;code&gt;objectName&lt;/code&gt; may be the character "&lt;code&gt;-&lt;/code&gt;",
+which is equivalent to a null value.  A null value is implied by
+any value (including another null value) but does not imply any
+other value.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name="action-list"&gt;The possible actions are these:&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;addNotificationListener&lt;/li&gt;
+&lt;li&gt;getAttribute&lt;/li&gt;
+&lt;li&gt;getClassLoader&lt;/li&gt;
+&lt;li&gt;getClassLoaderFor&lt;/li&gt;
+&lt;li&gt;getClassLoaderRepository&lt;/li&gt;
+&lt;li&gt;getDomains&lt;/li&gt;
+&lt;li&gt;getMBeanInfo&lt;/li&gt;
+&lt;li&gt;getObjectInstance&lt;/li&gt;
+&lt;li&gt;instantiate&lt;/li&gt;
+&lt;li&gt;invoke&lt;/li&gt;
+&lt;li&gt;isInstanceOf&lt;/li&gt;
+&lt;li&gt;queryMBeans&lt;/li&gt;
+&lt;li&gt;queryNames&lt;/li&gt;
+&lt;li&gt;registerMBean&lt;/li&gt;
+&lt;li&gt;removeNotificationListener&lt;/li&gt;
+&lt;li&gt;setAttribute&lt;/li&gt;
+&lt;li&gt;unregisterMBean&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In a comma-separated list of actions, spaces are allowed before
+and after each action.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled JMX 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MBeanPermission" refid="_10_5_622020d_1132928315149_442862_9754"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MBeanPermission" refid="_10_5_622020d_1132928315149_442862_9754"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

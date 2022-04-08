@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316271_206903_10650"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Port" refid="_9_5_f720368_1110473546737_630476_9741"/></annotatedElement><body humanName="Body" mode="s,e">Ports are simple lines for input or output of audio to or from audio devices.
+Common examples of ports that act as source lines (mixer inputs) include the microphone,
+line input, and CD-ROM drive.  Ports that act as target lines (mixer outputs) include the
+speaker, headphone, and line output.  You can access port using a &lt;code&gt;{@link Port.Info}&lt;/code&gt;
+object.
+
+@author Kara Kytle
+@version 1.26, 04/05/05
+@since 1.3
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Port" refid="_9_5_f720368_1110473546737_630476_9741"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Port" refid="_9_5_f720368_1110473546737_630476_9741"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

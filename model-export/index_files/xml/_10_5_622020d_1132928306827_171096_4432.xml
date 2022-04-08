@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306827_171096_4432"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Expression" refid="_9_5_f720368_1110473546596_225268_7213"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;Expression&lt;/code&gt; object represents a primitive expression
+in which a single method is applied to a target and a set of
+arguments to return a result - as in &lt;code&gt;"a.getFoo()"&lt;/code&gt;.
+&lt;p&gt;
+In addition to the properties of the super class, the
+&lt;code&gt;Expression&lt;/code&gt; object provides a &lt;em&gt;value&lt;/em&gt; which
+is the object returned when this expression is evaluated.
+The return value is typically not provided by the caller and
+is instead computed by dynamically finding the method and invoking
+it when the first call to &lt;code&gt;getValue&lt;/code&gt; is made.
+
+@see #getValue
+@see #setValue
+
+@since 1.4
+
+@version 1.3 11/15/00
+@author Philip Milne
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Expression" refid="_9_5_f720368_1110473546596_225268_7213"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Expression" refid="_9_5_f720368_1110473546596_225268_7213"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309321_324972_6019"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Key" refid="_9_5_f720368_1110473546674_814973_8461"/></annotatedElement><body humanName="Body" mode="s,e">The Key interface is the top-level interface for all keys. It
+defines the functionality shared by all key objects. All keys
+have three characteristics:
+
+&lt;UL&gt;
+
+&lt;LI&gt;An Algorithm
+
+&lt;P&gt;This is the key algorithm for that key. The key algorithm is usually
+an encryption or asymmetric operation algorithm (such as DSA or
+RSA), which will work with those algorithms and with related
+algorithms (such as MD5 with RSA, SHA-1 with RSA, Raw DSA, etc.)
+The name of the algorithm of a key is obtained using the
+{@link #getAlgorithm() getAlgorithm} method.&lt;P&gt;
+
+&lt;LI&gt;An Encoded Form
+
+&lt;P&gt;This is an external encoded form for the key used when a standard
+representation of the key is needed outside the Java Virtual Machine,
+as when transmitting the key to some other party. The key
+is encoded according to a standard format (such as
+X.509 &lt;code&gt;SubjectPublicKeyInfo&lt;/code&gt; or PKCS#8), and
+is returned using the {@link #getEncoded() getEncoded} method.
+Note: The syntax of the ASN.1 type &lt;code&gt;SubjectPublicKeyInfo&lt;/code&gt;
+is defined as follows:
+
+&lt;pre&gt;
+SubjectPublicKeyInfo ::= SEQUENCE {
+algorithm AlgorithmIdentifier,
+subjectPublicKey BIT STRING }
+
+AlgorithmIdentifier ::= SEQUENCE {
+algorithm OBJECT IDENTIFIER,
+parameters ANY DEFINED BY algorithm OPTIONAL }
+&lt;/pre&gt;
+
+For more information, see
+&lt;a href="http://www.ietf.org/rfc/rfc2459.txt"&gt;RFC 2459:
+Internet X.509 Public Key Infrastructure Certificate and CRL Profile&lt;/a&gt;.
+&lt;P&gt;
+
+&lt;LI&gt;A Format
+
+&lt;P&gt;This is the name of the format of the encoded key. It is returned
+by the {@link #getFormat() getFormat} method.&lt;P&gt;
+
+&lt;/UL&gt;
+
+Keys are generally obtained through key generators, certificates,
+or various Identity classes used to manage keys.
+Keys may also be obtained from key specifications (transparent
+representations of the underlying key material) through the use of a key
+factory (see {@link KeyFactory}).
+
+&lt;p&gt; A Key should use KeyRep as its serialized representation.
+Note that a serialized Key may contain sensitive information
+which should not be exposed in untrusted environments.  See the
+&lt;a href="../../../guide/serialization/spec/security.html"&gt;
+Security Appendix&lt;/a&gt;
+of the Serialization Specification for more information.
+
+@see PublicKey
+@see PrivateKey
+@see KeyPair
+@see KeyPairGenerator
+@see KeyFactory
+@see KeyRep
+@see java.security.spec.KeySpec
+@see Identity
+@see Signer
+
+@version 1.54 03/12/19
+@author Benjamin Renaud
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Key" refid="_9_5_f720368_1110473546674_814973_8461"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Key" refid="_9_5_f720368_1110473546674_814973_8461"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

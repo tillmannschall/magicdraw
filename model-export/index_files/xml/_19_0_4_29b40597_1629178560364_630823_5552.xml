@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_19_0_4_29b40597_1629178560364_630823_5552"><annotatedElement humanName="Annotated Element" mode="s,e"><property classType="Property" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="cascade" refid="_11_5_1ab00d4_1164055773625_504133_84"/></annotatedElement><body humanName="Body" mode="s,e">Attribute cascade can be used to define what should happen with the object on the applied association end when the other objects is saved, updated or deleted. It is possible to define more than one cascade type. 
+
+The following cascade types can be used: NONE, SAVE-UPDATE, PERSIST, MERGE, DELETE, REMOVE, LOCK, REPLICATE, EVICT, REFRESH, ALL and DELETE_ORPHAN
+
+As JEAF uses Java Persistence API (JPA) for persistence the concrete details about the cascade types can be taken from their documentation.
+
+Default value is NONE.</body><documentation humanName="Documentation"/><owner classType="Property" humanName="Owner" humanType="Property" icon="index_files/icon_property_1173242441.jpg" mode="s,e" name="cascade" refid="_11_5_1ab00d4_1164055773625_504133_84"/><owningElement classType="Property" humanName="Owning Element" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="cascade" refid="_11_5_1ab00d4_1164055773625_504133_84"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

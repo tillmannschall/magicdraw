@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306387_957855_4155"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CompositeContext" refid="_9_5_f720368_1110473546581_414980_6971"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;CompositeContext&lt;/code&gt; interface defines the encapsulated
+and optimized environment for a compositing operation.
+&lt;code&gt;CompositeContext&lt;/code&gt; objects maintain state for
+compositing operations.  In a multi-threaded environment, several
+contexts can exist simultaneously for a single {@link Composite}
+object.
+@see Composite
+@version 10 Feb 1997
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CompositeContext" refid="_9_5_f720368_1110473546581_414980_6971"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CompositeContext" refid="_9_5_f720368_1110473546581_414980_6971"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

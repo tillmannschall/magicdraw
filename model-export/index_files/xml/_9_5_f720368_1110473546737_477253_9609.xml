@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546737_477253_9609"><documentation humanName="Documentation" mode="standard">&lt;p&gt; This is an abstract class for representing the configuration of
+LoginModules under an application.  The &lt;code&gt;Configuration&lt;/code&gt; specifies
+which LoginModules should be used for a particular application, and in what
+order the LoginModules should be invoked.
+This abstract class needs to be subclassed to provide an implementation
+which reads and loads the actual &lt;code&gt;Configuration&lt;/code&gt;.
+
+&lt;p&gt; A login configuration contains the following information.
+Note that this example only represents the default syntax for the
+&lt;code&gt;Configuration&lt;/code&gt;.  Subclass implementations of this class
+may implement alternative syntaxes and may retrieve the
+&lt;code&gt;Configuration&lt;/code&gt; from any source such as files, databases,
+or servers.
+
+&lt;pre&gt;
+Name {
+ModuleClass  Flag    ModuleOptions;
+ModuleClass  Flag    ModuleOptions;
+ModuleClass  Flag    ModuleOptions;
+};
+Name {
+ModuleClass  Flag    ModuleOptions;
+ModuleClass  Flag    ModuleOptions;
+};
+other {
+ModuleClass  Flag    ModuleOptions;
+ModuleClass  Flag    ModuleOptions;
+};
+&lt;/pre&gt;
+
+&lt;p&gt; Each entry in the &lt;code&gt;Configuration&lt;/code&gt; is indexed via an
+application name, &lt;i&gt;Name&lt;/i&gt;, and contains a list of
+LoginModules configured for that application.  Each &lt;code&gt;LoginModule&lt;/code&gt;
+is specified via its fully qualified class name.
+Authentication proceeds down the module list in the exact order specified.
+If an application does not have specific entry,
+it defaults to the specific entry for "&lt;i&gt;other&lt;/i&gt;".
+
+&lt;p&gt; The &lt;i&gt;Flag&lt;/i&gt; value controls the overall behavior as authentication
+proceeds down the stack.  The following represents a description of the
+valid values for &lt;i&gt;Flag&lt;/i&gt; and their respective semantics:
+
+&lt;pre&gt;
+1) Required     - The &lt;code&gt;LoginModule&lt;/code&gt; is required to succeed.
+If it succeeds or fails, authentication still continues
+to proceed down the &lt;code&gt;LoginModule&lt;/code&gt; list.
+
+2) Requisite    - The &lt;code&gt;LoginModule&lt;/code&gt; is required to succeed.
+If it succeeds, authentication continues down the
+&lt;code&gt;LoginModule&lt;/code&gt; list.  If it fails,
+control immediately returns to the application
+(authentication does not proceed down the
+&lt;code&gt;LoginModule&lt;/code&gt; list).
+
+3) Sufficient   - The &lt;code&gt;LoginModule&lt;/code&gt; is not required to
+succeed.  If it does succeed, control immediately
+returns to the application (authentication does not
+proceed down the &lt;code&gt;LoginModule&lt;/code&gt; list).
+If it fails, authentication continues down the
+&lt;code&gt;LoginModule&lt;/code&gt; list.
+
+4) Optional     - The &lt;code&gt;LoginModule&lt;/code&gt; is not required to
+succeed.  If it succeeds or fails,
+authentication still continues to proceed down the
+&lt;code&gt;LoginModule&lt;/code&gt; list.
+&lt;/pre&gt;
+
+&lt;p&gt; The overall authentication succeeds only if all &lt;i&gt;Required&lt;/i&gt; and
+&lt;i&gt;Requisite&lt;/i&gt; LoginModules succeed.  If a &lt;i&gt;Sufficient&lt;/i&gt;
+&lt;code&gt;LoginModule&lt;/code&gt; is configured and succeeds,
+then only the &lt;i&gt;Required&lt;/i&gt; and &lt;i&gt;Requisite&lt;/i&gt; LoginModules prior to
+that &lt;i&gt;Sufficient&lt;/i&gt; &lt;code&gt;LoginModule&lt;/code&gt; need to have succeeded for
+the overall authentication to succeed. If no &lt;i&gt;Required&lt;/i&gt; or
+&lt;i&gt;Requisite&lt;/i&gt; LoginModules are configured for an application,
+then at least one &lt;i&gt;Sufficient&lt;/i&gt; or &lt;i&gt;Optional&lt;/i&gt;
+&lt;code&gt;LoginModule&lt;/code&gt; must succeed.
+
+&lt;p&gt; &lt;i&gt;ModuleOptions&lt;/i&gt; is a space separated list of
+&lt;code&gt;LoginModule&lt;/code&gt;-specific values which are passed directly to
+the underlying LoginModules.  Options are defined by the
+&lt;code&gt;LoginModule&lt;/code&gt; itself, and control the behavior within it.
+For example, a &lt;code&gt;LoginModule&lt;/code&gt; may define options to support
+debugging/testing capabilities.  The correct way to specify options in the
+&lt;code&gt;Configuration&lt;/code&gt; is by using the following key-value pairing:
+&lt;i&gt;debug="true"&lt;/i&gt;.  The key and value should be separated by an
+'equals' symbol, and the value should be surrounded by double quotes.
+If a String in the form, ${system.property}, occurs in the value,
+it will be expanded to the value of the system property.
+Note that there is no limit to the number of
+options a &lt;code&gt;LoginModule&lt;/code&gt; may define.
+
+&lt;p&gt; The following represents an example &lt;code&gt;Configuration&lt;/code&gt; entry
+based on the syntax above:
+
+&lt;pre&gt;
+Login {
+com.sun.security.auth.module.UnixLoginModule required;
+com.sun.security.auth.module.Krb5LoginModule optional
+useTicketCache="true"
+ticketCache="${user.home}${/}tickets";
+};
+&lt;/pre&gt;
+
+&lt;p&gt; This &lt;code&gt;Configuration&lt;/code&gt; specifies that an application named,
+"Login", requires users to first authenticate to the
+&lt;i&gt;com.sun.security.auth.module.UnixLoginModule&lt;/i&gt;, which is
+required to succeed.  Even if the &lt;i&gt;UnixLoginModule&lt;/i&gt;
+authentication fails, the
+&lt;i&gt;com.sun.security.auth.module.Krb5LoginModule&lt;/i&gt;
+still gets invoked.  This helps hide the source of failure.
+Since the &lt;i&gt;Krb5LoginModule&lt;/i&gt; is &lt;i&gt;Optional&lt;/i&gt;, the overall
+authentication succeeds only if the &lt;i&gt;UnixLoginModule&lt;/i&gt;
+(&lt;i&gt;Required&lt;/i&gt;) succeeds.
+
+&lt;p&gt; Also note that the LoginModule-specific options,
+&lt;i&gt;useTicketCache="true"&lt;/i&gt; and
+&lt;i&gt;ticketCache=${user.home}${/}tickets"&lt;/i&gt;,
+are passed to the &lt;i&gt;Krb5LoginModule&lt;/i&gt;.
+These options instruct the &lt;i&gt;Krb5LoginModule&lt;/i&gt; to
+use the ticket cache at the specified location.
+The system properties, &lt;i&gt;user.home&lt;/i&gt; and &lt;i&gt;/&lt;/i&gt;
+(file.separator), are expanded to their respective values.
+
+&lt;p&gt; The default Configuration implementation can be changed by setting the
+value of the "login.configuration.provider" security property (in the Java
+security properties file) to the fully qualified name of
+the desired Configuration implementation class.
+The Java security properties file is located in the file named
+&lt;JAVA_HOME&gt;/lib/security/java.security, where &lt;JAVA_HOME&gt;
+refers to the directory where the JDK was installed.
+
+@version 1.57, 12/19/03
+@see javax.security.auth.login.LoginContext
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Configuration</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="login" refid="_9_5_f720368_1110473548065_99096_20735"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316050_32133_10454"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316050_32133_10454"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="login" refid="_9_5_f720368_1110473548065_99096_20735"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="login" refid="_9_5_f720368_1110473548065_99096_20735"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="login" refid="_9_5_f720368_1110473548065_99096_20735"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::security::auth::login::Configuration</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

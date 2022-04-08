@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317002_432125_10835"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CaretListener" refid="_9_5_f720368_1110473546753_881060_9835"/></annotatedElement><body humanName="Body" mode="s,e">Listener for changes in the caret position of a text
+component.
+
+@version 1.9 12/19/03
+@author  Timothy Prinzing
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CaretListener" refid="_9_5_f720368_1110473546753_881060_9835"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CaretListener" refid="_9_5_f720368_1110473546753_881060_9835"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

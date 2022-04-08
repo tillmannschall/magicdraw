@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314749_519522_9087"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="XMLFilter" refid="_9_5_f720368_1110473546956_371341_13308"/></annotatedElement><body humanName="Body" mode="s,e">Interface for an XML filter.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;An XML filter is like an XML reader, except that it obtains its
+events from another XML reader rather than a primary source like
+an XML document or database.  Filters can modify a stream of
+events as they pass on to the final application.&lt;/p&gt;
+
+&lt;p&gt;The XMLFilterImpl helper class provides a convenient base
+for creating SAX2 filters, by passing on all {@link org.xml.sax.EntityResolver
+EntityResolver}, {@link org.xml.sax.DTDHandler DTDHandler},
+{@link org.xml.sax.ContentHandler ContentHandler} and {@link org.xml.sax.ErrorHandler
+ErrorHandler} events automatically.&lt;/p&gt;
+
+@since SAX 2.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.helpers.XMLFilterImpl
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="XMLFilter" refid="_9_5_f720368_1110473546956_371341_13308"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="XMLFilter" refid="_9_5_f720368_1110473546956_371341_13308"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

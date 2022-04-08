@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318294_428819_12714"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DatatypeFactory" refid="_10_5_622020d_1132928318294_541714_12712"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Factory that creates new &lt;code&gt;javax.xml.datatype&lt;/code&gt; &lt;code&gt;Object&lt;/code&gt;s that map XML to/from Java &lt;code&gt;Object&lt;/code&gt;s.&lt;/p&gt;
+
+&lt;p id="DatatypeFactory.newInstance"&gt;{@link #newInstance()} is used to create a new &lt;code&gt;DatatypeFactory&lt;/code&gt;.
+The following implementation resolution mechanisms are used in the following order:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+If the system property specified by {@link #DATATYPEFACTORY_PROPERTY}, "&lt;code&gt;javax.xml.datatype.DatatypeFactory&lt;/code&gt;",
+exists, a class with the name of the property's value is instantiated.
+Any Exception thrown during the instantiation process is wrapped as a {@link DatatypeConfigurationException}.
+&lt;/li&gt;
+&lt;li&gt;
+If the file ${JAVA_HOME}/lib/jaxp.properties exists, it is loaded in a {@link java.util.Properties} &lt;code&gt;Object&lt;/code&gt;.
+The &lt;code&gt;Properties&lt;/code&gt; &lt;code&gt;Object &lt;/code&gt; is then queried for the property as documented in the prior step
+and processed as documented in the prior step.
+&lt;/li&gt;
+&lt;li&gt;
+The services resolution mechanism is used, e.g. &lt;code&gt;META-INF/services/java.xml.datatype.DatatypeFactory&lt;/code&gt;.
+Any Exception thrown during the instantiation process is wrapped as a {@link DatatypeConfigurationException}.
+&lt;/li&gt;
+&lt;li&gt;
+The final mechanism is to attempt to instantiate the &lt;code&gt;Class&lt;/code&gt; specified by
+{@link #DATATYPEFACTORY_IMPLEMENTATION_CLASS}, "&lt;code&gt;javax.xml.datatype.DatatypeFactoryImpl&lt;/code&gt;".
+Any Exception thrown during the instantiation process is wrapped as a {@link DatatypeConfigurationException}.
+&lt;/li&gt;
+&lt;/ol&gt;
+
+@author &lt;a href="mailto:Joseph.Fialli@Sun.COM"&gt;Joseph Fialli&lt;/a&gt;
+@author &lt;a href="mailto:Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+@version $Revision: 1.1.6.2.4.3 $, $Date: 2004/06/18 08:40:14 $
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="DatatypeFactory" refid="_10_5_622020d_1132928318294_541714_12712"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DatatypeFactory" refid="_10_5_622020d_1132928318294_541714_12712"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

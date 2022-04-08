@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546674_427803_8333"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::PKIXCertPathChecker -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928321859_621288_14131"/></clientDependency><documentation humanName="Documentation" mode="standard">An abstract class that performs one or more checks on an
+&lt;code&gt;X509Certificate&lt;/code&gt;.
+
+&lt;p&gt;A concrete implementation of the &lt;code&gt;PKIXCertPathChecker&lt;/code&gt; class
+can be created to extend the PKIX certification path validation algorithm.
+For example, an implementation may check for and process a critical private
+extension of each certificate in a certification path.
+
+&lt;p&gt;Instances of &lt;code&gt;PKIXCertPathChecker&lt;/code&gt; are passed as parameters
+using the {@link PKIXParameters#setCertPathCheckers setCertPathCheckers}
+or {@link PKIXParameters#addCertPathChecker addCertPathChecker} methods
+of the &lt;code&gt;PKIXParameters&lt;/code&gt; and &lt;code&gt;PKIXBuilderParameters&lt;/code&gt;
+class. Each of the &lt;code&gt;PKIXCertPathChecker&lt;/code&gt;s {@link #check check}
+methods will be called, in turn, for each certificate processed by a PKIX
+&lt;code&gt;CertPathValidator&lt;/code&gt; or &lt;code&gt;CertPathBuilder&lt;/code&gt;
+implementation.
+
+&lt;p&gt;A &lt;code&gt;PKIXCertPathChecker&lt;/code&gt; may be called multiple times on
+successive certificates in a certification path. Concrete subclasses
+are expected to maintain any internal state that may be necessary to
+check successive certificates. The {@link #init init} method is used
+to initialize the internal state of the checker so that the certificates
+of a new certification path may be checked. A stateful implementation
+&lt;b&gt;must&lt;/b&gt; override the {@link #clone clone} method if necessary in
+order to allow a PKIX &lt;code&gt;CertPathBuilder&lt;/code&gt; to efficiently
+backtrack and try other paths. In these situations, the
+&lt;code&gt;CertPathBuilder&lt;/code&gt; is able to restore prior path validation
+states by restoring the cloned &lt;code&gt;PKIXCertPathChecker&lt;/code&gt;s.
+
+&lt;p&gt;The order in which the certificates are presented to the
+&lt;code&gt;PKIXCertPathChecker&lt;/code&gt; may be either in the forward direction
+(from target to most-trusted CA) or in the reverse direction (from
+most-trusted CA to target). A &lt;code&gt;PKIXCertPathChecker&lt;/code&gt; implementation
+&lt;b&gt;must&lt;/b&gt; support reverse checking (the ability to perform its checks when
+it is presented with certificates in the reverse direction) and &lt;b&gt;may&lt;/b&gt;
+support forward checking (the ability to perform its checks when it is
+presented with certificates in the forward direction). The
+{@link #isForwardCheckingSupported isForwardCheckingSupported} method
+indicates whether forward checking is supported.
+&lt;p&gt;
+Additional input parameters required for executing the check may be
+specified through constructors of concrete implementations of this class.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Unless otherwise specified, the methods defined in this class are not
+thread-safe. Multiple threads that need to access a single
+object concurrently should synchronize amongst themselves and
+provide the necessary locking. Multiple threads each manipulating
+separate objects need not synchronize.
+
+@see PKIXParameters
+@see PKIXBuilderParameters
+
+@version 	1.7 12/19/03
+@since	1.4
+@author	Yassir Elley
+@author	Sean Mullan
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::PKIXCertPathChecker -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928321859_621288_14131"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">PKIXCertPathChecker</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309130_36602_5837"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309130_36602_5837"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::PKIXCertPathChecker -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928321859_621288_14131"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::cert::PKIXCertPathChecker</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

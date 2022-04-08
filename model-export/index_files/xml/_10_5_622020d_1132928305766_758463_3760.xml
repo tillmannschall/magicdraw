@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305766_758463_3760"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TextListener" refid="_9_5_f720368_1110473546565_590573_6609"/></annotatedElement><body humanName="Body" mode="s,e">The listener interface for receiving text events.
+
+The class that is interested in processing a text event
+implements this interface. The object created with that
+class is then registered with a component using the
+component's &lt;code&gt;addTextListener&lt;/code&gt; method. When the
+component's text changes, the listener object's
+&lt;code&gt;textValueChanged&lt;/code&gt; method is invoked.
+
+@author Georges Saab
+@version 1.12 12/19/03
+
+@see TextEvent
+@see &lt;a href="http://java.sun.com/docs/books/tutorial/post1.0/ui/textlistener.html"&gt;Tutorial: Writing a Text Listener&lt;/a&gt;
+@see &lt;a href="http://www.awl.com/cp/javaseries/jcl1_2.html"&gt;Reference: The Java Class Libraries (update file)&lt;/a&gt;
+
+@since 1.1
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="TextListener" refid="_9_5_f720368_1110473546565_590573_6609"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TextListener" refid="_9_5_f720368_1110473546565_590573_6609"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

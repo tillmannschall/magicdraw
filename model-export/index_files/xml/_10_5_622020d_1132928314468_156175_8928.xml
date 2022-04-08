@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314468_156175_8928"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="StyleSheet" refid="_9_5_f720368_1110473546940_68282_13200"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;StyleSheet&lt;/code&gt; interface is the abstract base interface for
+any type of style sheet. It represents a single style sheet associated
+with a structured document. In HTML, the StyleSheet interface represents
+either an external style sheet, included via the HTML  LINK element, or
+an inline  STYLE element. In XML, this interface represents an external
+style sheet, included via a style sheet processing instruction.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/REC-DOM-Level-2-Style-20001113'&gt;Document Object Model (DOM) Level 2 Style Specification&lt;/a&gt;.
+@since DOM Level 2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="StyleSheet" refid="_9_5_f720368_1110473546940_68282_13200"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="StyleSheet" refid="_9_5_f720368_1110473546940_68282_13200"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

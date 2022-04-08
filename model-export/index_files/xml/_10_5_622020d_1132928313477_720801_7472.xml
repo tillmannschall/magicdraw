@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313477_720801_7472"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SortedMap" refid="_9_5_f720368_1110473546706_877571_8923"/></annotatedElement><body humanName="Body" mode="s,e">A map that further guarantees that it will be in ascending key order,
+sorted according to the &lt;i&gt;natural ordering&lt;/i&gt; of its keys (see the
+&lt;tt&gt;Comparable&lt;/tt&gt; interface), or by a comparator provided at sorted map
+creation time.  This order is reflected when iterating over the sorted
+map's collection views (returned by the &lt;tt&gt;entrySet&lt;/tt&gt;, &lt;tt&gt;keySet&lt;/tt&gt;
+and &lt;tt&gt;values&lt;/tt&gt; methods).  Several additional operations are provided
+to take advantage of the ordering.  (This interface is the map analogue of
+the &lt;tt&gt;SortedSet&lt;/tt&gt; interface.)&lt;p&gt;
+
+All keys inserted into a sorted map must implement the &lt;tt&gt;Comparable&lt;/tt&gt;
+interface (or be accepted by the specified comparator).  Furthermore, all
+such keys must be &lt;i&gt;mutually comparable&lt;/i&gt;: &lt;tt&gt;k1.compareTo(k2)&lt;/tt&gt; (or
+&lt;tt&gt;comparator.compare(k1, k2)&lt;/tt&gt;) must not throw a
+&lt;tt&gt;ClassCastException&lt;/tt&gt; for any elements &lt;tt&gt;k1&lt;/tt&gt; and &lt;tt&gt;k2&lt;/tt&gt; in
+the sorted map.  Attempts to violate this restriction will cause the
+offending method or constructor invocation to throw a
+&lt;tt&gt;ClassCastException&lt;/tt&gt;.&lt;p&gt;
+
+Note that the ordering maintained by a sorted map (whether or not an
+explicit comparator is provided) must be &lt;i&gt;consistent with equals&lt;/i&gt; if
+the sorted map is to correctly implement the &lt;tt&gt;Map&lt;/tt&gt; interface.  (See
+the &lt;tt&gt;Comparable&lt;/tt&gt; interface or &lt;tt&gt;Comparator&lt;/tt&gt; interface for a
+precise definition of &lt;i&gt;consistent with equals&lt;/i&gt;.)  This is so because
+the &lt;tt&gt;Map&lt;/tt&gt; interface is defined in terms of the &lt;tt&gt;equals&lt;/tt&gt;
+operation, but a sorted map performs all key comparisons using its
+&lt;tt&gt;compareTo&lt;/tt&gt; (or &lt;tt&gt;compare&lt;/tt&gt;) method, so two keys that are
+deemed equal by this method are, from the standpoint of the sorted map,
+equal.  The behavior of a tree map &lt;i&gt;is&lt;/i&gt; well-defined even if its
+ordering is inconsistent with equals; it just fails to obey the general
+contract of the &lt;tt&gt;Map&lt;/tt&gt; interface.&lt;p&gt;
+
+All general-purpose sorted map implementation classes should provide four
+"standard" constructors: 1) A void (no arguments) constructor, which
+creates an empty sorted map sorted according to the &lt;i&gt;natural order&lt;/i&gt; of
+its keys.  2) A constructor with a single argument of type
+&lt;tt&gt;Comparator&lt;/tt&gt;, which creates an empty sorted map sorted according to
+the specified comparator.  3) A constructor with a single argument of type
+&lt;tt&gt;Map&lt;/tt&gt;, which creates a new map with the same key-value mappings as
+its argument, sorted according to the keys' natural ordering.  4) A
+constructor with a single argument of type sorted map, which creates a new
+sorted map with the same key-value mappings and the same ordering as the
+input sorted map.  There is no way to enforce this recommendation (as
+interfaces cannot contain constructors) but the JDK implementation
+(TreeMap) complies.&lt;p&gt;
+
+This interface is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@version 1.21, 06/28/04
+@see Map
+@see TreeMap
+@see SortedSet
+@see Comparator
+@see Comparable
+@see Collection
+@see ClassCastException
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="SortedMap" refid="_9_5_f720368_1110473546706_877571_8923"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SortedMap" refid="_9_5_f720368_1110473546706_877571_8923"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

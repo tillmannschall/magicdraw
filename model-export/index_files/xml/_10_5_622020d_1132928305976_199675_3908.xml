@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305976_199675_3908"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AffineTransformOp" refid="_9_5_f720368_1110473546565_569133_6743"/></annotatedElement><body humanName="Body" mode="s,e">This class uses an affine transform to perform a linear mapping from
+2D coordinates in the source image or &lt;CODE&gt;Raster&lt;/CODE&gt; to 2D coordinates
+in the destination image or &lt;CODE&gt;Raster&lt;/CODE&gt;.
+The type of interpolation that is used is specified through a constructor,
+either by a &lt;CODE&gt;RenderingHints&lt;/CODE&gt; object or by one of the integer
+interpolation types defined in this class.
+&lt;p&gt;
+If a &lt;CODE&gt;RenderingHints&lt;/CODE&gt; object is specified in the constructor, the
+interpolation hint and the rendering quality hint are used to set
+the interpolation type for this operation.  The color rendering hint
+and the dithering hint can be used when color conversion is required.
+&lt;p&gt;
+Note that the following constraints have to be met:
+&lt;ul&gt;
+&lt;li&gt;The source and destination must be different.
+&lt;li&gt;For &lt;CODE&gt;Raster&lt;/CODE&gt; objects, the number of bands in the source must
+be equal to the number of bands in the destination.
+&lt;/ul&gt;
+@see AffineTransform
+@see BufferedImageFilter
+@see java.awt.RenderingHints#KEY_INTERPOLATION
+@see java.awt.RenderingHints#KEY_RENDERING
+@see java.awt.RenderingHints#KEY_COLOR_RENDERING
+@see java.awt.RenderingHints#KEY_DITHERING
+@version 16 Apr 1998
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AffineTransformOp" refid="_9_5_f720368_1110473546565_569133_6743"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AffineTransformOp" refid="_9_5_f720368_1110473546565_569133_6743"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313347_681155_7424"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PropertyPermission" refid="_9_5_f720368_1110473546706_596882_8905"/></annotatedElement><body humanName="Body" mode="s,e">This class is for property permissions.
+
+&lt;P&gt;
+The name is the name of the property ("java.home",
+"os.name", etc). The naming
+convention follows the  hierarchical property naming convention.
+Also, an asterisk
+may appear at the end of the name, following a ".", or by itself, to
+signify a wildcard match. For example: "java.*" or "*" is valid,
+"*java" or "a*b" is not valid.
+&lt;P&gt;
+&lt;P&gt;
+The actions to be granted are passed to the constructor in a string containing
+a list of zero or more comma-separated keywords. The possible keywords are
+"read" and "write". Their meaning is defined as follows:
+&lt;P&gt;
+&lt;DL&gt;
+&lt;DT&gt; read
+&lt;DD&gt; read permission. Allows &lt;code&gt;System.getProperty&lt;/code&gt; to
+be called.
+&lt;DT&gt; write
+&lt;DD&gt; write permission. Allows &lt;code&gt;System.setProperty&lt;/code&gt; to
+be called.
+&lt;/DL&gt;
+&lt;P&gt;
+The actions string is converted to lowercase before processing.
+&lt;P&gt;
+Care should be taken before granting code permission to access
+certain system properties.  For example, granting permission to
+access the "java.home" system property gives potentially malevolent
+code sensitive information about the system environment (the Java
+installation directory).  Also, granting permission to access
+the "user.name" and "user.home" system properties gives potentially
+malevolent code sensitive information about the user environment
+(the user's account name and home directory).
+
+@see java.security.BasicPermission
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionCollection
+@see java.lang.SecurityManager
+
+@version 1.33 03/12/19
+
+@author Roland Schemers
+@since 1.2
+
+@serial exclude
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PropertyPermission" refid="_9_5_f720368_1110473546706_596882_8905"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PropertyPermission" refid="_9_5_f720368_1110473546706_596882_8905"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

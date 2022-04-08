@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317663_129319_12099"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LabelView" refid="_9_5_f720368_1110473546784_679959_10487"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;LabelView&lt;/code&gt; is a styled chunk of text
+that represents a view mapped over an element in the
+text model.  It caches the character level attributes
+used for rendering.
+
+@author Timothy Prinzing
+@version 1.68 06/28/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="LabelView" refid="_9_5_f720368_1110473546784_679959_10487"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LabelView" refid="_9_5_f720368_1110473546784_679959_10487"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

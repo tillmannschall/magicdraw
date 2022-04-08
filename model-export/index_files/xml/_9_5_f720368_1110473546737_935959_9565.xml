@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546737_935959_9565"><documentation humanName="Documentation" mode="standard">Server implementation objects may either inherit from
+javax.rmi.PortableRemoteObject or they may implement a remote interface
+and then use the exportObject method to register themselves as a server object.
+The toStub method takes a server implementation and returns a stub that
+can be used to access that server object.
+The connect method makes a Remote object ready for remote communication.
+The unexportObject method is used to deregister a server object, allowing it to become
+available for garbage collection.
+The narrow method takes an object reference or abstract interface type and
+attempts to narrow it to conform to
+the given interface. If the operation is successful the result will be an
+object of the specified type, otherwise an exception will be thrown.
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">PortableRemoteObject</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rmi" refid="_9_5_f720368_1110473548065_248877_20664"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316000_771466_10403"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316000_771466_10403"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="rmi" refid="_9_5_f720368_1110473548065_248877_20664"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rmi" refid="_9_5_f720368_1110473548065_248877_20664"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rmi" refid="_9_5_f720368_1110473548065_248877_20664"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::rmi::PortableRemoteObject</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

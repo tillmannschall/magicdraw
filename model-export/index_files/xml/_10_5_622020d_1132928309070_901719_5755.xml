@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309070_901719_5755"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UnmarshalException" refid="_9_5_f720368_1110473546674_539854_8253"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;UnmarshalException&lt;/code&gt; can be thrown while unmarshalling the
+parameters or results of a remote method call if any of the following
+conditions occur:
+&lt;ul&gt;
+&lt;li&gt; if an exception occurs while unmarshalling the call header
+&lt;li&gt; if the protocol for the return value is invalid
+&lt;li&gt; if a &lt;code&gt;java.io.IOException&lt;/code&gt; occurs unmarshalling
+parameters (on the server side) or the return value (on the client side).
+&lt;li&gt; if a &lt;code&gt;java.lang.ClassNotFoundException&lt;/code&gt; occurs during
+unmarshalling parameters or return values
+&lt;li&gt; if no skeleton can be loaded on the server-side; note that skeletons
+are required in the 1.1 stub protocol, but not in the 1.2 stub protocol.
+&lt;li&gt; if the method hash is invalid (i.e., missing method).
+&lt;li&gt; if there is a failure to create a remote reference object for
+a remote object's stub when it is unmarshalled.
+&lt;/ul&gt;
+
+@version 1.12, 12/19/03
+@author  Ann Wollrath
+@since   JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="UnmarshalException" refid="_9_5_f720368_1110473546674_539854_8253"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UnmarshalException" refid="_9_5_f720368_1110473546674_539854_8253"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

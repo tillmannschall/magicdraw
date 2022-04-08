@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_875688_7113"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::Scrollbar -&gt; JDK 5.0 Classes::java::awt::Adjustable]" refid="_10_5_622020d_1132928321488_150545_13335"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::Scrollbar -&gt; JDK 5.0 Classes::javax::accessibility::Accessible]" refid="_10_5_622020d_1132928321488_229482_13336"/></clientDependency><documentation humanName="Documentation" mode="standard">The &lt;code&gt;Scrollbar&lt;/code&gt; class embodies a scroll bar, a
+familiar user-interface object. A scroll bar provides a
+convenient means for allowing a user to select from a
+range of values. The following three vertical
+scroll bars could be used as slider controls to pick
+the red, green, and blue components of a color:
+&lt;p&gt;
+&lt;img src="doc-files/Scrollbar-1.gif" alt="Image shows 3 vertical sliders, side-by-side."
+ALIGN=center HSPACE=10 VSPACE=7&gt;
+&lt;p&gt;
+Each scroll bar in this example could be created with
+code similar to the following:
+&lt;p&gt;
+&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+redSlider=new Scrollbar(Scrollbar.VERTICAL, 0, 1, 0, 255);
+add(redSlider);
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+Alternatively, a scroll bar can represent a range of values. For
+example, if a scroll bar is used for scrolling through text, the
+width of the "bubble" (also called the "thumb" or "scroll box")
+can be used to represent the amount of text that is visible.
+Here is an example of a scroll bar that represents a range:
+&lt;p&gt;
+&lt;img src="doc-files/Scrollbar-2.gif"
+alt="Image shows horizontal slider with starting range of 0 and ending range of 300. The slider thumb is labeled 60."
+ALIGN=center HSPACE=10 VSPACE=7&gt;
+&lt;p&gt;
+The value range represented by the bubble in this example
+is the &lt;em&gt;visible amount&lt;/em&gt;. The horizontal scroll bar
+in this example could be created with code like the following:
+&lt;p&gt;
+&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+ranger = new Scrollbar(Scrollbar.HORIZONTAL, 0, 60, 0, 300);
+add(ranger);
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+Note that the actual maximum value of the scroll bar is the
+&lt;code&gt;maximum&lt;/code&gt; minus the &lt;code&gt;visible amount&lt;/code&gt;.
+In the previous example, because the &lt;code&gt;maximum&lt;/code&gt; is
+300 and the &lt;code&gt;visible amount&lt;/code&gt; is 60, the actual maximum
+value is 240.  The range of the scrollbar track is 0 - 300.
+The left side of the bubble indicates the value of the
+scroll bar.
+&lt;p&gt;
+Normally, the user changes the value of the scroll bar by
+making a gesture with the mouse. For example, the user can
+drag the scroll bar's bubble up and down, or click in the
+scroll bar's unit increment or block increment areas. Keyboard
+gestures can also be mapped to the scroll bar. By convention,
+the &lt;b&gt;Page&amp;nbsp;Up&lt;/b&gt; and &lt;b&gt;Page&amp;nbsp;Down&lt;/b&gt;
+keys are equivalent to clicking in the scroll bar's block
+increment and block decrement areas.
+&lt;p&gt;
+When the user changes the value of the scroll bar, the scroll bar
+receives an instance of &lt;code&gt;AdjustmentEvent&lt;/code&gt;.
+The scroll bar processes this event, passing it along to
+any registered listeners.
+&lt;p&gt;
+Any object that wishes to be notified of changes to the
+scroll bar's value should implement
+&lt;code&gt;AdjustmentListener&lt;/code&gt;, an interface defined in
+the package &lt;code&gt;java.awt.event&lt;/code&gt;.
+Listeners can be added and removed dynamically by calling
+the methods &lt;code&gt;addAdjustmentListener&lt;/code&gt; and
+&lt;code&gt;removeAdjustmentListener&lt;/code&gt;.
+&lt;p&gt;
+The &lt;code&gt;AdjustmentEvent&lt;/code&gt; class defines five types
+of adjustment event, listed here:
+&lt;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;AdjustmentEvent.TRACK&lt;/code&gt; is sent out when the
+user drags the scroll bar's bubble.
+&lt;li&gt;&lt;code&gt;AdjustmentEvent.UNIT_INCREMENT&lt;/code&gt; is sent out
+when the user clicks in the left arrow of a horizontal scroll
+bar, or the top arrow of a vertical scroll bar, or makes the
+equivalent gesture from the keyboard.
+&lt;li&gt;&lt;code&gt;AdjustmentEvent.UNIT_DECREMENT&lt;/code&gt; is sent out
+when the user clicks in the right arrow of a horizontal scroll
+bar, or the bottom arrow of a vertical scroll bar, or makes the
+equivalent gesture from the keyboard.
+&lt;li&gt;&lt;code&gt;AdjustmentEvent.BLOCK_INCREMENT&lt;/code&gt; is sent out
+when the user clicks in the track, to the left of the bubble
+on a horizontal scroll bar, or above the bubble on a vertical
+scroll bar. By convention, the &lt;b&gt;Page&amp;nbsp;Up&lt;/b&gt;
+key is equivalent, if the user is using a keyboard that
+defines a &lt;b&gt;Page&amp;nbsp;Up&lt;/b&gt; key.
+&lt;li&gt;&lt;code&gt;AdjustmentEvent.BLOCK_DECREMENT&lt;/code&gt; is sent out
+when the user clicks in the track, to the right of the bubble
+on a horizontal scroll bar, or below the bubble on a vertical
+scroll bar. By convention, the &lt;b&gt;Page&amp;nbsp;Down&lt;/b&gt;
+key is equivalent, if the user is using a keyboard that
+defines a &lt;b&gt;Page&amp;nbsp;Down&lt;/b&gt; key.
+&lt;/ul&gt;
+&lt;p&gt;
+The JDK&amp;nbsp;1.0 event system is supported for backwards
+compatibility, but its use with newer versions of the platform is
+discouraged. The five types of adjustment events introduced
+with JDK&amp;nbsp;1.1 correspond to the five event types
+that are associated with scroll bars in previous platform versions.
+The following list gives the adjustment event type,
+and the corresponding JDK&amp;nbsp;1.0 event type it replaces.
+&lt;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;AdjustmentEvent.TRACK&lt;/code&gt; replaces
+&lt;code&gt;Event.SCROLL_ABSOLUTE&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;AdjustmentEvent.UNIT_INCREMENT&lt;/code&gt; replaces
+&lt;code&gt;Event.SCROLL_LINE_UP&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;AdjustmentEvent.UNIT_DECREMENT&lt;/code&gt; replaces
+&lt;code&gt;Event.SCROLL_LINE_DOWN&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;AdjustmentEvent.BLOCK_INCREMENT&lt;/code&gt; replaces
+&lt;code&gt;Event.SCROLL_PAGE_UP&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;AdjustmentEvent.BLOCK_DECREMENT&lt;/code&gt; replaces
+&lt;code&gt;Event.SCROLL_PAGE_DOWN&lt;/code&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;b&gt;Note&lt;/b&gt;: We recommend using a &lt;code&gt;Scrollbar&lt;/code&gt;
+for value selection only.  If you want to implement
+a scrollable component inside a container, we recommend you use
+a {@link ScrollPane ScrollPane}. If you use a
+&lt;code&gt;Scrollbar&lt;/code&gt; for this purpose, you are likely to
+encounter issues with painting, key handling, sizing and
+positioning.
+
+@version 	1.108, 05/18/04
+@author 	Sami Shaio
+@see         java.awt.event.AdjustmentEvent
+@see         java.awt.event.AdjustmentListener
+@since       JDK1.0
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321488_841500_13337"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleAWTComponent" refid="_9_5_f720368_1110473547378_128539_16940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTTreeLock" refid="_9_5_f720368_1110473547378_254209_16930"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BltBufferStrategy" refid="_9_5_f720368_1110473547378_697224_16934"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlipBufferStrategy" refid="_9_5_f720368_1110473547378_178907_16932"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeInLightFixer" refid="_9_5_f720368_1110473547378_946319_16938"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SingleBufferStrategy" refid="_9_5_f720368_1110473547378_190538_16936"/></inheritedMember><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::Scrollbar -&gt; JDK 5.0 Classes::java::awt::Adjustable]" refid="_10_5_622020d_1132928321488_150545_13335"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::Scrollbar -&gt; JDK 5.0 Classes::javax::accessibility::Accessible]" refid="_10_5_622020d_1132928321488_229482_13336"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleAWTComponent" refid="_9_5_f720368_1110473547378_128539_16940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTScrollBar" refid="_9_5_f720368_1110473547424_518484_17115"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTTreeLock" refid="_9_5_f720368_1110473547378_254209_16930"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BltBufferStrategy" refid="_9_5_f720368_1110473547378_697224_16934"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlipBufferStrategy" refid="_9_5_f720368_1110473547378_178907_16932"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeInLightFixer" refid="_9_5_f720368_1110473547378_946319_16938"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SingleBufferStrategy" refid="_9_5_f720368_1110473547378_190538_16936"/></member><name humanName="Name" mode="s,e">Scrollbar</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTScrollBar" refid="_9_5_f720368_1110473547424_518484_17115"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306727_989197_4327"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321488_841500_13337"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306727_989197_4327"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTScrollBar" refid="_9_5_f720368_1110473547424_518484_17115"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::Scrollbar -&gt; JDK 5.0 Classes::java::awt::Adjustable]" refid="_10_5_622020d_1132928321488_150545_13335"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::Scrollbar -&gt; JDK 5.0 Classes::javax::accessibility::Accessible]" refid="_10_5_622020d_1132928321488_229482_13336"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTScrollBar" refid="_9_5_f720368_1110473547424_518484_17115"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::Scrollbar</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Accessible" refid="_9_5_f720368_1110473546706_827345_8951"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Adjustable" refid="_9_5_f720368_1110473546581_905901_6923"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Component" refid="_9_5_f720368_1110473546581_653823_6965"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

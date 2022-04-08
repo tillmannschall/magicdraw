@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315229_76023_9789"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MBeanServerPermission" refid="_10_5_622020d_1132928315229_898662_9787"/></annotatedElement><body humanName="Body" mode="s,e">A Permission to perform actions related to MBeanServers.
+The &lt;em&gt;name&lt;/em&gt; of the permission specifies the operation requested
+or granted by the permission.  For a granted permission, it can be
+&lt;code&gt;*&lt;/code&gt; to allow all of the MBeanServer operations specified below.
+Otherwise, for a granted or requested permission, it must be one of the
+following:
+&lt;dl&gt;
+&lt;dt&gt;createMBeanServer&lt;/dt&gt;
+&lt;dd&gt;Create a new MBeanServer object using the method
+{@link MBeanServerFactory#createMBeanServer()} or
+{@link MBeanServerFactory#createMBeanServer(java.lang.String)}.
+&lt;dt&gt;findMBeanServer&lt;/dt&gt;
+&lt;dd&gt;Find an MBeanServer with a given name, or all MBeanServers in this
+JVM, using the method {@link MBeanServerFactory#findMBeanServer}.
+&lt;dt&gt;newMBeanServer&lt;/dt&gt;
+&lt;dd&gt;Create a new MBeanServer object without keeping a reference to it,
+using the method {@link MBeanServerFactory#newMBeanServer()} or
+{@link MBeanServerFactory#newMBeanServer(java.lang.String)}.
+&lt;dt&gt;releaseMBeanServer&lt;/dt&gt;
+&lt;dd&gt;Remove the MBeanServerFactory's reference to an MBeanServer,
+using the method {@link MBeanServerFactory#releaseMBeanServer}.
+&lt;/dl&gt;
+The &lt;em&gt;name&lt;/em&gt; of the permission can also denote a list of one or more
+comma-separated operations.  Spaces are allowed at the beginning and
+end of the &lt;em&gt;name&lt;/em&gt; and before and after commas.
+&lt;p&gt;
+&lt;code&gt;MBeanServerPermission("createMBeanServer")&lt;/code&gt; implies
+&lt;code&gt;MBeanServerPermission("newMBeanServer")&lt;/code&gt;.
+
+@since 1.5
+@since.unbundled JMX 1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MBeanServerPermission" refid="_10_5_622020d_1132928315229_898662_9787"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MBeanServerPermission" refid="_10_5_622020d_1132928315229_898662_9787"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

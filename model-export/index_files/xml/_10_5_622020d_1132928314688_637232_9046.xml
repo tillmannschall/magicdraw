@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314688_637232_9046"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParserAdapter" refid="_9_5_f720368_1110473546940_296412_13268"/></annotatedElement><body humanName="Body" mode="s,e">Adapt a SAX1 Parser as a SAX2 XMLReader.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This class wraps a SAX1 {@link org.xml.sax.Parser Parser}
+and makes it act as a SAX2 {@link org.xml.sax.XMLReader XMLReader},
+with feature, property, and Namespace support.  Note
+that it is not possible to report {@link org.xml.sax.ContentHandler#skippedEntity
+skippedEntity} events, since SAX1 does not make that information available.&lt;/p&gt;
+
+&lt;p&gt;This adapter does not test for duplicate Namespace-qualified
+attribute names.&lt;/p&gt;
+
+@since SAX 2.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.helpers.XMLReaderAdapter
+@see org.xml.sax.XMLReader
+@see org.xml.sax.Parser
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ParserAdapter" refid="_9_5_f720368_1110473546940_296412_13268"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParserAdapter" refid="_9_5_f720368_1110473546940_296412_13268"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

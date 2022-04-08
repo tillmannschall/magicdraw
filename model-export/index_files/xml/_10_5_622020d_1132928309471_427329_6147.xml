@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309471_427329_6147"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UnresolvedPermissionCollection" refid="_9_5_f720368_1110473546690_95743_8545"/></annotatedElement><body humanName="Body" mode="s,e">A UnresolvedPermissionCollection stores a collection
+of UnresolvedPermission permissions.
+
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.UnresolvedPermission
+
+@version 1.14 03/12/19
+
+@author Roland Schemers
+
+@serial include
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="UnresolvedPermissionCollection" refid="_9_5_f720368_1110473546690_95743_8545"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UnresolvedPermissionCollection" refid="_9_5_f720368_1110473546690_95743_8545"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

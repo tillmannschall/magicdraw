@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305966_742931_3890"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="InputMethodRequests" refid="_9_5_f720368_1110473546565_674254_6725"/></annotatedElement><body humanName="Body" mode="s,e">InputMethodRequests defines the requests that a text editing component
+has to handle in order to work with input methods. The component
+can implement this interface itself or use a separate object that
+implements it. The object implementing this interface must be returned
+from the component's getInputMethodRequests method.
+
+&lt;p&gt;
+The text editing component also has to provide an input method event
+listener.
+
+&lt;p&gt;
+The interface is designed to support one of two input user interfaces:
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;on-the-spot&lt;/em&gt; input, where the composed text is displayed as part
+of the text component's text body.
+&lt;li&gt;&lt;em&gt;below-the-spot&lt;/em&gt; input, where the composed text is displayed in
+a separate composition window just below the insertion point where
+the text will be inserted when it is committed. Note that, if text is
+selected within the component's text body, this text will be replaced by
+the committed text upon commitment; therefore it is not considered part
+of the context that the text is input into.
+&lt;/ul&gt;
+
+@see java.awt.Component#getInputMethodRequests
+@see java.awt.event.InputMethodListener
+
+@version 	1.18, 12/19/03
+@author JavaSoft Asia/Pacific
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="InputMethodRequests" refid="_9_5_f720368_1110473546565_674254_6725"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="InputMethodRequests" refid="_9_5_f720368_1110473546565_674254_6725"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

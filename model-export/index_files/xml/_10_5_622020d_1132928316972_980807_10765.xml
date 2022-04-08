@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316972_980807_10765"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RowSetEvent" refid="_9_5_f720368_1110473546753_943654_9763"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;Event&lt;/code&gt; object generated when an event occurs to a
+&lt;code&gt;RowSet&lt;/code&gt; object.  A &lt;code&gt;RowSetEvent&lt;/code&gt; object is
+generated when a single row in a rowset is changed, the whole rowset
+is changed, or the rowset cursor moves.
+&lt;P&gt;
+When an event occurs on a &lt;code&gt;RowSet&lt;/code&gt; object, one of the
+&lt;code&gt;RowSetListener&lt;/code&gt; methods will be sent to all registered
+listeners to notify them of the event.  An &lt;code&gt;Event&lt;/code&gt; object
+is supplied to the &lt;code&gt;RowSetListener&lt;/code&gt; method so that the
+listener can use it to find out which &lt;code&gt;RowSet&lt;/code&gt; object is
+the source of the event.
+
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RowSetEvent" refid="_9_5_f720368_1110473546753_943654_9763"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RowSetEvent" refid="_9_5_f720368_1110473546753_943654_9763"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

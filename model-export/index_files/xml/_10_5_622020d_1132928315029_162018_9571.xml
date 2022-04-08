@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315029_162018_9571"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JMXConnectionNotification" refid="_10_5_622020d_1132928315029_740705_9569"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Notification emitted when a client connection is opened or
+closed or when notifications are lost.  These notifications are
+sent by connector servers (instances of {@link JMXConnectorServer})
+and by connector clients (instances of {@link JMXConnector}).  For
+certain connectors, a session can consist of a sequence of
+connections.  Connection-opened and connection-closed notifications
+will be sent for each one.&lt;/p&gt;
+
+&lt;p&gt;The notification type is one of the following:&lt;/p&gt;
+
+&lt;table&gt;
+
+&lt;tr&gt;
+&lt;th align=left&gt;Type&lt;/th&gt;
+&lt;th align=left&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;jmx.remote.connection.opened&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A new client connection has been opened.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;jmx.remote.connection.closed&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A client connection has been closed.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;jmx.remote.connection.failed&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A client connection has failed unexpectedly.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;jmx.remote.connection.notifs.lost&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A client connection has potentially lost notifications.  This
+notification only appears on the client side.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The &lt;code&gt;timeStamp&lt;/code&gt; of the notification is a time value
+(consistent with {@link System#currentTimeMillis()}) indicating
+when the notification was constructed.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JMXConnectionNotification" refid="_10_5_622020d_1132928315029_740705_9569"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JMXConnectionNotification" refid="_10_5_622020d_1132928315029_740705_9569"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

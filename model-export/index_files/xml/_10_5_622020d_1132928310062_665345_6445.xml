@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928310062_665345_6445"><documentation humanName="Documentation" mode="standard">A service that decouples the production of new asynchronous tasks
+from the consumption of the results of completed tasks.  Producers
+&lt;tt&gt;submit&lt;/tt&gt; tasks for execution. Consumers &lt;tt&gt;take&lt;/tt&gt;
+completed tasks and process their results in the order they
+complete.  A &lt;tt&gt;CompletionService&lt;/tt&gt; can for example be used to
+manage asynchronous IO, in which tasks that perform reads are
+submitted in one part of a program or system, and then acted upon
+in a different part of the program when the reads complete,
+possibly in a different order than they were requested.
+&lt;p&gt;
+
+Typically, a &lt;tt&gt;CompletionService&lt;/tt&gt; relies on a separate {@link
+Executor} to actually execute the tasks, in which case the
+&lt;tt&gt;CompletionService&lt;/tt&gt; only manages an internal completion
+queue. The {@link ExecutorCompletionService} class provides an
+implementation of this approach.
+
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">CompletionService</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310072_90833_6450"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928310072_499191_6446"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310072_90833_6450"/></ownedElement><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928310072_499191_6446"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::concurrent::CompletionService</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

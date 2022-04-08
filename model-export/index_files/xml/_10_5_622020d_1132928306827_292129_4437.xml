@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306827_292129_4437"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IndexedPropertyChangeEvent" refid="_10_5_622020d_1132928306827_253858_4435"/></annotatedElement><body humanName="Body" mode="s,e">An "IndexedPropertyChange" event gets delivered whenever a component that
+conforms to the JavaBeans&lt;TM&gt; specification (a "bean") changes a bound
+indexed property. This class is an extension of &lt;code&gt;PropertyChangeEvent&lt;/code&gt;
+but contains the index of the property that has changed.
+&lt;P&gt;
+Null values may be provided for the old and the new values if their
+true values are not known.
+&lt;P&gt;
+An event source may send a null object as the name to indicate that an
+arbitrary set of if its properties have changed.  In this case the
+old and new values should also be null.
+
+@version 1.4 12/19/03
+@since 1.5
+@author Mark Davidson
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="IndexedPropertyChangeEvent" refid="_10_5_622020d_1132928306827_253858_4435"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IndexedPropertyChangeEvent" refid="_10_5_622020d_1132928306827_253858_4435"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

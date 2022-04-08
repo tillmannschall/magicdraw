@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317432_989088_11805"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Attribute" refid="_9_5_f720368_1110473548299_770352_22888"/></annotatedElement><body humanName="Body" mode="s,e">Definitions to be used as a key on AttributeSet's
+that might hold CSS attributes.  Since this is a
+closed set (i.e. defined exactly by the specification),
+it is final and cannot be extended.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Attribute" refid="_9_5_f720368_1110473548299_770352_22888"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Attribute" refid="_9_5_f720368_1110473548299_770352_22888"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

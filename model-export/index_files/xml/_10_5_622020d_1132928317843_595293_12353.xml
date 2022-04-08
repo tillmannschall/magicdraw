@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317843_595293_12353"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultListModel" refid="_9_5_f720368_1110473546784_127899_10677"/></annotatedElement><body humanName="Body" mode="s,e">This class loosely implements the &lt;code&gt;java.util.Vector&lt;/code&gt;
+API, in that it implements the 1.1.x version of
+&lt;code&gt;java.util.Vector&lt;/code&gt;, has no collection class support,
+and notifies the &lt;code&gt;ListDataListener&lt;/code&gt;s when changes occur.
+Presently it delegates to a &lt;code&gt;Vector&lt;/code&gt;,
+in a future release it will be a real Collection implementation.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.35 05/05/04
+@author Hans Muller
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DefaultListModel" refid="_9_5_f720368_1110473546784_127899_10677"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultListModel" refid="_9_5_f720368_1110473546784_127899_10677"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

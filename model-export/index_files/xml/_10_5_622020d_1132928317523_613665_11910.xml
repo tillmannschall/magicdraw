@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317523_613665_11910"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OptionComboBoxModel" refid="_9_5_f720368_1110473546784_926091_10385"/></annotatedElement><body humanName="Body" mode="s,e">OptionComboBoxModel extends the capabilities of the DefaultComboBoxModel,
+to store the Option that is initially marked as selected.
+This is stored, in order to enable an accurate reset of the
+ComboBox that represents the SELECT form element when the
+user requests a clear/reset.  Given that a combobox only allow
+for one item to be selected, the last OPTION that has the
+attribute set wins.
+
+@author Sunita Mani
+@version 1.8 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="OptionComboBoxModel" refid="_9_5_f720368_1110473546784_926091_10385"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OptionComboBoxModel" refid="_9_5_f720368_1110473546784_926091_10385"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

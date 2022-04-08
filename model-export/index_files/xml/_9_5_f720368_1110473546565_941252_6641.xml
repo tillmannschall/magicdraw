@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546565_941252_6641"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::font::NumericShaper -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928320617_583816_12971"/></clientDependency><documentation humanName="Documentation" mode="standard">The &lt;code&gt;NumericShaper&lt;/code&gt; class is used to convert Latin-1 (European)
+digits to other Unicode decimal digits.  Users of this class will
+primarily be people who wish to present data using
+national digit shapes, but find it more convenient to represent the
+data internally using Latin-1 (European) digits.  This does not
+interpret the deprecated numeric shape selector character (U+206E).
+&lt;p&gt;
+Instances of &lt;code&gt;NumericShaper&lt;/code&gt; are typically applied
+as attributes to text with the
+{@link TextAttribute#NUMERIC_SHAPING NUMERIC_SHAPING} attribute
+of the &lt;code&gt;TextAttribute&lt;/code&gt; class.
+For example, this code snippet causes a &lt;code&gt;TextLayout&lt;/code&gt; to
+shape European digits to Arabic in an Arabic context:&lt;br&gt;
+&lt;blockquote&gt;&lt;pre&gt;
+Map map = new HashMap();
+map.put(TextAttribute.NUMERIC_SHAPING,
+NumericShaper.getContextualShaper(NumericShaper.ARABIC));
+FontRenderContext frc = ...;
+TextLayout layout = new TextLayout(text, map, frc);
+layout.draw(g2d, x, y);
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;br&gt;
+It is also possible to perform numeric shaping explicitly using instances
+of &lt;code&gt;NumericShaper&lt;/code&gt;, as this code snippet demonstrates:&lt;br&gt;
+&lt;blockquote&gt;&lt;pre&gt;
+char[] text = ...;
+shape all EUROPEAN digits (except zero) to ARABIC digits
+NumericShaper shaper = NumericShaper.getShaper(NumericShaper.ARABIC);
+shaper.shape(text, start, count);
+
+shape European digits to ARABIC digits if preceeding text is Arabic, or
+shape European digits to TAMIL digits if preceeding text is Tamil, or
+leave European digits alone if there is no preceeding text, or
+preceeding text is neither Arabic nor Tamil
+NumericShaper shaper =
+NumericShaper.getContextualShaper(NumericShaper.ARABIC |
+NumericShaper.TAMIL,
+NumericShaper.EUROPEAN);
+shaper.shape(text. start, count);
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+@since 1.4
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::font::NumericShaper -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928320617_583816_12971"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">NumericShaper</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305846_679161_3791"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305846_679161_3791"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::font::NumericShaper -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928320617_583816_12971"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="font" refid="_9_5_f720368_1110473547299_819550_16532"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::font::NumericShaper</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

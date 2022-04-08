@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546706_995864_8893"><documentation humanName="Documentation" mode="standard">An object that maps keys to values.  A map cannot contain duplicate keys;
+each key can map to at most one value.
+
+&lt;p&gt;This interface takes the place of the &lt;tt&gt;Dictionary&lt;/tt&gt; class, which
+was a totally abstract class rather than an interface.
+
+&lt;p&gt;The &lt;tt&gt;Map&lt;/tt&gt; interface provides three &lt;i&gt;collection views&lt;/i&gt;, which
+allow a map's contents to be viewed as a set of keys, collection of values,
+or set of key-value mappings.  The &lt;i&gt;order&lt;/i&gt; of a map is defined as
+the order in which the iterators on the map's collection views return their
+elements.  Some map implementations, like the &lt;tt&gt;TreeMap&lt;/tt&gt; class, make
+specific guarantees as to their order; others, like the &lt;tt&gt;HashMap&lt;/tt&gt;
+class, do not.
+
+&lt;p&gt;Note: great care must be exercised if mutable objects are used as map
+keys.  The behavior of a map is not specified if the value of an object is
+changed in a manner that affects equals comparisons while the object is a
+key in the map.  A special case of this prohibition is that it is not
+permissible for a map to contain itself as a key.  While it is permissible
+for a map to contain itself as a value, extreme caution is advised: the
+equals and hashCode methods are no longer well defined on a such a map.
+
+&lt;p&gt;All general-purpose map implementation classes should provide two
+"standard" constructors: a void (no arguments) constructor which creates an
+empty map, and a constructor with a single argument of type &lt;tt&gt;Map&lt;/tt&gt;,
+which creates a new map with the same key-value mappings as its argument.
+In effect, the latter constructor allows the user to copy any map,
+producing an equivalent map of the desired class.  There is no way to
+enforce this recommendation (as interfaces cannot contain constructors) but
+all of the general-purpose map implementations in the JDK comply.
+
+&lt;p&gt;The "destructive" methods contained in this interface, that is, the
+methods that modify the map on which they operate, are specified to throw
+&lt;tt&gt;UnsupportedOperationException&lt;/tt&gt; if this map does not support the
+operation.  If this is the case, these methods may, but are not required
+to, throw an &lt;tt&gt;UnsupportedOperationException&lt;/tt&gt; if the invocation would
+have no effect on the map.  For example, invoking the {@link #putAll(Map)}
+method on an unmodifiable map may, but is not required to, throw the
+exception if the map whose mappings are to be "superimposed" is empty.
+
+&lt;p&gt;Some map implementations have restrictions on the keys and values they
+may contain.  For example, some implementations prohibit null keys and
+values, and some have restrictions on the types of their keys.  Attempting
+to insert an ineligible key or value throws an unchecked exception,
+typically &lt;tt&gt;NullPointerException&lt;/tt&gt; or &lt;tt&gt;ClassCastException&lt;/tt&gt;.
+Attempting to query the presence of an ineligible key or value may throw an
+exception, or it may simply return false; some implementations will exhibit
+the former behavior and some will exhibit the latter.  More generally,
+attempting an operation on an ineligible key or value whose completion
+would not result in the insertion of an ineligible element into the map may
+throw an exception or it may succeed, at the option of the implementation.
+Such exceptions are marked as "optional" in the specification for this
+interface.
+
+&lt;p&gt;This interface is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+&lt;p&gt;Many methods in Collections Framework interfaces are defined
+in terms of the {@link Object#equals(Object) equals} method.  For
+example, the specification for the {@link #containsKey(Object)
+contains(Object key)} method says: "returns &lt;tt&gt;true&lt;/tt&gt; if and
+only if this map contain a mapping for a key &lt;tt&gt;k&lt;/tt&gt; such that
+&lt;tt&gt;(key==null ? k==null : key.equals(k))&lt;/tt&gt;." This specification should
+&lt;i&gt;not&lt;/i&gt; be construed to imply that invoking &lt;tt&gt;Map.containsKey&lt;/tt&gt;
+with a non-null argument &lt;tt&gt;key&lt;/tt&gt; will cause &lt;tt&gt;key.equals(k)&lt;/tt&gt; to
+be invoked for any key &lt;tt&gt;k&lt;/tt&gt;.  Implementations are free to
+implement optimizations whereby the &lt;tt&gt;equals&lt;/tt&gt; invocation is avoided,
+for example, by first comparing the hash codes of the two keys.  (The
+{@link Object#hashCode()} specification guarantees that two objects with
+unequal hash codes cannot be equal.)  More generally, implementations of
+the various Collections Framework interfaces are free to take advantage of
+the specified behavior of underlying {@link Object} methods wherever the
+implementor deems it appropriate.
+
+@author  Josh Bloch
+@version 1.48, 06/28/04
+@see HashMap
+@see TreeMap
+@see Hashtable
+@see SortedMap
+@see Collection
+@see Set
+@since 1.2
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Entry" refid="_9_5_f720368_1110473547799_877742_18990"/></member><name humanName="Name" mode="s,e">Map</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><nestedClassifier humanName="Nested Classifier"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Entry" refid="_9_5_f720368_1110473547799_877742_18990"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313337_875707_7398"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313327_733811_7386"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313337_875707_7398"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Entry" refid="_9_5_f720368_1110473547799_877742_18990"/></ownedElement><ownedMember humanName="Owned Member"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Entry" refid="_9_5_f720368_1110473547799_877742_18990"/></ownedMember><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313327_733811_7386"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::Map</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::openmbean::TabularDataSupport -&gt; JDK 5.0 Classes::java::util::Map]" refid="_10_5_622020d_1132928322960_80141_15916"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

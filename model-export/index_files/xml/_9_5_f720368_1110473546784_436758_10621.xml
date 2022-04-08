@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546784_436758_10621"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;Action&lt;/code&gt; interface provides a useful extension to the
+&lt;code&gt;ActionListener&lt;/code&gt;
+interface in cases where the same functionality may be accessed by
+several controls.
+&lt;p&gt;
+In addition to the &lt;code&gt;actionPerformed&lt;/code&gt; method defined by the
+&lt;code&gt;ActionListener&lt;/code&gt; interface, this interface allows the
+application to define, in a single place:
+&lt;ul&gt;
+&lt;li&gt;One or more text strings that describe the function. These strings
+can be used, for example, to display the flyover text for a button
+or to set the text in a menu item.
+&lt;li&gt;One or more icons that depict the function. These icons can be used
+for the images in a menu control, or for composite entries in a more
+sophisticated user interface.
+&lt;li&gt;The enabled/disabled state of the functionality. Instead of having
+to separately disable the menu item and the toolbar button, the
+application can disable the function that implements this interface.
+All components which are registered as listeners for the state change
+then know to disable event generation for that item and to modify the
+display accordingly.
+&lt;/ul&gt;
+Certain containers, including menus and tool bars, know how to add an
+&lt;code&gt;Action&lt;/code&gt; object. When an &lt;code&gt;Action&lt;/code&gt; object is added
+to such a container, the container:
+&lt;ol type="a"&gt;
+&lt;li&gt;Creates a component that is appropriate for that container
+(a tool bar creates a button component, for example).
+&lt;li&gt;Gets the appropriate property(s) from the &lt;code&gt;Action&lt;/code&gt; object to
+customize the component (for example, the icon image and flyover text).
+&lt;li&gt;Checks the initial state of the &lt;code&gt;Action&lt;/code&gt; object to determine
+if it is enabled or disabled, and renders the component in the
+appropriate fashion.
+&lt;li&gt;Registers a listener with the &lt;code&gt;Action&lt;/code&gt; object so that is
+notified of state changes. When the &lt;code&gt;Action&lt;/code&gt; object changes
+from enabled to disabled,
+or back, the container makes the appropriate revisions to the
+event-generation mechanisms and renders the component accordingly.
+&lt;/ol&gt;
+For example, both a menu item and a toolbar button could access a
+&lt;code&gt;Cut&lt;/code&gt; action object. The text associated with the object is
+specified as "Cut", and an image depicting a pair of scissors is specified
+as its icon. The &lt;code&gt;Cut&lt;/code&gt; action-object can then be added to a
+menu and to a tool bar. Each container does the appropriate things with the
+object, and invokes its &lt;code&gt;actionPerformed&lt;/code&gt; method when the
+component associated with it is activated. The application can then disable
+or enable the application object without worrying about what user-interface
+components are connected to it.
+&lt;p&gt;
+This interface can be added to an existing class or used to create an
+adapter (typically, by subclassing &lt;code&gt;AbstractAction&lt;/code&gt;).
+The &lt;code&gt;Action&lt;/code&gt; object
+can then be added to multiple &lt;code&gt;Action&lt;/code&gt;-aware containers
+and connected to &lt;code&gt;Action&lt;/code&gt;-capable
+components. The GUI controls can then be activated or
+deactivated all at once by invoking the &lt;code&gt;Action&lt;/code&gt; object's
+&lt;code&gt;setEnabled&lt;/code&gt; method.
+&lt;p&gt;
+Note that &lt;code&gt;Action&lt;/code&gt; implementations tend to be more expensive
+in terms of storage than a typical &lt;code&gt;ActionListener&lt;/code&gt;,
+which does not offer the benefits of centralized control of
+functionality and broadcast of property changes.  For this reason,
+you should take care to only use &lt;code&gt;Action&lt;/code&gt;s where their benefits
+are desired, and use simple &lt;code&gt;ActionListener&lt;/code&gt;s elsewhere.
+
+@version 1.30 12/19/03
+@author Georges Saab
+@see AbstractAction
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ActionListener" refid="_9_5_f720368_1110473546565_106737_6535"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323912_998759_18213"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Action</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317823_895557_12291"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323912_998759_18213"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317823_895557_12291"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::Action</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::AbstractAction -&gt; JDK 5.0 Classes::javax::swing::Action]" refid="_10_5_622020d_1132928323902_169456_18186"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JComponent::ActionStandin -&gt; JDK 5.0 Classes::javax::swing::Action]" refid="_10_5_622020d_1132928324072_908958_18320"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JSpinner::DisabledAction -&gt; JDK 5.0 Classes::javax::swing::Action]" refid="_10_5_622020d_1132928324132_934453_18500"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

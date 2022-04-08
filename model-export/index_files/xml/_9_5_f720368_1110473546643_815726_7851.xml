@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546643_815726_7851"><documentation humanName="Documentation" mode="standard">Utility class for HTML form decoding. This class contains static methods
+for decoding a String from the &lt;CODE&gt;application/x-www-form-urlencoded&lt;/CODE&gt;
+MIME format.
+&lt;p&gt;
+To conversion process is the reverse of that used by the URLEncoder class. It is assumed
+that all characters in the encoded string are one of the following:
+"&lt;code&gt;a&lt;/code&gt;" through "&lt;code&gt;z&lt;/code&gt;",
+"&lt;code&gt;A&lt;/code&gt;" through "&lt;code&gt;Z&lt;/code&gt;",
+"&lt;code&gt;0&lt;/code&gt;" through "&lt;code&gt;9&lt;/code&gt;", and
+"&lt;code&gt;-&lt;/code&gt;", "&lt;code&gt;_&lt;/code&gt;",
+"&lt;code&gt;.&lt;/code&gt;", and "&lt;code&gt;*&lt;/code&gt;". The
+character "&lt;code&gt;%&lt;/code&gt;" is allowed but is interpreted
+as the start of a special escaped sequence.
+&lt;p&gt;
+The following rules are applied in the conversion:
+&lt;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The alphanumeric characters "&lt;code&gt;a&lt;/code&gt;" through
+"&lt;code&gt;z&lt;/code&gt;", "&lt;code&gt;A&lt;/code&gt;" through
+"&lt;code&gt;Z&lt;/code&gt;" and "&lt;code&gt;0&lt;/code&gt;"
+through "&lt;code&gt;9&lt;/code&gt;" remain the same.
+&lt;li&gt;The special characters "&lt;code&gt;.&lt;/code&gt;",
+"&lt;code&gt;-&lt;/code&gt;", "&lt;code&gt;*&lt;/code&gt;", and
+"&lt;code&gt;_&lt;/code&gt;" remain the same.
+&lt;li&gt;The plus sign "&lt;code&gt;+&lt;/code&gt;" is converted into a
+space character "&lt;code&gt;&amp;nbsp;&lt;/code&gt;" .
+&lt;li&gt;A sequence of the form "&lt;code&gt;%&lt;i&gt;xy&lt;/i&gt;&lt;/code&gt;" will be
+treated as representing a byte where &lt;i&gt;xy&lt;/i&gt; is the two-digit
+hexadecimal representation of the 8 bits. Then, all substrings
+that contain one or more of these byte sequences consecutively
+will be replaced by the character(s) whose encoding would result
+in those consecutive bytes.
+The encoding scheme used to decode these characters may be specified,
+or if unspecified, the default encoding of the platform will be used.
+&lt;/ul&gt;
+&lt;p&gt;
+There are two possible ways in which this decoder could deal with
+illegal strings.  It could either leave illegal characters alone or
+it could throw an &lt;tt&gt;{@link java.lang.IllegalArgumentException}&lt;/tt&gt;.
+Which approach the decoder takes is left to the
+implementation.
+
+@author  Mark Chamness
+@author  Michael McCloskey
+@version 1.27, 05/18/04
+@since   1.2
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">URLDecoder</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308580_686191_5362"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308580_686191_5362"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::net::URLDecoder</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

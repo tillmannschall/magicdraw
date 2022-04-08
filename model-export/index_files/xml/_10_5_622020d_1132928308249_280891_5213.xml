@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308249_280891_5213"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BigInteger" refid="_9_5_f720368_1110473546628_396621_7731"/></annotatedElement><body humanName="Body" mode="s,e">Immutable arbitrary-precision integers.  All operations behave as if
+BigIntegers were represented in two's-complement notation (like Java's
+primitive integer types).  BigInteger provides analogues to all of Java's
+primitive integer operators, and all relevant methods from java.lang.Math.
+Additionally, BigInteger provides operations for modular arithmetic, GCD
+calculation, primality testing, prime generation, bit manipulation,
+and a few other miscellaneous operations.
+&lt;p&gt;
+Semantics of arithmetic operations exactly mimic those of Java's integer
+arithmetic operators, as defined in &lt;i&gt;The Java Language Specification&lt;/i&gt;.
+For example, division by zero throws an &lt;tt&gt;ArithmeticException&lt;/tt&gt;, and
+division of a negative by a positive yields a negative (or zero) remainder.
+All of the details in the Spec concerning overflow are ignored, as
+BigIntegers are made as large as necessary to accommodate the results of an
+operation.
+&lt;p&gt;
+Semantics of shift operations extend those of Java's shift operators
+to allow for negative shift distances.  A right-shift with a negative
+shift distance results in a left shift, and vice-versa.  The unsigned
+right shift operator (&gt;&gt;&gt;) is omitted, as this operation makes
+little sense in combination with the "infinite word size" abstraction
+provided by this class.
+&lt;p&gt;
+Semantics of bitwise logical operations exactly mimic those of Java's
+bitwise integer operators.  The binary operators (&lt;tt&gt;and&lt;/tt&gt;,
+&lt;tt&gt;or&lt;/tt&gt;, &lt;tt&gt;xor&lt;/tt&gt;) implicitly perform sign extension on the shorter
+of the two operands prior to performing the operation.
+&lt;p&gt;
+Comparison operations perform signed integer comparisons, analogous to
+those performed by Java's relational and equality operators.
+&lt;p&gt;
+Modular arithmetic operations are provided to compute residues, perform
+exponentiation, and compute multiplicative inverses.  These methods always
+return a non-negative result, between &lt;tt&gt;0&lt;/tt&gt; and &lt;tt&gt;(modulus - 1)&lt;/tt&gt;,
+inclusive.
+&lt;p&gt;
+Bit operations operate on a single bit of the two's-complement
+representation of their operand.  If necessary, the operand is sign-
+extended so that it contains the designated bit.  None of the single-bit
+operations can produce a BigInteger with a different sign from the
+BigInteger being operated on, as they affect only a single bit, and the
+"infinite word size" abstraction provided by this class ensures that there
+are infinitely many "virtual sign bits" preceding each BigInteger.
+&lt;p&gt;
+For the sake of brevity and clarity, pseudo-code is used throughout the
+descriptions of BigInteger methods.  The pseudo-code expression
+&lt;tt&gt;(i + j)&lt;/tt&gt; is shorthand for "a BigInteger whose value is
+that of the BigInteger &lt;tt&gt;i&lt;/tt&gt; plus that of the BigInteger &lt;tt&gt;j&lt;/tt&gt;."
+The pseudo-code expression &lt;tt&gt;(i == j)&lt;/tt&gt; is shorthand for
+"&lt;tt&gt;true&lt;/tt&gt; if and only if the BigInteger &lt;tt&gt;i&lt;/tt&gt; represents the same
+value as the BigInteger &lt;tt&gt;j&lt;/tt&gt;."  Other pseudo-code expressions are
+interpreted similarly.
+&lt;p&gt;
+All methods and constructors in this class throw
+&lt;CODE&gt;NullPointerException&lt;/CODE&gt; when passed
+a null object reference for any input parameter.
+
+@see     BigDecimal
+@version 1.68, 04/29/04
+@author  Josh Bloch
+@author  Michael McCloskey
+@since JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BigInteger" refid="_9_5_f720368_1110473546628_396621_7731"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BigInteger" refid="_9_5_f720368_1110473546628_396621_7731"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

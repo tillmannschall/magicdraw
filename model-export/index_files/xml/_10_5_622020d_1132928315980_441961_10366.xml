@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315980_441961_10366"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ServiceUIFactory" refid="_9_5_f720368_1110473546737_869115_9537"/></annotatedElement><body humanName="Body" mode="s,e">Services may optionally provide UIs which allow different styles
+of interaction in different roles.
+One role may be end-user browsing and setting of print options.
+Another role may be administering the print service.
+&lt;p&gt;
+Although the Print Service API does not presently provide standardised
+support for administering a print service, monitoring of the print
+service is possible and a UI may provide for private update mechanisms.
+&lt;p&gt;
+The basic design intent is to allow applications to lazily locate and
+initialize services only when needed without any API dependencies
+except in an environment in which they are used.
+&lt;p&gt;
+Swing UIs are preferred as they provide a more consistent L&amp;F and
+can support accessibility APIs.
+&lt;p&gt;
+Example usage:
+&lt;pre&gt;
+ServiceUIFactory factory = printService.getServiceUIFactory();
+if (factory != null) {
+JComponent swingui = (JComponent)factory.getUI(
+ServiceUIFactory.MAIN_UIROLE,
+ServiceUIFactory.JCOMPONENT_UI);
+if (swingui != null) {
+tabbedpane.add("Custom UI", swingui);
+}
+}
+&lt;/pre&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ServiceUIFactory" refid="_9_5_f720368_1110473546737_869115_9537"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ServiceUIFactory" refid="_9_5_f720368_1110473546737_869115_9537"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

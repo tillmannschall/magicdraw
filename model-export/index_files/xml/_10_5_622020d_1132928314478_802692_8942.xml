@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314478_802692_8942"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DocumentView" refid="_9_5_f720368_1110473546940_769836_13214"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;DocumentView&lt;/code&gt; interface is implemented by
+&lt;code&gt;Document&lt;/code&gt; objects in DOM implementations supporting DOM
+Views. It provides an attribute to retrieve the default view of a
+document.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/REC-DOM-Level-2-Views-20001113'&gt;Document Object Model (DOM) Level 2 Views Specification&lt;/a&gt;.
+@since DOM Level 2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DocumentView" refid="_9_5_f720368_1110473546940_769836_13214"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DocumentView" refid="_9_5_f720368_1110473546940_769836_13214"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

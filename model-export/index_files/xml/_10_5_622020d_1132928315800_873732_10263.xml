@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315800_873732_10263"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AttributeSetUtilities" refid="_9_5_f720368_1110473546737_184115_9445"/></annotatedElement><body humanName="Body" mode="s,e">Class AttributeSetUtilities provides static methods for manipulating
+AttributeSets.
+&lt;ul&gt;
+&lt;li&gt;Methods for creating unmodifiable and synchronized views of attribute
+sets.
+&lt;li&gt;operations useful for building
+implementations of interface {@link AttributeSet AttributeSet}
+&lt;/ul&gt;
+&lt;P&gt;
+An &lt;B&gt;unmodifiable view&lt;/B&gt; &lt;I&gt;U&lt;/I&gt; of an AttributeSet &lt;I&gt;S&lt;/I&gt; provides a
+client with "read-only" access to &lt;I&gt;S&lt;/I&gt;. Query operations on &lt;I&gt;U&lt;/I&gt;
+"read through" to &lt;I&gt;S&lt;/I&gt;; thus, changes in &lt;I&gt;S&lt;/I&gt; are reflected in
+&lt;I&gt;U&lt;/I&gt;. However, any attempt to modify &lt;I&gt;U&lt;/I&gt;,
+results in an UnmodifiableSetException.
+The unmodifiable view object &lt;I&gt;U&lt;/I&gt; will be serializable if the
+attribute set object &lt;I&gt;S&lt;/I&gt; is serializable.
+&lt;P&gt;
+A &lt;B&gt;synchronized view&lt;/B&gt; &lt;I&gt;V&lt;/I&gt; of an attribute set &lt;I&gt;S&lt;/I&gt; provides a
+client with synchronized (multiple thread safe) access to &lt;I&gt;S&lt;/I&gt;. Each
+operation of &lt;I&gt;V&lt;/I&gt; is synchronized using &lt;I&gt;V&lt;/I&gt; itself as the lock
+object and then merely invokes the corresponding operation of &lt;I&gt;S&lt;/I&gt;. In
+order to guarantee mutually exclusive access, it is critical that all
+access to &lt;I&gt;S&lt;/I&gt; is accomplished through &lt;I&gt;V&lt;/I&gt;. The synchronized view
+object &lt;I&gt;V&lt;/I&gt; will be serializable if the attribute set object &lt;I&gt;S&lt;/I&gt;
+is serializable.
+&lt;P&gt;
+As mentioned in the package description of javax.print, a null reference
+parameter to methods is
+incorrect unless explicitly documented on the method as having a meaningful
+interpretation.  Usage to the contrary is incorrect coding and may result in
+a run time exception either immediately
+or at some later time. IllegalArgumentException and NullPointerException
+are examples of typical and acceptable run time exceptions for such cases.
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AttributeSetUtilities" refid="_9_5_f720368_1110473546737_184115_9445"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AttributeSetUtilities" refid="_9_5_f720368_1110473546737_184115_9445"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

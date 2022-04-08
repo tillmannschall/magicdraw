@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309531_986166_6190"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SQLInput" refid="_9_5_f720368_1110473546690_766960_8589"/></annotatedElement><body humanName="Body" mode="s,e">An input stream that contains a stream of values representing an
+instance of an SQL structured type or an SQL distinct type.
+This interface, used only for custom mapping, is used by the driver
+behind the scenes, and a programmer never directly invokes
+&lt;code&gt;SQLInput&lt;/code&gt; methods. The &lt;i&gt;reader&lt;/i&gt; methods
+(&lt;code&gt;readLong&lt;/code&gt;, &lt;code&gt;readBytes&lt;/code&gt;, and so on)
+provide a way to read the values in an &lt;code&gt;SQLInput&lt;/code&gt; object.
+The method &lt;code&gt;wasNull&lt;/code&gt; is used to determine whether the
+the last value read was SQL &lt;code&gt;NULL&lt;/code&gt;.
+&lt;P&gt;When the method &lt;code&gt;getObject&lt;/code&gt; is called with an
+object of a class implementing the interface &lt;code&gt;SQLData&lt;/code&gt;,
+the JDBC driver calls the method &lt;code&gt;SQLData.getSQLType&lt;/code&gt;
+to determine the SQL type of the user-defined type (UDT)
+being custom mapped. The driver
+creates an instance of &lt;code&gt;SQLInput&lt;/code&gt;, populating it with the
+attributes of the UDT.  The driver then passes the input
+stream to the method &lt;code&gt;SQLData.readSQL&lt;/code&gt;, which in turn
+calls the &lt;code&gt;SQLInput&lt;/code&gt; reader methods
+in its implementation for reading the
+attributes from the input stream.
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="SQLInput" refid="_9_5_f720368_1110473546690_766960_8589"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SQLInput" refid="_9_5_f720368_1110473546690_766960_8589"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

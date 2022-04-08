@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309301_962800_5982"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Certificate" refid="_9_5_f720368_1110473546674_479921_8433"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;This is an interface of abstract methods for managing a
+variety of identity certificates.
+An identity certificate is a guarantee by a principal that
+a public key is that of another principal.  (A principal represents
+an entity such as an individual user, a group, or a corporation.)
+
+&lt;p&gt;In particular, this interface is intended to be a common
+abstraction for constructs that have different formats but
+important common uses.  For example, different types of
+certificates, such as X.509 certificates and PGP certificates,
+share general certificate functionality (the need to encode and
+decode certificates) and some types of information, such as a
+public key, the principal whose key it is, and the guarantor
+guaranteeing that the public key is that of the specified
+principal. So an implementation of X.509 certificates and an
+implementation of PGP certificates can both utilize the Certificate
+interface, even though their formats and additional types and
+amounts of information stored are different.
+
+&lt;p&gt;&lt;b&gt;Important&lt;/b&gt;: This interface is useful for cataloging and
+grouping objects sharing certain common uses. It does not have any
+semantics of its own. In particular, a Certificate object does not
+make any statement as to the &lt;i&gt;validity&lt;/i&gt; of the binding. It is
+the duty of the application implementing this interface to verify
+the certificate and satisfy itself of its validity.
+
+@version 	1.37, 05/18/04
+@author Benjamin Renaud
+@deprecated A new certificate handling package is created in the Java 2 platform.
+This Certificate interface is entirely deprecated and
+is here to allow for a smooth transition to the new
+package.
+@see java.security.cert.Certificate
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Certificate" refid="_9_5_f720368_1110473546674_479921_8433"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Certificate" refid="_9_5_f720368_1110473546674_479921_8433"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

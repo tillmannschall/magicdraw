@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308179_990278_5175"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="State" refid="_10_5_622020d_1132928308169_578222_5173"/></annotatedElement><body humanName="Body" mode="s,e">A thread state.  A thread can be in one of the following states:
+&lt;ul&gt;
+&lt;li&gt;{@link #NEW}&lt;br&gt;
+A thread that has not yet started is in this state.
+&lt;/li&gt;
+&lt;li&gt;{@link #RUNNABLE}&lt;br&gt;
+A thread executing in the Java virtual machine is in this state.
+&lt;/li&gt;
+&lt;li&gt;{@link #BLOCKED}&lt;br&gt;
+A thread that is blocked waiting for a monitor lock
+is in this state.
+&lt;/li&gt;
+&lt;li&gt;{@link #WAITING}&lt;br&gt;
+A thread that is waiting indefinitely for another thread to
+perform a particular action is in this state.
+&lt;/li&gt;
+&lt;li&gt;{@link #TIMED_WAITING}&lt;br&gt;
+A thread that is waiting for another thread to perform an action
+for up to a specified waiting time is in this state.
+&lt;/li&gt;
+&lt;li&gt;{@link #TERMINATED}&lt;br&gt;
+A thread that has exited is in this state.
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+A thread can be in only one state at a given point in time.
+These states are virtual machine states which do not reflect
+any operating system thread states.
+
+@since   1.5
+@see Thread#getState
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="State" refid="_10_5_622020d_1132928308169_578222_5173"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="State" refid="_10_5_622020d_1132928308169_578222_5173"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

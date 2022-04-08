@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310813_401000_6991"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BitSet" refid="_9_5_f720368_1110473546706_6839_8837"/></annotatedElement><body humanName="Body" mode="s,e">This class implements a vector of bits that grows as needed. Each
+component of the bit set has a &lt;code&gt;boolean&lt;/code&gt; value. The
+bits of a &lt;code&gt;BitSet&lt;/code&gt; are indexed by nonnegative integers.
+Individual indexed bits can be examined, set, or cleared. One
+&lt;code&gt;BitSet&lt;/code&gt; may be used to modify the contents of another
+&lt;code&gt;BitSet&lt;/code&gt; through logical AND, logical inclusive OR, and
+logical exclusive OR operations.
+&lt;p&gt;
+By default, all bits in the set initially have the value
+&lt;code&gt;false&lt;/code&gt;.
+&lt;p&gt;
+Every bit set has a current size, which is the number of bits
+of space currently in use by the bit set. Note that the size is
+related to the implementation of a bit set, so it may change with
+implementation. The length of a bit set relates to logical length
+of a bit set and is defined independently of implementation.
+&lt;p&gt;
+Unless otherwise noted, passing a null parameter to any of the
+methods in a &lt;code&gt;BitSet&lt;/code&gt; will result in a
+&lt;code&gt;NullPointerException&lt;/code&gt;.
+
+A &lt;code&gt;BitSet&lt;/code&gt; is not safe for multithreaded use without
+external synchronization.
+
+@author  Arthur van Hoff
+@author  Michael McCloskey
+@version 1.60, 02/19/04
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BitSet" refid="_9_5_f720368_1110473546706_6839_8837"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BitSet" refid="_9_5_f720368_1110473546706_6839_8837"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

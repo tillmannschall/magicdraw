@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307779_948138_4864"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WeakReference" refid="_9_5_f720368_1110473546612_633971_7521"/></annotatedElement><body humanName="Body" mode="s,e">Weak reference objects, which do not prevent their referents from being
+made finalizable, finalized, and then reclaimed.  Weak references are most
+often used to implement canonicalizing mappings.
+
+&lt;p&gt; Suppose that the garbage collector determines at a certain point in time
+that an object is &lt;a href="package-summary.html#reachability"&gt;weakly
+reachable&lt;/a&gt;.  At that time it will atomically clear all weak references to
+that object and all weak references to any other weakly-reachable objects
+from which that object is reachable through a chain of strong and soft
+references.  At the same time it will declare all of the formerly
+weakly-reachable objects to be finalizable.  At the same time or at some
+later time it will enqueue those newly-cleared weak references that are
+registered with reference queues.
+
+@version  1.18, 12/19/03
+@author   Mark Reinhold
+@since    1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="WeakReference" refid="_9_5_f720368_1110473546612_633971_7521"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WeakReference" refid="_9_5_f720368_1110473546612_633971_7521"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

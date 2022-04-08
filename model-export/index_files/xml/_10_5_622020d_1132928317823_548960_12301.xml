@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317823_548960_12301"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BorderFactory" refid="_9_5_f720368_1110473546784_590098_10629"/></annotatedElement><body humanName="Body" mode="s,e">Factory class for vending standard &lt;code&gt;Border&lt;/code&gt; objects.  Wherever
+possible, this factory will hand out references to shared
+&lt;code&gt;Border&lt;/code&gt; instances.
+For further information and examples see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/border.html"&gt;How
+to Use Borders&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+
+@version 1.30 12/19/03
+@author David Kloba
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BorderFactory" refid="_9_5_f720368_1110473546784_590098_10629"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BorderFactory" refid="_9_5_f720368_1110473546784_590098_10629"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

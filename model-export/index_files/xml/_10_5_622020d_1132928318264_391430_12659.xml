@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318264_391430_12659"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SwingConstants" refid="_9_5_f720368_1110473546799_869308_10869"/></annotatedElement><body humanName="Body" mode="s,e">A collection of constants generally used for positioning and orienting
+components on the screen.
+
+@version 1.16 12/19/03
+@author Jeff Dinkins
+@author Ralph Kar (orientation support)
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="SwingConstants" refid="_9_5_f720368_1110473546799_869308_10869"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SwingConstants" refid="_9_5_f720368_1110473546799_869308_10869"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

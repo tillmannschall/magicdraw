@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314749_139678_9102"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleContext" refid="_9_5_f720368_1110473546706_746063_8959"/></annotatedElement><body humanName="Body" mode="s,e">AccessibleContext represents the minimum information all accessible objects
+return.  This information includes the accessible name, description, role,
+and state of the object, as well as information about its parent and
+children.  AccessibleContext also contains methods for
+obtaining more specific accessibility information about a component.
+If the component supports them, these methods will return an object that
+implements one or more of the following interfaces:
+&lt;P&gt;&lt;ul&gt;
+&lt;li&gt;{@link AccessibleAction} - the object can perform one or more actions.
+This interface provides the standard mechanism for an assistive
+technology to determine what those actions are and tell the object
+to perform them.  Any object that can be manipulated should
+support this interface.
+&lt;li&gt;{@link AccessibleComponent} - the object has a graphical representation.
+This interface provides the standard mechanism for an assistive
+technology to determine and set the graphical representation of the
+object.  Any object that is rendered on the screen should support
+this interface.
+&lt;li&gt;{@link  AccessibleSelection} - the object allows its children to be
+selected.  This interface provides the standard mechanism for an
+assistive technology to determine the currently selected children of the object
+as well as modify its selection set.  Any object that has children
+that can be selected should support this interface.
+&lt;li&gt;{@link AccessibleText} - the object presents editable textual information
+on the display.  This interface provides the standard mechanism for
+an assistive technology to access that text via its content, attributes,
+and spatial location.  Any object that contains editable text should
+support this interface.
+&lt;li&gt;{@link AccessibleValue} - the object supports a numerical value.  This
+interface provides the standard mechanism for an assistive technology
+to determine and set the current value of the object, as well as obtain its
+minimum and maximum values.  Any object that supports a numerical value
+should support this interface.&lt;/ul&gt;
+
+
+@beaninfo
+attribute: isContainer false
+description: Minimal information that all accessible objects return
+
+@version     1.43 04/02/04
+@author	Peter Korn
+@author      Hans Muller
+@author      Willie Walker
+@author      Lynn Monsanto
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AccessibleContext" refid="_9_5_f720368_1110473546706_746063_8959"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleContext" refid="_9_5_f720368_1110473546706_746063_8959"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

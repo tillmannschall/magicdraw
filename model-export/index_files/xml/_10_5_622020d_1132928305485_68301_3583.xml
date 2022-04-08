@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305485_68301_3583"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AudioClip" refid="_9_5_f720368_1110473546549_531485_6439"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;AudioClip&lt;/code&gt; interface is a simple abstraction for
+playing a sound clip. Multiple &lt;code&gt;AudioClip&lt;/code&gt; items can be
+playing at the same time, and the resulting sound is mixed
+together to produce a composite.
+
+@author 	Arthur van Hoff
+@version     1.18, 12/19/03
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="AudioClip" refid="_9_5_f720368_1110473546549_531485_6439"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AudioClip" refid="_9_5_f720368_1110473546549_531485_6439"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308640_323146_5419"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NonReadableChannelException" refid="_9_5_f720368_1110473546643_931361_7907"/></annotatedElement><body humanName="Body" mode="s,e">Unchecked exception thrown when an attempt is made to read
+from a channel that was not originally opened for reading.
+
+@version 1.9, 01/11/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="NonReadableChannelException" refid="_9_5_f720368_1110473546643_931361_7907"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NonReadableChannelException" refid="_9_5_f720368_1110473546643_931361_7907"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

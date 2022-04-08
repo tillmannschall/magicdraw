@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928310182_531644_6564"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::concurrent::ExecutorCompletionService -&gt; JDK 5.0 Classes::java::util::concurrent::CompletionService&lt;V&gt;]" refid="_10_5_622020d_1132928322269_205558_14466"/></clientDependency><documentation humanName="Documentation" mode="standard">A {@link CompletionService} that uses a supplied {@link Executor}
+to execute tasks.  This class arranges that submitted tasks are,
+upon completion, placed on a queue accessible using &lt;tt&gt;take&lt;/tt&gt;.
+The class is lightweight enough to be suitable for transient use
+when processing groups of tasks.
+
+&lt;p&gt;
+
+&lt;b&gt;Usage Examples.&lt;/b&gt;
+
+Suppose you have a set of solvers for a certain problem, each
+returning a value of some type &lt;tt&gt;Result&lt;/tt&gt;, and would like to
+run them concurrently, processing the results of each of them that
+return a non-null value, in some method &lt;tt&gt;use(Result r)&lt;/tt&gt;. You
+could write this as:
+
+&lt;pre&gt;
+void solve(Executor e, Collection&lt;Callable&lt;Result&gt;&gt; solvers)
+throws InterruptedException, ExecutionException {
+CompletionService&lt;Result&gt; ecs = new ExecutorCompletionService&lt;Result&gt;(e);
+for (Callable&lt;Result&gt; s : solvers)
+ecs.submit(s);
+int n = solvers.size();
+for (int i = 0; i &lt; n; ++i) {
+Result r = ecs.take().get();
+if (r != null)
+use(r);
+}
+}
+&lt;/pre&gt;
+
+Suppose instead that you would like to use the first non-null result
+of the set of tasks, ignoring any that encounter exceptions,
+and cancelling all other tasks when the first one is ready:
+
+&lt;pre&gt;
+void solve(Executor e, Collection&lt;Callable&lt;Result&gt;&gt; solvers)
+throws InterruptedException {
+CompletionService&lt;Result&gt; ecs = new ExecutorCompletionService&lt;Result&gt;(e);
+int n = solvers.size();
+List&lt;Future&lt;Result&gt;&gt; futures = new ArrayList&lt;Future&lt;Result&gt;&gt;(n);
+Result result = null;
+try {
+for (Callable&lt;Result&gt; s : solvers)
+futures.add(ecs.submit(s));
+for (int i = 0; i &lt; n; ++i) {
+try {
+Result r = ecs.take().get();
+if (r != null) {
+result = r;
+break;
+}
+} catch(ExecutionException ignore) {}
+}
+}
+finally {
+for (Future&lt;Result&gt; f : futures)
+f.cancel(true);
+}
+
+if (result != null)
+use(result);
+}
+&lt;/pre&gt;
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::concurrent::ExecutorCompletionService -&gt; JDK 5.0 Classes::java::util::concurrent::CompletionService&lt;V&gt;]" refid="_10_5_622020d_1132928322269_205558_14466"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="QueueingFuture" refid="_10_5_622020d_1132928310182_966941_6568"/></member><name humanName="Name" mode="s,e">ExecutorCompletionService</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="QueueingFuture" refid="_10_5_622020d_1132928310182_966941_6568"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310182_302016_6571"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928310182_446294_6565"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310182_302016_6571"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::concurrent::ExecutorCompletionService -&gt; JDK 5.0 Classes::java::util::concurrent::CompletionService&lt;V&gt;]" refid="_10_5_622020d_1132928322269_205558_14466"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="QueueingFuture" refid="_10_5_622020d_1132928310182_966941_6568"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="QueueingFuture" refid="_10_5_622020d_1132928310182_966941_6568"/></ownedMember><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928310182_446294_6565"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::concurrent::ExecutorCompletionService</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CompletionService&lt;V&gt;" refid="_10_5_622020d_1132928322269_986190_14463"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

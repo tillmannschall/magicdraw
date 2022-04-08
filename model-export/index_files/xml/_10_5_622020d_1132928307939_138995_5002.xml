@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307939_138995_5002"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Compiler" refid="_9_5_f720368_1110473546612_362064_7593"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Compiler&lt;/code&gt; class is provided to support
+Java-to-native-code compilers and related services. By design, the
+&lt;code&gt;Compiler&lt;/code&gt; class does nothing; it serves as a
+placeholder for a JIT compiler implementation.
+&lt;p&gt;
+When the Java Virtual Machine first starts, it determines if the
+system property &lt;code&gt;java.compiler&lt;/code&gt; exists. (System
+properties are accessible through &lt;code&gt;getProperty&lt;/code&gt;  and ,
+a method defined by the &lt;code&gt;System&lt;/code&gt; class.) If so, it is
+assumed to be the name of a library (with a platform-dependent
+exact location and type); the &lt;code&gt;loadLibrary&lt;/code&gt; method in
+class &lt;code&gt;System&lt;/code&gt; is called to load that library. If this
+loading succeeds, the function named
+&lt;code&gt;java_lang_Compiler_start()&lt;/code&gt; in that library is called.
+&lt;p&gt;
+If no compiler is available, these methods do nothing.
+
+@author  Frank Yellin
+@version 1.20, 05/05/04
+@see     java.lang.System#getProperty(java.lang.String)
+@see     java.lang.System#getProperty(java.lang.String, java.lang.String)
+@see     java.lang.System#loadLibrary(java.lang.String)
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Compiler" refid="_9_5_f720368_1110473546612_362064_7593"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Compiler" refid="_9_5_f720368_1110473546612_362064_7593"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

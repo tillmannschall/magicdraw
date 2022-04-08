@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308990_67373_5671"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RMIClientSocketFactory" refid="_9_5_f720368_1110473546674_702698_8187"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;RMIClientSocketFactory&lt;/code&gt; instance is used by the RMI runtime
+in order to obtain client sockets for RMI calls.  A remote object can be
+associated with an &lt;code&gt;RMIClientSocketFactory&lt;/code&gt; when it is
+created/exported via the constructors or &lt;code&gt;exportObject&lt;/code&gt; methods
+of &lt;code&gt;java.rmi.server.UnicastRemoteObject&lt;/code&gt; and
+&lt;code&gt;java.rmi.activation.Activatable&lt;/code&gt; .
+
+&lt;p&gt;An &lt;code&gt;RMIClientSocketFactory&lt;/code&gt; instance associated with a remote
+object will be downloaded to clients when the remote object's reference is
+transmitted in an RMI call.  This &lt;code&gt;RMIClientSocketFactory&lt;/code&gt; will
+be used to create connections to the remote object for remote method calls.
+
+&lt;p&gt;An &lt;code&gt;RMIClientSocketFactory&lt;/code&gt; instance can also be associated
+with a remote object registry so that clients can use custom socket
+communication with a remote object registry.
+
+&lt;p&gt;An implementation of this interface should be serializable and
+should implement {@link Object#equals} to return &lt;code&gt;true&lt;/code&gt; when
+passed an instance that represents the same (functionally equivalent)
+client socket factory, and &lt;code&gt;false&lt;/code&gt; otherwise (and it should also
+implement {@link Object#hashCode} consistently with its
+&lt;code&gt;Object.equals&lt;/code&gt; implementation).
+
+@version 1.11, 12/19/03
+@author  Ann Wollrath
+@author  Peter Jones
+@since   1.2
+@see     java.rmi.server.UnicastRemoteObject
+@see     java.rmi.activation.Activatable
+@see     java.rmi.registry.LocateRegistry
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="RMIClientSocketFactory" refid="_9_5_f720368_1110473546674_702698_8187"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RMIClientSocketFactory" refid="_9_5_f720368_1110473546674_702698_8187"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

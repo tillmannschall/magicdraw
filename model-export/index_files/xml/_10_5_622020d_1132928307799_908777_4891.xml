@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307799_908777_4891"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InvocationTargetException" refid="_9_5_f720368_1110473546612_39405_7533"/></annotatedElement><body humanName="Body" mode="s,e">InvocationTargetException is a checked exception that wraps
+an exception thrown by an invoked method or constructor.
+
+&lt;p&gt;As of release 1.4, this exception has been retrofitted to conform to
+the general purpose exception-chaining mechanism.  The "target exception"
+that is provided at construction time and accessed via the
+{@link #getTargetException()} method is now known as the &lt;i&gt;cause&lt;/i&gt;,
+and may be accessed via the {@link Throwable#getCause()} method,
+as well as the aforementioned "legacy method."
+
+@see Method
+@see Constructor
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InvocationTargetException" refid="_9_5_f720368_1110473546612_39405_7533"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InvocationTargetException" refid="_9_5_f720368_1110473546612_39405_7533"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

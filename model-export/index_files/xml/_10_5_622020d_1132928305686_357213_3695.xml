@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305686_357213_3695"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTEventListenerProxy" refid="_9_5_f720368_1110473546565_388234_6543"/></annotatedElement><body humanName="Body" mode="s,e">A class which extends the &lt;code&gt;EventListenerProxy&lt;/code&gt;, specifically
+for adding an &lt;code&gt;AWTEventListener&lt;/code&gt; for a specific event mask.
+Instances of this class can be added as &lt;code&gt;AWTEventListener&lt;/code&gt;s to
+a Toolkit object.
+&lt;p&gt;
+The &lt;code&gt;getAWTEventListeners&lt;/code&gt; method of Toolkit can
+return a mixture of &lt;code&gt;AWTEventListener&lt;/code&gt; and
+&lt;code&gt;AWTEventListenerProxy&lt;/code&gt; objects.
+
+@see java.awt.Toolkit
+@see java.util.EventListenerProxy
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AWTEventListenerProxy" refid="_9_5_f720368_1110473546565_388234_6543"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTEventListenerProxy" refid="_9_5_f720368_1110473546565_388234_6543"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

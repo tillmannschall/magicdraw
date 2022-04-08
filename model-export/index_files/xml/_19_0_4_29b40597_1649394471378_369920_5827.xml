@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><literalstring classType="LiteralString" humanType="Literal String" icon="index_files/icon_literalstring_700049804.jpg" id="_19_0_4_29b40597_1649394471378_369920_5827"><documentation humanName="Documentation"/><name humanName="Name"/><owner classType="Slot" humanName="Owner" humanType="Slot" icon="index_files/icon_slot_544348034.jpg" mode="e" refid="_19_0_4_29b40597_1649394471378_346699_5826"/><owningSlot classType="Slot" humanName="Owning Slot" humanType="Slot" icon="index_files/icon_slot_544348034.jpg" refid="_19_0_4_29b40597_1649394471378_346699_5826"/><qualifiedName humanName="Qualified Name"/><text humanName="Text" mode="standard">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;references xmlns="http://www.nomagic.com/schemas/MagicDraw/ElementReferenceInText/2017"&gt;
+    &lt;reference&gt;
+        &lt;property xsi:type="metaProperty" name="body" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/&gt;
+    &lt;/reference&gt;
+&lt;/references&gt;
+</text><TO_DO humanName="To Do"/><TYPE_MODIFIER humanName="Type Modifier"/><value humanName="Value" mode="s,e">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;references xmlns="http://www.nomagic.com/schemas/MagicDraw/ElementReferenceInText/2017"&gt;
+    &lt;reference&gt;
+        &lt;property xsi:type="metaProperty" name="body" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/&gt;
+    &lt;/reference&gt;
+&lt;/references&gt;
+</value><visibility humanName="Visibility">public</visibility></literalstring></magicdraw>

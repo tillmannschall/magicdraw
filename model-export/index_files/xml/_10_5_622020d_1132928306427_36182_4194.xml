@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306427_36182_4194"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FileDialog" refid="_9_5_f720368_1110473546581_796395_7003"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;FileDialog&lt;/code&gt; class displays a dialog window
+from which the user can select a file.
+&lt;p&gt;
+Since it is a modal dialog, when the application calls
+its &lt;code&gt;show&lt;/code&gt; method to display the dialog,
+it blocks the rest of the application until the user has
+chosen a file.
+
+@see Window#show
+
+@version 	1.53, 12/19/03
+@author 	Sami Shaio
+@author 	Arthur van Hoff
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FileDialog" refid="_9_5_f720368_1110473546581_796395_7003"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FileDialog" refid="_9_5_f720368_1110473546581_796395_7003"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

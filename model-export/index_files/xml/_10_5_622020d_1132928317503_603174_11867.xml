@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317503_603174_11867"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParserCallback" refid="_9_5_f720368_1110473548299_839887_23018"/></annotatedElement><body humanName="Body" mode="s,e">The result of parsing drives these callback methods.
+The open and close actions should be balanced.  The
+&lt;code&gt;flush&lt;/code&gt; method will be the last method
+called, to give the receiver a chance to flush any
+pending data into the document.
+&lt;p&gt;Refer to DocumentParser, the default parser used, for further
+information on the contents of the AttributeSets, the positions, and
+other info.
+
+@see javax.swing.text.html.parser.DocumentParser
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ParserCallback" refid="_9_5_f720368_1110473548299_839887_23018"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ParserCallback" refid="_9_5_f720368_1110473548299_839887_23018"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

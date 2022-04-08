@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316121_416603_10501"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Subject" refid="_9_5_f720368_1110473546737_91918_9639"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt; A &lt;code&gt;Subject&lt;/code&gt; represents a grouping of related information
+for a single entity, such as a person.
+Such information includes the Subject's identities as well as
+its security-related attributes
+(passwords and cryptographic keys, for example).
+
+&lt;p&gt; Subjects may potentially have multiple identities.
+Each identity is represented as a &lt;code&gt;Principal&lt;/code&gt;
+within the &lt;code&gt;Subject&lt;/code&gt;.  Principals simply bind names to a
+&lt;code&gt;Subject&lt;/code&gt;.  For example, a &lt;code&gt;Subject&lt;/code&gt; that happens
+to be a person, Alice, might have two Principals:
+one which binds "Alice Bar", the name on her driver license,
+to the &lt;code&gt;Subject&lt;/code&gt;, and another which binds,
+"999-99-9999", the number on her student identification card,
+to the &lt;code&gt;Subject&lt;/code&gt;.  Both Principals refer to the same
+&lt;code&gt;Subject&lt;/code&gt; even though each has a different name.
+
+&lt;p&gt; A &lt;code&gt;Subject&lt;/code&gt; may also own security-related attributes,
+which are referred to as credentials.
+Sensitive credentials that require special protection, such as
+private cryptographic keys, are stored within a private credential
+&lt;code&gt;Set&lt;/code&gt;.  Credentials intended to be shared, such as
+public key certificates or Kerberos server tickets are stored
+within a public credential &lt;code&gt;Set&lt;/code&gt;.  Different permissions
+are required to access and modify the different credential Sets.
+
+&lt;p&gt; To retrieve all the Principals associated with a &lt;code&gt;Subject&lt;/code&gt;,
+invoke the &lt;code&gt;getPrincipals&lt;/code&gt; method.  To retrieve
+all the public or private credentials belonging to a &lt;code&gt;Subject&lt;/code&gt;,
+invoke the &lt;code&gt;getPublicCredentials&lt;/code&gt; method or
+&lt;code&gt;getPrivateCredentials&lt;/code&gt; method, respectively.
+To modify the returned &lt;code&gt;Set&lt;/code&gt; of Principals and credentials,
+use the methods defined in the &lt;code&gt;Set&lt;/code&gt; class.
+For example:
+&lt;pre&gt;
+Subject subject;
+Principal principal;
+Object credential;
+
+add a Principal and credential to the Subject
+subject.getPrincipals().add(principal);
+subject.getPublicCredentials().add(credential);
+&lt;/pre&gt;
+
+&lt;p&gt; This &lt;code&gt;Subject&lt;/code&gt; class implements &lt;code&gt;Serializable&lt;/code&gt;.
+While the Principals associated with the &lt;code&gt;Subject&lt;/code&gt; are serialized,
+the credentials associated with the &lt;code&gt;Subject&lt;/code&gt; are not.
+Note that the &lt;code&gt;java.security.Principal&lt;/code&gt; class
+does not implement &lt;code&gt;Serializable&lt;/code&gt;.  Therefore all concrete
+&lt;code&gt;Principal&lt;/code&gt; implementations associated with Subjects
+must implement &lt;code&gt;Serializable&lt;/code&gt;.
+
+@version 1.123, 05/05/04
+@see java.security.Principal
+@see java.security.DomainCombiner
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Subject" refid="_9_5_f720368_1110473546737_91918_9639"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Subject" refid="_9_5_f720368_1110473546737_91918_9639"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

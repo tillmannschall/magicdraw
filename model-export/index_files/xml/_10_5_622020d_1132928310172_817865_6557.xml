@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310172_817865_6557"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Exchanger" refid="_10_5_622020d_1132928310172_825771_6552"/></annotatedElement><body humanName="Body" mode="s,e">A synchronization point at which two threads can exchange objects.
+Each thread presents some object on entry to the {@link #exchange
+exchange} method, and receives the object presented by the other
+thread on return.
+
+&lt;p&gt;&lt;b&gt;Sample Usage:&lt;/b&gt;
+Here are the highlights of a class that uses an &lt;tt&gt;Exchanger&lt;/tt&gt; to
+swap buffers between threads so that the thread filling the
+buffer gets a freshly
+emptied one when it needs it, handing off the filled one to
+the thread emptying the buffer.
+&lt;pre&gt;
+class FillAndEmpty {
+Exchanger&lt;DataBuffer&gt; exchanger = new Exchanger();
+DataBuffer initialEmptyBuffer = ... a made-up type
+DataBuffer initialFullBuffer = ...
+
+class FillingLoop implements Runnable {
+public void run() {
+DataBuffer currentBuffer = initialEmptyBuffer;
+try {
+while (currentBuffer != null) {
+addToBuffer(currentBuffer);
+if (currentBuffer.full())
+currentBuffer = exchanger.exchange(currentBuffer);
+}
+} catch (InterruptedException ex) { ... handle ... }
+}
+}
+
+class EmptyingLoop implements Runnable {
+public void run() {
+DataBuffer currentBuffer = initialFullBuffer;
+try {
+while (currentBuffer != null) {
+takeFromBuffer(currentBuffer);
+if (currentBuffer.empty())
+currentBuffer = exchanger.exchange(currentBuffer);
+}
+} catch (InterruptedException ex) { ... handle ...}
+}
+}
+
+void start() {
+new Thread(new FillingLoop()).start();
+new Thread(new EmptyingLoop()).start();
+}
+}
+&lt;/pre&gt;
+
+@since 1.5
+@author Doug Lea
+@param &lt;V&gt; The type of objects that may be exchanged
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Exchanger" refid="_10_5_622020d_1132928310172_825771_6552"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Exchanger" refid="_10_5_622020d_1132928310172_825771_6552"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310783_595616_6927"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ZipFile" refid="_9_5_f720368_1110473546706_627866_8813"/></annotatedElement><body humanName="Body" mode="s,e">This class is used to read entries from a zip file.
+
+&lt;p&gt; Unless otherwise noted, passing a &lt;tt&gt;null&lt;/tt&gt; argument to a constructor
+or method in this class will cause a {@link NullPointerException} to be
+thrown.
+
+@version   1.67, 05/05/04
+@author	David Connelly
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ZipFile" refid="_9_5_f720368_1110473546706_627866_8813"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ZipFile" refid="_9_5_f720368_1110473546706_627866_8813"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

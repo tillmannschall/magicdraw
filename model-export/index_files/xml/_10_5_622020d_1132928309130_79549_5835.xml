@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309130_79549_5835"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PKIXCertPathBuilderResult" refid="_9_5_f720368_1110473546674_516168_8331"/></annotatedElement><body humanName="Body" mode="s,e">This class represents the successful result of the PKIX certification
+path builder algorithm. All certification paths that are built and
+returned using this algorithm are also validated according to the PKIX
+certification path validation algorithm.
+
+&lt;p&gt;Instances of &lt;code&gt;PKIXCertPathBuilderResult&lt;/code&gt; are returned by
+the &lt;code&gt;build&lt;/code&gt; method of &lt;code&gt;CertPathBuilder&lt;/code&gt;
+objects implementing the PKIX algorithm.
+
+&lt;p&gt;All &lt;code&gt;PKIXCertPathBuilderResult&lt;/code&gt; objects contain the
+certification path constructed by the build algorithm, the
+valid policy tree and subject public key resulting from the build
+algorithm, and a &lt;code&gt;TrustAnchor&lt;/code&gt; describing the certification
+authority (CA) that served as a trust anchor for the certification path.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Unless otherwise specified, the methods defined in this class are not
+thread-safe. Multiple threads that need to access a single
+object concurrently should synchronize amongst themselves and
+provide the necessary locking. Multiple threads each manipulating
+separate objects need not synchronize.
+
+@see CertPathBuilderResult
+
+@version	1.9 12/19/03
+@since	1.4
+@author	Anne Anderson
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PKIXCertPathBuilderResult" refid="_9_5_f720368_1110473546674_516168_8331"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PKIXCertPathBuilderResult" refid="_9_5_f720368_1110473546674_516168_8331"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

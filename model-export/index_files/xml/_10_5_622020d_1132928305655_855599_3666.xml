@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305655_855599_3666"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DropTargetAdapter" refid="_9_5_f720368_1110473546565_452931_6515"/></annotatedElement><body humanName="Body" mode="s,e">An abstract adapter class for receiving drop target events. The methods in
+this class are empty. This class exists only as a convenience for creating
+listener objects.
+&lt;p&gt;
+Extend this class to create a &lt;code&gt;DropTargetEvent&lt;/code&gt; listener
+and override the methods for the events of interest. (If you implement the
+&lt;code&gt;DropTargetListener&lt;/code&gt; interface, you have to define all of
+the methods in it. This abstract class defines a null implementation for
+every method except &lt;code&gt;drop(DropTargetDropEvent)&lt;/code&gt;, so you only have
+to define methods for events you care about.) You must provide an
+implementation for at least &lt;code&gt;drop(DropTargetDropEvent)&lt;/code&gt;. This
+method cannot have a null implementation because its specification requires
+that you either accept or reject the drop, and, if accepted, indicate
+whether the drop was successful.
+&lt;p&gt;
+Create a listener object using the extended class and then register it with
+a &lt;code&gt;DropTarget&lt;/code&gt;. When the drag enters, moves over, or exits
+the operable part of the drop site for that &lt;code&gt;DropTarget&lt;/code&gt;, when
+the drop action changes, and when the drop occurs, the relevant method in
+the listener object is invoked, and the &lt;code&gt;DropTargetEvent&lt;/code&gt; is
+passed to it.
+&lt;p&gt;
+The operable part of the drop site for the &lt;code&gt;DropTarget&lt;/code&gt; is
+the part of the associated &lt;code&gt;Component&lt;/code&gt;'s geometry that is not
+obscured by an overlapping top-level window or by another
+&lt;code&gt;Component&lt;/code&gt; higher in the Z-order that has an associated active
+&lt;code&gt;DropTarget&lt;/code&gt;.
+&lt;p&gt;
+During the drag, the data associated with the current drag operation can be
+retrieved by calling &lt;code&gt;getTransferable()&lt;/code&gt; on
+&lt;code&gt;DropTargetDragEvent&lt;/code&gt; instances passed to the listener's
+methods.
+&lt;p&gt;
+Note that &lt;code&gt;getTransferable()&lt;/code&gt; on the
+&lt;code&gt;DropTargetDragEvent&lt;/code&gt; instance should only be called within the
+respective listener's method and all the necessary data should be retrieved
+from the returned &lt;code&gt;Transferable&lt;/code&gt; before that method returns.
+
+@see DropTargetEvent
+@see DropTargetListener
+
+@author David Mendenhall
+@version 1.7, 12/19/03
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="DropTargetAdapter" refid="_9_5_f720368_1110473546565_452931_6515"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DropTargetAdapter" refid="_9_5_f720368_1110473546565_452931_6515"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

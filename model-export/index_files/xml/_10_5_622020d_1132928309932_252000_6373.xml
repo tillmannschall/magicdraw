@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309932_252000_6373"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AtomicStampedReference" refid="_10_5_622020d_1132928309922_501183_6364"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;tt&gt;AtomicStampedReference&lt;/tt&gt; maintains an object reference
+along with an integer "stamp", that can be updated atomically.
+
+&lt;p&gt; Implementation note. This implementation maintains stamped
+references by creating internal objects representing "boxed"
+[reference, integer] pairs.
+
+@since 1.5
+@author Doug Lea
+@param &lt;V&gt; The type of object referred to by this reference
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AtomicStampedReference" refid="_10_5_622020d_1132928309922_501183_6364"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AtomicStampedReference" refid="_10_5_622020d_1132928309922_501183_6364"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

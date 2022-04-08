@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307979_738945_5049"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IndexOutOfBoundsException" refid="_9_5_f720368_1110473546612_382320_7623"/></annotatedElement><body humanName="Body" mode="s,e">Thrown to indicate that an index of some sort (such as to an array, to a
+string, or to a vector) is out of range.
+&lt;p&gt;
+Applications can subclass this class to indicate similar exceptions.
+
+@author  Frank Yellin
+@version 1.11, 12/19/03
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="IndexOutOfBoundsException" refid="_9_5_f720368_1110473546612_382320_7623"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IndexOutOfBoundsException" refid="_9_5_f720368_1110473546612_382320_7623"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

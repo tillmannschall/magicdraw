@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546659_671060_7927"><documentation humanName="Documentation" mode="standard">A multiplexor of {@link SelectableChannel} objects.
+
+&lt;p&gt; A selector may be created by invoking the {@link #open open} method of
+this class, which will use the system's default {@link
+java.nio.channels.spi.SelectorProvider &lt;/code&gt;selector provider&lt;code&gt;} to
+create a new selector.  A selector may also be created by invoking the
+{@link java.nio.channels.spi.SelectorProvider#openSelector openSelector}
+method of a custom selector provider.  A selector remains open until it is
+closed via its {@link #close close} method.
+
+&lt;a name="ks"&gt;
+
+&lt;p&gt; A selectable channel's registration with a selector is represented by a
+{@link SelectionKey} object.  A selector maintains three sets of selection
+keys:
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; The &lt;i&gt;key set&lt;/i&gt; contains the keys representing the current
+channel registrations of this selector.  This set is returned by the
+{@link #keys() keys} method. &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The &lt;i&gt;selected-key set&lt;/i&gt; is the set of keys such that each
+key's channel was detected to be ready for at least one of the operations
+identified in the key's interest set during a prior selection operation.
+This set is returned by the {@link #selectedKeys() selectedKeys} method.
+The selected-key set is always a subset of the key set. &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The &lt;i&gt;cancelled-key&lt;/i&gt; set is the set of keys that have been
+cancelled but whose channels have not yet been deregistered.  This set is
+not directly accessible.  The cancelled-key set is always a subset of the
+key set. &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt; All three sets are empty in a newly-created selector.
+
+&lt;p&gt; A key is added to a selector's key set as a side effect of registering a
+channel via the channel's {@link SelectableChannel#register(Selector,int)
+register} method.  Cancelled keys are removed from the key set during
+selection operations.  The key set itself is not directly modifiable.
+
+&lt;p&gt; A key is added to its selector's cancelled-key set when it is cancelled,
+whether by closing its channel or by invoking its {@link SelectionKey#cancel
+cancel} method.  Cancelling a key will cause its channel to be deregistered
+during the next selection operation, at which time the key will removed from
+all of the selector's key sets.
+
+&lt;a name="sks"&gt;&lt;p&gt; Keys are added to the selected-key set by selection
+operations.  A key may be removed directly from the selected-key set by
+invoking the set's {@link java.util.Set#remove(java.lang.Object) remove}
+method or by invoking the {@link java.util.Iterator#remove() remove} method
+of an {@link java.util.Iterator &lt;/code&gt;iterator&lt;code&gt;} obtained from the
+set.  Keys are never removed from the selected-key set in any other way;
+they are not, in particular, removed as a side effect of selection
+operations.  Keys may not be added directly to the selected-key set. &lt;/p&gt;
+
+
+&lt;a name="selop"&gt;
+&lt;h4&gt;Selection&lt;/h4&gt;
+
+&lt;p&gt; During each selection operation, keys may be added to and removed from a
+selector's selected-key set and may be removed from its key and
+cancelled-key sets.  Selection is performed by the {@link #select()}, {@link
+#select(long)}, and {@link #selectNow()} methods, and involves three steps:
+&lt;/p&gt;
+
+&lt;ol&gt;
+
+&lt;li&gt;&lt;p&gt; Each key in the cancelled-key set is removed from each key set of
+which it is a member, and its channel is deregistered.  This step leaves
+the cancelled-key set empty. &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The underlying operating system is queried for an update as to the
+readiness of each remaining channel to perform any of the operations
+identified by its key's interest set as of the moment that the selection
+operation began.  For a channel that is ready for at least one such
+operation, one of the following two actions is performed: &lt;/p&gt;
+
+&lt;ol type=a&gt;
+
+&lt;li&gt;&lt;p&gt; If the channel's key is not already in the selected-key set then
+it is added to that set and its ready-operation set is modified to
+identify exactly those operations for which the channel is now reported
+to be ready.  Any readiness information previously recorded in the ready
+set is discarded.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Otherwise the channel's key is already in the selected-key set,
+so its ready-operation set is modified to identify any new operations
+for which the channel is reported to be ready.  Any readiness
+information previously recorded in the ready set is preserved; in other
+words, the ready set returned by the underlying system is
+bitwise-disjoined into the key's current ready set. &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ol&gt;&lt;/li&gt;
+
+If all of the keys in the key set at the start of this step have empty
+interest sets then neither the selected-key set nor any of the keys'
+ready-operation sets will be updated.
+
+&lt;li&gt;&lt;p&gt; If any keys were added to the cancelled-key set while step (2) was
+in progress then they are processed as in step (1). &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ol&gt;
+
+&lt;p&gt; Whether or not a selection operation blocks to wait for one or more
+channels to become ready, and if so for how long, is the only essential
+difference between the three selection methods. &lt;/p&gt;
+
+
+&lt;h4&gt;Concurrency&lt;/h4&gt;
+
+&lt;p&gt; Selectors are themselves safe for use by multiple concurrent threads;
+their key sets, however, are not.
+
+&lt;p&gt; The selection operations synchronize on the selector itself, on the key
+set, and on the selected-key set, in that order.  They also synchronize on
+the cancelled-key set during steps (1) and (3) above.
+
+&lt;p&gt; Changes made to the interest sets of a selector's keys while a
+selection operation is in progress have no effect upon that operation; they
+will be seen by the next selection operation.
+
+&lt;p&gt; Keys may be cancelled and channels may be closed at any time.  Hence the
+presence of a key in one or more of a selector's key sets does not imply
+that the key is valid or that its channel is open.  Application code should
+be careful to synchronize and check these conditions as necessary if there
+is any possibility that another thread will cancel a key or close a channel.
+
+&lt;p&gt; A thread blocked in one of the {@link #select()} or {@link
+#select(long)} methods may be interrupted by some other thread in one of
+three ways:
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; By invoking the selector's {@link #wakeup wakeup} method,
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; By invoking the selector's {@link #close close} method, or
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; By invoking the blocked thread's {@link
+java.lang.Thread#interrupt() interrupt} method, in which case its
+interrupt status will be set and the selector's {@link #wakeup wakeup}
+method will be invoked. &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt; The {@link #close close} method synchronizes on the selector and all
+three key sets in the same order as in a selection operation.
+
+&lt;a name="ksc"&gt;
+
+&lt;p&gt; A selector's key and selected-key sets are not, in general, safe for use
+by multiple concurrent threads.  If such a thread might modify one of these
+sets directly then access should be controlled by synchronizing on the set
+itself.  The iterators returned by these sets' {@link
+java.util.Set#iterator() iterator} methods are &lt;i&gt;fail-fast:&lt;/i&gt; If the set
+is modified after the iterator is created, in any way except by invoking the
+iterator's own {@link java.util.Iterator#remove() remove} method, then a
+{@link java.util.ConcurrentModificationException} will be thrown. &lt;/p&gt;
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.37, 04/05/05
+@since 1.4
+
+@see SelectableChannel
+@see SelectionKey
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Selector</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308660_306240_5441"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308660_306240_5441"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::nio::channels::Selector</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308249_989328_5211"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BigDecimal" refid="_9_5_f720368_1110473546628_256023_7729"/></annotatedElement><body humanName="Body" mode="s,e">Immutable, arbitrary-precision signed decimal numbers.  A
+&lt;tt&gt;BigDecimal&lt;/tt&gt; consists of an arbitrary precision integer
+&lt;i&gt;unscaled value&lt;/i&gt; and a 32-bit integer &lt;i&gt;scale&lt;/i&gt;.  If zero
+or positive, the scale is the number of digits to the right of the
+decimal point.  If negative, the unscaled value of the number is
+multiplied by ten to the power of the negation of the scale.  The
+value of the number represented by the &lt;tt&gt;BigDecimal&lt;/tt&gt; is
+therefore &lt;tt&gt;(unscaledValue &amp;times; 10&lt;sup&gt;-scale&lt;/sup&gt;)&lt;/tt&gt;.
+
+&lt;p&gt;The &lt;tt&gt;BigDecimal&lt;/tt&gt; class provides operations for
+arithmetic, scale manipulation, rounding, comparison, hashing, and
+format conversion.  The {@link #toString} method provides a
+canonical representation of a &lt;tt&gt;BigDecimal&lt;/tt&gt;.
+
+&lt;p&gt;The &lt;tt&gt;BigDecimal&lt;/tt&gt; class gives its user complete control
+over rounding behavior.  If no rounding mode is specified and the
+exact result cannot be represented, an exception is thrown;
+otherwise, calculations can be carried out to a chosen precision
+and rounding mode by supplying an appropriate {@link MathContext}
+object to the operation.  In either case, eight &lt;em&gt;rounding
+modes&lt;/em&gt; are provided for the control of rounding.  Using the
+integer fields in this class (such as {@link #ROUND_HALF_UP}) to
+represent rounding mode is largely obsolete; the enumeration values
+of the &lt;tt&gt;RoundingMode&lt;/tt&gt; &lt;tt&gt;enum&lt;/tt&gt;, (such as {@link
+RoundingMode#HALF_UP}) should be used instead.
+
+&lt;p&gt;When a &lt;tt&gt;MathContext&lt;/tt&gt; object is supplied with a precision
+setting of 0 (for example, {@link MathContext#UNLIMITED}),
+arithmetic operations are exact, as are the arithmetic methods
+which take no &lt;tt&gt;MathContext&lt;/tt&gt; object.  (This is the only
+behavior that was supported in releases prior to 5.)  As a
+corollary of computing the exact result, the rounding mode setting
+of a &lt;tt&gt;MathContext&lt;/tt&gt; object with a precision setting of 0 is
+not used and thus irrelevant.  In the case of divide, the exact
+quotient could have an infinitely long decimal expansion; for
+example, 1 divided by 3.  If the quotient has a nonterminating
+decimal expansion and the operation is specified to return an exact
+result, an &lt;tt&gt;ArithmeticException&lt;/tt&gt; is thrown.  Otherwise, the
+exact result of the division is returned, as done for other
+operations.
+
+&lt;p&gt;When the precision setting is not 0, the rules of
+&lt;tt&gt;BigDecimal&lt;/tt&gt; arithmetic are broadly compatible with selected
+modes of operation of the arithmetic defined in ANSI X3.274-1996
+and ANSI X3.274-1996/AM 1-2000 (section 7.4).  Unlike those
+standards, &lt;tt&gt;BigDecimal&lt;/tt&gt; includes many rounding modes, which
+were mandatory for division in &lt;tt&gt;BigDecimal&lt;/tt&gt; releases prior
+to 5.  Any conflicts between these ANSI standards and the
+&lt;tt&gt;BigDecimal&lt;/tt&gt; specification are resolved in favor of
+&lt;tt&gt;BigDecimal&lt;/tt&gt;.
+
+&lt;p&gt;Since the same numerical value can have different
+representations (with different scales), the rules of arithmetic
+and rounding must specify both the numerical result and the scale
+used in the result's representation.
+
+
+&lt;p&gt;In general the rounding modes and precision setting determine
+how operations return results with a limited number of digits when
+the exact result has more digits (perhaps infinitely many in the
+case of division) than the number of digits returned.
+
+First, the
+total number of digits to return is specified by the
+&lt;tt&gt;MathContext&lt;/tt&gt;'s &lt;tt&gt;precision&lt;/tt&gt; setting; this determines
+the result's &lt;i&gt;precision&lt;/i&gt;.  The digit count starts from the
+leftmost nonzero digit of the exact result.  The rounding mode
+determines how any discarded trailing digits affect the returned
+result.
+
+&lt;p&gt;For all arithmetic operators , the operation is carried out as
+though an exact intermediate result were first calculated and then
+rounded to the number of digits specified by the precision setting
+(if necessary), using the selected rounding mode.  If the exact
+result is not returned, some digit positions of the exact result
+are discarded.  When rounding increases the magnitude of the
+returned result, it is possible for a new digit position to be
+created by a carry propagating to a leading "9" digit.
+For example, rounding the value 999.9 to three digits rounding up
+would be numerically equal to one thousand, represented as
+100&amp;times;10&lt;sup&gt;1&lt;/sup&gt;.  In such cases, the new "1" is
+the leading digit position of the returned result.
+
+&lt;p&gt;Besides a logical exact result, each arithmetic operation has a
+preferred scale for representing a result.  The preferred
+scale for each operation is listed in the table below.
+
+&lt;table border&gt;
+&lt;caption top&gt;&lt;h3&gt;Preferred Scales for Results of Arithmetic Operations
+&lt;/h3&gt;&lt;/caption&gt;
+&lt;tr&gt;&lt;th&gt;Operation&lt;/th&gt;&lt;th&gt;Preferred Scale of Result&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Add&lt;/td&gt;&lt;td&gt;max(addend.scale(), augend.scale())&lt;/td&gt;
+&lt;tr&gt;&lt;td&gt;Subtract&lt;/td&gt;&lt;td&gt;max(minuend.scale(), subtrahend.scale())&lt;/td&gt;
+&lt;tr&gt;&lt;td&gt;Multiply&lt;/td&gt;&lt;td&gt;multiplier.scale() + multiplicand.scale()&lt;/td&gt;
+&lt;tr&gt;&lt;td&gt;Divide&lt;/td&gt;&lt;td&gt;dividend.scale() - divisor.scale()&lt;/td&gt;
+&lt;/table&gt;
+
+These scales are the ones used by the methods which return exact
+arithmetic results; except that an exact divide may have to use a
+larger scale since the exact result may have more digits.  For
+example, &lt;tt&gt;1/32&lt;/tt&gt; is &lt;tt&gt;0.03125&lt;/tt&gt;.
+
+&lt;p&gt;Before rounding, the scale of the logical exact intermediate
+result is the preferred scale for that operation.  If the exact
+numerical result cannot be represented in &lt;code&gt;precision&lt;/code&gt;
+digits, rounding selects the set of digits to return and the scale
+of the result is reduced from the scale of the intermediate result
+to the least scale which can represent the &lt;code&gt;precision&lt;/code&gt;
+digits actually returned.  If the exact result can be represented
+with at most &lt;code&gt;precision&lt;/code&gt; digits, the representation
+of the result with the scale closest to the preferred scale is
+returned.  In particular, an exactly representable quotient may be
+represented in fewer than &lt;code&gt;precision&lt;/code&gt; digits by removing
+trailing zeros and decreasing the scale.  For example, rounding to
+three digits using the {@linkplain RoundingMode#FLOOR floor}
+rounding mode, &lt;br&gt;
+
+&lt;code&gt;19/100 = 0.19   // integer=19,  scale=2&lt;/code&gt; &lt;br&gt;
+
+but&lt;br&gt;
+
+&lt;code&gt;21/110 = 0.190  // integer=190, scale=3&lt;/code&gt; &lt;br&gt;
+
+&lt;p&gt;Note that for add, subtract, and multiply, the reduction in
+scale will equal the number of digit positions of the exact result
+which are discarded. If the rounding causes a carry propagation to
+create a new high-order digit position, an additional digit of the
+result is discarded than when no new digit position is created.
+
+&lt;p&gt;Other methods may have slightly different rounding semantics.
+For example, the result of the &lt;tt&gt;pow&lt;/tt&gt; method using the
+{@linkplain #pow(int, MathContext) specified algorithm} can
+occasionally differ from the rounded mathematical result by more
+than one unit in the last place, one &lt;i&gt;{@linkplain #ulp() ulp}&lt;/i&gt;.
+
+&lt;p&gt;Two types of operations are provided for manipulating the scale
+of a &lt;tt&gt;BigDecimal&lt;/tt&gt;: scaling/rounding operations and decimal
+point motion operations.  Scaling/rounding operations ({@link
+#setScale setScale} and {@link #round round}) return a
+&lt;tt&gt;BigDecimal&lt;/tt&gt; whose value is approximately (or exactly) equal
+to that of the operand, but whose scale or precision is the
+specified value; that is, they increase or decrease the precision
+of the stored number with minimal effect on its value.  Decimal
+point motion operations ({@link #movePointLeft movePointLeft} and
+{@link #movePointRight movePointRight}) return a
+&lt;tt&gt;BigDecimal&lt;/tt&gt; created from the operand by moving the decimal
+point a specified distance in the specified direction.
+
+&lt;p&gt;For the sake of brevity and clarity, pseudo-code is used
+throughout the descriptions of &lt;tt&gt;BigDecimal&lt;/tt&gt; methods.  The
+pseudo-code expression &lt;tt&gt;(i + j)&lt;/tt&gt; is shorthand for "a
+&lt;tt&gt;BigDecimal&lt;/tt&gt; whose value is that of the &lt;tt&gt;BigDecimal&lt;/tt&gt;
+&lt;tt&gt;i&lt;/tt&gt; added to that of the &lt;tt&gt;BigDecimal&lt;/tt&gt;
+&lt;tt&gt;j&lt;/tt&gt;." The pseudo-code expression &lt;tt&gt;(i == j)&lt;/tt&gt; is
+shorthand for "&lt;tt&gt;true&lt;/tt&gt; if and only if the
+&lt;tt&gt;BigDecimal&lt;/tt&gt; &lt;tt&gt;i&lt;/tt&gt; represents the same value as the
+&lt;tt&gt;BigDecimal&lt;/tt&gt; &lt;tt&gt;j&lt;/tt&gt;." Other pseudo-code expressions
+are interpreted similarly.  Square brackets are used to represent
+the particular &lt;tt&gt;BigInteger&lt;/tt&gt; and scale pair defining a
+&lt;tt&gt;BigDecimal&lt;/tt&gt; value; for example [19, 2] is the
+&lt;tt&gt;BigDecimal&lt;/tt&gt; numerically equal to 0.19 having a scale of 2.
+
+&lt;p&gt;Note: care should be exercised if &lt;tt&gt;BigDecimal&lt;/tt&gt; objects
+are used as keys in a {@link java.util.SortedMap SortedMap} or
+elements in a {@link java.util.SortedSet SortedSet} since
+&lt;tt&gt;BigDecimal&lt;/tt&gt;'s &lt;i&gt;natural ordering&lt;/i&gt; is &lt;i&gt;inconsistent
+with equals&lt;/i&gt;.  See {@link Comparable}, {@link
+java.util.SortedMap} or {@link java.util.SortedSet} for more
+information.
+
+&lt;p&gt;All methods and constructors for this class throw
+&lt;tt&gt;NullPointerException&lt;/tt&gt; when passed a &lt;tt&gt;null&lt;/tt&gt; object
+reference for any input parameter.
+
+@see     BigInteger
+@see     MathContext
+@see     RoundingMode
+@see     java.util.SortedMap
+@see     java.util.SortedSet
+@author  Josh Bloch
+@author  Mike Cowlishaw
+@author  Joseph D. Darcy
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BigDecimal" refid="_9_5_f720368_1110473546628_256023_7729"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BigDecimal" refid="_9_5_f720368_1110473546628_256023_7729"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

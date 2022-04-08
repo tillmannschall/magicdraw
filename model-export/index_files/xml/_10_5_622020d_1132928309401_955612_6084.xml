@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309401_955612_6084"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Policy" refid="_9_5_f720368_1110473546690_459679_8501"/></annotatedElement><body humanName="Body" mode="s,e">This is an abstract class for representing the system security
+policy for a Java application environment (specifying
+which permissions are available for code from various sources).
+That is, the security policy is represented by a Policy subclass
+providing an implementation of the abstract methods
+in this Policy class.
+
+&lt;p&gt;There is only one Policy object in effect at any given time.
+
+&lt;p&gt;The source location for the policy information utilized by the
+Policy object is up to the Policy implementation.
+The policy configuration may be stored, for example, as a
+flat ASCII file, as a serialized binary file of
+the Policy class, or as a database.
+
+&lt;p&gt;The currently-installed Policy object can be obtained by
+calling the &lt;code&gt;getPolicy&lt;/code&gt; method, and it can be
+changed by a call to the &lt;code&gt;setPolicy&lt;/code&gt; method (by
+code with permission to reset the Policy).
+
+&lt;p&gt;The &lt;code&gt;refresh&lt;/code&gt; method causes the policy
+object to refresh/reload its current configuration.
+
+&lt;p&gt;This is implementation-dependent. For example, if the policy
+object stores its policy in configuration files, calling
+&lt;code&gt;refresh&lt;/code&gt; will cause it to re-read the configuration
+policy files. The refreshed policy may not have an effect on classes
+in a particular ProtectionDomain. This is dependent on the Policy
+provider's implementation of the
+{@link #implies(ProtectionDomain,Permission) implies}
+method and the PermissionCollection caching strategy.
+
+&lt;p&gt;The default Policy implementation can be changed by setting the
+value of the "policy.provider" security property (in the Java
+security properties file) to the fully qualified name of
+the desired Policy implementation class.
+The Java security properties file is located in the file named
+&lt;JAVA_HOME&gt;/lib/security/java.security, where &lt;JAVA_HOME&gt;
+refers to the directory where the JDK was installed.
+
+@author Roland Schemers
+@author Gary Ellison
+@version 1.94, 06/28/04
+@see java.security.CodeSource
+@see java.security.PermissionCollection
+@see java.security.SecureClassLoader
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Policy" refid="_9_5_f720368_1110473546690_459679_8501"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Policy" refid="_9_5_f720368_1110473546690_459679_8501"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

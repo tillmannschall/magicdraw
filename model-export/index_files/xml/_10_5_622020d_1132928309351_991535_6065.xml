@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309351_991535_6065"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="KeyStoreSpi" refid="_9_5_f720368_1110473546690_496404_8481"/></annotatedElement><body humanName="Body" mode="s,e">This class defines the &lt;i&gt;Service Provider Interface&lt;/i&gt; (&lt;b&gt;SPI&lt;/b&gt;)
+for the &lt;code&gt;KeyStore&lt;/code&gt; class.
+All the abstract methods in this class must be implemented by each
+cryptographic service provider who wishes to supply the implementation
+of a keystore for a particular keystore type.
+
+@author Jan Luehe
+
+@version 1.18, 05/25/04
+
+@see KeyStore
+
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="KeyStoreSpi" refid="_9_5_f720368_1110473546690_496404_8481"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="KeyStoreSpi" refid="_9_5_f720368_1110473546690_496404_8481"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

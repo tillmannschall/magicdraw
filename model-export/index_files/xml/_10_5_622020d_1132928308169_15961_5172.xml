@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308169_15961_5172"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Terminator" refid="_9_5_f720368_1110473546612_661819_7701"/></annotatedElement><body humanName="Body" mode="s,e">Package-private utility class for setting up and tearing down
+platform-specific support for termination-triggered shutdowns.
+
+@author   Mark Reinhold
+@version  1.10, 03/12/19
+@since    1.3
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Terminator" refid="_9_5_f720368_1110473546612_661819_7701"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Terminator" refid="_9_5_f720368_1110473546612_661819_7701"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307919_934846_4973"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CharSequence" refid="_9_5_f720368_1110473546612_21020_7571"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;tt&gt;CharSequence&lt;/tt&gt; is a readable sequence of &lt;code&gt;char&lt;/code&gt; values. This
+interface provides uniform, read-only access to many different kinds of
+&lt;code&gt;char&lt;/code&gt; sequences.
+A &lt;code&gt;char&lt;/code&gt; value represents a character in the &lt;i&gt;Basic
+Multilingual Plane (BMP)&lt;/i&gt; or a surrogate. Refer to &lt;a
+href="Character.html#unicode"&gt;Unicode Character Representation&lt;/a&gt; for details.
+
+&lt;p&gt; This interface does not refine the general contracts of the {@link
+java.lang.Object#equals(java.lang.Object) equals} and {@link
+java.lang.Object#hashCode() hashCode} methods.  The result of comparing two
+objects that implement &lt;tt&gt;CharSequence&lt;/tt&gt; is therefore, in general,
+undefined.  Each object may be implemented by a different class, and there
+is no guarantee that each class will be capable of testing its instances
+for equality with those of the other.  It is therefore inappropriate to use
+arbitrary &lt;tt&gt;CharSequence&lt;/tt&gt; instances as elements in a set or as keys in
+a map. &lt;/p&gt;
+
+@author Mike McCloskey
+@version 1.8 03/12/19
+@since 1.4
+@spec JSR-51
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CharSequence" refid="_9_5_f720368_1110473546612_21020_7571"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CharSequence" refid="_9_5_f720368_1110473546612_21020_7571"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

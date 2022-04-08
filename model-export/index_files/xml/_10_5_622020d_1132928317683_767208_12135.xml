@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317683_767208_12135"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Segment" refid="_9_5_f720368_1110473546784_181396_10511"/></annotatedElement><body humanName="Body" mode="s,e">A segment of a character array representing a fragment
+of text.  It should be treated as immutable even though
+the array is directly accessible.  This gives fast access
+to fragments of text without the overhead of copying
+around characters.  This is effectively an unprotected
+String.
+&lt;p&gt;
+The Segment implements the java.text.CharacterIterator
+interface to support use with the i18n support without
+copying text into a string.
+
+@author  Timothy Prinzing
+@version 1.22 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Segment" refid="_9_5_f720368_1110473546784_181396_10511"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Segment" refid="_9_5_f720368_1110473546784_181396_10511"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

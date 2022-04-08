@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306096_710268_3982"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PixelInterleavedSampleModel" refid="_9_5_f720368_1110473546581_165311_6817"/></annotatedElement><body humanName="Body" mode="s,e">This class represents image data which is stored in a pixel interleaved
+fashion and for
+which each sample of a pixel occupies one data element of the DataBuffer.
+It subclasses ComponentSampleModel but provides a more efficent
+implementation for accessing pixel interleaved image data than is provided
+by ComponentSampleModel.  This class
+stores sample data for all bands in a single bank of the
+DataBuffer. Accessor methods are provided so that image data can be
+manipulated directly. Pixel stride is the number of
+data array elements between two samples for the same band on the same
+scanline. Scanline stride is the number of data array elements between
+a given sample and the corresponding sample in the same column of the next
+scanline.  Band offsets denote the number
+of data array elements from the first data array element of the bank
+of the DataBuffer holding each band to the first sample of the band.
+The bands are numbered from 0 to N-1.
+Bank indices denote the correspondence between a bank of the data buffer
+and a band of image data.
+This class supports
+{@link DataBuffer#TYPE_BYTE TYPE_BYTE},
+{@link DataBuffer#TYPE_USHORT TYPE_USHORT},
+{@link DataBuffer#TYPE_SHORT TYPE_SHORT},
+{@link DataBuffer#TYPE_INT TYPE_INT},
+{@link DataBuffer#TYPE_FLOAT TYPE_FLOAT} and
+{@link DataBuffer#TYPE_DOUBLE TYPE_DOUBLE} datatypes.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PixelInterleavedSampleModel" refid="_9_5_f720368_1110473546581_165311_6817"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PixelInterleavedSampleModel" refid="_9_5_f720368_1110473546581_165311_6817"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

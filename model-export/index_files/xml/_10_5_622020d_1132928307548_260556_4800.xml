@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307548_260556_4800"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ManagementFactory" refid="_10_5_622020d_1132928307528_989285_4798"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;tt&gt;ManagementFactory&lt;/tt&gt; class is a factory class for getting
+managed beans for the Java platform.
+This class consists of static methods each of which returns
+one or more &lt;a href="#MXBean"&gt;platform MXBean(s)&lt;/a&gt; representing
+the management interface of a component of the Java virtual
+machine.
+
+&lt;p&gt;
+An application can access a platform MXBean in the following ways:
+&lt;ul&gt;
+&lt;li&gt;&lt;i&gt;Direct access to an MXBean interface&lt;/i&gt;
+&lt;ol type="a"&gt;
+&lt;li&gt;Get the MXBean instance through the static factory method
+and access the MXBean locally of the running
+virtual machine.
+&lt;/li&gt;
+&lt;li&gt;Construct an MXBean proxy instance that forwards the
+method calls to a given {@link MBeanServer MBeanServer} by calling
+{@link #newPlatformMXBeanProxy newPlatfromMXBeanProxy}.
+A proxy is typically constructed to remotely access
+an MXBean of another running virtual machine.
+&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;Indirect access to an MXBean interface via MBeanServer&lt;/i&gt;
+&lt;ol type="a"&gt;
+&lt;li&gt;Go through the {@link #getPlatformMBeanServer
+platform MBeanServer} to access MXBeans locally or
+a specific &lt;tt&gt;MBeanServerConnection&lt;/tt&gt; to access
+MXBeans remotely.
+The attributes and operations of an MXBean use only
+&lt;em&gt;JMX open types&lt;/em&gt; which include basic
+data types, {@link CompositeData CompositeData},
+and {@link TabularData TabularData} defined in
+{@link javax.management.openmbean.OpenType OpenType}.
+The mapping is specified below.
+&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;&lt;a name="MXBean"&gt;Platform MXBeans&lt;/a&gt;&lt;/h4&gt;
+A platform MXBean is a &lt;i&gt;managed bean&lt;/i&gt; that conforms to
+the JMX Instrumentation Specification and only uses
+a set of basic data types described below.
+A JMX management application and the platform &lt;tt&gt;MBeanServer&lt;/tt&gt;
+can interoperate without requiring classes for MXBean specific
+data types.
+The data types being transmitted between the JMX connector
+server and the connector client are
+{@link javax.management.openmbean.OpenType open types}
+and this allows interoperation across versions.
+&lt;p&gt;
+The platform MXBean interfaces use only the following data types:
+&lt;ul&gt;
+&lt;li&gt;Primitive types such as &lt;tt&gt;int&lt;/tt&gt;, &lt;tt&gt;long&lt;/tt&gt;,
+&lt;tt&gt;boolean&lt;/tt&gt;, etc&lt;/li&gt;
+&lt;li&gt;Wrapper classes for primitive types such as
+{@link java.lang.Integer Integer}, {@link java.lang.Long Long},
+{@link java.lang.Boolean Boolean}, etc and
+{@link java.lang.String String}&lt;/li&gt;
+&lt;li&gt;{@link java.lang.Enum Enum} classes&lt;/li&gt;
+&lt;li&gt;Classes that define only getter methods and define a static
+&lt;tt&gt;from&lt;/tt&gt; method with a {@link CompositeData CompositeData}
+argument to convert from an input &lt;tt&gt;CompositeData&lt;/tt&gt; to
+an instance of that class
+&lt;/li&gt;
+&lt;li&gt;{@link java.util.List List&lt;E&gt;}
+where &lt;tt&gt;E&lt;/tt&gt; is a primitive type, a wrapper class,
+an enum class, or a class supporting conversion from a
+&lt;tt&gt;CompositeData&lt;/tt&gt; to its class
+&lt;/li&gt;
+&lt;li&gt;{@link java.util.Map Map&lt;K,V&gt;}
+where &lt;tt&gt;K&lt;/tt&gt; and &lt;tt&gt;V&lt;/tt&gt; are
+a primitive type, a wrapper class,
+an enum class, or a class supporting conversion from a
+&lt;tt&gt;CompositeData&lt;/tt&gt; to its class
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+When an attribute or operation of a platform MXBean
+is accessed via an &lt;tt&gt;MBeanServer&lt;/tt&gt;, the data types are mapped
+as follows:
+&lt;ul&gt;
+&lt;li&gt;A primitive type or a wrapper class is mapped
+to the same type.
+&lt;/li&gt;
+&lt;li&gt;An {@link Enum} is mapped to
+&lt;tt&gt;String&lt;/tt&gt; whose value is the name of the enum constant.
+&lt;li&gt;A class that defines only getter methods and a static
+&lt;tt&gt;from&lt;/tt&gt; method with a {@link CompositeData CompositeData}
+argument is mapped to
+{@link javax.management.openmbean.CompositeData CompositeData}.
+&lt;/li&gt;
+&lt;li&gt;&lt;tt&gt;Map&lt;K,V&gt;&lt;/tt&gt; is mapped to
+{@link TabularData TabularData}
+whose row type is a {@link CompositeType CompositeType} with
+two items whose names are &lt;i&gt;"key"&lt;/i&gt; and &lt;i&gt;"value"&lt;/i&gt;
+and the item types are
+the corresponding mapped type of &lt;tt&gt;K&lt;/tt&gt; and &lt;tt&gt;V&lt;/tt&gt;
+respectively and the &lt;i&gt;"key"&lt;/i&gt; is the index.
+&lt;/li&gt;
+&lt;li&gt;&lt;tt&gt;List&lt;E&gt;&lt;/tt&gt; is mapped to an array with the mapped
+type of &lt;tt&gt;E&lt;/tt&gt; as the element type.
+&lt;/li&gt;
+&lt;li&gt;An array of element type &lt;tt&gt;E&lt;/tt&gt; is mapped to
+an array of the same dimenions with the mapped type of &lt;tt&gt;E&lt;/tt&gt;
+as the element type.&lt;/li&gt;
+&lt;/ul&gt;
+
+The {@link javax.management.MBeanInfo MBeanInfo}
+for a platform MXBean
+describes the data types of the attributes and operations
+as primitive or open types mapped as specified above.
+
+&lt;p&gt;
+For example, the {@link MemoryMXBean}
+interface has the following &lt;i&gt;getter&lt;/i&gt; and &lt;i&gt;setter&lt;/i&gt; methods:
+
+&lt;blockquote&gt;&lt;pre&gt;
+public MemoryUsage getHeapMemoryUsage();
+public boolean isVerbose();
+public void setVerbose(boolean value);
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+These attributes in the &lt;tt&gt;MBeanInfo&lt;/tt&gt;
+of the &lt;tt&gt;MemoryMXBean&lt;/tt&gt; have the following names and types:
+
+&lt;blockquote&gt;
+&lt;table border&gt;
+&lt;tr&gt;
+&lt;th&gt;Attribute Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;tt&gt;HeapMemoryUsage&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;{@link MemoryUsage#from
+CompositeData representing MemoryUsage}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;tt&gt;Verbose&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;&lt;tt&gt;boolean&lt;/tt&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+&lt;b&gt;Implementation Note:&lt;/b&gt;&lt;p&gt;
+The mapping specified above could be done in the implementation
+of each platform MXBean.  One good implementation choice is to
+implement a MXBean as a {@link javax.management.DynamicMBean dynamic
+MBean}.
+
+
+&lt;h4&gt;&lt;a name="MXBeanNames"&gt;MXBean Names&lt;/a&gt;&lt;/h4&gt;
+Each platform MXBean for a Java virtual machine has a unique
+{@link javax.management.ObjectName ObjectName} for
+registration in the platform &lt;tt&gt;MBeanServer&lt;/tt&gt;.
+A Java virtual machine has a single instance of the following management
+interfaces:
+
+&lt;blockquote&gt;
+&lt;table border&gt;
+&lt;tr&gt;
+&lt;th&gt;Management Interface&lt;/th&gt;
+&lt;th&gt;ObjectName&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; {@link ClassLoadingMXBean} &lt;/td&gt;
+&lt;td&gt; {@link #CLASS_LOADING_MXBEAN_NAME
+&lt;tt&gt;java.lang:type=ClassLoading&lt;/tt&gt;}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; {@link MemoryMXBean} &lt;/td&gt;
+&lt;td&gt; {@link #MEMORY_MXBEAN_NAME
+&lt;tt&gt;java.lang:type=Memory&lt;/tt&gt;}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; {@link ThreadMXBean} &lt;/td&gt;
+&lt;td&gt; {@link #THREAD_MXBEAN_NAME
+&lt;tt&gt;java.lang:type=Threading&lt;/tt&gt;}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; {@link RuntimeMXBean} &lt;/td&gt;
+&lt;td&gt; {@link #RUNTIME_MXBEAN_NAME
+&lt;tt&gt;java.lang:type=Runtime&lt;/tt&gt;}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; {@link OperatingSystemMXBean} &lt;/td&gt;
+&lt;td&gt; {@link #OPERATING_SYSTEM_MXBEAN_NAME
+&lt;tt&gt;java.lang:type=OperatingSystem&lt;/tt&gt;}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+A Java virtual machine has zero or a single instance of
+the following management interfaces.
+
+&lt;blockquote&gt;
+&lt;table border&gt;
+&lt;tr&gt;
+&lt;th&gt;Management Interface&lt;/th&gt;
+&lt;th&gt;ObjectName&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; {@link CompilationMXBean} &lt;/td&gt;
+&lt;td&gt; {@link #COMPILATION_MXBEAN_NAME
+&lt;tt&gt;java.lang:type=Compilation&lt;/tt&gt;}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+A Java virtual machine may have one or more instances of the following
+management interfaces.
+&lt;blockquote&gt;
+&lt;table border&gt;
+&lt;tr&gt;
+&lt;th&gt;Management Interface&lt;/th&gt;
+&lt;th&gt;ObjectName&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; {@link GarbageCollectorMXBean} &lt;/td&gt;
+&lt;td&gt; {@link #GARBAGE_COLLECTOR_MXBEAN_DOMAIN_TYPE
+&lt;tt&gt;java.lang:type=GarbageCollector&lt;/tt&gt;}&lt;tt&gt;,name=&lt;/tt&gt;&lt;i&gt;collector's name&lt;/i&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; {@link MemoryManagerMXBean} &lt;/td&gt;
+&lt;td&gt; {@link #MEMORY_MANAGER_MXBEAN_DOMAIN_TYPE
+&lt;tt&gt;java.lang:type=MemoryManager&lt;/tt&gt;}&lt;tt&gt;,name=&lt;/tt&gt;&lt;i&gt;manager's name&lt;/i&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; {@link MemoryPoolMXBean} &lt;/td&gt;
+&lt;td&gt; {@link #MEMORY_POOL_MXBEAN_DOMAIN_TYPE
+&lt;tt&gt;java.lang:type=MemoryPool&lt;/tt&gt;}&lt;tt&gt;,name=&lt;/tt&gt;&lt;i&gt;pool's name&lt;/i&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+
+@see &lt;a href="../../../javax/management/package-summary.html"&gt;
+JMX Specification.&lt;/a&gt;
+@see &lt;a href="package-summary.html#examples"&gt;
+Ways to Access Management Metrics&lt;/a&gt;
+@see java.util.logging.LoggingMXBean
+
+@author  Mandy Chung
+@version 1.19, 05/17/04
+@since   1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ManagementFactory" refid="_10_5_622020d_1132928307528_989285_4798"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ManagementFactory" refid="_10_5_622020d_1132928307528_989285_4798"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

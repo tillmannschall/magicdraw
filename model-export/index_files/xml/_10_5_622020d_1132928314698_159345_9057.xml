@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314698_159345_9057"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AttributeList" refid="_9_5_f720368_1110473546940_36360_13278"/></annotatedElement><body humanName="Body" mode="s,e">Interface for an element's attribute specifications.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is the original SAX1 interface for reporting an element's
+attributes.  Unlike the new {@link org.xml.sax.Attributes Attributes}
+interface, it does not support Namespace-related information.&lt;/p&gt;
+
+&lt;p&gt;When an attribute list is supplied as part of a
+{@link org.xml.sax.DocumentHandler#startElement startElement}
+event, the list will return valid results only during the
+scope of the event; once the event handler returns control
+to the parser, the attribute list is invalid.  To save a
+persistent copy of the attribute list, use the SAX1
+{@link org.xml.sax.helpers.AttributeListImpl AttributeListImpl}
+helper class.&lt;/p&gt;
+
+&lt;p&gt;An attribute list includes only attributes that have been
+specified or defaulted: #IMPLIED attributes will not be included.&lt;/p&gt;
+
+&lt;p&gt;There are two ways for the SAX application to obtain information
+from the AttributeList.  First, it can iterate through the entire
+list:&lt;/p&gt;
+
+&lt;pre&gt;
+public void startElement (String name, AttributeList atts) {
+for (int i = 0; i &lt; atts.getLength(); i++) {
+String name = atts.getName(i);
+String type = atts.getType(i);
+String value = atts.getValue(i);
+[...]
+}
+}
+&lt;/pre&gt;
+
+&lt;p&gt;(Note that the result of getLength() will be zero if there
+are no attributes.)
+
+&lt;p&gt;As an alternative, the application can request the value or
+type of specific attributes:&lt;/p&gt;
+
+&lt;pre&gt;
+public void startElement (String name, AttributeList atts) {
+String identifier = atts.getValue("id");
+String label = atts.getValue("label");
+[...]
+}
+&lt;/pre&gt;
+
+@deprecated This interface has been replaced by the SAX2
+{@link org.xml.sax.Attributes Attributes}
+interface, which includes Namespace support.
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.DocumentHandler#startElement startElement
+@see org.xml.sax.helpers.AttributeListImpl AttributeListImpl
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="AttributeList" refid="_9_5_f720368_1110473546940_36360_13278"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AttributeList" refid="_9_5_f720368_1110473546940_36360_13278"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

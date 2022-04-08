@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306036_382655_3930"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ComponentColorModel" refid="_9_5_f720368_1110473546565_12097_6765"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;CODE&gt;ColorModel&lt;/CODE&gt; class that works with pixel values that
+represent color and alpha information as separate samples and that
+store each sample in a separate data element.  This class can be
+used with an arbitrary &lt;CODE&gt;ColorSpace&lt;/CODE&gt;.  The number of
+color samples in the pixel values must be same as the number of
+color components in the &lt;CODE&gt;ColorSpace&lt;/CODE&gt;. There may be a
+single alpha sample.
+&lt;p&gt;
+For those methods that use
+a primitive array pixel representation of type &lt;CODE&gt;transferType&lt;/CODE&gt;,
+the array length is the same as the number of color and alpha samples.
+Color samples are stored first in the array followed by the alpha
+sample, if present.  The order of the color samples is specified
+by the &lt;CODE&gt;ColorSpace&lt;/CODE&gt;.  Typically, this order reflects the
+name of the color space type. For example, for &lt;CODE&gt;TYPE_RGB&lt;/CODE&gt;,
+index 0 corresponds to red, index 1 to green, and index 2 to blue.
+&lt;p&gt;
+The translation from pixel sample values to color/alpha components for
+display or processing purposes is based on a one-to-one correspondence of
+samples to components.
+Depending on the transfer type used to create an instance of
+&lt;code&gt;ComponentColorModel&lt;/code&gt;, the pixel sample values
+represented by that instance may be signed or unsigned and may
+be of integral type or float or double (see below for details).
+The translation from sample values to normalized color/alpha components
+must follow certain rules.  For float and double samples, the translation
+is an identity, i.e. normalized component values are equal to the
+corresponding sample values.  For integral samples, the translation
+should be only a simple scale and offset, where the scale and offset
+constants may be different for each component.  The result of
+applying the scale and offset constants is a set of color/alpha
+component values, which are guaranteed to fall within a certain
+range.  Typically, the range for a color component will be the range
+defined by the &lt;code&gt;getMinValue&lt;/code&gt; and &lt;code&gt;getMaxValue&lt;/code&gt;
+methods of the &lt;code&gt;ColorSpace&lt;/code&gt; class.  The range for an
+alpha component should be 0.0 to 1.0.
+&lt;p&gt;
+Instances of &lt;code&gt;ComponentColorModel&lt;/code&gt; created with transfer types
+&lt;CODE&gt;DataBuffer.TYPE_BYTE&lt;/CODE&gt;, &lt;CODE&gt;DataBuffer.TYPE_USHORT&lt;/CODE&gt;,
+and &lt;CODE&gt;DataBuffer.TYPE_INT&lt;/CODE&gt; have pixel sample values which
+are treated as unsigned integral values.
+The number of bits in a color or alpha sample of a pixel value might not
+be the same as the number of bits for the corresponding color or alpha
+sample passed to the
+&lt;code&gt;ComponentColorModel(ColorSpace, int[], boolean, boolean, int, int)&lt;/code&gt;
+constructor.  In
+that case, this class assumes that the least significant n bits of a sample
+value hold the component value, where n is the number of significant bits
+for the component passed to the constructor.  It also assumes that
+any higher-order bits in a sample value are zero.  Thus, sample values
+range from 0 to 2&lt;sup&gt;n&lt;/sup&gt; - 1.  This class maps these sample values
+to normalized color component values such that 0 maps to the value
+obtained from the &lt;code&gt;ColorSpace's&lt;/code&gt; &lt;code&gt;getMinValue&lt;/code&gt;
+method for each component and 2&lt;sup&gt;n&lt;/sup&gt; - 1 maps to the value
+obtained from &lt;code&gt;getMaxValue&lt;/code&gt;.  To create a
+&lt;code&gt;ComponentColorModel&lt;/code&gt; with a different color sample mapping
+requires subclassing this class and overriding the
+&lt;code&gt;getNormalizedComponents(Object, float[], int)&lt;/code&gt; method.
+The mapping for an alpha sample always maps 0 to 0.0 and
+2&lt;sup&gt;n&lt;/sup&gt; - 1 to 1.0.
+&lt;p&gt;
+For instances with unsigned sample values,
+the unnormalized color/alpha component representation is only
+supported if two conditions hold.  First, sample value value 0 must
+map to normalized component value 0.0 and sample value 2&lt;sup&gt;n&lt;/sup&gt; - 1
+to 1.0.  Second the min/max range of all color components of the
+&lt;code&gt;ColorSpace&lt;/code&gt; must be 0.0 to 1.0.  In this case, the
+component representation is the n least
+significant bits of the corresponding sample.  Thus each component is
+an unsigned integral value between 0 and 2&lt;sup&gt;n&lt;/sup&gt; - 1, where
+n is the number of significant bits for a particular component.
+If these conditions are not met, any method taking an unnormalized
+component argument will throw an &lt;code&gt;IllegalArgumentException&lt;/code&gt;.
+&lt;p&gt;
+Instances of &lt;code&gt;ComponentColorModel&lt;/code&gt; created with transfer types
+&lt;CODE&gt;DataBuffer.TYPE_SHORT&lt;/CODE&gt;, &lt;CODE&gt;DataBuffer.TYPE_FLOAT&lt;/CODE&gt;, and
+&lt;CODE&gt;DataBuffer.TYPE_DOUBLE&lt;/CODE&gt; have pixel sample values which
+are treated as signed short, float, or double values.
+Such instances do not support the unnormalized color/alpha component
+representation, so any methods taking such a representation as an argument
+will throw an &lt;code&gt;IllegalArgumentException&lt;/code&gt; when called on one
+of these instances.  The normalized component values of instances
+of this class have a range which depends on the transfer
+type as follows: for float samples, the full range of the float data
+type; for double samples, the full range of the float data type
+(resulting from casting double to float); for short samples,
+from approximately -maxVal to +maxVal, where maxVal is the per
+component maximum value for the &lt;code&gt;ColorSpace&lt;/code&gt;
+(-32767 maps to -maxVal, 0 maps to 0.0, and 32767 maps
+to +maxVal).  A subclass may override the scaling for short sample
+values to normalized component values by overriding the
+&lt;code&gt;getNormalizedComponents(Object, float[], int)&lt;/code&gt; method.
+For float and double samples, the normalized component values are
+taken to be equal to the corresponding sample values, and subclasses
+should not attempt to add any non-identity scaling for these transfer
+types.
+&lt;p&gt;
+Instances of &lt;code&gt;ComponentColorModel&lt;/code&gt; created with transfer types
+&lt;CODE&gt;DataBuffer.TYPE_SHORT&lt;/CODE&gt;, &lt;CODE&gt;DataBuffer.TYPE_FLOAT&lt;/CODE&gt;, and
+&lt;CODE&gt;DataBuffer.TYPE_DOUBLE&lt;/CODE&gt;
+use all the bits of all sample values.  Thus all color/alpha components
+have 16 bits when using &lt;CODE&gt;DataBuffer.TYPE_SHORT&lt;/CODE&gt;, 32 bits when
+using &lt;CODE&gt;DataBuffer.TYPE_FLOAT&lt;/CODE&gt;, and 64 bits when using
+&lt;CODE&gt;DataBuffer.TYPE_DOUBLE&lt;/CODE&gt;.  When the
+&lt;code&gt;ComponentColorModel(ColorSpace, int[], boolean, boolean, int, int)&lt;/code&gt;
+form of constructor is used with one of these transfer types, the
+bits array argument is ignored.
+&lt;p&gt;
+It is possible to have color/alpha sample values
+which cannot be reasonably interpreted as component values for rendering.
+This can happen when &lt;code&gt;ComponentColorModel&lt;/code&gt; is subclassed to
+override the mapping of unsigned sample values to normalized color
+component values or when signed sample values outside a certain range
+are used.  (As an example, specifying an alpha component as a signed
+short value outside the range 0 to 32767, normalized range 0.0 to 1.0, can
+lead to unexpected results.) It is the
+responsibility of applications to appropriately scale pixel data before
+rendering such that color components fall within the normalized range
+of the &lt;code&gt;ColorSpace&lt;/code&gt; (obtained using the &lt;code&gt;getMinValue&lt;/code&gt;
+and &lt;code&gt;getMaxValue&lt;/code&gt; methods of the &lt;code&gt;ColorSpace&lt;/code&gt; class)
+and the alpha component is between 0.0 and 1.0.  If color or alpha
+component values fall outside these ranges, rendering results are
+indeterminate.
+&lt;p&gt;
+Methods that use a single int pixel representation throw
+an &lt;CODE&gt;IllegalArgumentException&lt;/CODE&gt;, unless the number of components
+for the &lt;CODE&gt;ComponentColorModel&lt;/CODE&gt; is one and the component
+value is unsigned -- in other words,  a single color component using
+a transfer type of &lt;CODE&gt;DataBuffer.TYPE_BYTE&lt;/CODE&gt;,
+&lt;CODE&gt;DataBuffer.TYPE_USHORT&lt;/CODE&gt;, or &lt;CODE&gt;DataBuffer.TYPE_INT&lt;/CODE&gt;
+and no alpha.
+&lt;p&gt;
+A &lt;CODE&gt;ComponentColorModel&lt;/CODE&gt; can be used in conjunction with a
+&lt;CODE&gt;ComponentSampleModel&lt;/CODE&gt;, a &lt;CODE&gt;BandedSampleModel&lt;/CODE&gt;,
+or a &lt;CODE&gt;PixelInterleavedSampleModel&lt;/CODE&gt; to construct a
+&lt;CODE&gt;BufferedImage&lt;/CODE&gt;.
+
+@see ColorModel
+@see ColorSpace
+@see ComponentSampleModel
+@see BandedSampleModel
+@see PixelInterleavedSampleModel
+@see BufferedImage
+
+@version 10 Feb 1997
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ComponentColorModel" refid="_9_5_f720368_1110473546565_12097_6765"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ComponentColorModel" refid="_9_5_f720368_1110473546565_12097_6765"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

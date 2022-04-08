@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318183_26585_12565"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JTree" refid="_9_5_f720368_1110473546799_552374_10791"/></annotatedElement><body humanName="Body" mode="s,e">&lt;a name="jtree_description"&gt;
+A control that displays a set of hierarchical data as an outline.
+You can find task-oriented documentation and examples of using trees in
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/tree.html"&gt;How to Use Trees&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+&lt;p&gt;
+A specific node in a tree can be identified either by a
+&lt;code&gt;TreePath&lt;/code&gt; (an object
+that encapsulates a node and all of its ancestors), or by its
+display row, where each row in the display area displays one node.
+An &lt;i&gt;expanded&lt;/i&gt; node is a non-leaf node (as identified by
+&lt;code&gt;TreeModel.isLeaf(node)&lt;/code&gt; returning false) that will displays
+its children when all its ancestors are &lt;i&gt;expanded&lt;/i&gt;.
+A &lt;i&gt;collapsed&lt;/i&gt;
+node is one which hides them. A &lt;i&gt;hidden&lt;/i&gt; node is one which is
+under a collapsed ancestor. All of a &lt;i&gt;viewable&lt;/i&gt; nodes parents
+are expanded, but may or may not be displayed. A &lt;i&gt;displayed&lt;/i&gt; node
+is both viewable and in the display area, where it can be seen.
+&lt;p&gt;
+The following &lt;code&gt;JTree&lt;/code&gt; methods use "visible" to mean "displayed":
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;isRootVisible()&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;setRootVisible()&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;scrollPathToVisible()&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;scrollRowToVisible()&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;getVisibleRowCount()&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;setVisibleRowCount()&lt;/code&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+The next group of &lt;code&gt;JTree&lt;/code&gt; methods use "visible" to mean
+"viewable" (under an expanded parent):
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;isVisible()&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;makeVisible()&lt;/code&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+If you are interested in knowing when the selection changes implement
+the &lt;code&gt;TreeSelectionListener&lt;/code&gt; interface and add the instance
+using the method &lt;code&gt;addTreeSelectionListener&lt;/code&gt;.
+&lt;code&gt;valueChanged&lt;/code&gt; will be invoked when the
+selection changes, that is if the user clicks twice on the same
+node &lt;code&gt;valueChanged&lt;/code&gt; will only be invoked once.
+&lt;p&gt;
+If you are interested in detecting either double-click events or when
+a user clicks on a node, regardless of whether or not it was selected,
+we recommend you do the following:
+&lt;pre&gt;
+final JTree tree = ...;
+
+MouseListener ml = new MouseAdapter() {
+public void &lt;b&gt;mousePressed&lt;/b&gt;(MouseEvent e) {
+int selRow = tree.getRowForLocation(e.getX(), e.getY());
+TreePath selPath = tree.getPathForLocation(e.getX(), e.getY());
+if(selRow != -1) {
+if(e.getClickCount() == 1) {
+mySingleClick(selRow, selPath);
+}
+else if(e.getClickCount() == 2) {
+myDoubleClick(selRow, selPath);
+}
+}
+}
+};
+tree.addMouseListener(ml);
+&lt;/pre&gt;
+NOTE: This example obtains both the path and row, but you only need to
+get the one you're interested in.
+&lt;p&gt;
+To use &lt;code&gt;JTree&lt;/code&gt; to display compound nodes
+(for example, nodes containing both
+a graphic icon and text), subclass {@link TreeCellRenderer} and use
+{@link #setCellRenderer} to tell the tree to use it. To edit such nodes,
+subclass {@link TreeCellEditor} and use {@link #setCellEditor}.
+&lt;p&gt;
+Like all &lt;code&gt;JComponent&lt;/code&gt; classes, you can use {@link InputMap} and
+{@link ActionMap}
+to associate an {@link Action} object with a {@link KeyStroke}
+and execute the action under specified conditions.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@beaninfo
+attribute: isContainer false
+description: A component that displays a set of hierarchical data as an outline.
+
+@version 1.176, 07/13/04
+@author Rob Davis
+@author Ray Ryan
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JTree" refid="_9_5_f720368_1110473546799_552374_10791"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JTree" refid="_9_5_f720368_1110473546799_552374_10791"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

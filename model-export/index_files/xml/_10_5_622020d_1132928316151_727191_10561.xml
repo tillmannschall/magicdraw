@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316151_727191_10561"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MidiFileFormat" refid="_9_5_f720368_1110473546737_993452_9667"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;MidiFileFormat&lt;/code&gt; object encapsulates a MIDI file's
+type, as well as its length and timing information.
+
+&lt;p&gt;A &lt;code&gt;MidiFileFormat&lt;/code&gt; object can
+include a set of properties. A property is a pair of key and value:
+the key is of type &lt;code&gt;String&lt;/code&gt;, the associated property
+value is an arbitrary object.
+Properties specify additional informational
+meta data (like a author, or copyright).
+Properties are optional information, and file reader and file
+writer implementations are not required to provide or
+recognize properties.
+
+&lt;p&gt;The following table lists some common properties that should
+be used in implementations:
+
+&lt;table border=1&gt;
+&lt;tr&gt;
+&lt;th&gt;Property key&lt;/th&gt;
+&lt;th&gt;Value type&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"author"&lt;/td&gt;
+&lt;td&gt;{@link java.lang.String String}&lt;/td&gt;
+&lt;td&gt;name of the author of this file&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"title"&lt;/td&gt;
+&lt;td&gt;{@link java.lang.String String}&lt;/td&gt;
+&lt;td&gt;title of this file&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"copyright"&lt;/td&gt;
+&lt;td&gt;{@link java.lang.String String}&lt;/td&gt;
+&lt;td&gt;copyright message&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"date"&lt;/td&gt;
+&lt;td&gt;{@link java.util.Date Date}&lt;/td&gt;
+&lt;td&gt;date of the recording or release&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;"comment"&lt;/td&gt;
+&lt;td&gt;{@link java.lang.String String}&lt;/td&gt;
+&lt;td&gt;an arbitrary text&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+@see MidiSystem#getMidiFileFormat(java.io.File)
+@see Sequencer#setSequence(java.io.InputStream stream)
+
+@version 1.17, 03/12/19
+@author Kara Kytle
+@author Florian Bomers
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MidiFileFormat" refid="_9_5_f720368_1110473546737_993452_9667"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MidiFileFormat" refid="_9_5_f720368_1110473546737_993452_9667"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

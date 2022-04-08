@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318194_557_12588"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ListModel" refid="_9_5_f720368_1110473546799_933232_10811"/></annotatedElement><body humanName="Body" mode="s,e">This interface defines the methods components like JList use
+to get the value of each cell in a list and the length of the list.
+Logically the model is a vector, indices vary from 0 to
+ListDataModel.getSize() - 1.  Any change to the contents or
+length of the data model must be reported to all of the
+ListDataListeners.
+
+@version 0.0 03/01/97
+@author Hans Muller
+@see JList
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ListModel" refid="_9_5_f720368_1110473546799_933232_10811"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ListModel" refid="_9_5_f720368_1110473546799_933232_10811"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

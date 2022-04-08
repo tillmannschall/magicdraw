@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315740_112130_10227"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterState" refid="_9_5_f720368_1110473546721_73631_9419"/></annotatedElement><body humanName="Body" mode="s,e">Class PrinterState is a printing attribute class, an enumeration, that
+identifies the current state of a printer. Class PrinterState defines
+standard printer state values. A Print Service implementation only needs
+to report those printer states which are appropriate for the particular
+implementation; it does not have to report every defined printer state. The
+{@link PrinterStateReasons PrinterStateReasons} attribute augments the
+PrinterState attribute to give more detailed information about the printer
+in  given printer state.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; is the IPP attribute name.  The enumeration's
+integer value is the IPP enum value.  The &lt;code&gt;toString()&lt;/code&gt; method
+returns the IPP string representation of the attribute value.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PrinterState" refid="_9_5_f720368_1110473546721_73631_9419"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterState" refid="_9_5_f720368_1110473546721_73631_9419"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

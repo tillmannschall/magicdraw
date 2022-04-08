@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317272_956541_11511"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SynthContext" refid="_10_5_622020d_1132928317272_532186_11509"/></annotatedElement><body humanName="Body" mode="s,e">An immutable transient object containing contextual information about
+a &lt;code&gt;Region&lt;/code&gt;. A &lt;code&gt;SynthContext&lt;/code&gt; should only be
+considered valid for the duration
+of the method it is passed to. In other words you should not cache
+a &lt;code&gt;SynthContext&lt;/code&gt; that is passed to you and expect it to
+remain valid.
+
+@version 1.9, 12/19/03
+@since 1.5
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SynthContext" refid="_10_5_622020d_1132928317272_532186_11509"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SynthContext" refid="_10_5_622020d_1132928317272_532186_11509"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

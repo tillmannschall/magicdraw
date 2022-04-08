@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_159410_8675"><documentation humanName="Documentation" mode="standard">This class contains all the code to parse a RuleBasedCollator pattern
+and build a RBCollationTables object from it.  A particular instance
+of tis class exists only during the actual build process-- once an
+RBCollationTables object has been built, the RBTableBuilder object
+goes away.  This object carries all of the state which is only needed
+during the build process, plus a "shadow" copy of all of the state
+that will go into the tables object itself.  This object communicates
+with RBCollationTables through a separate class, RBCollationTables.BuildAPI,
+this is an inner class of RBCollationTables and provides a separate
+private API for communication with RBTableBuilder.
+This class isn't just an inner class of RBCollationTables itself because
+of its large size.  For source-code readability, it seemed better for the
+builder to have its own source file.
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">RBTableBuilder</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309771_629894_6276"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309771_629894_6276"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::text::RBTableBuilder</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

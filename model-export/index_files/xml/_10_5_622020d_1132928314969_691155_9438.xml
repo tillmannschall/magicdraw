@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314969_691155_9438"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TabularData" refid="_10_5_622020d_1132928314969_404954_9436"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;tt&gt;TabularData&lt;/tt&gt; interface specifies the behavior of a specific type of complex &lt;i&gt;open data&lt;/i&gt; objects
+which represent &lt;i&gt;tabular data&lt;/i&gt; structures.
+
+@version     3.19  04/02/10
+@author      Sun Microsystems, Inc.
+
+@since 1.5
+@since.unbundled JMX 1.1
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="TabularData" refid="_10_5_622020d_1132928314969_404954_9436"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TabularData" refid="_10_5_622020d_1132928314969_404954_9436"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

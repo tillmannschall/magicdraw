@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305505_261462_3601"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ClipboardOwner" refid="_9_5_f720368_1110473546549_562232_6457"/></annotatedElement><body humanName="Body" mode="s,e">Defines the interface for classes that will provide data to
+a clipboard. An instance of this interface becomes the owner
+of the contents of a clipboard (clipboard owner) if it is
+passed as an argument to
+{@link java.awt.datatransfer.Clipboard#setContents} method of
+the clipboard and this method returns successfully.
+The instance remains the clipboard owner until another application
+or another object within this application asserts ownership
+of this clipboard.
+
+@see java.awt.datatransfer.Clipboard
+
+@version 	1.11, 12/19/03
+@author	Amy Fowler
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ClipboardOwner" refid="_9_5_f720368_1110473546549_562232_6457"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ClipboardOwner" refid="_9_5_f720368_1110473546549_562232_6457"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

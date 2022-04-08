@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306397_915187_4162"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Container" refid="_9_5_f720368_1110473546581_715876_6975"/></annotatedElement><body humanName="Body" mode="s,e">A generic Abstract Window Toolkit(AWT) container object is a component
+that can contain other AWT components.
+&lt;p&gt;
+Components added to a container are tracked in a list.  The order
+of the list will define the components' front-to-back stacking order
+within the container.  If no index is specified when adding a
+component to a container, it will be added to the end of the list
+(and hence to the bottom of the stacking order).
+&lt;p&gt;
+&lt;b&gt;Note&lt;/b&gt;: For details on the focus subsystem, see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/focus.html"&gt;
+How to Use the Focus Subsystem&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;, and the
+&lt;a href="../../java/awt/doc-files/FocusSpec.html"&gt;Focus Specification&lt;/a&gt;
+for more information.
+
+@version 	1.267, 05/18/04
+@author 	Arthur van Hoff
+@author 	Sami Shaio
+@see       #add(java.awt.Component, int)
+@see       #getComponent(int)
+@see       LayoutManager
+@since     JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Container" refid="_9_5_f720368_1110473546581_715876_6975"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Container" refid="_9_5_f720368_1110473546581_715876_6975"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

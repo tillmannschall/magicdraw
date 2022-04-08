@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306667_594595_4258"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Label" refid="_9_5_f720368_1110473546581_828559_7063"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;Label&lt;/code&gt; object is a component for placing text in a
+container. A label displays a single line of read-only text.
+The text can be changed by the application, but a user cannot edit it
+directly.
+&lt;p&gt;
+For example, the code&amp;nbsp;.&amp;nbsp;.&amp;nbsp;.
+&lt;p&gt;
+&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+add(new Label("Hi There!"));
+add(new Label("Another Label"));
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+produces the following labels:
+&lt;p&gt;
+&lt;img src="doc-files/Label-1.gif" alt="Two labels: 'Hi There!' and 'Another label'"
+ALIGN=center HSPACE=10 VSPACE=7&gt;
+
+@version	1.57, 03/16/04
+@author 	Sami Shaio
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Label" refid="_9_5_f720368_1110473546581_828559_7063"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Label" refid="_9_5_f720368_1110473546581_828559_7063"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309231_396863_5946"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RSAPrivateCrtKeySpec" refid="_9_5_f720368_1110473546674_832420_8403"/></annotatedElement><body humanName="Body" mode="s,e">This class specifies an RSA private key, as defined in the PKCS#1
+standard, using the Chinese Remainder Theorem (CRT) information values for
+efficiency.
+
+@author Jan Luehe
+
+@version 1.12 03/12/19
+
+@see java.security.Key
+@see java.security.KeyFactory
+@see KeySpec
+@see PKCS8EncodedKeySpec
+@see RSAPrivateKeySpec
+@see RSAPublicKeySpec
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RSAPrivateCrtKeySpec" refid="_9_5_f720368_1110473546674_832420_8403"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RSAPrivateCrtKeySpec" refid="_9_5_f720368_1110473546674_832420_8403"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

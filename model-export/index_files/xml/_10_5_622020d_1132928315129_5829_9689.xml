@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315129_5829_9689"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Descriptor" refid="_10_5_622020d_1132928315129_588815_9687"/></annotatedElement><body humanName="Body" mode="s,e">This interface represents the behavioral metadata set for a JMX Element.
+For examples, a descriptor is part of the ModelMBeanInfo, ModelMBeanNotificationInfo, ModelMBeanAttributeInfo,
+ModelMBeanConstructorInfo, and ModelMBeanParameterInfo.
+&lt;P&gt;
+A descriptor consists of a collection of fields.  Each field is in fieldname=fieldvalue format.
+&lt;P&gt;
+All field names and values are not predefined. New fields can be defined and added by any program.
+In the case of ModelMBean some fields have been predefined for consistency of implementation and support by the ModelMBeanInfo
+ModelMBean*Info, and ModelMBean classes.
+&lt;P&gt;
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Descriptor" refid="_10_5_622020d_1132928315129_588815_9687"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Descriptor" refid="_10_5_622020d_1132928315129_588815_9687"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

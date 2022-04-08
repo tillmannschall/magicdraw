@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_264939_8661"><documentation humanName="Documentation" mode="standard">Utility class for normalizing and merging patterns for collation.
+Patterns are strings of the form &lt;entry&gt;*, where &lt;entry&gt; has the
+form:
+&lt;pattern&gt; := &lt;entry&gt;
+&lt;entry&gt; := &lt;separator&gt;&lt;chars&gt;{"/"&lt;extension&gt;}
+&lt;separator&gt; := "=", ",", ";", "&lt;", "&amp;"
+&lt;chars&gt;, and &lt;extension&gt; are both arbitrary strings.
+unquoted whitespaces are ignored.
+'xxx' can be used to quote characters
+One difference from Collator is that &amp; is used to reset to a current
+point. Or, in other words, it introduces a new sequence which is to
+be added to the old.
+That is: "a &lt; b &lt; c &lt; d" is the same as "a &lt; b &amp; b &lt; c &amp; c &lt; d" OR
+"a &lt; b &lt; d &amp; b &lt; c"
+XXX: make '' be a single quote.
+@see PatternEntry
+@version    1.17 12/19/03
+@author             Mark Davis, Helena Shih
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">MergeCollation</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309711_147366_6260"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309711_147366_6260"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::text::MergeCollation</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

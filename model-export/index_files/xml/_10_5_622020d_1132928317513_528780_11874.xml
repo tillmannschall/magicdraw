@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317513_528780_11874"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HTMLEditorKit" refid="_9_5_f720368_1110473546768_503665_10357"/></annotatedElement><body humanName="Body" mode="s,e">The Swing JEditorPane text component supports different kinds
+of content via a plug-in mechanism called an EditorKit.  Because
+HTML is a very popular format of content, some support is provided
+by default.  The default support is provided by this class, which
+supports HTML version 3.2 (with some extensions), and is migrating
+toward version 4.0.
+The &lt;applet&gt; tag is not supported, but some support is provided
+for the &lt;object&gt; tag.
+&lt;p&gt;
+There are several goals of the HTML EditorKit provided, that have
+an effect upon the way that HTML is modeled.  These
+have influenced its design in a substantial way.
+&lt;dl&gt;
+&lt;p&gt;
+&lt;dt&gt;
+Support editing
+&lt;dd&gt;
+It might seem fairly obvious that a plug-in for JEditorPane
+should provide editing support, but that fact has several
+design considerations.  There are a substantial number of HTML
+documents that don't properly conform to an HTML specification.
+These must be normalized somewhat into a correct form if one
+is to edit them.  Additionally, users don't like to be presented
+with an excessive amount of structure editing, so using traditional
+text editing gestures is preferred over using the HTML structure
+exactly as defined in the HTML document.
+&lt;p&gt;
+The modeling of HTML is provided by the class &lt;code&gt;HTMLDocument&lt;/code&gt;.
+Its documention describes the details of how the HTML is modeled.
+The editing support leverages heavily off of the text package.
+&lt;p&gt;
+&lt;dt&gt;
+Extendable/Scalable
+&lt;dd&gt;
+To maximize the usefulness of this kit, a great deal of effort
+has gone into making it extendable.  These are some of the
+features.
+&lt;ol&gt;
+&lt;li&gt;
+The parser is replacable.  The default parser is the Hot Java
+parser which is DTD based.  A different DTD can be used, or an
+entirely different parser can be used.  To change the parser,
+reimplement the getParser method.  The default parser is
+dynamically loaded when first asked for, so the class files
+will never be loaded if an alternative parser is used.  The
+default parser is in a separate package called parser below
+this package.
+&lt;li&gt;
+The parser drives the ParserCallback, which is provided by
+HTMLDocument.  To change the callback, subclass HTMLDocument
+and reimplement the createDefaultDocument method to return
+document that produces a different reader.  The reader controls
+how the document is structured.  Although the Document provides
+HTML support by default, there is nothing preventing support of
+non-HTML tags that result in alternative element structures.
+&lt;li&gt;
+The default view of the models are provided as a hierarchy of
+View implementations, so one can easily customize how a particular
+element is displayed or add capabilities for new kinds of elements
+by providing new View implementations.  The default set of views
+are provided by the &lt;code&gt;HTMLFactory&lt;/code&gt; class.  This can
+be easily changed by subclassing or replacing the HTMLFactory
+and reimplementing the getViewFactory method to return the alternative
+factory.
+&lt;li&gt;
+The View implementations work primarily off of CSS attributes,
+which are kept in the views.  This makes it possible to have
+multiple views mapped over the same model that appear substantially
+different.  This can be especially useful for printing.  For
+most HTML attributes, the HTML attributes are converted to CSS
+attributes for display.  This helps make the View implementations
+more general purpose
+&lt;/ol&gt;
+&lt;p&gt;
+&lt;dt&gt;
+Asynchronous Loading
+&lt;dd&gt;
+Larger documents involve a lot of parsing and take some time
+to load.  By default, this kit produces documents that will be
+loaded asynchronously if loaded using &lt;code&gt;JEditorPane.setPage&lt;/code&gt;.
+This is controlled by a property on the document.  The method
+&lt;a href="#createDefaultDocument"&gt;createDefaultDocument&lt;/a&gt; can
+be overriden to change this.  The batching of work is done
+by the &lt;code&gt;HTMLDocument.HTMLReader&lt;/code&gt; class.  The actual
+work is done by the &lt;code&gt;DefaultStyledDocument&lt;/code&gt; and
+&lt;code&gt;AbstractDocument&lt;/code&gt; classes in the text package.
+&lt;p&gt;
+&lt;dt&gt;
+Customization from current LAF
+&lt;dd&gt;
+HTML provides a well known set of features without exactly
+specifying the display characteristics.  Swing has a theme
+mechanism for its look-and-feel implementations.  It is desirable
+for the look-and-feel to feed display characteristics into the
+HTML views.  An user with poor vision for example would want
+high contrast and larger than typical fonts.
+&lt;p&gt;
+The support for this is provided by the &lt;code&gt;StyleSheet&lt;/code&gt;
+class.  The presentation of the HTML can be heavily influenced
+by the setting of the StyleSheet property on the EditorKit.
+&lt;p&gt;
+&lt;dt&gt;
+Not lossy
+&lt;dd&gt;
+An EditorKit has the ability to be read and save documents.
+It is generally the most pleasing to users if there is no loss
+of data between the two operation.  The policy of the HTMLEditorKit
+will be to store things not recognized or not necessarily visible
+so they can be subsequently written out.  The model of the HTML document
+should therefore contain all information discovered while reading the
+document.  This is constrained in some ways by the need to support
+editing (i.e. incorrect documents sometimes must be normalized).
+The guiding principle is that information shouldn't be lost, but
+some might be synthesized to produce a more correct model or it might
+be rearranged.
+&lt;/dl&gt;
+
+@author  Timothy Prinzing
+@version 1.131 05/18/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="HTMLEditorKit" refid="_9_5_f720368_1110473546768_503665_10357"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HTMLEditorKit" refid="_9_5_f720368_1110473546768_503665_10357"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

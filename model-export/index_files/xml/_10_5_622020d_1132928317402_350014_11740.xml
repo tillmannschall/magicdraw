@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317402_350014_11740"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="UIResource" refid="_9_5_f720368_1110473546768_203610_10277"/></annotatedElement><body humanName="Body" mode="s,e">This interface is used to mark objects created by ComponentUI delegates.
+The &lt;code&gt;ComponentUI.installUI()&lt;/code&gt; and
+&lt;code&gt;ComponentUI.uninstallUI()&lt;/code&gt; methods can use this interface
+to decide if a properties value has been overridden.  For example, the
+JList cellRenderer property is initialized by BasicListUI.installUI(),
+only if it's initial value is null:
+&lt;pre&gt;
+if (list.getCellRenderer() == null) {
+list.setCellRenderer((ListCellRenderer)(UIManager.get("List.cellRenderer")));
+}
+&lt;/pre&gt;
+At uninstallUI() time we reset the property to null if its value
+is an instance of UIResource:
+&lt;pre&gt;
+if (list.getCellRenderer() instanceof UIResource) {
+list.setCellRenderer(null);
+}
+&lt;/pre&gt;
+This pattern applies to all properties except the java.awt.Component
+properties font, foreground, and background.  If one of these
+properties isn't initialized, or is explicitly set to null,
+its container provides the value.  For this reason the
+&lt;code&gt;"== null"&lt;/code&gt; is unreliable when installUI() is called
+to dynamically change a components look and feel.  So at installUI()
+time we check to see if the current value is a UIResource:
+&lt;pre&gt;
+if (!(list.getFont() instanceof UIResource)) {
+list.setFont(UIManager.getFont("List.font"));
+}
+&lt;/pre&gt;
+
+@see ComponentUI
+@version 1.10 12/19/03
+@author Hans Muller
+
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="UIResource" refid="_9_5_f720368_1110473546768_203610_10277"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="UIResource" refid="_9_5_f720368_1110473546768_203610_10277"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

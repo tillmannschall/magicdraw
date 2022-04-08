@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317753_88034_12212"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ZoneView" refid="_9_5_f720368_1110473546784_241218_10553"/></annotatedElement><body humanName="Body" mode="s,e">ZoneView is a View implementation that creates zones for which
+the child views are not created or stored until they are needed
+for display or model/view translations.  This enables a substantial
+reduction in memory consumption for situations where the model
+being represented is very large, by building view objects only for
+the region being actively viewed/edited.  The size of the children
+can be estimated in some way, or calculated asynchronously with
+only the result being saved.
+&lt;p&gt;
+ZoneView extends BoxView to provide a box that implements
+zones for it's children.  The zones are special View implementations
+(the children of an instance of this class) that represent only a
+portion of the model that an instance of ZoneView is responsible
+for.  The zones don't create child views until an attempt is made
+to display them. A box shaped view is well suited to this because:
+&lt;ul&gt;
+&lt;li&gt;
+Boxes are a heavily used view, and having a box that
+provides this behavior gives substantial opportunity
+to plug the behavior into a view hierarchy from the
+view factory.
+&lt;li&gt;
+Boxes are tiled in one direction, so it is easy to
+divide them into zones in a reliable way.
+&lt;li&gt;
+Boxes typically have a simple relationship to the model (i.e. they
+create child views that directly represent the child elements).
+&lt;li&gt;
+Boxes are easier to estimate the size of than some other shapes.
+&lt;/ul&gt;
+&lt;p&gt;
+The default behavior is controled by two properties, maxZoneSize
+and maxZonesLoaded.  Setting maxZoneSize to Integer.MAX_VALUE would
+have the effect of causing only one zone to be created.  This would
+effectively turn the view into an implementation of the decorator
+pattern.  Setting maxZonesLoaded to a value of Integer.MAX_VALUE would
+cause zones to never be unloaded.  For simplicity, zones are created on
+boundaries represented by the child elements of the element the view is
+responsible for.  The zones can be any View implementation, but the
+default implementation is based upon AsyncBoxView which supports fairly
+large zones efficiently.
+
+@author  Timothy Prinzing
+@version 1.17 12/19/03
+@see     View
+@since   1.3
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ZoneView" refid="_9_5_f720368_1110473546784_241218_10553"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ZoneView" refid="_9_5_f720368_1110473546784_241218_10553"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

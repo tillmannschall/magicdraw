@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546706_323114_9031"><documentation humanName="Documentation" mode="standard">This class adds the ability to set JPEG quantization and Huffman
+tables when using the built-in JPEG writer plug-in, and to request that
+optimized Huffman tables be computed for an image.  An instance of
+this class will be returned from the
+&lt;code&gt;getDefaultImageWriteParam&lt;/code&gt; methods of the built-in JPEG
+&lt;code&gt;ImageWriter&lt;/code&gt;.
+&lt;p&gt; The principal purpose of these additions is to allow the
+specification of tables to use in encoding abbreviated streams.
+The built-in JPEG writer will also accept an ordinary
+&lt;code&gt;ImageWriteParam&lt;/code&gt;, in which case the writer will
+construct the necessary tables internally.
+
+&lt;p&gt; In either case, the quality setting in an &lt;code&gt;ImageWriteParam&lt;/code&gt;
+has the same meaning as for the underlying library: 1.00 means a
+quantization table of all 1's, 0.75 means the "standard", visually
+lossless quantization table, and 0.00 means aquantization table of
+all 255's.
+
+&lt;p&gt; While tables for abbreviated streams are often specified by
+first writing an abbreviated stream containing only the tables, in
+some applications the tables are fixed ahead of time.  This class
+allows the tables to be specified directly from client code.
+
+&lt;p&gt; Normally, the tables are specified in the
+&lt;code&gt;IIOMetadata&lt;/code&gt; objects passed in to the writer, and any
+tables included in these objects are written to the stream.
+If no tables are specified in the metadata, then an abbreviated
+stream is written.  If no tables are included in the metadata and
+no tables are specified in a &lt;code&gt;JPEGImageWriteParam&lt;/code&gt;, then
+an abbreviated stream is encoded using the "standard" visually
+lossless tables.  This class is necessary for specifying tables
+when an abbreviated stream must be written without writing any tables
+to a stream first.  In order to use this class, the metadata object
+passed into the writer must contain no tables, and no stream metadata
+must be provided.  See {@link JPEGQTable &lt;code&gt;JPEGQTable&lt;/code&gt;} and
+{@link JPEGHuffmanTable &lt;code&gt;JPEGHuffmanTable&lt;/code&gt;} for more
+information on the default tables.
+
+&lt;p&gt; The default &lt;code&gt;JPEGImageWriteParam&lt;/code&gt; returned by the
+&lt;code&gt;getDefaultWriteParam&lt;/code&gt; method of the writer contains no
+tables.  Default tables are included in the default
+&lt;code&gt;IIOMetadata&lt;/code&gt; objects returned by the writer.
+
+&lt;p&gt; If the metadata does contain tables, the tables given in a
+&lt;code&gt;JPEGImageWriteParam&lt;/code&gt; are ignored.  Furthermore, once a
+set of tables has been written, only tables in the metadata can
+override them for subsequent writes, whether to the same stream or
+a different one.  In order to specify new tables using this class,
+the {@link javax.imageio.ImageWriter#reset &lt;code&gt;reset&lt;/code&gt;}
+method of the writer must be called.
+
+&lt;p&gt;
+For more information about the operation of the built-in JPEG plug-ins,
+see the &lt;A HREF="../../metadata/doc-files/jpeg_metadata.html"&gt;JPEG
+metadata format specification and usage notes&lt;/A&gt;.
+
+@version 0.5
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322910_803272_15783"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">JPEGImageWriteParam</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="jpeg" refid="_9_5_f720368_1110473547924_149673_19875"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314799_566242_9185"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322910_803272_15783"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314799_566242_9185"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="jpeg" refid="_9_5_f720368_1110473547924_149673_19875"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="jpeg" refid="_9_5_f720368_1110473547924_149673_19875"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="jpeg" refid="_9_5_f720368_1110473547924_149673_19875"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::imageio::plugins::jpeg::JPEGImageWriteParam</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ImageWriteParam" refid="_9_5_f720368_1110473546706_834798_9107"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

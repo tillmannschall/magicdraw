@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317803_983747_12268"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="StateEditable" refid="_9_5_f720368_1110473546784_728006_10601"/></annotatedElement><body humanName="Body" mode="s,e">StateEditable defines the interface for objects that can have
+their state undone/redone by a StateEdit.
+
+@see StateEdit
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="StateEditable" refid="_9_5_f720368_1110473546784_728006_10601"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="StateEditable" refid="_9_5_f720368_1110473546784_728006_10601"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

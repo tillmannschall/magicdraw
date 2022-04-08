@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546737_132330_9633"><documentation humanName="Documentation" mode="standard">This class is used to protect access to private Credentials
+belonging to a particular &lt;code&gt;Subject&lt;/code&gt;.  The &lt;code&gt;Subject&lt;/code&gt;
+is represented by a Set of Principals.
+
+&lt;p&gt; The target name of this &lt;code&gt;Permission&lt;/code&gt; specifies
+a Credential class name, and a Set of Principals.
+The only valid value for this Permission's actions is, "read".
+The target name must abide by the following syntax:
+
+&lt;pre&gt;
+CredentialClass {PrincipalClass "PrincipalName"}
+&lt;/pre&gt;
+
+For example, the following permission grants access to the
+com.sun.PrivateCredential owned by Subjects which have
+a com.sun.Principal with the name, "duke".  Note that although
+this example, as well as all the examples below, do not contain
+Codebase, SignedBy, or Principal information in the grant statement
+(for simplicity reasons), actual policy configurations should
+specify that information when appropriate.
+
+&lt;pre&gt;
+
+grant {
+permission javax.security.auth.PrivateCredentialPermission
+"com.sun.PrivateCredential com.sun.Principal \"duke\"",
+"read";
+};
+&lt;/pre&gt;
+
+If CredentialClass is "*", then access is granted to
+all private Credentials belonging to the specified
+&lt;code&gt;Subject&lt;/code&gt;.
+If "PrincipalName" is "*", then access is granted to the
+specified Credential owned by any &lt;code&gt;Subject&lt;/code&gt; that has the
+specified &lt;code&gt;Principal&lt;/code&gt; (the actual PrincipalName doesn't matter).
+For example, the following grants access to the
+a.b.Credential owned by any &lt;code&gt;Subject&lt;/code&gt; that has
+an a.b.Principal.
+
+&lt;pre&gt;
+grant {
+permission javax.security.auth.PrivateCredentialPermission
+"a.b.Credential a.b.Principal "*"",
+"read";
+};
+&lt;/pre&gt;
+
+If both the PrincipalClass and "PrincipalName" are "*",
+then access is granted to the specified Credential owned by
+any &lt;code&gt;Subject&lt;/code&gt;.
+
+&lt;p&gt; In addition, the PrincipalClass/PrincipalName pairing may be repeated:
+
+&lt;pre&gt;
+grant {
+permission javax.security.auth.PrivateCredentialPermission
+"a.b.Credential a.b.Principal "duke" c.d.Principal "dukette"",
+"read";
+};
+&lt;/pre&gt;
+
+The above grants access to the private Credential, "a.b.Credential",
+belonging to a &lt;code&gt;Subject&lt;/code&gt; with at least two associated Principals:
+"a.b.Principal" with the name, "duke", and "c.d.Principal", with the name,
+"dukette".
+
+@version 1.31, 12/19/03
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323351_517920_16564"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CredOwner" refid="_9_5_f720368_1110473548081_538679_20770"/></member><name humanName="Name" mode="s,e">PrivateCredentialPermission</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="auth" refid="_9_5_f720368_1110473548065_581421_20682"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CredOwner" refid="_9_5_f720368_1110473548081_538679_20770"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316121_82749_10490"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323351_517920_16564"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316121_82749_10490"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CredOwner" refid="_9_5_f720368_1110473548081_538679_20770"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CredOwner" refid="_9_5_f720368_1110473548081_538679_20770"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="auth" refid="_9_5_f720368_1110473548065_581421_20682"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="auth" refid="_9_5_f720368_1110473548065_581421_20682"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="auth" refid="_9_5_f720368_1110473548065_581421_20682"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::security::auth::PrivateCredentialPermission</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Permission" refid="_9_5_f720368_1110473546690_144720_8491"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

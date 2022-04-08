@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308600_81562_5384"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ByteChannel" refid="_9_5_f720368_1110473546643_237537_7873"/></annotatedElement><body humanName="Body" mode="s,e">A channel that can read and write bytes.  This interface simply unifies
+{@link ReadableByteChannel} and {@link WritableByteChannel}; it does not
+specify any new operations.
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.10, 03/12/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ByteChannel" refid="_9_5_f720368_1110473546643_237537_7873"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ByteChannel" refid="_9_5_f720368_1110473546643_237537_7873"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

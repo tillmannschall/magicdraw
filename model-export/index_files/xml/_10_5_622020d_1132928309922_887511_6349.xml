@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_10_5_622020d_1132928309922_887511_6349"><documentation humanName="Documentation" mode="standard">A reflection-based utility that enables atomic updates to
+designated &lt;tt&gt;volatile&lt;/tt&gt; reference fields of designated
+classes.  This class is designed for use in atomic data structures
+in which several reference fields of the same node are
+independently subject to atomic updates. For example, a tree node
+might be declared as
+
+&lt;pre&gt;
+class Node {
+private volatile Node left, right;
+
+private static final AtomicReferenceFieldUpdater&lt;Node, Node&gt; leftUpdater =
+AtomicReferenceFieldUpdater.newUpdater(Node.class, Node.class, "left");
+private static AtomicReferenceFieldUpdater&lt;Node, Node&gt; rightUpdater =
+AtomicReferenceFieldUpdater.newUpdater(Node.class, Node.class, "right");
+
+Node getLeft() { return left;  }
+boolean compareAndSetLeft(Node expect, Node update) {
+return leftUpdater.compareAndSet(this, expect, update);
+}
+... and so on
+}
+&lt;/pre&gt;
+
+&lt;p&gt; Note that the guarantees of the &lt;tt&gt;compareAndSet&lt;/tt&gt;
+method in this class are weaker than in other atomic classes. Because this
+class cannot ensure that all uses of the field are appropriate for
+purposes of atomic access, it can guarantee atomicity and volatile
+semantics only with respect to other invocations of
+&lt;tt&gt;compareAndSet&lt;/tt&gt; and &lt;tt&gt;set&lt;/tt&gt;.
+@since 1.5
+@author Doug Lea
+@param &lt;T&gt; The type of the object holding the updatable field
+@param &lt;V&gt; The type of the field
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AtomicReferenceFieldUpdaterImpl" refid="_10_5_622020d_1132928309922_249732_6355"/></member><name humanName="Name" mode="s,e">AtomicReferenceFieldUpdater</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="atomic" refid="_10_5_622020d_1132928309902_80783_6286"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AtomicReferenceFieldUpdaterImpl" refid="_10_5_622020d_1132928309922_249732_6355"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309922_853431_6363"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928309922_272954_6350"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309922_853431_6363"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AtomicReferenceFieldUpdaterImpl" refid="_10_5_622020d_1132928309922_249732_6355"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AtomicReferenceFieldUpdaterImpl" refid="_10_5_622020d_1132928309922_249732_6355"/></ownedMember><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928309922_272954_6350"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="atomic" refid="_10_5_622020d_1132928309902_80783_6286"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="atomic" refid="_10_5_622020d_1132928309902_80783_6286"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="atomic" refid="_10_5_622020d_1132928309902_80783_6286"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::concurrent::atomic::AtomicReferenceFieldUpdater</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

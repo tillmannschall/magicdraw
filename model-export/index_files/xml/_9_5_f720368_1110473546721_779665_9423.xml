@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546721_779665_9423"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::PrinterStateReasons -&gt; JDK 5.0 Classes::javax::print::attribute::PrintServiceAttribute]" refid="_10_5_622020d_1132928323301_397540_16378"/></clientDependency><documentation humanName="Documentation" mode="standard">Class PrinterStateReasons is a printing attribute class, a set of
+enumeration values, that provides additional information about the
+printer's current state, i.e., information that augments the value of the
+printer's {@link PrinterState PrinterState} attribute.
+&lt;P&gt;
+Instances of {@link PrinterStateReason PrinterStateReason} do not appear in
+a Print Service's attribute set directly. Rather, a PrinterStateReasons
+attribute appears in the Print Service's attribute set. The
+PrinterStateReasons attribute contains zero, one, or more than one {@link
+PrinterStateReason PrinterStateReason} objects which pertain to the Print
+Service's status, and each {@link PrinterStateReason PrinterStateReason}
+object is associated with a {@link Severity Severity} level of REPORT
+(least severe), WARNING, or ERROR (most severe). The printer adds a {@link
+PrinterStateReason PrinterStateReason} object to the Print Service's
+PrinterStateReasons attribute when the corresponding condition becomes true
+of the printer, and the printer removes the {@link PrinterStateReason
+PrinterStateReason} object again when the corresponding condition becomes
+false, regardless of whether the Print Service's overall
+{@link PrinterState PrinterState} also changed.
+&lt;P&gt;
+Class PrinterStateReasons inherits its implementation from class {@link
+java.util.HashMap java.util.HashMap}. Each entry in the map consists of a
+{@link PrinterStateReason PrinterStateReason} object (key) mapping to a
+{@link Severity Severity} object (value):
+&lt;P&gt;
+Unlike most printing attributes which are immutable once constructed, class
+PrinterStateReasons is designed to be mutable; you can add {@link
+PrinterStateReason PrinterStateReason} objects to an existing
+PrinterStateReasons object and remove them again. However, like class
+{@link java.util.HashMap java.util.HashMap}, class PrinterStateReasons is
+bot multiple thread safe. If a PrinterStateReasons object will be used by
+multiple threads, be sure to synchronize its operations (e.g., using a
+synchronized map view obtained from class {@link java.util.Collections
+java.util.Collections}).
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The string values returned by each individual
+{@link PrinterStateReason PrinterStateReason} object's and the associated
+{@link Severity Severity} object's &lt;CODE&gt;toString()&lt;/CODE&gt; methods,
+concatenated
+together with a hyphen (&lt;CODE&gt;"-"&lt;/CODE&gt;) in between, gives the IPP keyword
+value. The category name returned by &lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP
+attribute name.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323301_803727_16383"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::PrinterStateReasons -&gt; JDK 5.0 Classes::javax::print::attribute::PrintServiceAttribute]" refid="_10_5_622020d_1132928323301_397540_16378"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterStateReasonSet" refid="_9_5_f720368_1110473548003_981379_20268"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterStateReasonSetIterator" refid="_9_5_f720368_1110473548003_620852_20269"/></member><name humanName="Name" mode="s,e">PrinterStateReasons</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterStateReasonSet" refid="_9_5_f720368_1110473548003_981379_20268"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterStateReasonSetIterator" refid="_9_5_f720368_1110473548003_620852_20269"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315750_725436_10231"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323301_803727_16383"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315750_725436_10231"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::PrinterStateReasons -&gt; JDK 5.0 Classes::javax::print::attribute::PrintServiceAttribute]" refid="_10_5_622020d_1132928323301_397540_16378"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterStateReasonSet" refid="_9_5_f720368_1110473548003_981379_20268"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterStateReasonSetIterator" refid="_9_5_f720368_1110473548003_620852_20269"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterStateReasonSet" refid="_9_5_f720368_1110473548003_981379_20268"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PrinterStateReasonSetIterator" refid="_9_5_f720368_1110473548003_620852_20269"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::print::attribute::standard::PrinterStateReasons</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintServiceAttribute" refid="_9_5_f720368_1110473546737_783407_9475"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HashMap&lt;PrinterStateReason, Severity&gt;" refid="_10_5_622020d_1132928323301_691605_16379"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

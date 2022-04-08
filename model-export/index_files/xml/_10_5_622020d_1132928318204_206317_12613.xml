@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318204_206317_12613"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PopupFactory" refid="_9_5_f720368_1110473546799_164938_10829"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;PopupFactory&lt;/code&gt;, as the name implies, is used to obtain
+instances of &lt;code&gt;Popup&lt;/code&gt;s. &lt;code&gt;Popup&lt;/code&gt;s are used to
+display a &lt;code&gt;Component&lt;/code&gt; above all other &lt;code&gt;Component&lt;/code&gt;s
+in a particular containment hierarchy. The general contract is that
+once you have obtained a &lt;code&gt;Popup&lt;/code&gt; from a
+&lt;code&gt;PopupFactory&lt;/code&gt;, you must invoke &lt;code&gt;hide&lt;/code&gt; on the
+&lt;code&gt;Popup&lt;/code&gt;. The typical usage is:
+&lt;pre&gt;
+PopupFactory factory = PopupFactory.getSharedInstance();
+Popup popup = factory.getPopup(owner, contents, x, y);
+popup.show();
+...
+popup.hide();
+&lt;/pre&gt;
+
+@see Popup
+
+@version 1.24 12/19/03
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PopupFactory" refid="_9_5_f720368_1110473546799_164938_10829"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PopupFactory" refid="_9_5_f720368_1110473546799_164938_10829"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

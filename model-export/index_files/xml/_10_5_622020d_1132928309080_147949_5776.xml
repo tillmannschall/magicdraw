@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309080_147949_5776"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertificateEncodingException" refid="_9_5_f720368_1110473546674_792670_8273"/></annotatedElement><body humanName="Body" mode="s,e">Certificate Encoding Exception. This is thrown whenever an error
+occurs while attempting to encode a certificate.
+
+@author Hemma Prafullchandra
+1.12
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CertificateEncodingException" refid="_9_5_f720368_1110473546674_792670_8273"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertificateEncodingException" refid="_9_5_f720368_1110473546674_792670_8273"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

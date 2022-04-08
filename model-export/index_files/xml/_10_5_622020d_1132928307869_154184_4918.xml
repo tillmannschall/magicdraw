@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307869_154184_4918"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TypeVariable" refid="_10_5_622020d_1132928307859_836151_4913"/></annotatedElement><body humanName="Body" mode="s,e">TypeVariable is the common superinterface for type variables of kinds.
+A type variable is created the first time it is needed by a reflective
+method, as specified in this package.  If a type variable t is referenced
+by a type (i.e, class, interface or annotation type) T, and T is declared
+by the nth enclosing class of T (see JLS 8.1.2), then the creation of t
+requires the resolution (see JVMS 5) of the ith enclosing class of T,
+for i = 0 to n, inclusive. Creating a type variable must not cause the
+creation of its bounds. Repeated creation of a type variable has no effect.
+
+&lt;p&gt;Multiple objects may be instantiated at run-time to
+represent a given type variable. Even though a type variable is
+created only once, this does not imply any requirement to cache
+instances representing the type variable. However, all instances
+representing a type variable must be equal() to each other.
+As a consequence, users of type variables must not rely on the identity
+of instances of classes implementing this interface.
+
+&lt;p&gt;The type parameter D represents the type of generic declaration
+that declared the underlying type variable.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="TypeVariable" refid="_10_5_622020d_1132928307859_836151_4913"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TypeVariable" refid="_10_5_622020d_1132928307859_836151_4913"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

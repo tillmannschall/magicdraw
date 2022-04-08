@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315810_104260_10293"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintServiceAttribute" refid="_9_5_f720368_1110473546737_783407_9475"/></annotatedElement><body humanName="Body" mode="s,e">Interface PrintServiceAttribute is a tagging interface which a printing
+attribute class implements to indicate the attribute describes the status
+of a Print Service or some other characteristic of a Print Service. A Print
+Service instance adds a number of PrintServiceAttributes to a Print
+service's attribute set to report the Print Service's status.
+&lt;P&gt;
+
+@see PrintServiceAttributeSet
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="PrintServiceAttribute" refid="_9_5_f720368_1110473546737_783407_9475"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintServiceAttribute" refid="_9_5_f720368_1110473546737_783407_9475"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

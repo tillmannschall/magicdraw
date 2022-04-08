@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546706_465154_9053"><documentation humanName="Documentation" mode="standard">A set of &lt;code&gt;Object&lt;/code&gt;s with pairwise orderings between them.
+The &lt;code&gt;iterator&lt;/code&gt; method provides the elements in
+topologically sorted order.  Elements participating in a cycle
+are not returned.
+
+Unlike the &lt;code&gt;SortedSet&lt;/code&gt; and &lt;code&gt;SortedMap&lt;/code&gt;
+interfaces, which require their elements to implement the
+&lt;code&gt;Comparable&lt;/code&gt; interface, this class receives ordering
+information via its &lt;code&gt;setOrdering&lt;/code&gt; and
+&lt;code&gt;unsetPreference&lt;/code&gt; methods.  This difference is due to
+the fact that the relevant ordering between elements is unlikely to
+be inherent in the elements themselves; rather, it is set
+dynamically accoring to application policy.  For example, in a
+service provider registry situation, an application might allow the
+user to set a preference order for service provider objects
+supplied by a trusted vendor over those supplied by another.
+
+@version 0.5
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322920_470118_15794"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">PartiallyOrderedSet</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spi" refid="_9_5_f720368_1110473547924_291094_19882"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314809_304519_9207"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322920_470118_15794"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314809_304519_9207"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="spi" refid="_9_5_f720368_1110473547924_291094_19882"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spi" refid="_9_5_f720368_1110473547924_291094_19882"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spi" refid="_9_5_f720368_1110473547924_291094_19882"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::imageio::spi::PartiallyOrderedSet</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractSet" refid="_9_5_f720368_1110473546706_136303_8831"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

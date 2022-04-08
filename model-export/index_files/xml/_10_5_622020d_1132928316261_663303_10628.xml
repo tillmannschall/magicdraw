@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316261_663303_10628"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DataLine" refid="_9_5_f720368_1110473546737_441830_9725"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;DataLine&lt;/code&gt; adds media-related functionality to its
+superinterface, &lt;code&gt;{@link Line}&lt;/code&gt;.  This functionality includes
+transport-control methods that start, stop, drain, and flush
+the audio data that passes through the line.  A data line can also
+report the current position, volume, and audio format of the media.
+Data lines are used for output of audio by means of the
+subinterfaces &lt;code&gt;{@link SourceDataLine}&lt;/code&gt; or
+&lt;code&gt;{@link Clip}&lt;/code&gt;, which allow an application program to write data.  Similarly,
+audio input is handled by the subinterface &lt;code&gt;{@link TargetDataLine}&lt;/code&gt;,
+which allows data to be read.
+&lt;p&gt;
+A data line has an internal buffer in which
+the incoming or outgoing audio data is queued.  The
+&lt;code&gt;{@link #drain()}&lt;/code&gt; method blocks until this internal buffer
+becomes empty, usually because all queued data has been processed.  The
+&lt;code&gt;{@link #flush()}&lt;/code&gt; method discards any available queued data
+from the internal buffer.
+&lt;p&gt;
+A data line produces &lt;code&gt;{@link LineEvent.Type#START START}&lt;/code&gt; and
+&lt;code&gt;{@link LineEvent.Type#STOP STOP}&lt;/code&gt; events whenever
+it begins or ceases active presentation or capture of data.  These events
+can be generated in response to specific requests, or as a result of
+less direct state changes.  For example, if &lt;code&gt;{@link #start()}&lt;/code&gt; is called
+on an inactive data line, and data is available for capture or playback, a
+&lt;code&gt;START&lt;/code&gt; event will be generated shortly, when data playback
+or capture actually begins.  Or, if the flow of data to an active data
+line is constricted so that a gap occurs in the presentation of data,
+a &lt;code&gt;STOP&lt;/code&gt; event is generated.
+&lt;p&gt;
+Mixers often support synchronized control of multiple data lines.
+Synchronization can be established through the Mixer interface's
+&lt;code&gt;{@link Mixer#synchronize synchronize}&lt;/code&gt; method.
+See the description of the &lt;code&gt;{@link Mixer Mixer}&lt;/code&gt; interface
+for a more complete description.
+
+@author Kara Kytle
+@version 1.33, 04/07/14
+@see LineEvent
+@since 1.3
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DataLine" refid="_9_5_f720368_1110473546737_441830_9725"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DataLine" refid="_9_5_f720368_1110473546737_441830_9725"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

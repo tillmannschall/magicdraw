@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318103_741636_12498"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JScrollPane" refid="_9_5_f720368_1110473546799_533208_10765"/></annotatedElement><body humanName="Body" mode="s,e">Provides a scrollable view of a lightweight component.
+A &lt;code&gt;JScrollPane&lt;/code&gt; manages a viewport, optional
+vertical and horizontal scroll bars, and optional row and
+column heading viewports.
+You can find task-oriented documentation of &lt;code&gt;JScrollPane&lt;/code&gt; in
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/scrollpane.html"&gt;How to Use Scroll Panes&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.  Note that
+&lt;code&gt;JScrollPane&lt;/code&gt; does not support heavyweight components.
+&lt;p&gt;
+&lt;TABLE ALIGN="RIGHT" BORDER="0" SUMMARY="layout"&gt;
+&lt;TR&gt;
+&lt;TD ALIGN="CENTER"&gt;
+&lt;P ALIGN="CENTER"&gt;&lt;IMG SRC="doc-files/JScrollPane-1.gif"
+alt="The following text describes this image."
+WIDTH="256" HEIGHT="248" ALIGN="BOTTOM" BORDER="0"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+The &lt;code&gt;JViewport&lt;/code&gt; provides a window,
+or "viewport" onto a data
+source -- for example, a text file. That data source is the
+"scrollable client" (aka data model) displayed by the
+&lt;code&gt;JViewport&lt;/code&gt; view.
+A &lt;code&gt;JScrollPane&lt;/code&gt; basically consists of &lt;code&gt;JScrollBar&lt;/code&gt;s,
+a &lt;code&gt;JViewport&lt;/code&gt;, and the wiring between them,
+as shown in the diagram at right.
+&lt;p&gt;
+In addition to the scroll bars and viewport,
+a &lt;code&gt;JScrollPane&lt;/code&gt; can have a
+column header and a row header. Each of these is a
+&lt;code&gt;JViewport&lt;/code&gt; object that
+you specify with &lt;code&gt;setRowHeaderView&lt;/code&gt;,
+and &lt;code&gt;setColumnHeaderView&lt;/code&gt;.
+The column header viewport automatically scrolls left and right, tracking
+the left-right scrolling of the main viewport.
+(It never scrolls vertically, however.)
+The row header acts in a similar fashion.
+&lt;p&gt;
+By default, the corners are empty.
+You can put a component into a corner using
+&lt;code&gt;setCorner&lt;/code&gt;,
+in case you there is some function or decoration you
+would like to add to the scroll pane. The size of corner components is
+entirely determined by the size of the headers and scroll bars that
+surround them.
+&lt;p&gt;
+To add a border around the main viewport,
+you can use &lt;code&gt;setViewportBorder&lt;/code&gt;.
+(Of course, you can also add a border around the whole scroll pane using
+&lt;code&gt;setBorder&lt;/code&gt;.)
+&lt;p&gt;
+A common operation to want to do is to set the background color that will
+be used if the main viewport view is smaller than the viewport, or is
+not opaque. This can be accomplished by setting the background color
+of the viewport, via &lt;code&gt;scrollPane.getViewport().setBackground()&lt;/code&gt;.
+The reason for setting the color of the viewport and not the scrollpane
+is that by default &lt;code&gt;JViewport&lt;/code&gt; is opaque
+which, among other things, means it will completely fill
+in its background using its background color.  Therefore when
+&lt;code&gt;JScrollPane&lt;/code&gt; draws its background the viewport will
+usually draw over it.
+&lt;p&gt;
+By default &lt;code&gt;JScrollPane&lt;/code&gt; uses &lt;code&gt;ScrollPaneLayout&lt;/code&gt;
+to handle the layout of its child Components. &lt;code&gt;ScrollPaneLayout&lt;/code&gt;
+determines the size to make the viewport view in one of two ways:
+&lt;ol&gt;
+&lt;li&gt;If the view implements &lt;code&gt;Scrollable&lt;/code&gt;
+a combination of &lt;code&gt;getPreferredScrollableViewportSize&lt;/code&gt;,
+&lt;code&gt;getScrollableTracksViewportWidth&lt;/code&gt; and
+&lt;code&gt;getScrollableTracksViewportHeight&lt;/code&gt;is used, otherwise
+&lt;li&gt;&lt;code&gt;getPreferredSize&lt;/code&gt; is used.
+&lt;/ol&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see JScrollBar
+@see JViewport
+@see ScrollPaneLayout
+@see Scrollable
+@see Component#getPreferredSize
+@see #setViewportView
+@see #setRowHeaderView
+@see #setColumnHeaderView
+@see #setCorner
+@see #setViewportBorder
+
+@beaninfo
+attribute: isContainer true
+attribute: containerDelegate getViewport
+description: A specialized container that manages a viewport, optional scrollbars and headers
+
+@version 1.100 @(#)JScrollPane.java	1.100
+@author Hans Muller
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JScrollPane" refid="_9_5_f720368_1110473546799_533208_10765"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JScrollPane" refid="_9_5_f720368_1110473546799_533208_10765"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

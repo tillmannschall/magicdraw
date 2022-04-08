@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313286_49963_7371"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LinkedList" refid="_9_5_f720368_1110473546706_778448_8883"/></annotatedElement><body humanName="Body" mode="s,e">Linked list implementation of the &lt;tt&gt;List&lt;/tt&gt; interface.  Implements all
+optional list operations, and permits all elements (including
+&lt;tt&gt;null&lt;/tt&gt;).  In addition to implementing the &lt;tt&gt;List&lt;/tt&gt; interface,
+the &lt;tt&gt;LinkedList&lt;/tt&gt; class provides uniformly named methods to
+&lt;tt&gt;get&lt;/tt&gt;, &lt;tt&gt;remove&lt;/tt&gt; and &lt;tt&gt;insert&lt;/tt&gt; an element at the
+beginning and end of the list.  These operations allow linked lists to be
+used as a stack, queue, or double-ended queue (deque).&lt;p&gt;
+
+The class implements the &lt;tt&gt;Queue&lt;/tt&gt; interface, providing
+first-in-first-out queue operations for &lt;tt&gt;add&lt;/tt&gt;,
+&lt;tt&gt;poll&lt;/tt&gt;, etc. Other stack and deque operations could be
+easily recast in terms of the standard list operations.  They're
+included here primarily for convenience, though they may run
+slightly faster than the equivalent List operations.&lt;p&gt;
+
+All of the operations perform as could be expected for a doubly-linked
+list.  Operations that index into the list will traverse the list from
+the beginning or the end, whichever is closer to the specified index.&lt;p&gt;
+
+&lt;b&gt;Note that this implementation is not synchronized.&lt;/b&gt; If multiple
+threads access a list concurrently, and at least one of the threads
+modifies the list structurally, it &lt;i&gt;must&lt;/i&gt; be synchronized
+externally.  (A structural modification is any operation that adds or
+deletes one or more elements; merely setting the value of an element is not
+a structural modification.)  This is typically accomplished by
+synchronizing on some object that naturally encapsulates the list.  If no
+such object exists, the list should be "wrapped" using the
+Collections.synchronizedList method.  This is best done at creation time,
+to prevent accidental unsynchronized access to the list: &lt;pre&gt;
+List list = Collections.synchronizedList(new LinkedList(...));
+&lt;/pre&gt;&lt;p&gt;
+
+The iterators returned by the this class's &lt;tt&gt;iterator&lt;/tt&gt; and
+&lt;tt&gt;listIterator&lt;/tt&gt; methods are &lt;i&gt;fail-fast&lt;/i&gt;: if the list is
+structurally modified at any time after the iterator is created, in any way
+except through the Iterator's own &lt;tt&gt;remove&lt;/tt&gt; or &lt;tt&gt;add&lt;/tt&gt; methods,
+the iterator will throw a &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt;.  Thus,
+in the face of concurrent modification, the iterator fails quickly and
+cleanly, rather than risking arbitrary, non-deterministic behavior at an
+undetermined time in the future.
+
+&lt;p&gt;Note that the fail-fast behavior of an iterator cannot be guaranteed
+as it is, generally speaking, impossible to make any hard guarantees in the
+presence of unsynchronized concurrent modification.  Fail-fast iterators
+throw &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt; on a best-effort basis.
+Therefore, it would be wrong to write a program that depended on this
+exception for its correctness:   &lt;i&gt;the fail-fast behavior of iterators
+should be used only to detect bugs.&lt;/i&gt;&lt;p&gt;
+
+This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@version 1.61, 02/19/04
+@see	    List
+@see	    ArrayList
+@see	    Vector
+@see	    Collections#synchronizedList(List)
+@since 1.2
+@param &lt;E&gt; the type of elements held in this collection
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="LinkedList" refid="_9_5_f720368_1110473546706_778448_8883"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LinkedList" refid="_9_5_f720368_1110473546706_778448_8883"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

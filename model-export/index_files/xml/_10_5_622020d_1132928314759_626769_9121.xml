@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314759_626769_9121"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleRelation" refid="_9_5_f720368_1110473546706_554994_8975"/></annotatedElement><body humanName="Body" mode="s,e">&lt;P&gt;Class AccessibleRelation describes a relation between the
+object that implements the AccessibleRelation and one or more other
+objects.  The actual relations that an object has with other
+objects are defined as an AccessibleRelationSet, which is a composed
+set of AccessibleRelations.
+&lt;p&gt;The toDisplayString method allows you to obtain the localized string
+for a locale independent key from a predefined ResourceBundle for the
+keys defined in this class.
+&lt;p&gt;The constants in this class present a strongly typed enumeration
+of common object roles. If the constants in this class are not sufficient
+to describe the role of an object, a subclass should be generated
+from this class and it should provide constants in a similar manner.
+
+@version     1.14 04/15/04
+@author      Lynn Monsanto
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AccessibleRelation" refid="_9_5_f720368_1110473546706_554994_8975"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleRelation" refid="_9_5_f720368_1110473546706_554994_8975"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

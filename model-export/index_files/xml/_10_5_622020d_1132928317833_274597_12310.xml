@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317833_274597_12310"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BoxLayout" refid="_9_5_f720368_1110473546784_390035_10635"/></annotatedElement><body humanName="Body" mode="s,e">A layout manager that allows multiple components to be laid out either
+vertically or horizontally. The components will not wrap so, for
+example, a vertical arrangement of components will stay vertically
+arranged when the frame is resized.
+&lt;TABLE ALIGN="RIGHT" BORDER="0" SUMMARY="layout"&gt;
+&lt;TR&gt;
+&lt;TD ALIGN="CENTER"&gt;
+&lt;P ALIGN="CENTER"&gt;&lt;IMG SRC="doc-files/BoxLayout-1.gif"
+alt="The following text describes this graphic."
+WIDTH="191" HEIGHT="201" ALIGN="BOTTOM" BORDER="0"&gt;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;p&gt;
+Nesting multiple panels with different combinations of horizontal and
+vertical gives an effect similar to GridBagLayout, without the
+complexity. The diagram shows two panels arranged horizontally, each
+of which contains 3 components arranged vertically.
+
+&lt;p&gt; The BoxLayout manager is constructed with an axis parameter that
+specifies the type of layout that will be done. There are four choices:
+
+&lt;blockquote&gt;&lt;b&gt;&lt;tt&gt;X_AXIS&lt;/tt&gt;&lt;/b&gt; - Components are laid out horizontally
+from left to right.&lt;/blockquote&gt;
+
+&lt;blockquote&gt;&lt;b&gt;&lt;tt&gt;Y_AXIS&lt;/tt&gt;&lt;/b&gt; - Components are laid out vertically
+from top to bottom.&lt;/blockquote&gt;
+
+&lt;blockquote&gt;&lt;b&gt;&lt;tt&gt;LINE_AXIS&lt;/tt&gt;&lt;/b&gt; - Components are laid out the way
+words are laid out in a line, based on the container's
+&lt;tt&gt;ComponentOrientation&lt;/tt&gt; property. If the container's
+&lt;tt&gt;ComponentOrientation&lt;/tt&gt; is horizontal then components are laid out
+horizontally, otherwise they are laid out vertically.  For horizontal
+orientations, if the container's &lt;tt&gt;ComponentOrientation&lt;/tt&gt; is left to
+right then components are laid out left to right, otherwise they are laid
+out right to left. For vertical orientations components are always laid out
+from top to bottom.&lt;/blockquote&gt;
+
+&lt;blockquote&gt;&lt;b&gt;&lt;tt&gt;PAGE_AXIS&lt;/tt&gt;&lt;/b&gt; - Components are laid out the way
+text lines are laid out on a page, based on the container's
+&lt;tt&gt;ComponentOrientation&lt;/tt&gt; property. If the container's
+&lt;tt&gt;ComponentOrientation&lt;/tt&gt; is horizontal then components are laid out
+vertically, otherwise they are laid out horizontally.  For horizontal
+orientations, if the container's &lt;tt&gt;ComponentOrientation&lt;/tt&gt; is left to
+right then components are laid out left to right, otherwise they are laid
+out right to left.&amp;nbsp; For vertical orientations components are always
+laid out from top to bottom.&lt;/blockquote&gt;
+&lt;p&gt;
+For all directions, components are arranged in the same order as they were
+added to the container.
+&lt;p&gt;
+BoxLayout attempts to arrange components
+at their preferred widths (for horizontal layout)
+or heights (for vertical layout).
+For a horizontal layout,
+if not all the components are the same height,
+BoxLayout attempts to make all the components
+as high as the highest component.
+If that's not possible for a particular component,
+then BoxLayout aligns that component vertically,
+according to the component's Y alignment.
+By default, a component has a Y alignment of 0.5,
+which means that the vertical center of the component
+should have the same Y coordinate as
+the vertical centers of other components with 0.5 Y alignment.
+&lt;p&gt;
+Similarly, for a vertical layout,
+BoxLayout attempts to make all components in the column
+as wide as the widest component.
+If that fails, it aligns them horizontally
+according to their X alignments.  For &lt;code&gt;PAGE_AXIS&lt;/code&gt; layout,
+horizontal alignment is done based on the leading edge of the component.
+In other words, an X alignment value of 0.0 means the left edge of a
+component if the container's &lt;code&gt;ComponentOrientation&lt;/code&gt; is left to
+right and it means the right edge of the component otherwise.
+&lt;p&gt;
+Instead of using BoxLayout directly, many programs use the Box class.
+The Box class is a lightweight container that uses a BoxLayout.
+It also provides handy methods to help you use BoxLayout well.
+Adding components to multiple nested boxes is a powerful way to get
+the arrangement you want.
+&lt;p&gt;
+For further information and examples see
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/layout/box.html"&gt;How to Use BoxLayout&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see Box
+@see java.awt.ComponentOrientation
+@see JComponent#getAlignmentX
+@see JComponent#getAlignmentY
+
+@author   Timothy Prinzing
+@version 1.34 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BoxLayout" refid="_9_5_f720368_1110473546784_390035_10635"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BoxLayout" refid="_9_5_f720368_1110473546784_390035_10635"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309461_525275_6124"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Signature" refid="_9_5_f720368_1110473546690_358259_8531"/></annotatedElement><body humanName="Body" mode="s,e">This Signature class is used to provide applications the functionality
+of a digital signature algorithm. Digital signatures are used for
+authentication and integrity assurance of digital data.
+
+&lt;p&gt; The signature algorithm can be, among others, the NIST standard
+DSA, using DSA and SHA-1. The DSA algorithm using the
+SHA-1 message digest algorithm can be specified as &lt;tt&gt;SHA1withDSA&lt;/tt&gt;.
+In the case of RSA, there are multiple choices for the message digest
+algorithm, so the signing algorithm could be specified as, for example,
+&lt;tt&gt;MD2withRSA&lt;/tt&gt;, &lt;tt&gt;MD5withRSA&lt;/tt&gt;, or &lt;tt&gt;SHA1withRSA&lt;/tt&gt;.
+The algorithm name must be specified, as there is no default.
+
+&lt;p&gt;Like other algorithm-based classes in Java Security, Signature
+provides implementation-independent algorithms, whereby a caller
+(application code) requests a particular signature algorithm
+and is handed back a properly initialized Signature object. It is
+also possible, if desired, to request a particular algorithm from a
+particular provider. See the &lt;code&gt;getInstance &lt;/code&gt; methods.
+
+&lt;p&gt;Thus, there are two ways to request a Signature algorithm object: by
+specifying either just an algorithm name, or both an algorithm name
+and a package provider. &lt;ul&gt;
+
+&lt;li&gt;If just an algorithm name is specified, the system will
+determine if there is an implementation of the algorithm requested
+available in the environment, and if there is more than one, if
+there is a preferred one.&lt;p&gt;
+
+&lt;li&gt;If both an algorithm name and a package provider are specified,
+the system will determine if there is an implementation of the
+algorithm in the package requested, and throw an exception if there
+is not.
+
+&lt;/ul&gt;
+
+&lt;p&gt;A Signature object can be used to generate and verify digital
+signatures.
+
+&lt;p&gt;There are three phases to the use of a Signature object for
+either signing data or verifying a signature:&lt;ol&gt;
+
+&lt;li&gt;Initialization, with either
+
+&lt;ul&gt;
+
+&lt;li&gt;a public key, which initializes the signature for
+verification (see {@link #initVerify(PublicKey) initVerify}), or
+
+&lt;li&gt;a private key (and optionally a Secure Random Number Generator),
+which initializes the signature for signing
+(see {@link #initSign(PrivateKey)}
+and {@link #initSign(PrivateKey, SecureRandom)}).
+
+&lt;/ul&gt;&lt;p&gt;
+
+&lt;li&gt;Updating&lt;p&gt;
+
+&lt;p&gt;Depending on the type of initialization, this will update the
+bytes to be signed or verified. See the
+{@link #update(byte) update} methods.&lt;p&gt;
+
+&lt;li&gt;Signing or Verifying a signature on all updated bytes. See the
+{@link #sign() sign} methods and the {@link #verify(byte[]) verify}
+method.
+
+&lt;/ol&gt;
+
+&lt;p&gt;Note that this class is abstract and extends from
+&lt;code&gt;SignatureSpi&lt;/code&gt; for historical reasons.
+Application developers should only take notice of the methods defined in
+this &lt;code&gt;Signature&lt;/code&gt; class; all the methods in
+the superclass are intended for cryptographic service providers who wish to
+supply their own implementations of digital signature algorithms.
+
+@author Benjamin Renaud
+
+@version 1.99, 05/18/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Signature" refid="_9_5_f720368_1110473546690_358259_8531"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Signature" refid="_9_5_f720368_1110473546690_358259_8531"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

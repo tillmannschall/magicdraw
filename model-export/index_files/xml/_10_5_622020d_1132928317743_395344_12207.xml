@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317743_395344_12207"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WrappedLine" refid="_9_5_f720368_1110473548378_381192_23701"/></annotatedElement><body humanName="Body" mode="s,e">Simple view of a line that wraps if it doesn't
+fit withing the horizontal space allocated.
+This class tries to be lightweight by carrying little
+state of it's own and sharing the state of the outer class
+with it's sibblings.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="WrappedLine" refid="_9_5_f720368_1110473548378_381192_23701"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WrappedLine" refid="_9_5_f720368_1110473548378_381192_23701"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

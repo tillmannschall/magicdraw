@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314739_767197_9079"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SAXException" refid="_9_5_f720368_1110473546956_922933_13300"/></annotatedElement><body humanName="Body" mode="s,e">Encapsulate a general SAX error or warning.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This class can contain basic error or warning information from
+either the XML parser or the application: a parser writer or
+application writer can subclass it to provide additional
+functionality.  SAX handlers may throw this exception or
+any exception subclassed from it.&lt;/p&gt;
+
+&lt;p&gt;If the application needs to pass through other types of
+exceptions, it must wrap those exceptions in a SAXException
+or an exception derived from a SAXException.&lt;/p&gt;
+
+&lt;p&gt;If the parser or application needs to include information about a
+specific location in an XML document, it should use the
+{@link org.xml.sax.SAXParseException SAXParseException} subclass.&lt;/p&gt;
+
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.SAXParseException
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SAXException" refid="_9_5_f720368_1110473546956_922933_13300"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SAXException" refid="_9_5_f720368_1110473546956_922933_13300"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

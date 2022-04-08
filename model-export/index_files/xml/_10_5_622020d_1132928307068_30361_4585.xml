@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307068_30361_4585"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FilePermissionCollection" refid="_9_5_f720368_1110473546596_122934_7399"/></annotatedElement><body humanName="Body" mode="s,e">A FilePermissionCollection stores a set of FilePermission permissions.
+FilePermission objects
+must be stored in a manner that allows them to be inserted in any
+order, but enable the implies function to evaluate the implies
+method.
+For example, if you have two FilePermissions:
+&lt;OL&gt;
+&lt;LI&gt; "/tmp/-", "read"
+&lt;LI&gt; "/tmp/scratch/foo", "write"
+&lt;/OL&gt;
+And you are calling the implies function with the FilePermission:
+"/tmp/scratch/foo", "read,write", then the implies function must
+take into account both the /tmp/- and /tmp/scratch/foo
+permissions, so the effective permission is "read,write".
+
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionCollection
+
+@version 1.76 01/12/04
+
+@author Marianne Mueller
+@author Roland Schemers
+
+@serial include
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FilePermissionCollection" refid="_9_5_f720368_1110473546596_122934_7399"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FilePermissionCollection" refid="_9_5_f720368_1110473546596_122934_7399"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

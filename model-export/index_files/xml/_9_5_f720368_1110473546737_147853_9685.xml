@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546737_147853_9685"><documentation humanName="Documentation" mode="standard">A &lt;code&gt;Soundbank&lt;/code&gt; contains a set of &lt;code&gt;Instruments&lt;/code&gt;
+that can be loaded into a &lt;code&gt;Synthesizer&lt;/code&gt;.
+Note that a Java Sound &lt;code&gt;Soundbank&lt;/code&gt; is different from a MIDI bank.
+MIDI permits up to 16383 banks, each containing up to 128 instruments
+(also sometimes called programs, patches, or timbres).
+However, a &lt;code&gt;Soundbank&lt;/code&gt; can contain 16383 times 128 instruments,
+because the instruments within a &lt;code&gt;Soundbank&lt;/code&gt; are indexed by both
+a MIDI program number and a MIDI bank number (via a &lt;code&gt;Patch&lt;/code&gt;
+object). Thus, a &lt;code&gt;Soundbank&lt;/code&gt; can be thought of as a collection
+of MIDI banks.
+&lt;p&gt;
+&lt;code&gt;Soundbank&lt;/code&gt; includes methods that return &lt;code&gt;String&lt;/code&gt;
+objects containing the sound bank's name, manufacturer, version number, and
+description.  The precise content and format of these strings is left
+to the implementor.
+&lt;p&gt;
+Different synthesizers use a variety of synthesis techniques.  A common
+one is wavetable synthesis, in which a segment of recorded sound is
+played back, often with looping and pitch change.  The Downloadable Sound
+(DLS) format uses segments of recorded sound, as does the Headspace Engine.
+&lt;code&gt;Soundbanks&lt;/code&gt; and &lt;code&gt;Instruments&lt;/code&gt; that are based on
+wavetable synthesis (or other uses of stored sound recordings) should
+typically implement the &lt;code&gt;getResources()&lt;/code&gt;
+method to provide access to these recorded segments.  This is optional,
+however; the method can return an zero-length array if the synthesis technique
+doesn't use sampled sound (FM synthesis and physical modeling are examples
+of such techniques), or if it does but the implementor chooses not to make the
+samples accessible.
+
+@see Synthesizer#getDefaultSoundbank
+@see Synthesizer#isSoundbankSupported
+@see Synthesizer#loadInstruments(Soundbank, Patch[])
+@see Patch
+@see Instrument
+@see SoundbankResource
+
+@version 1.24, 03/12/19
+@author David Rivas
+@author Kara Kytle
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Soundbank</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316191_913760_10580"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316191_913760_10580"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="midi" refid="_9_5_f720368_1110473548081_73000_20793"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sound::midi::Soundbank</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

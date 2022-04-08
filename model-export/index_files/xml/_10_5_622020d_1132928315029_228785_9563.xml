@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315029_228785_9563"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="RMIServerImpl" refid="_10_5_622020d_1132928315029_270564_9561"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;An RMI object representing a connector server.  Remote clients
+can make connections using the {@link #newClient(Object)} method.  This
+method returns an RMI object representing the connection.&lt;/p&gt;
+
+&lt;p&gt;User code does not usually reference this class directly.  RMI
+connection servers are usually created with the class {@link
+RMIConnectorServer}.  Remote clients usually create connections
+either with {@link JMXConnectorFactory} or by instantiating {@link
+RMIConnector}.&lt;/p&gt;
+
+&lt;p&gt;This is an abstract class.  Concrete subclasses define the
+details of the client connection objects, such as whether they use
+JRMP or IIOP.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="RMIServerImpl" refid="_10_5_622020d_1132928315029_270564_9561"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="RMIServerImpl" refid="_10_5_622020d_1132928315029_270564_9561"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

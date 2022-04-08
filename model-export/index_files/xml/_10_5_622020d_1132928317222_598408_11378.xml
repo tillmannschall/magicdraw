@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317222_598408_11378"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetalTreeUI" refid="_9_5_f720368_1110473546768_777046_10131"/></annotatedElement><body humanName="Body" mode="s,e">The metal look and feel implementation of &lt;code&gt;TreeUI&lt;/code&gt;.
+&lt;p&gt;
+&lt;code&gt;MetalTreeUI&lt;/code&gt; allows for configuring how to
+visually render the spacing and delineation between nodes. The following
+hints are supported:
+
+&lt;table summary="Descriptions of supported hints: Angled, Horizontal, and None"&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;p align="left"&gt;Angled&lt;/p&gt;&lt;/th&gt;
+&lt;td&gt;A line is drawn connecting the child to the parent. For handling
+of the root node refer to
+{@link javax.swing.JTree#setRootVisible} and
+{@link javax.swing.JTree#setShowsRootHandles}.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;p align="left"&gt;Horizontal&lt;/p&gt;&lt;/th&gt;
+&lt;td&gt;A horizontal line is drawn dividing the children of the root node.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;p align="left"&gt;None&lt;/p&gt;&lt;/th&gt;
+&lt;td&gt;Do not draw any visual indication between nodes.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;
+As it is typically impratical to obtain the &lt;code&gt;TreeUI&lt;/code&gt; from
+the &lt;code&gt;JTree&lt;/code&gt; and cast to an instance of &lt;code&gt;MetalTreeUI&lt;/code&gt;
+you enable this property via the client property
+&lt;code&gt;JTree.lineStyle&lt;/code&gt;. For example, to switch to
+&lt;code&gt;Horizontal&lt;/code&gt; style you would do:
+&lt;code&gt;tree.putClientProperty("JTree.lineStyle", "Horizontal");&lt;/code&gt;
+&lt;p&gt;
+The default is &lt;code&gt;Angled&lt;/code&gt;.
+
+@version 1.23 12/19/03
+@author Tom Santos
+@author Steve Wilson (value add stuff)
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MetalTreeUI" refid="_9_5_f720368_1110473546768_777046_10131"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetalTreeUI" refid="_9_5_f720368_1110473546768_777046_10131"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

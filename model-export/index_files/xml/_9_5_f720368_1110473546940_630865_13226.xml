@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546940_630865_13226"><documentation humanName="Documentation" mode="standard">&lt;code&gt;DocumentFragment&lt;/code&gt; is a "lightweight" or "minimal"
+&lt;code&gt;Document&lt;/code&gt; object. It is very common to want to be able to
+extract a portion of a document's tree or to create a new fragment of a
+document. Imagine implementing a user command like cut or rearranging a
+document by moving fragments around. It is desirable to have an object
+which can hold such fragments and it is quite natural to use a Node for
+this purpose. While it is true that a &lt;code&gt;Document&lt;/code&gt; object could
+fulfill this role, a &lt;code&gt;Document&lt;/code&gt; object can potentially be a
+heavyweight object, depending on the underlying implementation. What is
+really needed for this is a very lightweight object.
+&lt;code&gt;DocumentFragment&lt;/code&gt; is such an object.
+&lt;p&gt;Furthermore, various operations -- such as inserting nodes as children
+of another &lt;code&gt;Node&lt;/code&gt; -- may take &lt;code&gt;DocumentFragment&lt;/code&gt;
+objects as arguments; this results in all the child nodes of the
+&lt;code&gt;DocumentFragment&lt;/code&gt; being moved to the child list of this node.
+&lt;p&gt;The children of a &lt;code&gt;DocumentFragment&lt;/code&gt; node are zero or more
+nodes representing the tops of any sub-trees defining the structure of
+the document. &lt;code&gt;DocumentFragment&lt;/code&gt; nodes do not need to be
+well-formed XML documents (although they do need to follow the rules
+imposed upon well-formed XML parsed entities, which can have multiple top
+nodes). For example, a &lt;code&gt;DocumentFragment&lt;/code&gt; might have only one
+child and that child node could be a &lt;code&gt;Text&lt;/code&gt; node. Such a
+structure model represents neither an HTML document nor a well-formed XML
+document.
+&lt;p&gt;When a &lt;code&gt;DocumentFragment&lt;/code&gt; is inserted into a
+&lt;code&gt;Document&lt;/code&gt; (or indeed any other &lt;code&gt;Node&lt;/code&gt; that may
+take children) the children of the &lt;code&gt;DocumentFragment&lt;/code&gt; and not
+the &lt;code&gt;DocumentFragment&lt;/code&gt; itself are inserted into the
+&lt;code&gt;Node&lt;/code&gt;. This makes the &lt;code&gt;DocumentFragment&lt;/code&gt; very
+useful when the user wishes to create nodes that are siblings; the
+&lt;code&gt;DocumentFragment&lt;/code&gt; acts as the parent of these nodes so that
+the user can use the standard methods from the &lt;code&gt;Node&lt;/code&gt;
+interface, such as &lt;code&gt;Node.insertBefore&lt;/code&gt; and
+&lt;code&gt;Node.appendChild&lt;/code&gt;.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'&gt;Document Object Model (DOM) Level 3 Core Specification&lt;/a&gt;.
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Node" refid="_9_5_f720368_1110473546940_624353_13242"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322890_560083_15711"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">DocumentFragment</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dom" refid="_9_5_f720368_1110473548831_889953_27433"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314528_634422_8954"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322890_560083_15711"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314528_634422_8954"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="dom" refid="_9_5_f720368_1110473548831_889953_27433"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dom" refid="_9_5_f720368_1110473548831_889953_27433"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dom" refid="_9_5_f720368_1110473548831_889953_27433"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::w3c::dom::DocumentFragment</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

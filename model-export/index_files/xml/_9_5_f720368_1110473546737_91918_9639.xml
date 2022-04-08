@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546737_91918_9639"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::security::auth::Subject -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323351_287470_16567"/></clientDependency><documentation humanName="Documentation" mode="standard">&lt;p&gt; A &lt;code&gt;Subject&lt;/code&gt; represents a grouping of related information
+for a single entity, such as a person.
+Such information includes the Subject's identities as well as
+its security-related attributes
+(passwords and cryptographic keys, for example).
+
+&lt;p&gt; Subjects may potentially have multiple identities.
+Each identity is represented as a &lt;code&gt;Principal&lt;/code&gt;
+within the &lt;code&gt;Subject&lt;/code&gt;.  Principals simply bind names to a
+&lt;code&gt;Subject&lt;/code&gt;.  For example, a &lt;code&gt;Subject&lt;/code&gt; that happens
+to be a person, Alice, might have two Principals:
+one which binds "Alice Bar", the name on her driver license,
+to the &lt;code&gt;Subject&lt;/code&gt;, and another which binds,
+"999-99-9999", the number on her student identification card,
+to the &lt;code&gt;Subject&lt;/code&gt;.  Both Principals refer to the same
+&lt;code&gt;Subject&lt;/code&gt; even though each has a different name.
+
+&lt;p&gt; A &lt;code&gt;Subject&lt;/code&gt; may also own security-related attributes,
+which are referred to as credentials.
+Sensitive credentials that require special protection, such as
+private cryptographic keys, are stored within a private credential
+&lt;code&gt;Set&lt;/code&gt;.  Credentials intended to be shared, such as
+public key certificates or Kerberos server tickets are stored
+within a public credential &lt;code&gt;Set&lt;/code&gt;.  Different permissions
+are required to access and modify the different credential Sets.
+
+&lt;p&gt; To retrieve all the Principals associated with a &lt;code&gt;Subject&lt;/code&gt;,
+invoke the &lt;code&gt;getPrincipals&lt;/code&gt; method.  To retrieve
+all the public or private credentials belonging to a &lt;code&gt;Subject&lt;/code&gt;,
+invoke the &lt;code&gt;getPublicCredentials&lt;/code&gt; method or
+&lt;code&gt;getPrivateCredentials&lt;/code&gt; method, respectively.
+To modify the returned &lt;code&gt;Set&lt;/code&gt; of Principals and credentials,
+use the methods defined in the &lt;code&gt;Set&lt;/code&gt; class.
+For example:
+&lt;pre&gt;
+Subject subject;
+Principal principal;
+Object credential;
+
+add a Principal and credential to the Subject
+subject.getPrincipals().add(principal);
+subject.getPublicCredentials().add(credential);
+&lt;/pre&gt;
+
+&lt;p&gt; This &lt;code&gt;Subject&lt;/code&gt; class implements &lt;code&gt;Serializable&lt;/code&gt;.
+While the Principals associated with the &lt;code&gt;Subject&lt;/code&gt; are serialized,
+the credentials associated with the &lt;code&gt;Subject&lt;/code&gt; are not.
+Note that the &lt;code&gt;java.security.Principal&lt;/code&gt; class
+does not implement &lt;code&gt;Serializable&lt;/code&gt;.  Therefore all concrete
+&lt;code&gt;Principal&lt;/code&gt; implementations associated with Subjects
+must implement &lt;code&gt;Serializable&lt;/code&gt;.
+
+@version 1.123, 05/05/04
+@see java.security.Principal
+@see java.security.DomainCombiner
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::security::auth::Subject -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323351_287470_16567"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ClassSet" refid="_9_5_f720368_1110473548081_737260_20779"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecureSet" refid="_9_5_f720368_1110473548081_823602_20776"/></member><name humanName="Name" mode="s,e">Subject</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="auth" refid="_9_5_f720368_1110473548065_581421_20682"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ClassSet" refid="_9_5_f720368_1110473548081_737260_20779"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecureSet" refid="_9_5_f720368_1110473548081_823602_20776"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316121_416603_10501"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316121_416603_10501"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ClassSet" refid="_9_5_f720368_1110473548081_737260_20779"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::security::auth::Subject -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323351_287470_16567"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecureSet" refid="_9_5_f720368_1110473548081_823602_20776"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ClassSet" refid="_9_5_f720368_1110473548081_737260_20779"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecureSet" refid="_9_5_f720368_1110473548081_823602_20776"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="auth" refid="_9_5_f720368_1110473548065_581421_20682"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="auth" refid="_9_5_f720368_1110473548065_581421_20682"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="auth" refid="_9_5_f720368_1110473548065_581421_20682"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::security::auth::Subject</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

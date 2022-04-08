@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317412_633178_11747"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultTableCellRenderer" refid="_9_5_f720368_1110473546768_857784_10283"/></annotatedElement><body humanName="Body" mode="s,e">The standard class for rendering (displaying) individual cells
+in a &lt;code&gt;JTable&lt;/code&gt;.
+&lt;p&gt;
+
+&lt;strong&gt;&lt;a name="override"&gt;Implementation Note:&lt;/a&gt;&lt;/strong&gt;
+This class inherits from &lt;code&gt;JLabel&lt;/code&gt;, a standard component class.
+However &lt;code&gt;JTable&lt;/code&gt; employs a unique mechanism for rendering
+its cells and therefore requires some slightly modified behavior
+from its cell renderer.
+The table class defines a single cell renderer and uses it as a
+as a rubber-stamp for rendering all cells in the table;
+it renders the first cell,
+changes the contents of that cell renderer,
+shifts the origin to the new location, re-draws it, and so on.
+The standard &lt;code&gt;JLabel&lt;/code&gt; component was not
+designed to be used this way and we want to avoid
+triggering a &lt;code&gt;revalidate&lt;/code&gt; each time the
+cell is drawn. This would greatly decrease performance because the
+&lt;code&gt;revalidate&lt;/code&gt; message would be
+passed up the hierarchy of the container to determine whether any other
+components would be affected.
+As the renderer is only parented for the lifetime of a painting operation
+we similarly want to avoid the overhead associated with walking the
+hierarchy for painting operations.
+So this class
+overrides the &lt;code&gt;validate&lt;/code&gt;, &lt;code&gt;invalidate&lt;/code&gt;,
+&lt;code&gt;revalidate&lt;/code&gt;, &lt;code&gt;repaint&lt;/code&gt;, and
+&lt;code&gt;firePropertyChange&lt;/code&gt; methods to be
+no-ops and override the &lt;code&gt;isOpaque&lt;/code&gt; method solely to improve
+performance.  If you write your own renderer,
+please keep this performance consideration in mind.
+&lt;p&gt;
+
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.38 03/05/04
+@author Philip Milne
+@see JTable
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DefaultTableCellRenderer" refid="_9_5_f720368_1110473546768_857784_10283"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultTableCellRenderer" refid="_9_5_f720368_1110473546768_857784_10283"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

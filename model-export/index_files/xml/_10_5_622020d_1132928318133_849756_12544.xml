@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318133_849756_12544"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JTextField" refid="_9_5_f720368_1110473546799_269096_10781"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;JTextField&lt;/code&gt; is a lightweight component that allows the editing
+of a single line of text.
+For information on and examples of using text fields,
+see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/textfield.html"&gt;How to Use Text Fields&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+
+&lt;p&gt;
+&lt;code&gt;JTextField&lt;/code&gt; is intended to be source-compatible
+with &lt;code&gt;java.awt.TextField&lt;/code&gt; where it is reasonable to do so.  This
+component has capabilities not found in the &lt;code&gt;java.awt.TextField&lt;/code&gt;
+class.  The superclass should be consulted for additional capabilities.
+&lt;p&gt;
+&lt;code&gt;JTextField&lt;/code&gt; has a method to establish the string used as the
+command string for the action event that gets fired.  The
+&lt;code&gt;java.awt.TextField&lt;/code&gt; used the text of the field as the command
+string for the &lt;code&gt;ActionEvent&lt;/code&gt;.
+&lt;code&gt;JTextField&lt;/code&gt; will use the command
+string set with the &lt;code&gt;setActionCommand&lt;/code&gt; method if not &lt;code&gt;null&lt;/code&gt;,
+otherwise it will use the text of the field as a compatibility with
+&lt;code&gt;java.awt.TextField&lt;/code&gt;.
+&lt;p&gt;
+The method &lt;code&gt;setEchoChar&lt;/code&gt; and &lt;code&gt;getEchoChar&lt;/code&gt;
+are not provided directly to avoid a new implementation of a
+pluggable look-and-feel inadvertently exposing password characters.
+To provide password-like services a separate class &lt;code&gt;JPasswordField&lt;/code&gt;
+extends &lt;code&gt;JTextField&lt;/code&gt; to provide this service with an independently
+pluggable look-and-feel.
+&lt;p&gt;
+The &lt;code&gt;java.awt.TextField&lt;/code&gt; could be monitored for changes by adding
+a &lt;code&gt;TextListener&lt;/code&gt; for &lt;code&gt;TextEvent&lt;/code&gt;'s.
+In the &lt;code&gt;JTextComponent&lt;/code&gt; based
+components, changes are broadcasted from the model via a
+&lt;code&gt;DocumentEvent&lt;/code&gt; to &lt;code&gt;DocumentListeners&lt;/code&gt;.
+The &lt;code&gt;DocumentEvent&lt;/code&gt; gives
+the location of the change and the kind of change if desired.
+The code fragment might look something like:
+&lt;pre&gt;&lt;code&gt;
+&amp;nbsp;   DocumentListener myListener = ??;
+&amp;nbsp;   JTextField myArea = ??;
+&amp;nbsp;   myArea.getDocument().addDocumentListener(myListener);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+The horizontal alignment of &lt;code&gt;JTextField&lt;/code&gt; can be set to be left
+justified, leading justified, centered, right justified or trailing justified.
+Right/trailing justification is useful if the required size
+of the field text is smaller than the size allocated to it.
+This is determined by the &lt;code&gt;setHorizontalAlignment&lt;/code&gt;
+and &lt;code&gt;getHorizontalAlignment&lt;/code&gt; methods.  The default
+is to be leading justified.
+&lt;p&gt;
+How the text field consumes VK_ENTER events depends
+on whether the text field has any action listeners.
+If so, then VK_ENTER results in the listeners
+getting an ActionEvent,
+and the VK_ENTER event is consumed.
+This is compatible with how AWT text fields handle VK_ENTER events.
+If the text field has no action listeners, then as of v 1.3 the VK_ENTER
+event is not consumed.  Instead, the bindings of ancestor components
+are processed, which enables the default button feature of
+JFC/Swing to work.
+&lt;p&gt;
+Customized fields can easily be created by extending the model and
+changing the default model provided.  For example, the following piece
+of code will create a field that holds only upper case characters.  It
+will work even if text is pasted into from the clipboard or it is altered via
+programmatic changes.
+&lt;pre&gt;&lt;code&gt;
+&amp;nbsp;public class UpperCaseField extends JTextField {
+&amp;nbsp;
+&amp;nbsp;    public UpperCaseField(int cols) {
+&amp;nbsp;        super(cols);
+&amp;nbsp;    }
+&amp;nbsp;
+&amp;nbsp;    protected Document createDefaultModel() {
+&amp;nbsp;	      return new UpperCaseDocument();
+&amp;nbsp;    }
+&amp;nbsp;
+&amp;nbsp;    static class UpperCaseDocument extends PlainDocument {
+&amp;nbsp;
+&amp;nbsp;        public void insertString(int offs, String str, AttributeSet a)
+&amp;nbsp;	          throws BadLocationException {
+&amp;nbsp;
+&amp;nbsp;	          if (str == null) {
+&amp;nbsp;		      return;
+&amp;nbsp;	          }
+&amp;nbsp;	          char[] upper = str.toCharArray();
+&amp;nbsp;	          for (int i = 0; i &lt; upper.length; i++) {
+&amp;nbsp;		      upper[i] = Character.toUpperCase(upper[i]);
+&amp;nbsp;	          }
+&amp;nbsp;	          super.insertString(offs, new String(upper), a);
+&amp;nbsp;	      }
+&amp;nbsp;    }
+&amp;nbsp;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@beaninfo
+attribute: isContainer false
+description: A component which allows for the editing of a single line of text.
+
+@author  Timothy Prinzing
+@version 1.90 12/19/03
+@see #setActionCommand
+@see JPasswordField
+@see #addActionListener
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JTextField" refid="_9_5_f720368_1110473546799_269096_10781"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JTextField" refid="_9_5_f720368_1110473546799_269096_10781"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546940_303190_13288"><documentation humanName="Documentation" mode="standard">Basic interface for resolving entities.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;If a SAX application needs to implement customized handling
+for external entities, it must implement this interface and
+register an instance with the SAX driver using the
+{@link org.xml.sax.XMLReader#setEntityResolver setEntityResolver}
+method.&lt;/p&gt;
+
+&lt;p&gt;The XML reader will then allow the application to intercept any
+external entities (including the external DTD subset and external
+parameter entities, if any) before including them.&lt;/p&gt;
+
+&lt;p&gt;Many SAX applications will not need to implement this interface,
+but it will be especially useful for applications that build
+XML documents from databases or other specialised input sources,
+or for applications that use URI types other than URLs.&lt;/p&gt;
+
+&lt;p&gt;The following resolver would provide the application
+with a special character stream for the entity with the system
+identifier "http://www.myhost.com/today":&lt;/p&gt;
+
+&lt;pre&gt;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
+
+public class MyResolver implements EntityResolver {
+public InputSource resolveEntity (String publicId, String systemId)
+{
+if (systemId.equals("http://www.myhost.com/today")) {
+return a special input source
+MyReader reader = new MyReader();
+return new InputSource(reader);
+} else {
+use the default behaviour
+return null;
+}
+}
+}
+&lt;/pre&gt;
+
+&lt;p&gt;The application can also use this interface to redirect system
+identifiers to local URIs or to look up replacements in a catalog
+(possibly by using the public identifier).&lt;/p&gt;
+
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.XMLReader#setEntityResolver
+@see org.xml.sax.InputSource
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">EntityResolver</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314708_361485_9067"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314708_361485_9067"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::xml::sax::EntityResolver</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::prefs::XmlSupport::Resolver -&gt; JDK 5.0 Classes::org::xml::sax::EntityResolver]" refid="_10_5_622020d_1132928322370_722749_14591"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::XMLUtils::Resolver -&gt; JDK 5.0 Classes::org::xml::sax::EntityResolver]" refid="_10_5_622020d_1132928322670_339832_15175"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::HandlerBase -&gt; JDK 5.0 Classes::org::xml::sax::EntityResolver]" refid="_10_5_622020d_1132928322910_411122_15749"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::helpers::DefaultHandler -&gt; JDK 5.0 Classes::org::xml::sax::EntityResolver]" refid="_10_5_622020d_1132928322900_333552_15733"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::helpers::XMLFilterImpl -&gt; JDK 5.0 Classes::org::xml::sax::EntityResolver]" refid="_10_5_622020d_1132928322900_11767_15742"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

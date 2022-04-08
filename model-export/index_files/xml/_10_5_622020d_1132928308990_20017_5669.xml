@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308990_20017_5669"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="RMIClassLoaderSpi" refid="_9_5_f720368_1110473546674_732470_8185"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;RMIClassLoaderSpi&lt;/code&gt; is the service provider interface for
+&lt;code&gt;RMIClassLoader&lt;/code&gt;.
+
+In particular, an &lt;code&gt;RMIClassLoaderSpi&lt;/code&gt; instance provides an
+implementation of the following static methods of
+&lt;code&gt;RMIClassLoader&lt;/code&gt;:
+
+&lt;ul&gt;
+
+&lt;li&gt;{@link RMIClassLoader#loadClass(URL,String)}
+&lt;li&gt;{@link RMIClassLoader#loadClass(String,String)}
+&lt;li&gt;{@link RMIClassLoader#loadClass(String,String,ClassLoader)}
+&lt;li&gt;{@link RMIClassLoader#loadProxyClass(String,String[],ClassLoader)}
+&lt;li&gt;{@link RMIClassLoader#getClassLoader(String)}
+&lt;li&gt;{@link RMIClassLoader#getClassAnnotation(Class)}
+
+&lt;/ul&gt;
+
+When one of those methods is invoked, its behavior is to delegate
+to a corresponding method on an instance of this class.
+The details of how each method delegates to the provider instance is
+described in the documentation for each particular method.
+See the documentation for {@link RMIClassLoader} for a description
+of how a provider instance is chosen.
+
+@version	1.14, 04/05/05
+@author	Peter Jones
+@author	Laird Dornin
+@see		RMIClassLoader
+@since	JDK1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="RMIClassLoaderSpi" refid="_9_5_f720368_1110473546674_732470_8185"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="RMIClassLoaderSpi" refid="_9_5_f720368_1110473546674_732470_8185"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

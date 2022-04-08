@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315630_330210_10128"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Finishings" refid="_9_5_f720368_1110473546721_184035_9325"/></annotatedElement><body humanName="Body" mode="s,e">Class Finishings is a printing attribute class, an enumeration, that
+identifies whether the printer applies a finishing operation of some kind
+of binding to each copy of each printed document in the job. For multidoc
+print jobs (jobs with multiple documents), the
+{@link MultipleDocumentHandling
+MultipleDocumentHandling} attribute determines what constitutes a "copy"
+for purposes of finishing.
+&lt;P&gt;
+Standard Finishings values are:
+&lt;TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% SUMMARY="layout"&gt;
+&lt;TR&gt;
+&lt;TD WIDTH=10%&gt;
+&amp;nbsp;
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #NONE &lt;CODE&gt;NONE&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #STAPLE &lt;CODE&gt;STAPLE&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=36%&gt;
+{@link #EDGE_STITCH &lt;CODE&gt;EDGE_STITCH&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&amp;nbsp;
+&lt;/TD&gt;
+&lt;TD&gt;
+{@link #BIND &lt;CODE&gt;BIND&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD&gt;
+{@link #SADDLE_STITCH &lt;CODE&gt;SADDLE_STITCH&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD&gt;
+{@link #COVER &lt;CODE&gt;COVER&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD&gt;
+&amp;nbsp;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;P&gt;
+The following Finishings values are more specific; they indicate a
+corner or an edge as if the document were a portrait document:
+&lt;TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% SUMMARY="layout"&gt;
+&lt;TR&gt;
+&lt;TD WIDTH=10%&gt;
+&amp;nbsp;
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #STAPLE_TOP_LEFT &lt;CODE&gt;STAPLE_TOP_LEFT&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #EDGE_STITCH_LEFT &lt;CODE&gt;EDGE_STITCH_LEFT&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #STAPLE_DUAL_LEFT &lt;CODE&gt;STAPLE_DUAL_LEFT&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=9%&gt;
+&amp;nbsp;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD WIDTH=10%&gt;
+&amp;nbsp;
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #STAPLE_BOTTOM_LEFT &lt;CODE&gt;STAPLE_BOTTOM_LEFT&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #EDGE_STITCH_TOP &lt;CODE&gt;EDGE_STITCH_TOP&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #STAPLE_DUAL_TOP &lt;CODE&gt;STAPLE_DUAL_TOP&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=9%&gt;
+&amp;nbsp;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD WIDTH=10%&gt;
+&amp;nbsp;
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #STAPLE_TOP_RIGHT &lt;CODE&gt;STAPLE_TOP_RIGHT&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #EDGE_STITCH_RIGHT &lt;CODE&gt;EDGE_STITCH_RIGHT&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #STAPLE_DUAL_RIGHT &lt;CODE&gt;STAPLE_DUAL_RIGHT&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=9%&gt;
+&amp;nbsp;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD WIDTH=10%&gt;
+&amp;nbsp;
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #STAPLE_BOTTOM_RIGHT &lt;CODE&gt;STAPLE_BOTTOM_RIGHT&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #EDGE_STITCH_BOTTOM &lt;CODE&gt;EDGE_STITCH_BOTTOM&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=27%&gt;
+{@link #STAPLE_DUAL_BOTTOM &lt;CODE&gt;STAPLE_DUAL_BOTTOM&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD WIDTH=9%&gt;
+&amp;nbsp;
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;P&gt;
+The &lt;CODE&gt;STAPLE_&lt;I&gt;XXX&lt;/I&gt;&lt;/CODE&gt; values are specified with respect to the
+document as if the document were a portrait document. If the document is
+actually a landscape or a reverse-landscape document, the client supplies the
+appropriate transformed value. For example, to position a staple in the upper
+left hand corner of a landscape document when held for reading, the client
+supplies the &lt;CODE&gt;STAPLE_BOTTOM_LEFT&lt;/CODE&gt; value (since landscape is
+defined as a +90 degree rotation from portrait, i.e., anti-clockwise). On the
+other hand, to position a staple in the upper left hand corner of a
+reverse-landscape document when held for reading, the client supplies the
+&lt;CODE&gt;STAPLE_TOP_RIGHT&lt;/CODE&gt; value (since reverse-landscape is defined as a
+-90 degree rotation from portrait, i.e., clockwise).
+&lt;P&gt;
+The angle (vertical, horizontal, angled) of each staple with respect to the
+document depends on the implementation which may in turn depend on the value
+of the attribute.
+&lt;P&gt;
+The effect of a Finishings attribute on a multidoc print job (a job
+with multiple documents) depends on whether all the docs have the same
+binding specified or whether different docs have different bindings
+specified, and on the (perhaps defaulted) value of the {@link
+MultipleDocumentHandling MultipleDocumentHandling} attribute.
+&lt;UL&gt;
+&lt;LI&gt;
+If all the docs have the same binding specified, then any value of {@link
+MultipleDocumentHandling MultipleDocumentHandling} makes sense, and the
+printer's processing depends on the {@link MultipleDocumentHandling
+MultipleDocumentHandling} value:
+&lt;UL&gt;
+&lt;LI&gt;
+SINGLE_DOCUMENT -- All the input docs will be bound together as one output
+document with the specified binding.
+&lt;P&gt;
+&lt;LI&gt;
+SINGLE_DOCUMENT_NEW_SHEET -- All the input docs will be bound together as one
+output document with the specified binding, and the first impression of each
+input doc will always start on a new media sheet.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_UNCOLLATED_COPIES -- Each input doc will be bound
+separately with the specified binding.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_COLLATED_COPIES -- Each input doc will be bound separately
+with the specified binding.
+&lt;/UL&gt;
+&lt;P&gt;
+&lt;LI&gt;
+If different docs have different bindings specified, then only two values of
+{@link MultipleDocumentHandling MultipleDocumentHandling} make sense, and the
+printer reports an error when the job is submitted if any other value is
+specified:
+&lt;UL&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_UNCOLLATED_COPIES -- Each input doc will be bound
+separately with its own specified binding.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_COLLATED_COPIES -- Each input doc will be bound separately
+with its own specified binding.
+&lt;/UL&gt;
+&lt;/UL&gt;
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; Class Finishings encapsulates some of the
+IPP enum values that can be included in an IPP "finishings" attribute, which
+is a set of enums. The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; is the IPP attribute name.  The enumeration's
+integer value is the IPP enum value.  The &lt;code&gt;toString()&lt;/code&gt; method
+returns the IPP string representation of the attribute value.
+In IPP Finishings is a multi-value attribute, this API currently allows
+only one binding to be specified.
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Finishings" refid="_9_5_f720368_1110473546721_184035_9325"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Finishings" refid="_9_5_f720368_1110473546721_184035_9325"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

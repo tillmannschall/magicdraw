@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316191_32008_10576"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Sequencer" refid="_9_5_f720368_1110473546737_906284_9681"/></annotatedElement><body humanName="Body" mode="s,e">A hardware or software device that plays back a MIDI
+&lt;code&gt;{@link Sequence sequence}&lt;/code&gt; is known as a &lt;em&gt;sequencer&lt;/em&gt;.
+A MIDI sequence contains lists of time-stamped MIDI data, such as
+might be read from a standard MIDI file.  Most
+sequencers also provide functions for creating and editing sequences.
+&lt;p&gt;
+The &lt;code&gt;Sequencer&lt;/code&gt; interface includes methods for the following
+basic MIDI sequencer operations:
+&lt;ul&gt;
+&lt;li&gt;obtaining a sequence from MIDI file data&lt;/li&gt;
+&lt;li&gt;starting and stopping playback&lt;/li&gt;
+&lt;li&gt;moving to an arbitrary position in the sequence&lt;/li&gt;
+&lt;li&gt;changing the tempo (speed) of playback&lt;/li&gt;
+&lt;li&gt;synchronizing playback to an internal clock or to received MIDI
+messages&lt;/li&gt;
+&lt;li&gt;controlling the timing of another device&lt;/li&gt;
+&lt;/ul&gt;
+In addition, the following operations are supported, either directly, or
+indirectly through objects that the &lt;code&gt;Sequencer&lt;/code&gt; has access to:
+&lt;ul&gt;
+&lt;li&gt;editing the data by adding or deleting individual MIDI events or entire
+tracks&lt;/li&gt;
+&lt;li&gt;muting or soloing individual tracks in the sequence&lt;/li&gt;
+&lt;li&gt;notifying listener objects about any meta-events or
+control-change events encountered while playing back the sequence.&lt;/li&gt;
+&lt;/ul&gt;
+
+@see Sequencer.SyncMode
+@see #addMetaEventListener
+@see ControllerEventListener
+@see Receiver
+@see Transmitter
+@see MidiDevice
+
+@version 1.36, 03/12/19
+@author Kara Kytle
+@author Florian Bomers
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Sequencer" refid="_9_5_f720368_1110473546737_906284_9681"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Sequencer" refid="_9_5_f720368_1110473546737_906284_9681"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

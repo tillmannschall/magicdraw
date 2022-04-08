@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316351_728716_10705"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SyncProvider" refid="_10_5_622020d_1132928316341_99164_10703"/></annotatedElement><body humanName="Body" mode="s,e">The synchronization mechanism that provides reader/writer capabilities for
+disconnected &lt;code&gt;RowSet&lt;/code&gt; objects.
+A &lt;code&gt;SyncProvider&lt;/code&gt; implementation is a class that extends the
+&lt;code&gt;SyncProvider&lt;/code&gt; abstract class.
+&lt;P&gt;
+A &lt;code&gt;SyncProvider&lt;/code&gt; implementation is
+identified by a unique ID, which is its fully qualified class name.
+This name must be registered with the
+&lt;code&gt;SyncFactory&lt;/code&gt; SPI, thus making the implementation available to
+all &lt;code&gt;RowSet&lt;/code&gt; implementations.
+The factory mechanism in the reference implementation uses this name to instantiate
+the implementation, which can then provide a &lt;code&gt;RowSet&lt;/code&gt; object with its
+reader (a &lt;code&gt;javax.sql.RowSetReader&lt;/code&gt; object) and its writer (a
+&lt;code&gt;javax.sql.RowSetWriter&lt;/code&gt; object).
+&lt;P&gt;
+The Jdbc &lt;code&gt;RowSet&lt;/code&gt; Implementations specification provides two
+reference implementations of the &lt;code&gt;SyncProvider&lt;/code&gt; abstract class:
+&lt;code&gt;RIOptimisticProvider&lt;/code&gt; and &lt;code&gt;RIXMLProvider&lt;/code&gt;.
+The &lt;code&gt;RIOptimisticProvider&lt;/code&gt; can set any &lt;code&gt;RowSet&lt;/code&gt;
+implementation with a &lt;code&gt;RowSetReader&lt;/code&gt; object and a
+&lt;code&gt;RowSetWriter&lt;/code&gt; object.  However, only the &lt;code&gt;RIXMLProvider&lt;/code&gt;
+implementation can set an &lt;code&gt;XmlReader&lt;/code&gt; object and an
+&lt;code&gt;XmlWriter&lt;/code&gt; object. A &lt;code&gt;WebRowSet&lt;/code&gt; object uses the
+&lt;code&gt;XmlReader&lt;/code&gt; object to read data in XML format to populate itself with that
+data.  It uses the &lt;code&gt;XmlWriter&lt;/code&gt; object to write itself to a stream or
+&lt;code&gt;java.io.Writer&lt;/code&gt; object in XML format.
+&lt;P&gt;
+&lt;h3&gt;1.0 Naming Convention for Implementations&lt;/h3&gt;
+As a guide  to naming &lt;code&gt;SyncProvider&lt;/code&gt;
+implementations, the following should be noted:
+&lt;UL&gt;
+&lt;li&gt;The name for a &lt;code&gt;SyncProvider&lt;/code&gt; implementation
+is its fully qualified class name.
+&lt;li&gt;It is recommended that vendors supply a
+&lt;code&gt;SyncProvider&lt;/code&gt; implementation in a package named &lt;code&gt;providers&lt;/code&gt;.
+&lt;/UL&gt;
+&lt;p&gt;
+For instance, if a vendor named Fred, Inc. offered a
+&lt;code&gt;SyncProvider&lt;/code&gt; implementation, you could have the following:
+&lt;PRE&gt;
+Vendor name:  Fred, Inc.
+Domain name of vendor:  com.fred
+Package name:  com.fred.providers
+SyncProvider implementation class name:  HighAvailabilityProvider
+
+Fully qualified class name of SyncProvider implementation:
+com.fred.providers.HighAvailabilityProvider
+&lt;/PRE&gt;
+&lt;P&gt;
+The following line of code uses the fully qualified name to register
+this implementation with the &lt;code&gt;SyncFactory&lt;/code&gt; static instance.
+&lt;PRE&gt;
+SyncFactory.registerProvider(
+"com.fred.providers.HighAvailabilityProvider");
+&lt;/PRE&gt;
+&lt;P&gt;
+The default &lt;code&gt;SyncProvider&lt;/code&gt; object provided with the reference
+implementation uses the following name:
+&lt;pre&gt;
+com.sun.rowset.providers.RIOptimisticProvider
+&lt;/pre&gt;
+&lt;p&gt;
+A vendor can register a &lt;code&gt;SyncProvider&lt;/code&gt; implementation class name
+with Sun Microsystems, Inc. by sending email to jdbc@sun.com.
+Sun will maintain a database listing the
+available &lt;code&gt;SyncProvider&lt;/code&gt; implementations for use with compliant
+&lt;code&gt;RowSet&lt;/code&gt; implementations.  This database will be similar to the
+one already maintained to list available JDBC drivers.
+&lt;P&gt;
+Vendors should refer to the reference implementation synchronization
+providers for additional guidance on how to implement a new
+&lt;code&gt;SyncProvider&lt;/code&gt; implementation.
+
+&lt;h3&gt;2.0 How a &lt;code&gt;RowSet&lt;/code&gt; Object Gets Its Provider&lt;/h3&gt;
+
+A disconnected &lt;code&gt;Rowset&lt;/code&gt; object may get access to a
+&lt;code&gt;SyncProvider&lt;/code&gt; object in one of the following two ways:
+&lt;UL&gt;
+&lt;LI&gt;Using a constructor&lt;BR&gt;
+&lt;PRE&gt;
+CachedRowSet crs = new CachedRowSet(
+"com.fred.providers.HighAvailabilitySyncProvider");
+&lt;/PRE&gt;
+&lt;LI&gt;Using the &lt;code&gt;setSyncProvider&lt;/code&gt; method
+&lt;PRE&gt;
+CachedRowSet crs = new CachedRowSet();
+crs.setSyncProvider("com.fred.providers.HighAvailabilitySyncProvider");
+&lt;/PRE&gt;
+&lt;/UL&gt;
+&lt;p&gt;
+By default, the reference implementations of the &lt;code&gt;RowSet&lt;/code&gt; synchronization
+providers are always available to the Java platform.
+If no other pluggable synchronization providers have been correctly
+registered, the &lt;code&gt;SyncFactory&lt;/code&gt; will automatically generate
+an instance of the default &lt;code&gt;SyncProvider&lt;/code&gt; reference implementation.
+Thus, in the preceding code fragment, if no implementation named
+&lt;code&gt;com.fred.providers.HighAvailabilitySyncProvider&lt;/code&gt; has been
+registered with the &lt;code&gt;SyncFactory&lt;/code&gt; instance, &lt;i&gt;crs&lt;/i&gt; will be
+assigned the default provider in the reference implementation, which is
+&lt;code&gt;com.sun.rowset.providers.RIOptimisticProvider&lt;/code&gt;.
+&lt;p&gt;
+&lt;h3&gt;3.0 Violations and Synchronization Issues&lt;/h3&gt;
+If an update between a disconnected &lt;code&gt;RowSet&lt;/code&gt; object
+and a data source violates
+the original query or the underlying data source constraints, this will
+result in undefined behavior for all disconnected &lt;code&gt;RowSet&lt;/code&gt; implementations
+and their designated &lt;code&gt;SyncProvider&lt;/code&gt; implementations.
+Not defining the behavior when such violations occur offers greater flexibility
+for a &lt;code&gt;SyncProvider&lt;/code&gt;
+implementation to determine its own best course of action.
+&lt;p&gt;
+A &lt;code&gt;SyncProvider&lt;/code&gt; implementation
+may choose to implement a specific handler to
+handle a subset of query violations.
+However if an original query violation or a more general data source constraint
+violation is not handled by the &lt;code&gt;SyncProvider&lt;/code&gt; implementation,
+all &lt;code&gt;SyncProvider&lt;/code&gt;
+objects must throw a &lt;code&gt;SyncProviderException&lt;/code&gt;.
+&lt;p&gt;
+&lt;h3&gt;4.0 Updatable SQL VIEWs&lt;/h3&gt;
+It is possible for any disconnected or connected &lt;code&gt;RowSet&lt;/code&gt; object to be populated
+from an SQL query that is formulated originally from an SQL &lt;code&gt;VIEW&lt;/code&gt;.
+While in many cases it is possible for an update to be performed to an
+underlying view, such an update requires additional metadata, which may vary.
+The &lt;code&gt;SyncProvider&lt;/code&gt; class provides two constants to indicate whether
+an implementation supports updating an SQL &lt;code&gt;VIEW&lt;/code&gt;.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;b&gt;NONUPDATABLE_VIEW_SYNC&lt;/b&gt;&lt;/code&gt; - Indicates that a &lt;code&gt;SyncProvider&lt;/code&gt;
+implementation does not support synchronization with an SQL &lt;code&gt;VIEW&lt;/code&gt; as the
+underlying source of data for the &lt;code&gt;RowSet&lt;/code&gt; object.
+&lt;li&gt;&lt;code&gt;&lt;b&gt;UPDATABLE_VIEW_SYNC&lt;/b&gt;&lt;/code&gt; - Indicates that a
+&lt;code&gt;SyncProvider&lt;/code&gt; implementation
+supports synchronization with an SQL &lt;code&gt;VIEW&lt;/code&gt; as the underlying source
+of data.
+&lt;/ul&gt;
+&lt;P&gt;
+The default is for a &lt;code&gt;RowSet&lt;/code&gt; object not to be updatable if it was
+populated with data from an SQL &lt;code&gt;VIEW&lt;/code&gt;.
+&lt;P&gt;
+&lt;h3&gt;5.0 &lt;code&gt;SyncProvider&lt;/code&gt; Constants&lt;/h3&gt;
+The &lt;code&gt;SyncProvider&lt;/code&gt; class provides three sets of constants that
+are used as return values or parameters for &lt;code&gt;SyncProvider&lt;/code&gt; methods.
+&lt;code&gt;SyncProvider&lt;/code&gt; objects may be implemented to perform synchronization
+between a &lt;code&gt;RowSet&lt;/code&gt; object and its underlying data source with varying
+degrees of of care. The first group of constants indicate how synchronization
+is handled. For example, &lt;code&gt;GRADE_NONE&lt;/code&gt; indicates that a
+&lt;code&gt;SyncProvider&lt;/code&gt; object will not take any care to see what data is
+valid and will simply write the &lt;code&gt;RowSet&lt;/code&gt; data to the data source.
+&lt;code&gt;GRADE_MODIFIED_AT_COMMIT&lt;/code&gt; indicates that the provider will check
+only modified data for validity.  Other grades check all data for validity
+or set locks when data is modified or loaded.
+&lt;OL&gt;
+&lt;LI&gt;Constants to indicate the synchronization grade of a
+&lt;code&gt;SyncProvider&lt;/code&gt; object
+&lt;UL&gt;
+&lt;LI&gt;SyncProvider.GRADE_NONE
+&lt;LI&gt;SyncProvider.GRADE_MODIFIED_AT_COMMIT
+&lt;LI&gt;SyncProvider.GRADE_CHECK_ALL_AT_COMMIT
+&lt;LI&gt;SyncProvider.GRADE_LOCK_WHEN_MODIFIED
+&lt;LI&gt;SyncProvider.GRADE_LOCK_WHEN_LOADED
+&lt;/UL&gt;
+&lt;LI&gt;Constants to indicate what locks are set on the data source
+&lt;UL&gt;
+&lt;LI&gt;SyncProvider.DATASOURCE_NO_LOCK
+&lt;LI&gt;SyncProvider.DATASOURCE_ROW_LOCK
+&lt;LI&gt;SyncProvider.DATASOURCE_TABLE_LOCK
+&lt;LI&gt;SyncProvider.DATASOURCE_DB_LOCK
+&lt;/UL&gt;
+&lt;LI&gt;Constants to indicate whether a &lt;code&gt;SyncProvider&lt;/code&gt; object can
+perform updates to an SQL &lt;code&gt;VIEW&lt;/code&gt; &lt;BR&gt;
+These constants are explained in the preceding section (4.0).
+&lt;UL&gt;
+&lt;LI&gt;SyncProvider.UPDATABLE_VIEW_SYNC
+&lt;LI&gt;SyncProvider.NONUPDATABLE_VIEW_SYNC
+&lt;/UL&gt;
+&lt;/OL&gt;
+
+@author Jonathan Bruce
+@see javax.sql.rowset.spi.SyncFactory
+@see javax.sql.rowset.spi.SyncFactoryException
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="SyncProvider" refid="_10_5_622020d_1132928316341_99164_10703"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SyncProvider" refid="_10_5_622020d_1132928316341_99164_10703"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

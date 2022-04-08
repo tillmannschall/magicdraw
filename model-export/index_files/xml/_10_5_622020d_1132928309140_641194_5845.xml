@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309140_641194_5845"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PolicyQualifierInfo" refid="_9_5_f720368_1110473546674_235296_8341"/></annotatedElement><body humanName="Body" mode="s,e">An immutable policy qualifier represented by the ASN.1 PolicyQualifierInfo
+structure.
+
+&lt;p&gt;The ASN.1 definition is as follows:
+&lt;p&gt;&lt;pre&gt;
+PolicyQualifierInfo ::= SEQUENCE {
+policyQualifierId       PolicyQualifierId,
+qualifier               ANY DEFINED BY policyQualifierId }
+&lt;/pre&gt;
+&lt;p&gt;
+A certificate policies extension, if present in an X.509 version 3
+certificate, contains a sequence of one or more policy information terms,
+each of which consists of an object identifier (OID) and optional
+qualifiers. In an end-entity certificate, these policy information terms
+indicate the policy under which the certificate has been issued and the
+purposes for which the certificate may be used. In a CA certificate, these
+policy information terms limit the set of policies for certification paths
+which include this certificate.
+&lt;p&gt;
+A &lt;code&gt;Set&lt;/code&gt; of &lt;code&gt;PolicyQualifierInfo&lt;/code&gt; objects are returned
+by the {@link PolicyNode#getPolicyQualifiers PolicyNode.getPolicyQualifiers}
+method. This allows applications with specific policy requirements to
+process and validate each policy qualifier. Applications that need to
+process policy qualifiers should explicitly set the
+&lt;code&gt;policyQualifiersRejected&lt;/code&gt; flag to false (by calling the
+{@link PKIXParameters#setPolicyQualifiersRejected
+PKIXParameters.setPolicyQualifiersRejected} method) before validating
+a certification path.
+
+&lt;p&gt;Note that the PKIX certification path validation algorithm specifies
+that any policy qualifier in a certificate policies extension that is
+marked critical must be processed and validated. Otherwise the
+certification path must be rejected. If the
+&lt;code&gt;policyQualifiersRejected&lt;/code&gt; flag is set to false, it is up to
+the application to validate all policy qualifiers in this manner in order
+to be PKIX compliant.
+
+&lt;p&gt;&lt;b&gt;Concurrent Access&lt;/b&gt;
+
+&lt;p&gt;All &lt;code&gt;PolicyQualifierInfo&lt;/code&gt; objects must be immutable and
+thread-safe. That is, multiple threads may concurrently invoke the
+methods defined in this class on a single &lt;code&gt;PolicyQualifierInfo&lt;/code&gt;
+object (or more than one) with no ill effects. Requiring
+&lt;code&gt;PolicyQualifierInfo&lt;/code&gt; objects to be immutable and thread-safe
+allows them to be passed around to various pieces of code without
+worrying about coordinating access.
+
+@author 	seth proctor
+@author 	Sean Mullan
+@version 	1.11 12/19/03
+@since 	1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PolicyQualifierInfo" refid="_9_5_f720368_1110473546674_235296_8341"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PolicyQualifierInfo" refid="_9_5_f720368_1110473546674_235296_8341"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

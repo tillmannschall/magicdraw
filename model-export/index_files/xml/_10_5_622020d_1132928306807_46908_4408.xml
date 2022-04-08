@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306807_46908_4408"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BeanInfo" refid="_9_5_f720368_1110473546596_542264_7189"/></annotatedElement><body humanName="Body" mode="s,e">A bean implementor who wishes to provide explicit information about
+their bean may provide a BeanInfo class that implements this BeanInfo
+interface and provides explicit information about the methods,
+properties, events, etc, of their  bean.
+&lt;p&gt;
+A bean implementor doesn't need to provide a complete set of
+explicit information.  You can pick and choose which information
+you want to provide and the rest will be obtained by automatic
+analysis using low-level reflection of the bean classes' methods
+and applying standard design patterns.
+&lt;p&gt;
+You get the opportunity to provide lots and lots of different
+information as part of the various XyZDescriptor classes.  But
+don't panic, you only really need to provide the minimal core
+information required by the various constructors.
+&lt;P&gt;
+See also the SimpleBeanInfo class which provides a convenient
+"noop" base class for BeanInfo classes, which you can override
+for those specific places where you want to return explicit info.
+&lt;P&gt;
+To learn about all the behaviour of a bean see the Introspector class.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="BeanInfo" refid="_9_5_f720368_1110473546596_542264_7189"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BeanInfo" refid="_9_5_f720368_1110473546596_542264_7189"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

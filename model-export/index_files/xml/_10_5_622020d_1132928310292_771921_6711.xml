@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928310292_771921_6711"><APPLIED_STEREOTYPES humanName="Applied Stereotype" mode="s,e"><stereotype classType="Stereotype" humanType="Stereotype" icon="index_files/icon_stereotype_1767532961.jpg" name="JavaEnumeration" refid="_622020d_1094807910486_107057_1"/></APPLIED_STEREOTYPES><appliedStereotype humanName="Applied Stereotype" mode="s,e"><stereotype classType="Stereotype" humanType="Stereotype" icon="index_files/icon_stereotype_1767532961.jpg" name="JavaEnumeration" refid="_622020d_1094807910486_107057_1"><property classType="Property" humanName="Base_ Class" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="base_Class" refid="_10_0EAPbeta2_be00301_1123760461441_127886_158"/><property classType="Property" humanName="Base_ Classifier" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="base_Classifier" refid="_10_0EAPbeta2_be00301_1123760461591_225457_189"/><property classType="Property" humanName="Base_ Element" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="base_Element" refid="_10_0EAPbeta2_be00301_1123760461861_180156_245"/><property classType="Property" humanName="Base_ Enumeration" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="base_Enumeration" refid="_10_0EAPbeta2_be00301_1123760461421_500280_153"/><property classType="Property" humanName="Java Annotations" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="JavaAnnotations" refid="_622020d_1094808990539_635117_1756"/><property classType="Property" humanName="Java Static" humanType="Property" icon="index_files/icon_property_1173242441.jpg" name="JavaStatic" refid="rimvydas_1048695729605_909214_4868"/></stereotype></appliedStereotype><appliedStereotypeInstance classType="InstanceSpecification" humanName="Applied Stereotype Instance" humanType="Instance Specification" icon="index_files/icon_instancespecification_125865913.jpg" name=" : JavaEnumeration" refid="_10_5_622020d_1132928310302_477499_6713"/><documentation humanName="Documentation" mode="standard">A &lt;tt&gt;TimeUnit&lt;/tt&gt; represents time durations at a given unit of
+granularity and provides utility methods to convert across units,
+and to perform timing and delay operations in these units.  A
+&lt;tt&gt;TimeUnit&lt;/tt&gt; does not maintain time information, but only
+helps organize and use time representations that may be maintained
+separately across various contexts.
+
+&lt;p&gt;A &lt;tt&gt;TimeUnit&lt;/tt&gt; is mainly used to inform time-based methods
+how a given timing parameter should be interpreted. For example,
+the following code will timeout in 50 milliseconds if the {@link
+java.util.concurrent.locks.Lock lock} is not available:
+
+&lt;pre&gt;  Lock lock = ...;
+if ( lock.tryLock(50L, TimeUnit.MILLISECONDS) ) ...
+&lt;/pre&gt;
+while this code will timeout in 50 seconds:
+&lt;pre&gt;
+Lock lock = ...;
+if ( lock.tryLock(50L, TimeUnit.SECONDS) ) ...
+&lt;/pre&gt;
+
+Note however, that there is no guarantee that a particular timeout
+implementation will be able to notice the passage of time at the
+same granularity as the given &lt;tt&gt;TimeUnit&lt;/tt&gt;.
+
+@since 1.5
+@author Doug Lea
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">TimeUnit</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310302_869065_6714"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310302_869065_6714"/><instancespecification classType="InstanceSpecification" humanType="Instance Specification" icon="index_files/icon_instancespecification_125865913.jpg" name=" : JavaEnumeration" refid="_10_5_622020d_1132928310302_477499_6713"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::concurrent::TimeUnit</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

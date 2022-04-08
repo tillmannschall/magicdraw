@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315289_358034_9875"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StandardMBean" refid="_10_5_622020d_1132928315289_164003_9871"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;An MBean whose management interface is determined by reflection
+on a Java interface.&lt;/p&gt;
+
+&lt;p&gt;This class brings more flexibility to the notion of Management
+Interface in the use of Standard MBeans.  Straightforward use of
+the patterns for Standard MBeans described in the JMX Specification
+means that there is a fixed relationship between the implementation
+class of an MBean and its management interface (i.e., if the
+implementation class is Thing, the management interface must be
+ThingMBean).  This class makes it possible to keep the convenience
+of specifying the management interface with a Java interface,
+without requiring that there be any naming relationship between the
+implementation and interface classes.&lt;/p&gt;
+
+&lt;p&gt;By making a DynamicMBean out of an MBean, this class makes
+it possible to select any interface implemented by the MBean as its
+management interface, provided that it complies with JMX patterns
+(i.e., attributes defined by getter/setter etc...).&lt;/p&gt;
+
+&lt;p&gt; This class also provides hooks that make it possible to supply
+custom descriptions and names for the {@link MBeanInfo} returned by
+the DynamicMBean interface.&lt;/p&gt;
+
+&lt;p&gt;Using this class, an MBean can be created with any
+implementation class name &lt;i&gt;Impl&lt;/i&gt; and with a management
+interface defined (as for current Standard MBeans) by any interface
+&lt;i&gt;Intf&lt;/i&gt;, in one of two general ways:&lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;Using the public constructor
+{@link #StandardMBean(java.lang.Object, java.lang.Class)
+StandardMBean(impl,interface)}:
+&lt;pre&gt;
+MBeanServer mbs;
+...
+Impl impl = new Impl(...);
+StandardMBean mbean = new StandardMBean(impl, Intf.class);
+mbs.registerMBean(mbean, objectName);
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;Subclassing StandardMBean:
+&lt;pre&gt;
+public class Impl extends StandardMBean implements Intf {
+public Impl() {
+super(Intf.class);
+}
+implement methods of Intf
+}
+
+[...]
+
+MBeanServer mbs;
+....
+Impl impl = new Impl();
+mbs.registerMBean(impl, objectName);
+&lt;/pre&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt;In either case, the class &lt;i&gt;Impl&lt;/i&gt; must implement the
+interface &lt;i&gt;Intf&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;Standard MBeans based on the naming relationship between
+implementation and interface classes are of course still
+available.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled JMX 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StandardMBean" refid="_10_5_622020d_1132928315289_164003_9871"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StandardMBean" refid="_10_5_622020d_1132928315289_164003_9871"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

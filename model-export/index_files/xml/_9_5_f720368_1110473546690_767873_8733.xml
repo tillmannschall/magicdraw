@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_767873_8733"><documentation humanName="Documentation" mode="standard">The permission which the SecurityManager will check when code
+that is running with a SecurityManager calls one of the logging
+control methods (such as Logger.setLevel).
+&lt;p&gt;
+Currently there is only one named LoggingPermission.  This is "control"
+and it grants the ability to control the logging configuration, for
+example by adding or removing Handlers, by adding or removing Filters,
+or by changing logging levels.
+&lt;p&gt;
+Programmers do not normally create LoggingPermission objects directly.
+Instead they are created by the security policy code based on reading
+the security policy file.
+
+
+@version 1.9, 12/19/03
+@since 1.4
+@see java.security.BasicPermission
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionCollection
+@see java.lang.SecurityManager
+
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322359_857315_14570"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">LoggingPermission</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="logging" refid="_9_5_f720368_1110473547799_233532_19062"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310362_264882_6763"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322359_857315_14570"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310362_264882_6763"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="logging" refid="_9_5_f720368_1110473547799_233532_19062"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="logging" refid="_9_5_f720368_1110473547799_233532_19062"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="logging" refid="_9_5_f720368_1110473547799_233532_19062"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::logging::LoggingPermission</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BasicPermission" refid="_9_5_f720368_1110473546674_30641_8429"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

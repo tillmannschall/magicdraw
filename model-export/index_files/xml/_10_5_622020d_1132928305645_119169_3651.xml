@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305645_119169_3651"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DragSourceContext" refid="_9_5_f720368_1110473546549_739424_6501"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;DragSourceContext&lt;/code&gt; class is responsible for managing the
+initiator side of the Drag and Drop protocol. In particular, it is responsible
+for managing drag event notifications to the &lt;code&gt;DragSourceListener&lt;/code&gt;s
+and &lt;code&gt;DragSourceMotionListener&lt;/code&gt;s, and providing the
+&lt;code&gt;Transferable&lt;/code&gt; representing the source data for the drag operation.
+&lt;p&gt;
+Note that the &lt;code&gt;DragSourceContext&lt;/code&gt; itself
+implements the &lt;code&gt;DragSourceListener&lt;/code&gt; and
+&lt;code&gt;DragSourceMotionListener&lt;/code&gt; interfaces.
+This is to allow the platform peer
+(the &lt;code&gt;DragSourceContextPeer&lt;/code&gt; instance)
+created by the &lt;code&gt;DragSource&lt;/code&gt; to notify
+the &lt;code&gt;DragSourceContext&lt;/code&gt; of
+state changes in the ongoing operation. This allows the
+&lt;code&gt;DragSourceContext&lt;/code&gt; to interpose
+itself between the platform and the
+listeners provided by the initiator of the drag operation.
+
+@see DragSourceListener
+@see DragSourceMotionListener
+@version 1.51, 12/19/03
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DragSourceContext" refid="_9_5_f720368_1110473546549_739424_6501"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DragSourceContext" refid="_9_5_f720368_1110473546549_739424_6501"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

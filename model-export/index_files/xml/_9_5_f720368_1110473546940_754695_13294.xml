@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546940_754695_13294"><documentation humanName="Documentation" mode="standard">A single input source for an XML entity.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This class allows a SAX application to encapsulate information
+about an input source in a single object, which may include
+a public identifier, a system identifier, a byte stream (possibly
+with a specified encoding), and/or a character stream.&lt;/p&gt;
+
+&lt;p&gt;There are two places that the application can deliver an
+input source to the parser: as the argument to the Parser.parse
+method, or as the return value of the EntityResolver.resolveEntity
+method.&lt;/p&gt;
+
+&lt;p&gt;The SAX parser will use the InputSource object to determine how
+to read XML input.  If there is a character stream available, the
+parser will read that stream directly, disregarding any text
+encoding declaration found in that stream.
+If there is no character stream, but there is
+a byte stream, the parser will use that byte stream, using the
+encoding specified in the InputSource or else (if no encoding is
+specified) autodetecting the character encoding using an algorithm
+such as the one in the XML specification.  If neither a character
+stream nor a
+byte stream is available, the parser will attempt to open a URI
+connection to the resource identified by the system
+identifier.&lt;/p&gt;
+
+&lt;p&gt;An InputSource object belongs to the application: the SAX parser
+shall never modify it in any way (it may modify a copy if
+necessary).  However, standard processing of both byte and
+character streams is to close them on as part of end-of-parse cleanup,
+so applications should not attempt to re-use such streams after they
+have been handed to a parser.  &lt;/p&gt;
+
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.XMLReader#parse(org.xml.sax.InputSource)
+@see org.xml.sax.EntityResolver#resolveEntity
+@see java.io.InputStream
+@see java.io.Reader
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">InputSource</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314739_3891_9073"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314739_3891_9073"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::xml::sax::InputSource</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

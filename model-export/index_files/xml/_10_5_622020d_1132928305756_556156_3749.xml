@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305756_556156_3749"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MouseMotionListener" refid="_9_5_f720368_1110473546565_341038_6597"/></annotatedElement><body humanName="Body" mode="s,e">The listener interface for receiving mouse motion events on a component.
+(For clicks and other mouse events, use the &lt;code&gt;MouseListener&lt;/code&gt;.)
+&lt;P&gt;
+The class that is interested in processing a mouse motion event
+either implements this interface (and all the methods it
+contains) or extends the abstract &lt;code&gt;MouseMotionAdapter&lt;/code&gt; class
+(overriding only the methods of interest).
+&lt;P&gt;
+The listener object created from that class is then registered with a
+component using the component's &lt;code&gt;addMouseMotionListener&lt;/code&gt;
+method. A mouse motion event is generated when the mouse is moved
+or dragged. (Many such events will be generated). When a mouse motion event
+occurs, the relevant method in the listener object is invoked, and
+the &lt;code&gt;MouseEvent&lt;/code&gt; is passed to it.
+
+@author Amy Fowler
+@version 1.15, 12/19/03
+
+@see MouseMotionAdapter
+@see MouseEvent
+@see &lt;a href="http://java.sun.com/docs/books/tutorial/post1.0/ui/mousemotionlistener.html"&gt;Tutorial: Writing a Mouse Motion Listener&lt;/a&gt;
+@see &lt;a href="http://www.awl.com/cp/javaseries/jcl1_2.html"&gt;Reference: The Java Class Libraries (update file)&lt;/a&gt;
+
+@since 1.1
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="MouseMotionListener" refid="_9_5_f720368_1110473546565_341038_6597"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MouseMotionListener" refid="_9_5_f720368_1110473546565_341038_6597"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

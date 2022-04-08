@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546753_1680_9759"><documentation humanName="Documentation" mode="standard">An object that provides hooks for connection pool management.
+A &lt;code&gt;PooledConnection&lt;/code&gt; object
+represents a physical connection to a data source.  The connection
+can be recycled rather than being closed when an application is
+finished with it, thus reducing the number of connections that
+need to be made.
+&lt;P&gt;
+An application programmer does not use the &lt;code&gt;PooledConnection&lt;/code&gt;
+interface directly; rather, it is used by a middle tier infrastructure
+that manages the pooling of connections.
+&lt;P&gt;
+When an application calls the method &lt;code&gt;DataSource.getConnection&lt;/code&gt;,
+it gets back a &lt;code&gt;Connection&lt;/code&gt; object.  If connection pooling is
+being done, that &lt;code&gt;Connection&lt;/code&gt; object is actually a handle to
+a &lt;code&gt;PooledConnection&lt;/code&gt; object, which is a physical connection.
+&lt;P&gt;
+The connection pool manager, typically the application server, maintains
+a pool of &lt;code&gt;PooledConnection&lt;/code&gt; objects.  If there is a
+&lt;code&gt;PooledConnection&lt;/code&gt; object available in the pool, the
+connection pool manager returns a &lt;code&gt;Connection&lt;/code&gt; object that
+is a handle to that physical connection.
+If no &lt;code&gt;PooledConnection&lt;/code&gt; object is available, the
+connection pool manager calls the &lt;code&gt;PooledConnection&lt;/code&gt;
+method &lt;code&gt;getConnection&lt;/code&gt; to create a new physical connection and
+returns a handle to it.
+&lt;P&gt;
+When an application closes a connection, it calls the &lt;code&gt;Connection&lt;/code&gt;
+method &lt;code&gt;close&lt;/code&gt;. When connection pooling is being done,
+the connection pool manager is notified because it has registered itself as
+a &lt;code&gt;ConnectionEventListener&lt;/code&gt; object using the
+&lt;code&gt;ConnectionPool&lt;/code&gt; method &lt;code&gt;addConnectionEventListener&lt;/code&gt;.
+The connection pool manager deactivates the handle to
+the &lt;code&gt;PooledConnection&lt;/code&gt; object and  returns the
+&lt;code&gt;PooledConnection&lt;/code&gt; object to the pool of connections so that
+it can be used again.  Thus, when an application closes its connection,
+the underlying physical connection is recycled rather than being closed.
+&lt;P&gt;
+The physical connection is not closed until the connection pool manager
+calls the &lt;code&gt;PooledConnection&lt;/code&gt; method &lt;code&gt;close&lt;/code&gt;.
+This method is generally called to have an orderly shutdown of the server or
+if a fatal error has made the connection unusable.
+
+@since 1.4
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">PooledConnection</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473548112_91580_20929"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316972_699187_10761"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316972_699187_10761"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sql" refid="_9_5_f720368_1110473548112_91580_20929"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473548112_91580_20929"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473548112_91580_20929"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sql::PooledConnection</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

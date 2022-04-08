@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305686_110690_3701"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ComponentListener" refid="_9_5_f720368_1110473546565_824053_6549"/></annotatedElement><body humanName="Body" mode="s,e">The listener interface for receiving component events.
+The class that is interested in processing a component event
+either implements this interface (and all the methods it
+contains) or extends the abstract &lt;code&gt;ComponentAdapter&lt;/code&gt; class
+(overriding only the methods of interest).
+The listener object created from that class is then registered with a
+component using the component's &lt;code&gt;addComponentListener&lt;/code&gt;
+method. When the component's size, location, or visibility
+changes, the relevant method in the listener object is invoked,
+and the &lt;code&gt;ComponentEvent&lt;/code&gt; is passed to it.
+&lt;P&gt;
+Component events are provided for notification purposes ONLY;
+The AWT will automatically handle component moves and resizes
+internally so that GUI layout works properly regardless of
+whether a program registers a &lt;code&gt;ComponentListener&lt;/code&gt; or not.
+
+@see ComponentAdapter
+@see ComponentEvent
+@see &lt;a href="http://java.sun.com/docs/books/tutorial/post1.0/ui/componentlistener.html"&gt;Tutorial: Writing a Component Listener&lt;/a&gt;
+@see &lt;a href="http://www.awl.com/cp/javaseries/jcl1_2.html"&gt;Reference: The Java Class Libraries (update file)&lt;/a&gt;
+
+@author Carl Quinn
+@version 1.16 12/19/03
+@since 1.1
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ComponentListener" refid="_9_5_f720368_1110473546565_824053_6549"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ComponentListener" refid="_9_5_f720368_1110473546565_824053_6549"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

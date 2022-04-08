@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306587_8126_4221"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GraphicsDevice" refid="_9_5_f720368_1110473546581_715645_7031"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;GraphicsDevice&lt;/code&gt; class describes the graphics devices
+that might be available in a particular graphics environment.  These
+include screen and printer devices. Note that there can be many screens
+and many printers in an instance of {@link GraphicsEnvironment}. Each
+graphics device has one or more {@link GraphicsConfiguration} objects
+associated with it.  These objects specify the different configurations
+in which the &lt;code&gt;GraphicsDevice&lt;/code&gt; can be used.
+&lt;p&gt;
+In a multi-screen environment, the &lt;code&gt;GraphicsConfiguration&lt;/code&gt;
+objects can be used to render components on multiple screens.  The
+following code sample demonstrates how to create a &lt;code&gt;JFrame&lt;/code&gt;
+object for each &lt;code&gt;GraphicsConfiguration&lt;/code&gt; on each screen
+device in the &lt;code&gt;GraphicsEnvironment&lt;/code&gt;:
+&lt;pre&gt;
+GraphicsEnvironment ge = GraphicsEnvironment.
+getLocalGraphicsEnvironment();
+GraphicsDevice[] gs = ge.getScreenDevices();
+for (int j = 0; j &lt; gs.length; j++) {
+GraphicsDevice gd = gs[j];
+GraphicsConfiguration[] gc =
+gd.getConfigurations();
+for (int i=0; i &lt; gc.length; i++) {
+JFrame f = new
+JFrame(gs[j].getDefaultConfiguration());
+Canvas c = new Canvas(gc[i]);
+Rectangle gcBounds = gc[i].getBounds();
+int xoffs = gcBounds.x;
+int yoffs = gcBounds.y;
+f.getContentPane().add(c);
+f.setLocation((i*50)+xoffs, (i*60)+yoffs);
+f.show();
+}
+}
+&lt;/pre&gt;
+@see GraphicsEnvironment
+@see GraphicsConfiguration
+@version 1.30, 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="GraphicsDevice" refid="_9_5_f720368_1110473546581_715645_7031"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GraphicsDevice" refid="_9_5_f720368_1110473546581_715645_7031"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

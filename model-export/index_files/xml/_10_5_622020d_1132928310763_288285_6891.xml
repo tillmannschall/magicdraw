@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310763_288285_6891"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Pattern" refid="_9_5_f720368_1110473546690_239415_8779"/></annotatedElement><body humanName="Body" mode="s,e">A compiled representation of a regular expression.
+
+&lt;p&gt; A regular expression, specified as a string, must first be compiled into
+an instance of this class.  The resulting pattern can then be used to create
+a {@link Matcher} object that can match arbitrary {@link
+java.lang.CharSequence &lt;/code&gt;character sequences&lt;code&gt;} against the regular
+expression.  All of the state involved in performing a match resides in the
+matcher, so many matchers can share the same pattern.
+
+&lt;p&gt; A typical invocation sequence is thus
+
+&lt;blockquote&gt;&lt;pre&gt;
+Pattern p = Pattern.{@link #compile compile}("a*b");
+Matcher m = p.{@link #matcher matcher}("aaaaab");
+boolean b = m.{@link Matcher#matches matches}();&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; A {@link #matches matches} method is defined by this class as a
+convenience for when a regular expression is used just once.  This method
+compiles an expression and matches an input sequence against it in a single
+invocation.  The statement
+
+&lt;blockquote&gt;&lt;pre&gt;
+boolean b = Pattern.matches("a*b", "aaaaab");&lt;/pre&gt;&lt;/blockquote&gt;
+
+is equivalent to the three statements above, though for repeated matches it
+is less efficient since it does not allow the compiled pattern to be reused.
+
+&lt;p&gt; Instances of this class are immutable and are safe for use by multiple
+concurrent threads.  Instances of the {@link Matcher} class are not safe for
+such use.
+
+
+&lt;a name="sum"&gt;
+&lt;h4&gt; Summary of regular-expression constructs &lt;/h4&gt;
+
+&lt;table border="0" cellpadding="1" cellspacing="0"
+summary="Regular expression constructs, and what they match"&gt;
+
+&lt;tr align="left"&gt;
+&lt;th bgcolor="#CCCCFF" align="left" id="construct"&gt;Construct&lt;/th&gt;
+&lt;th bgcolor="#CCCCFF" align="left" id="matches"&gt;Matches&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2" id="characters"&gt;Characters&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;i&gt;x&lt;/i&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The character &lt;i&gt;x&lt;/i&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;tt&gt;\\&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The backslash character&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;tt&gt;\0&lt;/tt&gt;&lt;i&gt;n&lt;/i&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The character with octal value &lt;tt&gt;0&lt;/tt&gt;&lt;i&gt;n&lt;/i&gt;
+(0&amp;nbsp;&lt;tt&gt;&lt;=&lt;/tt&gt;&amp;nbsp;&lt;i&gt;n&lt;/i&gt;&amp;nbsp;&lt;tt&gt;&lt;=&lt;/tt&gt;&amp;nbsp;7)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;tt&gt;\0&lt;/tt&gt;&lt;i&gt;nn&lt;/i&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The character with octal value &lt;tt&gt;0&lt;/tt&gt;&lt;i&gt;nn&lt;/i&gt;
+(0&amp;nbsp;&lt;tt&gt;&lt;=&lt;/tt&gt;&amp;nbsp;&lt;i&gt;n&lt;/i&gt;&amp;nbsp;&lt;tt&gt;&lt;=&lt;/tt&gt;&amp;nbsp;7)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;tt&gt;\0&lt;/tt&gt;&lt;i&gt;mnn&lt;/i&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The character with octal value &lt;tt&gt;0&lt;/tt&gt;&lt;i&gt;mnn&lt;/i&gt;
+(0&amp;nbsp;&lt;tt&gt;&lt;=&lt;/tt&gt;&amp;nbsp;&lt;i&gt;m&lt;/i&gt;&amp;nbsp;&lt;tt&gt;&lt;=&lt;/tt&gt;&amp;nbsp;3,
+0&amp;nbsp;&lt;tt&gt;&lt;=&lt;/tt&gt;&amp;nbsp;&lt;i&gt;n&lt;/i&gt;&amp;nbsp;&lt;tt&gt;&lt;=&lt;/tt&gt;&amp;nbsp;7)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;tt&gt;\x&lt;/tt&gt;&lt;i&gt;hh&lt;/i&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The character with hexadecimal&amp;nbsp;value&amp;nbsp;&lt;tt&gt;0x&lt;/tt&gt;&lt;i&gt;hh&lt;/i&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;tt&gt;&amp;#92;u&lt;/tt&gt;&lt;i&gt;hhhh&lt;/i&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The character with hexadecimal&amp;nbsp;value&amp;nbsp;&lt;tt&gt;0x&lt;/tt&gt;&lt;i&gt;hhhh&lt;/i&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="matches"&gt;&lt;tt&gt;\t&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The tab character (&lt;tt&gt;'&amp;#92;u0009'&lt;/tt&gt;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;tt&gt;\n&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The newline (line feed) character (&lt;tt&gt;'&amp;#92;u000A'&lt;/tt&gt;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;tt&gt;\r&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The carriage-return character (&lt;tt&gt;'&amp;#92;u000D'&lt;/tt&gt;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;tt&gt;\f&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The form-feed character (&lt;tt&gt;'&amp;#92;u000C'&lt;/tt&gt;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;tt&gt;\a&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The alert (bell) character (&lt;tt&gt;'&amp;#92;u0007'&lt;/tt&gt;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;tt&gt;\e&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The escape character (&lt;tt&gt;'&amp;#92;u001B'&lt;/tt&gt;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct characters"&gt;&lt;tt&gt;\c&lt;/tt&gt;&lt;i&gt;x&lt;/i&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The control character corresponding to &lt;i&gt;x&lt;/i&gt;&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2" id="classes"&gt;Character classes&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top" headers="construct classes"&gt;&lt;tt&gt;[abc]&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;tt&gt;a&lt;/tt&gt;, &lt;tt&gt;b&lt;/tt&gt;, or &lt;tt&gt;c&lt;/tt&gt; (simple class)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct classes"&gt;&lt;tt&gt;[^abc]&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;Any character except &lt;tt&gt;a&lt;/tt&gt;, &lt;tt&gt;b&lt;/tt&gt;, or &lt;tt&gt;c&lt;/tt&gt; (negation)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct classes"&gt;&lt;tt&gt;[a-zA-Z]&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;tt&gt;a&lt;/tt&gt; through &lt;tt&gt;z&lt;/tt&gt;
+or &lt;tt&gt;A&lt;/tt&gt; through &lt;tt&gt;Z&lt;/tt&gt;, inclusive (range)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct classes"&gt;&lt;tt&gt;[a-d[m-p]]&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;tt&gt;a&lt;/tt&gt; through &lt;tt&gt;d&lt;/tt&gt;,
+or &lt;tt&gt;m&lt;/tt&gt; through &lt;tt&gt;p&lt;/tt&gt;: &lt;tt&gt;[a-dm-p]&lt;/tt&gt; (union)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct classes"&gt;&lt;tt&gt;[a-z&amp;&amp;[def]]&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;tt&gt;d&lt;/tt&gt;, &lt;tt&gt;e&lt;/tt&gt;, or &lt;tt&gt;f&lt;/tt&gt; (intersection)&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct classes"&gt;&lt;tt&gt;[a-z&amp;&amp;[^bc]]&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;tt&gt;a&lt;/tt&gt; through &lt;tt&gt;z&lt;/tt&gt;,
+except for &lt;tt&gt;b&lt;/tt&gt; and &lt;tt&gt;c&lt;/tt&gt;: &lt;tt&gt;[ad-z]&lt;/tt&gt; (subtraction)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct classes"&gt;&lt;tt&gt;[a-z&amp;&amp;[^m-p]]&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;tt&gt;a&lt;/tt&gt; through &lt;tt&gt;z&lt;/tt&gt;,
+and not &lt;tt&gt;m&lt;/tt&gt; through &lt;tt&gt;p&lt;/tt&gt;: &lt;tt&gt;[a-lq-z]&lt;/tt&gt;(subtraction)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr align="left"&gt;&lt;th colspan="2" id="predef"&gt;Predefined character classes&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top" headers="construct predef"&gt;&lt;tt&gt;.&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;Any character (may or may not match &lt;a href="#lt"&gt;line terminators&lt;/a&gt;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct predef"&gt;&lt;tt&gt;\d&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A digit: &lt;tt&gt;[0-9]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct predef"&gt;&lt;tt&gt;\D&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A non-digit: &lt;tt&gt;[^0-9]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct predef"&gt;&lt;tt&gt;\s&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A whitespace character: &lt;tt&gt;[ \t\n\x0B\f\r]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct predef"&gt;&lt;tt&gt;\S&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A non-whitespace character: &lt;tt&gt;[^\s]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct predef"&gt;&lt;tt&gt;\w&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A word character: &lt;tt&gt;[a-zA-Z_0-9]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct predef"&gt;&lt;tt&gt;\W&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A non-word character: &lt;tt&gt;[^\w]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2" id="posix"&gt;POSIX character classes&lt;/b&gt; (US-ASCII only)&lt;b&gt;&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{Lower}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A lower-case alphabetic character: &lt;tt&gt;[a-z]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{Upper}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;An upper-case alphabetic character:&lt;tt&gt;[A-Z]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{ASCII}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;All ASCII:&lt;tt&gt;[\x00-\x7F]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{Alpha}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;An alphabetic character:&lt;tt&gt;[\p{Lower}\p{Upper}]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{Digit}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A decimal digit: &lt;tt&gt;[0-9]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{Alnum}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;An alphanumeric character:&lt;tt&gt;[\p{Alpha}\p{Digit}]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{Punct}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;Punctuation: One of &lt;tt&gt;!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;!-- &lt;tt&gt;[\!"#\$%&amp;'\(\)\*\+,\-\./:;\&lt;=\&gt;\?@\[\\\]\^_`\{\|\}~]&lt;/tt&gt;
+&lt;tt&gt;[\X21-\X2F\X31-\X40\X5B-\X60\X7B-\X7E]&lt;/tt&gt; --&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{Graph}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A visible character: &lt;tt&gt;[\p{Alnum}\p{Punct}]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{Print}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A printable character: &lt;tt&gt;[\p{Graph}\x20]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{Blank}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A space or a tab: &lt;tt&gt;[ \t]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{Cntrl}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A control character: &lt;tt&gt;[\x00-\x1F\x7F]&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{XDigit}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A hexadecimal digit: &lt;tt&gt;[0-9a-fA-F]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct posix"&gt;&lt;tt&gt;\p{Space}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A whitespace character: &lt;tt&gt;[ \t\n\x0B\f\r]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2"&gt;java.lang.Character classes (simple &lt;a href="#jcc"&gt;java character type&lt;/a&gt;)&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;\p{javaLowerCase}&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;Equivalent to java.lang.Character.isLowerCase()&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;\p{javaUpperCase}&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;Equivalent to java.lang.Character.isUpperCase()&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;\p{javaWhitespace}&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;Equivalent to java.lang.Character.isWhitespace()&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top"&gt;&lt;tt&gt;\p{javaMirrored}&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;Equivalent to java.lang.Character.isMirrored()&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2" id="unicode"&gt;Classes for Unicode blocks and categories&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top" headers="construct unicode"&gt;&lt;tt&gt;\p{InGreek}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A character in the Greek&amp;nbsp;block (simple &lt;a href="#ubc"&gt;block&lt;/a&gt;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct unicode"&gt;&lt;tt&gt;\p{Lu}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;An uppercase letter (simple &lt;a href="#ubc"&gt;category&lt;/a&gt;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct unicode"&gt;&lt;tt&gt;\p{Sc}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A currency symbol&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct unicode"&gt;&lt;tt&gt;\P{InGreek}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;Any character except one in the Greek block (negation)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct unicode"&gt;&lt;tt&gt;[\p{L}&amp;&amp;[^\p{Lu}]]&amp;nbsp;&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;Any letter except an uppercase letter (subtraction)&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2" id="bounds"&gt;Boundary matchers&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top" headers="construct bounds"&gt;&lt;tt&gt;^&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The beginning of a line&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct bounds"&gt;&lt;tt&gt;$&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The end of a line&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct bounds"&gt;&lt;tt&gt;\b&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A word boundary&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct bounds"&gt;&lt;tt&gt;\B&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;A non-word boundary&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct bounds"&gt;&lt;tt&gt;\A&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The beginning of the input&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct bounds"&gt;&lt;tt&gt;\G&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The end of the previous match&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct bounds"&gt;&lt;tt&gt;\Z&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The end of the input but for the final
+&lt;a href="#lt"&gt;terminator&lt;/a&gt;, if&amp;nbsp;any&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct bounds"&gt;&lt;tt&gt;\z&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;The end of the input&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2" id="greedy"&gt;Greedy quantifiers&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top" headers="construct greedy"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;?&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, once or not at all&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct greedy"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;*&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, zero or more times&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct greedy"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;+&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, one or more times&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct greedy"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;{&lt;/tt&gt;&lt;i&gt;n&lt;/i&gt;&lt;tt&gt;}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, exactly &lt;i&gt;n&lt;/i&gt; times&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct greedy"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;{&lt;/tt&gt;&lt;i&gt;n&lt;/i&gt;&lt;tt&gt;,}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, at least &lt;i&gt;n&lt;/i&gt; times&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct greedy"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;{&lt;/tt&gt;&lt;i&gt;n&lt;/i&gt;&lt;tt&gt;,&lt;/tt&gt;&lt;i&gt;m&lt;/i&gt;&lt;tt&gt;}&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, at least &lt;i&gt;n&lt;/i&gt; but not more than &lt;i&gt;m&lt;/i&gt; times&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2" id="reluc"&gt;Reluctant quantifiers&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top" headers="construct reluc"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;??&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, once or not at all&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct reluc"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;*?&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, zero or more times&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct reluc"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;+?&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, one or more times&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct reluc"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;{&lt;/tt&gt;&lt;i&gt;n&lt;/i&gt;&lt;tt&gt;}?&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, exactly &lt;i&gt;n&lt;/i&gt; times&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct reluc"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;{&lt;/tt&gt;&lt;i&gt;n&lt;/i&gt;&lt;tt&gt;,}?&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, at least &lt;i&gt;n&lt;/i&gt; times&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct reluc"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;{&lt;/tt&gt;&lt;i&gt;n&lt;/i&gt;&lt;tt&gt;,&lt;/tt&gt;&lt;i&gt;m&lt;/i&gt;&lt;tt&gt;}?&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, at least &lt;i&gt;n&lt;/i&gt; but not more than &lt;i&gt;m&lt;/i&gt; times&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2" id="poss"&gt;Possessive quantifiers&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top" headers="construct poss"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;?+&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, once or not at all&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct poss"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;*+&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, zero or more times&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct poss"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;++&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, one or more times&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct poss"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;{&lt;/tt&gt;&lt;i&gt;n&lt;/i&gt;&lt;tt&gt;}+&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, exactly &lt;i&gt;n&lt;/i&gt; times&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct poss"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;{&lt;/tt&gt;&lt;i&gt;n&lt;/i&gt;&lt;tt&gt;,}+&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, at least &lt;i&gt;n&lt;/i&gt; times&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct poss"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;{&lt;/tt&gt;&lt;i&gt;n&lt;/i&gt;&lt;tt&gt;,&lt;/tt&gt;&lt;i&gt;m&lt;/i&gt;&lt;tt&gt;}+&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, at least &lt;i&gt;n&lt;/i&gt; but not more than &lt;i&gt;m&lt;/i&gt; times&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2" id="logical"&gt;Logical operators&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top" headers="construct logical"&gt;&lt;i&gt;XY&lt;/i&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt; followed by &lt;i&gt;Y&lt;/i&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct logical"&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;|&lt;/tt&gt;&lt;i&gt;Y&lt;/i&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;Either &lt;i&gt;X&lt;/i&gt; or &lt;i&gt;Y&lt;/i&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct logical"&gt;&lt;tt&gt;(&lt;/tt&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;X, as a &lt;a href="#cg"&gt;capturing group&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2" id="backref"&gt;Back references&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="bottom" headers="construct backref"&gt;&lt;tt&gt;\&lt;/tt&gt;&lt;i&gt;n&lt;/i&gt;&lt;/td&gt;
+&lt;td valign="bottom" headers="matches"&gt;Whatever the &lt;i&gt;n&lt;/i&gt;&lt;sup&gt;th&lt;/sup&gt;
+&lt;a href="#cg"&gt;capturing group&lt;/a&gt; matched&lt;/td&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2" id="quot"&gt;Quotation&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top" headers="construct quot"&gt;&lt;tt&gt;\&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;Nothing, but quotes the following character&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct quot"&gt;&lt;tt&gt;\Q&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;Nothing, but quotes all characters until &lt;tt&gt;\E&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct quot"&gt;&lt;tt&gt;\E&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;Nothing, but ends quoting started by &lt;tt&gt;\Q&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;!-- Metachars: !$()*+.&lt;&gt;?[\]^{|} --&gt;
+
+&lt;tr&gt;&lt;th&gt;&amp;nbsp;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr align="left"&gt;&lt;th colspan="2" id="special"&gt;Special constructs (non-capturing)&lt;/th&gt;&lt;/tr&gt;
+
+&lt;tr&gt;&lt;td valign="top" headers="construct special"&gt;&lt;tt&gt;(?:&lt;/tt&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, as a non-capturing group&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct special"&gt;&lt;tt&gt;(?idmsux-idmsux)&amp;nbsp;&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;Nothing, but turns match flags on - off&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct special"&gt;&lt;tt&gt;(?idmsux-idmsux:&lt;/tt&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;&amp;nbsp;&amp;nbsp;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, as a &lt;a href="#cg"&gt;non-capturing group&lt;/a&gt; with the
+given flags on - off&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct special"&gt;&lt;tt&gt;(?=&lt;/tt&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, via zero-width positive lookahead&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct special"&gt;&lt;tt&gt;(?!&lt;/tt&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, via zero-width negative lookahead&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct special"&gt;&lt;tt&gt;(?&lt;=&lt;/tt&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, via zero-width positive lookbehind&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct special"&gt;&lt;tt&gt;(?&lt;!&lt;/tt&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, via zero-width negative lookbehind&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign="top" headers="construct special"&gt;&lt;tt&gt;(?&gt;&lt;/tt&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;&lt;/td&gt;
+&lt;td headers="matches"&gt;&lt;i&gt;X&lt;/i&gt;, as an independent, non-capturing group&lt;/td&gt;&lt;/tr&gt;
+
+&lt;/table&gt;
+
+&lt;hr&gt;
+
+
+&lt;a name="bs"&gt;
+&lt;h4&gt; Backslashes, escapes, and quoting &lt;/h4&gt;
+
+&lt;p&gt; The backslash character (&lt;tt&gt;'\'&lt;/tt&gt;) serves to introduce escaped
+constructs, as defined in the table above, as well as to quote characters
+that otherwise would be interpreted as unescaped constructs.  Thus the
+expression &lt;tt&gt;\\&lt;/tt&gt; matches a single backslash and &lt;tt&gt;\{&lt;/tt&gt; matches a
+left brace.
+
+&lt;p&gt; It is an error to use a backslash prior to any alphabetic character that
+does not denote an escaped construct; these are reserved for future
+extensions to the regular-expression language.  A backslash may be used
+prior to a non-alphabetic character regardless of whether that character is
+part of an unescaped construct.
+
+&lt;p&gt; Backslashes within string literals in Java source code are interpreted
+as required by the &lt;a
+href="http://java.sun.com/docs/books/jls/second_edition/html/"&gt;Java Language
+Specification&lt;/a&gt; as either &lt;a
+href="http://java.sun.com/docs/books/jls/second_edition/html/lexical.doc.html#100850"&gt;Unicode
+escapes&lt;/a&gt; or other &lt;a
+href="http://java.sun.com/docs/books/jls/second_edition/html/lexical.doc.html#101089"&gt;character
+escapes&lt;/a&gt;.  It is therefore necessary to double backslashes in string
+literals that represent regular expressions to protect them from
+interpretation by the Java bytecode compiler.  The string literal
+&lt;tt&gt;"&amp;#92;b"&lt;/tt&gt;, for example, matches a single backspace character when
+interpreted as a regular expression, while &lt;tt&gt;"&amp;#92;&amp;#92;b"&lt;/tt&gt; matches a
+word boundary.  The string literal &lt;tt&gt;"&amp;#92;(hello&amp;#92;)"&lt;/tt&gt; is illegal
+and leads to a compile-time error; in order to match the string
+&lt;tt&gt;(hello)&lt;/tt&gt; the string literal &lt;tt&gt;"&amp;#92;&amp;#92;(hello&amp;#92;&amp;#92;)"&lt;/tt&gt;
+must be used.
+
+&lt;a name="cc"&gt;
+&lt;h4&gt; Character Classes &lt;/h4&gt;
+
+&lt;p&gt; Character classes may appear within other character classes, and
+may be composed by the union operator (implicit) and the intersection
+operator (&lt;tt&gt;&amp;&amp;&lt;/tt&gt;).
+The union operator denotes a class that contains every character that is
+in at least one of its operand classes.  The intersection operator
+denotes a class that contains every character that is in both of its
+operand classes.
+
+&lt;p&gt; The precedence of character-class operators is as follows, from
+highest to lowest:
+
+&lt;blockquote&gt;&lt;table border="0" cellpadding="1" cellspacing="0"
+summary="Precedence of character class operators."&gt;
+&lt;tr&gt;&lt;th&gt;1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;td&gt;Literal escape&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;
+&lt;td&gt;&lt;tt&gt;\x&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;2&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;td&gt;Grouping&lt;/td&gt;
+&lt;td&gt;&lt;tt&gt;[...]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;3&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;td&gt;Range&lt;/td&gt;
+&lt;td&gt;&lt;tt&gt;a-z&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;4&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;td&gt;Union&lt;/td&gt;
+&lt;td&gt;&lt;tt&gt;[a-e][i-u]&lt;tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;5&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;td&gt;Intersection&lt;/td&gt;
+&lt;td&gt;&lt;tt&gt;[a-z&amp;&amp;[aeiou]]&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; Note that a different set of metacharacters are in effect inside
+a character class than outside a character class. For instance, the
+regular expression &lt;tt&gt;.&lt;/tt&gt; loses its special meaning inside a
+character class, while the expression &lt;tt&gt;-&lt;/tt&gt; becomes a range
+forming metacharacter.
+
+&lt;a name="lt"&gt;
+&lt;h4&gt; Line terminators &lt;/h4&gt;
+
+&lt;p&gt; A &lt;i&gt;line terminator&lt;/i&gt; is a one- or two-character sequence that marks
+the end of a line of the input character sequence.  The following are
+recognized as line terminators:
+
+&lt;ul&gt;
+
+&lt;li&gt; A newline (line feed) character&amp;nbsp;(&lt;tt&gt;'\n'&lt;/tt&gt;),
+
+&lt;li&gt; A carriage-return character followed immediately by a newline
+character&amp;nbsp;(&lt;tt&gt;"\r\n"&lt;/tt&gt;),
+
+&lt;li&gt; A standalone carriage-return character&amp;nbsp;(&lt;tt&gt;'\r'&lt;/tt&gt;),
+
+&lt;li&gt; A next-line character&amp;nbsp;(&lt;tt&gt;'&amp;#92;u0085'&lt;/tt&gt;),
+
+&lt;li&gt; A line-separator character&amp;nbsp;(&lt;tt&gt;'&amp;#92;u2028'&lt;/tt&gt;), or
+
+&lt;li&gt; A paragraph-separator character&amp;nbsp;(&lt;tt&gt;'&amp;#92;u2029&lt;/tt&gt;).
+
+&lt;/ul&gt;
+&lt;p&gt;If {@link #UNIX_LINES} mode is activated, then the only line terminators
+recognized are newline characters.
+
+&lt;p&gt; The regular expression &lt;tt&gt;.&lt;/tt&gt; matches any character except a line
+terminator unless the {@link #DOTALL} flag is specified.
+
+&lt;p&gt; By default, the regular expressions &lt;tt&gt;^&lt;/tt&gt; and &lt;tt&gt;$&lt;/tt&gt; ignore
+line terminators and only match at the beginning and the end, respectively,
+of the entire input sequence. If {@link #MULTILINE} mode is activated then
+&lt;tt&gt;^&lt;/tt&gt; matches at the beginning of input and after any line terminator
+except at the end of input. When in {@link #MULTILINE} mode &lt;tt&gt;$&lt;/tt&gt;
+matches just before a line terminator or the end of the input sequence.
+
+&lt;a name="cg"&gt;
+&lt;h4&gt; Groups and capturing &lt;/h4&gt;
+
+&lt;p&gt; Capturing groups are numbered by counting their opening parentheses from
+left to right.  In the expression &lt;tt&gt;((A)(B(C)))&lt;/tt&gt;, for example, there
+are four such groups: &lt;/p&gt;
+
+&lt;blockquote&gt;&lt;table cellpadding=1 cellspacing=0 summary="Capturing group numberings"&gt;
+&lt;tr&gt;&lt;th&gt;1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;td&gt;&lt;tt&gt;((A)(B(C)))&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;2&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;td&gt;&lt;tt&gt;(A)&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;3&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;td&gt;&lt;tt&gt;(B(C))&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;4&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;td&gt;&lt;tt&gt;(C)&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; Group zero always stands for the entire expression.
+
+&lt;p&gt; Capturing groups are so named because, during a match, each subsequence
+of the input sequence that matches such a group is saved.  The captured
+subsequence may be used later in the expression, via a back reference, and
+may also be retrieved from the matcher once the match operation is complete.
+
+&lt;p&gt; The captured input associated with a group is always the subsequence
+that the group most recently matched.  If a group is evaluated a second time
+because of quantification then its previously-captured value, if any, will
+be retained if the second evaluation fails.  Matching the string
+&lt;tt&gt;"aba"&lt;/tt&gt; against the expression &lt;tt&gt;(a(b)?)+&lt;/tt&gt;, for example, leaves
+group two set to &lt;tt&gt;"b"&lt;/tt&gt;.  All captured input is discarded at the
+beginning of each match.
+
+&lt;p&gt; Groups beginning with &lt;tt&gt;(?&lt;/tt&gt; are pure, &lt;i&gt;non-capturing&lt;/i&gt; groups
+that do not capture text and do not count towards the group total.
+
+
+&lt;h4&gt; Unicode support &lt;/h4&gt;
+
+&lt;p&gt; This class is in conformance with Level 1 of &lt;a
+href="http://www.unicode.org/reports/tr18/"&gt;&lt;i&gt;Unicode Technical
+Standard #18: Unicode Regular Expression Guidelines&lt;/i&gt;&lt;/a&gt;, plus RL2.1
+Canonical Equivalents.
+
+&lt;p&gt; Unicode escape sequences such as &lt;tt&gt;&amp;#92;u2014&lt;/tt&gt; in Java source code
+are processed as described in &lt;a
+href="http://java.sun.com/docs/books/jls/second_edition/html/lexical.doc.html#100850"&gt;\u00A73.3&lt;/a&gt;
+of the Java Language Specification.  Such escape sequences are also
+implemented directly by the regular-expression parser so that Unicode
+escapes can be used in expressions that are read from files or from the
+keyboard.  Thus the strings &lt;tt&gt;"&amp;#92;u2014"&lt;/tt&gt; and &lt;tt&gt;"\\u2014"&lt;/tt&gt;,
+while not equal, compile into the same pattern, which matches the character
+with hexadecimal value &lt;tt&gt;0x2014&lt;/tt&gt;.
+
+&lt;a name="ubc"&gt; &lt;p&gt;Unicode blocks and categories are written with the
+&lt;tt&gt;\p&lt;/tt&gt; and &lt;tt&gt;\P&lt;/tt&gt; constructs as in
+Perl. &lt;tt&gt;\p{&lt;/tt&gt;&lt;i&gt;prop&lt;/i&gt;&lt;tt&gt;}&lt;/tt&gt; matches if the input has the
+property &lt;i&gt;prop&lt;/i&gt;, while \P{&lt;/tt&gt;&lt;i&gt;prop&lt;/i&gt;&lt;tt&gt;}&lt;/tt&gt; does not match if
+the input has that property.  Blocks are specified with the prefix
+&lt;tt&gt;In&lt;/tt&gt;, as in &lt;tt&gt;InMongolian&lt;/tt&gt;.  Categories may be specified with
+the optional prefix &lt;tt&gt;Is&lt;/tt&gt;: Both &lt;tt&gt;\p{L}&lt;/tt&gt; and &lt;tt&gt;\p{IsL}&lt;/tt&gt;
+denote the category of Unicode letters.  Blocks and categories can be used
+both inside and outside of a character class.
+
+&lt;p&gt; The supported categories are those of
+&lt;a href="http://www.unicode.org/unicode/standard/standard.html"&gt;
+&lt;i&gt;The Unicode Standard&lt;/i&gt;&lt;/a&gt; in the version specified by the
+{@link java.lang.Character Character} class. The category names are those
+defined in the Standard, both normative and informative.
+The block names supported by &lt;code&gt;Pattern&lt;/code&gt; are the valid block names
+accepted and defined by
+{@link java.lang.Character.UnicodeBlock#forName(String) UnicodeBlock.forName}.
+
+&lt;a name="jcc"&gt; &lt;p&gt;Categories that behave like the java.lang.Character
+boolean is&lt;i&gt;methodname&lt;/i&gt; methods (except for the deprecated ones) are
+available through the same &lt;tt&gt;\p{&lt;/tt&gt;&lt;i&gt;prop&lt;/i&gt;&lt;tt&gt;}&lt;/tt&gt; syntax where
+the specified property has the name &lt;tt&gt;java&lt;i&gt;methodname&lt;/i&gt;&lt;/tt&gt;.
+
+&lt;h4&gt; Comparison to Perl 5 &lt;/h4&gt;
+
+&lt;p&gt;The &lt;code&gt;Pattern&lt;/code&gt; engine performs traditional NFA-based matching
+with ordered alternation as occurs in Perl 5.
+
+&lt;p&gt; Perl constructs not supported by this class: &lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; The conditional constructs &lt;tt&gt;(?{&lt;/tt&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;})&lt;/tt&gt; and
+&lt;tt&gt;(?(&lt;/tt&gt;&lt;i&gt;condition&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;&lt;i&gt;X&lt;/i&gt;&lt;tt&gt;|&lt;/tt&gt;&lt;i&gt;Y&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;,
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The embedded code constructs &lt;tt&gt;(?{&lt;/tt&gt;&lt;i&gt;code&lt;/i&gt;&lt;tt&gt;})&lt;/tt&gt;
+and &lt;tt&gt;(??{&lt;/tt&gt;&lt;i&gt;code&lt;/i&gt;&lt;tt&gt;})&lt;/tt&gt;,&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The embedded comment syntax &lt;tt&gt;(?#comment)&lt;/tt&gt;, and &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The preprocessing operations &lt;tt&gt;\l&lt;/tt&gt; &lt;tt&gt;&amp;#92;u&lt;/tt&gt;,
+&lt;tt&gt;\L&lt;/tt&gt;, and &lt;tt&gt;\U&lt;/tt&gt;.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt; Constructs supported by this class but not by Perl: &lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; Possessive quantifiers, which greedily match as much as they can
+and do not back off, even when doing so would allow the overall match to
+succeed.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Character-class union and intersection as described
+&lt;a href="#cc"&gt;above&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt; Notable differences from Perl: &lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; In Perl, &lt;tt&gt;\1&lt;/tt&gt; through &lt;tt&gt;\9&lt;/tt&gt; are always interpreted
+as back references; a backslash-escaped number greater than &lt;tt&gt;9&lt;/tt&gt; is
+treated as a back reference if at least that many subexpressions exist,
+otherwise it is interpreted, if possible, as an octal escape.  In this
+class octal escapes must always begin with a zero. In this class,
+&lt;tt&gt;\1&lt;/tt&gt; through &lt;tt&gt;\9&lt;/tt&gt; are always interpreted as back
+references, and a larger number is accepted as a back reference if at
+least that many subexpressions exist at that point in the regular
+expression, otherwise the parser will drop digits until the number is
+smaller or equal to the existing number of groups or it is one digit.
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Perl uses the &lt;tt&gt;g&lt;/tt&gt; flag to request a match that resumes
+where the last match left off.  This functionality is provided implicitly
+by the {@link Matcher} class: Repeated invocations of the {@link
+Matcher#find find} method will resume where the last match left off,
+unless the matcher is reset.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; In Perl, embedded flags at the top level of an expression affect
+the whole expression.  In this class, embedded flags always take effect
+at the point at which they appear, whether they are at the top level or
+within a group; in the latter case, flags are restored at the end of the
+group just as in Perl.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Perl is forgiving about malformed matching constructs, as in the
+expression &lt;tt&gt;*a&lt;/tt&gt;, as well as dangling brackets, as in the
+expression &lt;tt&gt;abc]&lt;/tt&gt;, and treats them as literals.  This
+class also accepts dangling brackets but is strict about dangling
+metacharacters like +, ? and *, and will throw a
+{@link PatternSyntaxException} if it encounters them. &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+
+&lt;p&gt; For a more precise description of the behavior of regular expression
+constructs, please see &lt;a href="http://www.oreilly.com/catalog/regex2/"&gt;
+&lt;i&gt;Mastering Regular Expressions, 2nd Edition&lt;/i&gt;, Jeffrey E. F. Friedl,
+O'Reilly and Associates, 2002.&lt;/a&gt;
+&lt;/p&gt;
+
+@see java.lang.String#split(String, int)
+@see java.lang.String#split(String)
+
+@author      Mike McCloskey
+@author      Mark Reinhold
+@author	JSR-51 Expert Group
+@version 	1.109, 04/06/28
+@since       1.4
+@spec	JSR-51
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Pattern" refid="_9_5_f720368_1110473546690_239415_8779"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Pattern" refid="_9_5_f720368_1110473546690_239415_8779"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

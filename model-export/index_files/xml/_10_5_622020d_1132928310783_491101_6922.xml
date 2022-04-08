@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310783_491101_6922"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ZipException" refid="_9_5_f720368_1110473546706_452677_8811"/></annotatedElement><body humanName="Body" mode="s,e">Signals that a Zip exception of some sort has occurred.
+
+@author  unascribed
+@version 1.16 12/19/03
+@see     java.io.IOException
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ZipException" refid="_9_5_f720368_1110473546706_452677_8811"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ZipException" refid="_9_5_f720368_1110473546706_452677_8811"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

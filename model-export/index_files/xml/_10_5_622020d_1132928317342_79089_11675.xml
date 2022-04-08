@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317342_79089_11675"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ComboBoxUI" refid="_9_5_f720368_1110473546768_820258_10209"/></annotatedElement><body humanName="Body" mode="s,e">Pluggable look and feel interface for JComboBox.
+
+@version 1.19 12/19/03
+@author Arnaud Weber
+@author Tom Santos
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ComboBoxUI" refid="_9_5_f720368_1110473546768_820258_10209"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ComboBoxUI" refid="_9_5_f720368_1110473546768_820258_10209"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

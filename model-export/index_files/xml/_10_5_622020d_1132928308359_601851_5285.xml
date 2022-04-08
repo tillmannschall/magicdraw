@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308359_601851_5285"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NetPermission" refid="_9_5_f720368_1110473546643_909753_7783"/></annotatedElement><body humanName="Body" mode="s,e">This class is for various network permissions.
+A NetPermission contains a name (also referred to as a "target name") but
+no actions list; you either have the named permission
+or you don't.
+&lt;P&gt;
+The target name is the name of the network permission (see below). The naming
+convention follows the  hierarchical property naming convention.
+Also, an asterisk
+may appear at the end of the name, following a ".", or by itself, to
+signify a wildcard match. For example: "foo.*" or "*" is valid,
+"*foo" or "a*b" is not valid.
+&lt;P&gt;
+The following table lists all the possible NetPermission target names,
+and for each provides a description of what the permission allows
+and a discussion of the risks of granting code the permission.
+&lt;P&gt;
+
+&lt;table border=1 cellpadding=5 summary="Permission target name, what the permission allows, and associated risks"&gt;
+&lt;tr&gt;
+&lt;th&gt;Permission Target Name&lt;/th&gt;
+&lt;th&gt;What the Permission Allows&lt;/th&gt;
+&lt;th&gt;Risks of Allowing this Permission&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setDefaultAuthenticator&lt;/td&gt;
+&lt;td&gt;The ability to set the
+way authentication information is retrieved when
+a proxy or HTTP server asks for authentication&lt;/td&gt;
+&lt;td&gt;Malicious
+code can set an authenticator that monitors and steals user
+authentication input as it retrieves the input from the user.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;requestPasswordAuthentication&lt;/td&gt;
+&lt;td&gt;The ability
+to ask the authenticator registered with the system for
+a password&lt;/td&gt;
+&lt;td&gt;Malicious code may steal this password.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;specifyStreamHandler&lt;/td&gt;
+&lt;td&gt;The ability
+to specify a stream handler when constructing a URL&lt;/td&gt;
+&lt;td&gt;Malicious code may create a URL with resources that it would
+normally not have access to (like file:/foo/fum/), specifying a
+stream handler that gets the actual bytes from someplace it does
+have access to. Thus it might be able to trick the system into
+creating a ProtectionDomain/CodeSource for a class even though
+that class really didn't come from that location.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setProxySelector&lt;/td&gt;
+&lt;td&gt;The ability to set the proxy selector used to make decisions
+on which proxies to use when making network connections.&lt;/td&gt;
+&lt;td&gt;Malicious code can set a ProxySelector that directs network
+traffic to an arbitrary network host.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;getProxySelector&lt;/td&gt;
+&lt;td&gt;The ability to get the proxy selector used to make decisions
+on which proxies to use when making network connections.&lt;/td&gt;
+&lt;td&gt;Malicious code can get a ProxySelector to discover proxy
+hosts and ports on internal networks, which could then become
+targets for attack.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setCookieHandler&lt;/td&gt;
+&lt;td&gt;The ability to set the cookie handler that processes highly
+security sensitive cookie information for an Http session.&lt;/td&gt;
+&lt;td&gt;Malicious code can set a cookie handler to obtain access to
+highly security sensitive cookie information. Some web servers
+use cookies to save user private information such as access
+control information, or to track user browsing habit.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;getCookieHandler&lt;/td&gt;
+&lt;td&gt;The ability to get the cookie handler that processes highly
+security sensitive cookie information for an Http session.&lt;/td&gt;
+&lt;td&gt;Malicious code can get a cookie handler to obtain access to
+highly security sensitive cookie information. Some web servers
+use cookies to save user private information such as access
+control information, or to track user browsing habit.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;setResponseCache&lt;/td&gt;
+&lt;td&gt;The ability to set the response cache that provides access to
+a local response cache.&lt;/td&gt;
+&lt;td&gt;Malicious code getting access to the local response cache
+could access security sensitive information, or create false
+entries in the response cache.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;getResponseCache&lt;/td&gt;
+&lt;td&gt;The ability to get the response cache that provides
+access to a local response cache.&lt;/td&gt;
+&lt;td&gt;Malicious code getting access to the local response cache
+could access security sensitive information.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+
+@see java.security.BasicPermission
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionCollection
+@see java.lang.SecurityManager
+
+@version 1.49 04/02/03
+
+@author Marianne Mueller
+@author Roland Schemers
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="NetPermission" refid="_9_5_f720368_1110473546643_909753_7783"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NetPermission" refid="_9_5_f720368_1110473546643_909753_7783"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

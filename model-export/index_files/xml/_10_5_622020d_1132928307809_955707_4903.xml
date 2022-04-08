@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307809_955707_4903"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ParameterizedType" refid="_10_5_622020d_1132928307809_814270_4901"/></annotatedElement><body humanName="Body" mode="s,e">ParameterizedType represents a parameterized type such as
+Collection&lt;String&gt;.
+
+&lt;p&gt;A parameterized type is created the first time it is needed by a
+reflective method, as specified in this package. When a
+parameterized type p is created, the generic type declaration that
+p instantiates is resolved, and all type arguments of p are created
+recursively. See {@link java.lang.reflect.TypeVariable
+TypeVariable} for details on the creation process for type
+variables. Repeated creation of a parameterized type has no effect.
+
+&lt;p&gt;Instances of classes that implement this interface must implement
+an equals() method that equates any two instances that share the
+same generic type declaration and have equal type parameters.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ParameterizedType" refid="_10_5_622020d_1132928307809_814270_4901"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ParameterizedType" refid="_10_5_622020d_1132928307809_814270_4901"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

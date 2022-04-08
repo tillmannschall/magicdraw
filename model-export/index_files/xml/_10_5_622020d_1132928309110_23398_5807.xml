@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309110_23398_5807"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertPathValidatorException" refid="_9_5_f720368_1110473546674_733914_8303"/></annotatedElement><body humanName="Body" mode="s,e">An exception indicating one of a variety of problems encountered when
+validating a certification path.
+&lt;p&gt;
+A &lt;code&gt;CertPathValidatorException&lt;/code&gt; provides support for wrapping
+exceptions. The {@link #getCause getCause} method returns the throwable,
+if any, that caused this exception to be thrown.
+&lt;p&gt;
+A &lt;code&gt;CertPathValidatorException&lt;/code&gt; may also include the
+certification path that was being validated when the exception was thrown
+and the index of the certificate in the certification path that caused the
+exception to be thrown. Use the {@link #getCertPath getCertPath} and
+{@link #getIndex getIndex} methods to retrieve this information.
+
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Unless otherwise specified, the methods defined in this class are not
+thread-safe. Multiple threads that need to access a single
+object concurrently should synchronize amongst themselves and
+provide the necessary locking. Multiple threads each manipulating
+separate objects need not synchronize.
+
+@see CertPathValidator
+
+@version 	1.10 12/19/03
+@since	1.4
+@author 	Yassir Elley
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CertPathValidatorException" refid="_9_5_f720368_1110473546674_733914_8303"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertPathValidatorException" refid="_9_5_f720368_1110473546674_733914_8303"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

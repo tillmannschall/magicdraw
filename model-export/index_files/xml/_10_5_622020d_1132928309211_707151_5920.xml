@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309211_707151_5920"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ECPublicKeySpec" refid="_10_5_622020d_1132928309211_11733_5918"/></annotatedElement><body humanName="Body" mode="s,e">This immutable class specifies an elliptic curve public key with
+its associated parameters.
+
+@see KeySpec
+@see ECPoint
+@see ECParameterSpec
+
+@author Valerie Peng
+@version 1.3, 12/19/03
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ECPublicKeySpec" refid="_10_5_622020d_1132928309211_11733_5918"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ECPublicKeySpec" refid="_10_5_622020d_1132928309211_11733_5918"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

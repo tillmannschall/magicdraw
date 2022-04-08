@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546674_723361_8441"><documentation humanName="Documentation" mode="standard">A transparent stream that updates the associated message digest using
+the bits going through the stream.
+
+&lt;p&gt;To complete the message digest computation, call one of the
+&lt;code&gt;digest&lt;/code&gt; methods on the associated message
+digest after your calls to one of this digest ouput stream's
+{@link #write(int) write} methods.
+
+&lt;p&gt;It is possible to turn this stream on or off (see
+{@link #on(boolean) on}). When it is on, a call to one of the
+&lt;code&gt;write&lt;/code&gt; methods results in
+an update on the message digest.  But when it is off, the message
+digest is not updated. The default is for the stream to be on.
+
+@see MessageDigest
+@see DigestInputStream
+
+@version 1.31 03/12/19
+@author Benjamin Renaud
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321879_329634_14190"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">DigestOutputStream</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309301_651104_5993"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321879_329634_14190"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309301_651104_5993"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::DigestOutputStream</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FilterOutputStream" refid="_9_5_f720368_1110473546596_615551_7409"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

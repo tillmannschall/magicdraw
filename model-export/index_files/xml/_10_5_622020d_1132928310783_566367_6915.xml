@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310783_566367_6915"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Inflater" refid="_9_5_f720368_1110473546706_101659_8803"/></annotatedElement><body humanName="Body" mode="s,e">This class provides support for general purpose decompression using the
+popular ZLIB compression library. The ZLIB compression library was
+initially developed as part of the PNG graphics standard and is not
+protected by patents. It is fully described in the specifications at
+the &lt;a href="package-summary.html#package_description"&gt;java.util.zip
+package description&lt;/a&gt;.
+
+&lt;p&gt;The following code fragment demonstrates a trivial compression
+and decompression of a string using &lt;tt&gt;Deflater&lt;/tt&gt; and
+&lt;tt&gt;Inflater&lt;/tt&gt;.
+
+&lt;blockquote&gt;&lt;pre&gt;
+Encode a String into bytes
+String inputString = "blahblahblah\u20AC\u20AC";
+byte[] input = inputString.getBytes("UTF-8");
+
+Compress the bytes
+byte[] output = new byte[100];
+Deflater compresser = new Deflater();
+compresser.setInput(input);
+compresser.finish();
+int compressedDataLength = compresser.deflate(output);
+
+Decompress the bytes
+Inflater decompresser = new Inflater();
+decompresser.setInput(output, 0, compressedDataLength);
+byte[] result = new byte[100];
+int resultLength = decompresser.inflate(result);
+decompresser.end();
+
+Decode the bytes into a String
+String outputString = new String(result, 0, resultLength, "UTF-8");
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+@see		Deflater
+@version 	1.41, 12/19/03
+@author 	David Connelly
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Inflater" refid="_9_5_f720368_1110473546706_101659_8803"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Inflater" refid="_9_5_f720368_1110473546706_101659_8803"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

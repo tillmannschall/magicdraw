@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318214_523618_12645"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SpinnerListModel" refid="_9_5_f720368_1110473546799_478307_10859"/></annotatedElement><body humanName="Body" mode="s,e">A simple implementation of &lt;code&gt;SpinnerModel&lt;/code&gt; whose
+values are defined by an array or a &lt;code&gt;List&lt;/code&gt;.
+For example to create a model defined by
+an array of the names of the days of the week:
+&lt;pre&gt;
+String[] days = new DateFormatSymbols().getWeekdays();
+SpinnerModel model = new SpinnerListModel(Arrays.asList(days).subList(1, 8));
+&lt;/pre&gt;
+This class only stores a reference to the array or &lt;code&gt;List&lt;/code&gt;
+so if an element of the underlying sequence changes, it's up
+to the application to notify the &lt;code&gt;ChangeListeners&lt;/code&gt; by calling
+&lt;code&gt;fireStateChanged&lt;/code&gt;.
+&lt;p&gt;
+This model inherits a &lt;code&gt;ChangeListener&lt;/code&gt;.
+The &lt;code&gt;ChangeListener&lt;/code&gt;s are notified whenever the
+model's &lt;code&gt;value&lt;/code&gt; or &lt;code&gt;list&lt;/code&gt; properties changes.
+
+@see JSpinner
+@see SpinnerModel
+@see AbstractSpinnerModel
+@see SpinnerNumberModel
+@see SpinnerDateModel
+
+@version 1.11 05/05/04
+@author Hans Muller
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SpinnerListModel" refid="_9_5_f720368_1110473546799_478307_10859"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SpinnerListModel" refid="_9_5_f720368_1110473546799_478307_10859"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

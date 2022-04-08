@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306777_499316_4378"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BeanContextMembershipEvent" refid="_9_5_f720368_1110473546596_590464_7161"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;BeanContextMembershipEvent&lt;/code&gt; encapsulates
+the list of children added to, or removed from,
+the membership of a particular &lt;code&gt;BeanContext&lt;/code&gt;.
+An instance of this event is fired whenever a successful
+add(), remove(), retainAll(), removeAll(), or clear() is
+invoked on a given &lt;code&gt;BeanContext&lt;/code&gt; instance.
+Objects interested in receiving events of this type must
+implement the &lt;code&gt;BeanContextMembershipListener&lt;/code&gt;
+interface, and must register their intent via the
+&lt;code&gt;BeanContext&lt;/code&gt;'s
+&lt;code&gt;addBeanContextMembershipListener(BeanContextMembershipListener bcml)
+&lt;/code&gt; method.
+
+@author	Laurence P. G. Cable
+@version	1.15
+@since	1.2
+@see		java.beans.beancontext.BeanContext
+@see		java.beans.beancontext.BeanContextEvent
+@see		java.beans.beancontext.BeanContextMembershipListener
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BeanContextMembershipEvent" refid="_9_5_f720368_1110473546596_590464_7161"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BeanContextMembershipEvent" refid="_9_5_f720368_1110473546596_590464_7161"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

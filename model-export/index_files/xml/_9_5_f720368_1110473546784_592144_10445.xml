@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546784_592144_10445"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::text::DefaultFormatterFactory -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323862_762641_17989"/></clientDependency><documentation humanName="Documentation" mode="standard">An implementation of
+&lt;code&gt;JFormattedTextField.AbstractFormatterFactory&lt;/code&gt;.
+&lt;code&gt;DefaultFormatterFactory&lt;/code&gt; allows specifying a number of
+different &lt;code&gt;JFormattedTextField.AbstractFormatter&lt;/code&gt;s that are to
+be used.
+The most important one is the default one
+(&lt;code&gt;setDefaultFormatter&lt;/code&gt;). The default formatter will be used
+if a more specific formatter could not be found. The following process
+is used to determine the appropriate formatter to use.
+&lt;ol&gt;
+&lt;li&gt;Is the passed in value null? Use the null formatter.
+&lt;li&gt;Does the &lt;code&gt;JFormattedTextField&lt;/code&gt; have focus? Use the edit
+formatter.
+&lt;li&gt;Otherwise, use the display formatter.
+&lt;li&gt;If a non-null &lt;code&gt;AbstractFormatter&lt;/code&gt; has not been found, use
+the default formatter.
+&lt;/ol&gt;
+&lt;p&gt;
+The following code shows how to configure a
+&lt;code&gt;JFormattedTextField&lt;/code&gt; with two
+&lt;code&gt;JFormattedTextField.AbstractFormatter&lt;/code&gt;s, one for display and
+one for editing.
+&lt;pre&gt;
+JFormattedTextField.AbstractFormatter editFormatter = ...;
+JFormattedTextField.AbstractFormatter displayFormatter = ...;
+DefaultFormatterFactory factory = new DefaultFormatterFactory(
+displayFormatter, displayFormatter, editFormatter);
+JFormattedTextField tf = new JFormattedTextField(factory);
+&lt;/pre&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see javax.swing.JFormattedTextField
+
+@version 1.8 12/19/03
+@since 1.4
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323862_616119_17990"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::text::DefaultFormatterFactory -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323862_762641_17989"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">DefaultFormatterFactory</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317583_122873_12023"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323862_616119_17990"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317583_122873_12023"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::text::DefaultFormatterFactory -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928323862_762641_17989"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473548284_980497_22831"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::text::DefaultFormatterFactory</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractFormatterFactory" refid="_9_5_f720368_1110473548378_381007_23786"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

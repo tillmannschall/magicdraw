@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305615_424886_3613"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FlavorTable" refid="_9_5_f720368_1110473546549_381817_6463"/></annotatedElement><body humanName="Body" mode="s,e">A FlavorMap which relaxes the traditional 1-to-1 restriction of a Map. A
+flavor is permitted to map to any number of natives, and likewise a native
+is permitted to map to any number of flavors. FlavorTables need not be
+symmetric, but typically are.
+
+@author David Mendenhall
+@version 1.5, 05/05/04
+
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="FlavorTable" refid="_9_5_f720368_1110473546549_381817_6463"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FlavorTable" refid="_9_5_f720368_1110473546549_381817_6463"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

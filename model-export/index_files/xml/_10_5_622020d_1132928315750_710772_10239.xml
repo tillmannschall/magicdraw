@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315750_710772_10239"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReferenceUriSchemesSupported" refid="_9_5_f720368_1110473546737_315004_9431"/></annotatedElement><body humanName="Body" mode="s,e">Class ReferenceUriSchemesSupported is a printing attribute class
+an enumeration, that indicates a "URI scheme," such as "http:" or "ftp:",
+that a printer can use to retrieve print data stored at a URI location.
+If a printer supports doc flavors with a print data representation class of
+&lt;CODE&gt;"java.net.URL"&lt;/CODE&gt;, the printer uses instances of class
+ReferenceUriSchemesSupported to advertise the URI schemes it can accept.
+The acceptable URI schemes are included as service attributes in the
+lookup service; this lets clients search the
+for printers that can get print data using a certain URI scheme. The
+acceptable URI schemes can also be queried using the capability methods in
+interface &lt;code&gt;PrintService&lt;/code&gt;. However,
+ReferenceUriSchemesSupported attributes are used solely for determining
+acceptable URI schemes, they are never included in a doc's,
+print request's, print job's, or print service's attribute set.
+&lt;P&gt;
+The Internet Assigned Numbers Authority maintains the
+&lt;A HREF="http://www.isi.edu/in-notes/iana/assignments/url-schemes"&gt;official
+list of URI schemes&lt;/A&gt;.
+&lt;p&gt;
+Class ReferenceUriSchemesSupported defines enumeration values for widely
+used URI schemes. A printer that supports additional URI schemes
+can define them in a subclass of class ReferenceUriSchemesSupported.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt;  The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; is the IPP attribute name.  The enumeration's
+integer value is the IPP enum value.  The &lt;code&gt;toString()&lt;/code&gt; method
+returns the IPP string representation of the attribute value.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ReferenceUriSchemesSupported" refid="_9_5_f720368_1110473546737_315004_9431"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReferenceUriSchemesSupported" refid="_9_5_f720368_1110473546737_315004_9431"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

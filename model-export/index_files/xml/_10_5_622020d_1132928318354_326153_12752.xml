@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318354_326153_12752"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DOMLocator" refid="_9_5_f720368_1110473546799_703843_10909"/></annotatedElement><body humanName="Body" mode="s,e">Indicates the position of a node in a source DOM, intended
+primarily for error reporting.  To use a DOMLocator, the receiver of an
+error must downcast the {@link javax.xml.transform.SourceLocator}
+object returned by an exception. A {@link javax.xml.transform.Transformer}
+may use this object for purposes other than error reporting, for instance,
+to indicate the source node that originated a result node.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DOMLocator" refid="_9_5_f720368_1110473546799_703843_10909"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DOMLocator" refid="_9_5_f720368_1110473546799_703843_10909"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

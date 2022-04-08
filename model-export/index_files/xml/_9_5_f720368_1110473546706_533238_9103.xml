@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546706_533238_9103"><documentation humanName="Documentation" mode="standard">An interface providing metadata transcoding capability.
+
+&lt;p&gt; Any image may be transcoded (written to a different format
+than the one it was originally stored in) simply by performing
+a read operation followed by a write operation.  However, loss
+of data may occur in this process due to format differences.
+
+&lt;p&gt; In general, the best results will be achieved when
+format-specific metadata objects can be created to encapsulate as
+much information about the image and its associated metadata as
+possible, in terms that are understood by the specific
+&lt;code&gt;ImageWriter&lt;/code&gt; used to perform the encoding.
+
+&lt;p&gt; An &lt;code&gt;ImageTranscoder&lt;/code&gt; may be used to convert the
+&lt;code&gt;IIOMetadata&lt;/code&gt; objects supplied by the
+&lt;code&gt;ImageReader&lt;/code&gt; (representing per-stream and per-image
+metadata) into corresponding objects suitable for encoding by a
+particular &lt;code&gt;ImageWriter&lt;/code&gt;.  In the case where the methods
+of this interface are being called directly on an
+&lt;code&gt;ImageWriter&lt;/code&gt;, the output will be suitable for that
+writer.
+
+&lt;p&gt; The internal details of converting an &lt;code&gt;IIOMetadata&lt;/code&gt;
+object into a writer-specific format will vary according to the
+context of the operation.  Typically, an &lt;code&gt;ImageWriter&lt;/code&gt;
+will inspect the incoming object to see if it implements additional
+interfaces with which the writer is familiar.  This might be the
+case, for example, if the object was obtained by means of a read
+operation on a reader plug-in written by the same vendor as the
+writer.  In this case, the writer may access the incoming object by
+means of its plug-in specific interfaces.  In this case, the
+re-encoding may be close to lossless if the image file format is
+kept constant.  If the format is changing, the writer may still
+attempt to preserve as much information as possible.
+
+&lt;p&gt; If the incoming object does not implement any additional
+interfaces known to the writer, the writer has no choice but to
+access it via the standard &lt;code&gt;IIOMetadata&lt;/code&gt; interfaces such
+as the tree view provided by &lt;code&gt;IIOMetadata.getAsTree&lt;/code&gt;.
+In this case, there is likely to be significant loss of
+information.
+
+&lt;p&gt; An independent &lt;code&gt;ImageTranscoder&lt;/code&gt; essentially takes
+on the same role as the writer plug-in in the above examples.  It
+must be familiar with the private interfaces used by both the
+reader and writer plug-ins, and manually instantiate an object that
+will be usable by the writer.  The resulting metadata objects may
+be used by the writer directly.
+
+&lt;p&gt; No independent implementations of &lt;code&gt;ImageTranscoder&lt;/code&gt;
+are provided as part of the standard API.  Instead, the intention
+of this interface is to provide a way for implementations to be
+created and discovered by applications as the need arises.
+
+@version 0.5
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ImageTranscoder</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="imageio" refid="_9_5_f720368_1110473547924_635917_19843"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314869_440738_9261"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314869_440738_9261"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="imageio" refid="_9_5_f720368_1110473547924_635917_19843"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="imageio" refid="_9_5_f720368_1110473547924_635917_19843"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="imageio" refid="_9_5_f720368_1110473547924_635917_19843"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::imageio::ImageTranscoder</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::imageio::ImageWriter -&gt; JDK 5.0 Classes::javax::imageio::ImageTranscoder]" refid="_10_5_622020d_1132928322940_130739_15833"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

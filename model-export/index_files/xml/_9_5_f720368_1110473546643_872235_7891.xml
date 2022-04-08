@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546643_872235_7891"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::nio::channels::FileChannel -&gt; JDK 5.0 Classes::java::nio::channels::ByteChannel]" refid="_10_5_622020d_1132928321739_92454_13855"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::nio::channels::FileChannel -&gt; JDK 5.0 Classes::java::nio::channels::GatheringByteChannel]" refid="_10_5_622020d_1132928321739_15501_13856"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::nio::channels::FileChannel -&gt; JDK 5.0 Classes::java::nio::channels::ScatteringByteChannel]" refid="_10_5_622020d_1132928321739_378392_13857"/></clientDependency><documentation humanName="Documentation" mode="standard">A channel for reading, writing, mapping, and manipulating a file.
+
+&lt;p&gt; A file channel has a current &lt;i&gt;position&lt;/i&gt; within its file which can
+be both {@link #position() &lt;/code&gt;queried&lt;code&gt;} and {@link #position(long)
+&lt;/code&gt;modified&lt;code&gt;}.  The file itself contains a variable-length sequence
+of bytes that can be read and written and whose current {@link #size
+&lt;/code&gt;&lt;i&gt;size&lt;/i&gt;&lt;code&gt;} can be queried.  The size of the file increases
+when bytes are written beyond its current size; the size of the file
+decreases when it is {@link #truncate &lt;/code&gt;&lt;i&gt;truncated&lt;/i&gt;&lt;code&gt;}.  The
+file may also have some associated &lt;i&gt;metadata&lt;/i&gt; such as access
+permissions, content type, and last-modification time; this class does not
+define methods for metadata access.
+
+&lt;p&gt; In addition to the familiar read, write, and close operations of byte
+channels, this class defines the following file-specific operations: &lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; Bytes may be {@link #read(ByteBuffer, long) &lt;/code&gt;read&lt;code&gt;} or
+{@link #write(ByteBuffer, long) &lt;/code&gt;written&lt;code&gt;} at an absolute
+position in a file in a way that does not affect the channel's current
+position.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; A region of a file may be {@link #map &lt;/code&gt;mapped&lt;code&gt;}
+directly into memory; for large files this is often much more efficient
+than invoking the usual &lt;tt&gt;read&lt;/tt&gt; or &lt;tt&gt;write&lt;/tt&gt; methods.
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Updates made to a file may be {@link #force &lt;/code&gt;forced
+out&lt;code&gt;} to the underlying storage device, ensuring that data are not
+lost in the event of a system crash.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Bytes can be transferred from a file {@link #transferTo &lt;/code&gt;to
+some other channel&lt;code&gt;}, and {@link #transferFrom &lt;/code&gt;vice
+versa&lt;code&gt;}, in a way that can be optimized by many operating systems
+into a very fast transfer directly to or from the filesystem cache.
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; A region of a file may be {@link FileLock &lt;/code&gt;locked&lt;code&gt;}
+against access by other programs.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+&lt;p&gt; File channels are safe for use by multiple concurrent threads.  The
+{@link Channel#close close} method may be invoked at any time, as specified
+by the {@link Channel} interface.  Only one operation that involves the
+channel's position or can change its file's size may be in progress at any
+given time; attempts to initiate a second such operation while the first is
+still in progress will block until the first operation completes.  Other
+operations, in particular those that take an explicit position, may proceed
+concurrently; whether they in fact do so is dependent upon the underlying
+implementation and is therefore unspecified.
+
+&lt;p&gt; The view of a file provided by an instance of this class is guaranteed
+to be consistent with other views of the same file provided by other
+instances in the same program.  The view provided by an instance of this
+class may or may not, however, be consistent with the views seen by other
+concurrently-running programs due to caching performed by the underlying
+operating system and delays induced by network-filesystem protocols.  This
+is true regardless of the language in which these other programs are
+written, and whether they are running on the same machine or on some other
+machine.  The exact nature of any such inconsistencies are system-dependent
+and are therefore unspecified.
+
+&lt;p&gt; This class does not define methods for opening existing files or for
+creating new ones; such methods may be added in a future release.  In this
+release a file channel can be obtained from an existing {@link
+java.io.FileInputStream#getChannel FileInputStream}, {@link
+java.io.FileOutputStream#getChannel FileOutputStream}, or {@link
+java.io.RandomAccessFile#getChannel RandomAccessFile} object by invoking
+that object's &lt;tt&gt;getChannel&lt;/tt&gt; method, which returns a file channel that
+is connected to the same underlying file.
+
+&lt;p&gt; The state of a file channel is intimately connected to that of the
+object whose &lt;tt&gt;getChannel&lt;/tt&gt; method returned the channel.  Changing the
+channel's position, whether explicitly or by reading or writing bytes, will
+change the file position of the originating object, and vice versa.
+Changing the file's length via the file channel will change the length seen
+via the originating object, and vice versa.  Changing the file's content by
+writing bytes will change the content seen by the originating object, and
+vice versa.
+
+&lt;a name="open-mode"&gt;&lt;p&gt; At various points this class specifies that an
+instance that is "open for reading," "open for writing," or "open for
+reading and writing" is required.  A channel obtained via the {@link
+java.io.FileInputStream#getChannel getChannel} method of a {@link
+java.io.FileInputStream} instance will be open for reading.  A channel
+obtained via the {@link java.io.FileOutputStream#getChannel getChannel}
+method of a {@link java.io.FileOutputStream} instance will be open for
+writing.  Finally, a channel obtained via the {@link
+java.io.RandomAccessFile#getChannel getChannel} method of a {@link
+java.io.RandomAccessFile} instance will be open for reading if the instance
+was created with mode &lt;tt&gt;"r"&lt;/tt&gt; and will be open for reading and writing
+if the instance was created with mode &lt;tt&gt;"rw"&lt;/tt&gt;.
+
+&lt;a name="append-mode"&gt;&lt;p&gt; A file channel that is open for writing may be in
+&lt;i&gt;append mode&lt;/i&gt;, for example if it was obtained from a file-output stream
+that was created by invoking the {@link
+java.io.FileOutputStream#FileOutputStream(java.io.File,boolean)
+FileOutputStream(File,boolean)} constructor and passing &lt;tt&gt;true&lt;/tt&gt; for
+the second parameter.  In this mode each invocation of a relative write
+operation first advances the position to the end of the file and then writes
+the requested data.  Whether the advancement of the position and the writing
+of the data are done in a single atomic operation is system-dependent and
+therefore unspecified.
+
+
+@see java.io.FileInputStream#getChannel()
+@see java.io.FileOutputStream#getChannel()
+@see java.io.RandomAccessFile#getChannel()
+
+@author Mark Reinhold
+@author Mike McCloskey
+@author JSR-51 Expert Group
+@version 1.40, 04/01/12
+@since 1.4
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321739_91850_13858"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FooChannel" refid="_9_5_f720368_1110473547643_756721_18154"/></inheritedMember><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::nio::channels::FileChannel -&gt; JDK 5.0 Classes::java::nio::channels::ByteChannel]" refid="_10_5_622020d_1132928321739_92454_13855"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::nio::channels::FileChannel -&gt; JDK 5.0 Classes::java::nio::channels::GatheringByteChannel]" refid="_10_5_622020d_1132928321739_15501_13856"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::nio::channels::FileChannel -&gt; JDK 5.0 Classes::java::nio::channels::ScatteringByteChannel]" refid="_10_5_622020d_1132928321739_378392_13857"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FooChannel" refid="_9_5_f720368_1110473547643_756721_18154"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MapMode" refid="_9_5_f720368_1110473547643_107505_18182"/></member><name humanName="Name" mode="s,e">FileChannel</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MapMode" refid="_9_5_f720368_1110473547643_107505_18182"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308630_221058_5403"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321739_91850_13858"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308630_221058_5403"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::nio::channels::FileChannel -&gt; JDK 5.0 Classes::java::nio::channels::ByteChannel]" refid="_10_5_622020d_1132928321739_92454_13855"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::nio::channels::FileChannel -&gt; JDK 5.0 Classes::java::nio::channels::GatheringByteChannel]" refid="_10_5_622020d_1132928321739_15501_13856"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::nio::channels::FileChannel -&gt; JDK 5.0 Classes::java::nio::channels::ScatteringByteChannel]" refid="_10_5_622020d_1132928321739_378392_13857"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MapMode" refid="_9_5_f720368_1110473547643_107505_18182"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MapMode" refid="_9_5_f720368_1110473547643_107505_18182"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="channels" refid="_9_5_f720368_1110473547643_957787_18151"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::nio::channels::FileChannel</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ByteChannel" refid="_9_5_f720368_1110473546643_237537_7873"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="GatheringByteChannel" refid="_9_5_f720368_1110473546643_932884_7897"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ScatteringByteChannel" refid="_9_5_f720368_1110473546659_637739_7921"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractInterruptibleChannel" refid="_9_5_f720368_1110473546643_136634_7859"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

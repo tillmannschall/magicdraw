@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546737_543235_9719"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;Clip&lt;/code&gt; interface represents a special kind of data line whose
+audio data can be loaded prior to playback, instead of being streamed in
+real time.
+&lt;p&gt;
+Because the data is pre-loaded and has a known length, you can set a clip
+to start playing at any position in its audio data.  You can also create a
+loop, so that when the clip is played it will cycle repeatedly.  Loops are
+specified with a starting and ending sample frame, along with the number of
+times that the loop should be played.
+&lt;p&gt;
+Clips may be obtained from a &lt;code&gt;{@link Mixer}&lt;/code&gt; that supports lines
+of this type.  Data is loaded into a clip when it is opened.
+&lt;p&gt;
+Playback of an audio clip may be started and stopped using the &lt;code&gt;start&lt;/code&gt;
+and &lt;code&gt;stop&lt;/code&gt; methods.  These methods do not reset the media position;
+&lt;code&gt;start&lt;/code&gt; causes playback to continue from the position where playback
+was last stopped.  To restart playback from the beginning of the clip's audio
+data, simply follow the invocation of &lt;code&gt;{@link DataLine#stop stop}&lt;/code&gt;
+with setFramePosition(0), which rewinds the media to the beginning
+of the clip.
+
+@author Kara Kytle
+@version 1.38, 03/12/19
+@since 1.3
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DataLine" refid="_9_5_f720368_1110473546737_441830_9725"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323361_968391_16598"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548096_430262_20873"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548096_228899_20885"/></inheritedMember><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548096_430262_20873"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548096_228899_20885"/></member><name humanName="Name" mode="s,e">Clip</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sampled" refid="_9_5_f720368_1110473548096_948655_20840"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316261_33731_10619"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323361_968391_16598"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316261_33731_10619"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sampled" refid="_9_5_f720368_1110473548096_948655_20840"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sampled" refid="_9_5_f720368_1110473548096_948655_20840"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sampled" refid="_9_5_f720368_1110473548096_948655_20840"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sound::sampled::Clip</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306046_651541_3934"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ConvolveOp" refid="_9_5_f720368_1110473546565_588906_6769"/></annotatedElement><body humanName="Body" mode="s,e">This class implements a convolution from the source
+to the destination.
+Convolution using a convolution kernel is a spatial operation that
+computes the output pixel from an input pixel by multiplying the kernel
+with the surround of the input pixel.
+This allows the output pixel to be affected by the immediate neighborhood
+in a way that can be mathematically specified with a kernel.
+&lt;p&gt;
+This class operates with BufferedImage data in which color components are
+premultiplied with the alpha component.  If the Source BufferedImage has
+an alpha component, and the color components are not premultiplied with
+the alpha component, then the data are premultiplied before being
+convolved.  If the Destination has color components which are not
+premultiplied, then alpha is divided out before storing into the
+Destination (if alpha is 0, the color components are set to 0).  If the
+Destination has no alpha component, then the resulting alpha is discarded
+after first dividing it out of the color components.
+&lt;p&gt;
+Rasters are treated as having no alpha channel.  If the above treatment
+of the alpha channel in BufferedImages is not desired, it may be avoided
+by getting the Raster of a source BufferedImage and using the filter method
+of this class which works with Rasters.
+&lt;p&gt;
+If a RenderingHints object is specified in the constructor, the
+color rendering hint and the dithering hint may be used when color
+conversion is required.
+&lt;p&gt;
+Note that the Source and the Destination may not be the same object.
+@version 10 Feb 1997
+@see Kernel
+@see java.awt.RenderingHints#KEY_COLOR_RENDERING
+@see java.awt.RenderingHints#KEY_DITHERING
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ConvolveOp" refid="_9_5_f720368_1110473546565_588906_6769"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ConvolveOp" refid="_9_5_f720368_1110473546565_588906_6769"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

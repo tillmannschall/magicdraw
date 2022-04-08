@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316191_766189_10584"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Synthesizer" refid="_9_5_f720368_1110473546737_153094_9689"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;Synthesizer&lt;/code&gt; generates sound.  This usually happens when one of
+the &lt;code&gt;Synthesizer&lt;/code&gt;'s {@link MidiChannel} objects receives a
+{@link MidiChannel#noteOn(int, int) noteOn} message, either
+directly or via the &lt;code&gt;Synthesizer&lt;/code&gt; object.
+Many &lt;code&gt;Synthesizer&lt;/code&gt;s support &lt;code&gt;Receivers&lt;/code&gt;, through which
+MIDI events can be delivered to the &lt;code&gt;Synthesizer&lt;/code&gt;.
+In such cases, the &lt;code&gt;Synthesizer&lt;/code&gt; typically responds by sending
+a corresponding message to the appropriate &lt;code&gt;MidiChannel&lt;/code&gt;, or by
+processing the event itself if the event isn't one of the MIDI channel
+messages.
+&lt;p&gt;
+The &lt;code&gt;Synthesizer&lt;/code&gt; interface includes methods for loading and
+unloading instruments from soundbanks.  An instrument is a specification for synthesizing a
+certain type of sound, whether that sound emulates a traditional instrument or is
+some kind of sound effect or other imaginary sound. A soundbank is a collection of instruments, organized
+by bank and program number (via the instrument's &lt;code&gt;Patch&lt;/code&gt; object).
+Different &lt;code&gt;Synthesizer&lt;/code&gt; classes might implement different sound-synthesis
+techniques, meaning that some instruments and not others might be compatible with a
+given synthesizer.
+Also, synthesizers may have a limited amount of memory for instruments, meaning
+that not every soundbank and instrument can be used by every synthesizer, even if
+the synthesis technique is compatible.
+To see whether the instruments from
+a certain soundbank can be played by a given synthesizer, invoke the
+{@link #isSoundbankSupported(Soundbank) isSoundbankSupported} method of
+&lt;code&gt;Synthesizer&lt;/code&gt;.
+&lt;p&gt;
+"Loading" an instrument means that that instrument becomes available for
+synthesizing notes.  The instrument is loaded into the bank and
+program location specified by its &lt;code&gt;Patch&lt;/code&gt; object.  Loading does
+not necessarily mean that subsequently played notes will immediately have
+the sound of this newly loaded instrument.  For the instrument to play notes,
+one of the synthesizer's &lt;code&gt;MidiChannel&lt;/code&gt; objects must receive (or have received)
+a program-change message that causes that particular instrument's
+bank and program number to be selected.
+
+@see MidiSystem#getSynthesizer
+@see Soundbank
+@see Instrument
+@see MidiChannel#programChange(int, int)
+@see Receiver
+@see Transmitter
+@see MidiDevice
+
+@version 1.27, 03/12/19
+@author Kara Kytle
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Synthesizer" refid="_9_5_f720368_1110473546737_153094_9689"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Synthesizer" refid="_9_5_f720368_1110473546737_153094_9689"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305976_163475_3910"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AreaAveragingScaleFilter" refid="_9_5_f720368_1110473546565_27824_6745"/></annotatedElement><body humanName="Body" mode="s,e">An ImageFilter class for scaling images using a simple area averaging
+algorithm that produces smoother results than the nearest neighbor
+algorithm.
+&lt;p&gt;This class extends the basic ImageFilter Class to scale an existing
+image and provide a source for a new image containing the resampled
+image.  The pixels in the source image are blended to produce pixels
+for an image of the specified size.  The blending process is analogous
+to scaling up the source image to a multiple of the destination size
+using pixel replication and then scaling it back down to the destination
+size by simply averaging all the pixels in the supersized image that
+fall within a given pixel of the destination image.  If the data from
+the source is not delivered in TopDownLeftRight order then the filter
+will back off to a simple pixel replication behavior and utilize the
+requestTopDownLeftRightResend() method to refilter the pixels in a
+better way at the end.
+&lt;p&gt;It is meant to be used in conjunction with a FilteredImageSource
+object to produce scaled versions of existing images.  Due to
+implementation dependencies, there may be differences in pixel values
+of an image filtered on different platforms.
+
+@see FilteredImageSource
+@see ReplicateScaleFilter
+@see ImageFilter
+
+@version	1.15 12/19/03
+@author 	Jim Graham
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AreaAveragingScaleFilter" refid="_9_5_f720368_1110473546565_27824_6745"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AreaAveragingScaleFilter" refid="_9_5_f720368_1110473546565_27824_6745"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

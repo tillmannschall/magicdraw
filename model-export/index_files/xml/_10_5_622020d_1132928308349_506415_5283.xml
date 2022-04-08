@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308349_506415_5283"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MulticastSocket" refid="_9_5_f720368_1110473546643_103226_7781"/></annotatedElement><body humanName="Body" mode="s,e">The multicast datagram socket class is useful for sending
+and receiving IP multicast packets.  A MulticastSocket is
+a (UDP) DatagramSocket, with additional capabilities for
+joining "groups" of other multicast hosts on the internet.
+&lt;P&gt;
+A multicast group is specified by a class D IP address
+and by a standard UDP port number. Class D IP addresses
+are in the range &lt;CODE&gt;224.0.0.0&lt;/CODE&gt; to &lt;CODE&gt;239.255.255.255&lt;/CODE&gt;,
+inclusive. The address 224.0.0.0 is reserved and should not be used.
+&lt;P&gt;
+One would join a multicast group by first creating a MulticastSocket
+with the desired port, then invoking the
+&lt;CODE&gt;joinGroup(InetAddress groupAddr)&lt;/CODE&gt;
+method:
+&lt;PRE&gt;
+join a Multicast group and send the group salutations
+...
+String msg = "Hello";
+InetAddress group = InetAddress.getByName("228.5.6.7");
+MulticastSocket s = new MulticastSocket(6789);
+s.joinGroup(group);
+DatagramPacket hi = new DatagramPacket(msg.getBytes(), msg.length(),
+group, 6789);
+s.send(hi);
+get their responses!
+byte[] buf = new byte[1000];
+DatagramPacket recv = new DatagramPacket(buf, buf.length);
+s.receive(recv);
+...
+OK, I'm done talking - leave the group...
+s.leaveGroup(group);
+&lt;/PRE&gt;
+
+When one sends a message to a multicast group, &lt;B&gt;all&lt;/B&gt; subscribing
+recipients to that host and port receive the message (within the
+time-to-live range of the packet, see below).  The socket needn't
+be a member of the multicast group to send messages to it.
+&lt;P&gt;
+When a socket subscribes to a multicast group/port, it receives
+datagrams sent by other hosts to the group/port, as do all other
+members of the group and port.  A socket relinquishes membership
+in a group by the leaveGroup(InetAddress addr) method.  &lt;B&gt;
+Multiple MulticastSocket's&lt;/B&gt; may subscribe to a multicast group
+and port concurrently, and they will all receive group datagrams.
+&lt;P&gt;
+Currently applets are not allowed to use multicast sockets.
+
+@author Pavani Diwanji
+@since  JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MulticastSocket" refid="_9_5_f720368_1110473546643_103226_7781"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MulticastSocket" refid="_9_5_f720368_1110473546643_103226_7781"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

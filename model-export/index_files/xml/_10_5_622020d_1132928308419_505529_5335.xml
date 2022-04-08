@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308419_505529_5335"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SocketPermission" refid="_9_5_f720368_1110473546643_264875_7819"/></annotatedElement><body humanName="Body" mode="s,e">This class represents access to a network via sockets.
+A SocketPermission consists of a
+host specification and a set of "actions" specifying ways to
+connect to that host. The host is specified as
+&lt;pre&gt;
+host = (hostname | IPv4address | iPv6reference) [:portrange]
+portrange = portnumber | -portnumber | portnumber-[portnumber]
+&lt;/pre&gt;
+The host is expressed as a DNS name, as a numerical IP address,
+or as "localhost" (for the local machine).
+The wildcard "*" may be included once in a DNS name host
+specification. If it is included, it must be in the leftmost
+position, as in "*.sun.com".
+&lt;p&gt;
+The format of the IPv6reference should follow that specified in &lt;a
+href="http://www.ietf.org/rfc/rfc2732.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2732: Format
+for Literal IPv6 Addresses in URLs&lt;/i&gt;&lt;/a&gt;:
+&lt;pre&gt;
+ipv6reference = "[" IPv6address "]"
+&lt;/pre&gt;
+For example, you can construct a SocketPermission instance
+as the following:
+&lt;pre&gt;
+String hostAddress = inetaddress.getHostAddress();
+if (inetaddress instanceof Inet6Address) {
+sp = new SocketPermission("[" + hostAddress + "]:" + port, action);
+} else {
+sp = new SocketPermission(hostAddress + ":" + port, action);
+}
+&lt;/pre&gt;
+or
+&lt;pre&gt;
+String host = url.getHost();
+sp = new SocketPermission(host + ":" + port, action);
+&lt;/pre&gt;
+&lt;p&gt;
+The &lt;A HREF="Inet6Address.html#lform"&gt;full uncompressed form&lt;/A&gt; of
+an IPv6 literal address is also valid.
+&lt;p&gt;
+The port or portrange is optional. A port specification of the
+form "N-", where &lt;i&gt;N&lt;/i&gt; is a port number, signifies all ports
+numbered &lt;i&gt;N&lt;/i&gt; and above, while a specification of the
+form "-N" indicates all ports numbered &lt;i&gt;N&lt;/i&gt; and below.
+&lt;p&gt;
+The possible ways to connect to the host are
+&lt;pre&gt;
+accept
+connect
+listen
+resolve
+&lt;/pre&gt;
+The "listen" action is only meaningful when used with "localhost".
+The "resolve" action is implied when any of the other actions are present.
+The action "resolve" refers to host/ip name service lookups.
+
+&lt;p&gt;As an example of the creation and meaning of SocketPermissions,
+note that if the following permission:
+
+&lt;pre&gt;
+p1 = new SocketPermission("puffin.eng.sun.com:7777", "connect,accept");
+&lt;/pre&gt;
+
+is granted to some code, it allows that code to connect to port 7777 on
+&lt;code&gt;puffin.eng.sun.com&lt;/code&gt;, and to accept connections on that port.
+
+&lt;p&gt;Similarly, if the following permission:
+
+&lt;pre&gt;
+p1 = new SocketPermission("puffin.eng.sun.com:7777", "connect,accept");
+p2 = new SocketPermission("localhost:1024-", "accept,connect,listen");
+&lt;/pre&gt;
+
+is granted to some code, it allows that code to
+accept connections on, connect to, or listen on any port between
+1024 and 65535 on the local host.
+
+&lt;p&gt;Note: Granting code permission to accept or make connections to remote
+hosts may be dangerous because malevolent code can then more easily
+transfer and share confidential data among parties who may not
+otherwise have access to the data.
+
+@see java.security.Permissions
+@see SocketPermission
+
+@version 1.59 04/02/12
+
+@author Marianne Mueller
+@author Roland Schemers
+
+@serial exclude
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SocketPermission" refid="_9_5_f720368_1110473546643_264875_7819"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SocketPermission" refid="_9_5_f720368_1110473546643_264875_7819"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

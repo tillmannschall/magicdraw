@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313286_362411_7381"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ListIterator" refid="_9_5_f720368_1110473546706_730590_8887"/></annotatedElement><body humanName="Body" mode="s,e">An iterator for lists that allows the programmer
+to traverse the list in either direction, modify
+the list during iteration, and obtain the iterator's
+current position in the list. A &lt;TT&gt;ListIterator&lt;/TT&gt;
+has no current element; its &lt;I&gt;cursor position&lt;/I&gt; always
+lies between the element that would be returned by a call
+to &lt;TT&gt;previous()&lt;/TT&gt; and the element that would be
+returned by a call to &lt;TT&gt;next()&lt;/TT&gt;. In a list of
+length &lt;TT&gt;n&lt;/TT&gt;, there are &lt;TT&gt;n+1&lt;/TT&gt; valid
+index values, from &lt;TT&gt;0&lt;/TT&gt; to &lt;TT&gt;n&lt;/TT&gt;, inclusive.
+&lt;PRE&gt;
+
+Element(0)   Element(1)   Element(2)   ... Element(n)
+^            ^            ^            ^               ^
+Index: 0            1            2            3               n+1
+
+&lt;/PRE&gt;
+&lt;P&gt;
+Note that the {@link #remove} and {@link #set(Object)} methods are
+&lt;i&gt;not&lt;/i&gt; defined in terms of the cursor position;  they are defined to
+operate on the last element returned by a call to {@link #next} or {@link
+#previous()}.
+&lt;P&gt;
+This interface is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@version 1.23, 12/19/03
+@see Collection
+@see List
+@see Iterator
+@see Enumeration
+@since   1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ListIterator" refid="_9_5_f720368_1110473546706_730590_8887"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ListIterator" refid="_9_5_f720368_1110473546706_730590_8887"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

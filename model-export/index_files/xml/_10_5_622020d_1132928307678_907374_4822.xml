@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307678_907374_4822"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MemoryUsage" refid="_10_5_622020d_1132928307668_99808_4820"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;tt&gt;MemoryUsage&lt;/tt&gt; object represents a snapshot of memory usage.
+Instances of the &lt;tt&gt;MemoryUsage&lt;/tt&gt; class are usually constructed
+by methods that are used to obtain memory usage
+information about individual memory pool of the Java virtual machine or
+the heap or non-heap memory of the Java virtual machine as a whole.
+
+&lt;p&gt; A &lt;tt&gt;MemoryUsage&lt;/tt&gt; object contains four values:
+&lt;ul&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td valign=top&gt; &lt;tt&gt;init&lt;/tt&gt; &lt;/td&gt;
+&lt;td valign=top&gt; represents the initial amount of memory (in bytes) that
+the Java virtual machine requests from the operating system
+for memory management during startup.  The Java virtual machine
+may request additional memory from the operating system and
+may also release memory to the system over time.
+The value of &lt;tt&gt;init&lt;/tt&gt; may be undefined.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=top&gt; &lt;tt&gt;used&lt;/tt&gt; &lt;/td&gt;
+&lt;td valign=top&gt; represents the amount of memory currently used (in bytes).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=top&gt; &lt;tt&gt;committed&lt;/tt&gt; &lt;/td&gt;
+&lt;td valign=top&gt; represents the amount of memory (in bytes) that is
+guaranteed to be available for use by the Java virtual machine.
+The amount of committed memory may change over time (increase
+or decrease).  The Java virtual machine may release memory to
+the system and &lt;tt&gt;committed&lt;/tt&gt; could be less than &lt;tt&gt;init&lt;/tt&gt;.
+&lt;tt&gt;committed&lt;/tt&gt; will always be greater than
+or equal to &lt;tt&gt;used&lt;/tt&gt;.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=top&gt; &lt;tt&gt;max&lt;/tt&gt; &lt;/td&gt;
+&lt;td valign=top&gt; represents the maximum amount of memory (in bytes)
+that can be used for memory management. Its value may be undefined.
+The maximum amount of memory may change over time if defined.
+The amount of used and committed memory will always be less than
+or equal to &lt;tt&gt;max&lt;/tt&gt; if &lt;tt&gt;max&lt;/tt&gt; is defined.
+A memory allocation may fail if it attempts to increase the
+used memory such that &lt;tt&gt;used &amp;gt committed&lt;/tt&gt; even
+if &lt;tt&gt;used &amp;lt= max&lt;/tt&gt; would still be true (for example,
+when the system is low on virtual memory).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/ul&gt;
+
+Below is a picture showing an example of a memory pool:
+&lt;p&gt;
+&lt;pre&gt;
++----------------------------------------------+
++////////////////           |                  +
++////////////////           |                  +
++----------------------------------------------+
+
+|--------|
+init
+|---------------|
+used
+|---------------------------|
+committed
+|----------------------------------------------|
+max
+&lt;/pre&gt;
+
+&lt;h4&gt;MXBean Mapping&lt;/h4&gt;
+&lt;tt&gt;MemoryUsage&lt;/tt&gt; is mapped to a {@link CompositeData CompositeData}
+with attributes as specified in the {@link #from from} method.
+
+@author   Mandy Chung
+@version 1.16, 05/25/04
+@since   1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MemoryUsage" refid="_10_5_622020d_1132928307668_99808_4820"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MemoryUsage" refid="_10_5_622020d_1132928307668_99808_4820"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

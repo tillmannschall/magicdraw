@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310242_433292_6673"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Semaphore" refid="_10_5_622020d_1132928310222_301337_6665"/></annotatedElement><body humanName="Body" mode="s,e">A counting semaphore.  Conceptually, a semaphore maintains a set of
+permits.  Each {@link #acquire} blocks if necessary until a permit is
+available, and then takes it.  Each {@link #release} adds a permit,
+potentially releasing a blocking acquirer.
+However, no actual permit objects are used; the &lt;tt&gt;Semaphore&lt;/tt&gt; just
+keeps a count of the number available and acts accordingly.
+
+&lt;p&gt;Semaphores are often used to restrict the number of threads than can
+access some (physical or logical) resource. For example, here is
+a class that uses a semaphore to control access to a pool of items:
+&lt;pre&gt;
+class Pool {
+private static final MAX_AVAILABLE = 100;
+private final Semaphore available = new Semaphore(MAX_AVAILABLE, true);
+
+public Object getItem() throws InterruptedException {
+available.acquire();
+return getNextAvailableItem();
+}
+
+public void putItem(Object x) {
+if (markAsUnused(x))
+available.release();
+}
+
+Not a particularly efficient data structure; just for demo
+
+protected Object[] items = ... whatever kinds of items being managed
+protected boolean[] used = new boolean[MAX_AVAILABLE];
+
+protected synchronized Object getNextAvailableItem() {
+for (int i = 0; i &lt; MAX_AVAILABLE; ++i) {
+if (!used[i]) {
+used[i] = true;
+return items[i];
+}
+}
+return null; // not reached
+}
+
+protected synchronized boolean markAsUnused(Object item) {
+for (int i = 0; i &lt; MAX_AVAILABLE; ++i) {
+if (item == items[i]) {
+if (used[i]) {
+used[i] = false;
+return true;
+} else
+return false;
+}
+}
+return false;
+}
+
+}
+&lt;/pre&gt;
+
+&lt;p&gt;Before obtaining an item each thread must acquire a permit from
+the semaphore, guaranteeing that an item is available for use. When
+the thread has finished with the item it is returned back to the
+pool and a permit is returned to the semaphore, allowing another
+thread to acquire that item.  Note that no synchronization lock is
+held when {@link #acquire} is called as that would prevent an item
+from being returned to the pool.  The semaphore encapsulates the
+synchronization needed to restrict access to the pool, separately
+from any synchronization needed to maintain the consistency of the
+pool itself.
+
+&lt;p&gt;A semaphore initialized to one, and which is used such that it
+only has at most one permit available, can serve as a mutual
+exclusion lock.  This is more commonly known as a &lt;em&gt;binary
+semaphore&lt;/em&gt;, because it only has two states: one permit
+available, or zero permits available.  When used in this way, the
+binary semaphore has the property (unlike many {@link Lock}
+implementations), that the "lock" can be released by a
+thread other than the owner (as semaphores have no notion of
+ownership).  This can be useful in some specialized contexts, such
+as deadlock recovery.
+
+&lt;p&gt; The constructor for this class optionally accepts a
+&lt;em&gt;fairness&lt;/em&gt; parameter. When set false, this class makes no
+guarantees about the order in which threads acquire permits. In
+particular, &lt;em&gt;barging&lt;/em&gt; is permitted, that is, a thread
+invoking {@link #acquire} can be allocated a permit ahead of a
+thread that has been waiting - logically the new thread places itself at
+the head of the queue of waiting threads. When fairness is set true, the
+semaphore guarantees that threads invoking any of the {@link
+#acquire() acquire} methods are selected to obtain permits in the order in
+which their invocation of those methods was processed
+(first-in-first-out; FIFO). Note that FIFO ordering necessarily
+applies to specific internal points of execution within these
+methods.  So, it is possible for one thread to invoke
+&lt;tt&gt;acquire&lt;/tt&gt; before another, but reach the ordering point after
+the other, and similarly upon return from the method.
+Also note that the untimed {@link #tryAcquire() tryAcquire} methods do not
+honor the fairness setting, but will take any permits that are
+available.
+
+&lt;p&gt;Generally, semaphores used to control resource access should be
+initialized as fair, to ensure that no thread is starved out from
+accessing a resource. When using semaphores for other kinds of
+synchronization control, the throughput advantages of non-fair
+ordering often outweigh fairness considerations.
+
+&lt;p&gt;This class also provides convenience methods to {@link
+#acquire(int) acquire} and {@link #release(int) release} multiple
+permits at a time.  Beware of the increased risk of indefinite
+postponement when these methods are used without fairness set true.
+
+@since 1.5
+@author Doug Lea
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Semaphore" refid="_10_5_622020d_1132928310222_301337_6665"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Semaphore" refid="_10_5_622020d_1132928310222_301337_6665"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

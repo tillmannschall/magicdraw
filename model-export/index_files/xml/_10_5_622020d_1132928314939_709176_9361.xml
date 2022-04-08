@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928314939_709176_9361"><documentation humanName="Documentation" mode="standard">Provides definitions of the notifications sent by monitor MBeans.
+&lt;P&gt;
+The notification source and a set of parameters concerning the monitor MBean's state
+need to be specified when creating a new object of this class.
+
+The list of notifications fired by the monitor MBeans is the following:
+
+&lt;UL&gt;
+&lt;LI&gt;Common to all kind of monitors:
+&lt;UL&gt;
+&lt;LI&gt;The observed object is not registered in the MBean server.
+&lt;LI&gt;The observed attribute is not contained in the observed object.
+&lt;LI&gt;The type of the observed attribute is not correct.
+&lt;LI&gt;Any exception (except the cases described above) occurs when trying to get the value of the observed attribute.
+&lt;/UL&gt;
+&lt;LI&gt;Common to the counter and the gauge monitors:
+&lt;UL&gt;
+&lt;LI&gt;The threshold high or threshold low are not of the same type as the gauge (gauge monitors).
+&lt;LI&gt;The threshold or the offset or the modulus are not of the same type as the counter (counter monitors).
+&lt;/UL&gt;
+&lt;LI&gt;Counter monitors only:
+&lt;UL&gt;
+&lt;LI&gt;The observed attribute has reached the threshold value.
+&lt;/UL&gt;
+&lt;LI&gt;Gauge monitors only:
+&lt;UL&gt;
+&lt;LI&gt;The observed attribute has exceeded the threshold high value.
+&lt;LI&gt;The observed attribute has exceeded the threshold low value.
+&lt;/UL&gt;
+&lt;LI&gt;String monitors only:
+&lt;UL&gt;
+&lt;LI&gt;The observed attribute has matched the "string to compare" value.
+&lt;LI&gt;The observed attribute has differed from the "string to compare" value.
+&lt;/UL&gt;
+&lt;/UL&gt;
+
+@version     4.22     12/19/03
+@author      Sun Microsystems, Inc
+
+@since 1.5
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322950_439090_15876"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">MonitorNotification</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="monitor" refid="_10_5_622020d_1132928314929_657435_9338"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314939_279192_9363"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322950_439090_15876"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314939_279192_9363"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="monitor" refid="_10_5_622020d_1132928314929_657435_9338"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="monitor" refid="_10_5_622020d_1132928314929_657435_9338"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="monitor" refid="_10_5_622020d_1132928314929_657435_9338"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::management::monitor::MonitorNotification</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Notification" refid="_10_5_622020d_1132928315229_108856_9799"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

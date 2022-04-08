@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315980_522875_10372"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="StreamPrintServiceFactory" refid="_9_5_f720368_1110473546737_785688_9543"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;StreamPrintServiceFactory&lt;/code&gt; is the factory for
+{@link StreamPrintService} instances,
+which can print to an output stream in a particular
+document format described as a mime type.
+A typical output document format may be Postscript(TM).
+&lt;p&gt;
+This class is implemented by a service and located by the
+implementation using the
+&lt;a href="http:/java.sun.com/products/jdk/1.3/docs/guide/jar/jar.html#Service Provider"&gt;
+SPI JAR File specification&lt;/a&gt;.
+&lt;p&gt;
+Applications locate instances of this class by calling the
+{@link #lookupStreamPrintServiceFactories(DocFlavor, String)} method.
+&lt;p&gt;
+Applications can use a &lt;code&gt;StreamPrintService&lt;/code&gt; obtained from a
+factory in place of a &lt;code&gt;PrintService&lt;/code&gt; which represents a
+physical printer device.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="StreamPrintServiceFactory" refid="_9_5_f720368_1110473546737_785688_9543"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="StreamPrintServiceFactory" refid="_9_5_f720368_1110473546737_785688_9543"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

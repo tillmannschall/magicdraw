@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307418_933253_4703"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StringReader" refid="_9_5_f720368_1110473546612_665457_7491"/></annotatedElement><body humanName="Body" mode="s,e">A character stream whose source is a string.
+
+@version 	1.24, 04/02/19
+@author	Mark Reinhold
+@since	JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StringReader" refid="_9_5_f720368_1110473546612_665457_7491"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StringReader" refid="_9_5_f720368_1110473546612_665457_7491"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

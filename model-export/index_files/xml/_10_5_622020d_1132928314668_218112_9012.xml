@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928314668_218112_9012"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::ext::Attributes2Impl -&gt; JDK 5.0 Classes::org::xml::sax::ext::Attributes2]" refid="_10_5_622020d_1132928322900_585640_15721"/></clientDependency><documentation humanName="Documentation" mode="standard">SAX2 extension helper for additional Attributes information,
+implementing the {@link Attributes2} interface.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is not part of core-only SAX2 distributions.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;specified&lt;/em&gt; flag for each attribute will always
+be true, unless it has been set to false in the copy constructor
+or using {@link #setSpecified}.
+Similarly, the &lt;em&gt;declared&lt;/em&gt; flag for each attribute will
+always be false, except for defaulted attributes (&lt;em&gt;specified&lt;/em&gt;
+is false), non-CDATA attributes, or when it is set to true using
+{@link #setDeclared}.
+If you change an attribute's type by hand, you may need to modify
+its &lt;em&gt;declared&lt;/em&gt; flag to match.
+&lt;/p&gt;
+
+@since SAX 2.0 (extensions 1.1 alpha)
+@author David Brownell
+@version TBS
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322900_315287_15722"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::ext::Attributes2Impl -&gt; JDK 5.0 Classes::org::xml::sax::ext::Attributes2]" refid="_10_5_622020d_1132928322900_585640_15721"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Attributes2Impl</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="ext" refid="_9_5_f720368_1110473548862_398139_27643"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314678_514973_9014"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322900_315287_15722"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314678_514973_9014"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::ext::Attributes2Impl -&gt; JDK 5.0 Classes::org::xml::sax::ext::Attributes2]" refid="_10_5_622020d_1132928322900_585640_15721"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="ext" refid="_9_5_f720368_1110473548862_398139_27643"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="ext" refid="_9_5_f720368_1110473548862_398139_27643"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="ext" refid="_9_5_f720368_1110473548862_398139_27643"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::xml::sax::ext::Attributes2Impl</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Attributes2" refid="_10_5_622020d_1132928314668_22422_9009"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AttributesImpl" refid="_9_5_f720368_1110473546940_675049_13258"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

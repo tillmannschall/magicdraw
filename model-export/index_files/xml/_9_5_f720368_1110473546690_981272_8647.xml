@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_981272_8647"><documentation humanName="Documentation" mode="standard">A subclass of RuleBasedBreakIterator that adds the ability to use a dictionary
+to further subdivide ranges of text beyond what is possible using just the
+state-table-based algorithm.  This is necessary, for example, to handle
+word and line breaking in Thai, which doesn't use spaces between words.  The
+state-table-based algorithm used by RuleBasedBreakIterator is used to divide
+up text as far as possible, and then contiguous ranges of letters are
+repeatedly compared against a list of known words (i.e., the dictionary)
+to divide them up into words.
+
+DictionaryBasedBreakIterator uses the same rule language as RuleBasedBreakIterator,
+but adds one more special substitution name: &lt;dictionary&gt;.  This substitution
+name is used to identify characters in words in the dictionary.  The idea is that
+if the iterator passes over a chunk of text that includes two or more characters
+in a row that are included in &lt;dictionary&gt;, it goes back through that range and
+derives additional break positions (if possible) using the dictionary.
+
+DictionaryBasedBreakIterator is also constructed with the filename of a dictionary
+file.  It follows a prescribed search path to locate the dictionary (right now,
+it looks for it in /com/ibm/text/resources in each directory in the classpath,
+and won't find it in JAR files, but this location is likely to change).  The
+dictionary file is in a serialized binary format.  We have a very primitive (and
+slow) BuildDictionaryFile utility for creating dictionary files, but aren't
+currently making it public.  Contact us for help.
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321959_871433_14291"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BreakIteratorCache" refid="_9_5_f720368_1110473547768_864118_18917"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SafeCharIterator" refid="_9_5_f720368_1110473547784_23251_18973"/></inheritedMember><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BreakIteratorCache" refid="_9_5_f720368_1110473547768_864118_18917"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SafeCharIterator" refid="_9_5_f720368_1110473547784_23251_18973"/></member><name humanName="Name" mode="s,e">DictionaryBasedBreakIterator</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309701_665852_6245"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321959_871433_14291"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309701_665852_6245"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::text::DictionaryBasedBreakIterator</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RuleBasedBreakIterator" refid="_9_5_f720368_1110473546690_897998_8677"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

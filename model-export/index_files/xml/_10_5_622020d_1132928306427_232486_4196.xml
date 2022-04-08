@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306427_232486_4196"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlowLayout" refid="_9_5_f720368_1110473546581_577142_7005"/></annotatedElement><body humanName="Body" mode="s,e">A flow layout arranges components in a directional flow, much
+like lines of text in a paragraph. The flow direction is
+determined by the container's &lt;code&gt;componentOrientation&lt;/code&gt;
+property and may be one of two values:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ComponentOrientation.LEFT_TO_RIGHT&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;ComponentOrientation.RIGHT_TO_LEFT&lt;/code&gt;
+&lt;/ul&gt;
+Flow layouts are typically used
+to arrange buttons in a panel. It arranges buttons
+horizontally until no more buttons fit on the same line.
+The line alignment is determined by the &lt;code&gt;align&lt;/code&gt;
+property. The possible values are:
+&lt;ul&gt;
+&lt;li&gt;{@link #LEFT LEFT}
+&lt;li&gt;{@link #RIGHT RIGHT}
+&lt;li&gt;{@link #CENTER CENTER}
+&lt;li&gt;{@link #LEADING LEADING}
+&lt;li&gt;{@link #TRAILING TRAILING}
+&lt;/ul&gt;
+&lt;p&gt;
+For example, the following picture shows an applet using the flow
+layout manager (its default layout manager) to position three buttons:
+&lt;p&gt;
+&lt;img src="doc-files/FlowLayout-1.gif"
+ALT="Graphic of Layout for Three Buttons"
+ALIGN=center HSPACE=10 VSPACE=7&gt;
+&lt;p&gt;
+Here is the code for this applet:
+&lt;p&gt;
+&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+import java.awt.*;
+import java.applet.Applet;
+
+public class myButtons extends Applet {
+Button button1, button2, button3;
+public void init() {
+button1 = new Button("Ok");
+button2 = new Button("Open");
+button3 = new Button("Close");
+add(button1);
+add(button2);
+add(button3);
+}
+}
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+A flow layout lets each component assume its natural (preferred) size.
+
+@version 	1.52, 12/19/03
+@author 	Arthur van Hoff
+@author 	Sami Shaio
+@since       JDK1.0
+@see ComponentOrientation
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FlowLayout" refid="_9_5_f720368_1110473546581_577142_7005"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlowLayout" refid="_9_5_f720368_1110473546581_577142_7005"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546768_950180_10093"><documentation humanName="Documentation" mode="standard">Implements the Java look and feel (codename: Metal).
+&lt;p&gt;
+By default metal uses bold fonts for many controls.  To make all
+controls (with the exception of the internal frame title bars and
+client decorated frame title bars) use plain fonts you can do either of
+the following:
+&lt;ul&gt;
+&lt;li&gt;Set the system property &lt;code&gt;swing.boldMetal&lt;/code&gt; to
+&lt;code&gt;false&lt;/code&gt;.  For example,
+&lt;code&gt;java&amp;nbsp;-Dswing.boldMetal=false&amp;nbsp;MyApp&lt;/code&gt;.
+&lt;li&gt;Set the defaults property &lt;code&gt;swing.boldMetal&lt;/code&gt; to
+&lt;code&gt;Boolean.FALSE&lt;/code&gt;.  For example:
+&lt;code&gt;UIManager.put("swing.boldMetal",&amp;nbsp;Boolean.FALSE);&lt;/code&gt;
+&lt;/ul&gt;
+The defaults property &lt;code&gt;swing.boldMetal&lt;/code&gt;, if set,
+takes precendence over the system property of the same name. After
+setting this defaults property you need to re-install the
+&lt;code&gt;MetalLookAndFeel&lt;/code&gt;, as well as update the UI
+of any previously created widgets. Otherwise the results are undefined.
+These lines of code show you how to accomplish this:
+&lt;pre&gt;
+turn off bold fonts
+UIManager.put("swing.boldMetal", Boolean.FALSE);
+
+re-install the Metal Look and Feel
+UIManager.setLookAndFeel(new MetalLookAndFeel());
+
+only needed to update existing widgets
+SwingUtilities.updateComponentTreeUI(rootComponent);
+&lt;/pre&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version @(#)MetalLookAndFeel.java	1.182 04/04/02
+@author Steve Wilson
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323671_634134_17380"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AudioAction" refid="_9_5_f720368_1110473548159_939076_21371"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PopupInvocationHelper" refid="_10_5_622020d_1132928317112_687896_11051"/></inheritedMember><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AudioAction" refid="_9_5_f720368_1110473548159_939076_21371"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FontActiveValue" refid="_9_5_f720368_1110473548237_426598_22352"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetalLazyValue" refid="_9_5_f720368_1110473548237_748477_22349"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PopupInvocationHelper" refid="_10_5_622020d_1132928317112_687896_11051"/></member><name humanName="Name" mode="s,e">MetalLookAndFeel</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="metal" refid="_9_5_f720368_1110473548221_574138_22176"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FontActiveValue" refid="_9_5_f720368_1110473548237_426598_22352"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetalLazyValue" refid="_9_5_f720368_1110473548237_748477_22349"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317202_601321_11325"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323671_634134_17380"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317202_601321_11325"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FontActiveValue" refid="_9_5_f720368_1110473548237_426598_22352"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetalLazyValue" refid="_9_5_f720368_1110473548237_748477_22349"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FontActiveValue" refid="_9_5_f720368_1110473548237_426598_22352"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetalLazyValue" refid="_9_5_f720368_1110473548237_748477_22349"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="metal" refid="_9_5_f720368_1110473548221_574138_22176"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="metal" refid="_9_5_f720368_1110473548221_574138_22176"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="metal" refid="_9_5_f720368_1110473548221_574138_22176"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::plaf::metal::MetalLookAndFeel</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BasicLookAndFeel" refid="_9_5_f720368_1110473546753_258542_9979"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

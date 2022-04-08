@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314338_872354_8738"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DocumentCSS" refid="_9_5_f720368_1110473546940_50163_13054"/></annotatedElement><body humanName="Body" mode="s,e">This interface represents a document with a CSS view.
+&lt;p&gt; The &lt;code&gt;getOverrideStyle&lt;/code&gt; method provides a mechanism through
+which a DOM author could effect immediate change to the style of an
+element without modifying the explicitly linked style sheets of a
+document or the inline style of elements in the style sheets. This style
+sheet comes after the author style sheet in the cascade algorithm and is
+called override style sheet. The override style sheet takes precedence
+over author style sheets. An "!important" declaration still takes
+precedence over a normal declaration. Override, author, and user style
+sheets all may contain "!important" declarations. User "!important" rules
+take precedence over both override and author "!important" rules, and
+override "!important" rules take precedence over author "!important"
+rules.
+&lt;p&gt; The expectation is that an instance of the &lt;code&gt;DocumentCSS&lt;/code&gt;
+interface can be obtained by using binding-specific casting methods on an
+instance of the &lt;code&gt;Document&lt;/code&gt; interface.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/REC-DOM-Level-2-Style-20001113'&gt;Document Object Model (DOM) Level 2 Style Specification&lt;/a&gt;.
+@since DOM Level 2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DocumentCSS" refid="_9_5_f720368_1110473546940_50163_13054"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DocumentCSS" refid="_9_5_f720368_1110473546940_50163_13054"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546956_743013_13310"><documentation humanName="Documentation" mode="standard">Interface for reading an XML document using callbacks.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; despite its name, this interface does
+&lt;em&gt;not&lt;/em&gt; extend the standard Java {@link java.io.Reader Reader}
+interface, because reading XML is a fundamentally different activity
+than reading character data.&lt;/p&gt;
+
+&lt;p&gt;XMLReader is the interface that an XML parser's SAX2 driver must
+implement.  This interface allows an application to set and
+query features and properties in the parser, to register
+event handlers for document processing, and to initiate
+a document parse.&lt;/p&gt;
+
+&lt;p&gt;All SAX interfaces are assumed to be synchronous: the
+{@link #parse parse} methods must not return until parsing
+is complete, and readers must wait for an event-handler callback
+to return before reporting the next event.&lt;/p&gt;
+
+&lt;p&gt;This interface replaces the (now deprecated) SAX 1.0 {@link
+org.xml.sax.Parser Parser} interface.  The XMLReader interface
+contains two important enhancements over the old Parser
+interface (as well as some minor ones):&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;it adds a standard way to query and set features and
+properties; and&lt;/li&gt;
+&lt;li&gt;it adds Namespace support, which is required for many
+higher-level XML standards.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;There are adapters available to convert a SAX1 Parser to
+a SAX2 XMLReader and vice-versa.&lt;/p&gt;
+
+@since SAX 2.0
+@author David Megginson
+@version 2.0.1+ (sax2r3pre1)
+@see org.xml.sax.XMLFilter
+@see org.xml.sax.helpers.ParserAdapter
+@see org.xml.sax.helpers.XMLReaderAdapter
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">XMLReader</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314749_582915_9089"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314749_582915_9089"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::xml::sax::XMLReader</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::helpers::ParserAdapter -&gt; JDK 5.0 Classes::org::xml::sax::XMLReader]" refid="_10_5_622020d_1132928322900_972031_15738"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

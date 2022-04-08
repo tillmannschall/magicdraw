@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314869_717346_9259"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ImageReadParam" refid="_9_5_f720368_1110473546706_761625_9101"/></annotatedElement><body humanName="Body" mode="s,e">A class describing how a stream is to be decoded.  Instances of
+this class or its subclasses are used to supply prescriptive
+"how-to" information to instances of &lt;code&gt;ImageReader&lt;/code&gt;.
+
+&lt;p&gt; An image encoded as part of a file or stream may be thought of
+extending out in multiple dimensions: the spatial dimensions of
+width and height, a number of bands, and a number of progressive
+decoding passes.  This class allows a contiguous (hyper)rectangular
+subarea of the image in all of these dimensions to be selected for
+decoding.  Additionally, the spatial dimensions may be subsampled
+discontinuously.  Finally, color and format conversions may be
+specified by controlling the &lt;code&gt;ColorModel&lt;/code&gt; and
+&lt;code&gt;SampleModel&lt;/code&gt; of the destination image, either by
+providing a &lt;code&gt;BufferedImage&lt;/code&gt; or by using an
+&lt;code&gt;ImageTypeSpecifier&lt;/code&gt;.
+
+&lt;p&gt; An &lt;code&gt;ImageReadParam&lt;/code&gt; object is used to specify how an
+image, or a set of images, will be converted on input from
+a stream in the context of the Java Image I/O framework.  A plug-in for a
+specific image format will return instances of
+&lt;code&gt;ImageReadParam&lt;/code&gt; from the
+&lt;code&gt;getDefaultReadParam&lt;/code&gt; method of its
+&lt;code&gt;ImageReader&lt;/code&gt; implementation.
+
+&lt;p&gt; The state maintained by an instance of
+&lt;code&gt;ImageReadParam&lt;/code&gt; is independent of any particular image
+being decoded.  When actual decoding takes place, the values set in
+the read param are combined with the actual properties of the image
+being decoded from the stream and the destination
+&lt;code&gt;BufferedImage&lt;/code&gt; that will receive the decoded pixel
+data.  For example, the source region set using
+&lt;code&gt;setSourceRegion&lt;/code&gt; will first be intersected with the
+actual valid source area.  The result will be translated by the
+value returned by &lt;code&gt;getDestinationOffset&lt;/code&gt;, and the
+resulting rectangle intersected with the actual valid destination
+area to yield the destination area that will be written.
+
+&lt;p&gt; The parameters specified by an &lt;code&gt;ImageReadParam&lt;/code&gt; are
+applied to an image as follows.  First, if a rendering size has
+been set by &lt;code&gt;setSourceRenderSize&lt;/code&gt;, the entire decoded
+image is rendered at the size given by
+&lt;code&gt;getSourceRenderSize&lt;/code&gt;.  Otherwise, the image has its
+natural size given by &lt;code&gt;ImageReader.getWidth&lt;/code&gt; and
+&lt;code&gt;ImageReader.getHeight&lt;/code&gt;.
+
+&lt;p&gt; Next, the image is clipped against the source region
+specified by &lt;code&gt;getSourceXOffset&lt;/code&gt;, &lt;code&gt;getSourceYOffset&lt;/code&gt;,
+&lt;code&gt;getSourceWidth&lt;/code&gt;, and &lt;code&gt;getSourceHeight&lt;/code&gt;.
+
+&lt;p&gt; The resulting region is then subsampled according to the
+factors given in {@link IIOParam#setSourceSubsampling
+&lt;code&gt;IIOParam.setSourceSubsampling&lt;/code&gt;}.  The first pixel,
+the number of pixels per row, and the number of rows all depend
+on the subsampling settings.
+Call the minimum X and Y coordinates of the resulting rectangle
+(&lt;code&gt;minX&lt;/code&gt;, &lt;code&gt;minY&lt;/code&gt;), its width &lt;code&gt;w&lt;/code&gt;
+and its height &lt;code&gt;h&lt;/code&gt;.
+
+&lt;p&gt; This rectangle is offset by
+(&lt;code&gt;getDestinationOffset().x&lt;/code&gt;,
+&lt;code&gt;getDestinationOffset().y&lt;/code&gt;) and clipped against the
+destination bounds.  If no destination image has been set, the
+destination is defined to have a width of
+&lt;code&gt;getDestinationOffset().x&lt;/code&gt; + &lt;code&gt;w&lt;/code&gt;, and a
+height of &lt;code&gt;getDestinationOffset().y&lt;/code&gt; + &lt;code&gt;h&lt;/code&gt; so
+that all pixels of the source region may be written to the
+destination.
+
+&lt;p&gt; Pixels that land, after subsampling, within the destination
+image, and that are written in one of the progressive passes
+specified by &lt;code&gt;getSourceMinProgressivePass&lt;/code&gt; and
+&lt;code&gt;getSourceNumProgressivePasses&lt;/code&gt; are passed along to the
+next step.
+
+&lt;p&gt; Finally, the source samples of each pixel are mapped into
+destination bands according to the algorithm described in the
+comment for &lt;code&gt;setDestinationBands&lt;/code&gt;.
+
+&lt;p&gt; Plug-in writers may extend the functionality of
+&lt;code&gt;ImageReadParam&lt;/code&gt; by providing a subclass that implements
+additional, plug-in specific interfaces.  It is up to the plug-in
+to document what interfaces are available and how they are to be
+used.  Readers will silently ignore any extended features of an
+&lt;code&gt;ImageReadParam&lt;/code&gt; subclass of which they are not aware.
+Also, they may ignore any optional features that they normally
+disable when creating their own &lt;code&gt;ImageReadParam&lt;/code&gt;
+instances via &lt;code&gt;getDefaultReadParam&lt;/code&gt;.
+
+&lt;p&gt; Note that unless a query method exists for a capability, it must
+be supported by all &lt;code&gt;ImageReader&lt;/code&gt; implementations
+(&lt;i&gt;e.g.&lt;/i&gt; source render size is optional, but subsampling must be
+supported).
+
+@version 0.5
+
+@see ImageReader
+@see ImageWriter
+@see ImageWriteParam
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ImageReadParam" refid="_9_5_f720368_1110473546706_761625_9101"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ImageReadParam" refid="_9_5_f720368_1110473546706_761625_9101"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

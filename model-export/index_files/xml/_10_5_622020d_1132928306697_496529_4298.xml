@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306697_496529_4298"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Paint" refid="_9_5_f720368_1110473546581_558071_7091"/></annotatedElement><body humanName="Body" mode="s,e">This &lt;code&gt;Paint&lt;/code&gt; interface defines how color patterns
+can be generated for {@link Graphics2D} operations.  A class
+implementing the &lt;code&gt;Paint&lt;/code&gt; interface is added to the
+&lt;code&gt;Graphics2D&lt;/code&gt; context in order to define the color
+pattern used by the &lt;code&gt;draw&lt;/code&gt; and &lt;code&gt;fill&lt;/code&gt; methods.
+&lt;p&gt;
+Instances of classes implementing &lt;code&gt;Paint&lt;/code&gt; must be
+read-only because the &lt;code&gt;Graphics2D&lt;/code&gt; does not clone
+these objects when they are set as an attribute with the
+&lt;code&gt;setPaint&lt;/code&gt; method or when the &lt;code&gt;Graphics2D&lt;/code&gt;
+object is itself cloned.
+@see PaintContext
+@see Color
+@see GradientPaint
+@see TexturePaint
+@see Graphics2D#setPaint
+@version 1.27, 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Paint" refid="_9_5_f720368_1110473546581_558071_7091"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Paint" refid="_9_5_f720368_1110473546581_558071_7091"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316131_374452_10528"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SaslException" refid="_10_5_622020d_1132928316131_289746_10526"/></annotatedElement><body humanName="Body" mode="s,e">This class represents an error that has occurred when using SASL.
+
+@since 1.5
+
+@author Rosanna Lee
+@author Rob Weltman
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SaslException" refid="_10_5_622020d_1132928316131_289746_10526"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SaslException" refid="_10_5_622020d_1132928316131_289746_10526"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

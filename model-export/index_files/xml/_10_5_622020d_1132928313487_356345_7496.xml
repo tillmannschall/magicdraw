@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313487_356345_7496"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TooManyListenersException" refid="_9_5_f720368_1110473546706_572374_8941"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;
+The &lt;code&gt; TooManyListenersException &lt;/code&gt; Exception is used as part of
+the Java Event model to annotate and implement a unicast special case of
+a multicast Event Source.
+&lt;/p&gt;
+&lt;p&gt;
+The presence of a "throws TooManyListenersException" clause on any given
+concrete implementation of the normally multicast "void addXyzEventListener"
+event listener registration pattern is used to annotate that interface as
+implementing a unicast Listener special case, that is, that one and only
+one Listener may be registered on the particular event listener source
+concurrently.
+&lt;/p&gt;
+
+@see java.util.EventObject
+@see java.util.EventListener
+
+@version 1.13 03/12/19
+@author Laurence P. G. Cable
+@since  JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="TooManyListenersException" refid="_9_5_f720368_1110473546706_572374_8941"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TooManyListenersException" refid="_9_5_f720368_1110473546706_572374_8941"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306377_432346_4132"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTCheckboxMenuItem" refid="_9_5_f720368_1110473547378_144168_16923"/></annotatedElement><body humanName="Body" mode="s,e">Inner class of CheckboxMenuItem used to provide default support for
+accessibility.  This class is not meant to be used directly by
+application developers, but is instead meant only to be
+subclassed by menu component developers.
+&lt;p&gt;
+This class implements accessibility support for the
+&lt;code&gt;CheckboxMenuItem&lt;/code&gt; class.  It provides an implementation
+of the Java Accessibility API appropriate to checkbox menu item
+user-interface elements.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AccessibleAWTCheckboxMenuItem" refid="_9_5_f720368_1110473547378_144168_16923"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTCheckboxMenuItem" refid="_9_5_f720368_1110473547378_144168_16923"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

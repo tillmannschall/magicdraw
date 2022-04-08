@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308940_924406_5630"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ExportException" refid="_9_5_f720368_1110473546674_10883_8163"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;ExportException&lt;/code&gt; is a &lt;code&gt;RemoteException&lt;/code&gt;
+thrown if an attempt to export a remote object fails.  A remote object is
+exported via the constructors and &lt;code&gt;exportObject&lt;/code&gt; methods of
+&lt;code&gt;java.rmi.server.UnicastRemoteObject&lt;/code&gt; and
+&lt;code&gt;java.rmi.activation.Activatable&lt;/code&gt;.
+
+@version 1.12, 12/19/03
+@author  Ann Wollrath
+@since   JDK1.1
+@see java.rmi.server.UnicastRemoteObject
+@see java.rmi.activation.Activatable
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ExportException" refid="_9_5_f720368_1110473546674_10883_8163"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ExportException" refid="_9_5_f720368_1110473546674_10883_8163"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

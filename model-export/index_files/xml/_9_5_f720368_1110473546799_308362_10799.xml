@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546799_308362_10799"><documentation humanName="Documentation" mode="standard">A KeyStroke represents a key action on the keyboard, or equivalent input
+device. KeyStrokes can correspond to only a press or release of a particular
+key, just as KEY_PRESSED and KEY_RELEASED KeyEvents do; alternately, they
+can correspond to typing a specific Java character, just as KEY_TYPED
+KeyEvents do. In all cases, KeyStrokes can specify modifiers (alt, shift,
+control, meta, or a combination thereof) which must be present during the
+action for an exact match.
+&lt;p&gt;
+KeyStrokes are used to define high-level (semantic) action events. Instead
+of trapping every keystroke and throwing away the ones you are not
+interested in, those keystrokes you care about automatically initiate
+actions on the Components with which they are registered.
+&lt;p&gt;
+KeyStrokes are immutable, and are intended to be unique. Client code cannot
+create a KeyStroke; a variant of &lt;code&gt;getKeyStroke&lt;/code&gt; must be used
+instead. These factory methods allow the KeyStroke implementation to cache
+and share instances efficiently.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see javax.swing.text.Keymap
+@see #getKeyStroke
+
+@version 1.49, 05/18/04
+@author Arnaud Weber
+@author David Mendenhall
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928324152_732768_18613"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">KeyStroke</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318183_557130_12577"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928324152_732768_18613"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318183_557130_12577"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::KeyStroke</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTKeyStroke" refid="_9_5_f720368_1110473546581_370402_6937"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

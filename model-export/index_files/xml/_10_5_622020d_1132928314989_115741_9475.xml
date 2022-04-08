@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314989_115741_9475"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RelationNotification" refid="_10_5_622020d_1132928314989_991696_9473"/></annotatedElement><body humanName="Body" mode="s,e">A notification of a change in the Relation Service.
+A RelationNotification notification is sent when a relation is created via
+the Relation Service, or an MBean is added as a relation in the Relation
+Service, or a role is updated in a relation, or a relation is removed from
+the Relation Service.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RelationNotification" refid="_10_5_622020d_1132928314989_991696_9473"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RelationNotification" refid="_10_5_622020d_1132928314989_991696_9473"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

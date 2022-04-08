@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308560_739971_5349"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="URI" refid="_9_5_f720368_1110473546643_114173_7835"/></annotatedElement><body humanName="Body" mode="s,e">Represents a Uniform Resource Identifier (URI) reference.
+
+&lt;p&gt; Aside from some minor deviations noted below, an instance of this
+class represents a URI reference as defined by
+&lt;a href="http://www.ietf.org/rfc/rfc2396.txt""&gt;&lt;i&gt;RFC&amp;nbsp;2396: Uniform
+Resource Identifiers (URI): Generic Syntax&lt;/i&gt;&lt;/a&gt;, amended by &lt;a
+href="http://www.ietf.org/rfc/rfc2732.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2732: Format for
+Literal IPv6 Addresses in URLs&lt;/i&gt;&lt;/a&gt;. The Literal IPv6 address format
+also supports scope_ids. The syntax and usage of scope_ids is described
+&lt;a href="Inet6Address.html#scoped"&gt;here&lt;/a&gt;.
+This class provides constructors for creating URI instances from
+their components or by parsing their string forms, methods for accessing the
+various components of an instance, and methods for normalizing, resolving,
+and relativizing URI instances.  Instances of this class are immutable.
+
+
+&lt;h4&gt; URI syntax and components &lt;/h4&gt;
+
+At the highest level a URI reference (hereinafter simply "URI") in string
+form has the syntax
+
+&lt;blockquote&gt;
+[&lt;i&gt;scheme&lt;/i&gt;&lt;tt&gt;&lt;b&gt;:&lt;/b&gt;&lt;/tt&gt;&lt;i&gt;&lt;/i&gt;]&lt;i&gt;scheme-specific-part&lt;/i&gt;[&lt;tt&gt;&lt;b&gt;#&lt;/b&gt;&lt;/tt&gt;&lt;i&gt;fragment&lt;/i&gt;]
+&lt;/blockquote&gt;
+
+where square brackets [...] delineate optional components and the characters
+&lt;tt&gt;&lt;b&gt;:&lt;/b&gt;&lt;/tt&gt; and &lt;tt&gt;&lt;b&gt;#&lt;/b&gt;&lt;/tt&gt; stand for themselves.
+
+&lt;p&gt; An &lt;i&gt;absolute&lt;/i&gt; URI specifies a scheme; a URI that is not absolute is
+said to be &lt;i&gt;relative&lt;/i&gt;.  URIs are also classified according to whether
+they are &lt;i&gt;opaque&lt;/i&gt; or &lt;i&gt;hierarchical&lt;/i&gt;.
+
+&lt;p&gt; An &lt;i&gt;opaque&lt;/i&gt; URI is an absolute URI whose scheme-specific part does
+not begin with a slash character (&lt;tt&gt;'/'&lt;/tt&gt;).  Opaque URIs are not
+subject to further parsing.  Some examples of opaque URIs are:
+
+&lt;blockquote&gt;&lt;table cellpadding=0 cellspacing=0 summary="layout"&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt&gt;mailto:java-net@java.sun.com&lt;/tt&gt;&lt;td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt&gt;news:comp.lang.java&lt;/tt&gt;&lt;td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;tt&gt;urn:isbn:096139210x&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; A &lt;i&gt;hierarchical&lt;/i&gt; URI is either an absolute URI whose
+scheme-specific part begins with a slash character, or a relative URI, that
+is, a URI that does not specify a scheme.  Some examples of hierarchical
+URIs are:
+
+&lt;blockquote&gt;
+&lt;tt&gt;http://java.sun.com/j2se/1.3/&lt;/tt&gt;&lt;br&gt;
+&lt;tt&gt;docs/guide/collections/designfaq.html#28&lt;/tt&gt;&lt;br&gt;
+&lt;tt&gt;../../../demo/jfc/SwingSet2/src/SwingSet2.java&lt;/tt&gt;&lt;br&gt;
+&lt;tt&gt;file:///~/calendar&lt;/tt&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt; A hierarchical URI is subject to further parsing according to the syntax
+
+&lt;blockquote&gt;
+[&lt;i&gt;scheme&lt;/i&gt;&lt;tt&gt;&lt;b&gt;:&lt;/b&gt;&lt;/tt&gt;][&lt;tt&gt;&lt;b&gt;//&lt;/b&gt;&lt;/tt&gt;&lt;i&gt;authority&lt;/i&gt;][&lt;i&gt;path&lt;/i&gt;][&lt;tt&gt;&lt;b&gt;?&lt;/b&gt;&lt;/tt&gt;&lt;i&gt;query&lt;/i&gt;][&lt;tt&gt;&lt;b&gt;#&lt;/b&gt;&lt;/tt&gt;&lt;i&gt;fragment&lt;/i&gt;]
+&lt;/blockquote&gt;
+
+where the characters &lt;tt&gt;&lt;b&gt;:&lt;/b&gt;&lt;/tt&gt;, &lt;tt&gt;&lt;b&gt;/&lt;/b&gt;&lt;/tt&gt;,
+&lt;tt&gt;&lt;b&gt;?&lt;/b&gt;&lt;/tt&gt;, and &lt;tt&gt;&lt;b&gt;#&lt;/b&gt;&lt;/tt&gt; stand for themselves.  The
+scheme-specific part of a hierarchical URI consists of the characters
+between the scheme and fragment components.
+
+&lt;p&gt; The authority component of a hierarchical URI is, if specified, either
+&lt;i&gt;server-based&lt;/i&gt; or &lt;i&gt;registry-based&lt;/i&gt;.  A server-based authority
+parses according to the familiar syntax
+
+&lt;blockquote&gt;
+[&lt;i&gt;user-info&lt;/i&gt;&lt;tt&gt;&lt;b&gt;@&lt;/b&gt;&lt;/tt&gt;]&lt;i&gt;host&lt;/i&gt;[&lt;tt&gt;&lt;b&gt;:&lt;/b&gt;&lt;/tt&gt;&lt;i&gt;port&lt;/i&gt;]
+&lt;/blockquote&gt;
+
+where the characters &lt;tt&gt;&lt;b&gt;@&lt;/b&gt;&lt;/tt&gt; and &lt;tt&gt;&lt;b&gt;:&lt;/b&gt;&lt;/tt&gt; stand for
+themselves.  Nearly all URI schemes currently in use are server-based.  An
+authority component that does not parse in this way is considered to be
+registry-based.
+
+&lt;p&gt; The path component of a hierarchical URI is itself said to be absolute
+if it begins with a slash character (&lt;tt&gt;'/'&lt;/tt&gt;); otherwise it is
+relative.  The path of a hierarchical URI that is either absolute or
+specifies an authority is always absolute.
+
+&lt;p&gt; All told, then, a URI instance has the following nine components:
+
+&lt;blockquote&gt;&lt;table summary="Describes the components of a URI:scheme,scheme-specific-part,authority,user-info,host,port,path,query,fragment"&gt;
+&lt;tr&gt;&lt;th&gt;&lt;i&gt;Component&lt;/i&gt;&lt;/th&gt;&lt;th&gt;&lt;i&gt;Type&lt;/i&gt;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;scheme&lt;/td&gt;&lt;td&gt;&lt;tt&gt;String&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;scheme-specific-part&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;td&gt;&lt;tt&gt;String&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;authority&lt;/td&gt;&lt;td&gt;&lt;tt&gt;String&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;user-info&lt;/td&gt;&lt;td&gt;&lt;tt&gt;String&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;host&lt;/td&gt;&lt;td&gt;&lt;tt&gt;String&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;port&lt;/td&gt;&lt;td&gt;&lt;tt&gt;int&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;path&lt;/td&gt;&lt;td&gt;&lt;tt&gt;String&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;query&lt;/td&gt;&lt;td&gt;&lt;tt&gt;String&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;fragment&lt;/td&gt;&lt;td&gt;&lt;tt&gt;String&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/blockquote&gt;
+
+In a given instance any particular component is either &lt;i&gt;undefined&lt;/i&gt; or
+&lt;i&gt;defined&lt;/i&gt; with a distinct value.  Undefined string components are
+represented by &lt;tt&gt;null&lt;/tt&gt;, while undefined integer components are
+represented by &lt;tt&gt;-1&lt;/tt&gt;.  A string component may be defined to have the
+empty string as its value; this is not equivalent to that component being
+undefined.
+
+&lt;p&gt; Whether a particular component is or is not defined in an instance
+depends upon the type of the URI being represented.  An absolute URI has a
+scheme component.  An opaque URI has a scheme, a scheme-specific part, and
+possibly a fragment, but has no other components.  A hierarchical URI always
+has a path (though it may be empty) and a scheme-specific-part (which at
+least contains the path), and may have any of the other components.  If the
+authority component is present and is server-based then the host component
+will be defined and the user-information and port components may be defined.
+
+
+&lt;h4&gt; Operations on URI instances &lt;/h4&gt;
+
+The key operations supported by this class are those of
+&lt;i&gt;normalization&lt;/i&gt;, &lt;i&gt;resolution&lt;/i&gt;, and &lt;i&gt;relativization&lt;/i&gt;.
+
+&lt;p&gt; &lt;i&gt;Normalization&lt;/i&gt; is the process of removing unnecessary &lt;tt&gt;"."&lt;/tt&gt;
+and &lt;tt&gt;".."&lt;/tt&gt; segments from the path component of a hierarchical URI.
+Each &lt;tt&gt;"."&lt;/tt&gt; segment is simply removed.  A &lt;tt&gt;".."&lt;/tt&gt; segment is
+removed only if it is preceded by a non-&lt;tt&gt;".."&lt;/tt&gt; segment.
+Normalization has no effect upon opaque URIs.
+
+&lt;p&gt; &lt;i&gt;Resolution&lt;/i&gt; is the process of resolving one URI against another,
+&lt;i&gt;base&lt;/i&gt; URI.  The resulting URI is constructed from components of both
+URIs in the manner specified by RFC&amp;nbsp;2396, taking components from the
+base URI for those not specified in the original.  For hierarchical URIs,
+the path of the original is resolved against the path of the base and then
+normalized.  The result, for example, of resolving
+
+&lt;blockquote&gt;
+&lt;tt&gt;docs/guide/collections/designfaq.html#28&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/tt&gt;(1)
+&lt;/blockquote&gt;
+
+against the base URI &lt;tt&gt;http://java.sun.com/j2se/1.3/&lt;/tt&gt; is the result
+URI
+
+&lt;blockquote&gt;
+&lt;tt&gt;http://java.sun.com/j2se/1.3/docs/guide/collections/designfaq.html#28&lt;/tt&gt;
+&lt;/blockquote&gt;
+
+Resolving the relative URI
+
+&lt;blockquote&gt;
+&lt;tt&gt;../../../demo/jfc/SwingSet2/src/SwingSet2.java&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/tt&gt;(2)
+&lt;/blockquote&gt;
+
+against this result yields, in turn,
+
+&lt;blockquote&gt;
+&lt;tt&gt;http://java.sun.com/j2se/1.3/demo/jfc/SwingSet2/src/SwingSet2.java&lt;/tt&gt;
+&lt;/blockquote&gt;
+
+Resolution of both absolute and relative URIs, and of both absolute and
+relative paths in the case of hierarchical URIs, is supported.  Resolving
+the URI &lt;tt&gt;file:///~calendar&lt;/tt&gt; against any other URI simply yields the
+original URI, since it is absolute.  Resolving the relative URI (2) above
+against the relative base URI (1) yields the normalized, but still relative,
+URI
+
+&lt;blockquote&gt;
+&lt;tt&gt;demo/jfc/SwingSet2/src/SwingSet2.java&lt;/tt&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt; &lt;i&gt;Relativization&lt;/i&gt;, finally, is the inverse of resolution: For any
+two normalized URIs &lt;i&gt;u&lt;/i&gt; and&amp;nbsp;&lt;i&gt;v&lt;/i&gt;,
+
+&lt;blockquote&gt;
+&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.relativize(&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.resolve(&lt;/tt&gt;&lt;i&gt;v&lt;/i&gt;&lt;tt&gt;)).equals(&lt;/tt&gt;&lt;i&gt;v&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;&amp;nbsp;&amp;nbsp;and&lt;br&gt;
+&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.resolve(&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.relativize(&lt;/tt&gt;&lt;i&gt;v&lt;/i&gt;&lt;tt&gt;)).equals(&lt;/tt&gt;&lt;i&gt;v&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;&amp;nbsp;&amp;nbsp;.&lt;br&gt;
+&lt;/blockquote&gt;
+
+This operation is often useful when constructing a document containing URIs
+that must be made relative to the base URI of the document wherever
+possible.  For example, relativizing the URI
+
+&lt;blockquote&gt;
+&lt;tt&gt;http://java.sun.com/j2se/1.3/docs/guide/index.html&lt;/tt&gt;
+&lt;/blockquote&gt;
+
+against the base URI
+
+&lt;blockquote&gt;
+&lt;tt&gt;http://java.sun.com/j2se/1.3&lt;/tt&gt;
+&lt;/blockquote&gt;
+
+yields the relative URI &lt;tt&gt;docs/guide/index.html&lt;/tt&gt;.
+
+
+&lt;h4&gt; Character categories &lt;/h4&gt;
+
+RFC&amp;nbsp;2396 specifies precisely which characters are permitted in the
+various components of a URI reference.  The following categories, most of
+which are taken from that specification, are used below to describe these
+constraints:
+
+&lt;blockquote&gt;&lt;table cellspacing=2 summary="Describes categories alpha,digit,alphanum,unreserved,punct,reserved,escaped,and other"&gt;
+&lt;tr&gt;&lt;th valign=top&gt;&lt;i&gt;alpha&lt;/i&gt;&lt;/th&gt;
+&lt;td&gt;The US-ASCII alphabetic characters,
+&lt;tt&gt;'A'&lt;/tt&gt;&amp;nbsp;through&amp;nbsp;&lt;tt&gt;'Z'&lt;/tt&gt;
+and &lt;tt&gt;'a'&lt;/tt&gt;&amp;nbsp;through&amp;nbsp;&lt;tt&gt;'z'&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th valign=top&gt;&lt;i&gt;digit&lt;/i&gt;&lt;/th&gt;
+&lt;td&gt;The US-ASCII decimal digit characters,
+&lt;tt&gt;'0'&lt;/tt&gt;&amp;nbsp;through&amp;nbsp;&lt;tt&gt;'9'&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th valign=top&gt;&lt;i&gt;alphanum&lt;/i&gt;&lt;/th&gt;
+&lt;td&gt;All &lt;i&gt;alpha&lt;/i&gt; and &lt;i&gt;digit&lt;/i&gt; characters&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th valign=top&gt;&lt;i&gt;unreserved&lt;/i&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;td&gt;All &lt;i&gt;alphanum&lt;/i&gt; characters together with those in the string
+&lt;tt&gt;"_-!.~'()*"&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th valign=top&gt;&lt;i&gt;punct&lt;/i&gt;&lt;/th&gt;
+&lt;td&gt;The characters in the string &lt;tt&gt;",;:$&amp;+="&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th valign=top&gt;&lt;i&gt;reserved&lt;/i&gt;&lt;/th&gt;
+&lt;td&gt;All &lt;i&gt;punct&lt;/i&gt; characters together with those in the string
+&lt;tt&gt;"?/[]@"&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th valign=top&gt;&lt;i&gt;escaped&lt;/i&gt;&lt;/th&gt;
+&lt;td&gt;Escaped octets, that is, triplets consisting of the percent
+character (&lt;tt&gt;'%'&lt;/tt&gt;) followed by two hexadecimal digits
+(&lt;tt&gt;'0'&lt;/tt&gt;-&lt;tt&gt;'9'&lt;/tt&gt;, &lt;tt&gt;'A'&lt;/tt&gt;-&lt;tt&gt;'F'&lt;/tt&gt;, and
+&lt;tt&gt;'a'&lt;/tt&gt;-&lt;tt&gt;'f'&lt;/tt&gt;)&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th valign=top&gt;&lt;i&gt;other&lt;/i&gt;&lt;/th&gt;
+&lt;td&gt;The Unicode characters that are not in the US-ASCII character set,
+are not control characters (according to the {@link
+java.lang.Character#isISOControl(char) Character.isISOControl}
+method), and are not space characters (according to the {@link
+java.lang.Character#isSpaceChar(char) Character.isSpaceChar}
+method)&amp;nbsp;&amp;nbsp;&lt;i&gt;(&lt;b&gt;Deviation from RFC 2396&lt;/b&gt;, which is
+limited to US-ASCII)&lt;/i&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a name="legal-chars"&gt;&lt;/a&gt; The set of all legal URI characters consists of
+the &lt;i&gt;unreserved&lt;/i&gt;, &lt;i&gt;reserved&lt;/i&gt;, &lt;i&gt;escaped&lt;/i&gt;, and &lt;i&gt;other&lt;/i&gt;
+characters.
+
+
+&lt;h4&gt; Escaped octets, quotation, encoding, and decoding &lt;/h4&gt;
+
+RFC 2396 allows escaped octets to appear in the user-info, path, query, and
+fragment components.  Escaping serves two purposes in URIs:
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; To &lt;i&gt;encode&lt;/i&gt; non-US-ASCII characters when a URI is required to
+conform strictly to RFC&amp;nbsp;2396 by not containing any &lt;i&gt;other&lt;/i&gt;
+characters.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; To &lt;i&gt;quote&lt;/i&gt; characters that are otherwise illegal in a
+component.  The user-info, path, query, and fragment components differ
+slightly in terms of which characters are considered legal and illegal.
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+These purposes are served in this class by three related operations:
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a name="encode"&gt;&lt;/a&gt; A character is &lt;i&gt;encoded&lt;/i&gt; by replacing it
+with the sequence of escaped octets that represent that character in the
+UTF-8 character set.  The Euro currency symbol (&lt;tt&gt;'&amp;#92;u20AC'&lt;/tt&gt;),
+for example, is encoded as &lt;tt&gt;"%E2%82%AC"&lt;/tt&gt;.  &lt;i&gt;(&lt;b&gt;Deviation from
+RFC&amp;nbsp;2396&lt;/b&gt;, which does not specify any particular character
+set.)&lt;/i&gt; &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a name="quote"&gt;&lt;/a&gt; An illegal character is &lt;i&gt;quoted&lt;/i&gt; simply by
+encoding it.  The space character, for example, is quoted by replacing it
+with &lt;tt&gt;"%20"&lt;/tt&gt;.  UTF-8 contains US-ASCII, hence for US-ASCII
+characters this transformation has exactly the effect required by
+RFC&amp;nbsp;2396. &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a name="decode"&gt;&lt;/a&gt;
+A sequence of escaped octets is &lt;i&gt;decoded&lt;/i&gt; by
+replacing it with the sequence of characters that it represents in the
+UTF-8 character set.  UTF-8 contains US-ASCII, hence decoding has the
+effect of de-quoting any quoted US-ASCII characters as well as that of
+decoding any encoded non-US-ASCII characters.  If a &lt;a
+href="../nio/charset/CharsetDecoder.html#ce"&gt;decoding error&lt;/a&gt; occurs
+when decoding the escaped octets then the erroneous octets are replaced by
+&lt;tt&gt;'&amp;#92;uFFFD'&lt;/tt&gt;, the Unicode replacement character.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+These operations are exposed in the constructors and methods of this class
+as follows:
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; The {@link #URI(java.lang.String) &lt;code&gt;single-argument
+constructor&lt;/code&gt;} requires any illegal characters in its argument to be
+quoted and preserves any escaped octets and &lt;i&gt;other&lt;/i&gt; characters that
+are present.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The {@link
+#URI(java.lang.String,java.lang.String,java.lang.String,int,java.lang.String,java.lang.String,java.lang.String)
+&lt;code&gt;multi-argument constructors&lt;/code&gt;} quote illegal characters as
+required by the components in which they appear.  The percent character
+(&lt;tt&gt;'%'&lt;/tt&gt;) is always quoted by these constructors.  Any &lt;i&gt;other&lt;/i&gt;
+characters are preserved.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The {@link #getRawUserInfo() getRawUserInfo}, {@link #getRawPath()
+getRawPath}, {@link #getRawQuery() getRawQuery}, {@link #getRawFragment()
+getRawFragment}, {@link #getRawAuthority() getRawAuthority}, and {@link
+#getRawSchemeSpecificPart() getRawSchemeSpecificPart} methods return the
+values of their corresponding components in raw form, without interpreting
+any escaped octets.  The strings returned by these methods may contain
+both escaped octets and &lt;i&gt;other&lt;/i&gt; characters, and will not contain any
+illegal characters.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The {@link #getUserInfo() getUserInfo}, {@link #getPath()
+getPath}, {@link #getQuery() getQuery}, {@link #getFragment()
+getFragment}, {@link #getAuthority() getAuthority}, and {@link
+#getSchemeSpecificPart() getSchemeSpecificPart} methods decode any escaped
+octets in their corresponding components.  The strings returned by these
+methods may contain both &lt;i&gt;other&lt;/i&gt; characters and illegal characters,
+and will not contain any escaped octets.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The {@link #toString() toString} method returns a URI string with
+all necessary quotation but which may contain &lt;i&gt;other&lt;/i&gt; characters.
+&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; The {@link #toASCIIString() toASCIIString} method returns a fully
+quoted and encoded URI string that does not contain any &lt;i&gt;other&lt;/i&gt;
+characters.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+
+&lt;h4&gt; Identities &lt;/h4&gt;
+
+For any URI &lt;i&gt;u&lt;/i&gt;, it is always the case that
+
+&lt;blockquote&gt;
+&lt;tt&gt;new URI(&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.toString()).equals(&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;&amp;nbsp;.
+&lt;/blockquote&gt;
+
+For any URI &lt;i&gt;u&lt;/i&gt; that does not contain redundant syntax such as two
+slashes before an empty authority (as in &lt;tt&gt;file:///tmp/&lt;/tt&gt;&amp;nbsp;) or a
+colon following a host name but no port (as in
+&lt;tt&gt;http://java.sun.com:&lt;/tt&gt;&amp;nbsp;), and that does not encode characters
+except those that must be quoted, the following identities also hold:
+
+&lt;blockquote&gt;
+&lt;tt&gt;new URI(&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getScheme(),&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getSchemeSpecificPart(),&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getFragment())&lt;br&gt;
+.equals(&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;
+&lt;/blockquote&gt;
+
+in all cases,
+
+&lt;blockquote&gt;
+&lt;tt&gt;new URI(&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getScheme(),&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getUserInfo(),&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getAuthority(),&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getPath(),&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getQuery(),&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getFragment())&lt;br&gt;
+.equals(&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;
+&lt;/blockquote&gt;
+
+if &lt;i&gt;u&lt;/i&gt; is hierarchical, and
+
+&lt;blockquote&gt;
+&lt;tt&gt;new URI(&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getScheme(),&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getUserInfo(),&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getHost(),&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getPort(),&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getPath(),&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getQuery(),&lt;br&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;.getFragment())&lt;br&gt;
+.equals(&lt;/tt&gt;&lt;i&gt;u&lt;/i&gt;&lt;tt&gt;)&lt;/tt&gt;
+&lt;/blockquote&gt;
+
+if &lt;i&gt;u&lt;/i&gt; is hierarchical and has either no authority or a server-based
+authority.
+
+
+&lt;h4&gt; URIs, URLs, and URNs &lt;/h4&gt;
+
+A URI is a uniform resource &lt;i&gt;identifier&lt;/i&gt; while a URL is a uniform
+resource &lt;i&gt;locator&lt;/i&gt;.  Hence every URL is a URI, abstractly speaking, but
+not every URI is a URL.  This is because there is another subcategory of
+URIs, uniform resource &lt;i&gt;names&lt;/i&gt; (URNs), which name resources but do not
+specify how to locate them.  The &lt;tt&gt;mailto&lt;/tt&gt;, &lt;tt&gt;news&lt;/tt&gt;, and
+&lt;tt&gt;isbn&lt;/tt&gt; URIs shown above are examples of URNs.
+
+&lt;p&gt; The conceptual distinction between URIs and URLs is reflected in the
+differences between this class and the {@link URL} class.
+
+&lt;p&gt; An instance of this class represents a URI reference in the syntactic
+sense defined by RFC&amp;nbsp;2396.  A URI may be either absolute or relative.
+A URI string is parsed according to the generic syntax without regard to the
+scheme, if any, that it specifies.  No lookup of the host, if any, is
+performed, and no scheme-dependent stream handler is constructed.  Equality,
+hashing, and comparison are defined strictly in terms of the character
+content of the instance.  In other words, a URI instance is little more than
+a structured string that supports the syntactic, scheme-independent
+operations of comparison, normalization, resolution, and relativization.
+
+&lt;p&gt; An instance of the {@link URL} class, by contrast, represents the
+syntactic components of a URL together with some of the information required
+to access the resource that it describes.  A URL must be absolute, that is,
+it must always specify a scheme.  A URL string is parsed according to its
+scheme.  A stream handler is always established for a URL, and in fact it is
+impossible to create a URL instance for a scheme for which no handler is
+available.  Equality and hashing depend upon both the scheme and the
+Internet address of the host, if any; comparison is not defined.  In other
+words, a URL is a structured string that supports the syntactic operation of
+resolution as well as the network I/O operations of looking up the host and
+opening a connection to the specified resource.
+
+
+@version 1.39, 04/05/05
+@author Mark Reinhold
+@since 1.4
+
+@see &lt;a href="http://ietf.org/rfc/rfc2279.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2279: UTF-8, a
+transformation format of ISO 10646&lt;/i&gt;&lt;/a&gt;, &lt;br&gt;&lt;a
+href="http://www.ietf.org/rfc/rfc2373.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2373: IPv6 Addressing
+Architecture&lt;/i&gt;&lt;/a&gt;, &lt;br&gt;&lt;a
+href="http://www.ietf.org/rfc/rfc2396.txt""&gt;&lt;i&gt;RFC&amp;nbsp;2396: Uniform
+Resource Identifiers (URI): Generic Syntax&lt;/i&gt;&lt;/a&gt;, &lt;br&gt;&lt;a
+href="http://www.ietf.org/rfc/rfc2732.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2732: Format for
+Literal IPv6 Addresses in URLs&lt;/i&gt;&lt;/a&gt;, &lt;br&gt;&lt;a
+href="URISyntaxException.html"&gt;URISyntaxException&lt;/a&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="URI" refid="_9_5_f720368_1110473546643_114173_7835"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="URI" refid="_9_5_f720368_1110473546643_114173_7835"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

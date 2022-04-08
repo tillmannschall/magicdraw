@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308169_637362_5168"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SuppressWarnings" refid="_10_5_622020d_1132928308169_974030_5162"/></annotatedElement><body humanName="Body" mode="s,e">Indicates that the named compiler warnings should be suppressed in the
+annotated element (and in all program elements contained in the annotated
+element).  Note that the set of warnings suppressed in a given element is
+a superset of the warnings suppressed in all containing elements.  For
+example, if you annotate a class to suppress one warning and annotate a
+method to suppress another, both warnings will be suppressed in the method.
+
+&lt;p&gt;As a matter of style, programmers should always use this annotation
+on the most deeply nested element where it is effective.  If you want to
+suppress a warning in a particular method, you should annotate that
+method rather than its class.
+
+@since 1.5
+@author Josh Bloch
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="SuppressWarnings" refid="_10_5_622020d_1132928308169_974030_5162"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SuppressWarnings" refid="_10_5_622020d_1132928308169_974030_5162"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

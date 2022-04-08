@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315760_613118_10247"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Sides" refid="_9_5_f720368_1110473546737_935844_9439"/></annotatedElement><body humanName="Body" mode="s,e">Class Sides is a printing attribute class, an enumeration, that specifies
+how print-stream pages are to be imposed upon the sides of an instance of a
+selected medium, i.e., an impression.
+&lt;P&gt;
+The effect of a Sides attribute on a multidoc print job (a job with multiple
+documents) depends on whether all the docs have the same sides values
+specified or whether different docs have different sides values specified,
+and on the (perhaps defaulted) value of the {@link MultipleDocumentHandling
+MultipleDocumentHandling} attribute.
+&lt;UL&gt;
+&lt;LI&gt;
+If all the docs have the same sides value &lt;I&gt;n&lt;/I&gt; specified, then any value
+of {@link MultipleDocumentHandling MultipleDocumentHandling} makes sense,
+and the printer's processing depends on the {@link MultipleDocumentHandling
+MultipleDocumentHandling} value:
+&lt;UL&gt;
+&lt;LI&gt;
+SINGLE_DOCUMENT -- All the input docs will be combined together into one
+output document. Each media sheet will consist of &lt;I&gt;n&lt;/I&gt; impressions from
+the output document.
+&lt;P&gt;
+&lt;LI&gt;
+SINGLE_DOCUMENT_NEW_SHEET -- All the input docs will be combined together
+into one output document. Each media sheet will consist of &lt;I&gt;n&lt;/I&gt;
+impressions from the output document. However, the first impression of each
+input doc will always start on a new media sheet; this means the last media
+sheet of an input doc may have only one impression on it.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_UNCOLLATED_COPIES -- The input docs will remain separate.
+Each media sheet will consist of &lt;I&gt;n&lt;/I&gt; impressions from the input doc.
+Since the input docs are separate, the first impression of each input doc
+will always start on a new media sheet; this means the last media sheet of
+an input doc may have only one impression on it.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_COLLATED_COPIES -- The input docs will remain separate.
+Each media sheet will consist of &lt;I&gt;n&lt;/I&gt; impressions from the input doc.
+Since the input docs are separate, the first impression of each input doc
+will always start on a new media sheet; this means the last media sheet of
+an input doc may have only one impression on it.
+&lt;/UL&gt;
+&lt;P&gt;
+&lt;UL&gt;
+&lt;LI&gt;
+SINGLE_DOCUMENT -- All the input docs will be combined together into one
+output document. Each media sheet will consist of &lt;I&gt;n&lt;SUB&gt;i&lt;/SUB&gt;&lt;/I&gt;
+impressions from the output document, where &lt;I&gt;i&lt;/I&gt; is the number of the
+input doc corresponding to that point in the output document. When the next
+input doc has a different sides value from the previous input doc, the first
+print-stream page of the next input doc goes at the start of the next media
+sheet, possibly leaving only one impression on the previous media sheet.
+&lt;P&gt;
+&lt;LI&gt;
+SINGLE_DOCUMENT_NEW_SHEET -- All the input docs will be combined together
+into one output document. Each media sheet will consist of &lt;I&gt;n&lt;/I&gt;
+impressions from the output document. However, the first impression of each
+input doc will always start on a new media sheet; this means the last
+impression of an input doc may have only one impression on it.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_UNCOLLATED_COPIES -- The input docs will remain separate.
+For input doc &lt;I&gt;i,&lt;/I&gt; each media sheet will consist of &lt;I&gt;n&lt;SUB&gt;i&lt;/SUB&gt;&lt;/I&gt;
+impressions from the input doc. Since the input docs are separate, the first
+impression of each input doc will always start on a new media sheet; this
+means the last media sheet of an input doc may have only one impression on
+it.
+&lt;P&gt;
+&lt;LI&gt;
+SEPARATE_DOCUMENTS_COLLATED_COPIES -- The input docs will remain separate.
+For input doc &lt;I&gt;i,&lt;/I&gt; each media sheet will consist of &lt;I&gt;n&lt;SUB&gt;i&lt;/SUB&gt;&lt;/I&gt;
+impressions from the input doc. Since the input docs are separate, the first
+impression of each input doc will always start on a new media sheet; this
+means the last media sheet of an input doc may have only one impression on
+it.
+&lt;/UL&gt;
+&lt;/UL&gt;
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; is the IPP attribute name.  The enumeration's
+integer value is the IPP enum value.  The &lt;code&gt;toString()&lt;/code&gt; method
+returns the IPP string representation of the attribute value.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Sides" refid="_9_5_f720368_1110473546737_935844_9439"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Sides" refid="_9_5_f720368_1110473546737_935844_9439"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

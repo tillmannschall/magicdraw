@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316131_618628_10522"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SaslClient" refid="_10_5_622020d_1132928316131_592267_10520"/></annotatedElement><body humanName="Body" mode="s,e">Performs SASL authentication as a client.
+&lt;p&gt;
+A protocol library such as one for LDAP gets an instance of this
+class in order to perform authentication defined by a specific SASL
+mechanism. Invoking methods on the &lt;tt&gt;SaslClient&lt;/tt&gt; instance
+process challenges and create responses according to the SASL
+mechanism implemented by the &lt;tt&gt;SaslClient&lt;/tt&gt;.
+As the authentication proceeds, the instance
+encapsulates the state of a SASL client's authentication exchange.
+&lt;p&gt;
+Here's an example of how an LDAP library might use a &lt;tt&gt;SaslClient&lt;/tt&gt;.
+It first gets an instance of a &lt;tt&gt;SaslClient&lt;/tt&gt;:
+&lt;blockquote&gt;&lt;pre&gt;
+SaslClient sc = Sasl.createSaslClient(mechanisms,
+authorizationId, protocol, serverName, props, callbackHandler);
+&lt;/pre&gt;&lt;/blockquote&gt;
+It can then proceed to use the client for authentication.
+For example, an LDAP library might use the client as follows:
+&lt;blockquote&gt;&lt;pre&gt;
+Get initial response and send to server
+byte[] response = (sc.hasInitialResponse() ? sc.evaluateChallenge(new byte[0]) :
+null);
+LdapResult res = ldap.sendBindRequest(dn, sc.getName(), response);
+while (!sc.isComplete() &amp;&amp;
+(res.status == SASL_BIND_IN_PROGRESS || res.status == SUCCESS)) {
+response = sc.evaluateChallenge(res.getBytes());
+if (res.status == SUCCESS) {
+we're done; don't expect to send another BIND
+if (response != null) {
+throw new SaslException(
+"Protocol error: attempting to send response after completion");
+}
+break;
+}
+res = ldap.sendBindRequest(dn, sc.getName(), response);
+}
+if (sc.isComplete() &amp;&amp; res.status == SUCCESS) {
+String qop = (String) sc.getNegotiatedProperty(Sasl.QOP);
+if (qop != null
+&amp;&amp; (qop.equalsIgnoreCase("auth-int")
+|| qop.equalsIgnoreCase("auth-conf"))) {
+
+Use SaslClient.wrap() and SaslClient.unwrap() for future
+communication with server
+ldap.in = new SecureInputStream(sc, ldap.in);
+ldap.out = new SecureOutputStream(sc, ldap.out);
+}
+}
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+If the mechanism has an initial response, the library invokes
+&lt;tt&gt;evaluateChallenge()&lt;/tt&gt; with an empty
+challenge and to get initial response.
+Protocols such as IMAP4, which do not include an initial response with
+their first authentication command to the server, initiates the
+authentication without first calling &lt;tt&gt;hasInitialResponse()&lt;/tt&gt;
+or &lt;tt&gt;evaluateChallenge()&lt;/tt&gt;.
+When the server responds to the command, it sends an initial challenge.
+For a SASL mechanism in which the client sends data first, the server should
+have issued a challenge with no data. This will then result in a call
+(on the client) to &lt;tt&gt;evaluateChallenge()&lt;/tt&gt; with an empty challenge.
+
+@since 1.5
+
+@see Sasl
+@see SaslClientFactory
+
+@author Rosanna Lee
+@author Rob Weltman
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="SaslClient" refid="_10_5_622020d_1132928316131_592267_10520"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SaslClient" refid="_10_5_622020d_1132928316131_592267_10520"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

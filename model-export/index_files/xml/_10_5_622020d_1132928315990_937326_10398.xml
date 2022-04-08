@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315990_937326_10398"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SslRMIClientSocketFactory" refid="_10_5_622020d_1132928315990_663329_10396"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;An &lt;code&gt;SslRMIClientSocketFactory&lt;/code&gt; instance is used by the RMI
+runtime in order to obtain client sockets for RMI calls via SSL.&lt;/p&gt;
+
+&lt;p&gt;This class implements &lt;code&gt;RMIClientSocketFactory&lt;/code&gt; over
+the Secure Sockets Layer (SSL) or Transport Layer Security (TLS)
+protocols.&lt;/p&gt;
+
+&lt;p&gt;This class creates SSL sockets using the default
+&lt;code&gt;SSLSocketFactory&lt;/code&gt; (see {@link
+SSLSocketFactory#getDefault}).  All instances of this class are
+functionally equivalent.  In particular, they all share the same
+truststore, and the same keystore when client authentication is
+required by the server.  This behavior can be modified in
+subclasses by overriding the {@link #createSocket(String,int)}
+method; in that case, {@link #equals(Object) equals} and {@link
+#hashCode() hashCode} may also need to be overridden.&lt;/p&gt;
+
+&lt;p&gt;If the system property
+&lt;code&gt;javax.rmi.ssl.client.enabledCipherSuites&lt;/code&gt; is specified,
+the {@link #createSocket(String,int)} method will call {@link
+SSLSocket#setEnabledCipherSuites(String[])} before returning the
+socket.  The value of this system property is a string that is a
+comma-separated list of SSL/TLS cipher suites to enable.&lt;/p&gt;
+
+&lt;p&gt;If the system property
+&lt;code&gt;javax.rmi.ssl.client.enabledProtocols&lt;/code&gt; is specified,
+the {@link #createSocket(String,int)} method will call {@link
+SSLSocket#setEnabledProtocols(String[])} before returning the
+socket.  The value of this system property is a string that is a
+comma-separated list of SSL/TLS protocol versions to enable.&lt;/p&gt;
+
+@see javax.net.ssl.SSLSocketFactory
+@see javax.rmi.ssl.SslRMIServerSocketFactory
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SslRMIClientSocketFactory" refid="_10_5_622020d_1132928315990_663329_10396"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SslRMIClientSocketFactory" refid="_10_5_622020d_1132928315990_663329_10396"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

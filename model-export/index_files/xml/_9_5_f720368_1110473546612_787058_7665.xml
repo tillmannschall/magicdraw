@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546612_787058_7665"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::lang::Package -&gt; JDK 5.0 Classes::java::lang::reflect::AnnotatedElement]" refid="_10_5_622020d_1132928321669_84165_13698"/></clientDependency><documentation humanName="Documentation" mode="standard">&lt;code&gt;Package&lt;/code&gt; objects contain version information
+about the implementation and specification of a Java package.
+This versioning information is retrieved and made available
+by the {@link ClassLoader &lt;code&gt;ClassLoader&lt;/code&gt;} instance that
+loaded the class(es).  Typically, it is stored in the manifest that is
+distributed with the classes.
+
+&lt;p&gt;The set of classes that make up the package may implement a
+particular specification and if so the specification title, version number,
+and vendor strings identify that specification.
+An application can ask if the package is
+compatible with a particular version, see the {@link #isCompatibleWith
+&lt;code&gt;isCompatibleWith&lt;/code&gt;} method for details.
+
+&lt;p&gt;Specification version numbers use a syntax that consists of positive
+decimal integers separated by periods ".", for example "2.0" or
+"1.2.3.4.5.6.7".  This allows an extensible number to be used to represent
+major, minor, micro, etc. versions.  The version specification is described
+by the following formal grammar:
+&lt;blockquote&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;i&gt;SpecificationVersion:
+&lt;dd&gt;Digits RefinedVersion&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt;
+&lt;p&gt;&lt;dt&gt;&lt;i&gt;RefinedVersion:&lt;/i&gt;
+&lt;dd&gt;&lt;code&gt;.&lt;/code&gt; &lt;i&gt;Digits&lt;/i&gt;
+&lt;dd&gt;&lt;code&gt;.&lt;/code&gt; &lt;i&gt;Digits RefinedVersion&lt;/i&gt;
+
+&lt;p&gt;&lt;dt&gt;&lt;i&gt;Digits:
+&lt;dd&gt;Digit
+&lt;dd&gt;Digits&lt;/i&gt;
+
+&lt;p&gt;&lt;dt&gt;&lt;i&gt;Digit:&lt;/i&gt;
+&lt;dd&gt;any character for which {@link Character#isDigit} returns &lt;code&gt;true&lt;/code&gt;,
+e.g. 0, 1, 2, ...
+&lt;/dl&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The implementation title, version, and vendor strings identify an
+implementation and are made available conveniently to enable accurate
+reporting of the packages involved when a problem occurs. The contents
+all three implementation strings are vendor specific. The
+implementation version strings have no specified syntax and should
+only be compared for equality with desired version identifiers.
+
+&lt;p&gt;Within each &lt;code&gt;ClassLoader&lt;/code&gt; instance all classes from the same
+java package have the same Package object.  The static methods allow a package
+to be found by name or the set of all packages known to the current class
+loader to be found.
+
+@see ClassLoader#definePackage
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::lang::Package -&gt; JDK 5.0 Classes::java::lang::reflect::AnnotatedElement]" refid="_10_5_622020d_1132928321669_84165_13698"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Package</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308049_542365_5109"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308049_542365_5109"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::lang::Package -&gt; JDK 5.0 Classes::java::lang::reflect::AnnotatedElement]" refid="_10_5_622020d_1132928321669_84165_13698"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::Package</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AnnotatedElement" refid="_10_5_622020d_1132928307779_179201_4867"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

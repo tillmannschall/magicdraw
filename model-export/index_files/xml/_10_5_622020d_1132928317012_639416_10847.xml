@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317012_639416_10847"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DocumentListener" refid="_9_5_f720368_1110473546753_81876_9845"/></annotatedElement><body humanName="Body" mode="s,e">Interface for an observer to register to receive notifications
+of changes to a text document.
+&lt;p&gt;
+The default implementation of
+the Document interface (AbstractDocument) supports asynchronous
+mutations.  If this feature is used (i.e. mutations are made
+from a thread other than the Swing event thread), the listeners
+will be notified via the mutating thread.  &lt;em&gt;This means that
+if asynchronous updates are made, the implementation of this
+interface must be threadsafe&lt;/em&gt;!
+&lt;p&gt;
+The DocumentEvent notification is based upon the JavaBeans
+event model.  There is no guarantee about the order of delivery
+to listeners, and all listeners must be notified prior to making
+further mutations to the Document.  &lt;em&gt;This means implementations
+of the DocumentListener may not mutate the source of the event
+(i.e. the associated Document)&lt;/em&gt;.
+
+@author  Timothy Prinzing
+@version 1.14 12/19/03
+@see javax.swing.text.Document
+@see javax.swing.text.StyledDocument
+@see DocumentEvent
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DocumentListener" refid="_9_5_f720368_1110473546753_81876_9845"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DocumentListener" refid="_9_5_f720368_1110473546753_81876_9845"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

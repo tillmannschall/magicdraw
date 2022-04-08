@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308159_21552_5152"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="String" refid="_9_5_f720368_1110473546612_692218_7691"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;String&lt;/code&gt; class represents character strings. All
+string literals in Java programs, such as &lt;code&gt;"abc"&lt;/code&gt;, are
+implemented as instances of this class.
+&lt;p&gt;
+Strings are constant; their values cannot be changed after they
+are created. String buffers support mutable strings.
+Because String objects are immutable they can be shared. For example:
+&lt;p&gt;&lt;blockquote&gt;&lt;pre&gt;
+String str = "abc";
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;p&gt;
+is equivalent to:
+&lt;p&gt;&lt;blockquote&gt;&lt;pre&gt;
+char data[] = {'a', 'b', 'c'};
+String str = new String(data);
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;p&gt;
+Here are some more examples of how strings can be used:
+&lt;p&gt;&lt;blockquote&gt;&lt;pre&gt;
+System.out.println("abc");
+String cde = "cde";
+System.out.println("abc" + cde);
+String c = "abc".substring(2,3);
+String d = cde.substring(1, 2);
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+The class &lt;code&gt;String&lt;/code&gt; includes methods for examining
+individual characters of the sequence, for comparing strings, for
+searching strings, for extracting substrings, and for creating a
+copy of a string with all characters translated to uppercase or to
+lowercase. Case mapping is based on the Unicode Standard version
+specified by the {@link java.lang.Character Character} class.
+&lt;p&gt;
+The Java language provides special support for the string
+concatenation operator (&amp;nbsp;+&amp;nbsp;), and for conversion of
+other objects to strings. String concatenation is implemented
+through the &lt;code&gt;StringBuilder&lt;/code&gt;(or &lt;code&gt;StringBuffer&lt;/code&gt;)
+class and its &lt;code&gt;append&lt;/code&gt; method.
+String conversions are implemented through the method
+&lt;code&gt;toString&lt;/code&gt;, defined by &lt;code&gt;Object&lt;/code&gt; and
+inherited by all classes in Java. For additional information on
+string concatenation and conversion, see Gosling, Joy, and Steele,
+&lt;i&gt;The Java Language Specification&lt;/i&gt;.
+
+&lt;p&gt; Unless otherwise noted, passing a &lt;tt&gt;null&lt;/tt&gt; argument to a constructor
+or method in this class will cause a {@link NullPointerException} to be
+thrown.
+
+&lt;p&gt;A &lt;code&gt;String&lt;/code&gt; represents a string in the UTF-16 format
+in which &lt;em&gt;supplementary characters&lt;/em&gt; are represented by &lt;em&gt;surrogate
+pairs&lt;/em&gt; (see the section &lt;a href="Character.html#unicode"&gt;Unicode
+Character Representations&lt;/a&gt; in the &lt;code&gt;Character&lt;/code&gt; class for
+more information).
+Index values refer to &lt;code&gt;char&lt;/code&gt; code units, so a supplementary
+character uses two positions in a &lt;code&gt;String&lt;/code&gt;.
+&lt;p&gt;The &lt;code&gt;String&lt;/code&gt; class provides methods for dealing with
+Unicode code points (i.e., characters), in addition to those for
+dealing with Unicode code units (i.e., &lt;code&gt;char&lt;/code&gt; values).
+
+@author  Lee Boynton
+@author  Arthur van Hoff
+@version 1.187, 07/13/04
+@see     java.lang.Object#toString()
+@see     java.lang.StringBuffer
+@see     java.lang.StringBuilder
+@see     java.nio.charset.Charset
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="String" refid="_9_5_f720368_1110473546612_692218_7691"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="String" refid="_9_5_f720368_1110473546612_692218_7691"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

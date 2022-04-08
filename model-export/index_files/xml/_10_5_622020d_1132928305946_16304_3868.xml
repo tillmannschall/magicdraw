@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305946_16304_3868"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Rectangle2D" refid="_9_5_f720368_1110473546565_189623_6705"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Rectangle2D&lt;/code&gt; class describes a rectangle
+defined by a location (x,&amp;nbsp;y) and dimension
+(w&amp;nbsp;x&amp;nbsp;h).
+&lt;p&gt;
+This class is only the abstract superclass for all objects that
+store a 2D rectangle.
+The actual storage representation of the coordinates is left to
+the subclass.
+
+@version 	1.29, 12/19/03
+@author	Jim Graham
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Rectangle2D" refid="_9_5_f720368_1110473546565_189623_6705"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Rectangle2D" refid="_9_5_f720368_1110473546565_189623_6705"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

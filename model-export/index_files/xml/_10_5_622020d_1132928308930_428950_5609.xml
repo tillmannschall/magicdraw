@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308930_428950_5609"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Activator" refid="_9_5_f720368_1110473546674_271572_8145"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Activator&lt;/code&gt; facilitates remote object activation. A
+"faulting" remote reference calls the activator's
+&lt;code&gt;activate&lt;/code&gt; method to obtain a "live" reference to a
+"activatable" remote object. Upon receiving a request for activation,
+the activator looks up the activation descriptor for the activation
+identifier, &lt;code&gt;id&lt;/code&gt;, determines the group in which the
+object should be activated initiates object re-creation via the
+group's &lt;code&gt;ActivationInstantiator&lt;/code&gt; (via a call to the
+&lt;code&gt;newInstance&lt;/code&gt; method). The activator initiates the
+execution of activation groups as necessary. For example, if an
+activation group for a specific group identifier is not already
+executing, the activator initiates the execution of a VM for the
+group. &lt;p&gt;
+
+The &lt;code&gt;Activator&lt;/code&gt; works closely with
+&lt;code&gt;ActivationSystem&lt;/code&gt;, which provides a means for registering
+groups and objects within those groups, and &lt;code&gt;ActivationMonitor&lt;/code&gt;,
+which recives information about active and inactive objects and inactive
+groups. &lt;p&gt;
+
+The activator is responsible for monitoring and detecting when
+activation groups fail so that it can remove stale remote references
+to groups and active object's within those groups.&lt;p&gt;
+
+@author 	Ann Wollrath
+@version	1.18, 12/19/03
+@see 	ActivationInstantiator
+@see		ActivationGroupDesc
+@see		ActivationGroupID
+@since 	1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Activator" refid="_9_5_f720368_1110473546674_271572_8145"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Activator" refid="_9_5_f720368_1110473546674_271572_8145"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

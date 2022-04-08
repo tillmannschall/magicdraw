@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305986_798565_3922"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BufferStrategy" refid="_9_5_f720368_1110473546565_412085_6757"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;BufferStrategy&lt;/code&gt; class represents the mechanism with which
+to organize complex memory on a particular &lt;code&gt;Canvas&lt;/code&gt; or
+&lt;code&gt;Window&lt;/code&gt;.  Hardware and software limitations determine whether and
+how a particular buffer strategy can be implemented.  These limitations
+are detectible through the capabilities of the
+&lt;code&gt;GraphicsConfiguration&lt;/code&gt; used when creating the
+&lt;code&gt;Canvas&lt;/code&gt; or &lt;code&gt;Window&lt;/code&gt;.
+&lt;p&gt;
+It is worth noting that the terms &lt;i&gt;buffer&lt;/i&gt; and &lt;i&gt;surface&lt;/i&gt; are meant
+to be synonymous: an area of contiguous memory, either in video device
+memory or in system memory.
+&lt;p&gt;
+There are several types of complex buffer strategies;
+sequential ring buffering, blit buffering, and stereo buffering are
+common types.  Sequential ring buffering (i.e., double or triple
+buffering) is the most common; an application draws to a single &lt;i&gt;back
+buffer&lt;/i&gt; and then moves the contents to the front (display) in a single
+step, either by copying the data or moving the video pointer.
+Moving the video pointer exchanges the buffers so that the first buffer
+drawn becomes the &lt;i&gt;front buffer&lt;/i&gt;, or what is currently displayed on the
+device; this is called &lt;i&gt;page flipping&lt;/i&gt;.
+&lt;p&gt;
+Alternatively, the contents of the back buffer can be copied, or
+&lt;i&gt;blitted&lt;/i&gt; forward in a chain instead of moving the video pointer.
+&lt;p&gt;
+&lt;pre&gt;
+Double buffering:
+
+
+------&gt;
+[To display] &lt;---- * Front B *   Show  * Back B. * &lt;---- Rendering
+&lt;------
+
+
+Triple buffering:
+
+[To
+display] *         * --------+---------+------&gt;
+&lt;---- * Front B *   Show  * Mid. B. *        * Back B. * &lt;---- Rendering
+&lt;------ *         * &lt;-----
+
+
+&lt;/pre&gt;
+&lt;p&gt;
+Stereo buffering is for hardware that supports rendering separate images for
+a left and right eye.  It is similar to sequential ring buffering, but
+there are two buffer chains, one for each eye.  Both buffer chains flip
+simultaneously:
+
+&lt;pre&gt;
+Stereo buffering:
+
+
+------&gt;
+[To left eye] &lt;---- * Front B *         * Back B. * &lt;---- Rendering
+&lt;------
+
+Show
+
+------&gt;
+[To right eye] &lt;--- * Front B *         * Back B. * &lt;---- Rendering
+&lt;------
+
+&lt;/pre&gt;
+&lt;p&gt;
+Here is an example of how buffer strategies can be created and used:
+&lt;pre&gt;&lt;code&gt;
+
+Check the capabilities of the GraphicsConfiguration
+...
+
+Create our component
+Window w = new Window(gc);
+
+Show our window
+w.setVisible(true);
+
+Create a general double-buffering strategy
+w.createBufferStrategy(2);
+BufferStrategy strategy = w.getBufferStrategy();
+
+Render loop
+while (!done) {
+Graphics g = strategy.getDrawGraphics();
+Draw to graphics
+...
+strategy.show();
+}
+
+Dispose the window
+w.setVisible(false);
+w.dispose();
+&lt;/code&gt;&lt;/pre&gt;
+
+@see java.awt.Component
+@see java.awt.GraphicsConfiguration
+@author Michael Martak
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="BufferStrategy" refid="_9_5_f720368_1110473546565_412085_6757"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BufferStrategy" refid="_9_5_f720368_1110473546565_412085_6757"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

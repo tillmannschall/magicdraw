@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309471_816112_6151"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BatchUpdateException" refid="_9_5_f720368_1110473546690_374708_8549"/></annotatedElement><body humanName="Body" mode="s,e">An exception thrown when an error
+occurs during a batch update operation.  In addition to the
+information provided by {@link SQLException}, a
+&lt;code&gt;BatchUpdateException&lt;/code&gt; provides the update
+counts for all commands that were executed successfully during the
+batch update, that is, all commands that were executed before the error
+occurred.  The order of elements in an array of update counts
+corresponds to the order in which commands were added to the batch.
+&lt;P&gt;
+After a command in a batch update fails to execute properly
+and a &lt;code&gt;BatchUpdateException&lt;/code&gt; is thrown, the driver
+may or may not continue to process the remaining commands in
+the batch.  If the driver continues processing after a failure,
+the array returned by the method
+&lt;code&gt;BatchUpdateException.getUpdateCounts&lt;/code&gt; will have
+an element for every command in the batch rather than only
+elements for the commands that executed successfully before
+the error.  In the case where the driver continues processing
+commands, the array element for any command
+that failed is &lt;code&gt;Statement.EXECUTE_FAILED&lt;/code&gt;.
+&lt;P&gt;
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BatchUpdateException" refid="_9_5_f720368_1110473546690_374708_8549"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BatchUpdateException" refid="_9_5_f720368_1110473546690_374708_8549"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

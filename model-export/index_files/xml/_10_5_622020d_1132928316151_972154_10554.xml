@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316151_972154_10554"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MidiChannel" refid="_9_5_f720368_1110473546737_201838_9661"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;MidiChannel&lt;/code&gt; object represents a single MIDI channel.
+Generally, each &lt;code&gt;MidiChannel&lt;/code&gt; method processes a like-named MIDI
+"channel voice" or "channel mode" message as defined by the MIDI specification. However,
+&lt;code&gt;MidiChannel&lt;/code&gt; adds some "get" methods  that retrieve the value
+most recently set by one of the standard MIDI channel messages.  Similarly,
+methods for per-channel solo and mute have been added.
+&lt;p&gt;
+A &lt;code&gt;{@link Synthesizer}&lt;/code&gt; object has a collection
+of &lt;code&gt;MidiChannels&lt;/code&gt;, usually one for each of the 16 channels
+prescribed by the MIDI 1.0 specification.  The &lt;code&gt;Synthesizer&lt;/code&gt;
+generates sound when its &lt;code&gt;MidiChannels&lt;/code&gt; receive
+&lt;code&gt;noteOn&lt;/code&gt; messages.
+&lt;p&gt;
+See the MIDI 1.0 Specification for more information about the prescribed
+behavior of the MIDI channel messages, which are not exhaustively
+documented here.  The specification is titled &lt;code&gt;MIDI Reference:
+The Complete MIDI 1.0 Detailed Specification&lt;/code&gt;, and is published by
+the MIDI Manufacturer's Association (&lt;a href = http://www.midi.org&gt;
+http://www.midi.org&lt;/a&gt;).
+&lt;p&gt;
+MIDI was originally a protocol for reporting the gestures of a keyboard
+musician.  This genesis is visible in the &lt;code&gt;MidiChannel&lt;/code&gt; API, which
+preserves such MIDI concepts as key number, key velocity, and key pressure.
+It should be understood that the MIDI data does not necessarily originate
+with a keyboard player (the source could be a different kind of musician, or
+software).  Some devices might generate constant values for velocity
+and pressure, regardless of how the note was performed.
+Also, the MIDI specification often leaves it up to the
+synthesizer to use the data in the way the implementor sees fit.  For
+example, velocity data need not always be mapped to volume and/or brightness.
+
+@see Synthesizer#getChannels
+
+@version 1.43, 04/22/04
+@author David Rivas
+@author Kara Kytle
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="MidiChannel" refid="_9_5_f720368_1110473546737_201838_9661"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MidiChannel" refid="_9_5_f720368_1110473546737_201838_9661"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309531_804763_6186"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SQLData" refid="_9_5_f720368_1110473546690_664158_8585"/></annotatedElement><body humanName="Body" mode="s,e">The interface used for the custom mapping of an SQL user-defined type (UDT) to
+a class in the Java programming language. The class object for a class
+implementing the &lt;code&gt;SQLData&lt;/code&gt; interface will be entered in the
+appropriate &lt;code&gt;Connection&lt;/code&gt; object's type map along with the SQL
+name of the UDT for which it is a custom mapping.
+&lt;P&gt;
+Typically, a &lt;code&gt;SQLData&lt;/code&gt; implementation
+will define a field for each attribute of an SQL structured type or a
+single field for an SQL &lt;code&gt;DISTINCT&lt;/code&gt; type. When the UDT is
+retrieved from a data source with the &lt;code&gt;ResultSet.getObject&lt;/code&gt;
+method, it will be mapped as an instance of this class.  A programmer
+can operate on this class instance just as on any other object in the
+Java programming language and then store any changes made to it by
+calling the &lt;code&gt;PreparedStatement.setObject&lt;/code&gt; method,
+which will map it back to the SQL type.
+&lt;p&gt;
+It is expected that the implementation of the class for a custom
+mapping will be done by a tool.  In a typical implementation, the
+programmer would simply supply the name of the SQL UDT, the name of
+the class to which it is being mapped, and the names of the fields to
+which each of the attributes of the UDT is to be mapped.  The tool will use
+this information to implement the &lt;code&gt;SQLData.readSQL&lt;/code&gt; and
+&lt;code&gt;SQLData.writeSQL&lt;/code&gt; methods.  The &lt;code&gt;readSQL&lt;/code&gt; method
+calls the appropriate &lt;code&gt;SQLInput&lt;/code&gt; methods to read
+each attribute from an &lt;code&gt;SQLInput&lt;/code&gt; object, and the
+&lt;code&gt;writeSQL&lt;/code&gt; method calls &lt;code&gt;SQLOutput&lt;/code&gt; methods
+to write each attribute back to the data source via an
+&lt;code&gt;SQLOutput&lt;/code&gt; object.
+&lt;P&gt;
+An application programmer will not normally call &lt;code&gt;SQLData&lt;/code&gt; methods
+directly, and the &lt;code&gt;SQLInput&lt;/code&gt; and &lt;code&gt;SQLOutput&lt;/code&gt; methods
+are called internally by &lt;code&gt;SQLData&lt;/code&gt; methods, not by application code.
+
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="SQLData" refid="_9_5_f720368_1110473546690_664158_8585"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="SQLData" refid="_9_5_f720368_1110473546690_664158_8585"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

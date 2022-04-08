@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_788523_6987"><documentation humanName="Documentation" mode="standard">A Dialog is a top-level window with a title and a border
+that is typically used to take some form of input from the user.
+
+The size of the dialog includes any area designated for the
+border.  The dimensions of the border area can be obtained
+using the &lt;code&gt;getInsets&lt;/code&gt; method, however, since
+these dimensions are platform-dependent, a valid insets
+value cannot be obtained until the dialog is made displayable
+by either calling &lt;code&gt;pack&lt;/code&gt; or &lt;code&gt;show&lt;/code&gt;.
+Since the border area is included in the overall size of the
+dialog, the border effectively obscures a portion of the dialog,
+constraining the area available for rendering and/or displaying
+subcomponents to the rectangle which has an upper-left corner
+location of &lt;code&gt;(insets.left, insets.top)&lt;/code&gt;, and has a size of
+&lt;code&gt;width - (insets.left + insets.right)&lt;/code&gt; by
+&lt;code&gt;height - (insets.top + insets.bottom)&lt;/code&gt;.
+&lt;p&gt;
+The default layout for a dialog is &lt;code&gt;BorderLayout&lt;/code&gt;.
+&lt;p&gt;
+A dialog may have its native decorations (i.e. Frame &amp; Titlebar) turned off
+with &lt;code&gt;setUndecorated&lt;/code&gt;.  This can only be done while the dialog
+is not {@link Component#isDisplayable() displayable}.
+&lt;p&gt;
+A dialog must have either a frame or another dialog defined as its
+owner when it's constructed.  When the owner window of a visible dialog
+is minimized, the dialog will automatically be hidden
+from the user. When the owner window is subsequently restored,
+the dialog is made visible to the user again.
+&lt;p&gt;
+In a multi-screen environment, you can create a &lt;code&gt;Dialog&lt;/code&gt;
+on a different screen device than its owner.  See {@link java.awt.Frame} for
+more information.
+&lt;p&gt;
+A dialog can be either modeless (the default) or modal.  A modal
+dialog is one which blocks input to all other toplevel windows
+in the application, except for any windows created with the dialog
+as their owner.
+&lt;p&gt;
+Dialogs are capable of generating the following
+&lt;code&gt;WindowEvents&lt;/code&gt;:
+&lt;code&gt;WindowOpened&lt;/code&gt;, &lt;code&gt;WindowClosing&lt;/code&gt;,
+&lt;code&gt;WindowClosed&lt;/code&gt;, &lt;code&gt;WindowActivated&lt;/code&gt;,
+&lt;code&gt;WindowDeactivated&lt;/code&gt;, &lt;code&gt;WindowGainedFocus&lt;/code&gt;,
+&lt;code&gt;WindowLostFocus&lt;/code&gt;.
+
+@see WindowEvent
+@see Window#addWindowListener
+
+@version 	1.99, 05/18/04
+@author 	Sami Shaio
+@author 	Arthur van Hoff
+@since       JDK1.0
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321358_125799_13221"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleAWTComponent" refid="_9_5_f720368_1110473547378_128539_16940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTContainer" refid="_9_5_f720368_1110473547378_351073_16957"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTWindow" refid="_9_5_f720368_1110473547424_716093_17151"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTTreeLock" refid="_9_5_f720368_1110473547378_254209_16930"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BltBufferStrategy" refid="_9_5_f720368_1110473547378_697224_16934"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetEventTargetFilter" refid="_9_5_f720368_1110473547378_301053_16955"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="EventTargetFilter" refid="_9_5_f720368_1110473547378_222743_16951"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlipBufferStrategy" refid="_9_5_f720368_1110473547378_178907_16932"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MouseEventTargetFilter" refid="_9_5_f720368_1110473547378_805902_16953"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeInLightFixer" refid="_9_5_f720368_1110473547378_946319_16938"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SingleBufferStrategy" refid="_9_5_f720368_1110473547378_190538_16936"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WakingRunnable" refid="_10_5_622020d_1132928306387_890973_4158"/></inheritedMember><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleAWTComponent" refid="_9_5_f720368_1110473547378_128539_16940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTContainer" refid="_9_5_f720368_1110473547378_351073_16957"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTDialog" refid="_9_5_f720368_1110473547378_132383_16976"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTWindow" refid="_9_5_f720368_1110473547424_716093_17151"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTTreeLock" refid="_9_5_f720368_1110473547378_254209_16930"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BltBufferStrategy" refid="_9_5_f720368_1110473547378_697224_16934"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetEventTargetFilter" refid="_9_5_f720368_1110473547378_301053_16955"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="EventTargetFilter" refid="_9_5_f720368_1110473547378_222743_16951"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlipBufferStrategy" refid="_9_5_f720368_1110473547378_178907_16932"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MouseEventTargetFilter" refid="_9_5_f720368_1110473547378_805902_16953"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeInLightFixer" refid="_9_5_f720368_1110473547378_946319_16938"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SingleBufferStrategy" refid="_9_5_f720368_1110473547378_190538_16936"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WakingRunnable" refid="_9_5_f720368_1110473547378_457605_16974"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WakingRunnable" refid="_10_5_622020d_1132928306387_890973_4158"/></member><name humanName="Name" mode="s,e">Dialog</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTDialog" refid="_9_5_f720368_1110473547378_132383_16976"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WakingRunnable" refid="_9_5_f720368_1110473547378_457605_16974"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306407_625904_4178"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321358_125799_13221"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306407_625904_4178"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTDialog" refid="_9_5_f720368_1110473547378_132383_16976"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WakingRunnable" refid="_9_5_f720368_1110473547378_457605_16974"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTDialog" refid="_9_5_f720368_1110473547378_132383_16976"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WakingRunnable" refid="_9_5_f720368_1110473547378_457605_16974"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::Dialog</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Window" refid="_9_5_f720368_1110473546596_890326_7145"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317122_92439_11069"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ButtonAreaLayout" refid="_9_5_f720368_1110473548159_602338_21396"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;ButtonAreaLayout&lt;/code&gt; behaves in a similar manner to
+&lt;code&gt;FlowLayout&lt;/code&gt;. It lays out all components from left to
+right. If &lt;code&gt;syncAllWidths&lt;/code&gt; is true, the widths of each
+component will be set to the largest preferred size width.
+
+This inner class is marked "public" due to a compiler bug.
+This class should be treated as a "protected" inner class.
+Instantiate it only within subclasses of BasicOptionPaneUI.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ButtonAreaLayout" refid="_9_5_f720368_1110473548159_602338_21396"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ButtonAreaLayout" refid="_9_5_f720368_1110473548159_602338_21396"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313497_562247_7514"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TreeMap" refid="_9_5_f720368_1110473546706_182759_8943"/></annotatedElement><body humanName="Body" mode="s,e">Red-Black tree based implementation of the &lt;tt&gt;SortedMap&lt;/tt&gt; interface.
+This class guarantees that the map will be in ascending key order, sorted
+according to the &lt;i&gt;natural order&lt;/i&gt; for the key's class (see
+&lt;tt&gt;Comparable&lt;/tt&gt;), or by the comparator provided at creation time,
+depending on which constructor is used.&lt;p&gt;
+
+This implementation provides guaranteed log(n) time cost for the
+&lt;tt&gt;containsKey&lt;/tt&gt;, &lt;tt&gt;get&lt;/tt&gt;, &lt;tt&gt;put&lt;/tt&gt; and &lt;tt&gt;remove&lt;/tt&gt;
+operations.  Algorithms are adaptations of those in Cormen, Leiserson, and
+Rivest's &lt;I&gt;Introduction to Algorithms&lt;/I&gt;.&lt;p&gt;
+
+Note that the ordering maintained by a sorted map (whether or not an
+explicit comparator is provided) must be &lt;i&gt;consistent with equals&lt;/i&gt; if
+this sorted map is to correctly implement the &lt;tt&gt;Map&lt;/tt&gt; interface.  (See
+&lt;tt&gt;Comparable&lt;/tt&gt; or &lt;tt&gt;Comparator&lt;/tt&gt; for a precise definition of
+&lt;i&gt;consistent with equals&lt;/i&gt;.)  This is so because the &lt;tt&gt;Map&lt;/tt&gt;
+interface is defined in terms of the equals operation, but a map performs
+all key comparisons using its &lt;tt&gt;compareTo&lt;/tt&gt; (or &lt;tt&gt;compare&lt;/tt&gt;)
+method, so two keys that are deemed equal by this method are, from the
+standpoint of the sorted map, equal.  The behavior of a sorted map
+&lt;i&gt;is&lt;/i&gt; well-defined even if its ordering is inconsistent with equals; it
+just fails to obey the general contract of the &lt;tt&gt;Map&lt;/tt&gt; interface.&lt;p&gt;
+
+&lt;b&gt;Note that this implementation is not synchronized.&lt;/b&gt; If multiple
+threads access a map concurrently, and at least one of the threads modifies
+the map structurally, it &lt;i&gt;must&lt;/i&gt; be synchronized externally.  (A
+structural modification is any operation that adds or deletes one or more
+mappings; merely changing the value associated with an existing key is not
+a structural modification.)  This is typically accomplished by
+synchronizing on some object that naturally encapsulates the map.  If no
+such object exists, the map should be "wrapped" using the
+&lt;tt&gt;Collections.synchronizedMap&lt;/tt&gt; method.  This is best done at creation
+time, to prevent accidental unsynchronized access to the map:
+&lt;pre&gt;
+Map m = Collections.synchronizedMap(new TreeMap(...));
+&lt;/pre&gt;&lt;p&gt;
+
+The iterators returned by all of this class's "collection view methods" are
+&lt;i&gt;fail-fast&lt;/i&gt;: if the map is structurally modified at any time after the
+iterator is created, in any way except through the iterator's own
+&lt;tt&gt;remove&lt;/tt&gt; or &lt;tt&gt;add&lt;/tt&gt; methods, the iterator throws a
+&lt;tt&gt;ConcurrentModificationException&lt;/tt&gt;.  Thus, in the face of concurrent
+modification, the iterator fails quickly and cleanly, rather than risking
+arbitrary, non-deterministic behavior at an undetermined time in the
+future.
+
+&lt;p&gt;Note that the fail-fast behavior of an iterator cannot be guaranteed
+as it is, generally speaking, impossible to make any hard guarantees in the
+presence of unsynchronized concurrent modification.  Fail-fast iterators
+throw &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt; on a best-effort basis.
+Therefore, it would be wrong to write a program that depended on this
+exception for its correctness:   &lt;i&gt;the fail-fast behavior of iterators
+should be used only to detect bugs.&lt;/i&gt;&lt;p&gt;
+
+This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch and Doug Lea
+@version 1.65, 02/19/04
+@see Map
+@see HashMap
+@see Hashtable
+@see Comparable
+@see Comparator
+@see Collection
+@see Collections#synchronizedMap(Map)
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="TreeMap" refid="_9_5_f720368_1110473546706_182759_8943"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TreeMap" refid="_9_5_f720368_1110473546706_182759_8943"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

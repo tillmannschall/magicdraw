@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546643_279990_7769"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::net::InetAddress -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321719_298179_13795"/></clientDependency><documentation humanName="Documentation" mode="standard">This class represents an Internet Protocol (IP) address.
+
+&lt;p&gt; An IP address is either a 32-bit or 128-bit unsigned number
+used by IP, a lower-level protocol on which protocols like UDP and
+TCP are built. The IP address architecture is defined by &lt;a
+href="http://www.ietf.org/rfc/rfc790.txt"&gt;&lt;i&gt;RFC&amp;nbsp;790:
+Assigned Numbers&lt;/i&gt;&lt;/a&gt;, &lt;a
+href="http://www.ietf.org/rfc/rfc1918.txt"&gt; &lt;i&gt;RFC&amp;nbsp;1918:
+Address Allocation for Private Internets&lt;/i&gt;&lt;/a&gt;, &lt;a
+href="http://www.ietf.org/rfc/rfc2365.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2365:
+Administratively Scoped IP Multicast&lt;/i&gt;&lt;/a&gt;, and &lt;a
+href="http://www.ietf.org/rfc/rfc2373.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2373: IP
+Version 6 Addressing Architecture&lt;/i&gt;&lt;/a&gt;. An instance of an
+InetAddress consists of an IP address and possibly its
+corresponding host name (depending on whether it is constructed
+with a host name or whether it has already done reverse host name
+resolution).
+
+&lt;h4&gt; Address types &lt;/h4&gt;
+
+&lt;blockquote&gt;&lt;table cellspacing=2 summary="Description of unicast and multicast address types"&gt;
+&lt;tr&gt;&lt;th valign=top&gt;&lt;i&gt;unicast&lt;/i&gt;&lt;/th&gt;
+&lt;td&gt;An identifier for a single interface. A packet sent to
+a unicast address is delivered to the interface identified by
+that address.
+
+&lt;p&gt; The Unspecified Address -- Also called anylocal or wildcard
+address. It must never be assigned to any node. It indicates the
+absence of an address. One example of its use is as the target of
+bind, which allows a server to accept a client connection on any
+interface, in case the server host has multiple interfaces.
+
+&lt;p&gt; The &lt;i&gt;unspecified&lt;/i&gt; address must not be used as
+the destination address of an IP packet.
+
+&lt;p&gt; The &lt;i&gt;Loopback&lt;/i&gt; Addresses -- This is the address
+assigned to the loopback interface. Anything sent to this
+IP address loops around and becomes IP input on the local
+host. This address is often used when testing a
+client.&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th valign=top&gt;&lt;i&gt;multicast&lt;/i&gt;&lt;/th&gt;
+&lt;td&gt;An identifier for a set of interfaces (typically belonging
+to different nodes). A packet sent to a multicast address is
+delivered to all interfaces identified by that address.&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/blockquote&gt;
+
+&lt;h4&gt; IP address scope &lt;/h4&gt;
+
+&lt;p&gt; &lt;i&gt;Link-local&lt;/i&gt; addresses are designed to be used for addressing
+on a single link for purposes such as auto-address configuration,
+neighbor discovery, or when no routers are present.
+
+&lt;p&gt; &lt;i&gt;Site-local&lt;/i&gt; addresses are designed to be used for addressing
+inside of a site without the need for a global prefix.
+
+&lt;p&gt; &lt;i&gt;Global&lt;/i&gt; addresses are unique across the internet.
+
+&lt;h4&gt; Textual representation of IP addresses &lt;/h4&gt;
+
+The textual representation of an IP address is address family specific.
+
+&lt;p&gt;
+
+For IPv4 address format, please refer to &lt;A
+HREF="Inet4Address.html#format"&gt;Inet4Address#format&lt;/A&gt;; For IPv6
+address format, please refer to &lt;A
+HREF="Inet6Address.html#format"&gt;Inet6Address#format&lt;/A&gt;.
+
+&lt;h4&gt; Host Name Resolution &lt;/h4&gt;
+
+Host name-to-IP address &lt;i&gt;resolution&lt;/i&gt; is accomplished through
+the use of a combination of local machine configuration information
+and network naming services such as the Domain Name System (DNS)
+and Network Information Service(NIS). The particular naming
+services(s) being used is by default the local machine configured
+one. For any host name, its corresponding IP address is returned.
+
+&lt;p&gt; &lt;i&gt;Reverse name resolution&lt;/i&gt; means that for any IP address,
+the host associated with the IP address is returned.
+
+&lt;p&gt; The InetAddress class provides methods to resolve host names to
+their IP addresses and vise versa.
+
+&lt;h4&gt; InetAddress Caching &lt;/h4&gt;
+
+The InetAddress class has a cache to store successful as well as
+unsuccessful host name resolutions. The positive caching is there
+to guard against DNS spoofing attacks; while the negative caching
+is used to improve performance.
+
+&lt;p&gt; By default, the result of positive host name resolutions are
+cached forever, because there is no general rule to decide when it
+is safe to remove cache entries. The result of unsuccessful host
+name resolution is cached for a very short period of time (10
+seconds) to improve performance.
+
+&lt;p&gt; Under certain circumstances where it can be determined that DNS
+spoofing attacks are not possible, a Java security property can be
+set to a different Time-to-live (TTL) value for positive
+caching. Likewise, a system admin can configure a different
+negative caching TTL value when needed.
+
+&lt;p&gt; Two Java security properties control the TTL values used for
+positive and negative host name resolution caching:
+
+&lt;blockquote&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;b&gt;networkaddress.cache.ttl&lt;/b&gt; (default: -1)&lt;/dt&gt;
+&lt;dd&gt;Indicates the caching policy for successful name lookups from
+the name service. The value is specified as as integer to indicate
+the number of seconds to cache the successful lookup.
+&lt;p&gt;
+A value of -1 indicates "cache forever".
+&lt;/dd&gt;
+&lt;p&gt;
+&lt;dt&gt;&lt;b&gt;networkaddress.cache.negative.ttl&lt;/b&gt; (default: 10)&lt;/dt&gt;
+&lt;dd&gt;Indicates the caching policy for un-successful name lookups
+from the name service. The value is specified as as integer to
+indicate the number of seconds to cache the failure for
+un-successful lookups.
+&lt;p&gt;
+A value of 0 indicates "never cache".
+A value of -1 indicates "cache forever".
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/blockquote&gt;
+
+@author  Chris Warth
+@version 1.109, 04/19/04
+@see     java.net.InetAddress#getByAddress(byte[])
+@see     java.net.InetAddress#getByAddress(java.lang.String, byte[])
+@see     java.net.InetAddress#getAllByName(java.lang.String)
+@see     java.net.InetAddress#getByName(java.lang.String)
+@see     java.net.InetAddress#getLocalHost()
+@since JDK1.0
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::net::InetAddress -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321719_298179_13795"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Cache" refid="_9_5_f720368_1110473547549_544193_18066"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CacheEntry" refid="_9_5_f720368_1110473547549_668174_18063"/></member><name humanName="Name" mode="s,e">InetAddress</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Cache" refid="_9_5_f720368_1110473547549_544193_18066"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CacheEntry" refid="_9_5_f720368_1110473547549_668174_18063"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308339_263206_5273"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308339_263206_5273"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Cache" refid="_9_5_f720368_1110473547549_544193_18066"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CacheEntry" refid="_9_5_f720368_1110473547549_668174_18063"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::net::InetAddress -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321719_298179_13795"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Cache" refid="_9_5_f720368_1110473547549_544193_18066"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CacheEntry" refid="_9_5_f720368_1110473547549_668174_18063"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::net::InetAddress</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

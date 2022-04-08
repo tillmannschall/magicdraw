@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_171784_8643"><documentation humanName="Documentation" mode="standard">&lt;code&gt;DecimalFormat&lt;/code&gt; is a concrete subclass of
+&lt;code&gt;NumberFormat&lt;/code&gt; that formats decimal numbers. It has a variety of
+features designed to make it possible to parse and format numbers in any
+locale, including support for Western, Arabic, and Indic digits.  It also
+supports different kinds of numbers, including integers (123), fixed-point
+numbers (123.4), scientific notation (1.23E4), percentages (12%), and
+currency amounts ($123).  All of these can be localized.
+
+&lt;p&gt;To obtain a &lt;code&gt;NumberFormat&lt;/code&gt; for a specific locale, including the
+default locale, call one of &lt;code&gt;NumberFormat&lt;/code&gt;'s factory methods, such
+as &lt;code&gt;getInstance()&lt;/code&gt;.  In general, do not call the
+&lt;code&gt;DecimalFormat&lt;/code&gt; constructors directly, since the
+&lt;code&gt;NumberFormat&lt;/code&gt; factory methods may return subclasses other than
+&lt;code&gt;DecimalFormat&lt;/code&gt;. If you need to customize the format object, do
+something like this:
+
+&lt;blockquote&gt;&lt;pre&gt;
+NumberFormat f = NumberFormat.getInstance(loc);
+if (f instanceof DecimalFormat) {
+((DecimalFormat) f).setDecimalSeparatorAlwaysShown(true);
+}
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;A &lt;code&gt;DecimalFormat&lt;/code&gt; comprises a &lt;em&gt;pattern&lt;/em&gt; and a set of
+&lt;em&gt;symbols&lt;/em&gt;.  The pattern may be set directly using
+&lt;code&gt;applyPattern()&lt;/code&gt;, or indirectly using the API methods.  The
+symbols are stored in a &lt;code&gt;DecimalFormatSymbols&lt;/code&gt; object.  When using
+the &lt;code&gt;NumberFormat&lt;/code&gt; factory methods, the pattern and symbols are
+read from localized &lt;code&gt;ResourceBundle&lt;/code&gt;s.
+
+&lt;h4&gt;Patterns&lt;/h4&gt;
+
+&lt;code&gt;DecimalFormat&lt;/code&gt; patterns have the following syntax:
+&lt;blockquote&gt;&lt;pre&gt;
+&lt;i&gt;Pattern:&lt;/i&gt;
+&lt;i&gt;PositivePattern&lt;/i&gt;
+&lt;i&gt;PositivePattern&lt;/i&gt; ; &lt;i&gt;NegativePattern&lt;/i&gt;
+&lt;i&gt;PositivePattern:&lt;/i&gt;
+&lt;i&gt;Prefix&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt; &lt;i&gt;Number&lt;/i&gt; &lt;i&gt;Suffix&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt;
+&lt;i&gt;NegativePattern:&lt;/i&gt;
+&lt;i&gt;Prefix&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt; &lt;i&gt;Number&lt;/i&gt; &lt;i&gt;Suffix&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt;
+&lt;i&gt;Prefix:&lt;/i&gt;
+any Unicode characters except &amp;#92;uFFFE, &amp;#92;uFFFF, and special characters
+&lt;i&gt;Suffix:&lt;/i&gt;
+any Unicode characters except &amp;#92;uFFFE, &amp;#92;uFFFF, and special characters
+&lt;i&gt;Number:&lt;/i&gt;
+&lt;i&gt;Integer&lt;/i&gt; &lt;i&gt;Exponent&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt;
+&lt;i&gt;Integer&lt;/i&gt; . &lt;i&gt;Fraction&lt;/i&gt; &lt;i&gt;Exponent&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt;
+&lt;i&gt;Integer:&lt;/i&gt;
+&lt;i&gt;MinimumInteger&lt;/i&gt;
+#
+# &lt;i&gt;Integer&lt;/i&gt;
+# , &lt;i&gt;Integer&lt;/i&gt;
+&lt;i&gt;MinimumInteger:&lt;/i&gt;
+0
+0 &lt;i&gt;MinimumInteger&lt;/i&gt;
+0 , &lt;i&gt;MinimumInteger&lt;/i&gt;
+&lt;i&gt;Fraction:&lt;/i&gt;
+&lt;i&gt;MinimumFraction&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt; &lt;i&gt;OptionalFraction&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt;
+&lt;i&gt;MinimumFraction:&lt;/i&gt;
+0 &lt;i&gt;MinimumFraction&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt;
+&lt;i&gt;OptionalFraction:&lt;/i&gt;
+# &lt;i&gt;OptionalFraction&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt;
+&lt;i&gt;Exponent:&lt;/i&gt;
+E &lt;i&gt;MinimumExponent&lt;/i&gt;
+&lt;i&gt;MinimumExponent:&lt;/i&gt;
+0 &lt;i&gt;MinimumExponent&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;A &lt;code&gt;DecimalFormat&lt;/code&gt; pattern contains a positive and negative
+subpattern, for example, &lt;code&gt;"#,##0.00;(#,##0.00)"&lt;/code&gt;.  Each
+subpattern has a prefix, numeric part, and suffix. The negative subpattern
+is optional; if absent, then the positive subpattern prefixed with the
+localized minus sign (&lt;code&gt;'-'&lt;/code&gt; in most locales) is used as the
+negative subpattern. That is, &lt;code&gt;"0.00"&lt;/code&gt; alone is equivalent to
+&lt;code&gt;"0.00;-0.00"&lt;/code&gt;.  If there is an explicit negative subpattern, it
+serves only to specify the negative prefix and suffix; the number of digits,
+minimal digits, and other characteristics are all the same as the positive
+pattern. That means that &lt;code&gt;"#,##0.0#;(#)"&lt;/code&gt; produces precisely
+the same behavior as &lt;code&gt;"#,##0.0#;(#,##0.0#)"&lt;/code&gt;.
+
+&lt;p&gt;The prefixes, suffixes, and various symbols used for infinity, digits,
+thousands separators, decimal separators, etc. may be set to arbitrary
+values, and they will appear properly during formatting.  However, care must
+be taken that the symbols and strings do not conflict, or parsing will be
+unreliable.  For example, either the positive and negative prefixes or the
+suffixes must be distinct for &lt;code&gt;DecimalFormat.parse()&lt;/code&gt; to be able
+to distinguish positive from negative values.  (If they are identical, then
+&lt;code&gt;DecimalFormat&lt;/code&gt; will behave as if no negative subpattern was
+specified.)  Another example is that the decimal separator and thousands
+separator should be distinct characters, or parsing will be impossible.
+
+&lt;p&gt;The grouping separator is commonly used for thousands, but in some
+countries it separates ten-thousands. The grouping size is a constant number
+of digits between the grouping characters, such as 3 for 100,000,000 or 4 for
+1,0000,0000.  If you supply a pattern with multiple grouping characters, the
+interval between the last one and the end of the integer is the one that is
+used. So &lt;code&gt;"#,##,###,####"&lt;/code&gt; == &lt;code&gt;"######,####"&lt;/code&gt; ==
+&lt;code&gt;"##,####,####"&lt;/code&gt;.
+
+&lt;h4&gt;Special Pattern Characters&lt;/h4&gt;
+
+&lt;p&gt;Many characters in a pattern are taken literally; they are matched during
+parsing and output unchanged during formatting.  Special characters, on the
+other hand, stand for other characters, strings, or classes of characters.
+They must be quoted, unless noted otherwise, if they are to appear in the
+prefix or suffix as literals.
+
+&lt;p&gt;The characters listed here are used in non-localized patterns.  Localized
+patterns use the corresponding characters taken from this formatter's
+&lt;code&gt;DecimalFormatSymbols&lt;/code&gt; object instead, and these characters lose
+their special status.  Two exceptions are the currency sign and quote, which
+are not localized.
+
+&lt;blockquote&gt;
+&lt;table border=0 cellspacing=3 cellpadding=0 summary="Chart showing symbol,
+location, localized, and meaning."&gt;
+&lt;tr bgcolor="#ccccff"&gt;
+&lt;th align=left&gt;Symbol
+&lt;th align=left&gt;Location
+&lt;th align=left&gt;Localized?
+&lt;th align=left&gt;Meaning
+&lt;tr valign=top&gt;
+&lt;td&gt;&lt;code&gt;0&lt;/code&gt;
+&lt;td&gt;Number
+&lt;td&gt;Yes
+&lt;td&gt;Digit
+&lt;tr valign=top bgcolor="#eeeeff"&gt;
+&lt;td&gt;&lt;code&gt;#&lt;/code&gt;
+&lt;td&gt;Number
+&lt;td&gt;Yes
+&lt;td&gt;Digit, zero shows as absent
+&lt;tr valign=top&gt;
+&lt;td&gt;&lt;code&gt;.&lt;/code&gt;
+&lt;td&gt;Number
+&lt;td&gt;Yes
+&lt;td&gt;Decimal separator or monetary decimal separator
+&lt;tr valign=top bgcolor="#eeeeff"&gt;
+&lt;td&gt;&lt;code&gt;-&lt;/code&gt;
+&lt;td&gt;Number
+&lt;td&gt;Yes
+&lt;td&gt;Minus sign
+&lt;tr valign=top&gt;
+&lt;td&gt;&lt;code&gt;,&lt;/code&gt;
+&lt;td&gt;Number
+&lt;td&gt;Yes
+&lt;td&gt;Grouping separator
+&lt;tr valign=top bgcolor="#eeeeff"&gt;
+&lt;td&gt;&lt;code&gt;E&lt;/code&gt;
+&lt;td&gt;Number
+&lt;td&gt;Yes
+&lt;td&gt;Separates mantissa and exponent in scientific notation.
+&lt;em&gt;Need not be quoted in prefix or suffix.&lt;/em&gt;
+&lt;tr valign=top&gt;
+&lt;td&gt;&lt;code&gt;;&lt;/code&gt;
+&lt;td&gt;Subpattern boundary
+&lt;td&gt;Yes
+&lt;td&gt;Separates positive and negative subpatterns
+&lt;tr valign=top bgcolor="#eeeeff"&gt;
+&lt;td&gt;&lt;code&gt;%&lt;/code&gt;
+&lt;td&gt;Prefix or suffix
+&lt;td&gt;Yes
+&lt;td&gt;Multiply by 100 and show as percentage
+&lt;tr valign=top&gt;
+&lt;td&gt;&lt;code&gt;&amp;#92;u2030&lt;/code&gt;
+&lt;td&gt;Prefix or suffix
+&lt;td&gt;Yes
+&lt;td&gt;Multiply by 1000 and show as per mille value
+&lt;tr valign=top bgcolor="#eeeeff"&gt;
+&lt;td&gt;&lt;code&gt;&amp;#164;&lt;/code&gt; (&lt;code&gt;&amp;#92;u00A4&lt;/code&gt;)
+&lt;td&gt;Prefix or suffix
+&lt;td&gt;No
+&lt;td&gt;Currency sign, replaced by currency symbol.  If
+doubled, replaced by international currency symbol.
+If present in a pattern, the monetary decimal separator
+is used instead of the decimal separator.
+&lt;tr valign=top&gt;
+&lt;td&gt;&lt;code&gt;'&lt;/code&gt;
+&lt;td&gt;Prefix or suffix
+&lt;td&gt;No
+&lt;td&gt;Used to quote special characters in a prefix or suffix,
+for example, &lt;code&gt;"'#'#"&lt;/code&gt; formats 123 to
+&lt;code&gt;"#123"&lt;/code&gt;.  To create a single quote
+itself, use two in a row: &lt;code&gt;"# o''clock"&lt;/code&gt;.
+&lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;Scientific Notation&lt;/h4&gt;
+
+&lt;p&gt;Numbers in scientific notation are expressed as the product of a mantissa
+and a power of ten, for example, 1234 can be expressed as 1.234 x 10^3.  The
+mantissa is often in the range 1.0 &lt;= x &lt; 10.0, but it need not be.
+&lt;code&gt;DecimalFormat&lt;/code&gt; can be instructed to format and parse scientific
+notation &lt;em&gt;only via a pattern&lt;/em&gt;; there is currently no factory method
+that creates a scientific notation format.  In a pattern, the exponent
+character immediately followed by one or more digit characters indicates
+scientific notation.  Example: &lt;code&gt;"0.###E0"&lt;/code&gt; formats the number
+1234 as &lt;code&gt;"1.234E3"&lt;/code&gt;.
+
+&lt;ul&gt;
+&lt;li&gt;The number of digit characters after the exponent character gives the
+minimum exponent digit count.  There is no maximum.  Negative exponents are
+formatted using the localized minus sign, &lt;em&gt;not&lt;/em&gt; the prefix and suffix
+from the pattern.  This allows patterns such as &lt;code&gt;"0.###E0 m/s"&lt;/code&gt;.
+
+&lt;li&gt;The minimum and maximum number of integer digits are interpreted
+together:
+
+&lt;ul&gt;
+&lt;li&gt;If the maximum number of integer digits is greater than their minimum number
+and greater than 1, it forces the exponent to be a multiple of the maximum
+number of integer digits, and the minimum number of integer digits to be
+interpreted as 1.  The most common use of this is to generate
+&lt;em&gt;engineering notation&lt;/em&gt;, in which the exponent is a multiple of three,
+e.g., &lt;code&gt;"##0.#####E0"&lt;/code&gt;. Using this pattern, the number 12345
+formats to &lt;code&gt;"12.345E3"&lt;/code&gt;, and 123456 formats to
+&lt;code&gt;"123.456E3"&lt;/code&gt;.
+
+&lt;li&gt;Otherwise, the minimum number of integer digits is achieved by adjusting the
+exponent.  Example: 0.00123 formatted with &lt;code&gt;"00.###E0"&lt;/code&gt; yields
+&lt;code&gt;"12.3E-4"&lt;/code&gt;.
+&lt;/ul&gt;
+
+&lt;li&gt;The number of significant digits in the mantissa is the sum of the
+&lt;em&gt;minimum integer&lt;/em&gt; and &lt;em&gt;maximum fraction&lt;/em&gt; digits, and is
+unaffected by the maximum integer digits.  For example, 12345 formatted with
+&lt;code&gt;"##0.##E0"&lt;/code&gt; is &lt;code&gt;"12.3E3"&lt;/code&gt;. To show all digits, set
+the significant digits count to zero.  The number of significant digits
+does not affect parsing.
+
+&lt;li&gt;Exponential patterns may not contain grouping separators.
+&lt;/ul&gt;
+
+&lt;h4&gt;Rounding&lt;/h4&gt;
+
+&lt;code&gt;DecimalFormat&lt;/code&gt; uses half-even rounding (see
+{@link java.math.BigDecimal#ROUND_HALF_EVEN ROUND_HALF_EVEN}) for
+formatting.
+
+&lt;h4&gt;Digits&lt;/h4&gt;
+
+For formatting, &lt;code&gt;DecimalFormat&lt;/code&gt; uses the ten consecutive
+characters starting with the localized zero digit defined in the
+&lt;code&gt;DecimalFormatSymbols&lt;/code&gt; object as digits. For parsing, these
+digits as well as all Unicode decimal digits, as defined by
+{@link Character#digit Character.digit}, are recognized.
+
+&lt;h4&gt;Special Values&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;NaN&lt;/code&gt; is formatted as a single character, typically
+&lt;code&gt;&amp;#92;uFFFD&lt;/code&gt;.  This character is determined by the
+&lt;code&gt;DecimalFormatSymbols&lt;/code&gt; object.  This is the only value for which
+the prefixes and suffixes are not used.
+
+&lt;p&gt;Infinity is formatted as a single character, typically
+&lt;code&gt;&amp;#92;u221E&lt;/code&gt;, with the positive or negative prefixes and suffixes
+applied.  The infinity character is determined by the
+&lt;code&gt;DecimalFormatSymbols&lt;/code&gt; object.
+
+&lt;p&gt;Negative zero (&lt;code&gt;"-0"&lt;/code&gt;) parses to
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;BigDecimal(0)&lt;/code&gt; if &lt;code&gt;isParseBigDecimal()&lt;/code&gt; is
+true,
+&lt;li&gt;&lt;code&gt;Long(0)&lt;/code&gt; if &lt;code&gt;isParseBigDecimal()&lt;/code&gt; is false
+and &lt;code&gt;isParseIntegerOnly()&lt;/code&gt; is true,
+&lt;li&gt;&lt;code&gt;Double(-0.0)&lt;/code&gt; if both &lt;code&gt;isParseBigDecimal()&lt;/code&gt;
+and &lt;code&gt;isParseIntegerOnly()&lt;/code&gt; are false.
+&lt;/ul&gt;
+
+&lt;h4&gt;&lt;a name="synchronization"&gt;Synchronization&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;
+Decimal formats are generally not synchronized.
+It is recommended to create separate format instances for each thread.
+If multiple threads access a format concurrently, it must be synchronized
+externally.
+
+&lt;h4&gt;Example&lt;/h4&gt;
+
+&lt;blockquote&gt;&lt;pre&gt;
+&lt;strong&gt;// Print out a number using the localized number, integer, currency,
+and percent format for each locale&lt;/strong&gt;
+Locale[] locales = NumberFormat.getAvailableLocales();
+double myNumber = -1234.56;
+NumberFormat form;
+for (int j=0; j&lt;4; ++j) {
+System.out.println("FORMAT");
+for (int i = 0; i &lt; locales.length; ++i) {
+if (locales[i].getCountry().length() == 0) {
+continue; // Skip language-only locales
+}
+System.out.print(locales[i].getDisplayName());
+switch (j) {
+case 0:
+form = NumberFormat.getInstance(locales[i]); break;
+case 1:
+form = NumberFormat.getIntegerInstance(locales[i]); break;
+case 2:
+form = NumberFormat.getCurrencyInstance(locales[i]); break;
+default:
+form = NumberFormat.getPercentInstance(locales[i]); break;
+}
+if (form instanceof DecimalFormat) {
+System.out.print(": " + ((DecimalFormat) form).toPattern());
+}
+System.out.print(" -&gt; " + form.format(myNumber));
+try {
+System.out.println(" -&gt; " + form.parse(form.format(myNumber)));
+} catch (ParseException e) {}
+}
+}
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+@see          &lt;a href="http://java.sun.com/docs/books/tutorial/i18n/format/decimalFormat.html"&gt;Java Tutorial&lt;/a&gt;
+@see          NumberFormat
+@see          DecimalFormatSymbols
+@see          ParsePosition
+@version      1.79 06/28/04
+@author       Mark Davis
+@author       Alan Liu
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321939_296262_14288"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_792738_18959"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_45961_18947"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FieldDelegate" refid="_9_5_f720368_1110473547784_970079_18950"/></inheritedMember><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_792738_18959"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_45961_18947"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FieldDelegate" refid="_9_5_f720368_1110473547784_970079_18950"/></member><name humanName="Name" mode="s,e">DecimalFormat</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309701_65879_6241"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321939_296262_14288"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309701_65879_6241"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::text::DecimalFormat</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="NumberFormat" refid="_9_5_f720368_1110473546690_833550_8665"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

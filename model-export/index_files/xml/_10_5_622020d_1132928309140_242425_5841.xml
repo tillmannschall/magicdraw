@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309140_242425_5841"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PKIXParameters" refid="_9_5_f720368_1110473546674_725105_8337"/></annotatedElement><body humanName="Body" mode="s,e">Parameters used as input for the PKIX &lt;code&gt;CertPathValidator&lt;/code&gt;
+algorithm.
+&lt;p&gt;
+A PKIX &lt;code&gt;CertPathValidator&lt;/code&gt; uses these parameters to
+validate a &lt;code&gt;CertPath&lt;/code&gt; according to the PKIX certification path
+validation algorithm.
+
+&lt;p&gt;To instantiate a &lt;code&gt;PKIXParameters&lt;/code&gt; object, an
+application must specify one or more &lt;i&gt;most-trusted CAs&lt;/i&gt; as defined by
+the PKIX certification path validation algorithm. The most-trusted CAs
+can be specified using one of two constructors. An application
+can call {@link #PKIXParameters(Set) PKIXParameters(Set)},
+specifying a &lt;code&gt;Set&lt;/code&gt; of &lt;code&gt;TrustAnchor&lt;/code&gt; objects, each
+of which identify a most-trusted CA. Alternatively, an application can call
+{@link #PKIXParameters(KeyStore) PKIXParameters(KeyStore)}, specifying a
+&lt;code&gt;KeyStore&lt;/code&gt; instance containing trusted certificate entries, each
+of which will be considered as a most-trusted CA.
+&lt;p&gt;
+Once a &lt;code&gt;PKIXParameters&lt;/code&gt; object has been created, other parameters
+can be specified (by calling {@link #setInitialPolicies setInitialPolicies}
+or {@link #setDate setDate}, for instance) and then the
+&lt;code&gt;PKIXParameters&lt;/code&gt; is passed along with the &lt;code&gt;CertPath&lt;/code&gt;
+to be validated to {@link CertPathValidator#validate
+CertPathValidator.validate}.
+&lt;p&gt;
+Any parameter that is not set (or is set to &lt;code&gt;null&lt;/code&gt;) will
+be set to the default value for that parameter. The default value for the
+&lt;code&gt;date&lt;/code&gt; parameter is &lt;code&gt;null&lt;/code&gt;, which indicates
+the current time when the path is validated. The default for the
+remaining parameters is the least constrained.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Unless otherwise specified, the methods defined in this class are not
+thread-safe. Multiple threads that need to access a single
+object concurrently should synchronize amongst themselves and
+provide the necessary locking. Multiple threads each manipulating
+separate objects need not synchronize.
+
+@see CertPathValidator
+
+@version 	1.17 12/19/03
+@since	1.4
+@author	Sean Mullan
+@author	Yassir Elley
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PKIXParameters" refid="_9_5_f720368_1110473546674_725105_8337"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PKIXParameters" refid="_9_5_f720368_1110473546674_725105_8337"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

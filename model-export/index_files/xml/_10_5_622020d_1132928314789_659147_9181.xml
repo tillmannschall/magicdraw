@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314789_659147_9181"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JPEGHuffmanTable" refid="_9_5_f720368_1110473546706_955965_9027"/></annotatedElement><body humanName="Body" mode="s,e">A class encapsulating a single JPEG Huffman table.  Fields are
+provided for the "standard" tables from taken from Annex K of the
+JPEG specification.  These are the tables used as defaults.
+This class differs from the old unsupported
+com.sun.image.codec.jpeg.JPEGHuffmanTable in two ways:
+&lt;ol&gt;
+&lt;li&gt;The lengths arrays for this class do not contain an ignored 0th
+entry.  The lengths array in a JPEG stream does not contain an extra
+entry, and this class is used to represent the contents of a JPEG
+stream.
+&lt;/li&gt;
+&lt;li&gt;The old class incorrectly referred to Huffman "symbols", while
+expecting an array of values to be encoded.  This class has a
+&lt;code&gt;getValues&lt;/code&gt; method instead of a &lt;code&gt;getSymbols&lt;/code&gt;
+method.
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+For more information about the operation of the built-in JPEG plug-ins,
+see the &lt;A HREF="../../metadata/doc-files/jpeg_metadata.html"&gt;JPEG
+metadata format specification and usage notes&lt;/A&gt;.
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JPEGHuffmanTable" refid="_9_5_f720368_1110473546706_955965_9027"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JPEGHuffmanTable" refid="_9_5_f720368_1110473546706_955965_9027"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

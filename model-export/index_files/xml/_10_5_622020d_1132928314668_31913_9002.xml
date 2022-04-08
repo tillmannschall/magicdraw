@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314668_31913_9002"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Text" refid="_9_5_f720368_1110473546940_461637_13250"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Text&lt;/code&gt; interface inherits from &lt;code&gt;CharacterData&lt;/code&gt;
+and represents the textual content (termed &lt;a href='http://www.w3.org/TR/2004/REC-xml-20040204#syntax'&gt;character data&lt;/a&gt; in XML) of an &lt;code&gt;Element&lt;/code&gt; or &lt;code&gt;Attr&lt;/code&gt;. If there is no
+markup inside an element's content, the text is contained in a single
+object implementing the &lt;code&gt;Text&lt;/code&gt; interface that is the only
+child of the element. If there is markup, it is parsed into the
+information items (elements, comments, etc.) and &lt;code&gt;Text&lt;/code&gt; nodes
+that form the list of children of the element.
+&lt;p&gt;When a document is first made available via the DOM, there is only one
+&lt;code&gt;Text&lt;/code&gt; node for each block of text. Users may create adjacent
+&lt;code&gt;Text&lt;/code&gt; nodes that represent the contents of a given element
+without any intervening markup, but should be aware that there is no way
+to represent the separations between these nodes in XML or HTML, so they
+will not (in general) persist between DOM editing sessions. The
+&lt;code&gt;Node.normalize()&lt;/code&gt; method merges any such adjacent
+&lt;code&gt;Text&lt;/code&gt; objects into a single node for each block of text.
+&lt;p&gt; No lexical check is done on the content of a &lt;code&gt;Text&lt;/code&gt; node
+and, depending on its position in the document, some characters must be
+escaped during serialization using character references; e.g. the
+characters "&lt;&amp;" if the textual content is part of an element or of
+an attribute, the character sequence "]]&gt;" when part of an element,
+the quotation mark character " or the apostrophe character ' when part of
+an attribute.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'&gt;Document Object Model (DOM) Level 3 Core Specification&lt;/a&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Text" refid="_9_5_f720368_1110473546940_461637_13250"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Text" refid="_9_5_f720368_1110473546940_461637_13250"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

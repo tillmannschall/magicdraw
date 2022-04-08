@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305766_929453_3751"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MouseWheelEvent" refid="_9_5_f720368_1110473546565_544576_6599"/></annotatedElement><body humanName="Body" mode="s,e">An event which indicates that the mouse wheel was rotated in a component.
+&lt;P&gt;
+A wheel mouse is a mouse which has a wheel in place of the middle button.
+This wheel can be rotated towards or away from the user.  Mouse wheels are
+most often used for scrolling, though other uses are possible.
+&lt;P&gt;
+A MouseWheelEvent object is passed to every &lt;code&gt;MouseWheelListener&lt;/code&gt;
+object which registered to receive the "interesting" mouse events using the
+component's &lt;code&gt;addMouseWheelListener&lt;/code&gt; method.  Each such listener
+object gets a &lt;code&gt;MouseEvent&lt;/code&gt; containing the mouse event.
+&lt;P&gt;
+Due to the mouse wheel's special relationship to scrolling Components,
+MouseWheelEvents are delivered somewhat differently than other MouseEvents.
+This is because while other MouseEvents usually affect a change on
+the Component directly under the mouse
+cursor (for instance, when clicking a button), MouseWheelEvents often have
+an effect away from the mouse cursor (moving the wheel while
+over a Component inside a ScrollPane should scroll one of the
+Scrollbars on the ScrollPane).
+&lt;P&gt;
+MouseWheelEvents start delivery from the Component underneath the
+mouse cursor.  If MouseWheelEvents are not enabled on the
+Component, the event is delivered to the first ancestor
+Container with MouseWheelEvents enabled.  This will usually be
+a ScrollPane with wheel scrolling enabled.  The source
+Component and x,y coordinates will be relative to the event's
+final destination (the ScrollPane).  This allows a complex
+GUI to be installed without modification into a ScrollPane, and
+for all MouseWheelEvents to be delivered to the ScrollPane for
+scrolling.
+&lt;P&gt;
+Some AWT Components are implemented using native widgets which
+display their own scrollbars and handle their own scrolling.
+The particular Components for which this is true will vary from
+platform to platform.  When the mouse wheel is
+moved over one of these Components, the event is delivered straight to
+the native widget, and not propagated to ancestors.
+&lt;P&gt;
+Platforms offer customization of the amount of scrolling that
+should take place when the mouse wheel is moved.  The two most
+common settings are to scroll a certain number of "units"
+(commonly lines of text in a text-based component) or an entire "block"
+(similar to page-up/page-down).  The MouseWheelEvent offers
+methods for conforming to the underlying platform settings.  These
+platform settings can be changed at any time by the user.  MouseWheelEvents
+reflect the most recent settings.
+
+@author Brent Christian
+@version 1.9 12/19/03
+@see MouseWheelListener
+@see java.awt.ScrollPane
+@see java.awt.ScrollPane#setWheelScrollingEnabled(boolean)
+@see javax.swing.JScrollPane
+@see javax.swing.JScrollPane#setWheelScrollingEnabled(boolean)
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MouseWheelEvent" refid="_9_5_f720368_1110473546565_544576_6599"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MouseWheelEvent" refid="_9_5_f720368_1110473546565_544576_6599"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

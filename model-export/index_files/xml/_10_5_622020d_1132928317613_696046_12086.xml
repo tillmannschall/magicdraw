@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317613_696046_12086"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InternationalFormatter" refid="_9_5_f720368_1110473546784_55684_10481"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;InternationalFormatter&lt;/code&gt; extends &lt;code&gt;DefaultFormatter&lt;/code&gt;,
+using an instance of &lt;code&gt;java.text.Format&lt;/code&gt; to handle the
+conversion to a String, and the conversion from a String.
+&lt;p&gt;
+If &lt;code&gt;getAllowsInvalid()&lt;/code&gt; is false, this will ask the
+&lt;code&gt;Format&lt;/code&gt; to format the current text on every edit.
+&lt;p&gt;
+You can specify a minimum and maximum value by way of the
+&lt;code&gt;setMinimum&lt;/code&gt; and &lt;code&gt;setMaximum&lt;/code&gt; methods. In order
+for this to work the values returned from &lt;code&gt;stringToValue&lt;/code&gt; must be
+comparable to the min/max values by way of the &lt;code&gt;Comparable&lt;/code&gt;
+interface.
+&lt;p&gt;
+Be careful how you configure the &lt;code&gt;Format&lt;/code&gt; and the
+&lt;code&gt;InternationalFormatter&lt;/code&gt;, as it is possible to create a
+situation where certain values can not be input. Consider the date
+format 'M/d/yy', an &lt;code&gt;InternationalFormatter&lt;/code&gt; that is always
+valid (&lt;code&gt;setAllowsInvalid(false)&lt;/code&gt;), is in overwrite mode
+(&lt;code&gt;setOverwriteMode(true)&lt;/code&gt;) and the date 7/1/99. In this
+case the user will not be able to enter a two digit month or day of
+month. To avoid this, the format should be 'MM/dd/yy'.
+&lt;p&gt;
+If &lt;code&gt;InternationalFormatter&lt;/code&gt; is configured to only allow valid
+values (&lt;code&gt;setAllowsInvalid(false)&lt;/code&gt;), every valid edit will result
+in the text of the &lt;code&gt;JFormattedTextField&lt;/code&gt; being completely reset
+from the &lt;code&gt;Format&lt;/code&gt;.
+The cursor position will also be adjusted as literal characters are
+added/removed from the resulting String.
+&lt;p&gt;
+&lt;code&gt;InternationalFormatter&lt;/code&gt;'s behavior of
+&lt;code&gt;stringToValue&lt;/code&gt; is  slightly different than that of
+&lt;code&gt;DefaultTextFormatter&lt;/code&gt;, it does the following:
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;parseObject&lt;/code&gt; is invoked on the &lt;code&gt;Format&lt;/code&gt;
+specified by &lt;code&gt;setFormat&lt;/code&gt;
+&lt;li&gt;If a Class has been set for the values (&lt;code&gt;setValueClass&lt;/code&gt;),
+supers implementation is invoked to convert the value returned
+from &lt;code&gt;parseObject&lt;/code&gt; to the appropriate class.
+&lt;li&gt;If a &lt;code&gt;ParseException&lt;/code&gt; has not been thrown, and the value
+is outside the min/max a &lt;code&gt;ParseException&lt;/code&gt; is thrown.
+&lt;li&gt;The value is returned.
+&lt;/ol&gt;
+&lt;code&gt;InternationalFormatter&lt;/code&gt; implements &lt;code&gt;stringToValue&lt;/code&gt;
+in this manner so that you can specify an alternate Class than
+&lt;code&gt;Format&lt;/code&gt; may return.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see java.text.Format
+@see java.lang.Comparable
+
+@version 1.7 04/09/01
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InternationalFormatter" refid="_9_5_f720368_1110473546784_55684_10481"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InternationalFormatter" refid="_9_5_f720368_1110473546784_55684_10481"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

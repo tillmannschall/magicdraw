@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310973_225233_7233"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Formattable" refid="_10_5_622020d_1132928310973_710744_7231"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;tt&gt;Formattable&lt;/tt&gt; interface must be implemented by any class that
+needs to perform custom formatting using the &lt;tt&gt;'s'&lt;/tt&gt; conversion
+specifier of {@link java.util.Formatter}.  This interface allows basic
+control for formatting arbitrary objects.
+
+For example, the following class prints out different representations of a
+stock's name depending on the flags and length constraints:
+
+&lt;blockquote&gt;&lt;pre&gt;
+import java.nio.CharBuffer;
+import java.util.Formatter;
+import java.util.Formattable;
+import java.util.Locale;
+import static java.util.FormattableFlags.*;
+
+...
+
+public class StockName implements Formattable {
+private String symbol, companyName, frenchCompanyName;
+public StockName(String symbol, String companyName,
+String frenchCompanyName) {
+...
+}
+
+...
+
+public void formatTo(Formatter fmt, int f, int width, int precision) {
+StringBuilder sb = new StringBuilder();
+
+decide form of name
+String name = companyName;
+if (fmt.locale().equals(Locale.FRANCE))
+name = frenchCompanyName;
+boolean alternate = (f &amp; ALTERNATE) == ALTERNATE;
+boolean usesymbol = alternate || (precision != -1 &amp;&amp; precision &lt; 10);
+String out = (usesymbol ? symbol : name);
+
+apply precision
+if (precision == -1 || out.length() &lt; precision) {
+write it all
+sb.append(out);
+} else {
+sb.append(out.substring(0, precision - 1)).append('*');
+}
+
+apply width and justification
+int len = sb.length();
+if (len &lt; width)
+for (int i = 0; i &lt; width - len; i++)
+if ((f &amp; LEFT_JUSTIFY) == LEFT_JUSTIFY)
+sb.append(' ');
+else
+sb.insert(0, ' ');
+
+fmt.format(sb.toString());
+}
+
+public String toString() {
+return String.format("%s - %s", symbol, companyName);
+}
+}
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; When used in conjunction with the {@link java.util.Formatter}, the above
+class produces the following output for various format strings.
+
+&lt;blockquote&gt;&lt;pre&gt;
+Formatter fmt = new Formatter();
+StockName sn = new StockName("HUGE", "Huge Fruit, Inc.",
+"Fruit Titanesque, Inc.");
+fmt.format("%s", sn);                   //   -&gt; "Huge Fruit, Inc."
+fmt.format("%s", sn.toString());        //   -&gt; "HUGE - Huge Fruit, Inc."
+fmt.format("%#s", sn);                  //   -&gt; "HUGE"
+fmt.format("%-10.8s", sn);              //   -&gt; "HUGE      "
+fmt.format("%.12s", sn);                //   -&gt; "Huge Fruit,*"
+fmt.format(Locale.FRANCE, "%25s", sn);  //   -&gt; "   Fruit Titanesque, Inc."
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; Formattables are not necessarily safe for multithreaded access.  Thread
+safety is optional and may be enforced by classes that extend and implement
+this interface.
+
+&lt;p&gt; Unless otherwise specified, passing a &lt;tt&gt;null&lt;/tt&gt; argument to
+any method in this interface will cause a {@link
+NullPointerException} to be thrown.
+
+@version 	1.3, 04/21/04
+@since  1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Formattable" refid="_10_5_622020d_1132928310973_710744_7231"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Formattable" refid="_10_5_622020d_1132928310973_710744_7231"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

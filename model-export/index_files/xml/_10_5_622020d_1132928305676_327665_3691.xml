@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305676_327665_3691"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AdjustmentListener" refid="_9_5_f720368_1110473546565_707401_6539"/></annotatedElement><body humanName="Body" mode="s,e">The listener interface for receiving adjustment events.
+
+@author Amy Fowler
+@version 1.14 12/19/03
+@since 1.1
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="AdjustmentListener" refid="_9_5_f720368_1110473546565_707401_6539"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AdjustmentListener" refid="_9_5_f720368_1110473546565_707401_6539"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546596_959912_7223"><documentation humanName="Documentation" mode="standard">The Introspector class provides a standard way for tools to learn about
+the properties, events, and methods supported by a target Java Bean.
+&lt;p&gt;
+For each of those three kinds of information, the Introspector will
+separately analyze the bean's class and superclasses looking for
+either explicit or implicit information and use that information to
+build a BeanInfo object that comprehensively describes the target bean.
+&lt;p&gt;
+For each class "Foo", explicit information may be available if there exists
+a corresponding "FooBeanInfo" class that provides a non-null value when
+queried for the information.   We first look for the BeanInfo class by
+taking the full package-qualified name of the target bean class and
+appending "BeanInfo" to form a new class name.  If this fails, then
+we take the final classname component of this name, and look for that
+class in each of the packages specified in the BeanInfo package search
+path.
+&lt;p&gt;
+Thus for a class such as "sun.xyz.OurButton" we would first look for a
+BeanInfo class called "sun.xyz.OurButtonBeanInfo" and if that failed we'd
+look in each package in the BeanInfo search path for an OurButtonBeanInfo
+class.  With the default search path, this would mean looking for
+"sun.beans.infos.OurButtonBeanInfo".
+&lt;p&gt;
+If a class provides explicit BeanInfo about itself then we add that to
+the BeanInfo information we obtained from analyzing any derived classes,
+but we regard the explicit information as being definitive for the current
+class and its base classes, and do not proceed any further up the superclass
+chain.
+&lt;p&gt;
+If we don't find explicit BeanInfo on a class, we use low-level
+reflection to study the methods of the class and apply standard design
+patterns to identify property accessors, event sources, or public
+methods.  We then proceed to analyze the class's superclass and add
+in the information from it (and possibly on up the superclass chain).
+
+&lt;p&gt;
+Because the Introspector caches BeanInfo classes for better performance,
+take care if you use it in an application that uses
+multiple class loaders.
+In general, when you destroy a &lt;code&gt;ClassLoader&lt;/code&gt;
+that has been used to introspect classes,
+you should use the
+{@link #flushCaches &lt;code&gt;Introspector.flushCaches&lt;/code&gt;}
+or
+{@link #flushFromCaches &lt;code&gt;Introspector.flushFromCaches&lt;/code&gt;} method
+to flush all of the introspected classes out of the cache.
+
+&lt;P&gt;
+For more information about introspection and design patterns, please
+consult the
+&lt;a href="http://java.sun.com/products/javabeans/docs/index.html"&gt;JavaBeans specification&lt;/a&gt;.
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Introspector</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beans" refid="_9_5_f720368_1110473547440_999992_17398"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306887_707512_4443"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306887_707512_4443"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="beans" refid="_9_5_f720368_1110473547440_999992_17398"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beans" refid="_9_5_f720368_1110473547440_999992_17398"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="beans" refid="_9_5_f720368_1110473547440_999992_17398"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::beans::Introspector</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

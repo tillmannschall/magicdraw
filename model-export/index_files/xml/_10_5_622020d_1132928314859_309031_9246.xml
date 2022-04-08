@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314859_309031_9246"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IIOException" refid="_9_5_f720368_1110473546706_631205_9089"/></annotatedElement><body humanName="Body" mode="s,e">An exception class used for signaling run-time failure of reading
+and writing operations.
+
+&lt;p&gt; In addition to a message string, a reference to another
+&lt;code&gt;Throwable&lt;/code&gt; (&lt;code&gt;Error&lt;/code&gt; or
+&lt;code&gt;Exception&lt;/code&gt;) is maintained.  This reference, if
+non-&lt;code&gt;null&lt;/code&gt;, refers to the event that caused this
+exception to occur.  For example, an &lt;code&gt;IOException&lt;/code&gt; while
+reading from a &lt;code&gt;File&lt;/code&gt; would be stored there.
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="IIOException" refid="_9_5_f720368_1110473546706_631205_9089"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IIOException" refid="_9_5_f720368_1110473546706_631205_9089"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546940_240912_13256"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::helpers::AttributeListImpl -&gt; JDK 5.0 Classes::org::xml::sax::AttributeList]" refid="_10_5_622020d_1132928322900_156515_15731"/></clientDependency><documentation humanName="Documentation" mode="standard">Default implementation for AttributeList.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;AttributeList implements the deprecated SAX1 {@link
+org.xml.sax.AttributeList AttributeList} interface, and has been
+replaced by the new SAX2 {@link org.xml.sax.helpers.AttributesImpl
+AttributesImpl} interface.&lt;/p&gt;
+
+&lt;p&gt;This class provides a convenience implementation of the SAX
+{@link org.xml.sax.AttributeList AttributeList} interface.  This
+implementation is useful both for SAX parser writers, who can use
+it to provide attributes to the application, and for SAX application
+writers, who can use it to create a persistent copy of an element's
+attribute specifications:&lt;/p&gt;
+
+&lt;pre&gt;
+private AttributeList myatts;
+
+public void startElement (String name, AttributeList atts)
+{
+create a persistent copy of the attribute list
+for use outside this method
+myatts = new AttributeListImpl(atts);
+[...]
+}
+&lt;/pre&gt;
+
+&lt;p&gt;Please note that SAX parsers are not required to use this
+class to provide an implementation of AttributeList; it is
+supplied only as an optional convenience.  In particular,
+parser writers are encouraged to invent more efficient
+implementations.&lt;/p&gt;
+
+@deprecated This class implements a deprecated interface,
+{@link org.xml.sax.AttributeList AttributeList};
+that interface has been replaced by
+{@link org.xml.sax.Attributes Attributes},
+which is implemented in the
+{@link org.xml.sax.helpers.AttributesImpl
+AttributesImpl} helper class.
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.AttributeList
+@see org.xml.sax.DocumentHandler#startElement
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::helpers::AttributeListImpl -&gt; JDK 5.0 Classes::org::xml::sax::AttributeList]" refid="_10_5_622020d_1132928322900_156515_15731"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">AttributeListImpl</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314688_773913_9032"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314688_773913_9032"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::helpers::AttributeListImpl -&gt; JDK 5.0 Classes::org::xml::sax::AttributeList]" refid="_10_5_622020d_1132928322900_156515_15731"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::xml::sax::helpers::AttributeListImpl</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AttributeList" refid="_9_5_f720368_1110473546940_36360_13278"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

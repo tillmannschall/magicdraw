@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546721_624086_9329"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobImpressions -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323261_292805_16264"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobImpressions -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323261_385221_16263"/></clientDependency><documentation humanName="Documentation" mode="standard">Class JobImpressions is an integer valued printing attribute class that
+specifies the total size in number of impressions of the document(s) being
+submitted. An "impression" is the image (possibly many print-stream pages in
+different configurations) imposed onto a single media page.
+&lt;P&gt;
+The JobImpressions attribute describes the size of the job. This attribute is
+not intended to be a counter; it is intended to be useful routing and
+scheduling information if known. The printer may try to compute the
+JobImpressions attribute's value if it is not supplied in the Print Request.
+Even if the client does supply a value for the JobImpressions attribute in
+the Print Request, the printer may choose to change the value if the printer
+is able to compute a value which is more accurate than the client supplied
+value. The printer may be able to determine the correct value for the
+JobImpressions attribute either right at job submission time or at any later
+point in time.
+&lt;P&gt;
+As with {@link JobKOctets JobKOctets}, the JobImpressions value must not
+include the multiplicative factors contributed by the number of copies
+specified by the {@link Copies Copies} attribute, independent of whether the
+device can process multiple copies without making multiple passes over the
+job or document data and independent of whether the output is collated or
+not. Thus the value is independent of the implementation and reflects the
+size of the document(s) measured in impressions independent of the number of
+copies.
+&lt;P&gt;
+As with {@link JobKOctets JobKOctets}, the JobImpressions value must also not
+include the multiplicative factor due to a copies instruction embedded in the
+document data. If the document data actually includes replications of the
+document data, this value will include such replication. In other words, this
+value is always the number of impressions in the source document data, rather
+than a measure of the number of impressions to be produced by the job.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The integer value gives the IPP integer value. The
+category name returned by &lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute
+name.
+&lt;P&gt;
+
+@see JobImpressionsSupported
+@see JobImpressionsCompleted
+@see JobKOctets
+@see JobMediaSheets
+
+@author  Alan Kaminsky
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323261_498100_16265"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobImpressions -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323261_292805_16264"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobImpressions -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323261_385221_16263"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">JobImpressions</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315630_509810_10132"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323261_498100_16265"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315630_509810_10132"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobImpressions -&gt; JDK 5.0 Classes::javax::print::attribute::PrintJobAttribute]" refid="_10_5_622020d_1132928323261_292805_16264"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::JobImpressions -&gt; JDK 5.0 Classes::javax::print::attribute::PrintRequestAttribute]" refid="_10_5_622020d_1132928323261_385221_16263"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::print::attribute::standard::JobImpressions</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintJobAttribute" refid="_9_5_f720368_1110473546737_356648_9467"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintRequestAttribute" refid="_9_5_f720368_1110473546737_975548_9471"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="IntegerSyntax" refid="_9_5_f720368_1110473546737_118217_9465"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

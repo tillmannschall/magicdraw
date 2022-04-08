@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313347_819904_7426"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PropertyPermissionCollection" refid="_9_5_f720368_1110473546706_440663_8907"/></annotatedElement><body humanName="Body" mode="s,e">A PropertyPermissionCollection stores a set of PropertyPermission
+permissions.
+
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionCollection
+
+@version 1.33, 12/19/03
+
+@author Roland Schemers
+
+@serial include
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PropertyPermissionCollection" refid="_9_5_f720368_1110473546706_440663_8907"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PropertyPermissionCollection" refid="_9_5_f720368_1110473546706_440663_8907"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

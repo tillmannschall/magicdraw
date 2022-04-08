@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315680_312322_10179"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MediaSize" refid="_9_5_f720368_1110473546721_72610_9371"/></annotatedElement><body humanName="Body" mode="s,e">Class MediaSize is a two-dimensional size valued printing attribute class
+that indicates the dimensions of the medium in a portrait orientation, with
+the X dimension running along the bottom edge and the Y dimension running
+along the left edge. Thus, the Y dimension must be greater than or equal to
+the X dimension. Class MediaSize declares many standard media size
+values, organized into nested classes for ISO, JIS, North American,
+engineering, and other media.
+&lt;P&gt;
+MediaSize is not yet used to specify media. Its current role is
+as a mapping for named media (see {@link MediaSizeName MediaSizeName}).
+Clients can use the mapping method
+&lt;code&gt;MediaSize.getMediaSizeForName(MediaSizeName)&lt;/code&gt;
+to find the physical dimensions of the MediaSizeName instances
+enumerated in this API. This is useful for clients which need this
+information to format &amp; paginate printing.
+&lt;P&gt;
+
+@author  Phil Race, Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MediaSize" refid="_9_5_f720368_1110473546721_72610_9371"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MediaSize" refid="_9_5_f720368_1110473546721_72610_9371"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

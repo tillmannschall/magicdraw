@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309281_913773_5962"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AlgorithmParameterGeneratorSpi" refid="_9_5_f720368_1110473546674_692833_8419"/></annotatedElement><body humanName="Body" mode="s,e">This class defines the &lt;i&gt;Service Provider Interface&lt;/i&gt; (&lt;b&gt;SPI&lt;/b&gt;)
+for the &lt;code&gt;AlgorithmParameterGenerator&lt;/code&gt; class, which
+is used to generate a set of parameters to be used with a certain algorithm.
+
+&lt;p&gt; All the abstract methods in this class must be implemented by each
+cryptographic service provider who wishes to supply the implementation
+of a parameter generator for a particular algorithm.
+
+&lt;p&gt; In case the client does not explicitly initialize the
+AlgorithmParameterGenerator (via a call to an &lt;code&gt;engineInit&lt;/code&gt;
+method), each provider must supply (and document) a default initialization.
+For example, the Sun provider uses a default modulus prime size of 1024
+bits for the generation of DSA parameters.
+
+@author Jan Luehe
+
+@version 1.14, 12/19/03
+
+@see AlgorithmParameterGenerator
+@see AlgorithmParameters
+@see java.security.spec.AlgorithmParameterSpec
+
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AlgorithmParameterGeneratorSpi" refid="_9_5_f720368_1110473546674_692833_8419"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AlgorithmParameterGeneratorSpi" refid="_9_5_f720368_1110473546674_692833_8419"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

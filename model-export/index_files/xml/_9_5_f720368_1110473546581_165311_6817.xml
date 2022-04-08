@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_165311_6817"><documentation humanName="Documentation" mode="standard">This class represents image data which is stored in a pixel interleaved
+fashion and for
+which each sample of a pixel occupies one data element of the DataBuffer.
+It subclasses ComponentSampleModel but provides a more efficent
+implementation for accessing pixel interleaved image data than is provided
+by ComponentSampleModel.  This class
+stores sample data for all bands in a single bank of the
+DataBuffer. Accessor methods are provided so that image data can be
+manipulated directly. Pixel stride is the number of
+data array elements between two samples for the same band on the same
+scanline. Scanline stride is the number of data array elements between
+a given sample and the corresponding sample in the same column of the next
+scanline.  Band offsets denote the number
+of data array elements from the first data array element of the bank
+of the DataBuffer holding each band to the first sample of the band.
+The bands are numbered from 0 to N-1.
+Bank indices denote the correspondence between a bank of the data buffer
+and a band of image data.
+This class supports
+{@link DataBuffer#TYPE_BYTE TYPE_BYTE},
+{@link DataBuffer#TYPE_USHORT TYPE_USHORT},
+{@link DataBuffer#TYPE_SHORT TYPE_SHORT},
+{@link DataBuffer#TYPE_INT TYPE_INT},
+{@link DataBuffer#TYPE_FLOAT TYPE_FLOAT} and
+{@link DataBuffer#TYPE_DOUBLE TYPE_DOUBLE} datatypes.
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321258_613340_13090"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">PixelInterleavedSampleModel</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306096_710268_3982"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321258_613340_13090"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306096_710268_3982"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::image::PixelInterleavedSampleModel</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ComponentSampleModel" refid="_9_5_f720368_1110473546565_226234_6767"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

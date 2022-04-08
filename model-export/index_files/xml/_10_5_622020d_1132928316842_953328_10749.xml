@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928316842_953328_10749"><documentation humanName="Documentation" mode="standard">The standard interface that all implementations of a &lt;code&gt;WebRowSet&lt;/code&gt;
+must implement.
+&lt;P&gt;
+&lt;h3&gt;1.0 Overview&lt;/h3&gt;
+The &lt;code&gt;WebRowSetImpl&lt;/code&gt; provides the standard
+reference implementation, which may be extended if required.
+&lt;P&gt;
+The standard WebRowSet XML Schema definition is available at the following
+URI:
+&lt;ul&gt;
+&lt;pre&gt;
+&lt;a href="http://java.sun.com/xml/ns/jdbc/webrowset.xsd"&gt;http://java.sun.com/xml/ns/jdbc/webrowset.xsd&lt;/a&gt;
+&lt;/pre&gt;
+&lt;/ul&gt;
+It describes the standard XML document format required when describing a
+&lt;code&gt;RowSet&lt;/code&gt; object in XML and must be used be all standard implementations
+of the &lt;code&gt;WebRowSet&lt;/code&gt; interface to ensure interoperability. In addition,
+the &lt;code&gt;WebRowSet&lt;/code&gt; schema uses specific SQL/XML Schema annotations,
+thus ensuring greater cross
+platform inter-operability. This is an effort currently under way at the ISO
+organization. The SQL/XML definition is available at the following URI:
+&lt;ul&gt;
+&lt;pre&gt;
+&lt;a href="http://standards.iso.org/iso/9075/2002/12/sqlxml"&gt;http://standards.iso.org/iso/9075/2002/12/sqlxml&lt;/a&gt;
+&lt;/pre&gt;
+&lt;/ul&gt;
+The schema definition describes the internal data of a &lt;code&gt;RowSet&lt;/code&gt; object
+in three distinct areas:
+&lt;UL&gt;
+&lt;li&gt;&lt;b&gt;properties&lt;/b&gt;&lt;/li&gt;
+These properties describe the standard synchronization provider properties in
+addition to the more general &lt;code&gt;RowSet&lt;/code&gt; properties.
+&lt;p&gt;
+&lt;li&gt;&lt;b&gt;metadata&lt;/b&gt;&lt;/li&gt;
+This describes the metadata associated with the tabular structure governed by a
+&lt;code&gt;WebRowSet&lt;/code&gt; object. The metadata described is closely aligned with the
+metadata accessible in the underlying &lt;code&gt;java.sql.ResultSet&lt;/code&gt; interface.
+&lt;p&gt;
+&lt;li&gt;&lt;b&gt;data&lt;/b&gt;&lt;/li&gt;
+This describes the original data (the state of data since the last population
+or last synchronization of the &lt;code&gt;WebRowSet&lt;/code&gt; object) and the current
+data. By keeping track of the delta between the original data and the current data,
+a &lt;code&gt;WebRowSet&lt;/code&gt; maintains
+the ability to synchronize changes in its data back to the originating data source.
+&lt;/ul&gt;
+&lt;P&gt;
+&lt;h3&gt;2.0 WebRowSet States&lt;/h3&gt;
+The following sections demonstrates how a &lt;code&gt;WebRowSet&lt;/code&gt; implementation
+should use the XML Schema to describe update, insert, and delete operations
+and to describe the state of a &lt;code&gt;WebRowSet&lt;/code&gt; object in XML.
+&lt;p&gt;
+&lt;h4&gt;2.1 State 1 - Outputting a &lt;code&gt;WebRowSet&lt;/code&gt; Object to XML&lt;/h3&gt;
+In this example, a &lt;code&gt;WebRowSet&lt;/code&gt; object is created and populated with a simple 2 column,
+5 row table from a data source. Having the 5 rows in a &lt;code&gt;WebRowSet&lt;/code&gt; object
+makes it possible to describe them in XML. The
+metadata describing the various standard JavaBeans properties as defined
+in the RowSet interface plus the standard properties defined in
+the &lt;code&gt;CachedRowSet&lt;/code&gt;&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt; interface
+provide key details that describe WebRowSet
+properties. Outputting the WebRowSet object to XML using the standard
+&lt;code&gt;writeXml&lt;/code&gt; methods describes the internal properties as follows:
+&lt;PRE&gt;
+&lt;&lt;font color=red&gt;properties&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;command&lt;/font&gt;&gt;select co1, col2 from test_table&lt;&lt;font color=red&gt;/command&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;concurrency&lt;/font&gt;&gt;1&lt;&lt;font color=red&gt;/concurrency&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;datasource/&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;escape-processing&lt;/font&gt;&gt;true&lt;&lt;font color=red&gt;/escape-processing&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;fetch-direction&lt;/font&gt;&gt;0&lt;&lt;font color=red&gt;/fetch-direction&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;fetch-size&lt;/font&gt;&gt;0&lt;&lt;font color=red&gt;/fetch-size&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;isolation-level&lt;/font&gt;&gt;1&lt;&lt;font color=red&gt;/isolation-level&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;key-columns/&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;map/&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;max-field-size&lt;/font&gt;&gt;0&lt;&lt;font color=red&gt;/max-field-size&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;max-rows&lt;/font&gt;&gt;0&lt;&lt;font color=red&gt;/max-rows&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;query-timeout&lt;/font&gt;&gt;0&lt;&lt;font color=red&gt;/query-timeout&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;read-only&lt;/font&gt;&gt;false&lt;&lt;font color=red&gt;/read-only&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;rowset-type&lt;/font&gt;&gt;TRANSACTION_READ_UNCOMMITED&lt;&lt;font color=red&gt;/rowset-type&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;show-deleted&lt;/font&gt;&gt;false&lt;&lt;font color=red&gt;/show-deleted&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;table-name/&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;url&lt;/font&gt;&gt;jdbc:thin:oracle&lt;&lt;font color=red&gt;/url&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;sync-provider&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;sync-provider-name&lt;/font&gt;&gt;.com.rowset.provider.RIOptimisticProvider&lt;&lt;font color=red&gt;/sync-provider-name&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;sync-provider-vendor&lt;/font&gt;&gt;Sun Microsystems&lt;&lt;font color=red&gt;/sync-provider-vendor&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;sync-provider-version&lt;/font&gt;&gt;1.0&lt;&lt;font color=red&gt;/sync-provider-name&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;sync-provider-grade&lt;/font&gt;&gt;LOW&lt;&lt;font color=red&gt;/sync-provider-grade&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;data-source-lock&lt;/font&gt;&gt;NONE&lt;&lt;font color=red&gt;/data-source-lock&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/sync-provider&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/properties&lt;/font&gt;&gt;
+&lt;/PRE&gt;
+The meta-data describing the make up of the WebRowSet is described
+in XML as detailed below. Note both columns are described between the
+&lt;code&gt;column-definition&lt;/code&gt; tags.
+&lt;PRE&gt;
+&lt;&lt;font color=red&gt;metadata&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-count&lt;/font&gt;&gt;2&lt;&lt;font color=red&gt;/column-count&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-definition&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-index&lt;/font&gt;&gt;1&lt;&lt;font color=red&gt;/column-index&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;auto-increment&lt;/font&gt;&gt;false&lt;&lt;font color=red&gt;/auto-increment&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;case-sensitive&lt;/font&gt;&gt;true&lt;&lt;font color=red&gt;/case-sensitive&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currency&lt;/font&gt;&gt;false&lt;&lt;font color=red&gt;/currency&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;nullable&lt;/font&gt;&gt;1&lt;&lt;font color=red&gt;/nullable&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;signed&lt;/font&gt;&gt;false&lt;&lt;font color=red&gt;/signed&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;searchable&lt;/font&gt;&gt;true&lt;&lt;font color=red&gt;/searchable&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-display-size&lt;/font&gt;&gt;10&lt;&lt;font color=red&gt;/column-display-size&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-label&lt;/font&gt;&gt;COL1&lt;&lt;font color=red&gt;/column-label&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-name&lt;/font&gt;&gt;COL1&lt;&lt;font color=red&gt;/column-name&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;schema-name/&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-precision&lt;/font&gt;&gt;10&lt;&lt;font color=red&gt;/column-precision&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-scale&lt;/font&gt;&gt;0&lt;&lt;font color=red&gt;/column-scale&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;table-name/&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;catalog-name/&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-type&lt;/font&gt;&gt;1&lt;&lt;font color=red&gt;/column-type&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-type-name&lt;/font&gt;&gt;CHAR&lt;&lt;font color=red&gt;/column-type-name&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/column-definition&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-definition&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-index&lt;/font&gt;&gt;2&lt;&lt;font color=red&gt;/column-index&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;auto-increment&lt;/font&gt;&gt;false&lt;&lt;font color=red&gt;/auto-increment&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;case-sensitive&lt;/font&gt;&gt;false&lt;&lt;font color=red&gt;/case-sensitive&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currency&lt;/font&gt;&gt;false&lt;&lt;font color=red&gt;/currency&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;nullable&lt;/font&gt;&gt;1&lt;&lt;font color=red&gt;/nullable&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;signed&lt;/font&gt;&gt;true&lt;&lt;font color=red&gt;/signed&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;searchable&lt;/font&gt;&gt;true&lt;&lt;font color=red&gt;/searchable&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-display-size&lt;/font&gt;&gt;39&lt;&lt;font color=red&gt;/column-display-size&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-label&lt;/font&gt;&gt;COL2&lt;&lt;font color=red&gt;/column-label&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-name&lt;/font&gt;&gt;COL2&lt;&lt;font color=red&gt;/column-name&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;schema-name/&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-precision&lt;/font&gt;&gt;38&lt;&lt;font color=red&gt;/column-precision&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-scale&lt;/font&gt;&gt;0&lt;&lt;font color=red&gt;/column-scale&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;table-name/&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;catalog-name/&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-type&lt;/font&gt;&gt;3&lt;&lt;font color=red&gt;/column-type&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;column-type-name&lt;/font&gt;&gt;NUMBER&lt;&lt;font color=red&gt;/column-type-name&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/column-definition&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/metadata&lt;/font&gt;&gt;
+&lt;/PRE&gt;
+Having detailed how the properties and metadata are described, the following details
+how the contents of a &lt;code&gt;WebRowSet&lt;/code&gt; object is described in XML. Note, that
+this describes a &lt;code&gt;WebRowSet&lt;/code&gt; object that has not undergone any
+modifications since its instantiation.
+A &lt;code&gt;currentRow&lt;/code&gt; tag is mapped to each row of the table structure that the
+&lt;code&gt;WebRowSet&lt;/code&gt; object provides. A &lt;code&gt;columnValue&lt;/code&gt; tag may contain
+either the &lt;code&gt;stringData&lt;/code&gt; or &lt;code&gt;binaryData&lt;/code&gt; tag, according to
+the SQL type that
+the XML value is mapping back to. The &lt;code&gt;binaryData&lt;/code&gt; tag contains data in the
+Base64 encoding and is typically used for &lt;code&gt;BLOB&lt;/code&gt; and &lt;code&gt;CLOB&lt;/code&gt; type data.
+&lt;PRE&gt;
+&lt;&lt;font color=red&gt;data&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+firstrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+1
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+secondrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+2
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+thirdrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+3
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+fourthrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+4
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/data&lt;/font&gt;&gt;
+&lt;/PRE&gt;
+&lt;h4&gt;2.2 State 2 - Deleting a Row&lt;/h4&gt;
+Deleting a row in a &lt;code&gt;WebRowSet&lt;/code&gt; object involves simply moving to the row
+to be deleted and then calling the method &lt;code&gt;deleteRow&lt;/code&gt;, as in any other
+&lt;code&gt;RowSet&lt;/code&gt; object.  The following
+two lines of code, in which &lt;i&gt;wrs&lt;/i&gt; is a &lt;code&gt;WebRowSet&lt;/code&gt; object, delete
+the third row.
+&lt;PRE&gt;
+wrs.absolute(3);
+wrs.deleteRow();
+&lt;/PRE&gt;
+The XML description shows the third row is marked as a &lt;code&gt;deleteRow&lt;/code&gt;,
+which eliminates the third row in the &lt;code&gt;WebRowSet&lt;/code&gt; object.
+&lt;PRE&gt;
+&lt;&lt;font color=red&gt;data&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+firstrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+1
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+secondrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+2
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;deleteRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+thirdrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+3
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/deleteRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+fourthrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+4
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/data&lt;/font&gt;&gt;
+&lt;/PRE&gt;
+&lt;h4&gt;2.3 State 3 - Inserting a Row&lt;/h4&gt;
+A &lt;codeWebRowSet&lt;/code&gt; object can insert a new row by moving to the insert row,
+calling the appropriate updater methods for each column in the row, and then
+calling the method &lt;code&gt;insertRow&lt;/code&gt;.
+&lt;PRE&gt;
+wrs.moveToInsertRow();
+wrs.updateString(1, "fifththrow");
+wrs.updateString(2, "5");
+wrs.insertRow();
+&lt;/PRE&gt;
+The following code fragment changes the second column value in the row just inserted.
+Note that this code applies when new rows are inserted right after the current row,
+which is why the method &lt;code&gt;next&lt;/code&gt; moves the cursor to the correct row.
+Calling the method &lt;code&gt;acceptChanges&lt;/code&gt; writes the change to the data source.
+
+&lt;PRE&gt;
+wrs.moveToCurrentRow();
+wrs.next();
+wrs.updateString(2, "V");
+wrs.acceptChanges();
+:
+&lt;/PRE&gt;
+Describing this in XML demonstrates where the Java code inserts a new row and then
+performs an update on the newly inserted row on an individual field.
+&lt;PRE&gt;
+&lt;&lt;font color=red&gt;data&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+firstrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+1
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+secondrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+2
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+newthirdrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+III
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;insertRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+fifthrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+5
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;updateValue&lt;/font&gt;&gt;
+V
+&lt;&lt;font color=red&gt;/updateValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/insertRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+fourthrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+4
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/date&lt;/font&gt;&gt;
+&lt;/PRE&gt;
+&lt;h4&gt;2.4 State 4 - Modifying a Row&lt;/h4&gt;
+Modifying a row produces specific XML that records both the new value and the
+value that was replaced.  The value that was replaced becomes the original value,
+and the new value becomes the current value. The following
+code moves the cursor to a specific row, performs some modifications, and updates
+the row when complete.
+&lt;PRE&gt;
+wrs.absolute(5);
+wrs.updateString(1, "new4thRow");
+wrs.updateString(2, "IV");
+wrs.updateRow();
+&lt;/PRE&gt;
+In XML, this is described by the &lt;code&gt;modifyRow&lt;/code&gt; tag. Both the original and new
+values are contained within the tag for original row tracking purposes.
+&lt;PRE&gt;
+&lt;&lt;font color=red&gt;data&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+firstrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+1
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+secondrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+2
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+newthirdrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+III
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+fifthrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+5
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/currentRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;modifyRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+fourthrow
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;updateValue&lt;/font&gt;&gt;
+new4thRow
+&lt;&lt;font color=red&gt;/updateValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;columnValue&lt;/font&gt;&gt;
+4
+&lt;&lt;font color=red&gt;/columnValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;updateValue&lt;/font&gt;&gt;
+IV
+&lt;&lt;font color=red&gt;/updateValue&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/modifyRow&lt;/font&gt;&gt;
+&lt;&lt;font color=red&gt;/data&lt;/font&gt;&gt;
+&lt;/PRE&gt;
+
+@see javax.sql.rowset.JdbcRowSet
+@see javax.sql.rowset.CachedRowSet
+@see javax.sql.rowset.FilteredRowSet
+@see javax.sql.rowset.JoinRowSet
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CachedRowSet" refid="_10_5_622020d_1132928316471_381863_10724"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323381_116594_16658"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">WebRowSet</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316962_7377_10751"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323381_116594_16658"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316962_7377_10751"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="rowset" refid="_10_5_622020d_1132928316281_93165_10659"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sql::rowset::WebRowSet</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

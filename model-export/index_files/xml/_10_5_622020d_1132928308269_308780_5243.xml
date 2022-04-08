@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308269_308780_5243"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ContentHandler" refid="_9_5_f720368_1110473546628_571198_7745"/></annotatedElement><body humanName="Body" mode="s,e">The abstract class &lt;code&gt;ContentHandler&lt;/code&gt; is the superclass
+of all classes that read an &lt;code&gt;Object&lt;/code&gt; from a
+&lt;code&gt;URLConnection&lt;/code&gt;.
+&lt;p&gt;
+An application does not generally call the
+&lt;code&gt;getContent&lt;/code&gt; method in this class directly. Instead, an
+application calls the &lt;code&gt;getContent&lt;/code&gt; method in class
+&lt;code&gt;URL&lt;/code&gt; or in &lt;code&gt;URLConnection&lt;/code&gt;.
+The application's content handler factory (an instance of a class that
+implements the interface &lt;code&gt;ContentHandlerFactory&lt;/code&gt; set
+up by a call to &lt;code&gt;setContentHandler&lt;/code&gt;) is
+called with a &lt;code&gt;String&lt;/code&gt; giving the MIME type of the
+object being received on the socket. The factory returns an
+instance of a subclass of &lt;code&gt;ContentHandler&lt;/code&gt;, and its
+&lt;code&gt;getContent&lt;/code&gt; method is called to create the object.
+&lt;p&gt;
+If no content handler could be found, URLConnection will
+look for a content handler in a user-defineable set of places.
+By default it looks in sun.net.www.content, but users can define a
+vertical-bar delimited set of class prefixes to search through in
+addition by defining the java.content.handler.pkgs property.
+The class name must be of the form:
+&lt;pre&gt;
+{package-prefix}.{major}.{minor}
+e.g.
+YoyoDyne.experimental.text.plain
+&lt;/pre&gt;
+If the loading of the content handler class would be performed by
+a classloader that is outside of the the delegation chain of the caller,
+the JVM will need the RuntimePermission "getClassLoader".
+
+@author  James Gosling
+@version 1.17, 12/19/03
+@see     java.net.ContentHandler#getContent(java.net.URLConnection)
+@see     java.net.ContentHandlerFactory
+@see     java.net.URL#getContent()
+@see     java.net.URLConnection
+@see     java.net.URLConnection#getContent()
+@see     java.net.URLConnection#setContentHandlerFactory(java.net.ContentHandlerFactory)
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ContentHandler" refid="_9_5_f720368_1110473546628_571198_7745"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ContentHandler" refid="_9_5_f720368_1110473546628_571198_7745"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

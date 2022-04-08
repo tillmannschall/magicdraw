@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314989_166360_9478"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RelationService" refid="_10_5_622020d_1132928314989_976687_9476"/></annotatedElement><body humanName="Body" mode="s,e">The Relation Service is in charge of creating and deleting relation types
+and relations, of handling the consistency and of providing query
+mechanisms.
+&lt;P&gt;It implements the NotificationBroadcaster by extending
+NotificationBroadcasterSupport to send notifications when a relation is
+removed from it.
+&lt;P&gt;It implements the NotificationListener interface to be able to receive
+notifications concerning unregistration of MBeans referenced in relation
+roles and of relation MBeans.
+&lt;P&gt;It implements the MBeanRegistration interface to be able to retrieve
+its ObjectName and MBean Server.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RelationService" refid="_10_5_622020d_1132928314989_976687_9476"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RelationService" refid="_10_5_622020d_1132928314989_976687_9476"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305655_76584_3661"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DragSourceMotionListener" refid="_9_5_f720368_1110473546565_213829_6511"/></annotatedElement><body humanName="Body" mode="s,e">A listener interface for receiving mouse motion events during a drag
+operation.
+&lt;p&gt;
+The class that is interested in processing mouse motion events during
+a drag operation either implements this interface or extends the abstract
+&lt;code&gt;DragSourceAdapter&lt;/code&gt; class (overriding only the methods of
+interest).
+&lt;p&gt;
+Create a listener object using that class and then register it with
+a &lt;code&gt;DragSource&lt;/code&gt;. Whenever the mouse moves during a drag
+operation initiated with this &lt;code&gt;DragSource&lt;/code&gt;, that object's
+&lt;code&gt;dragMouseMoved&lt;/code&gt; method is invoked, and the
+&lt;code&gt;DragSourceDragEvent&lt;/code&gt; is passed to it.
+
+@see DragSourceDragEvent
+@see DragSource
+@see DragSourceListener
+@see DragSourceAdapter
+
+@version 1.4, 12/19/03
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DragSourceMotionListener" refid="_9_5_f720368_1110473546565_213829_6511"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DragSourceMotionListener" refid="_9_5_f720368_1110473546565_213829_6511"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317252_834574_11467"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ImagePainter" refid="_10_5_622020d_1132928317252_553711_11465"/></annotatedElement><body humanName="Body" mode="s,e">ImagePainter fills in the specified region using an Image. The Image
+is split into 9 segments: north, north east, east, south east, south,
+south west, west, north west and the center. The corners are defined
+by way of an insets, and the remaining regions are either tiled or
+scaled to fit.
+
+@version 1.8, 12/19/03
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ImagePainter" refid="_10_5_622020d_1132928317252_553711_11465"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ImagePainter" refid="_10_5_622020d_1132928317252_553711_11465"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

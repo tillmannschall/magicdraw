@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318254_883499_12655"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Constraints" refid="_9_5_f720368_1110473548471_533353_24471"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;Constraints&lt;/code&gt; object holds the
+constraints that govern the way a component's size and position
+change in a container controlled by a &lt;code&gt;SpringLayout&lt;/code&gt;.
+A &lt;code&gt;Constraints&lt;/code&gt; object is
+like a &lt;code&gt;Rectangle&lt;/code&gt;, in that it
+has &lt;code&gt;x&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt;,
+&lt;code&gt;width&lt;/code&gt;, and &lt;code&gt;height&lt;/code&gt; properties.
+In the &lt;code&gt;Constraints&lt;/code&gt; object, however,
+these properties have
+&lt;code&gt;Spring&lt;/code&gt; values instead of integers.
+In addition,
+a &lt;code&gt;Constraints&lt;/code&gt; object
+can be manipulated as four edges
+-- north, south, east, and west --
+using the &lt;code&gt;constraint&lt;/code&gt; property.
+
+&lt;p&gt;
+The following formulas are always true
+for a &lt;code&gt;Constraints&lt;/code&gt; object:
+
+&lt;pre&gt;
+west = x
+north = y
+east = x + width
+south = y + height&lt;/pre&gt;
+
+&lt;b&gt;Note&lt;/b&gt;: In this document,
+operators represent methods
+in the &lt;code&gt;Spring&lt;/code&gt; class.
+For example, "a + b" is equal to
+&lt;code&gt;Spring.sum(a, b)&lt;/code&gt;,
+and "a - b" is equal to
+&lt;code&gt;Spring.sum(a, Spring.minus(b))&lt;/code&gt;.
+See the
+{@link Spring Spring&lt;/code&gt; API documentation&lt;code&gt;}
+for further details
+of spring arithmetic.
+
+&lt;p&gt;
+
+Because a &lt;code&gt;Constraints&lt;/code&gt; object's properties --
+representing its edges, size, and location -- can all be set
+independently and yet are interrelated,
+the object can become &lt;em&gt;over-constrained&lt;/em&gt;.
+For example,
+if both the &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt;
+properties are set
+and then the east edge is set,
+the object is over-constrained horizontally.
+When this happens, one of the values
+(in this case, the &lt;code&gt;x&lt;/code&gt; property)
+automatically changes so
+that the formulas still hold.
+
+&lt;p&gt;
+The following table shows which value changes
+when a &lt;code&gt;Constraints&lt;/code&gt; object
+is over-constrained horizontally.
+
+&lt;p&gt;
+
+&lt;table border=1 summary="Shows which value changes when a Constraints object is over-constrained horizontally"&gt;
+&lt;tr&gt;
+&lt;th valign=top&gt;Value Being Set&lt;br&gt;(method used)&lt;/th&gt;
+&lt;th valign=top&gt;Result When Over-Constrained Horizontally&lt;br&gt;
+(&lt;code&gt;x&lt;/code&gt;, &lt;code&gt;width&lt;/code&gt;, and the east edge are all non-&lt;code&gt;null&lt;/code&gt;)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;x&lt;/code&gt; or the west edge &lt;br&gt;(&lt;code&gt;setX&lt;/code&gt; or &lt;code&gt;setConstraint&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;width&lt;/code&gt; value is automatically set to &lt;code&gt;east - x&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;width&lt;/code&gt;&lt;br&gt;(&lt;code&gt;setWidth&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;east edge's value is automatically set to &lt;code&gt;x + width&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;east edge&lt;br&gt;(&lt;code&gt;setConstraint&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;x&lt;/code&gt; value is automatically set to &lt;code&gt;east - width&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;
+The rules for the vertical properties are similar:
+&lt;p&gt;
+
+&lt;table border=1 summary="Shows which value changes when a Constraints object is over-constrained vertically"&gt;
+&lt;tr&gt;
+&lt;th valign=top&gt;Value Being Set&lt;br&gt;(method used)&lt;/th&gt;
+&lt;th valign=top&gt;Result When Over-Constrained Vertically&lt;br&gt;(&lt;code&gt;y&lt;/code&gt;, &lt;code&gt;height&lt;/code&gt;, and the south edge are all non-&lt;code&gt;null&lt;/code&gt;)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;y&lt;/code&gt; or the north edge&lt;br&gt;(&lt;code&gt;setY&lt;/code&gt; or &lt;code&gt;setConstraint&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;height&lt;/code&gt; value is automatically set to &lt;code&gt;south - y&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;height&lt;/code&gt;&lt;br&gt;(&lt;code&gt;setHeight&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;south edge's value is automatically set to &lt;code&gt;y + height&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;south edge&lt;br&gt;(&lt;code&gt;setConstraint&lt;/code&gt;)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;y&lt;/code&gt; value is automatically set to &lt;code&gt;south - height&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Constraints" refid="_9_5_f720368_1110473548471_533353_24471"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Constraints" refid="_9_5_f720368_1110473548471_533353_24471"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

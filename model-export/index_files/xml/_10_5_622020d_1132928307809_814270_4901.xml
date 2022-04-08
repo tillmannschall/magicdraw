@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928307809_814270_4901"><documentation humanName="Documentation" mode="standard">ParameterizedType represents a parameterized type such as
+Collection&lt;String&gt;.
+
+&lt;p&gt;A parameterized type is created the first time it is needed by a
+reflective method, as specified in this package. When a
+parameterized type p is created, the generic type declaration that
+p instantiates is resolved, and all type arguments of p are created
+recursively. See {@link java.lang.reflect.TypeVariable
+TypeVariable} for details on the creation process for type
+variables. Repeated creation of a parameterized type has no effect.
+
+&lt;p&gt;Instances of classes that implement this interface must implement
+an equals() method that equates any two instances that share the
+same generic type declaration and have equal type parameters.
+
+@since 1.5
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Type" refid="_10_5_622020d_1132928307859_269629_4910"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321618_793883_13601"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ParameterizedType</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="reflect" refid="_9_5_f720368_1110473547503_114953_17805"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307809_955707_4903"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321618_793883_13601"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307809_955707_4903"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="reflect" refid="_9_5_f720368_1110473547503_114953_17805"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="reflect" refid="_9_5_f720368_1110473547503_114953_17805"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="reflect" refid="_9_5_f720368_1110473547503_114953_17805"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::reflect::ParameterizedType</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

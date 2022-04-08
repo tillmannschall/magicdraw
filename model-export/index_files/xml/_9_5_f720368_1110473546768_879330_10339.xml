@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546768_879330_10339"><documentation humanName="Documentation" mode="standard">A CSS parser. This works by way of a delegate that implements the
+CSSParserCallback interface. The delegate is notified of the following
+events:
+&lt;ul&gt;
+&lt;li&gt;Import statement: &lt;code&gt;handleImport&lt;/code&gt;
+&lt;li&gt;Selectors &lt;code&gt;handleSelector&lt;/code&gt;. This is invoked for each
+string. For example if the Reader contained p, bar , a {}, the delegate
+would be notified 4 times, for 'p,' 'bar' ',' and 'a'.
+&lt;li&gt;When a rule starts, &lt;code&gt;startRule&lt;/code&gt;
+&lt;li&gt;Properties in the rule via the &lt;code&gt;handleProperty&lt;/code&gt;. This
+is invoked one per property/value key, eg font size: foo;, would
+cause the delegate to be notified once with a value of 'font size'.
+&lt;li&gt;Values in the rule via the &lt;code&gt;handleValue&lt;/code&gt;, this is notified
+for the total value.
+&lt;li&gt;When a rule ends, &lt;code&gt;endRule&lt;/code&gt;
+&lt;/ul&gt;
+This will parse much more than CSS 1, and loosely implements the
+recommendation for &lt;i&gt;Forward-compatible parsing&lt;/i&gt; in section
+7.1 of the CSS spec found at:
+&lt;a href=http://www.w3.org/TR/REC-CSS1&gt;http://www.w3.org/TR/REC-CSS1&lt;/a&gt;.
+If an error results in parsing, a RuntimeException will be thrown.
+&lt;p&gt;
+This will preserve case. If the callback wishes to treat certain poritions
+case insensitively (such as selectors), it should use toLowerCase, or
+something similar.
+
+@author Scott Violet
+@version 1.8 12/19/03
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CSSParserCallback" refid="_9_5_f720368_1110473548299_932301_22938"/></member><name humanName="Name" mode="s,e">CSSParser</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="html" refid="_9_5_f720368_1110473548284_485817_22832"/><nestedClassifier humanName="Nested Classifier"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CSSParserCallback" refid="_9_5_f720368_1110473548299_932301_22938"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317442_816380_11821"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317442_816380_11821"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CSSParserCallback" refid="_9_5_f720368_1110473548299_932301_22938"/></ownedElement><ownedMember humanName="Owned Member"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CSSParserCallback" refid="_9_5_f720368_1110473548299_932301_22938"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="html" refid="_9_5_f720368_1110473548284_485817_22832"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="html" refid="_9_5_f720368_1110473548284_485817_22832"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="html" refid="_9_5_f720368_1110473548284_485817_22832"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::text::html::CSSParser</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

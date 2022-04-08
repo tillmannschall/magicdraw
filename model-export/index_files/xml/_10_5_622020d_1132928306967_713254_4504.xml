@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306967_713254_4504"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PropertyEditor" refid="_9_5_f720368_1110473546596_794345_7321"/></annotatedElement><body humanName="Body" mode="s,e">A PropertyEditor class provides support for GUIs that want to
+allow users to edit a property value of a given type.
+&lt;p&gt;
+PropertyEditor supports a variety of different kinds of ways of
+displaying and updating property values.  Most PropertyEditors will
+only need to support a subset of the different options available in
+this API.
+&lt;P&gt;
+Simple PropertyEditors may only support the getAsText and setAsText
+methods and need not support (say) paintValue or getCustomEditor.  More
+complex types may be unable to support getAsText and setAsText but will
+instead support paintValue and getCustomEditor.
+&lt;p&gt;
+Every propertyEditor must support one or more of the three simple
+display styles.  Thus it can either (1) support isPaintable or (2)
+both return a non-null String[] from getTags() and return a non-null
+value from getAsText or (3) simply return a non-null String from
+getAsText().
+&lt;p&gt;
+Every property editor must support a call on setValue when the argument
+object is of the type for which this is the corresponding propertyEditor.
+In addition, each property editor must either support a custom editor,
+or support setAsText.
+&lt;p&gt;
+Each PropertyEditor should have a null constructor.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="PropertyEditor" refid="_9_5_f720368_1110473546596_794345_7321"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PropertyEditor" refid="_9_5_f720368_1110473546596_794345_7321"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

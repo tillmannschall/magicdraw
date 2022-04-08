@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314698_992107_9053"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="XMLReaderAdapter" refid="_9_5_f720368_1110473546940_842323_13274"/></annotatedElement><body humanName="Body" mode="s,e">Adapt a SAX2 XMLReader as a SAX1 Parser.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This class wraps a SAX2 {@link org.xml.sax.XMLReader XMLReader}
+and makes it act as a SAX1 {@link org.xml.sax.Parser Parser}.  The XMLReader
+must support a true value for the
+http://xml.org/sax/features/namespace-prefixes property or parsing will fail
+with a {@link org.xml.sax.SAXException SAXException}; if the XMLReader
+supports a false value for the http://xml.org/sax/features/namespaces
+property, that will also be used to improve efficiency.&lt;/p&gt;
+
+@since SAX 2.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.Parser
+@see org.xml.sax.XMLReader
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="XMLReaderAdapter" refid="_9_5_f720368_1110473546940_842323_13274"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="XMLReaderAdapter" refid="_9_5_f720368_1110473546940_842323_13274"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

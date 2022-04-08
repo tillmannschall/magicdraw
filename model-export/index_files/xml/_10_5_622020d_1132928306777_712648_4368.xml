@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306777_712648_4368"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BeanContextChild" refid="_9_5_f720368_1110473546596_415187_7151"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;
+JavaBeans wishing to be nested within, and obtain a reference to their
+execution environment, or context, as defined by the BeanContext
+sub-interface shall implement this interface.
+&lt;/p&gt;
+&lt;p&gt;
+Conformant BeanContexts shall as a side effect of adding a BeanContextChild
+object shall pass a reference to itself via the setBeanContext() method of
+this interface.
+&lt;/p&gt;
+&lt;p&gt;
+Note that a BeanContextChild may refuse a change in state by throwing
+PropertyVetoedException in response.
+&lt;/p&gt;
+&lt;p&gt;
+In order for persistence mechanisms to function properly on BeanContextChild
+instances across a broad variety of scenarios, implementing classes of this
+interface are required to define as transient, any or all fields, or
+instance variables, that may contain, or represent, references to the
+nesting BeanContext instance or other resources obtained
+from the BeanContext via any unspecified mechanisms.
+&lt;/p&gt;
+
+@author	Laurence P. G. Cable
+@version	1.20, 12/19/03
+@since	1.2
+
+@see	java.beans.beancontext.BeanContext
+@see	java.beans.PropertyChangeEvent
+@see	java.beans.PropertyChangeListener
+@see	java.beans.PropertyVetoEvent
+@see	java.beans.PropertyVetoListener
+@see	java.beans.PropertyVetoException
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="BeanContextChild" refid="_9_5_f720368_1110473546596_415187_7151"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BeanContextChild" refid="_9_5_f720368_1110473546596_415187_7151"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

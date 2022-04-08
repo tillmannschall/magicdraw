@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317392_108798_11702"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="MenuItemUI" refid="_9_5_f720368_1110473546768_650978_10239"/></annotatedElement><body humanName="Body" mode="s,e">Pluggable look and feel interface for JMenuItem.
+
+@version @(#)MenuItemUI.java	1.16 03/12/19
+@author Georges Saab
+@author David Karlton
+@author Arnaud Weber
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="MenuItemUI" refid="_9_5_f720368_1110473546768_650978_10239"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="MenuItemUI" refid="_9_5_f720368_1110473546768_650978_10239"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

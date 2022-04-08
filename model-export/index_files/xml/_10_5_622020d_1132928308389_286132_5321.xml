@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308389_286132_5321"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SocketAddress" refid="_9_5_f720368_1110473546643_574878_7805"/></annotatedElement><body humanName="Body" mode="s,e">This class represents a Socket Address with no protocol attachment.
+As an abstract class, it is meant to be subclassed with a specific,
+protocol dependent, implementation.
+&lt;p&gt;
+It provides an immutable object used by sockets for binding, connecting, or
+as returned values.
+
+@see	java.net.Socket
+@see	java.net.ServerSocket
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="SocketAddress" refid="_9_5_f720368_1110473546643_574878_7805"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SocketAddress" refid="_9_5_f720368_1110473546643_574878_7805"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

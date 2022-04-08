@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310813_166667_6989"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Arrays" refid="_9_5_f720368_1110473546706_456221_8835"/></annotatedElement><body humanName="Body" mode="s,e">This class contains various methods for manipulating arrays (such as
+sorting and searching).  This class also contains a static factory
+that allows arrays to be viewed as lists.
+
+&lt;p&gt;The methods in this class all throw a &lt;tt&gt;NullPointerException&lt;/tt&gt; if
+the specified array reference is null, except where noted.
+
+&lt;p&gt;The documentation for the methods contained in this class includes
+briefs description of the &lt;i&gt;implementations&lt;/i&gt;.  Such descriptions should
+be regarded as &lt;i&gt;implementation notes&lt;/i&gt;, rather than parts of the
+&lt;i&gt;specification&lt;/i&gt;.  Implementors should feel free to substitute other
+algorithms, so long as the specification itself is adhered to.  (For
+example, the algorithm used by &lt;tt&gt;sort(Object[])&lt;/tt&gt; does not have to be
+a mergesort, but it does have to be &lt;i&gt;stable&lt;/i&gt;.)
+
+&lt;p&gt;This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@author  Neal Gafter
+@version 1.59, 04/01/04
+@see     Comparable
+@see     Comparator
+@since   1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Arrays" refid="_9_5_f720368_1110473546706_456221_8835"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Arrays" refid="_9_5_f720368_1110473546706_456221_8835"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

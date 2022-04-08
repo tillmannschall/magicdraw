@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316281_470973_10665"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerialArray" refid="_10_5_622020d_1132928316281_114483_10661"/></annotatedElement><body humanName="Body" mode="s,e">A serialized version of an &lt;code&gt;Array&lt;/code&gt;
+object, which is the mapping in the Java programming language of an SQL
+&lt;code&gt;ARRAY&lt;/code&gt; value.
+&lt;P&gt;
+The &lt;code&gt;SerialArray&lt;/code&gt; class provides a constructor for creating
+a &lt;code&gt;SerialArray&lt;/code&gt; instance from an &lt;code&gt;Array&lt;/code&gt; object,
+methods for getting the base type and the SQL name for the base type, and
+methods for copying all or part of a &lt;code&gt;SerialArray&lt;/code&gt; object.
+&lt;P&gt;
+Note: In order for this class to function correctly, a connection to the
+data source
+must be available in order for the SQL &lt;code&gt;Array&lt;/code&gt; object to be
+materialized (have all of its elements brought to the client server)
+if necessary. At this time, logical pointers to the data in the data source,
+such as locators, are not currently supported.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SerialArray" refid="_10_5_622020d_1132928316281_114483_10661"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerialArray" refid="_10_5_622020d_1132928316281_114483_10661"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

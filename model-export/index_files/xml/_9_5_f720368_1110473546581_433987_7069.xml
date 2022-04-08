@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_433987_7069"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::List -&gt; JDK 5.0 Classes::java::awt::ItemSelectable]" refid="_10_5_622020d_1132928321388_445820_13277"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::List -&gt; JDK 5.0 Classes::javax::accessibility::Accessible]" refid="_10_5_622020d_1132928321388_422302_13278"/></clientDependency><documentation humanName="Documentation" mode="standard">The &lt;code&gt;List&lt;/code&gt; component presents the user with a
+scrolling list of text items. The list can be set up so that
+the user can choose either one item or multiple items.
+&lt;p&gt;
+For example, the code&amp;nbsp;.&amp;nbsp;.&amp;nbsp;.
+&lt;p&gt;
+&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+List lst = new List(4, false);
+lst.add("Mercury");
+lst.add("Venus");
+lst.add("Earth");
+lst.add("JavaSoft");
+lst.add("Mars");
+lst.add("Jupiter");
+lst.add("Saturn");
+lst.add("Uranus");
+lst.add("Neptune");
+lst.add("Pluto");
+cnt.add(lst);
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+where &lt;code&gt;cnt&lt;/code&gt; is a container, produces the following
+scrolling list:
+&lt;p&gt;
+&lt;img src="doc-files/List-1.gif"
+alt="Shows a list containing: Venus, Earth, JavaSoft, and Mars. Javasoft is selected." ALIGN=center HSPACE=10 VSPACE=7&gt;
+&lt;p&gt;
+If the List allows multiple selections, then clicking on
+an item that is already selected deselects it. In the preceding
+example, only one item from the scrolling list can be selected
+at a time, since the second argument when creating the new scrolling
+list is &lt;code&gt;false&lt;/code&gt;. If the List does not allow multiple
+selections, selecting an item causes any other selected item
+to be deselected.
+&lt;p&gt;
+Note that the list in the example shown was created with four visible
+rows.  Once the list has been created, the number of visible rows
+cannot be changed.  A default &lt;code&gt;List&lt;/code&gt; is created with
+four rows, so that &lt;code&gt;lst = new List()&lt;/code&gt; is equivalent to
+&lt;code&gt;list = new List(4, false)&lt;/code&gt;.
+&lt;p&gt;
+Beginning with Java&amp;nbsp;1.1, the Abstract Window Toolkit
+sends the &lt;code&gt;List&lt;/code&gt; object all mouse, keyboard, and focus events
+that occur over it. (The old AWT event model is being maintained
+only for backwards compatibility, and its use is discouraged.)
+&lt;p&gt;
+When an item is selected or deselected by the user, AWT sends an instance
+of &lt;code&gt;ItemEvent&lt;/code&gt; to the list.
+When the user double-clicks on an item in a scrolling list,
+AWT sends an instance of &lt;code&gt;ActionEvent&lt;/code&gt; to the
+list following the item event. AWT also generates an action event
+when the user presses the return key while an item in the
+list is selected.
+&lt;p&gt;
+If an application wants to perform some action based on an item
+in this list being selected or activated by the user, it should implement
+&lt;code&gt;ItemListener&lt;/code&gt; or &lt;code&gt;ActionListener&lt;/code&gt;
+as appropriate and register the new listener to receive
+events from this list.
+&lt;p&gt;
+For multiple-selection scrolling lists, it is considered a better
+user interface to use an external gesture (such as clicking on a
+button) to trigger the action.
+@version 	1.106, 05/18/04
+@author 	Sami Shaio
+@see         java.awt.event.ItemEvent
+@see         java.awt.event.ItemListener
+@see         java.awt.event.ActionEvent
+@see         java.awt.event.ActionListener
+@since       JDK1.0
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321398_609633_13279"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleAWTComponent" refid="_9_5_f720368_1110473547378_128539_16940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTTreeLock" refid="_9_5_f720368_1110473547378_254209_16930"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BltBufferStrategy" refid="_9_5_f720368_1110473547378_697224_16934"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlipBufferStrategy" refid="_9_5_f720368_1110473547378_178907_16932"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeInLightFixer" refid="_9_5_f720368_1110473547378_946319_16938"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SingleBufferStrategy" refid="_9_5_f720368_1110473547378_190538_16936"/></inheritedMember><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::List -&gt; JDK 5.0 Classes::java::awt::ItemSelectable]" refid="_10_5_622020d_1132928321388_445820_13277"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::List -&gt; JDK 5.0 Classes::javax::accessibility::Accessible]" refid="_10_5_622020d_1132928321388_422302_13278"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AccessibleAWTComponent" refid="_9_5_f720368_1110473547378_128539_16940"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTList" refid="_9_5_f720368_1110473547409_949498_17061"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTTreeLock" refid="_9_5_f720368_1110473547378_254209_16930"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BltBufferStrategy" refid="_9_5_f720368_1110473547378_697224_16934"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FlipBufferStrategy" refid="_9_5_f720368_1110473547378_178907_16932"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeInLightFixer" refid="_9_5_f720368_1110473547378_946319_16938"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SingleBufferStrategy" refid="_9_5_f720368_1110473547378_190538_16936"/></member><name humanName="Name" mode="s,e">List</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTList" refid="_9_5_f720368_1110473547409_949498_17061"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306677_621710_4266"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321398_609633_13279"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306677_621710_4266"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTList" refid="_9_5_f720368_1110473547409_949498_17061"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::List -&gt; JDK 5.0 Classes::java::awt::ItemSelectable]" refid="_10_5_622020d_1132928321388_445820_13277"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::List -&gt; JDK 5.0 Classes::javax::accessibility::Accessible]" refid="_10_5_622020d_1132928321388_422302_13278"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleAWTList" refid="_9_5_f720368_1110473547409_949498_17061"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::List</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Accessible" refid="_9_5_f720368_1110473546706_827345_8951"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ItemSelectable" refid="_9_5_f720368_1110473546581_556143_7053"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Component" refid="_9_5_f720368_1110473546581_653823_6965"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

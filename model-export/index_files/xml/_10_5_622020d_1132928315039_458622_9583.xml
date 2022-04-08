@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315039_458622_9583"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="JMXConnectorServer" refid="_10_5_622020d_1132928315039_380720_9581"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Superclass of every connector server.  A connector server is
+attached to an MBean server.  It listens for client connection
+requests and creates a connection for each one.&lt;/p&gt;
+
+&lt;p&gt;A connector server is associated with an MBean server either by
+registering it in that MBean server, or by passing the MBean server
+to its constructor.&lt;/p&gt;
+
+&lt;p&gt;A connector server is inactive when created.  It only starts
+listening for client connections when the {@link #start() start}
+method is called.  A connector server stops listening for client
+connections when the {@link #stop() stop} method is called or when
+the connector server is unregistered from its MBean server.&lt;/p&gt;
+
+&lt;p&gt;Stopping a connector server does not unregister it from its
+MBean server.  A connector server once stopped cannot be
+restarted.&lt;/p&gt;
+
+&lt;p&gt;Each time a client connection is made or broken, a notification
+of class {@link JMXConnectionNotification} is emitted.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="JMXConnectorServer" refid="_10_5_622020d_1132928315039_380720_9581"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="JMXConnectorServer" refid="_10_5_622020d_1132928315039_380720_9581"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

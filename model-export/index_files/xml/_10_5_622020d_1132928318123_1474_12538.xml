@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318123_1474_12538"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JTable" refid="_9_5_f720368_1110473546799_678280_10777"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;JTable&lt;/code&gt; is used to display and edit regular two-dimensional tables
+of cells.
+See &lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/table.html"&gt;How to Use Tables&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt;
+for task-oriented documentation and examples of using &lt;code&gt;JTable&lt;/code&gt;.
+
+&lt;p&gt;
+The &lt;code&gt;JTable&lt;/code&gt; has many
+facilities that make it possible to customize its rendering and editing
+but provides defaults for these features so that simple tables can be
+set up easily.  For example, to set up a table with 10 rows and 10
+columns of numbers:
+&lt;p&gt;
+&lt;pre&gt;
+TableModel dataModel = new AbstractTableModel() {
+public int getColumnCount() { return 10; }
+public int getRowCount() { return 10;}
+public Object getValueAt(int row, int col) { return new Integer(row*col); }
+};
+JTable table = new JTable(dataModel);
+JScrollPane scrollpane = new JScrollPane(table);
+&lt;/pre&gt;
+&lt;p&gt;
+Note that if you wish to use a &lt;code&gt;JTable&lt;/code&gt; in a standalone
+view (outside of a &lt;code&gt;JScrollPane&lt;/code&gt;) and want the header
+displayed, you can get it using {@link #getTableHeader} and
+display it separately.
+&lt;p&gt;
+When designing applications that use the &lt;code&gt;JTable&lt;/code&gt; it is worth paying
+close attention to the data structures that will represent the table's data.
+The &lt;code&gt;DefaultTableModel&lt;/code&gt; is a model implementation that
+uses a &lt;code&gt;Vector&lt;/code&gt; of &lt;code&gt;Vector&lt;/code&gt;s of &lt;code&gt;Object&lt;/code&gt;s to
+store the cell values. As well as copying the data from an
+application into the &lt;code&gt;DefaultTableModel&lt;/code&gt;,
+it is also possible to wrap the data in the methods of the
+&lt;code&gt;TableModel&lt;/code&gt; interface so that the data can be passed to the
+&lt;code&gt;JTable&lt;/code&gt; directly, as in the example above. This often results
+in more efficient applications because the model is free to choose the
+internal representation that best suits the data.
+A good rule of thumb for deciding whether to use the &lt;code&gt;AbstractTableModel&lt;/code&gt;
+or the &lt;code&gt;DefaultTableModel&lt;/code&gt; is to use the &lt;code&gt;AbstractTableModel&lt;/code&gt;
+as the base class for creating subclasses and the &lt;code&gt;DefaultTableModel&lt;/code&gt;
+when subclassing is not required.
+&lt;p&gt;
+The "TableExample" directory in the demo area of the source distribution
+gives a number of complete examples of &lt;code&gt;JTable&lt;/code&gt; usage,
+covering how the &lt;code&gt;JTable&lt;/code&gt; can be used to provide an
+editable view of data taken from a database and how to modify
+the columns in the display to use specialized renderers and editors.
+&lt;p&gt;
+The &lt;code&gt;JTable&lt;/code&gt; uses integers exclusively to refer to both the rows and the columns
+of the model that it displays. The &lt;code&gt;JTable&lt;/code&gt; simply takes a tabular range of cells
+and uses &lt;code&gt;getValueAt(int, int)&lt;/code&gt; to retrieve the
+values from the model during painting.
+&lt;p&gt;
+By default, columns may be rearranged in the &lt;code&gt;JTable&lt;/code&gt; so that the
+view's columns appear in a different order to the columns in the model.
+This does not affect the implementation of the model at all: when the
+columns are reordered, the &lt;code&gt;JTable&lt;/code&gt; maintains the new order of the columns
+internally and converts its column indices before querying the model.
+&lt;p&gt;
+So, when writing a &lt;code&gt;TableModel&lt;/code&gt;, it is not necessary to listen for column
+reordering events as the model will be queried in its own coordinate
+system regardless of what is happening in the view.
+In the examples area there is a demonstration of a sorting algorithm making
+use of exactly this technique to interpose yet another coordinate system
+where the order of the rows is changed, rather than the order of the columns.
+&lt;p&gt;
+J2SE 5 adds methods to &lt;code&gt;JTable&lt;/code&gt; to provide convenient access to some
+common printing needs. Simple new {@link #print()} methods allow for quick
+and easy addition of printing support to your application. In addition, a new
+{@link #getPrintable} method is available for more advanced printing needs.
+&lt;p&gt;
+As for all &lt;code&gt;JComponent&lt;/code&gt; classes, you can use
+{@link InputMap} and {@link ActionMap} to associate an
+{@link Action} object with a {@link KeyStroke} and execute the
+action under specified conditions.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+
+@beaninfo
+attribute: isContainer false
+description: A component which displays data in a two dimensional grid.
+
+@version 1.238 06/28/04
+@author Philip Milne
+@author Shannon Hickey (printing support)
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JTable" refid="_9_5_f720368_1110473546799_678280_10777"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JTable" refid="_9_5_f720368_1110473546799_678280_10777"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308950_469888_5652"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RemoteCall" refid="_9_5_f720368_1110473546674_635484_8173"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;RemoteCall&lt;/code&gt; is an abstraction used solely by the RMI runtime
+(in conjunction with stubs and skeletons of remote objects) to carry out a
+call to a remote object.  The &lt;code&gt;RemoteCall&lt;/code&gt; interface is
+deprecated in the Java 2 platform since it is only used by deprecated methods of
+&lt;code&gt;java.rmi.server.RemoteRef&lt;/code&gt;.
+
+@version 1.19, 05/18/04
+@since   JDK1.1
+@author  Ann Wollrath
+@author  Roger Riggs
+@see     java.rmi.server.RemoteRef
+@deprecated no replacement.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="RemoteCall" refid="_9_5_f720368_1110473546674_635484_8173"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RemoteCall" refid="_9_5_f720368_1110473546674_635484_8173"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

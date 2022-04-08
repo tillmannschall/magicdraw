@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546706_877571_8923"><documentation humanName="Documentation" mode="standard">A map that further guarantees that it will be in ascending key order,
+sorted according to the &lt;i&gt;natural ordering&lt;/i&gt; of its keys (see the
+&lt;tt&gt;Comparable&lt;/tt&gt; interface), or by a comparator provided at sorted map
+creation time.  This order is reflected when iterating over the sorted
+map's collection views (returned by the &lt;tt&gt;entrySet&lt;/tt&gt;, &lt;tt&gt;keySet&lt;/tt&gt;
+and &lt;tt&gt;values&lt;/tt&gt; methods).  Several additional operations are provided
+to take advantage of the ordering.  (This interface is the map analogue of
+the &lt;tt&gt;SortedSet&lt;/tt&gt; interface.)&lt;p&gt;
+
+All keys inserted into a sorted map must implement the &lt;tt&gt;Comparable&lt;/tt&gt;
+interface (or be accepted by the specified comparator).  Furthermore, all
+such keys must be &lt;i&gt;mutually comparable&lt;/i&gt;: &lt;tt&gt;k1.compareTo(k2)&lt;/tt&gt; (or
+&lt;tt&gt;comparator.compare(k1, k2)&lt;/tt&gt;) must not throw a
+&lt;tt&gt;ClassCastException&lt;/tt&gt; for any elements &lt;tt&gt;k1&lt;/tt&gt; and &lt;tt&gt;k2&lt;/tt&gt; in
+the sorted map.  Attempts to violate this restriction will cause the
+offending method or constructor invocation to throw a
+&lt;tt&gt;ClassCastException&lt;/tt&gt;.&lt;p&gt;
+
+Note that the ordering maintained by a sorted map (whether or not an
+explicit comparator is provided) must be &lt;i&gt;consistent with equals&lt;/i&gt; if
+the sorted map is to correctly implement the &lt;tt&gt;Map&lt;/tt&gt; interface.  (See
+the &lt;tt&gt;Comparable&lt;/tt&gt; interface or &lt;tt&gt;Comparator&lt;/tt&gt; interface for a
+precise definition of &lt;i&gt;consistent with equals&lt;/i&gt;.)  This is so because
+the &lt;tt&gt;Map&lt;/tt&gt; interface is defined in terms of the &lt;tt&gt;equals&lt;/tt&gt;
+operation, but a sorted map performs all key comparisons using its
+&lt;tt&gt;compareTo&lt;/tt&gt; (or &lt;tt&gt;compare&lt;/tt&gt;) method, so two keys that are
+deemed equal by this method are, from the standpoint of the sorted map,
+equal.  The behavior of a tree map &lt;i&gt;is&lt;/i&gt; well-defined even if its
+ordering is inconsistent with equals; it just fails to obey the general
+contract of the &lt;tt&gt;Map&lt;/tt&gt; interface.&lt;p&gt;
+
+All general-purpose sorted map implementation classes should provide four
+"standard" constructors: 1) A void (no arguments) constructor, which
+creates an empty sorted map sorted according to the &lt;i&gt;natural order&lt;/i&gt; of
+its keys.  2) A constructor with a single argument of type
+&lt;tt&gt;Comparator&lt;/tt&gt;, which creates an empty sorted map sorted according to
+the specified comparator.  3) A constructor with a single argument of type
+&lt;tt&gt;Map&lt;/tt&gt;, which creates a new map with the same key-value mappings as
+its argument, sorted according to the keys' natural ordering.  4) A
+constructor with a single argument of type sorted map, which creates a new
+sorted map with the same key-value mappings and the same ordering as the
+input sorted map.  There is no way to enforce this recommendation (as
+interfaces cannot contain constructors) but the JDK implementation
+(TreeMap) complies.&lt;p&gt;
+
+This interface is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@version 1.21, 06/28/04
+@see Map
+@see TreeMap
+@see SortedSet
+@see Comparator
+@see Comparable
+@see Collection
+@see ClassCastException
+@since 1.2
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Map&lt;K, V&gt;" refid="_10_5_622020d_1132928322259_617753_14428"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322630_965637_15101"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SortedMap</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313477_720801_7472"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313447_75632_7466"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322630_965637_15101"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313477_720801_7472"/></ownedElement><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313447_75632_7466"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::SortedMap</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

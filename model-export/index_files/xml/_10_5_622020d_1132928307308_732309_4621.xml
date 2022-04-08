@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307308_732309_4621"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LineNumberReader" refid="_9_5_f720368_1110473546596_552646_7429"/></annotatedElement><body humanName="Body" mode="s,e">A buffered character-input stream that keeps track of line numbers.
+This class defines methods &lt;CODE&gt;void setLineNumber(int)&lt;/CODE&gt; and
+&lt;CODE&gt;int getLineNumber()&lt;/CODE&gt; for setting and getting the current
+line number respectively.
+&lt;P&gt;
+By default, line numbering begins at 0. This number increments as data is
+read, and can be changed with a call to &lt;CODE&gt;setLineNumber(int)&lt;/CODE&gt;.
+Note however, that &lt;CODE&gt;setLineNumber(int)&lt;/CODE&gt; does not actually change the current
+position in the stream; it only changes the value that will be returned
+by &lt;CODE&gt;getLineNumber()&lt;/CODE&gt;.
+&lt;P&gt;
+A line is considered to be terminated by any one of a line feed ('\n'), a carriage
+return ('\r'), or a carriage return followed immediately by a linefeed.
+
+@version 	1.20, 03/12/19
+@author	Mark Reinhold
+@since	JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="LineNumberReader" refid="_9_5_f720368_1110473546596_552646_7429"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LineNumberReader" refid="_9_5_f720368_1110473546596_552646_7429"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316281_38249_10671"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerialClob" refid="_10_5_622020d_1132928316281_150866_10669"/></annotatedElement><body humanName="Body" mode="s,e">A serialized mapping in the Java programming language of an SQL
+&lt;code&gt;CLOB&lt;/code&gt; value.
+&lt;P&gt;
+The &lt;code&gt;SerialClob&lt;/code&gt; class provides a constructor for creating
+an instance from a &lt;code&gt;Clob&lt;/code&gt; object.  Note that the &lt;code&gt;Clob&lt;/code&gt;
+object should have brought the SQL &lt;code&gt;CLOB&lt;/code&gt; value's data over
+to the client before a &lt;code&gt;SerialClob&lt;/code&gt; object
+is constructed from it.  The data of an SQL &lt;code&gt;CLOB&lt;/code&gt; value can
+be materialized on the client as a stream of Unicode characters.
+&lt;P&gt;
+&lt;code&gt;SerialClob&lt;/code&gt; methods make it possible to get a substring
+from a &lt;code&gt;SerialClob&lt;/code&gt; object or to locate the start of
+a pattern of characters.
+
+@author Jonathan Bruce
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SerialClob" refid="_10_5_622020d_1132928316281_150866_10669"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerialClob" refid="_10_5_622020d_1132928316281_150866_10669"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

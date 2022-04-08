@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309281_356822_5958"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessController" refid="_9_5_f720368_1110473546674_943505_8415"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt; The AccessController class is used for access control operations
+and decisions.
+
+&lt;p&gt; More specifically, the AccessController class is used for
+three purposes:
+
+&lt;ul&gt;
+&lt;li&gt; to decide whether an access to a critical system
+resource is to be allowed or denied, based on the security policy
+currently in effect,&lt;p&gt;
+&lt;li&gt;to mark code as being "privileged", thus affecting subsequent
+access determinations, and&lt;p&gt;
+&lt;li&gt;to obtain a "snapshot" of the current calling context so
+access-control decisions from a different context can be made with
+respect to the saved context. &lt;/ul&gt;
+
+&lt;p&gt; The {@link #checkPermission(Permission) checkPermission} method
+determines whether the access request indicated by a specified
+permission should be granted or denied. A sample call appears
+below. In this example, &lt;code&gt;checkPermission&lt;/code&gt; will determine
+whether or not to grant "read" access to the file named "testFile" in
+the "/temp" directory.
+
+&lt;pre&gt;
+
+FilePermission perm = new FilePermission("/temp/testFile", "read");
+AccessController.checkPermission(perm);
+
+&lt;/pre&gt;
+
+&lt;p&gt; If a requested access is allowed,
+&lt;code&gt;checkPermission&lt;/code&gt; returns quietly. If denied, an
+AccessControlException is
+thrown. AccessControlException can also be thrown if the requested
+permission is of an incorrect type or contains an invalid value.
+Such information is given whenever possible.
+
+Suppose the current thread traversed m callers, in the order of caller 1
+to caller 2 to caller m. Then caller m invoked the
+&lt;code&gt;checkPermission&lt;/code&gt; method.
+The &lt;code&gt;checkPermission &lt;/code&gt;method determines whether access
+is granted or denied based on the following algorithm:
+
+&lt;pre&gt;
+i = m;
+
+while (i &gt; 0) {
+
+if (caller i's domain does not have the permission)
+throw AccessControlException
+
+else if (caller i is marked as privileged) {
+if (a context was specified in the call to doPrivileged)
+context.checkPermission(permission)
+return;
+}
+i = i - 1;
+};
+
+Next, check the context inherited when
+the thread was created. Whenever a new thread is created, the
+AccessControlContext at that time is
+stored and associated with the new thread, as the "inherited"
+context.
+
+inheritedContext.checkPermission(permission);
+&lt;/pre&gt;
+
+&lt;p&gt; A caller can be marked as being "privileged"
+(see {@link #doPrivileged(PrivilegedAction) doPrivileged} and below).
+When making access control decisions, the &lt;code&gt;checkPermission&lt;/code&gt;
+method stops checking if it reaches a caller that
+was marked as "privileged" via a &lt;code&gt;doPrivileged&lt;/code&gt;
+call without a context argument (see below for information about a
+context argument). If that caller's domain has the
+specified permission, no further checking is done and
+&lt;code&gt;checkPermission&lt;/code&gt;
+returns quietly, indicating that the requested access is allowed.
+If that domain does not have the specified permission, an exception
+is thrown, as usual.
+
+&lt;p&gt; The normal use of the "privileged" feature is as follows. If you
+don't need to return a value from within the "privileged" block, do
+the following:
+
+&lt;pre&gt;
+somemethod() {
+...normal code here...
+AccessController.doPrivileged(new PrivilegedAction() {
+public Object run() {
+privileged code goes here, for example:
+System.loadLibrary("awt");
+return null; // nothing to return
+}
+});
+...normal code here...
+}
+&lt;/pre&gt;
+
+&lt;p&gt;
+PrivilegedAction is an interface with a single method, named
+&lt;code&gt;run&lt;/code&gt;, that returns an Object.
+The above example shows creation of an implementation
+of that interface; a concrete implementation of the
+&lt;code&gt;run&lt;/code&gt; method is supplied.
+When the call to &lt;code&gt;doPrivileged&lt;/code&gt; is made, an
+instance of the PrivilegedAction implementation is passed
+to it. The &lt;code&gt;doPrivileged&lt;/code&gt; method calls the
+&lt;code&gt;run&lt;/code&gt; method from the PrivilegedAction
+implementation after enabling privileges, and returns the
+&lt;code&gt;run&lt;/code&gt; method's return value as the
+&lt;code&gt;doPrivileged&lt;/code&gt; return value (which is
+ignored in this example).
+
+&lt;p&gt; If you need to return a value, you can do something like the following:
+
+&lt;pre&gt;
+somemethod() {
+...normal code here...
+String user = (String) AccessController.doPrivileged(
+new PrivilegedAction() {
+public Object run() {
+return System.getProperty("user.name");
+}
+}
+);
+...normal code here...
+}
+&lt;/pre&gt;
+
+&lt;p&gt;If the action performed in your &lt;code&gt;run&lt;/code&gt; method could
+throw a "checked" exception (those listed in the &lt;code&gt;throws&lt;/code&gt; clause
+of a method), then you need to use the
+&lt;code&gt;PrivilegedExceptionAction&lt;/code&gt; interface instead of the
+&lt;code&gt;PrivilegedAction&lt;/code&gt; interface:
+
+&lt;pre&gt;
+somemethod() throws FileNotFoundException {
+...normal code here...
+try {
+FileInputStream fis = (FileInputStream) AccessController.doPrivileged(
+new PrivilegedExceptionAction() {
+public Object run() throws FileNotFoundException {
+return new FileInputStream("someFile");
+}
+}
+);
+} catch (PrivilegedActionException e) {
+e.getException() should be an instance of FileNotFoundException,
+as only "checked" exceptions will be "wrapped" in a
+&lt;code&gt;PrivilegedActionException&lt;/code&gt;.
+throw (FileNotFoundException) e.getException();
+}
+...normal code here...
+}
+&lt;/pre&gt;
+
+&lt;p&gt; Be *very* careful in your use of the "privileged" construct, and
+always remember to make the privileged code section as small as possible.
+
+&lt;p&gt; Note that &lt;code&gt;checkPermission&lt;/code&gt; always performs security checks
+within the context of the currently executing thread.
+Sometimes a security check that should be made within a given context
+will actually need to be done from within a
+&lt;i&gt;different&lt;/i&gt; context (for example, from within a worker thread).
+The {@link #getContext() getContext} method and
+AccessControlContext class are provided
+for this situation. The &lt;code&gt;getContext&lt;/code&gt; method takes a "snapshot"
+of the current calling context, and places
+it in an AccessControlContext object, which it returns. A sample call is
+the following:
+
+&lt;pre&gt;
+
+AccessControlContext acc = AccessController.getContext()
+
+&lt;/pre&gt;
+
+&lt;p&gt;
+AccessControlContext itself has a &lt;code&gt;checkPermission&lt;/code&gt; method
+that makes access decisions based on the context &lt;i&gt;it&lt;/i&gt; encapsulates,
+rather than that of the current execution thread.
+Code within a different context can thus call that method on the
+previously-saved AccessControlContext object. A sample call is the
+following:
+
+&lt;pre&gt;
+
+acc.checkPermission(permission)
+
+&lt;/pre&gt;
+
+&lt;p&gt; There are also times where you don't know a priori which permissions
+to check the context against. In these cases you can use the
+doPrivileged method that takes a context:
+
+&lt;pre&gt;
+somemethod() {
+AccessController.doPrivileged(new PrivilegedAction() {
+public Object run() {
+Code goes here. Any permission checks within this
+run method will require that the intersection of the
+callers protection domain and the snapshot's
+context have the desired permission.
+}
+}, acc);
+...normal code here...
+}
+&lt;/pre&gt;
+
+@see AccessControlContext
+
+@version 1.55 04/05/05
+@author Li Gong
+@author Roland Schemers
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AccessController" refid="_9_5_f720368_1110473546674_943505_8415"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessController" refid="_9_5_f720368_1110473546674_943505_8415"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

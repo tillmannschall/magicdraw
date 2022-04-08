@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315660_63252_10146"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobMediaSheetsCompleted" refid="_9_5_f720368_1110473546721_599922_9343"/></annotatedElement><body humanName="Body" mode="s,e">Class JobMediaSheetsCompleted is an integer valued printing attribute class
+that specifies the number of media sheets which have completed marking and
+stacking for the entire job so far, whether those sheets have been processed
+on one side or on both.
+&lt;P&gt;
+The JobMediaSheetsCompleted attribute describes the progress of the job. This
+attribute is intended to be a counter. That is, the JobMediaSheetsCompleted
+value for a job that has not started processing must be 0. When the job's
+{@link JobState JobState} is PROCESSING or PROCESSING_STOPPED, the
+JobMediaSheetsCompleted value is intended to increase as the job is
+processed; it indicates the amount of the job that has been processed at the
+time the Print Job's attribute set is queried or at the time a print job
+event is reported. When the job enters the COMPLETED, CANCELED, or ABORTED
+states, the JobMediaSheetsCompleted value is the final value for the job.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The integer value gives the IPP integer value. The
+category name returned by &lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute
+name.
+&lt;P&gt;
+
+@see JobMediaSheets
+@see JobMediaSheetsSupported
+@see JobKOctetsProcessed
+@see JobImpressionsCompleted
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JobMediaSheetsCompleted" refid="_9_5_f720368_1110473546721_599922_9343"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobMediaSheetsCompleted" refid="_9_5_f720368_1110473546721_599922_9343"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

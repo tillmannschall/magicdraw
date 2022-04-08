@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313357_389075_7438"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RandomAccess" refid="_9_5_f720368_1110473546706_6812_8913"/></annotatedElement><body humanName="Body" mode="s,e">Marker interface used by &lt;tt&gt;List&lt;/tt&gt; implementations to indicate that
+they support fast (generally constant time) random access.  The primary
+purpose of this interface is to allow generic algorithms to alter their
+behavior to provide good performance when applied to either random or
+sequential access lists.
+
+&lt;p&gt;The best algorithms for manipulating random access lists (such as
+&lt;tt&gt;ArrayList&lt;/tt&gt;) can produce quadratic behavior when applied to
+sequential access lists (such as &lt;tt&gt;LinkedList&lt;/tt&gt;).  Generic list
+algorithms are encouraged to check whether the given list is an
+&lt;tt&gt;instanceof&lt;/tt&gt; this interface before applying an algorithm that would
+provide poor performance if it were applied to a sequential access list,
+and to alter their behavior if necessary to guarantee acceptable
+performance.
+
+&lt;p&gt;It is recognized that the distinction between random and sequential
+access is often fuzzy.  For example, some &lt;tt&gt;List&lt;/tt&gt; implementations
+provide asymptotically linear access times if they get huge, but constant
+access times in practice.  Such a &lt;tt&gt;List&lt;/tt&gt; implementation
+should generally implement this interface.  As a rule of thumb, a
+&lt;tt&gt;List&lt;/tt&gt; implementation should implement this interface if,
+for typical instances of the class, this loop:
+&lt;pre&gt;
+for (int i=0, n=list.size(); i &lt; n; i++)
+list.get(i);
+&lt;/pre&gt;
+runs faster than this loop:
+&lt;pre&gt;
+for (Iterator i=list.iterator(); i.hasNext(); )
+i.next();
+&lt;/pre&gt;
+
+&lt;p&gt;This interface is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="RandomAccess" refid="_9_5_f720368_1110473546706_6812_8913"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RandomAccess" refid="_9_5_f720368_1110473546706_6812_8913"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

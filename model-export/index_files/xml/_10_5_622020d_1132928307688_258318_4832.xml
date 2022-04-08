@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928307688_258318_4832"><documentation humanName="Documentation" mode="standard">The management interface for the thread system of
+the Java virtual machine.
+
+&lt;p&gt; A Java virtual machine has a single instance of the implementation
+class of this interface.  This instance implementing this interface is
+an &lt;a href="ManagementFactory.html#MXBean"&gt;MXBean&lt;/a&gt;
+that can be obtained by calling
+the {@link ManagementFactory#getThreadMXBean} method or
+from the {@link ManagementFactory#getPlatformMBeanServer
+platform &lt;tt&gt;MBeanServer&lt;/tt&gt;} method.
+
+&lt;p&gt;The &lt;tt&gt;ObjectName&lt;/tt&gt; for uniquely identifying the MXBean for
+the thread system within an MBeanServer is:
+&lt;blockquote&gt;
+{@link ManagementFactory#THREAD_MXBEAN_NAME
+&lt;tt&gt;java.lang:type=Threading&lt;/tt&gt;}
+&lt;/blockquote&gt;
+
+&lt;h4&gt;Thread ID&lt;/h4&gt;
+Thread ID is a positive long value returned by calling the
+{@link java.lang.Thread#getId} method for a thread.
+The thread ID is unique during its lifetime.  When a thread
+is terminated, this thread ID may be reused.
+
+&lt;p&gt; Some methods in this interface take a thread ID or an array
+of thread IDs as the input parameter and return per-thread information.
+
+&lt;h4&gt;Thread CPU time&lt;/h4&gt;
+A Java virtual machine implementation may support measuring
+the CPU time for the current thread, for any thread, or for no threads.
+
+&lt;p&gt;
+The {@link #isThreadCpuTimeSupported} method can be used to determine
+if a Java virtual machine supports measuring of the CPU time for any
+thread.  The {@link #isCurrentThreadCpuTimeSupported} method can
+be used to determine if a Java virtual machine supports measuring of
+the CPU time for the current  thread.
+A Java virtual machine implementation that supports CPU time measurement
+for any thread will also support that for the current thread.
+
+&lt;p&gt; The CPU time provided by this interface has nanosecond precision
+but not necessarily nanosecond accuracy.
+
+&lt;p&gt;
+A Java virtual machine may disable CPU time measurement
+by default.
+The {@link #isThreadCpuTimeEnabled} and {@link #setThreadCpuTimeEnabled}
+methods can be used to test if CPU time measurement is enabled
+and to enable/disable this support respectively.
+Enabling thread CPU measurement could be expensive in some
+Java virtual machine implementations.
+
+&lt;h4&gt;Thread Contention Monitoring&lt;/h4&gt;
+Some Java virtual machines may support thread contention monitoring.
+The {@link #isThreadContentionMonitoringSupported} method can be used to
+determine if a Java virtual machine supports thread contention monitoring.
+
+The thread contention monitoring is disabled by default.  The
+{@link #setThreadContentionMonitoringEnabled} method can be used to enable
+thread contention monitoring.
+
+@see &lt;a href="../../../javax/management/package-summary.html"&gt;
+JMX Specification.&lt;/a&gt;
+@see &lt;a href="package-summary.html#examples"&gt;
+Ways to Access MXBeans&lt;/a&gt;
+
+@author  Mandy Chung
+@version 1.14, 04/29/04
+@since   1.5
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ThreadMXBean</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928307518_833692_4788"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307698_519463_4834"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307698_519463_4834"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="management" refid="_10_5_622020d_1132928307518_833692_4788"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928307518_833692_4788"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="management" refid="_10_5_622020d_1132928307518_833692_4788"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::management::ThreadMXBean</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

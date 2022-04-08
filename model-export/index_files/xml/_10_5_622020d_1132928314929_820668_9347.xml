@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928314929_820668_9347"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::monitor::GaugeMonitor -&gt; JDK 5.0 Classes::javax::management::monitor::GaugeMonitorMBean]" refid="_10_5_622020d_1132928322950_830265_15869"/></clientDependency><documentation humanName="Documentation" mode="standard">Defines a monitor MBean designed to observe the values of a gauge attribute.
+
+&lt;P&gt; A gauge monitor observes an attribute that is continuously
+variable with time.  A gauge monitor sends notifications as
+follows:
+
+&lt;UL&gt;
+
+&lt;LI&gt; if the attribute value is increasing and becomes equal to or
+greater than the high threshold value, a {@link
+MonitorNotification#THRESHOLD_HIGH_VALUE_EXCEEDED threshold high
+notification} is sent.  The notify high flag must be set to
+&lt;CODE&gt;true&lt;/CODE&gt;
+
+&lt;BR&gt;Subsequent crossings of the high threshold value do not cause
+further notifications unless the attribute value becomes equal to
+or less than the low threshold value.
+
+&lt;LI&gt; if the attribute value is decreasing and becomes equal to or
+less than the low threshold value, a {@link
+MonitorNotification#THRESHOLD_LOW_VALUE_EXCEEDED threshold low
+notification} is sent.  The notify low flag must be set to
+&lt;CODE&gt;true&lt;/CODE&gt;.
+
+&lt;BR&gt;Subsequent crossings of the low threshold value do not cause
+further notifications unless the attribute value becomes equal to
+or greater than the high threshold value.
+
+&lt;/UL&gt;
+
+This provides a hysteresis mechanism to avoid repeated triggering
+of notifications when the attribute value makes small oscillations
+around the high or low threshold value.
+
+&lt;P&gt; If the gauge difference mode is used, the value of the derived
+gauge is calculated as the difference between the observed gauge
+values for two successive observations.
+
+&lt;BR&gt;The derived gauge value (V[t]) is calculated using the following method:
+&lt;UL&gt;
+&lt;LI&gt;V[t] = gauge[t] - gauge[t-GP]
+&lt;/UL&gt;
+
+This implementation of the gauge monitor requires the observed
+attribute to be of the type integer or floating-point
+(&lt;CODE&gt;Byte&lt;/CODE&gt;, &lt;CODE&gt;Integer&lt;/CODE&gt;, &lt;CODE&gt;Short&lt;/CODE&gt;,
+&lt;CODE&gt;Long&lt;/CODE&gt;, &lt;CODE&gt;Float&lt;/CODE&gt;, &lt;CODE&gt;Double&lt;/CODE&gt;).
+
+@version     1.73     05/18/04
+@author      Sun Microsystems, Inc
+
+@since 1.5
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322950_519935_15870"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ListenerInfo" refid="_10_5_622020d_1132928315229_920052_9806"/></inheritedMember><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::monitor::GaugeMonitor -&gt; JDK 5.0 Classes::javax::management::monitor::GaugeMonitorMBean]" refid="_10_5_622020d_1132928322950_830265_15869"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GaugeAlarmClock" refid="_10_5_622020d_1132928314929_588278_9348"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ListenerInfo" refid="_10_5_622020d_1132928315229_920052_9806"/></member><name humanName="Name" mode="s,e">GaugeMonitor</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="monitor" refid="_10_5_622020d_1132928314929_657435_9338"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GaugeAlarmClock" refid="_10_5_622020d_1132928314929_588278_9348"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314939_304467_9351"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322950_519935_15870"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314939_304467_9351"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GaugeAlarmClock" refid="_10_5_622020d_1132928314929_588278_9348"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::monitor::GaugeMonitor -&gt; JDK 5.0 Classes::javax::management::monitor::GaugeMonitorMBean]" refid="_10_5_622020d_1132928322950_830265_15869"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GaugeAlarmClock" refid="_10_5_622020d_1132928314929_588278_9348"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="monitor" refid="_10_5_622020d_1132928314929_657435_9338"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="monitor" refid="_10_5_622020d_1132928314929_657435_9338"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="monitor" refid="_10_5_622020d_1132928314929_657435_9338"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::management::monitor::GaugeMonitor</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="GaugeMonitorMBean" refid="_10_5_622020d_1132928314939_359694_9352"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Monitor" refid="_10_5_622020d_1132928314939_487129_9355"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546643_303191_7777"><documentation humanName="Documentation" mode="standard">A URL Connection to a Java ARchive (JAR) file or an entry in a JAR
+file.
+
+&lt;p&gt;The syntax of a JAR URL is:
+
+&lt;pre&gt;
+jar:&lt;url&gt;!/{entry}
+&lt;/pre&gt;
+
+&lt;p&gt;for example:
+
+&lt;p&gt;&lt;code&gt;
+jar:http://www.foo.com/bar/baz.jar!/COM/foo/Quux.class&lt;br&gt;
+&lt;/code&gt;
+
+&lt;p&gt;Jar URLs should be used to refer to a JAR file or entries in
+a JAR file. The example above is a JAR URL which refers to a JAR
+entry. If the entry name is omitted, the URL refers to the whole
+JAR file:
+
+&lt;code&gt;
+jar:http://www.foo.com/bar/baz.jar!
+&lt;/code&gt;
+
+&lt;p&gt;Users should cast the generic URLConnection to a
+JarURLConnection when they know that the URL they created is a JAR
+URL, and they need JAR-specific functionality. For example:
+
+&lt;pre&gt;
+URL url = new URL("jar:file:/home/duke/duke.jar!/");
+JarURLConnection jarConnection = (JarURLConnection)url.openConnection();
+Manifest manifest = jarConnection.getManifest();
+&lt;/pre&gt;
+
+&lt;p&gt;JarURLConnection instances can only be used to read from JAR files.
+It is not possible to get a {@link java.io.OutputStream} to modify or write
+to the underlying JAR file using this class.
+&lt;p&gt;Examples:
+
+&lt;dl&gt;
+
+&lt;dt&gt;A Jar entry
+&lt;dd&gt;&lt;code&gt;jar:http://www.foo.com/bar/baz.jar!/COM/foo/Quux.class&lt;/code&gt;
+
+&lt;dt&gt;A Jar file
+&lt;dd&gt;&lt;code&gt;jar:http://www.foo.com/bar/baz.jar!/&lt;/code&gt;
+
+&lt;dt&gt;A Jar directory
+&lt;dd&gt;&lt;code&gt;jar:http://www.foo.com/bar/baz.jar!/COM/foo/&lt;/code&gt;
+
+&lt;/dl&gt;
+
+&lt;p&gt;&lt;code&gt;!/&lt;/code&gt; is refered to as the &lt;em&gt;separator&lt;/em&gt;.
+
+&lt;p&gt;When constructing a JAR url via &lt;code&gt;new URL(context, spec)&lt;/code&gt;,
+the following rules apply:
+
+&lt;ul&gt;
+
+&lt;li&gt;if there is no context URL and the specification passed to the
+URL constructor doesn't contain a separator, the URL is considered
+to refer to a JarFile.
+
+&lt;li&gt;if there is a context URL, the context URL is assumed to refer
+to a JAR file or a Jar directory.
+
+&lt;li&gt;if the specification begins with a '/', the Jar directory is
+ignored, and the spec is considered to be at the root of the Jar
+file.
+
+&lt;p&gt;Examples:
+
+&lt;dl&gt;
+
+&lt;dt&gt;context: &lt;b&gt;jar:http://www.foo.com/bar/jar.jar!/&lt;/b&gt;,
+spec:&lt;b&gt;baz/entry.txt&lt;/b&gt;
+
+&lt;dd&gt;url:&lt;b&gt;jar:http://www.foo.com/bar/jar.jar!/baz/entry.txt&lt;/b&gt;
+
+&lt;dt&gt;context: &lt;b&gt;jar:http://www.foo.com/bar/jar.jar!/baz&lt;/b&gt;,
+spec:&lt;b&gt;entry.txt&lt;/b&gt;
+
+&lt;dd&gt;url:&lt;b&gt;jar:http://www.foo.com/bar/jar.jar!/baz/entry.txt&lt;/b&gt;
+
+&lt;dt&gt;context: &lt;b&gt;jar:http://www.foo.com/bar/jar.jar!/baz&lt;/b&gt;,
+spec:&lt;b&gt;/entry.txt&lt;/b&gt;
+
+&lt;dd&gt;url:&lt;b&gt;jar:http://www.foo.com/bar/jar.jar!/entry.txt&lt;/b&gt;
+
+&lt;/dl&gt;
+
+&lt;/ul&gt;
+
+@see java.net.URL
+@see java.net.URLConnection
+
+@see java.util.jar.JarFile
+@see java.util.jar.JarInputStream
+@see java.util.jar.Manifest
+@see java.util.zip.ZipEntry
+
+@author Benjamin Renaud
+@since 1.2
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321719_44987_13797"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">JarURLConnection</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308349_971866_5279"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321719_44987_13797"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308349_971866_5279"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="net" refid="_9_5_f720368_1110473547549_109314_18048"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::net::JarURLConnection</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="URLConnection" refid="_9_5_f720368_1110473546643_672268_7847"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

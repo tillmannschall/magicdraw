@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317713_815389_12152"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Style" refid="_9_5_f720368_1110473546784_555985_10521"/></annotatedElement><body humanName="Body" mode="s,e">A collection of attributes to associate with an element in a document.
+Since these are typically used to associate character and paragraph
+styles with the element, operations for this are provided.  Other
+customized attributes that get associated with the element will
+effectively be name-value pairs that live in a hierarchy and if a name
+(key) is not found locally, the request is forwarded to the parent.
+Commonly used attributes are separated out to facilitate alternative
+implementations that are more efficient.
+
+@author  Timothy Prinzing
+@version 1.21 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Style" refid="_9_5_f720368_1110473546784_555985_10521"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Style" refid="_9_5_f720368_1110473546784_555985_10521"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

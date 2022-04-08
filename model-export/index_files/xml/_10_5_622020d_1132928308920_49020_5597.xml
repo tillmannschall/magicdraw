@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308920_49020_5597"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ActivationGroupDesc" refid="_9_5_f720368_1110473546674_244072_8133"/></annotatedElement><body humanName="Body" mode="s,e">An activation group descriptor contains the information necessary to
+create/recreate an activation group in which to activate objects.
+Such a descriptor contains: &lt;ul&gt;
+&lt;li&gt; the group's class name,
+&lt;li&gt; the group's code location (the location of the group's class), and
+&lt;li&gt; a "marshalled" object that can contain group specific
+initialization data. &lt;/ul&gt; &lt;p&gt;
+
+The group's class must be a concrete subclass of
+&lt;code&gt;ActivationGroup&lt;/code&gt;. A subclass of
+&lt;code&gt;ActivationGroup&lt;/code&gt; is created/recreated via the
+&lt;code&gt;ActivationGroup.createGroup&lt;/code&gt; static method that invokes
+a special constructor that takes two arguments: &lt;ul&gt;
+
+&lt;li&gt; the group's &lt;code&gt;ActivationGroupID&lt;/code&gt;, and
+&lt;li&gt; the group's initialization data (in a
+&lt;code&gt;java.rmi.MarshalledObject&lt;/code&gt;)&lt;/ul&gt;&lt;p&gt;
+
+@version	1.28, 12/19/03
+@author	Ann Wollrath
+@since	1.2
+@see		ActivationGroup
+@see		ActivationGroupID
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ActivationGroupDesc" refid="_9_5_f720368_1110473546674_244072_8133"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ActivationGroupDesc" refid="_9_5_f720368_1110473546674_244072_8133"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

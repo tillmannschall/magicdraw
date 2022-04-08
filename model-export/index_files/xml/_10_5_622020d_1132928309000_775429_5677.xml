@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309000_775429_5677"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="RMISocketFactory" refid="_9_5_f720368_1110473546674_798496_8193"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;RMISocketFactory&lt;/code&gt; instance is used by the RMI runtime
+in order to obtain client and server sockets for RMI calls.  An
+application may use the &lt;code&gt;setSocketFactory&lt;/code&gt; method to
+request that the RMI runtime use its socket factory instance
+instead of the default implementation.&lt;p&gt;
+
+The default socket factory implementation used goes through a
+three-tiered approach to creating client sockets. First, a direct
+socket connection to the remote VM is attempted.  If that fails
+(due to a firewall), the runtime uses HTTP with the explicit port
+number of the server.  If the firewall does not allow this type of
+communication, then HTTP to a cgi-bin script on the server is used
+to POST the RMI call.&lt;p&gt;
+
+@version 1.21, 12/19/03
+@author  Ann Wollrath
+@author  Peter Jones
+@since   JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="RMISocketFactory" refid="_9_5_f720368_1110473546674_798496_8193"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="RMISocketFactory" refid="_9_5_f720368_1110473546674_798496_8193"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

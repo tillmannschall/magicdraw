@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308950_128970_5642"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjID" refid="_9_5_f720368_1110473546674_794524_8169"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;ObjID&lt;/code&gt; is used to identify a remote object exported
+to an RMI runtime.  When a remote object is exported, it is assigned
+an object identifier either implicitly or explicitly, depending on
+the API used to export.
+
+&lt;p&gt;The {@link #ObjID()} constructor can be used to generate a unique
+object identifier.  Such an &lt;code&gt;ObjID&lt;/code&gt; is unique over time
+with respect to the host it is generated on.
+
+The {@link #ObjID(int)} constructor can be used to create a
+"well-known" object identifier.  The scope of a well-known
+&lt;code&gt;ObjID&lt;/code&gt; depends on the RMI runtime it is exported to.
+
+&lt;p&gt;An &lt;code&gt;ObjID&lt;/code&gt; instance contains an object number (of type
+&lt;code&gt;long&lt;/code&gt;) and an address space identifier (of type
+{@link UID}).  In a unique &lt;code&gt;ObjID&lt;/code&gt;, the address space
+identifier is unique with respect to a given host over time.  In a
+well-known &lt;code&gt;ObjID&lt;/code&gt;, the address space identifier is
+equivalent to one returned by invoking the {@link UID#UID(short)}
+constructor with the value zero.
+
+&lt;p&gt;If the system property &lt;code&gt;java.rmi.server.randomIDs&lt;/code&gt;
+is defined to equal the string &lt;code&gt;"true"&lt;/code&gt; (case insensitive),
+then the {@link #ObjID()} constructor will use a cryptographically
+strong random number generator to choose the object number of the
+returned &lt;code&gt;ObjID&lt;/code&gt;.
+
+@author	Ann Wollrath
+@author	Peter Jones
+@version	1.29, 03/12/19
+@since	JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ObjID" refid="_9_5_f720368_1110473546674_794524_8169"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjID" refid="_9_5_f720368_1110473546674_794524_8169"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

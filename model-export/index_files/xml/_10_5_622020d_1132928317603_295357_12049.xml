@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317603_295357_12049"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DocumentFilter" refid="_9_5_f720368_1110473546784_538863_10455"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;DocumentFilter&lt;/code&gt;, as the name implies, is a filter for the
+&lt;code&gt;Document&lt;/code&gt; mutation methods. When a &lt;code&gt;Document&lt;/code&gt;
+containing a &lt;code&gt;DocumentFilter&lt;/code&gt; is modified (either through
+&lt;code&gt;insert&lt;/code&gt; or &lt;code&gt;remove&lt;/code&gt;), it forwards the appropriate
+method invocation to the &lt;code&gt;DocumentFilter&lt;/code&gt;. The
+default implementation allows the modification to
+occur. Subclasses can filter the modifications by conditionally invoking
+methods on the superclass, or invoking the necessary methods on
+the passed in &lt;code&gt;FilterBypass&lt;/code&gt;. Subclasses should NOT call back
+into the Document for the modification
+instead call into the superclass or the &lt;code&gt;FilterBypass&lt;/code&gt;.
+&lt;p&gt;
+When &lt;code&gt;remove&lt;/code&gt; or &lt;code&gt;insertString&lt;/code&gt; is invoked
+on the &lt;code&gt;DocumentFilter&lt;/code&gt;, the &lt;code&gt;DocumentFilter&lt;/code&gt;
+may callback into the
+&lt;code&gt;FilterBypass&lt;/code&gt; multiple times, or for different regions, but
+it should not callback into the &lt;code&gt;FilterBypass&lt;/code&gt; after returning
+from the &lt;code&gt;remove&lt;/code&gt; or &lt;code&gt;insertString&lt;/code&gt; method.
+
+@see javax.swing.text.Document
+
+@version 1.6 12/19/03
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DocumentFilter" refid="_9_5_f720368_1110473546784_538863_10455"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DocumentFilter" refid="_9_5_f720368_1110473546784_538863_10455"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

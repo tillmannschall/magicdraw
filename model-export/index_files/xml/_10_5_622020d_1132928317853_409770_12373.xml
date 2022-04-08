@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317853_409770_12373"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InputMap" refid="_9_5_f720368_1110473546784_409896_10697"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;InputMap&lt;/code&gt; provides a binding between an input event
+(currently only &lt;code&gt;KeyStroke&lt;/code&gt;s are used)
+and an &lt;code&gt;Object&lt;/code&gt;. &lt;code&gt;InputMap&lt;/code&gt;s
+are usually used with an &lt;code&gt;ActionMap&lt;/code&gt;,
+to determine an &lt;code&gt;Action&lt;/code&gt; to perform
+when a key is pressed.
+An &lt;code&gt;InputMap&lt;/code&gt; can have a parent
+that is searched for bindings not defined in the &lt;code&gt;InputMap&lt;/code&gt;.
+&lt;p&gt;As with &lt;code&gt;ActionMap&lt;/code&gt; if you create a cycle, eg:
+&lt;pre&gt;
+InputMap am = new InputMap();
+InputMap bm = new InputMap():
+am.setParent(bm);
+bm.setParent(am);
+&lt;/pre&gt;
+some of the methods will cause a StackOverflowError to be thrown.
+
+@version 1.14 12/19/03
+@author Scott Violet
+@since 1.3
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InputMap" refid="_9_5_f720368_1110473546784_409896_10697"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InputMap" refid="_9_5_f720368_1110473546784_409896_10697"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

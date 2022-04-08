@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309771_629894_6276"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RBTableBuilder" refid="_9_5_f720368_1110473546690_159410_8675"/></annotatedElement><body humanName="Body" mode="s,e">This class contains all the code to parse a RuleBasedCollator pattern
+and build a RBCollationTables object from it.  A particular instance
+of tis class exists only during the actual build process-- once an
+RBCollationTables object has been built, the RBTableBuilder object
+goes away.  This object carries all of the state which is only needed
+during the build process, plus a "shadow" copy of all of the state
+that will go into the tables object itself.  This object communicates
+with RBCollationTables through a separate class, RBCollationTables.BuildAPI,
+this is an inner class of RBCollationTables and provides a separate
+private API for communication with RBTableBuilder.
+This class isn't just an inner class of RBCollationTables itself because
+of its large size.  For source-code readability, it seemed better for the
+builder to have its own source file.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RBTableBuilder" refid="_9_5_f720368_1110473546690_159410_8675"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RBTableBuilder" refid="_9_5_f720368_1110473546690_159410_8675"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

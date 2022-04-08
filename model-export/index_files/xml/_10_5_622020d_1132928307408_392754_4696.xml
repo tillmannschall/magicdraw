@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307408_392754_4696"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StreamTokenizer" refid="_9_5_f720368_1110473546612_229716_7487"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;StreamTokenizer&lt;/code&gt; class takes an input stream and
+parses it into "tokens", allowing the tokens to be
+read one at a time. The parsing process is controlled by a table
+and a number of flags that can be set to various states. The
+stream tokenizer can recognize identifiers, numbers, quoted
+strings, and various comment styles.
+&lt;p&gt;
+Each byte read from the input stream is regarded as a character
+in the range &lt;code&gt;'&amp;#92;u0000'&lt;/code&gt; through &lt;code&gt;'&amp;#92;u00FF'&lt;/code&gt;.
+The character value is used to look up five possible attributes of
+the character: &lt;i&gt;white space&lt;/i&gt;, &lt;i&gt;alphabetic&lt;/i&gt;,
+&lt;i&gt;numeric&lt;/i&gt;, &lt;i&gt;string quote&lt;/i&gt;, and &lt;i&gt;comment character&lt;/i&gt;.
+Each character can have zero or more of these attributes.
+&lt;p&gt;
+In addition, an instance has four flags. These flags indicate:
+&lt;ul&gt;
+&lt;li&gt;Whether line terminators are to be returned as tokens or treated
+as white space that merely separates tokens.
+&lt;li&gt;Whether C-style comments are to be recognized and skipped.
+&lt;li&gt;Whether C++-style comments are to be recognized and skipped.
+&lt;li&gt;Whether the characters of identifiers are converted to lowercase.
+&lt;/ul&gt;
+&lt;p&gt;
+A typical application first constructs an instance of this class,
+sets up the syntax tables, and then repeatedly loops calling the
+&lt;code&gt;nextToken&lt;/code&gt; method in each iteration of the loop until
+it returns the value &lt;code&gt;TT_EOF&lt;/code&gt;.
+
+@author  James Gosling
+@version 1.44, 05/18/04
+@see     java.io.StreamTokenizer#nextToken()
+@see     java.io.StreamTokenizer#TT_EOF
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StreamTokenizer" refid="_9_5_f720368_1110473546612_229716_7487"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StreamTokenizer" refid="_9_5_f720368_1110473546612_229716_7487"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

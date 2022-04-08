@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314678_514973_9014"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Attributes2Impl" refid="_10_5_622020d_1132928314668_218112_9012"/></annotatedElement><body humanName="Body" mode="s,e">SAX2 extension helper for additional Attributes information,
+implementing the {@link Attributes2} interface.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is not part of core-only SAX2 distributions.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;specified&lt;/em&gt; flag for each attribute will always
+be true, unless it has been set to false in the copy constructor
+or using {@link #setSpecified}.
+Similarly, the &lt;em&gt;declared&lt;/em&gt; flag for each attribute will
+always be false, except for defaulted attributes (&lt;em&gt;specified&lt;/em&gt;
+is false), non-CDATA attributes, or when it is set to true using
+{@link #setDeclared}.
+If you change an attribute's type by hand, you may need to modify
+its &lt;em&gt;declared&lt;/em&gt; flag to match.
+&lt;/p&gt;
+
+@since SAX 2.0 (extensions 1.1 alpha)
+@author David Brownell
+@version TBS
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Attributes2Impl" refid="_10_5_622020d_1132928314668_218112_9012"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Attributes2Impl" refid="_10_5_622020d_1132928314668_218112_9012"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

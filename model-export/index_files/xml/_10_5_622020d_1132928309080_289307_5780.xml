@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309080_289307_5780"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertificateExpiredException" refid="_9_5_f720368_1110473546674_465545_8277"/></annotatedElement><body humanName="Body" mode="s,e">Certificate Expired Exception. This is thrown whenever the current
+&lt;code&gt;Date&lt;/code&gt; or the specified &lt;code&gt;Date&lt;/code&gt; is after the
+&lt;code&gt;notAfter&lt;/code&gt; date/time specified in the validity period
+of the certificate.
+
+@author Hemma Prafullchandra
+1.10
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CertificateExpiredException" refid="_9_5_f720368_1110473546674_465545_8277"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CertificateExpiredException" refid="_9_5_f720368_1110473546674_465545_8277"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

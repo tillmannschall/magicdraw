@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317813_152717_12276"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractAction" refid="_9_5_f720368_1110473546784_873578_10609"/></annotatedElement><body humanName="Body" mode="s,e">This class provides default implementations for the JFC &lt;code&gt;Action&lt;/code&gt;
+interface. Standard behaviors like the get and set methods for
+&lt;code&gt;Action&lt;/code&gt; object properties (icon, text, and enabled) are defined
+here. The developer need only subclass this abstract class and
+define the &lt;code&gt;actionPerformed&lt;/code&gt; method.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.51 12/19/03
+@author Georges Saab
+@see Action
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AbstractAction" refid="_9_5_f720368_1110473546784_873578_10609"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractAction" refid="_9_5_f720368_1110473546784_873578_10609"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

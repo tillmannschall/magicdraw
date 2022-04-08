@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306116_733133_3996"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="RGBImageFilter" refid="_9_5_f720368_1110473546581_815313_6831"/></annotatedElement><body humanName="Body" mode="s,e">This class provides an easy way to create an ImageFilter which modifies
+the pixels of an image in the default RGB ColorModel.  It is meant to
+be used in conjunction with a FilteredImageSource object to produce
+filtered versions of existing images.  It is an abstract class that
+provides the calls needed to channel all of the pixel data through a
+single method which converts pixels one at a time in the default RGB
+ColorModel regardless of the ColorModel being used by the ImageProducer.
+The only method which needs to be defined to create a useable image
+filter is the filterRGB method.  Here is an example of a definition
+of a filter which swaps the red and blue components of an image:
+&lt;pre&gt;
+
+class RedBlueSwapFilter extends RGBImageFilter {
+public RedBlueSwapFilter() {
+The filter's operation does not depend on the
+pixel's location, so IndexColorModels can be
+filtered directly.
+canFilterIndexColorModel = true;
+}
+
+public int filterRGB(int x, int y, int rgb) {
+return ((rgb &amp; 0xff00ff00)
+| ((rgb &amp; 0xff0000) &gt;&gt; 16)
+| ((rgb &amp; 0xff) &lt;&lt; 16));
+}
+}
+
+&lt;/pre&gt;
+
+@see FilteredImageSource
+@see ImageFilter
+@see ColorModel#getRGBdefault
+
+@version	1.24 12/19/03
+@author 	Jim Graham
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="RGBImageFilter" refid="_9_5_f720368_1110473546581_815313_6831"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="RGBImageFilter" refid="_9_5_f720368_1110473546581_815313_6831"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

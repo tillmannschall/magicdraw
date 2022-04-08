@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546674_271572_8145"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;Activator&lt;/code&gt; facilitates remote object activation. A
+"faulting" remote reference calls the activator's
+&lt;code&gt;activate&lt;/code&gt; method to obtain a "live" reference to a
+"activatable" remote object. Upon receiving a request for activation,
+the activator looks up the activation descriptor for the activation
+identifier, &lt;code&gt;id&lt;/code&gt;, determines the group in which the
+object should be activated initiates object re-creation via the
+group's &lt;code&gt;ActivationInstantiator&lt;/code&gt; (via a call to the
+&lt;code&gt;newInstance&lt;/code&gt; method). The activator initiates the
+execution of activation groups as necessary. For example, if an
+activation group for a specific group identifier is not already
+executing, the activator initiates the execution of a VM for the
+group. &lt;p&gt;
+
+The &lt;code&gt;Activator&lt;/code&gt; works closely with
+&lt;code&gt;ActivationSystem&lt;/code&gt;, which provides a means for registering
+groups and objects within those groups, and &lt;code&gt;ActivationMonitor&lt;/code&gt;,
+which recives information about active and inactive objects and inactive
+groups. &lt;p&gt;
+
+The activator is responsible for monitoring and detecting when
+activation groups fail so that it can remove stale remote references
+to groups and active object's within those groups.&lt;p&gt;
+
+@author 	Ann Wollrath
+@version	1.18, 12/19/03
+@see 	ActivationInstantiator
+@see		ActivationGroupDesc
+@see		ActivationGroupID
+@since 	1.2
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Remote" refid="_9_5_f720368_1110473546674_219881_8233"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321819_944728_14046"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Activator</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="activation" refid="_9_5_f720368_1110473547690_148481_18432"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308930_428950_5609"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321819_944728_14046"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308930_428950_5609"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="activation" refid="_9_5_f720368_1110473547690_148481_18432"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="activation" refid="_9_5_f720368_1110473547690_148481_18432"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="activation" refid="_9_5_f720368_1110473547690_148481_18432"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::rmi::activation::Activator</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

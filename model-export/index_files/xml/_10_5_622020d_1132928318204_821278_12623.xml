@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318204_821278_12623"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RepaintManager" refid="_9_5_f720368_1110473546799_136159_10837"/></annotatedElement><body humanName="Body" mode="s,e">This class manages repaint requests, allowing the number
+of repaints to be minimized, for example by collapsing multiple
+requests into a single repaint for members of a component tree.
+
+@version 1.60 02/18/04
+@author Arnaud Weber
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RepaintManager" refid="_9_5_f720368_1110473546799_136159_10837"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RepaintManager" refid="_9_5_f720368_1110473546799_136159_10837"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

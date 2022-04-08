@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309221_215776_5929"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InvalidParameterSpecException" refid="_9_5_f720368_1110473546674_115526_8389"/></annotatedElement><body humanName="Body" mode="s,e">This is the exception for invalid parameter specifications.
+
+@author Jan Luehe
+
+@version 1.15, 12/19/03
+
+@see java.security.AlgorithmParameters
+@see AlgorithmParameterSpec
+@see DSAParameterSpec
+
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InvalidParameterSpecException" refid="_9_5_f720368_1110473546674_115526_8389"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InvalidParameterSpecException" refid="_9_5_f720368_1110473546674_115526_8389"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

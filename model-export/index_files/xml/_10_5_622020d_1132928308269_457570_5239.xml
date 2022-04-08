@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308269_457570_5239"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CacheResponse" refid="_10_5_622020d_1132928308269_387843_5237"/></annotatedElement><body humanName="Body" mode="s,e">Represent channels for retrieving resources from the
+ResponseCache. Instances of such a class provide an
+InputStream that returns the entity body, and also a
+getHeaders() method which returns the associated response headers.
+
+@version 1.1, 03/09/22
+@author Yingxian Wang
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="CacheResponse" refid="_10_5_622020d_1132928308269_387843_5237"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CacheResponse" refid="_10_5_622020d_1132928308269_387843_5237"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

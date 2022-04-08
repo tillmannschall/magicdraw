@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928314879_337376_9279"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::loading::MLet -&gt; JDK 5.0 Classes::java::io::Externalizable]" refid="_10_5_622020d_1132928322940_68341_15836"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::loading::MLet -&gt; JDK 5.0 Classes::javax::management::loading::MLetMBean]" refid="_10_5_622020d_1132928322940_130550_15834"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::loading::MLet -&gt; JDK 5.0 Classes::javax::management::MBeanRegistration]" refid="_10_5_622020d_1132928322940_780057_15835"/></clientDependency><documentation humanName="Documentation" mode="standard">Allows you to instantiate and register one or several MBeans in the MBean server
+coming from a remote URL. M-let is a shortcut for management applet. The m-let service does this
+by loading an m-let text file, which specifies information on the MBeans to be obtained.
+The information on each MBean is specified in a single instance of a tag, called the MLET tag.
+The location of the m-let text file is specified by a URL.
+&lt;p&gt;
+The &lt;CODE&gt;MLET&lt;/CODE&gt; tag has the following syntax:
+&lt;p&gt;
+&lt;&lt;CODE&gt;MLET&lt;/CODE&gt;&lt;BR&gt;
+&lt;CODE&gt;CODE = &lt;/CODE&gt;&lt;VAR&gt;class&lt;/VAR&gt;&lt;CODE&gt; | OBJECT = &lt;/CODE&gt;&lt;VAR&gt;serfile&lt;/VAR&gt;&lt;BR&gt;
+&lt;CODE&gt;ARCHIVE = "&lt;/CODE&gt;&lt;VAR&gt;archiveList&lt;/VAR&gt;&lt;CODE&gt;"&lt;/CODE&gt;&lt;BR&gt;
+&lt;CODE&gt;[CODEBASE = &lt;/CODE&gt;&lt;VAR&gt;codebaseURL&lt;/VAR&gt;&lt;CODE&gt;]&lt;/CODE&gt;&lt;BR&gt;
+&lt;CODE&gt;[NAME = &lt;/CODE&gt;&lt;VAR&gt;mbeanname&lt;/VAR&gt;&lt;CODE&gt;]&lt;/CODE&gt;&lt;BR&gt;
+&lt;CODE&gt;[VERSION = &lt;/CODE&gt;&lt;VAR&gt;version&lt;/VAR&gt;&lt;CODE&gt;]&lt;/CODE&gt;&lt;BR&gt;
+&gt;&lt;BR&gt;
+&lt;CODE&gt;[&lt;/CODE&gt;&lt;VAR&gt;arglist&lt;/VAR&gt;&lt;CODE&gt;]&lt;/CODE&gt;&lt;BR&gt;
+&lt;&lt;CODE&gt;/MLET&lt;/CODE&gt;&gt;
+&lt;p&gt;
+where:
+&lt;DL&gt;
+&lt;DT&gt;&lt;CODE&gt;CODE = &lt;/CODE&gt;&lt;VAR&gt;class&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This attribute specifies the full Java class name, including package name, of the MBean to be obtained.
+The compiled &lt;CODE&gt;.class&lt;/CODE&gt; file of the MBean must be contained in one of the &lt;CODE&gt;.jar&lt;/CODE&gt; files specified by the &lt;CODE&gt;ARCHIVE&lt;/CODE&gt;
+attribute. Either &lt;CODE&gt;CODE&lt;/CODE&gt; or &lt;CODE&gt;OBJECT&lt;/CODE&gt; must be present.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;CODE&gt;OBJECT = &lt;/CODE&gt;&lt;VAR&gt;serfile&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This attribute specifies the &lt;CODE&gt;.ser&lt;/CODE&gt; file that contains a serialized representation of the MBean to be obtained.
+This file must be contained in one of the &lt;CODE&gt;.jar&lt;/CODE&gt; files specified by the &lt;CODE&gt;ARCHIVE&lt;/CODE&gt; attribute. If the &lt;CODE&gt;.jar&lt;/CODE&gt; file contains a directory hierarchy, specify the path of the file within this hierarchy. Otherwise  a match will not be found. Either &lt;CODE&gt;CODE&lt;/CODE&gt; or &lt;CODE&gt;OBJECT&lt;/CODE&gt; must be present.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;CODE&gt;ARCHIVE = "&lt;/CODE&gt;&lt;VAR&gt;archiveList&lt;/VAR&gt;&lt;CODE&gt;"&lt;/CODE&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This mandatory attribute specifies one or more &lt;CODE&gt;.jar&lt;/CODE&gt; files
+containing MBeans or other resources used by
+the MBean to be obtained. One of the &lt;CODE&gt;.jar&lt;/CODE&gt; files must contain the file specified by the &lt;CODE&gt;CODE&lt;/CODE&gt; or &lt;CODE&gt;OBJECT&lt;/CODE&gt; attribute.
+If archivelist contains more than one file:
+&lt;UL&gt;
+&lt;LI&gt;Each file must be separated from the one that follows it by a comma (,).
+&lt;LI&gt;&lt;VAR&gt;archivelist&lt;/VAR&gt; must be enclosed in double quote marks.
+&lt;/UL&gt;
+All &lt;CODE&gt;.jar&lt;/CODE&gt; files in &lt;VAR&gt;archivelist&lt;/VAR&gt; must be stored in the directory specified by the code base URL.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;CODE&gt;CODEBASE = &lt;/CODE&gt;&lt;VAR&gt;codebaseURL&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This optional attribute specifies the code base URL of the MBean to be obtained. It identifies the directory that contains
+the &lt;CODE&gt;.jar&lt;/CODE&gt; files specified by the &lt;CODE&gt;ARCHIVE&lt;/CODE&gt; attribute. Specify this attribute only if the &lt;CODE&gt;.jar&lt;/CODE&gt; files are not in the same
+directory as the m-let text file. If this attribute is not specified, the base URL of the m-let text file is used.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;CODE&gt;NAME = &lt;/CODE&gt;&lt;VAR&gt;mbeanname&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This optional attribute specifies the object name to be assigned to the
+MBean instance when the m-let service registers it. If
+&lt;VAR&gt;mbeanname&lt;/VAR&gt; starts with the colon character (:), the domain
+part of the object name is the domain of the agent. The m-let service
+invokes the &lt;CODE&gt;getDomain()&lt;/CODE&gt; method of the Framework class to
+obtain this information.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;CODE&gt;VERSION = &lt;/CODE&gt;&lt;VAR&gt;version&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This optional attribute specifies the version number of the MBean and
+associated &lt;CODE&gt;.jar&lt;/CODE&gt; files to be obtained. This version number can
+be used to specify that the &lt;CODE&gt;.jar&lt;/CODE&gt; files are loaded from the
+server to update those stored locally in the cache the next time the m-let
+text file is loaded. &lt;VAR&gt;version&lt;/VAR&gt; must be a series of non-negative
+decimal integers each separated by a period from the one that precedes it.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;VAR&gt;arglist&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This optional attribute specifies a list of one or more parameters for the
+MBean to be instantiated. This list describes the parameters to be passed the MBean's constructor.
+Use the following syntax to specify each item in
+&lt;VAR&gt;arglist&lt;/VAR&gt;:&lt;/DD&gt;
+&lt;DL&gt;
+&lt;P&gt;
+&lt;DT&gt;&lt;&lt;CODE&gt;ARG TYPE=&lt;/CODE&gt;&lt;VAR&gt;argumentType&lt;/VAR&gt; &lt;CODE&gt;VALUE=&lt;/CODE&gt;&lt;VAR&gt;value&lt;/VAR&gt;&gt;&lt;/DT&gt;
+&lt;P&gt;
+&lt;DD&gt;where:&lt;/DD&gt;
+&lt;UL&gt;
+&lt;LI&gt;&lt;VAR&gt;argumentType&lt;/VAR&gt; is the type of the argument that will be passed as parameter to the MBean's constructor.&lt;/UL&gt;
+&lt;/DL&gt;
+&lt;P&gt;The arguments' type in the argument list should be a Java primitive type or a Java basic type
+(&lt;CODE&gt;java.lang.Boolean, java.lang.Byte, java.lang.Short, java.lang.Long, java.lang.Integer, java.lang.Float, java.lang.Double, java.lang.String&lt;/CODE&gt;).
+&lt;/DL&gt;
+
+When an m-let text file is loaded, an
+instance of each MBean specified in the file is created and registered.
+&lt;P&gt;
+The m-let Service extends the &lt;CODE&gt;java.net.URLClassLoader&lt;/CODE&gt; and can be used to load remote classes
+and jar files in the VM of the agent.
+&lt;p&gt;&lt;STRONG&gt;Note - &lt;/STRONG&gt; The &lt;CODE&gt;MLet&lt;/CODE&gt; class loader uses the {@link javax.management.MBeanServerFactory#getClassLoaderRepository(javax.management.MBeanServer)}
+to load classes that could not be found in the loaded jar files.
+
+@since 1.5
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322940_878308_15837"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeLibrary" refid="_9_5_f720368_1110473547518_440238_17855"/></inheritedMember><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::loading::MLet -&gt; JDK 5.0 Classes::java::io::Externalizable]" refid="_10_5_622020d_1132928322940_68341_15836"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::loading::MLet -&gt; JDK 5.0 Classes::javax::management::loading::MLetMBean]" refid="_10_5_622020d_1132928322940_130550_15834"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::loading::MLet -&gt; JDK 5.0 Classes::javax::management::MBeanRegistration]" refid="_10_5_622020d_1132928322940_780057_15835"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NativeLibrary" refid="_9_5_f720368_1110473547518_440238_17855"/></member><name humanName="Name" mode="s,e">MLet</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="loading" refid="_10_5_622020d_1132928314869_286972_9269"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314879_198735_9281"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322940_878308_15837"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314879_198735_9281"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::loading::MLet -&gt; JDK 5.0 Classes::java::io::Externalizable]" refid="_10_5_622020d_1132928322940_68341_15836"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::loading::MLet -&gt; JDK 5.0 Classes::javax::management::loading::MLetMBean]" refid="_10_5_622020d_1132928322940_130550_15834"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::management::loading::MLet -&gt; JDK 5.0 Classes::javax::management::MBeanRegistration]" refid="_10_5_622020d_1132928322940_780057_15835"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="loading" refid="_10_5_622020d_1132928314869_286972_9269"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="loading" refid="_10_5_622020d_1132928314869_286972_9269"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="loading" refid="_10_5_622020d_1132928314869_286972_9269"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::management::loading::MLet</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Externalizable" refid="_9_5_f720368_1110473546596_293067_7381"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MBeanRegistration" refid="_10_5_622020d_1132928315159_590504_9757"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MLetMBean" refid="_10_5_622020d_1132928314889_283723_9285"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="URLClassLoader" refid="_9_5_f720368_1110473546643_203154_7843"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

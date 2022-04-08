@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308179_142636_5183"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ThreadGroup" refid="_9_5_f720368_1110473546612_539857_7707"/></annotatedElement><body humanName="Body" mode="s,e">A thread group represents a set of threads. In addition, a thread
+group can also include other thread groups. The thread groups form
+a tree in which every thread group except the initial thread group
+has a parent.
+&lt;p&gt;
+A thread is allowed to access information about its own thread
+group, but not to access information about its thread group's
+parent thread group or any other thread groups.
+
+@author  unascribed
+@version 1.63, 06/17/04
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ThreadGroup" refid="_9_5_f720368_1110473546612_539857_7707"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ThreadGroup" refid="_9_5_f720368_1110473546612_539857_7707"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

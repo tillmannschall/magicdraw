@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306066_477805_3962"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ImageProducer" refid="_9_5_f720368_1110473546565_60145_6797"/></annotatedElement><body humanName="Body" mode="s,e">The interface for objects which can produce the image data for Images.
+Each image contains an ImageProducer which is used to reconstruct
+the image whenever it is needed, for example, when a new size of the
+Image is scaled, or when the width or height of the Image is being
+requested.
+
+@see ImageConsumer
+
+@version	1.20 12/19/03
+@author 	Jim Graham
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ImageProducer" refid="_9_5_f720368_1110473546565_60145_6797"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ImageProducer" refid="_9_5_f720368_1110473546565_60145_6797"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

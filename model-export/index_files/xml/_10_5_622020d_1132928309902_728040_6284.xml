@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309902_728040_6284"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StringCharacterIterator" refid="_9_5_f720368_1110473546690_812137_8689"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;StringCharacterIterator&lt;/code&gt; implements the
+&lt;code&gt;CharacterIterater&lt;/code&gt; protocol for a &lt;code&gt;String&lt;/code&gt;.
+The &lt;code&gt;StringCharacterIterator&lt;/code&gt; class iterates over the
+entire &lt;code&gt;String&lt;/code&gt;.
+
+@see CharacterIterator
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StringCharacterIterator" refid="_9_5_f720368_1110473546690_812137_8689"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StringCharacterIterator" refid="_9_5_f720368_1110473546690_812137_8689"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

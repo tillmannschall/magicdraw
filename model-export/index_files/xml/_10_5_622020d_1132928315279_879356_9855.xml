@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315279_879356_9855"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="QueryExp" refid="_10_5_622020d_1132928315259_993595_9853"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Represents relational constraints that can be used in database
+query "where clauses".  Instances of QueryExp are returned by the
+static methods of the {@link Query} class.&lt;/p&gt;
+
+&lt;p&gt;It is possible, but not
+recommended, to create custom queries by implementing this
+interface.  In that case, it is better to extend the {@link
+QueryEval} class than to implement the interface directly, so that
+the {@link #setMBeanServer} method works correctly.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="QueryExp" refid="_10_5_622020d_1132928315259_993595_9853"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="QueryExp" refid="_10_5_622020d_1132928315259_993595_9853"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

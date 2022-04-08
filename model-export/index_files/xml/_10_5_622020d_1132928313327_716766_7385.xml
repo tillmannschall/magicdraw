@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313327_716766_7385"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Locale" refid="_9_5_f720368_1110473546706_180147_8891"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;Locale&lt;/code&gt; object represents a specific geographical, political,
+or cultural region. An operation that requires a &lt;code&gt;Locale&lt;/code&gt; to perform
+its task is called &lt;em&gt;locale-sensitive&lt;/em&gt; and uses the &lt;code&gt;Locale&lt;/code&gt;
+to tailor information for the user. For example, displaying a number
+is a locale-sensitive operation--the number should be formatted
+according to the customs/conventions of the user's native country,
+region, or culture.
+
+&lt;P&gt;
+Create a &lt;code&gt;Locale&lt;/code&gt; object using the constructors in this class:
+&lt;blockquote&gt;
+&lt;pre&gt;
+Locale(String language)
+Locale(String language, String country)
+Locale(String language, String country, String variant)
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+The language argument is a valid &lt;STRONG&gt;ISO Language Code.&lt;/STRONG&gt;
+These codes are the lower-case, two-letter codes as defined by ISO-639.
+You can find a full list of these codes at a number of sites, such as:
+&lt;BR&gt;&lt;a href ="http://www.loc.gov/standards/iso639-2/englangn.html"&gt;
+&lt;code&gt;http://www.loc.gov/standards/iso639-2/englangn.html&lt;/code&gt;&lt;/a&gt;
+
+&lt;P&gt;
+The country argument is a valid &lt;STRONG&gt;ISO Country Code.&lt;/STRONG&gt; These
+codes are the upper-case, two-letter codes as defined by ISO-3166.
+You can find a full list of these codes at a number of sites, such as:
+&lt;BR&gt;&lt;a href="http://www.iso.ch/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html"&gt;
+&lt;code&gt;http://www.iso.ch/iso/en/prods-services/iso3166ma/02iso-3166-code-lists/list-en1.html&lt;/code&gt;&lt;/a&gt;
+
+&lt;P&gt;
+The variant argument is a vendor or browser-specific code.
+For example, use WIN for Windows, MAC for Macintosh, and POSIX for POSIX.
+Where there are two variants, separate them with an underscore, and
+put the most important one first. For example, a Traditional Spanish collation
+might construct a locale with parameters for language, country and variant as:
+"es", "ES", "Traditional_WIN".
+
+&lt;P&gt;
+Because a &lt;code&gt;Locale&lt;/code&gt; object is just an identifier for a region,
+no validity check is performed when you construct a &lt;code&gt;Locale&lt;/code&gt;.
+If you want to see whether particular resources are available for the
+&lt;code&gt;Locale&lt;/code&gt; you construct, you must query those resources. For
+example, ask the &lt;code&gt;NumberFormat&lt;/code&gt; for the locales it supports
+using its &lt;code&gt;getAvailableLocales&lt;/code&gt; method.
+&lt;BR&gt;&lt;STRONG&gt;Note:&lt;/STRONG&gt; When you ask for a resource for a particular
+locale, you get back the best available match, not necessarily
+precisely what you asked for. For more information, look at
+{@link ResourceBundle}.
+
+&lt;P&gt;
+The &lt;code&gt;Locale&lt;/code&gt; class provides a number of convenient constants
+that you can use to create &lt;code&gt;Locale&lt;/code&gt; objects for commonly used
+locales. For example, the following creates a &lt;code&gt;Locale&lt;/code&gt; object
+for the United States:
+&lt;blockquote&gt;
+&lt;pre&gt;
+Locale.US
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;P&gt;
+Once you've created a &lt;code&gt;Locale&lt;/code&gt; you can query it for information about
+itself. Use &lt;code&gt;getCountry&lt;/code&gt; to get the ISO Country Code and
+&lt;code&gt;getLanguage&lt;/code&gt; to get the ISO Language Code. You can
+use &lt;code&gt;getDisplayCountry&lt;/code&gt; to get the
+name of the country suitable for displaying to the user. Similarly,
+you can use &lt;code&gt;getDisplayLanguage&lt;/code&gt; to get the name of
+the language suitable for displaying to the user. Interestingly,
+the &lt;code&gt;getDisplayXXX&lt;/code&gt; methods are themselves locale-sensitive
+and have two versions: one that uses the default locale and one
+that uses the locale specified as an argument.
+
+&lt;P&gt;
+The Java 2 platform provides a number of classes that perform locale-sensitive
+operations. For example, the &lt;code&gt;NumberFormat&lt;/code&gt; class formats
+numbers, currency, or percentages in a locale-sensitive manner. Classes
+such as &lt;code&gt;NumberFormat&lt;/code&gt; have a number of convenience methods
+for creating a default object of that type. For example, the
+&lt;code&gt;NumberFormat&lt;/code&gt; class provides these three convenience methods
+for creating a default &lt;code&gt;NumberFormat&lt;/code&gt; object:
+&lt;blockquote&gt;
+&lt;pre&gt;
+NumberFormat.getInstance()
+NumberFormat.getCurrencyInstance()
+NumberFormat.getPercentInstance()
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+These methods have two variants; one with an explicit locale
+and one without; the latter using the default locale.
+&lt;blockquote&gt;
+&lt;pre&gt;
+NumberFormat.getInstance(myLocale)
+NumberFormat.getCurrencyInstance(myLocale)
+NumberFormat.getPercentInstance(myLocale)
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+A &lt;code&gt;Locale&lt;/code&gt; is the mechanism for identifying the kind of object
+(&lt;code&gt;NumberFormat&lt;/code&gt;) that you would like to get. The locale is
+&lt;STRONG&gt;just&lt;/STRONG&gt; a mechanism for identifying objects,
+&lt;STRONG&gt;not&lt;/STRONG&gt; a container for the objects themselves.
+
+@see         ResourceBundle
+@see         java.text.Format
+@see         java.text.NumberFormat
+@see         java.text.Collator
+@author      Mark Davis
+@since       1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Locale" refid="_9_5_f720368_1110473546706_180147_8891"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Locale" refid="_9_5_f720368_1110473546706_180147_8891"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

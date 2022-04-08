@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318183_557130_12577"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyStroke" refid="_9_5_f720368_1110473546799_308362_10799"/></annotatedElement><body humanName="Body" mode="s,e">A KeyStroke represents a key action on the keyboard, or equivalent input
+device. KeyStrokes can correspond to only a press or release of a particular
+key, just as KEY_PRESSED and KEY_RELEASED KeyEvents do; alternately, they
+can correspond to typing a specific Java character, just as KEY_TYPED
+KeyEvents do. In all cases, KeyStrokes can specify modifiers (alt, shift,
+control, meta, or a combination thereof) which must be present during the
+action for an exact match.
+&lt;p&gt;
+KeyStrokes are used to define high-level (semantic) action events. Instead
+of trapping every keystroke and throwing away the ones you are not
+interested in, those keystrokes you care about automatically initiate
+actions on the Components with which they are registered.
+&lt;p&gt;
+KeyStrokes are immutable, and are intended to be unique. Client code cannot
+create a KeyStroke; a variant of &lt;code&gt;getKeyStroke&lt;/code&gt; must be used
+instead. These factory methods allow the KeyStroke implementation to cache
+and share instances efficiently.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see javax.swing.text.Keymap
+@see #getKeyStroke
+
+@version 1.49, 05/18/04
+@author Arnaud Weber
+@author David Mendenhall
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="KeyStroke" refid="_9_5_f720368_1110473546799_308362_10799"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyStroke" refid="_9_5_f720368_1110473546799_308362_10799"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

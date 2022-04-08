@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317673_107454_12116"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MutableAttributeSet" refid="_9_5_f720368_1110473546784_815693_10495"/></annotatedElement><body humanName="Body" mode="s,e">A generic interface for a mutable collection of unique attributes.
+
+Implementations will probably want to provide a constructor of the
+form:&lt;tt&gt;
+public XXXAttributeSet(ConstAttributeSet source);&lt;/tt&gt;
+
+@version 1.17 05/05/04
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="MutableAttributeSet" refid="_9_5_f720368_1110473546784_815693_10495"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MutableAttributeSet" refid="_9_5_f720368_1110473546784_815693_10495"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

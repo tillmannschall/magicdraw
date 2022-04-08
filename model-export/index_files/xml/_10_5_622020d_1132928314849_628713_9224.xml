@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314849_628713_9224"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FileCacheImageOutputStream" refid="_9_5_f720368_1110473546706_966546_9067"/></annotatedElement><body humanName="Body" mode="s,e">An implementation of &lt;code&gt;ImageOutputStream&lt;/code&gt; that writes its
+output to a regular &lt;code&gt;OutputStream&lt;/code&gt;.  A file is used to
+cache data until it is flushed to the output stream.
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FileCacheImageOutputStream" refid="_9_5_f720368_1110473546706_966546_9067"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FileCacheImageOutputStream" refid="_9_5_f720368_1110473546706_966546_9067"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316261_655093_10632"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Type" refid="_9_5_f720368_1110473548096_876787_20881"/></annotatedElement><body humanName="Body" mode="s,e">An instance of the &lt;code&gt;FloatControl.Type&lt;/code&gt; inner class identifies one kind of
+float control.  Static instances are provided for the
+common types.
+
+@author Kara Kytle
+@version 1.16, 03/12/19
+@since 1.3
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Type" refid="_9_5_f720368_1110473548096_876787_20881"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Type" refid="_9_5_f720368_1110473548096_876787_20881"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

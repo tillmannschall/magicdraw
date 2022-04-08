@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306717_826517_4319"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Rectangle" refid="_9_5_f720368_1110473546581_380235_7107"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;Rectangle&lt;/code&gt; specifies an area in a coordinate space that is
+enclosed by the &lt;code&gt;Rectangle&lt;/code&gt; object's top-left point
+(&lt;i&gt;x&lt;/i&gt;,&amp;nbsp;&lt;i&gt;y&lt;/i&gt;)
+in the coordinate space, its width, and its height.
+&lt;p&gt;
+A &lt;code&gt;Rectangle&lt;/code&gt; object's &lt;code&gt;width&lt;/code&gt; and
+&lt;code&gt;height&lt;/code&gt; are &lt;code&gt;public&lt;/code&gt; fields. The constructors
+that create a &lt;code&gt;Rectangle&lt;/code&gt;, and the methods that can modify
+one, do not prevent setting a negative value for width or height.
+&lt;p&gt;
+A &lt;code&gt;Rectangle&lt;/code&gt; whose width or height is negative is considered
+empty. If the &lt;code&gt;Rectangle&lt;/code&gt; is empty, then the
+&lt;code&gt;isEmpty&lt;/code&gt; method returns &lt;code&gt;true&lt;/code&gt;. No point can be
+contained by or inside an empty &lt;code&gt;Rectangle&lt;/code&gt;.  The
+values of &lt;code&gt;width&lt;/code&gt; and &lt;code&gt;height&lt;/code&gt;, however, are still
+valid.  An empty &lt;code&gt;Rectangle&lt;/code&gt; still has a location in the
+coordinate space, and methods that change its size or location remain
+valid. The behavior of methods that operate on more than one
+&lt;code&gt;Rectangle&lt;/code&gt; is undefined if any of the participating
+&lt;code&gt;Rectangle&lt;/code&gt; objects has a negative
+&lt;code&gt;width&lt;/code&gt; or &lt;code&gt;height&lt;/code&gt;. These methods include
+&lt;code&gt;intersects&lt;/code&gt;, &lt;code&gt;intersection&lt;/code&gt;, and
+&lt;code&gt;union&lt;/code&gt;.
+
+@version 	1.70, 05/18/04
+@author 	Sami Shaio
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Rectangle" refid="_9_5_f720368_1110473546581_380235_7107"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Rectangle" refid="_9_5_f720368_1110473546581_380235_7107"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

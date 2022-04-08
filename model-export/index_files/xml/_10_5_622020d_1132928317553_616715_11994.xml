@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317553_616715_11994"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ChangedCharSetException" refid="_9_5_f720368_1110473546784_986470_10431"/></annotatedElement><body humanName="Body" mode="s,e">ChangedCharSetException as the name indicates is an exception
+thrown when the charset is changed.
+
+@author Sunita Mani
+1.8, 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ChangedCharSetException" refid="_9_5_f720368_1110473546784_986470_10431"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ChangedCharSetException" refid="_9_5_f720368_1110473546784_986470_10431"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

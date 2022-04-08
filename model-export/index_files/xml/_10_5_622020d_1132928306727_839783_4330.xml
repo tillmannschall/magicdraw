@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306727_839783_4330"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ScrollPane" refid="_9_5_f720368_1110473546596_680435_7115"/></annotatedElement><body humanName="Body" mode="s,e">A container class which implements automatic horizontal and/or
+vertical scrolling for a single child component.  The display
+policy for the scrollbars can be set to:
+&lt;OL&gt;
+&lt;LI&gt;as needed: scrollbars created and shown only when needed by scrollpane
+&lt;LI&gt;always: scrollbars created and always shown by the scrollpane
+&lt;LI&gt;never: scrollbars never created or shown by the scrollpane
+&lt;/OL&gt;
+&lt;P&gt;
+The state of the horizontal and vertical scrollbars is represented
+by two &lt;code&gt;ScrollPaneAdjustable&lt;/code&gt; objects (one for each
+dimension) which implement the &lt;code&gt;Adjustable&lt;/code&gt; interface.
+The API provides methods to access those objects such that the
+attributes on the Adjustable object (such as unitIncrement, value,
+etc.) can be manipulated.
+&lt;P&gt;
+Certain adjustable properties (minimum, maximum, blockIncrement,
+and visibleAmount) are set internally by the scrollpane in accordance
+with the geometry of the scrollpane and its child and these should
+not be set by programs using the scrollpane.
+&lt;P&gt;
+If the scrollbar display policy is defined as "never", then the
+scrollpane can still be programmatically scrolled using the
+setScrollPosition() method and the scrollpane will move and clip
+the child's contents appropriately.  This policy is useful if the
+program needs to create and manage its own adjustable controls.
+&lt;P&gt;
+The placement of the scrollbars is controlled by platform-specific
+properties set by the user outside of the program.
+&lt;P&gt;
+The initial size of this container is set to 100x100, but can
+be reset using setSize().
+&lt;P&gt;
+Scrolling with the wheel on a wheel-equipped mouse is enabled by default.
+This can be disabled using &lt;code&gt;setWheelScrollingEnabled&lt;/code&gt;.
+Wheel scrolling can be customized by setting the block and
+unit increment of the horizontal and vertical Adjustables.
+For information on how mouse wheel events are dispatched, see
+the class description for {@link MouseWheelEvent}.
+&lt;P&gt;
+Insets are used to define any space used by scrollbars and any
+borders created by the scroll pane. getInsets() can be used
+to get the current value for the insets.  If the value of
+scrollbarsAlwaysVisible is false, then the value of the insets
+will change dynamically depending on whether the scrollbars are
+currently visible or not.
+
+@version     1.95 05/18/04
+@author      Tom Ball
+@author      Amy Fowler
+@author      Tim Prinzing
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ScrollPane" refid="_9_5_f720368_1110473546596_680435_7115"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ScrollPane" refid="_9_5_f720368_1110473546596_680435_7115"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

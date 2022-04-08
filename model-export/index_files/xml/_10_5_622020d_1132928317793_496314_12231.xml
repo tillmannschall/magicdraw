@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317793_496314_12231"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ExpandVetoException" refid="_9_5_f720368_1110473546784_666714_10569"/></annotatedElement><body humanName="Body" mode="s,e">Exception used to stop and expand/collapse from happening.
+See &lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/events/treewillexpandlistener.html"&gt;How to Write a Tree-Will-Expand Listener&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt;
+for further information and examples.
+
+@version 1.10 12/19/03
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ExpandVetoException" refid="_9_5_f720368_1110473546784_666714_10569"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ExpandVetoException" refid="_9_5_f720368_1110473546784_666714_10569"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

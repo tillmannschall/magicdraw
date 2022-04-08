@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318194_662817_12606"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Popup" refid="_9_5_f720368_1110473546799_690835_10827"/></annotatedElement><body humanName="Body" mode="s,e">Popups are used to display a &lt;code&gt;Component&lt;/code&gt; to the user, typically
+on top of all the other &lt;code&gt;Component&lt;/code&gt;s in a particular containment
+hierarchy. &lt;code&gt;Popup&lt;/code&gt;s have a very small life cycle. Once you
+have obtained a &lt;code&gt;Popup&lt;/code&gt;, and hidden it (invoked the
+&lt;code&gt;hide&lt;/code&gt; method), you should no longer
+invoke any methods on it. This allows the &lt;code&gt;PopupFactory&lt;/code&gt; to cache
+&lt;code&gt;Popup&lt;/code&gt;s for later use.
+&lt;p&gt;
+The general contract is that if you need to change the size of the
+&lt;code&gt;Component&lt;/code&gt;, or location of the &lt;code&gt;Popup&lt;/code&gt;, you should
+obtain a new &lt;code&gt;Popup&lt;/code&gt;.
+&lt;p&gt;
+&lt;code&gt;Popup&lt;/code&gt; does not descend from &lt;code&gt;Component&lt;/code&gt;, rather
+implementations of &lt;code&gt;Popup&lt;/code&gt; are responsible for creating
+and maintaining their own &lt;code&gt;Component&lt;/code&gt;s to render the
+requested &lt;code&gt;Component&lt;/code&gt; to the user.
+&lt;p&gt;
+You typically do not explicitly create an instance of &lt;code&gt;Popup&lt;/code&gt;,
+instead obtain one from a &lt;code&gt;PopupFactory&lt;/code&gt;.
+
+@see PopupFactory
+
+@version 1.17 12/19/03
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Popup" refid="_9_5_f720368_1110473546799_690835_10827"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Popup" refid="_9_5_f720368_1110473546799_690835_10827"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

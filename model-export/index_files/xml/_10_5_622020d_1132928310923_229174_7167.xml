@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310923_229174_7167"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Comparator" refid="_9_5_f720368_1110473546706_796139_8845"/></annotatedElement><body humanName="Body" mode="s,e">A comparison function, which imposes a &lt;i&gt;total ordering&lt;/i&gt; on some
+collection of objects.  Comparators can be passed to a sort method (such as
+&lt;tt&gt;Collections.sort&lt;/tt&gt;) to allow precise control over the sort order.
+Comparators can also be used to control the order of certain data
+structures (such as &lt;tt&gt;TreeSet&lt;/tt&gt; or &lt;tt&gt;TreeMap&lt;/tt&gt;).&lt;p&gt;
+
+The ordering imposed by a Comparator &lt;tt&gt;c&lt;/tt&gt; on a set of elements
+&lt;tt&gt;S&lt;/tt&gt; is said to be &lt;i&gt;consistent with equals&lt;/i&gt; if and only if
+&lt;tt&gt;(compare((Object)e1, (Object)e2)==0)&lt;/tt&gt; has the same boolean value as
+&lt;tt&gt;e1.equals((Object)e2)&lt;/tt&gt; for every &lt;tt&gt;e1&lt;/tt&gt; and &lt;tt&gt;e2&lt;/tt&gt; in
+&lt;tt&gt;S&lt;/tt&gt;.&lt;p&gt;
+
+Caution should be exercised when using a comparator capable of imposing an
+ordering inconsistent with equals to order a sorted set (or sorted map).
+Suppose a sorted set (or sorted map) with an explicit Comparator &lt;tt&gt;c&lt;/tt&gt;
+is used with elements (or keys) drawn from a set &lt;tt&gt;S&lt;/tt&gt;.  If the
+ordering imposed by &lt;tt&gt;c&lt;/tt&gt; on &lt;tt&gt;S&lt;/tt&gt; is inconsistent with equals,
+the sorted set (or sorted map) will behave "strangely."  In particular the
+sorted set (or sorted map) will violate the general contract for set (or
+map), which is defined in terms of &lt;tt&gt;equals&lt;/tt&gt;.&lt;p&gt;
+
+For example, if one adds two keys &lt;tt&gt;a&lt;/tt&gt; and &lt;tt&gt;b&lt;/tt&gt; such that
+&lt;tt&gt;(a.equals((Object)b) &amp;&amp; c.compare((Object)a, (Object)b) != 0)&lt;/tt&gt; to a
+sorted set with comparator &lt;tt&gt;c&lt;/tt&gt;, the second &lt;tt&gt;add&lt;/tt&gt; operation
+will return false (and the size of the sorted set will not increase)
+because &lt;tt&gt;a&lt;/tt&gt; and &lt;tt&gt;b&lt;/tt&gt; are equivalent from the sorted set's
+perspective.&lt;p&gt;
+
+Note: It is generally a good idea for comparators to implement
+&lt;tt&gt;java.io.Serializable&lt;/tt&gt;, as they may be used as ordering methods in
+serializable data structures (like &lt;tt&gt;TreeSet&lt;/tt&gt;, &lt;tt&gt;TreeMap&lt;/tt&gt;).  In
+order for the data structure to serialize successfully, the comparator (if
+provided) must implement &lt;tt&gt;Serializable&lt;/tt&gt;.&lt;p&gt;
+
+For the mathematically inclined, the &lt;i&gt;relation&lt;/i&gt; that defines
+the &lt;i&gt;total order&lt;/i&gt; that a given comparator &lt;tt&gt;c&lt;/tt&gt; imposes on a
+given set of objects &lt;tt&gt;S&lt;/tt&gt; is:&lt;pre&gt;
+{(x, y) such that c.compare((Object)x, (Object)y) &lt;= 0}.
+&lt;/pre&gt; The &lt;i&gt;quotient&lt;/i&gt; for this total order is:&lt;pre&gt;
+{(x, y) such that c.compare((Object)x, (Object)y) == 0}.
+&lt;/pre&gt;
+
+It follows immediately from the contract for &lt;tt&gt;compare&lt;/tt&gt; that the
+quotient is an &lt;i&gt;equivalence relation&lt;/i&gt; on &lt;tt&gt;S&lt;/tt&gt;, and that the
+natural ordering is a &lt;i&gt;total order&lt;/i&gt; on &lt;tt&gt;S&lt;/tt&gt;.  When we say that
+the ordering imposed by &lt;tt&gt;c&lt;/tt&gt; on &lt;tt&gt;S&lt;/tt&gt; is &lt;i&gt;consistent with
+equals&lt;/i&gt;, we mean that the quotient for the natural ordering is the
+equivalence relation defined by the objects' &lt;tt&gt;equals(Object)&lt;/tt&gt;
+method(s):&lt;pre&gt;
+{(x, y) such that x.equals((Object)y)}.
+&lt;/pre&gt;&lt;p&gt;
+
+This interface is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@author  Neal Gafter
+@version 1.22, 12/19/03
+@see Comparable
+@see Arrays#sort(Object[], Comparator)
+@see TreeMap
+@see TreeSet
+@see SortedMap
+@see SortedSet
+@see java.io.Serializable
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Comparator" refid="_9_5_f720368_1110473546706_796139_8845"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Comparator" refid="_9_5_f720368_1110473546706_796139_8845"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

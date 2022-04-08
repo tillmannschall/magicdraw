@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318354_647129_12772"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ErrorListener" refid="_9_5_f720368_1110473546799_608100_10929"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;To provide customized error handling, implement this interface and
+use the &lt;code&gt;setErrorListener&lt;/code&gt; method to register an instance of the
+implmentation with the {@link javax.xml.transform.Transformer}.  The
+&lt;code&gt;Transformer&lt;/code&gt; then reports all errors and warnings through this
+interface.&lt;/p&gt;
+
+&lt;p&gt;If an application does &lt;em&gt;not&lt;/em&gt; register its own custom
+&lt;code&gt;ErrorListener&lt;/code&gt;, the default &lt;code&gt;ErrorListener&lt;/code&gt;
+is used which reports all warnings and errors to &lt;code&gt;System.err&lt;/code&gt;
+and does not throw any &lt;code&gt;Exception&lt;/code&gt;s.
+Applications are &lt;em&gt;strongly&lt;/em&gt; encouraged to register and use
+&lt;code&gt;ErrorListener&lt;/code&gt;s that insure proper behavior for warnings and
+errors.&lt;/p&gt;
+
+&lt;p&gt;For transformation errors, a &lt;code&gt;Transformer&lt;/code&gt; must use this
+interface instead of throwing an &lt;code&gt;Exception&lt;/code&gt;: it is up to the
+application to decide whether to throw an &lt;code&gt;Exception&lt;/code&gt; for
+different types of errors and warnings.  Note however that the
+&lt;code&gt;Transformer&lt;/code&gt; is not required to continue with the transformation
+after a call to {@link #fatalError(TransformerException exception)}.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Transformer&lt;/code&gt;s may use this mechanism to report XML parsing
+errors as well as transformation errors.&lt;/p&gt;
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ErrorListener" refid="_9_5_f720368_1110473546799_608100_10929"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ErrorListener" refid="_9_5_f720368_1110473546799_608100_10929"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

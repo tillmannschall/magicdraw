@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309020_957710_5702"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UID" refid="_9_5_f720368_1110473546674_893051_8209"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;UID&lt;/code&gt; represents an identifier that is unique over time
+with respect to the host it is generated on, or one of 2&lt;sup&gt;16&lt;/sup&gt;
+"well-known" identifiers.
+
+&lt;p&gt;The {@link #UID()} constructor can be used to generate an
+identifier that is unique over time with respect to the host it is
+generated on.  The {@link #UID(short)} constructor can be used to
+create one of 2&lt;sup&gt;16&lt;/sup&gt; well-known identifiers.
+
+&lt;p&gt;A &lt;code&gt;UID&lt;/code&gt; instance contains three primitive values:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;unique&lt;/code&gt;, an &lt;code&gt;int&lt;/code&gt; that uniquely identifies
+the VM that this &lt;code&gt;UID&lt;/code&gt; was generated in, with respect to its
+host and at the time represented by the &lt;code&gt;time&lt;/code&gt; value (an
+example implementation of the &lt;code&gt;unique&lt;/code&gt; value would be a
+process identifier),
+or zero for a well-known &lt;code&gt;UID&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;time&lt;/code&gt;, a &lt;code&gt;long&lt;/code&gt; equal to a time (as returned
+by {@link System#currentTimeMillis()}) at which the VM that this
+&lt;code&gt;UID&lt;/code&gt; was generated in was alive,
+or zero for a well-known &lt;code&gt;UID&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;count&lt;/code&gt;, a &lt;code&gt;short&lt;/code&gt; to distinguish
+&lt;code&gt;UID&lt;/code&gt;s generated in the same VM with the same
+&lt;code&gt;time&lt;/code&gt; value
+&lt;/ul&gt;
+
+&lt;p&gt;An independently generated &lt;code&gt;UID&lt;/code&gt; instance is unique
+over time with respect to the host it is generated on as long as
+the host requires more than one millisecond to reboot and its system
+clock is never set backward.  A globally unique identifier can be
+constructed by pairing a &lt;code&gt;UID&lt;/code&gt; instance with a unique host
+identifier, such as an IP address.
+
+@author	Ann Wollrath
+@author	Peter Jones
+@version	1.22, 03/12/19
+@since	JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="UID" refid="_9_5_f720368_1110473546674_893051_8209"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UID" refid="_9_5_f720368_1110473546674_893051_8209"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

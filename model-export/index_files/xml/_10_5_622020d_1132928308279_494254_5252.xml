@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308279_494254_5252"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DatagramSocket" refid="_9_5_f720368_1110473546628_922688_7751"/></annotatedElement><body humanName="Body" mode="s,e">This class represents a socket for sending and receiving datagram packets.
+
+&lt;p&gt;A datagram socket is the sending or receiving point for a packet
+delivery service. Each packet sent or received on a datagram socket
+is individually addressed and routed. Multiple packets sent from
+one machine to another may be routed differently, and may arrive in
+any order.
+
+&lt;p&gt;UDP broadcasts sends are always enabled on a DatagramSocket.
+In order to receive broadcast packets a DatagramSocket
+should be bound to the wildcard address. In some
+implementations, broadcast packets may also be received when
+a DatagramSocket is bound to a more specific address.
+&lt;p&gt;
+Example:
+&lt;code&gt;
+DatagramSocket s = new DatagramSocket(null);
+s.bind(new InetSocketAddress(8888));
+&lt;/code&gt;
+Which is equivalent to:
+&lt;code&gt;
+DatagramSocket s = new DatagramSocket(8888);
+&lt;/code&gt;
+Both cases will create a DatagramSocket able to receive broadcasts on
+UDP port 8888.
+
+@author  Pavani Diwanji
+@version 1.96, 03/05/04
+@see     java.net.DatagramPacket
+@see     java.nio.channels.DatagramChannel
+@since JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DatagramSocket" refid="_9_5_f720368_1110473546628_922688_7751"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DatagramSocket" refid="_9_5_f720368_1110473546628_922688_7751"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

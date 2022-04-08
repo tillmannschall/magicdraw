@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546565_259160_6545"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::event::ComponentAdapter -&gt; JDK 5.0 Classes::java::awt::event::ComponentListener]" refid="_10_5_622020d_1132928320577_71254_12928"/></clientDependency><documentation humanName="Documentation" mode="standard">An abstract adapter class for receiving component events.
+The methods in this class are empty. This class exists as
+convenience for creating listener objects.
+&lt;P&gt;
+Extend this class to create a &lt;code&gt;ComponentEvent&lt;/code&gt; listener
+and override the methods for the events of interest. (If you implement the
+&lt;code&gt;ComponentListener&lt;/code&gt; interface, you have to define all of
+the methods in it. This abstract class defines null methods for them
+all, so you can only have to define methods for events you care about.)
+&lt;P&gt;
+Create a listener object using your class and then register it with a
+component using the component's &lt;code&gt;addComponentListener&lt;/code&gt;
+method. When the component's size, location, or visibility
+changes, the relevant method in the listener object is invoked,
+and the &lt;code&gt;ComponentEvent&lt;/code&gt; is passed to it.
+
+@see ComponentEvent
+@see ComponentListener
+@see &lt;a href="http://java.sun.com/docs/books/tutorial/post1.0/ui/componentlistener.html"&gt;Tutorial: Writing a Component Listener&lt;/a&gt;
+@see &lt;a href="http://www.awl.com/cp/javaseries/jcl1_2.html"&gt;Reference: The Java Class Libraries (update file)&lt;/a&gt;
+
+@author Carl Quinn
+@version 1.16 12/19/03
+@since 1.1
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::event::ComponentAdapter -&gt; JDK 5.0 Classes::java::awt::event::ComponentListener]" refid="_10_5_622020d_1132928320577_71254_12928"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ComponentAdapter</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="event" refid="_9_5_f720368_1110473547284_7684_16441"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305686_984582_3697"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305686_984582_3697"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::event::ComponentAdapter -&gt; JDK 5.0 Classes::java::awt::event::ComponentListener]" refid="_10_5_622020d_1132928320577_71254_12928"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="event" refid="_9_5_f720368_1110473547284_7684_16441"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="event" refid="_9_5_f720368_1110473547284_7684_16441"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="event" refid="_9_5_f720368_1110473547284_7684_16441"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::event::ComponentAdapter</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ComponentListener" refid="_9_5_f720368_1110473546565_824053_6549"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315149_696536_9747"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MBeanNotificationInfo" refid="_10_5_622020d_1132928315149_391152_9745"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;The &lt;CODE&gt;MBeanNotificationInfo&lt;/CODE&gt; class is used to describe the
+characteristics of the different notification instances
+emitted by an MBean, for a given Java class of notification.
+If an MBean emits notifications that can be instances of different Java classes,
+then the metadata for that MBean should provide an &lt;CODE&gt;MBeanNotificationInfo&lt;/CODE&gt;
+object for each of these notification Java classes.&lt;/p&gt;
+
+&lt;p&gt;Instances of this class are immutable.  Subclasses may be
+mutable but this is not recommended.&lt;/p&gt;
+
+&lt;p&gt;This class extends &lt;CODE&gt;javax.management.MBeanFeatureInfo&lt;/CODE&gt;
+and thus provides &lt;CODE&gt;name&lt;/CODE&gt; and &lt;CODE&gt;description&lt;/CODE&gt; fields.
+The &lt;CODE&gt;name&lt;/CODE&gt; field should be the fully qualified Java class name of
+the notification objects described by this class.&lt;/p&gt;
+
+&lt;p&gt;The &lt;CODE&gt;getNotifTypes&lt;/CODE&gt; method returns an array of
+strings containing the notification types that the MBean may
+emit. The notification type is a dot-notation string which
+describes what the emitted notification is about, not the Java
+class of the notification.  A single generic notification class can
+be used to send notifications of several types.  All of these types
+are returned in the string array result of the
+&lt;CODE&gt;getNotifTypes&lt;/CODE&gt; method.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MBeanNotificationInfo" refid="_10_5_622020d_1132928315149_391152_9745"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MBeanNotificationInfo" refid="_10_5_622020d_1132928315149_391152_9745"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

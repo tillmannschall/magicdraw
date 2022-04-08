@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310793_62901_6962"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractMap" refid="_9_5_f720368_1110473546706_309552_8827"/></annotatedElement><body humanName="Body" mode="s,e">This class provides a skeletal implementation of the &lt;tt&gt;Map&lt;/tt&gt;
+interface, to minimize the effort required to implement this interface. &lt;p&gt;
+
+To implement an unmodifiable map, the programmer needs only to extend this
+class and provide an implementation for the &lt;tt&gt;entrySet&lt;/tt&gt; method, which
+returns a set-view of the map's mappings.  Typically, the returned set
+will, in turn, be implemented atop &lt;tt&gt;AbstractSet&lt;/tt&gt;.  This set should
+not support the &lt;tt&gt;add&lt;/tt&gt; or &lt;tt&gt;remove&lt;/tt&gt; methods, and its iterator
+should not support the &lt;tt&gt;remove&lt;/tt&gt; method.&lt;p&gt;
+
+To implement a modifiable map, the programmer must additionally override
+this class's &lt;tt&gt;put&lt;/tt&gt; method (which otherwise throws an
+&lt;tt&gt;UnsupportedOperationException&lt;/tt&gt;), and the iterator returned by
+&lt;tt&gt;entrySet().iterator()&lt;/tt&gt; must additionally implement its
+&lt;tt&gt;remove&lt;/tt&gt; method.&lt;p&gt;
+
+The programmer should generally provide a void (no argument) and map
+constructor, as per the recommendation in the &lt;tt&gt;Map&lt;/tt&gt; interface
+specification.&lt;p&gt;
+
+The documentation for each non-abstract methods in this class describes its
+implementation in detail.  Each of these methods may be overridden if the
+map being implemented admits a more efficient implementation.&lt;p&gt;
+
+This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@author  Neal Gafter
+@version 1.42, 02/19/04
+@see Map
+@see Collection
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AbstractMap" refid="_9_5_f720368_1110473546706_309552_8827"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractMap" refid="_9_5_f720368_1110473546706_309552_8827"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

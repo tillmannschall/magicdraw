@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309080_342091_5774"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Certificate" refid="_9_5_f720368_1110473546674_676607_8271"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Abstract class for managing a variety of identity certificates.
+An identity certificate is a binding of a principal to a public key which
+is vouched for by another principal.  (A principal represents
+an entity such as an individual user, a group, or a corporation.)
+&lt;p&gt;
+This class is an abstraction for certificates that have different
+formats but important common uses.  For example, different types of
+certificates, such as X.509 and PGP, share general certificate
+functionality (like encoding and verifying) and
+some types of information (like a public key).
+&lt;p&gt;
+X.509, PGP, and SDSI certificates can all be implemented by
+subclassing the Certificate class, even though they contain different
+sets of information, and they store and retrieve the information in
+different ways.
+
+@see X509Certificate
+@see CertificateFactory
+
+@author Hemma Prafullchandra
+@version 1.24, 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Certificate" refid="_9_5_f720368_1110473546674_676607_8271"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Certificate" refid="_9_5_f720368_1110473546674_676607_8271"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

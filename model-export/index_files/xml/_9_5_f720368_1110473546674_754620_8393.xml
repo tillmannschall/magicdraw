@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546674_754620_8393"><documentation humanName="Documentation" mode="standard">This class represents the ASN.1 encoding of a private key,
+encoded according to the ASN.1 type &lt;code&gt;PrivateKeyInfo&lt;/code&gt;.
+The &lt;code&gt;PrivateKeyInfo&lt;/code&gt; syntax is defined in the PKCS#8 standard
+as follows:
+
+&lt;pre&gt;
+PrivateKeyInfo ::= SEQUENCE {
+version Version,
+privateKeyAlgorithm PrivateKeyAlgorithmIdentifier,
+privateKey PrivateKey,
+attributes [0] IMPLICIT Attributes OPTIONAL }
+
+Version ::= INTEGER
+
+PrivateKeyAlgorithmIdentifier ::= AlgorithmIdentifier
+
+PrivateKey ::= OCTET STRING
+
+Attributes ::= SET OF Attribute
+&lt;/pre&gt;
+
+@author Jan Luehe
+
+@version 1.19, 12/19/03
+
+@see java.security.Key
+@see java.security.KeyFactory
+@see KeySpec
+@see EncodedKeySpec
+@see X509EncodedKeySpec
+
+@since 1.2
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321869_172694_14169"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">PKCS8EncodedKeySpec</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spec" refid="_9_5_f720368_1110473547721_68899_18700"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309221_264697_5936"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321869_172694_14169"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309221_264697_5936"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="spec" refid="_9_5_f720368_1110473547721_68899_18700"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spec" refid="_9_5_f720368_1110473547721_68899_18700"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="spec" refid="_9_5_f720368_1110473547721_68899_18700"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::spec::PKCS8EncodedKeySpec</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="EncodedKeySpec" refid="_9_5_f720368_1110473546674_694427_8385"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

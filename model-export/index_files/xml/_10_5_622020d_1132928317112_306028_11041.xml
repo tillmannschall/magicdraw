@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317112_306028_11041"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ListSelectionHandler" refid="_9_5_f720368_1110473548143_486766_21331"/></annotatedElement><body humanName="Body" mode="s,e">The ListSelectionListener that's added to the JLists selection
+model at installUI time, and whenever the JList.selectionModel property
+changes.  When the selection changes we repaint the affected rows.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see #createListSelectionListener
+@see #getCellBounds
+@see #installUI
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ListSelectionHandler" refid="_9_5_f720368_1110473548143_486766_21331"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ListSelectionHandler" refid="_9_5_f720368_1110473548143_486766_21331"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

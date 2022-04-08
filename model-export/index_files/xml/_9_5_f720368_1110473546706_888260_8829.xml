@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546706_888260_8829"><documentation humanName="Documentation" mode="standard">This class provides a skeletal implementation of the &lt;tt&gt;List&lt;/tt&gt;
+interface to minimize the effort required to implement this interface
+backed by a "sequential access" data store (such as a linked list).  For
+random access data (such as an array), &lt;tt&gt;AbstractList&lt;/tt&gt; should be used
+in preference to this class.&lt;p&gt;
+
+This class is the opposite of the &lt;tt&gt;AbstractList&lt;/tt&gt; class in the sense
+that it implements the "random access" methods (&lt;tt&gt;get(int index)&lt;/tt&gt;,
+&lt;tt&gt;set(int index, Object element)&lt;/tt&gt;, &lt;tt&gt;set(int index, Object
+element)&lt;/tt&gt;, &lt;tt&gt;add(int index, Object element)&lt;/tt&gt; and &lt;tt&gt;remove(int
+index)&lt;/tt&gt;) on top of the list's list iterator, instead of the other way
+around.&lt;p&gt;
+
+To implement a list the programmer needs only to extend this class and
+provide implementations for the &lt;tt&gt;listIterator&lt;/tt&gt; and &lt;tt&gt;size&lt;/tt&gt;
+methods.  For an unmodifiable list, the programmer need only implement the
+list iterator's &lt;tt&gt;hasNext&lt;/tt&gt;, &lt;tt&gt;next&lt;/tt&gt;, &lt;tt&gt;hasPrevious&lt;/tt&gt;,
+&lt;tt&gt;previous&lt;/tt&gt; and &lt;tt&gt;index&lt;/tt&gt; methods.&lt;p&gt;
+
+For a modifiable list the programmer should additionally implement the list
+iterator's &lt;tt&gt;set&lt;/tt&gt; method.  For a variable-size list the programmer
+should additionally implement the list iterator's &lt;tt&gt;remove&lt;/tt&gt; and
+&lt;tt&gt;add&lt;/tt&gt; methods.&lt;p&gt;
+
+The programmer should generally provide a void (no argument) and collection
+constructor, as per the recommendation in the &lt;tt&gt;Collection&lt;/tt&gt; interface
+specification.&lt;p&gt;
+
+This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@author  Neal Gafter
+@version 1.33, 02/19/04
+@see Collection
+@see List
+@see AbstractList
+@see AbstractCollection
+@since 1.2
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322470_917983_14722"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">AbstractSequentialList</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310803_184640_6973"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928310793_286733_6969"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322470_917983_14722"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310803_184640_6973"/></ownedElement><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928310793_286733_6969"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::AbstractSequentialList</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AbstractList&lt;E&gt;" refid="_10_5_622020d_1132928322259_282425_14444"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

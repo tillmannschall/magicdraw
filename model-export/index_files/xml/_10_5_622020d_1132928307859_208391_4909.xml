@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307859_208391_4909"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReflectPermission" refid="_9_5_f720368_1110473546612_898431_7545"/></annotatedElement><body humanName="Body" mode="s,e">The Permission class for reflective operations.  A
+ReflectPermission is a &lt;em&gt;named permission&lt;/em&gt; and has no
+actions.  The only name currently defined is &lt;tt&gt;suppressAccessChecks&lt;/tt&gt;,
+which allows suppressing the standard Java language access checks
+-- for public, default (package) access, protected, and private
+members -- performed by reflected objects at their point of use.
+&lt;P&gt;
+The following table
+provides a summary description of what the permission allows,
+and discusses the risks of granting code the permission.
+&lt;P&gt;
+
+&lt;table border=1 cellpadding=5 summary="Table shows permission target name, what the permission allows, and associated risks"&gt;
+&lt;tr&gt;
+&lt;th&gt;Permission Target Name&lt;/th&gt;
+&lt;th&gt;What the Permission Allows&lt;/th&gt;
+&lt;th&gt;Risks of Allowing this Permission&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;suppressAccessChecks&lt;/td&gt;
+&lt;td&gt;ability to access
+fields and invoke methods in a class. Note that this includes
+not only public, but protected and private fields and methods as well.&lt;/td&gt;
+&lt;td&gt;This is dangerous in that information (possibly confidential) and
+methods normally unavailable would be accessible to malicious code.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+
+@see java.security.Permission
+@see java.security.BasicPermission
+@see AccessibleObject
+@see Field#get
+@see Field#set
+@see Method#invoke
+@see Constructor#newInstance
+
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ReflectPermission" refid="_9_5_f720368_1110473546612_898431_7545"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReflectPermission" refid="_9_5_f720368_1110473546612_898431_7545"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309090_249953_5784"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CertificateFactorySpi" refid="_9_5_f720368_1110473546674_97179_8281"/></annotatedElement><body humanName="Body" mode="s,e">This class defines the &lt;i&gt;Service Provider Interface&lt;/i&gt; (&lt;b&gt;SPI&lt;/b&gt;)
+for the &lt;code&gt;CertificateFactory&lt;/code&gt; class.
+All the abstract methods in this class must be implemented by each
+cryptographic service provider who wishes to supply the implementation
+of a certificate factory for a particular certificate type, e.g., X.509.
+
+&lt;p&gt;Certificate factories are used to generate certificate, certification path
+(&lt;code&gt;CertPath&lt;/code&gt;) and certificate revocation list (CRL) objects from
+their encodings.
+
+&lt;p&gt;A certificate factory for X.509 must return certificates that are an
+instance of &lt;code&gt;java.security.cert.X509Certificate&lt;/code&gt;, and CRLs
+that are an instance of &lt;code&gt;java.security.cert.X509CRL&lt;/code&gt;.
+
+@author Hemma Prafullchandra
+@author Jan Luehe
+@author Sean Mullan
+
+@version 1.19, 05/05/04
+
+@see CertificateFactory
+@see Certificate
+@see X509Certificate
+@see CertPath
+@see CRL
+@see X509CRL
+
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="CertificateFactorySpi" refid="_9_5_f720368_1110473546674_97179_8281"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CertificateFactorySpi" refid="_9_5_f720368_1110473546674_97179_8281"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309711_147366_6260"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MergeCollation" refid="_9_5_f720368_1110473546690_264939_8661"/></annotatedElement><body humanName="Body" mode="s,e">Utility class for normalizing and merging patterns for collation.
+Patterns are strings of the form &lt;entry&gt;*, where &lt;entry&gt; has the
+form:
+&lt;pattern&gt; := &lt;entry&gt;
+&lt;entry&gt; := &lt;separator&gt;&lt;chars&gt;{"/"&lt;extension&gt;}
+&lt;separator&gt; := "=", ",", ";", "&lt;", "&amp;"
+&lt;chars&gt;, and &lt;extension&gt; are both arbitrary strings.
+unquoted whitespaces are ignored.
+'xxx' can be used to quote characters
+One difference from Collator is that &amp; is used to reset to a current
+point. Or, in other words, it introduces a new sequence which is to
+be added to the old.
+That is: "a &lt; b &lt; c &lt; d" is the same as "a &lt; b &amp; b &lt; c &amp; c &lt; d" OR
+"a &lt; b &lt; d &amp; b &lt; c"
+XXX: make '' be a single quote.
+@see PatternEntry
+@version    1.17 12/19/03
+@author             Mark Davis, Helena Shih
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MergeCollation" refid="_9_5_f720368_1110473546690_264939_8661"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MergeCollation" refid="_9_5_f720368_1110473546690_264939_8661"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

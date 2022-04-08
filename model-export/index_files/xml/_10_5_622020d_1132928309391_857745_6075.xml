@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309391_857745_6075"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Permission" refid="_9_5_f720368_1110473546690_144720_8491"/></annotatedElement><body humanName="Body" mode="s,e">Abstract class for representing access to a system resource.
+All permissions have a name (whose interpretation depends on the subclass),
+as well as abstract functions for defining the semantics of the
+particular Permission subclass.
+
+&lt;p&gt;Most Permission objects also include an "actions" list that tells the actions
+that are permitted for the object.  For example,
+for a &lt;code&gt;java.io.FilePermission&lt;/code&gt; object, the permission name is
+the pathname of a file (or directory), and the actions list
+(such as "read, write") specifies which actions are granted for the
+specified file (or for files in the specified directory).
+The actions list is optional for Permission objects, such as
+&lt;code&gt;java.lang.RuntimePermission&lt;/code&gt;,
+that don't need such a list; you either have the named permission (such
+as "system.exit") or you don't.
+
+&lt;p&gt;An important method that must be implemented by each subclass is
+the &lt;code&gt;implies&lt;/code&gt; method to compare Permissions. Basically,
+"permission p1 implies permission p2" means that
+if one is granted permission p1, one is naturally granted permission p2.
+Thus, this is not an equality test, but rather more of a
+subset test.
+
+&lt;P&gt; Permission objects are similar to String objects in that they
+are immutable once they have been created. Subclasses should not
+provide methods that can change the state of a permission
+once it has been created.
+
+@see Permissions
+@see PermissionCollection
+
+@version 1.39 03/12/19
+
+@author Marianne Mueller
+@author Roland Schemers
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Permission" refid="_9_5_f720368_1110473546690_144720_8491"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Permission" refid="_9_5_f720368_1110473546690_144720_8491"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314698_407718_9055"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="XMLReaderFactory" refid="_9_5_f720368_1110473546940_475780_13276"/></annotatedElement><body humanName="Body" mode="s,e">Factory for creating an XML reader.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This class contains static methods for creating an XML reader
+from an explicit class name, or based on runtime defaults:&lt;/p&gt;
+
+&lt;pre&gt;
+try {
+XMLReader myReader = XMLReaderFactory.createXMLReader();
+} catch (SAXException e) {
+System.err.println(e.getMessage());
+}
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Note to Distributions bundled with parsers:&lt;/strong&gt;
+You should modify the implementation of the no-arguments
+&lt;em&gt;createXMLReader&lt;/em&gt; to handle cases where the external
+configuration mechanisms aren't set up.  That method should do its
+best to return a parser when one is in the class path, even when
+nothing bound its class name to &lt;code&gt;org.xml.sax.driver&lt;/code&gt; so
+those configuration mechanisms would see it.&lt;/p&gt;
+
+@since SAX 2.0
+@author David Megginson, David Brownell
+@version 2.0.1 (sax2r2)
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="XMLReaderFactory" refid="_9_5_f720368_1110473546940_475780_13276"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="XMLReaderFactory" refid="_9_5_f720368_1110473546940_475780_13276"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

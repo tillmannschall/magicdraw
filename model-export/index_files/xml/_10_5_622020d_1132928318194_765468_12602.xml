@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318194_765468_12602"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OverlayLayout" refid="_9_5_f720368_1110473546799_623295_10825"/></annotatedElement><body humanName="Body" mode="s,e">A layout manager to arrange components over the top
+of each other.  The requested size of the container
+will be the largest requested size of the children,
+taking alignment needs into consideration.
+
+The alignment is based upon what is needed to properly
+fit the children in the allocation area.  The children
+will be placed such that their alignment points are all
+on top of each other.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.27 12/19/03
+@author   Timothy Prinzing
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="OverlayLayout" refid="_9_5_f720368_1110473546799_623295_10825"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OverlayLayout" refid="_9_5_f720368_1110473546799_623295_10825"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

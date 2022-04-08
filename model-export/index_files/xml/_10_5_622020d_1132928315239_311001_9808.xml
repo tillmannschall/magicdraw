@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315239_311001_9808"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NotificationBroadcasterSupport" refid="_10_5_622020d_1132928315229_175932_9805"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Provides an implementation of {@link
+javax.management.NotificationEmitter NotificationEmitter}
+interface.  This can be used as the super class of an MBean that
+sends notifications.&lt;/p&gt;
+
+&lt;p&gt;It is not specified whether the notification dispatch model is
+synchronous or asynchronous.  That is, when a thread calls {@link
+#sendNotification sendNotification}, the {@link
+NotificationListener#handleNotification
+NotificationListener.handleNotification} method of each listener
+may be called within that thread (a synchronous model) or within
+some other thread (an asynchronous model).&lt;/p&gt;
+
+&lt;p&gt;Applications should not depend on notification dispatch being
+synchronous or being asynchronous.  Thus:&lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;Applications should not assume a synchronous model.  When the
+{@link #sendNotification sendNotification} method returns, it is
+not guaranteed that every listener's {@link
+NotificationListener#handleNotification handleNotification} method
+has been called.  It is not guaranteed either that a listener will
+see notifications in the same order as they were generated.
+Listeners that depend on order should use the sequence number of
+notifications to determine their order (see {@link
+Notification#getSequenceNumber()}).
+
+&lt;li&gt;Applications should not assume an asynchronous model.  If the
+actions performed by a listener are potentially slow, the listener
+should arrange for them to be performed in another thread, to avoid
+holding up other listeners and the caller of {@link
+#sendNotification sendNotification}.
+
+&lt;/ul&gt;
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="NotificationBroadcasterSupport" refid="_10_5_622020d_1132928315229_175932_9805"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NotificationBroadcasterSupport" refid="_10_5_622020d_1132928315229_175932_9805"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

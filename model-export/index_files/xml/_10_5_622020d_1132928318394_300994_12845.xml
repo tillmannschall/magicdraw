@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318394_300994_12845"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="XPathFactoryConfigurationException" refid="_10_5_622020d_1132928318394_854539_12843"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;XPathFactoryConfigurationException&lt;/code&gt; represents a configuration error in a &lt;code&gt;XPathFactory&lt;/code&gt; environment.&lt;/p&gt;
+
+@author  &lt;a href="mailto:Norman.Walsh@Sun.com"&gt;Norman Walsh&lt;/a&gt;
+@author  &lt;a href="mailto:Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+@version $Revision: 1.6.12.1 $, $Date: 2004/06/15 00:05:02 $
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="XPathFactoryConfigurationException" refid="_10_5_622020d_1132928318394_854539_12843"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="XPathFactoryConfigurationException" refid="_10_5_622020d_1132928318394_854539_12843"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314789_303773_9169"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="IIOMetadataFormatImpl" refid="_9_5_f720368_1110473546706_98690_9015"/></annotatedElement><body humanName="Body" mode="s,e">A concrete class providing a reusable implementation of the
+&lt;code&gt;IIOMetadataFormat&lt;/code&gt; interface.  In addition, a static
+instance representing the standard, plug-in neutral
+&lt;code&gt;javax_imageio_1.0&lt;/code&gt; format is provided by the
+&lt;code&gt;getStandardFormatInstance&lt;/code&gt; method.
+
+&lt;p&gt; In order to supply localized descriptions of elements and
+attributes, a &lt;code&gt;ResourceBundle&lt;/code&gt; with a base name of
+&lt;code&gt;this.getClass().getName() + "Resources"&lt;/code&gt; should be
+supplied via the usual mechanism used by
+&lt;code&gt;ResourceBundle.getBundle&lt;/code&gt;.  Briefly, the subclasser
+supplies one or more additional classes according to a naming
+convention (by default, the fully-qualified name of the subclass
+extending &lt;code&gt;IIMetadataFormatImpl&lt;/code&gt;, plus the string
+"Resources", plus the country, language, and variant codes
+separated by underscores).  At run time, calls to
+&lt;code&gt;getElementDescription&lt;/code&gt; or
+&lt;code&gt;getAttributeDescription&lt;/code&gt; will attempt to load such
+classes dynamically according to the supplied locale, and will use
+either the element name, or the element name followed by a '/'
+character followed by the attribute name as a key.  This key will
+be supplied to the &lt;code&gt;ResourceBundle&lt;/code&gt;'s
+&lt;code&gt;getString&lt;/code&gt; method, and the resulting localized
+description of the node or attribute is returned.
+
+&lt;p&gt; The subclass may supply a different base name for the resource
+bundles using the &lt;code&gt;setResourceBaseName&lt;/code&gt; method.
+
+&lt;p&gt; A subclass may choose its own localization mechanism, if so
+desired, by overriding the supplied implementations of
+&lt;code&gt;getElementDescription&lt;/code&gt; and
+&lt;code&gt;getAttributeDescription&lt;/code&gt;.
+
+@see ResourceBundle#getBundle(String,Locale)
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="IIOMetadataFormatImpl" refid="_9_5_f720368_1110473546706_98690_9015"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="IIOMetadataFormatImpl" refid="_9_5_f720368_1110473546706_98690_9015"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

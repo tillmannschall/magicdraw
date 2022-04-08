@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546799_94607_10833"><documentation humanName="Documentation" mode="standard">Monitors the progress of reading from some InputStream. This ProgressMonitor
+is normally invoked in roughly this form:
+&lt;pre&gt;
+InputStream in = new BufferedInputStream(
+new ProgressMonitorInputStream(
+parentComponent,
+"Reading " + fileName,
+new FileInputStream(fileName)));
+&lt;/pre&gt;&lt;p&gt;
+This creates a progress monitor to monitor the progress of reading
+the input stream.  If it's taking a while, a ProgressDialog will
+be popped up to inform the user.  If the user hits the Cancel button
+an InterruptedIOException will be thrown on the next read.
+All the right cleanup is done when the stream is closed.
+
+
+&lt;p&gt;
+
+For further documentation and examples see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/progress.html"&gt;How to Monitor Progress&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+
+@see ProgressMonitor
+@see JOptionPane
+@author James Gosling
+@version 1.19 12/19/03
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928324172_871374_18645"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ProgressMonitorInputStream</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318204_50496_12619"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928324172_871374_18645"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318204_50496_12619"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::ProgressMonitorInputStream</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FilterInputStream" refid="_9_5_f720368_1110473546596_356876_7407"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

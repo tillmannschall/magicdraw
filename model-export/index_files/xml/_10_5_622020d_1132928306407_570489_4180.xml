@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306407_570489_4180"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Dimension" refid="_9_5_f720368_1110473546581_940315_6989"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Dimension&lt;/code&gt; class encapsulates the width and
+height of a component (in integer precision) in a single object.
+The class is
+associated with certain properties of components. Several methods
+defined by the &lt;code&gt;Component&lt;/code&gt; class and the
+&lt;code&gt;LayoutManager&lt;/code&gt; interface return a
+&lt;code&gt;Dimension&lt;/code&gt; object.
+&lt;p&gt;
+Normally the values of &lt;code&gt;width&lt;/code&gt;
+and &lt;code&gt;height&lt;/code&gt; are non-negative integers.
+The constructors that allow you to create a dimension do
+not prevent you from setting a negative value for these properties.
+If the value of &lt;code&gt;width&lt;/code&gt; or &lt;code&gt;height&lt;/code&gt; is
+negative, the behavior of some methods defined by other objects is
+undefined.
+
+@version 	1.32, 12/19/03
+@author 	Sami Shaio
+@author 	Arthur van Hoff
+@see         java.awt.Component
+@see         java.awt.LayoutManager
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Dimension" refid="_9_5_f720368_1110473546581_940315_6989"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Dimension" refid="_9_5_f720368_1110473546581_940315_6989"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

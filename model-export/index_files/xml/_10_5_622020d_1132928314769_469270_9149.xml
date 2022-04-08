@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314769_469270_9149"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AccessibleValue" refid="_9_5_f720368_1110473546706_399481_8995"/></annotatedElement><body humanName="Body" mode="s,e">The AccessibleValue interface should be supported by any object
+that supports a numerical value (e.g., a scroll bar).  This interface
+provides the standard mechanism for an assistive technology to determine
+and set the numerical value as well as get the minimum and maximum values.
+Applications can determine
+if an object supports the AccessibleValue interface by first
+obtaining its AccessibleContext (see
+{@link Accessible}) and then calling the
+{@link AccessibleContext#getAccessibleValue} method.
+If the return value is not null, the object supports this interface.
+
+@see Accessible
+@see Accessible#getAccessibleContext
+@see AccessibleContext
+@see AccessibleContext#getAccessibleValue
+
+@version     1.9 10/12/99 15:41:54
+@author	Peter Korn
+@author      Hans Muller
+@author      Willie Walker
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="AccessibleValue" refid="_9_5_f720368_1110473546706_399481_8995"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AccessibleValue" refid="_9_5_f720368_1110473546706_399481_8995"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

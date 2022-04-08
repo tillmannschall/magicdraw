@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317282_709149_11551"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SynthLookAndFeel" refid="_10_5_622020d_1132928317282_475844_11549"/></annotatedElement><body humanName="Body" mode="s,e">SynthLookAndFeel provides the basis for creating a customized look and
+feel. SynthLookAndFeel does not directly provide a look, all painting is
+delegated.
+You need to either provide a configuration file, by way of the
+{@link #load} method, or provide your own {@link SynthStyleFactory}
+to {@link #setStyleFactory}. Refer to the
+&lt;a href="package-summary.html"&gt;package summary&lt;/a&gt; for an example of
+loading a file, and {@link javax.swing.plaf.synth.SynthStyleFactory} for
+an example of providing your own &lt;code&gt;SynthStyleFactory&lt;/code&gt; to
+&lt;code&gt;setStyleFactory&lt;/code&gt;.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+This class implements {@link Serializable} as a side effect of it
+extending {@link BasicLookAndFeel}. It is not intended to be serialized.
+An attempt to serialize it will
+result in {@link NotSerializableException}.
+
+@serial exclude
+@version 1.45, 05/07/04
+@since 1.5
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SynthLookAndFeel" refid="_10_5_622020d_1132928317282_475844_11549"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SynthLookAndFeel" refid="_10_5_622020d_1132928317282_475844_11549"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

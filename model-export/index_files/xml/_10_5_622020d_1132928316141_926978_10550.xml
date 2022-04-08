@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316141_926978_10550"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MetaEventListener" refid="_9_5_f720368_1110473546737_345526_9657"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;MetaEventListener&lt;/code&gt; interface should be implemented
+by classes whose instances need to be notified when a &lt;code&gt;{@link Sequencer}&lt;/code&gt;
+has processed a &lt;code&gt;{@link MetaMessage}&lt;/code&gt;.
+To register a &lt;code&gt;MetaEventListener&lt;/code&gt; object to receive such
+notifications, pass it as the argument to the
+&lt;code&gt;{@link Sequencer#addMetaEventListener(MetaEventListener) addMetaEventListener}&lt;/code&gt;
+method of &lt;code&gt;Sequencer&lt;/code&gt;.
+
+@version 1.16, 03/12/19
+@author Kara Kytle
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="MetaEventListener" refid="_9_5_f720368_1110473546737_345526_9657"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MetaEventListener" refid="_9_5_f720368_1110473546737_345526_9657"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317152_349514_11172"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyHandler" refid="_9_5_f720368_1110473548174_606259_21614"/></annotatedElement><body humanName="Body" mode="s,e">This inner class is marked "public" due to a compiler bug.
+This class should be treated as a "protected" inner class.
+Instantiate it only within subclasses of BasicTableUI.
+&lt;p&gt;As of Java 2 platform v1.3 this class is no longer used.
+Instead &lt;code&gt;JTable&lt;/code&gt;
+overrides &lt;code&gt;processKeyBinding&lt;/code&gt; to dispatch the event to
+the current &lt;code&gt;TableCellEditor&lt;/code&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="KeyHandler" refid="_9_5_f720368_1110473548174_606259_21614"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyHandler" refid="_9_5_f720368_1110473548174_606259_21614"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

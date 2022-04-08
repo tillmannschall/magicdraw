@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317723_783371_12172"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ForegroundAction" refid="_9_5_f720368_1110473548378_603406_23663"/></annotatedElement><body humanName="Body" mode="s,e">An action to set foreground color.  This sets the
+&lt;code&gt;StyleConstants.Foreground&lt;/code&gt; attribute for the
+currently selected range of the target JEditorPane.
+This is done by calling
+&lt;code&gt;StyledDocument.setCharacterAttributes&lt;/code&gt;
+on the styled document associated with the target
+JEditorPane.
+&lt;p&gt;
+If the target text component is specified as the
+source of the ActionEvent and there is a command string,
+the command string will be interpreted as the foreground
+color.  It will be interpreted by called
+&lt;code&gt;Color.decode&lt;/code&gt;, and should therefore be
+legal input for that method.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ForegroundAction" refid="_9_5_f720368_1110473548378_603406_23663"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ForegroundAction" refid="_9_5_f720368_1110473548378_603406_23663"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

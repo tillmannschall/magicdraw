@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306477_434766_4212"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Graphics" refid="_9_5_f720368_1110473546581_175096_7021"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Graphics&lt;/code&gt; class is the abstract base class for
+all graphics contexts that allow an application to draw onto
+components that are realized on various devices, as well as
+onto off-screen images.
+&lt;p&gt;
+A &lt;code&gt;Graphics&lt;/code&gt; object encapsulates state information needed
+for the basic rendering operations that Java supports.  This
+state information includes the following properties:
+&lt;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;Component&lt;/code&gt; object on which to draw.
+&lt;li&gt;A translation origin for rendering and clipping coordinates.
+&lt;li&gt;The current clip.
+&lt;li&gt;The current color.
+&lt;li&gt;The current font.
+&lt;li&gt;The current logical pixel operation function (XOR or Paint).
+&lt;li&gt;The current XOR alternation color
+(see {@link Graphics#setXORMode}).
+&lt;/ul&gt;
+&lt;p&gt;
+Coordinates are infinitely thin and lie between the pixels of the
+output device.
+Operations that draw the outline of a figure operate by traversing
+an infinitely thin path between pixels with a pixel-sized pen that hangs
+down and to the right of the anchor point on the path.
+Operations that fill a figure operate by filling the interior
+of that infinitely thin path.
+Operations that render horizontal text render the ascending
+portion of character glyphs entirely above the baseline coordinate.
+&lt;p&gt;
+The graphics pen hangs down and to the right from the path it traverses.
+This has the following implications:
+&lt;p&gt;&lt;ul&gt;
+&lt;li&gt;If you draw a figure that covers a given rectangle, that
+figure occupies one extra row of pixels on the right and bottom edges
+as compared to filling a figure that is bounded by that same rectangle.
+&lt;li&gt;If you draw a horizontal line along the same &lt;i&gt;y&lt;/i&gt; coordinate as
+the baseline of a line of text, that line is drawn entirely below
+the text, except for any descenders.
+&lt;/ul&gt;&lt;p&gt;
+All coordinates that appear as arguments to the methods of this
+&lt;code&gt;Graphics&lt;/code&gt; object are considered relative to the
+translation origin of this &lt;code&gt;Graphics&lt;/code&gt; object prior to
+the invocation of the method.
+&lt;p&gt;
+All rendering operations modify only pixels which lie within the
+area bounded by the current clip, which is specified by a {@link Shape}
+in user space and is controlled by the program using the
+&lt;code&gt;Graphics&lt;/code&gt; object.  This &lt;i&gt;user clip&lt;/i&gt;
+is transformed into device space and combined with the
+&lt;i&gt;device clip&lt;/i&gt;, which is defined by the visibility of windows and
+device extents.  The combination of the user clip and device clip
+defines the &lt;i&gt;composite clip&lt;/i&gt;, which determines the final clipping
+region.  The user clip cannot be modified by the rendering
+system to reflect the resulting composite clip. The user clip can only
+be changed through the &lt;code&gt;setClip&lt;/code&gt; or &lt;code&gt;clipRect&lt;/code&gt;
+methods.
+All drawing or writing is done in the current color,
+using the current paint mode, and in the current font.
+
+@version 	1.69, 05/18/04
+@author 	Sami Shaio
+@author 	Arthur van Hoff
+@see     java.awt.Component
+@see     java.awt.Graphics#clipRect(int, int, int, int)
+@see     java.awt.Graphics#setColor(java.awt.Color)
+@see     java.awt.Graphics#setPaintMode()
+@see     java.awt.Graphics#setXORMode(java.awt.Color)
+@see     java.awt.Graphics#setFont(java.awt.Font)
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Graphics" refid="_9_5_f720368_1110473546581_175096_7021"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Graphics" refid="_9_5_f720368_1110473546581_175096_7021"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

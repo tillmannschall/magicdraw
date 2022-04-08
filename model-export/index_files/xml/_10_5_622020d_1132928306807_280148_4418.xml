@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306807_280148_4418"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Customizer" refid="_9_5_f720368_1110473546596_744322_7199"/></annotatedElement><body humanName="Body" mode="s,e">A customizer class provides a complete custom GUI for customizing
+a target Java Bean.
+&lt;P&gt;
+Each customizer should inherit from the java.awt.Component class so
+it can be instantiated inside an AWT dialog or panel.
+&lt;P&gt;
+Each customizer should have a null constructor.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Customizer" refid="_9_5_f720368_1110473546596_744322_7199"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Customizer" refid="_9_5_f720368_1110473546596_744322_7199"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

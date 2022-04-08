@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317603_927757_12062"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FlowView" refid="_9_5_f720368_1110473546784_499236_10465"/></annotatedElement><body humanName="Body" mode="s,e">A View that tries to flow it's children into some
+partially constrained space.  This can be used to
+build things like paragraphs, pages, etc.  The
+flow is made up of the following pieces of functionality.
+&lt;ul&gt;
+&lt;li&gt;A logical set of child views, which as used as a
+layout pool from which a physical view is formed.
+&lt;li&gt;A strategy for translating the logical view to
+a physical (flowed) view.
+&lt;li&gt;Constraints for the strategy to work against.
+&lt;li&gt;A physical structure, that represents the flow.
+The children of this view are where the pieces of
+of the logical views are placed to create the flow.
+&lt;/ul&gt;
+
+@author  Timothy Prinzing
+@version 1.43 06/24/04
+@see     View
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="FlowView" refid="_9_5_f720368_1110473546784_499236_10465"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="FlowView" refid="_9_5_f720368_1110473546784_499236_10465"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

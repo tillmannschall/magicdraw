@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310803_112760_6978"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractSet" refid="_9_5_f720368_1110473546706_136303_8831"/></annotatedElement><body humanName="Body" mode="s,e">This class provides a skeletal implementation of the &lt;tt&gt;Set&lt;/tt&gt;
+interface to minimize the effort required to implement this
+interface. &lt;p&gt;
+
+The process of implementing a set by extending this class is identical
+to that of implementing a Collection by extending AbstractCollection,
+except that all of the methods and constructors in subclasses of this
+class must obey the additional constraints imposed by the &lt;tt&gt;Set&lt;/tt&gt;
+interface (for instance, the add method must not permit addition of
+multiple instances of an object to a set).&lt;p&gt;
+
+Note that this class does not override any of the implementations from
+the &lt;tt&gt;AbstractCollection&lt;/tt&gt; class.  It merely adds implementations
+for &lt;tt&gt;equals&lt;/tt&gt; and &lt;tt&gt;hashCode&lt;/tt&gt;.&lt;p&gt;
+
+This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@author  Neal Gafter
+@version 1.26, 02/19/04
+@see Collection
+@see AbstractCollection
+@see Set
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AbstractSet" refid="_9_5_f720368_1110473546706_136303_8831"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractSet" refid="_9_5_f720368_1110473546706_136303_8831"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

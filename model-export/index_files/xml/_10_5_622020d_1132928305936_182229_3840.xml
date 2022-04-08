@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305936_182229_3840"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GeneralPath" refid="_9_5_f720368_1110473546565_46264_6685"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;GeneralPath&lt;/code&gt; class represents a geometric path
+constructed from straight lines, and quadratic and cubic
+(B&amp;eacute;zier) curves.  It can contain multiple subpaths.
+&lt;p&gt;
+The winding rule specifies how the interior of a path is
+determined.  There are two types of winding rules:
+EVEN_ODD and NON_ZERO.
+&lt;p&gt;
+An EVEN_ODD winding rule means that enclosed regions
+of the path alternate between interior and exterior areas as
+traversed from the outside of the path towards a point inside
+the region.
+&lt;p&gt;
+A NON_ZERO winding rule means that if a ray is
+drawn in any direction from a given point to infinity
+and the places where the path intersects
+the ray are examined, the point is inside of the path if and only if
+the number of times that the path crosses the ray from
+left to right does not equal the  number of times that the path crosses
+the ray from right to left.
+@version 1.59, 12/19/03
+@author Jim Graham
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="GeneralPath" refid="_9_5_f720368_1110473546565_46264_6685"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GeneralPath" refid="_9_5_f720368_1110473546565_46264_6685"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

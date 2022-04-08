@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305495_307660_3591"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ICC_Profile" refid="_9_5_f720368_1110473546549_402776_6447"/></annotatedElement><body humanName="Body" mode="s,e">A representation of color profile data for device independent and
+device dependent color spaces based on the International Color
+Consortium Specification ICC.1:2001-12, File Format for Color Profiles,
+(see &lt;A href="http://www.color.org"&gt; http://www.color.org&lt;/A&gt;).
+&lt;p&gt;
+An ICC_ColorSpace object can be constructed from an appropriate
+ICC_Profile.
+Typically, an ICC_ColorSpace would be associated with an ICC
+Profile which is either an input, display, or output profile (see
+the ICC specification).  There are also device link, abstract,
+color space conversion, and named color profiles.  These are less
+useful for tagging a color or image, but are useful for other
+purposes (in particular device link profiles can provide improved
+performance for converting from one device's color space to
+another's).
+&lt;p&gt;
+ICC Profiles represent transformations from the color space of
+the profile (e.g. a monitor) to a Profile Connection Space (PCS).
+Profiles of interest for tagging images or colors have a PCS
+which is one of the two specific device independent
+spaces (one CIEXYZ space and one CIELab space) defined in the
+ICC Profile Format Specification.  Most profiles of interest
+either have invertible transformations or explicitly specify
+transformations going both directions.
+&lt;p&gt;
+@version 10 Feb 1997
+@see ICC_ColorSpace
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ICC_Profile" refid="_9_5_f720368_1110473546549_402776_6447"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ICC_Profile" refid="_9_5_f720368_1110473546549_402776_6447"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

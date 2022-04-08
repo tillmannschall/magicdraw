@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309140_526384_5843"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PolicyNode" refid="_9_5_f720368_1110473546674_51728_8339"/></annotatedElement><body humanName="Body" mode="s,e">An immutable valid policy tree node as defined by the PKIX certification
+path validation algorithm.
+
+&lt;p&gt;One of the outputs of the PKIX certification path validation
+algorithm is a valid policy tree, which includes the policies that
+were determined to be valid, how this determination was reached,
+and any policy qualifiers encountered. This tree is of depth
+&lt;i&gt;n&lt;/i&gt;, where &lt;i&gt;n&lt;/i&gt; is the length of the certification
+path that has been validated.
+
+&lt;p&gt;Most applications will not need to examine the valid policy tree.
+They can achieve their policy processing goals by setting the
+policy-related parameters in &lt;code&gt;PKIXParameters&lt;/code&gt;. However,
+the valid policy tree is available for more sophisticated applications,
+especially those that process policy qualifiers.
+
+&lt;p&gt;{@link PKIXCertPathValidatorResult#getPolicyTree()
+PKIXCertPathValidatorResult.getPolicyTree} returns the root node of the
+valid policy tree. The tree can be traversed using the
+{@link #getChildren getChildren} and {@link #getParent getParent} methods.
+Data about a particular node can be retrieved using other methods of
+&lt;code&gt;PolicyNode&lt;/code&gt;.
+
+&lt;p&gt;&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;All &lt;code&gt;PolicyNode&lt;/code&gt; objects must be immutable and
+thread-safe. Multiple threads may concurrently invoke the methods defined
+in this class on a single &lt;code&gt;PolicyNode&lt;/code&gt; object (or more than one)
+with no ill effects. This stipulation applies to all public fields and
+methods of this class and any added or overridden by subclasses.
+
+@version     1.9 12/19/03
+@since       1.4
+@author      Sean Mullan
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="PolicyNode" refid="_9_5_f720368_1110473546674_51728_8339"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PolicyNode" refid="_9_5_f720368_1110473546674_51728_8339"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

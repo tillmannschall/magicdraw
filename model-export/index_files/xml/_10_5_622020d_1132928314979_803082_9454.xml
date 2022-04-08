@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314979_803082_9454"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InvalidRelationTypeException" refid="_10_5_622020d_1132928314979_223194_9452"/></annotatedElement><body humanName="Body" mode="s,e">Invalid relation type.
+This exception is raised when, in a relation type, there is already a
+relation type with that name, or the same name has been used for two
+different role infos, or no role info provided, or one null role info
+provided.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InvalidRelationTypeException" refid="_10_5_622020d_1132928314979_223194_9452"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InvalidRelationTypeException" refid="_10_5_622020d_1132928314979_223194_9452"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

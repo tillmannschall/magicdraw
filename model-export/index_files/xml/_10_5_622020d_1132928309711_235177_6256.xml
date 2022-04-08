@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309711_235177_6256"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FieldDelegate" refid="_9_5_f720368_1110473547784_970079_18950"/></annotatedElement><body humanName="Body" mode="s,e">FieldDelegate is notified by the various &lt;code&gt;Format&lt;/code&gt;
+implementations as they are formatting the Objects. This allows for
+storage of the individual sections of the formatted String for
+later use, such as in a &lt;code&gt;FieldPosition&lt;/code&gt; or for an
+&lt;code&gt;AttributedCharacterIterator&lt;/code&gt;.
+&lt;p&gt;
+Delegates should NOT assume that the &lt;code&gt;Format&lt;/code&gt; will notify
+the delegate of fields in any particular order.
+
+@see FieldPosition.Delegate
+@see CharacterIteratorFieldDelegate
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="FieldDelegate" refid="_9_5_f720368_1110473547784_970079_18950"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FieldDelegate" refid="_9_5_f720368_1110473547784_970079_18950"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

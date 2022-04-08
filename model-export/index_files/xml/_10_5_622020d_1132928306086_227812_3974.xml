@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306086_227812_3974"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MemoryImageSource" refid="_9_5_f720368_1110473546581_289791_6809"/></annotatedElement><body humanName="Body" mode="s,e">This class is an implementation of the ImageProducer interface which
+uses an array to produce pixel values for an Image.  Here is an example
+which calculates a 100x100 image representing a fade from black to blue
+along the X axis and a fade from black to red along the Y axis:
+&lt;pre&gt;
+
+int w = 100;
+int h = 100;
+int pix[] = new int[w * h];
+int index = 0;
+for (int y = 0; y &lt; h; y++) {
+int red = (y * 255) / (h - 1);
+for (int x = 0; x &lt; w; x++) {
+int blue = (x * 255) / (w - 1);
+pix[index++] = (255 &lt;&lt; 24) | (red &lt;&lt; 16) | blue;
+}
+}
+Image img = createImage(new MemoryImageSource(w, h, pix, 0, w));
+
+&lt;/pre&gt;
+The MemoryImageSource is also capable of managing a memory image which
+varies over time to allow animation or custom rendering.  Here is an
+example showing how to set up the animation source and signal changes
+in the data (adapted from the MemoryAnimationSourceDemo by Garth Dickie):
+&lt;pre&gt;
+
+int pixels[];
+MemoryImageSource source;
+
+public void init() {
+int width = 50;
+int height = 50;
+int size = width * height;
+pixels = new int[size];
+
+int value = getBackground().getRGB();
+for (int i = 0; i &lt; size; i++) {
+pixels[i] = value;
+}
+
+source = new MemoryImageSource(width, height, pixels, 0, width);
+source.setAnimated(true);
+image = createImage(source);
+}
+
+public void run() {
+Thread me = Thread.currentThread( );
+me.setPriority(Thread.MIN_PRIORITY);
+
+while (true) {
+try {
+thread.sleep(10);
+} catch( InterruptedException e ) {
+return;
+}
+
+Modify the values in the pixels array at (x, y, w, h)
+
+Send the new data to the interested ImageConsumers
+source.newPixels(x, y, w, h);
+}
+}
+
+&lt;/pre&gt;
+
+@see ImageProducer
+
+@version	1.33 07/16/04
+@author 	Jim Graham
+@author	Animation capabilities inspired by the
+MemoryAnimationSource class written by Garth Dickie
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MemoryImageSource" refid="_9_5_f720368_1110473546581_289791_6809"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MemoryImageSource" refid="_9_5_f720368_1110473546581_289791_6809"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

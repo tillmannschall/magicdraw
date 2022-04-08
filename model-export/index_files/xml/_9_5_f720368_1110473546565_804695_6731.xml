@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546565_804695_6731"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::renderable::ParameterBlock -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321218_434928_13046"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::renderable::ParameterBlock -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928321218_645928_13045"/></clientDependency><documentation humanName="Documentation" mode="standard">A &lt;code&gt;ParameterBlock&lt;/code&gt; encapsulates all the information about sources and
+parameters (Objects) required by a RenderableImageOp, or other
+classes that process images.
+
+&lt;p&gt; Although it is possible to place arbitrary objects in the
+source Vector, users of this class may impose semantic constraints
+such as requiring all sources to be RenderedImages or
+RenderableImage.  &lt;code&gt;ParameterBlock&lt;/code&gt; itself is merely a container and
+performs no checking on source or parameter types.
+
+&lt;p&gt; All parameters in a &lt;code&gt;ParameterBlock&lt;/code&gt; are objects; convenience
+add and set methods are available that take arguments of base type and
+construct the appropriate subclass of Number (such as
+Integer or Float).  Corresponding get methods perform a
+downward cast and have return values of base type; an exception
+will be thrown if the stored values do not have the correct type.
+There is no way to distinguish between the results of
+"short s; add(s)" and "add(new Short(s))".
+
+&lt;p&gt; Note that the get and set methods operate on references.
+Therefore, one must be careful not to share references between
+&lt;code&gt;ParameterBlock&lt;/code&gt;s when this is inappropriate.  For example, to create
+a new &lt;code&gt;ParameterBlock&lt;/code&gt; that is equal to an old one except for an
+added source, one might be tempted to write:
+
+&lt;pre&gt;
+ParameterBlock addSource(ParameterBlock pb, RenderableImage im) {
+ParameterBlock pb1 = new ParameterBlock(pb.getSources());
+pb1.addSource(im);
+return pb1;
+}
+&lt;/pre&gt;
+
+&lt;p&gt; This code will have the side effect of altering the original
+&lt;code&gt;ParameterBlock&lt;/code&gt;, since the getSources operation returned a reference
+to its source Vector.  Both pb and pb1 share their source Vector,
+and a change in either is visible to both.
+
+&lt;p&gt; A correct way to write the addSource function is to clone
+the source Vector:
+
+&lt;pre&gt;
+ParameterBlock addSource (ParameterBlock pb, RenderableImage im) {
+ParameterBlock pb1 = new ParameterBlock(pb.getSources().clone());
+pb1.addSource(im);
+return pb1;
+}
+&lt;/pre&gt;
+
+&lt;p&gt; The clone method of &lt;code&gt;ParameterBlock&lt;/code&gt; has been defined to
+perform a clone of both the source and parameter Vectors for
+this reason.  A standard, shallow clone is available as
+shallowClone.
+
+&lt;p&gt; The addSource, setSource, add, and set methods are
+defined to return 'this' after adding their argument.  This allows
+use of syntax like:
+
+&lt;pre&gt;
+ParameterBlock pb = new ParameterBlock();
+op = new RenderableImageOp("operation", pb.add(arg1).add(arg2));
+&lt;/pre&gt;
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::renderable::ParameterBlock -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321218_434928_13046"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::renderable::ParameterBlock -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928321218_645928_13045"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ParameterBlock</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="renderable" refid="_9_5_f720368_1110473547331_524502_16708"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305966_736570_3896"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305966_736570_3896"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::renderable::ParameterBlock -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321218_434928_13046"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::renderable::ParameterBlock -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928321218_645928_13045"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="renderable" refid="_9_5_f720368_1110473547331_524502_16708"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="renderable" refid="_9_5_f720368_1110473547331_524502_16708"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="renderable" refid="_9_5_f720368_1110473547331_524502_16708"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::image::renderable::ParameterBlock</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

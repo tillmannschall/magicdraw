@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310302_311927_6727"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JarOutputStream" refid="_9_5_f720368_1110473546690_247098_8709"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;JarOutputStream&lt;/code&gt; class is used to write the contents
+of a JAR file to any output stream. It extends the class
+&lt;code&gt;java.util.zip.ZipOutputStream&lt;/code&gt; with support
+for writing an optional &lt;code&gt;Manifest&lt;/code&gt; entry. The
+&lt;code&gt;Manifest&lt;/code&gt; can be used to specify meta-information about
+the JAR file and its entries.
+
+@author  David Connelly
+@version 1.22, 12/19/03
+@see	    Manifest
+@see	    java.util.zip.ZipOutputStream
+@since   1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JarOutputStream" refid="_9_5_f720368_1110473546690_247098_8709"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JarOutputStream" refid="_9_5_f720368_1110473546690_247098_8709"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317683_750237_12131"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Bias" refid="_9_5_f720368_1110473548362_802332_23600"/></annotatedElement><body humanName="Body" mode="s,e">A typesafe enumeration to indicate bias to a position
+in the model.  A position indicates a location between
+two characters.  The bias can be used to indicate an
+interest toward one of the two sides of the position
+in boundary conditions where a simple offset is
+ambiguous.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Bias" refid="_9_5_f720368_1110473548362_802332_23600"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Bias" refid="_9_5_f720368_1110473548362_802332_23600"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

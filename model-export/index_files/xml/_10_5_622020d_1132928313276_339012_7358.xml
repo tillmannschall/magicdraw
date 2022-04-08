@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313276_339012_7358"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LinkedHashMap" refid="_9_5_f720368_1110473546706_662595_8879"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Hash table and linked list implementation of the &lt;tt&gt;Map&lt;/tt&gt; interface,
+with predictable iteration order.  This implementation differs from
+&lt;tt&gt;HashMap&lt;/tt&gt; in that it maintains a doubly-linked list running through
+all of its entries.  This linked list defines the iteration ordering,
+which is normally the order in which keys were inserted into the map
+(&lt;i&gt;insertion-order&lt;/i&gt;).  Note that insertion order is not affected
+if a key is &lt;i&gt;re-inserted&lt;/i&gt; into the map.  (A key &lt;tt&gt;k&lt;/tt&gt; is
+reinserted into a map &lt;tt&gt;m&lt;/tt&gt; if &lt;tt&gt;m.put(k, v)&lt;/tt&gt; is invoked when
+&lt;tt&gt;m.containsKey(k)&lt;/tt&gt; would return &lt;tt&gt;true&lt;/tt&gt; immediately prior to
+the invocation.)
+
+&lt;p&gt;This implementation spares its clients from the unspecified, generally
+chaotic ordering provided by {@link HashMap} (and {@link Hashtable}),
+without incurring the increased cost associated with {@link TreeMap}.  It
+can be used to produce a copy of a map that has the same order as the
+original, regardless of the original map's implementation:
+&lt;pre&gt;
+void foo(Map m) {
+Map copy = new LinkedHashMap(m);
+...
+}
+&lt;/pre&gt;
+This technique is particularly useful if a module takes a map on input,
+copies it, and later returns results whose order is determined by that of
+the copy.  (Clients generally appreciate having things returned in the same
+order they were presented.)
+
+&lt;p&gt;A special {@link #LinkedHashMap(int,float,boolean) constructor} is
+provided to create a linked hash map whose order of iteration is the order
+in which its entries were last accessed, from least-recently accessed to
+most-recently (&lt;i&gt;access-order&lt;/i&gt;).  This kind of map is well-suited to
+building LRU caches.  Invoking the &lt;tt&gt;put&lt;/tt&gt; or &lt;tt&gt;get&lt;/tt&gt; method
+results in an access to the corresponding entry (assuming it exists after
+the invocation completes).  The &lt;tt&gt;putAll&lt;/tt&gt; method generates one entry
+access for each mapping in the specified map, in the order that key-value
+mappings are provided by the specified map's entry set iterator.  &lt;i&gt;No
+other methods generate entry accesses.&lt;/i&gt; In particular, operations on
+collection-views do &lt;i&gt;not&lt;/i&gt; affect the order of iteration of the backing
+map.
+
+&lt;p&gt;The {@link #removeEldestEntry(Map.Entry)} method may be overridden to
+impose a policy for removing stale mappings automatically when new mappings
+are added to the map.
+
+&lt;p&gt;This class provides all of the optional &lt;tt&gt;Map&lt;/tt&gt; operations, and
+permits null elements.  Like &lt;tt&gt;HashMap&lt;/tt&gt;, it provides constant-time
+performance for the basic operations (&lt;tt&gt;add&lt;/tt&gt;, &lt;tt&gt;contains&lt;/tt&gt; and
+&lt;tt&gt;remove&lt;/tt&gt;), assuming the hash function disperses elements
+properly among the buckets.  Performance is likely to be just slightly
+below that of &lt;tt&gt;HashMap&lt;/tt&gt;, due to the added expense of maintaining the
+linked list, with one exception: Iteration over the collection-views
+of a &lt;tt&gt;LinkedHashMap&lt;/tt&gt; requires time proportional to the &lt;i&gt;size&lt;/i&gt;
+of the map, regardless of its capacity.  Iteration over a &lt;tt&gt;HashMap&lt;/tt&gt;
+is likely to be more expensive, requiring time proportional to its
+&lt;i&gt;capacity&lt;/i&gt;.
+
+&lt;p&gt;A linked hash map has two parameters that affect its performance:
+&lt;i&gt;initial capacity&lt;/i&gt; and &lt;i&gt;load factor&lt;/i&gt;.  They are defined precisely
+as for &lt;tt&gt;HashMap&lt;/tt&gt;.  Note, however, that the penalty for choosing an
+excessively high value for initial capacity is less severe for this class
+than for &lt;tt&gt;HashMap&lt;/tt&gt;, as iteration times for this class are unaffected
+by capacity.
+
+&lt;p&gt;&lt;strong&gt;Note that this implementation is not synchronized.&lt;/strong&gt; If
+multiple threads access a linked hash map concurrently, and at least
+one of the threads modifies the map structurally, it &lt;em&gt;must&lt;/em&gt; be
+synchronized externally.  This is typically accomplished by synchronizing
+on some object that naturally encapsulates the map.  If no such object
+exists, the map should be "wrapped" using the
+&lt;tt&gt;Collections.synchronizedMap&lt;/tt&gt;method.  This is best done at creation
+time, to prevent accidental unsynchronized access:
+&lt;pre&gt;
+Map m = Collections.synchronizedMap(new LinkedHashMap(...));
+&lt;/pre&gt;
+A structural modification is any operation that adds or deletes one or more
+mappings or, in the case of access-ordered linked hash maps, affects
+iteration order.  In insertion-ordered linked hash maps, merely changing
+the value associated with a key that is already contained in the map is not
+a structural modification.  &lt;strong&gt;In access-ordered linked hash maps,
+merely querying the map with &lt;tt&gt;get&lt;/tt&gt; is a structural
+modification.&lt;/strong&gt;)
+
+&lt;p&gt;The iterators returned by the &lt;tt&gt;iterator&lt;/tt&gt; methods of the
+collections returned by all of this class's collection view methods are
+&lt;em&gt;fail-fast&lt;/em&gt;: if the map is structurally modified at any time after
+the iterator is created, in any way except through the iterator's own
+remove method, the iterator will throw a
+&lt;tt&gt;ConcurrentModificationException&lt;/tt&gt;.  Thus, in the face of concurrent
+modification, the Iterator fails quickly and cleanly, rather than risking
+arbitrary, non-deterministic behavior at an undetermined time in the
+future.
+
+&lt;p&gt;Note that the fail-fast behavior of an iterator cannot be guaranteed
+as it is, generally speaking, impossible to make any hard guarantees in the
+presence of unsynchronized concurrent modification.  Fail-fast iterators
+throw &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt; on a best-effort basis.
+Therefore, it would be wrong to write a program that depended on this
+exception for its correctness:   &lt;i&gt;the fail-fast behavior of iterators
+should be used only to detect bugs.&lt;/i&gt;
+
+&lt;p&gt;This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@version 1.18, 02/19/04
+@see     Object#hashCode()
+@see     Collection
+@see     Map
+@see     HashMap
+@see     TreeMap
+@see     Hashtable
+@since   JDK1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="LinkedHashMap" refid="_9_5_f720368_1110473546706_662595_8879"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LinkedHashMap" refid="_9_5_f720368_1110473546706_662595_8879"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

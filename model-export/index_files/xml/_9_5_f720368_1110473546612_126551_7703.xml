@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546612_126551_7703"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::lang::Thread -&gt; JDK 5.0 Classes::java::lang::Runnable]" refid="_10_5_622020d_1132928321699_696737_13759"/></clientDependency><documentation humanName="Documentation" mode="standard">A &lt;i&gt;thread&lt;/i&gt; is a thread of execution in a program. The Java
+Virtual Machine allows an application to have multiple threads of
+execution running concurrently.
+&lt;p&gt;
+Every thread has a priority. Threads with higher priority are
+executed in preference to threads with lower priority. Each thread
+may or may not also be marked as a daemon. When code running in
+some thread creates a new &lt;code&gt;Thread&lt;/code&gt; object, the new
+thread has its priority initially set equal to the priority of the
+creating thread, and is a daemon thread if and only if the
+creating thread is a daemon.
+&lt;p&gt;
+When a Java Virtual Machine starts up, there is usually a single
+non-daemon thread (which typically calls the method named
+&lt;code&gt;main&lt;/code&gt; of some designated class). The Java Virtual
+Machine continues to execute threads until either of the following
+occurs:
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;exit&lt;/code&gt; method of class &lt;code&gt;Runtime&lt;/code&gt; has been
+called and the security manager has permitted the exit operation
+to take place.
+&lt;li&gt;All threads that are not daemon threads have died, either by
+returning from the call to the &lt;code&gt;run&lt;/code&gt; method or by
+throwing an exception that propagates beyond the &lt;code&gt;run&lt;/code&gt;
+method.
+&lt;/ul&gt;
+&lt;p&gt;
+There are two ways to create a new thread of execution. One is to
+declare a class to be a subclass of &lt;code&gt;Thread&lt;/code&gt;. This
+subclass should override the &lt;code&gt;run&lt;/code&gt; method of class
+&lt;code&gt;Thread&lt;/code&gt;. An instance of the subclass can then be
+allocated and started. For example, a thread that computes primes
+larger than a stated value could be written as follows:
+&lt;p&gt;&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+class PrimeThread extends Thread {
+long minPrime;
+PrimeThread(long minPrime) {
+this.minPrime = minPrime;
+}
+
+public void run() {
+compute primes larger than minPrime
+&amp;nbsp;.&amp;nbsp;.&amp;nbsp;.
+}
+}
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+The following code would then create a thread and start it running:
+&lt;p&gt;&lt;blockquote&gt;&lt;pre&gt;
+PrimeThread p = new PrimeThread(143);
+p.start();
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+The other way to create a thread is to declare a class that
+implements the &lt;code&gt;Runnable&lt;/code&gt; interface. That class then
+implements the &lt;code&gt;run&lt;/code&gt; method. An instance of the class can
+then be allocated, passed as an argument when creating
+&lt;code&gt;Thread&lt;/code&gt;, and started. The same example in this other
+style looks like the following:
+&lt;p&gt;&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+class PrimeRun implements Runnable {
+long minPrime;
+PrimeRun(long minPrime) {
+this.minPrime = minPrime;
+}
+
+public void run() {
+compute primes larger than minPrime
+&amp;nbsp;.&amp;nbsp;.&amp;nbsp;.
+}
+}
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+The following code would then create a thread and start it running:
+&lt;p&gt;&lt;blockquote&gt;&lt;pre&gt;
+PrimeRun p = new PrimeRun(143);
+new Thread(p).start();
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+Every thread has a name for identification purposes. More than
+one thread may have the same name. If a name is not specified when
+a thread is created, a new name is generated for it.
+
+@author  unascribed
+@version 1.155, 06/26/04
+@see     java.lang.Runnable
+@see     java.lang.Runtime#exit(int)
+@see     java.lang.Thread#run()
+@see     java.lang.Thread#stop()
+@since   JDK1.0
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::lang::Thread -&gt; JDK 5.0 Classes::java::lang::Runnable]" refid="_10_5_622020d_1132928321699_696737_13759"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="State" refid="_10_5_622020d_1132928308169_578222_5173"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="UncaughtExceptionHandler" refid="_10_5_622020d_1132928308179_829231_5176"/></member><name humanName="Name" mode="s,e">Thread</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="State" refid="_10_5_622020d_1132928308169_578222_5173"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="UncaughtExceptionHandler" refid="_10_5_622020d_1132928308179_829231_5176"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308179_486580_5179"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308179_486580_5179"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::lang::Thread -&gt; JDK 5.0 Classes::java::lang::Runnable]" refid="_10_5_622020d_1132928321699_696737_13759"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="State" refid="_10_5_622020d_1132928308169_578222_5173"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="UncaughtExceptionHandler" refid="_10_5_622020d_1132928308179_829231_5176"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="State" refid="_10_5_622020d_1132928308169_578222_5173"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="UncaughtExceptionHandler" refid="_10_5_622020d_1132928308179_829231_5176"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::Thread</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Runnable" refid="_9_5_f720368_1110473546612_953158_7669"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

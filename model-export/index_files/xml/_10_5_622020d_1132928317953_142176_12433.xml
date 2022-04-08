@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317953_142176_12433"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JFormattedTextField" refid="_9_5_f720368_1110473546799_963491_10729"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;JFormattedTextField&lt;/code&gt; extends &lt;code&gt;JTextField&lt;/code&gt; adding
+support for formatting arbitrary values, as well as retrieving a particular
+object once the user has edited the text. The following illustrates
+configuring a &lt;code&gt;JFormattedTextField&lt;/code&gt; to edit dates:
+&lt;pre&gt;
+JFormattedTextField ftf = new JFormattedTextField();
+ftf.setValue(new Date());
+&lt;/pre&gt;
+&lt;p&gt;
+Once a &lt;code&gt;JFormattedTextField&lt;/code&gt; has been created, you can
+listen for editing changes by way of adding
+a &lt;code&gt;PropertyChangeListener&lt;/code&gt; and listening for
+&lt;code&gt;PropertyChangeEvent&lt;/code&gt;s with the property name &lt;code&gt;value&lt;/code&gt;.
+&lt;p&gt;
+&lt;code&gt;JFormattedTextField&lt;/code&gt; allows
+configuring what action should be taken when focus is lost. The possible
+configurations are:
+&lt;table summary="Possible JFormattedTextField configurations and their descriptions"&gt;
+&lt;tr&gt;&lt;th&gt;&lt;p align="left"&gt;Value&lt;/p&gt;&lt;/th&gt;&lt;th&gt;&lt;p align="left"&gt;Description&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;JFormattedTextField.REVERT
+&lt;td&gt;Revert the display to match that of &lt;code&gt;getValue&lt;/code&gt;,
+possibly losing the current edit.
+&lt;tr&gt;&lt;td&gt;JFormattedTextField.COMMIT
+&lt;td&gt;Commits the current value. If the value being edited
+isn't considered a legal value by the
+&lt;code&gt;AbstractFormatter&lt;/code&gt; that is, a
+&lt;code&gt;ParseException&lt;/code&gt; is thrown, then the value
+will not change, and then edited value will persist.
+&lt;tr&gt;&lt;td&gt;JFormattedTextField.COMMIT_OR_REVERT
+&lt;td&gt;Similar to &lt;code&gt;COMMIT&lt;/code&gt;, but if the value isn't
+legal, behave like &lt;code&gt;REVERT&lt;/code&gt;.
+&lt;tr&gt;&lt;td&gt;JFormattedTextField.PERSIST
+&lt;td&gt;Do nothing, don't obtain a new
+&lt;code&gt;AbstractFormatter&lt;/code&gt;, and don't update the value.
+&lt;/table&gt;
+The default is &lt;code&gt;JFormattedTextField.COMMIT_OR_REVERT&lt;/code&gt;,
+refer to {@link #setFocusLostBehavior} for more information on this.
+&lt;p&gt;
+&lt;code&gt;JFormattedTextField&lt;/code&gt; allows the focus to leave, even if
+the currently edited value is invalid. To lock the focus down while the
+&lt;code&gt;JFormattedTextField&lt;/code&gt; is an invalid edit state
+you can attach an &lt;code&gt;InputVerifier&lt;/code&gt;. The following code snippet
+shows a potential implementation of such an &lt;code&gt;InputVerifier&lt;/code&gt;:
+&lt;pre&gt;
+public class FormattedTextFieldVerifier extends InputVerifier {
+public boolean verify(JComponent input) {
+if (input instanceof JFormattedTextField) {
+JFormattedTextField ftf = (JFormattedTextField)input;
+AbstractFormatter formatter = ftf.getFormatter();
+if (formatter != null) {
+String text = ftf.getText();
+try {
+formatter.stringToValue(text);
+return true;
+} catch (ParseException pe) {
+return false;
+}
+}
+}
+return true;
+}
+public boolean shouldYieldFocus(JComponent input) {
+return verify(input);
+}
+}
+&lt;/pre&gt;
+&lt;p&gt;
+Alternatively, you could invoke &lt;code&gt;commitEdit&lt;/code&gt;, which would also
+commit the value.
+&lt;p&gt;
+&lt;code&gt;JFormattedTextField&lt;/code&gt; does not do the formatting it self,
+rather formatting is done through an instance of
+&lt;code&gt;JFormattedTextField.AbstractFormatter&lt;/code&gt; which is obtained from
+an instance of &lt;code&gt;JFormattedTextField.AbstractFormatterFactory&lt;/code&gt;.
+Instances of &lt;code&gt;JFormattedTextField.AbstractFormatter&lt;/code&gt; are
+notified when they become active by way of the
+&lt;code&gt;install&lt;/code&gt; method, at which point the
+&lt;code&gt;JFormattedTextField.AbstractFormatter&lt;/code&gt; can install whatever
+it needs to, typically a &lt;code&gt;DocumentFilter&lt;/code&gt;. Similarly when
+&lt;code&gt;JFormattedTextField&lt;/code&gt; no longer
+needs the &lt;code&gt;AbstractFormatter&lt;/code&gt;, it will invoke
+&lt;code&gt;uninstall&lt;/code&gt;.
+&lt;p&gt;
+&lt;code&gt;JFormattedTextField&lt;/code&gt; typically
+queries the &lt;code&gt;AbstractFormatterFactory&lt;/code&gt; for an
+&lt;code&gt;AbstractFormat&lt;/code&gt; when it gains or loses focus. Although this
+can change based on the focus lost policy. If the focus lost
+policy is &lt;code&gt;JFormattedTextField.PERSIST&lt;/code&gt;
+and the &lt;code&gt;JFormattedTextField&lt;/code&gt; has been edited, the
+&lt;code&gt;AbstractFormatterFactory&lt;/code&gt; will not be queried until the
+value has been commited. Similarly if the focus lost policy is
+&lt;code&gt;JFormattedTextField.COMMIT&lt;/code&gt; and an exception
+is thrown from &lt;code&gt;stringToValue&lt;/code&gt;, the
+&lt;code&gt;AbstractFormatterFactory&lt;/code&gt; will not be querired when focus is
+lost or gained.
+&lt;p&gt;
+&lt;code&gt;JFormattedTextField.AbstractFormatter&lt;/code&gt;
+is also responsible for determining when values are commited to
+the &lt;code&gt;JFormattedTextField&lt;/code&gt;. Some
+&lt;code&gt;JFormattedTextField.AbstractFormatter&lt;/code&gt;s will make new values
+available on every edit, and others will never commit the value. You can
+force the current value to be obtained
+from the current &lt;code&gt;JFormattedTextField.AbstractFormatter&lt;/code&gt;
+by way of invoking &lt;code&gt;commitEdit&lt;/code&gt;. &lt;code&gt;commitEdit&lt;/code&gt; will
+be invoked whenever return is pressed in the
+&lt;code&gt;JFormattedTextField&lt;/code&gt;.
+&lt;p&gt;
+If an &lt;code&gt;AbstractFormatterFactory&lt;/code&gt; has not been explicitly
+set, one will be set based on the &lt;code&gt;Class&lt;/code&gt; of the value type after
+&lt;code&gt;setValue&lt;/code&gt; has been invoked (assuming value is non-null).
+For example, in the following code an appropriate
+&lt;code&gt;AbstractFormatterFactory&lt;/code&gt; and &lt;code&gt;AbstractFormatter&lt;/code&gt;
+will be created to handle formatting of numbers:
+&lt;pre&gt;
+JFormattedTextField tf = new JFormattedTextField();
+tf.setValue(new Number(100));
+&lt;/pre&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt; As the &lt;code&gt;AbstractFormatter&lt;/code&gt; will
+typically install a &lt;code&gt;DocumentFilter&lt;/code&gt; on the
+&lt;code&gt;Document&lt;/code&gt;, and a &lt;code&gt;NavigationFilter&lt;/code&gt; on the
+&lt;code&gt;JFormattedTextField&lt;/code&gt; you should not install your own. If you do,
+you are likely to see odd behavior in that the editing policy of the
+&lt;code&gt;AbstractFormatter&lt;/code&gt; will not be enforced.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@version 1.22 12/19/03
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JFormattedTextField" refid="_9_5_f720368_1110473546799_963491_10729"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JFormattedTextField" refid="_9_5_f720368_1110473546799_963491_10729"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

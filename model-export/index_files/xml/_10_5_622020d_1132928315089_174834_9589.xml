@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315089_174834_9589"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="JMXConnectorServerMBean" refid="_10_5_622020d_1132928315079_601254_9587"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;MBean interface for connector servers.  A JMX API connector server
+is attached to an MBean server, and establishes connections to that
+MBean server for remote clients.&lt;/p&gt;
+
+&lt;p&gt;A newly-created connector server is &lt;em&gt;inactive&lt;/em&gt;, and does
+not yet listen for connections.  Only when its {@link #start start}
+method has been called does it start listening for connections.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="JMXConnectorServerMBean" refid="_10_5_622020d_1132928315079_601254_9587"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="JMXConnectorServerMBean" refid="_10_5_622020d_1132928315079_601254_9587"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

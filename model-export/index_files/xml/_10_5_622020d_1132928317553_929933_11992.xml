@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317553_929933_11992"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Caret" refid="_9_5_f720368_1110473546784_137193_10429"/></annotatedElement><body humanName="Body" mode="s,e">A place within a document view that represents where
+things can be inserted into the document model.  A caret
+has a position in the document referred to as a dot.
+The dot is where the caret is currently located in the
+model.  There is
+a second position maintained by the caret that represents
+the other end of a selection called mark.  If there is
+no selection the dot and mark will be equal.  If a selection
+exists, the two values will be different.
+&lt;p&gt;
+The dot can be placed by either calling
+&lt;code&gt;setDot&lt;/code&gt; or &lt;code&gt;moveDot&lt;/code&gt;.  Setting
+the dot has the effect of removing any selection that may
+have previously existed.  The dot and mark will be equal.
+Moving the dot has the effect of creating a selection as
+the mark is left at whatever position it previously had.
+
+@author  Timothy Prinzing
+@version 1.30 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Caret" refid="_9_5_f720368_1110473546784_137193_10429"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Caret" refid="_9_5_f720368_1110473546784_137193_10429"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

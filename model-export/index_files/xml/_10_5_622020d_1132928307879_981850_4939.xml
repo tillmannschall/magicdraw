@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307879_981850_4939"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AssertionError" refid="_9_5_f720368_1110473546612_476224_7557"/></annotatedElement><body humanName="Body" mode="s,e">Thrown to indicate that an assertion has failed.
+
+&lt;p&gt;The seven one-argument public constructors provided by this
+class ensure that the assertion error returned by the invocation:
+&lt;pre&gt;
+new AssertionError(&lt;i&gt;expression&lt;/i&gt;)
+&lt;/pre&gt;
+has as its detail message the &lt;i&gt;string conversion&lt;/i&gt; of
+&lt;i&gt;expression&lt;/i&gt; (as defined in &lt;a
+href="http://java.sun.com/docs/books/jls/second_edition/html/j.title.doc.html"&gt;
+&lt;i&gt;The Java Language Specification, Second Edition&lt;/i&gt;&lt;/a&gt;,
+&lt;a href="http://java.sun.com/docs/books/jls/second_edition/html/expressions.doc.html#40220"&gt;
+Section  15.18.1.1&lt;/a&gt;), regardless of the type of &lt;i&gt;expression&lt;/i&gt;.
+
+@version 1.7, 12/19/03
+@since   JDK1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AssertionError" refid="_9_5_f720368_1110473546612_476224_7557"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AssertionError" refid="_9_5_f720368_1110473546612_476224_7557"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

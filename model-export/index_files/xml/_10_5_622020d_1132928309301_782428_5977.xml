@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309301_782428_5977"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicPermissionCollection" refid="_9_5_f720368_1110473546674_676033_8431"/></annotatedElement><body humanName="Body" mode="s,e">A BasicPermissionCollection stores a collection
+of BasicPermission permissions. BasicPermission objects
+must be stored in a manner that allows them to be inserted in any
+order, but enable the implies function to evaluate the implies
+method in an efficient (and consistent) manner.
+
+A BasicPermissionCollection handles comparing a permission like "a.b.c.d.e"
+with a Permission such as "a.b.*", or "*".
+
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionsImpl
+
+@version 1.40 12/19/03
+
+@author Roland Schemers
+
+@serial include
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BasicPermissionCollection" refid="_9_5_f720368_1110473546674_676033_8431"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicPermissionCollection" refid="_9_5_f720368_1110473546674_676033_8431"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

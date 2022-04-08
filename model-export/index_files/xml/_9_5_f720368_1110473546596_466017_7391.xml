@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546596_466017_7391"><documentation humanName="Documentation" mode="standard">Instances of classes that implement this interface are used to
+filter filenames. These instances are used to filter directory
+listings in the &lt;code&gt;list&lt;/code&gt; method of class
+&lt;code&gt;File&lt;/code&gt;, and by the Abstract Window Toolkit's file
+dialog component.
+
+@author  Arthur van Hoff
+@author  Jonathan Payne
+@version 1.23, 12/19/03
+@see     java.awt.FileDialog#setFilenameFilter(java.io.FilenameFilter)
+@see     java.io.File
+@see     java.io.File#list(java.io.FilenameFilter)
+@since   JDK1.0
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">FilenameFilter</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307068_61160_4577"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307068_61160_4577"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::io::FilenameFilter</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

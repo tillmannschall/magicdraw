@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928310192_780619_6602"><documentation humanName="Documentation" mode="standard">An {@link Executor} that provides methods to manage termination and
+methods that can produce a {@link Future} for tracking progress of
+one or more asynchronous tasks.
+
+&lt;p&gt;
+An &lt;tt&gt;ExecutorService&lt;/tt&gt; can be shut down, which will cause it
+to stop accepting new tasks.  After being shut down, the executor
+will eventually terminate, at which point no tasks are actively
+executing, no tasks are awaiting execution, and no new tasks can be
+submitted.
+
+&lt;p&gt; Method &lt;tt&gt;submit&lt;/tt&gt; extends base method {@link
+Executor#execute} by creating and returning a {@link Future} that
+can be used to cancel execution and/or wait for completion.
+Methods &lt;tt&gt;invokeAny&lt;/tt&gt; and &lt;tt&gt;invokeAll&lt;/tt&gt; perform the most
+commonly useful forms of bulk execution, executing a collection of
+tasks and then waiting for at least one, or all, to
+complete. (Class {@link ExecutorCompletionService} can be used to
+write customized variants of these methods.)
+
+&lt;p&gt;The {@link Executors} class provides factory methods for the
+executor services provided in this package.
+
+&lt;h3&gt;Usage Example&lt;/h3&gt;
+
+Here is a sketch of a network service in which threads in a thread
+pool service incoming requests. It uses the preconfigured {@link
+Executors#newFixedThreadPool} factory method:
+
+&lt;pre&gt;
+class NetworkService {
+private final ServerSocket serverSocket;
+private final ExecutorService pool;
+
+public NetworkService(int port, int poolSize) throws IOException {
+serverSocket = new ServerSocket(port);
+pool = Executors.newFixedThreadPool(poolSize);
+}
+
+public void serve() {
+try {
+for (;;) {
+pool.execute(new Handler(serverSocket.accept()));
+}
+} catch (IOException ex) {
+pool.shutdown();
+}
+}
+}
+
+class Handler implements Runnable {
+private final Socket socket;
+Handler(Socket socket) { this.socket = socket; }
+public void run() {
+read and service request
+}
+}
+&lt;/pre&gt;
+@since 1.5
+@author Doug Lea
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Executor" refid="_10_5_622020d_1132928310172_766214_6561"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322279_7016_14487"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ExecutorService</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310192_46979_6604"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322279_7016_14487"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310192_46979_6604"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::concurrent::ExecutorService</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::concurrent::AbstractExecutorService -&gt; JDK 5.0 Classes::java::util::concurrent::ExecutorService]" refid="_10_5_622020d_1132928321989_17264_14349"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

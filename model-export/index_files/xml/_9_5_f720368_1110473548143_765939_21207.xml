@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473548143_765939_21207"><UMLClass classType="Class" humanName="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicComboPopup" refid="_9_5_f720368_1110473546753_112295_9947"/><documentation humanName="Documentation" mode="standard">A listener to be registered upon the combo box
+(&lt;em&gt;not&lt;/em&gt; its popup menu)
+to handle mouse events
+that affect the state of the popup menu.
+The main purpose of this listener is to make the popup menu
+appear and disappear.
+This listener also helps
+with click-and-drag scenarios by setting the selection if the mouse was
+released over the list during a drag.
+
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+We recommend that you &lt;em&gt;not&lt;/em&gt;
+create subclasses of this class.
+If you absolutely must create a subclass,
+be sure to invoke the superclass
+version of each method.
+
+@see BasicComboPopup#createMouseListener
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323441_631724_16820"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">InvocationMouseHandler</name><namespace classType="Class" humanName="Namespace" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicComboPopup" refid="_9_5_f720368_1110473546753_112295_9947"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317092_442849_10969"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323441_631724_16820"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317092_442849_10969"/></ownedElement><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BasicComboPopup" refid="_9_5_f720368_1110473546753_112295_9947"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::plaf::basic::BasicComboPopup::InvocationMouseHandler</qualifiedName><redefinitionContext humanName="Redefinition Context"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicComboPopup" refid="_9_5_f720368_1110473546753_112295_9947"/></redefinitionContext><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="MouseAdapter" refid="_9_5_f720368_1110473546565_107028_6589"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">protected</visibility></class></magicdraw>

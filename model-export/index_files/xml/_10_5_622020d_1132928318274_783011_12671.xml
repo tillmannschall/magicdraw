@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318274_783011_12671"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SystemEventQueueUtilities" refid="_9_5_f720368_1110473546799_760351_10875"/></annotatedElement><body humanName="Body" mode="s,e">Swing internal utilities for dealing with the AWT system event
+queue.  Four methods are exported, see the individual method javadoc
+for more information: addRunnableCanvas(), removeRunnableCanvas(),
+postRunnable(), queueComponentWorkRequest().
+
+Note: most of the code in this class is no longer needed since
+we're no longer supporting Swing in 1.1.x VM's and in 1.2 we're
+guaranteed access to the AWT event queue.  However all of the entry
+points, save postRunnable(), are still used.
+
+@see RepaintManager
+@see JRootPane
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SystemEventQueueUtilities" refid="_9_5_f720368_1110473546799_760351_10875"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SystemEventQueueUtilities" refid="_9_5_f720368_1110473546799_760351_10875"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

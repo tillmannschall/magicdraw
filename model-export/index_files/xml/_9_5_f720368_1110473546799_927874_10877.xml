@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546799_927874_10877"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::Timer -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928324172_29872_18681"/></clientDependency><documentation humanName="Documentation" mode="standard">Fires one or more action events after a specified delay.
+For example, an animation object can use a &lt;code&gt;Timer&lt;/code&gt;
+as the trigger for drawing its frames.
+
+&lt;p&gt;
+
+Setting up a timer
+involves creating a &lt;code&gt;Timer&lt;/code&gt; object,
+registering one or more action listeners on it,
+and starting the timer using
+the &lt;code&gt;start&lt;/code&gt; method.
+For example,
+the following code creates and starts a timer
+that fires an action event once per second
+(as specified by the first argument to the &lt;code&gt;Timer&lt;/code&gt; constructor).
+The second argument to the &lt;code&gt;Timer&lt;/code&gt; constructor
+specifies a listener to receive the timer's action events.
+
+&lt;pre&gt;
+int delay = 1000; //milliseconds
+ActionListener taskPerformer = new ActionListener() {
+public void actionPerformed(ActionEvent evt) {
+&lt;em&gt;//...Perform a task...&lt;/em&gt;
+}
+};
+new Timer(delay, taskPerformer).start();&lt;/pre&gt;
+
+&lt;p&gt;
+Each &lt;code&gt;Timer&lt;/code&gt;
+has one or more action listeners
+and a &lt;em&gt;delay&lt;/em&gt;
+(the time between action events).
+When
+&lt;em&gt;delay&lt;/em&gt; milliseconds have passed, the &lt;code&gt;Timer&lt;/code&gt;
+fires an action event to its listeners.
+By default, this cycle repeats until
+the &lt;code&gt;stop&lt;/code&gt; method is called.
+If you want the timer to fire only once,
+invoke &lt;code&gt;setRepeats(false)&lt;/code&gt; on the timer.
+To make the delay before the first action event
+different from the delay between events,
+use the &lt;code&gt;setInitialDelay&lt;/code&gt; method.
+
+&lt;p&gt;
+Although all &lt;code&gt;Timer&lt;/code&gt;s perform their waiting
+using a single, shared thread
+(created by the first &lt;code&gt;Timer&lt;/code&gt; object that executes),
+the action event handlers for &lt;code&gt;Timer&lt;/code&gt;s
+execute on another thread -- the event-dispatching thread.
+This means that the action handlers for &lt;code&gt;Timer&lt;/code&gt;s
+can safely perform operations on Swing components.
+However, it also means that the handlers must execute quickly
+to keep the GUI responsive.
+
+&lt;p&gt;
+In v 1.3, another &lt;code&gt;Timer&lt;/code&gt; class was added
+to the Java platform: &lt;code&gt;java.util.Timer&lt;/code&gt;.
+Both it and &lt;code&gt;javax.swing.Timer&lt;/code&gt;
+provide the same basic functionality,
+but &lt;code&gt;java.util.Timer&lt;/code&gt;
+is more general and has more features.
+The &lt;code&gt;javax.swing.Timer&lt;/code&gt; has two features
+that can make it a little easier to use with GUIs.
+First, its event handling metaphor is familiar to GUI programmers
+and can make dealing with the event-dispatching thread
+a bit simpler.
+Second, its
+automatic thread sharing means that you don't have to
+take special steps to avoid spawning
+too many threads.
+Instead, your timer uses the same thread
+used to make cursors blink,
+tool tips appear,
+and so on.
+
+&lt;p&gt;
+You can find further documentation
+and several examples of using timers by visiting
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/timer.html"
+target = "_top"&gt;How to Use Timers&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+For more examples and help in choosing between
+this &lt;code&gt;Timer&lt;/code&gt; class and
+&lt;code&gt;java.util.Timer&lt;/code&gt;,
+see
+&lt;a href="http://java.sun.com/products/jfc/tsc/articles/timer/"
+target="_top"&gt;Using Timers in Swing Applications&lt;/a&gt;,
+an article in &lt;em&gt;The Swing Connection.&lt;/em&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see java.util.Timer &lt;code&gt;java.util.Timer&lt;/code&gt;
+
+
+@version 1.45 05/05/04
+@author Dave Moore
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::Timer -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928324172_29872_18681"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DoPostEvent" refid="_9_5_f720368_1110473548487_129074_24501"/></member><name humanName="Name" mode="s,e">Timer</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DoPostEvent" refid="_9_5_f720368_1110473548487_129074_24501"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318274_114349_12677"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318274_114349_12677"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DoPostEvent" refid="_9_5_f720368_1110473548487_129074_24501"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::Timer -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928324172_29872_18681"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DoPostEvent" refid="_9_5_f720368_1110473548487_129074_24501"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::Timer</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

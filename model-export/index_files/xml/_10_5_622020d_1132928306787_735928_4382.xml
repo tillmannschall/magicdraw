@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306787_735928_4382"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BeanContextProxy" refid="_9_5_f720368_1110473546596_24965_7165"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;
+This interface is implemented by a JavaBean that does
+not directly have a BeanContext(Child) associated with
+it (via implementing that interface or a subinterface thereof),
+but has a public BeanContext(Child) delegated from it.
+For example, a subclass of java.awt.Container may have a BeanContext
+associated with it that all Component children of that Container shall
+be contained within.
+&lt;/p&gt;
+&lt;p&gt;
+An Object may not implement this interface and the
+BeanContextChild interface
+(or any subinterfaces thereof) they are mutually exclusive.
+&lt;/p&gt;
+&lt;p&gt;
+Callers of this interface shall examine the return type in order to
+obtain a particular subinterface of BeanContextChild as follows:
+&lt;code&gt;
+BeanContextChild bcc = o.getBeanContextProxy();
+
+if (bcc instanceof BeanContext) {
+...
+}
+&lt;/code&gt;
+or
+&lt;code&gt;
+BeanContextChild bcc = o.getBeanContextProxy();
+BeanContext      bc  = null;
+
+try {
+bc = (BeanContext)bcc;
+} catch (ClassCastException cce) {
+cast failed, bcc is not an instanceof BeanContext
+}
+&lt;/code&gt;
+&lt;/p&gt;
+&lt;p&gt;
+The return value is a constant for the lifetime of the implementing
+instance
+&lt;/p&gt;
+@author Laurence P. G. Cable
+@version 1.11, 12/19/03
+@since 1.2
+
+@see java.beans.beancontext.BeanContextChild
+@see java.beans.beancontext.BeanContextChildSupport
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="BeanContextProxy" refid="_9_5_f720368_1110473546596_24965_7165"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BeanContextProxy" refid="_9_5_f720368_1110473546596_24965_7165"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

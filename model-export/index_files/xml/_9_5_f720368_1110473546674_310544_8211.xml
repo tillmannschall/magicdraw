@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546674_310544_8211"><documentation humanName="Documentation" mode="standard">Used for exporting a remote object with JRMP and obtaining a stub
+that communicates to the remote object.
+
+&lt;p&gt;For the constructors and static &lt;code&gt;exportObject&lt;/code&gt; methods
+below, the stub for a remote object being exported is obtained as
+follows:
+
+&lt;p&gt;&lt;ul&gt;
+
+&lt;li&gt;If the remote object is exported using the {@link
+#exportObject(Remote) UnicastRemoteObject.exportObject(Remote)} method,
+a stub class (typically pregenerated from the remote object's class
+using the &lt;code&gt;rmic&lt;/code&gt; tool) is loaded and an instance of that stub
+class is constructed as follows.
+&lt;ul&gt;
+
+&lt;li&gt;A "root class" is determined as follows:  if the remote object's
+class directly implements an interface that extends {@link Remote}, then
+the remote object's class is the root class; otherwise, the root class is
+the most derived superclass of the remote object's class that directly
+implements an interface that extends &lt;code&gt;Remote&lt;/code&gt;.
+
+&lt;li&gt;The name of the stub class to load is determined by concatenating
+the binary name of the root class with the suffix &lt;code&gt;"_Stub"&lt;/code&gt;.
+
+&lt;li&gt;The stub class is loaded by name using the class loader of the root
+class.  The stub class must extend {@link RemoteStub} and must have a
+public constructor that has one parameter, of type {@link RemoteRef}.
+
+&lt;li&gt;Finally, an instance of the stub class is constructed with a
+{@link RemoteRef}.
+&lt;/ul&gt;
+
+&lt;li&gt;If the appropriate stub class could not be found, or the stub class
+could not be loaded, or a problem occurs creating the stub instance, a
+{@link StubNotFoundException} is thrown.
+
+&lt;p&gt;
+&lt;li&gt;For all other means of exporting:
+&lt;p&gt;&lt;ul&gt;
+
+&lt;li&gt;If the remote object's stub class (as defined above) could not be
+loaded or the system property
+&lt;code&gt;java.rmi.server.ignoreStubClasses&lt;/code&gt; is set to
+&lt;code&gt;"true"&lt;/code&gt; (case insensitive), a {@link
+java.lang.reflect.Proxy} instance is constructed with the following
+properties:
+
+&lt;ul&gt;
+
+&lt;li&gt;The proxy's class is defined by the class loader of the remote
+object's class.
+
+&lt;li&gt;The proxy implements all the remote interfaces implemented by the
+remote object's class.
+
+&lt;li&gt;The proxy's invocation handler is a {@link
+RemoteObjectInvocationHandler} instance constructed with a
+{@link RemoteRef}.
+
+&lt;li&gt;If the proxy could not be created, a {@link StubNotFoundException}
+will be thrown.
+&lt;/ul&gt;
+
+&lt;p&gt;
+&lt;li&gt;Otherwise, an instance of the remote object's stub class (as
+described above) is used as the stub.
+
+&lt;/ul&gt;
+&lt;/ul&gt;
+
+@version 1.32, 12/19/03
+@author  Ann Wollrath
+@author  Peter Jones
+@since   JDK1.1
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321839_909365_14079"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">UnicastRemoteObject</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="server" refid="_9_5_f720368_1110473547690_953130_18478"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309040_766995_5704"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321839_909365_14079"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309040_766995_5704"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="server" refid="_9_5_f720368_1110473547690_953130_18478"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="server" refid="_9_5_f720368_1110473547690_953130_18478"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="server" refid="_9_5_f720368_1110473547690_953130_18478"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::rmi::server::UnicastRemoteObject</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="RemoteServer" refid="_9_5_f720368_1110473546674_903278_8179"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

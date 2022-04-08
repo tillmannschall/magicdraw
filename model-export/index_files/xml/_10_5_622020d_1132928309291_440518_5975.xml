@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309291_440518_5975"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BasicPermission" refid="_9_5_f720368_1110473546674_30641_8429"/></annotatedElement><body humanName="Body" mode="s,e">The BasicPermission class extends the Permission class, and
+can be used as the base class for permissions that want to
+follow the same naming convention as BasicPermission.
+&lt;P&gt;
+The name for a BasicPermission is the name of the given permission
+(for example, "exit",
+"setFactory", "print.queueJob", etc). The naming
+convention follows the  hierarchical property naming convention.
+An asterisk may appear by itself, or if immediately preceded by a "."
+may appear at the end of the name, to signify a wildcard match.
+For example, "*" and "java.*" are valid, while "*java", "a*b",
+and "java*" are not valid.
+&lt;P&gt;
+The action string (inherited from Permission) is unused.
+Thus, BasicPermission is commonly used as the base class for
+"named" permissions
+(ones that contain a name but no actions list; you either have the
+named permission or you don't.)
+Subclasses may implement actions on top of BasicPermission,
+if desired.
+&lt;p&gt;
+&lt;P&gt;
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionCollection
+@see java.lang.RuntimePermission
+@see java.security.SecurityPermission
+@see java.util.PropertyPermission
+@see java.awt.AWTPermission
+@see java.net.NetPermission
+@see java.lang.SecurityManager
+
+@version 1.40 03/12/19
+
+@author Marianne Mueller
+@author Roland Schemers
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="BasicPermission" refid="_9_5_f720368_1110473546674_30641_8429"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="BasicPermission" refid="_9_5_f720368_1110473546674_30641_8429"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

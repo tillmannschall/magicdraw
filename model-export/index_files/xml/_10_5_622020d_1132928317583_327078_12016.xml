@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317583_327078_12016"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultEditorKit" refid="_9_5_f720368_1110473546784_732622_10441"/></annotatedElement><body humanName="Body" mode="s,e">This is the set of things needed by a text component
+to be a reasonably functioning editor for some &lt;em&gt;type&lt;/em&gt;
+of text document.  This implementation provides a default
+implementation which treats text as plain text and
+provides a minimal set of actions for a simple editor.
+&lt;p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;b&gt;&lt;font size=+1&gt;Newlines&lt;/font&gt;&lt;/b&gt;
+&lt;dd&gt;
+There are two properties which deal with newlines.  The
+system property, &lt;code&gt;line.separator&lt;/code&gt;, is defined to be
+platform-dependent, either "\n", "\r", or "\r\n".  There is also
+a property defined in &lt;code&gt;DefaultEditorKit&lt;/code&gt;, called
+&lt;a href=#EndOfLineStringProperty&gt;&lt;code&gt;EndOfLineStringProperty&lt;/code&gt;&lt;/a&gt;,
+which is defined automatically when a document is loaded, to be
+the first occurrence of any of the newline characters.
+When a document is loaded, &lt;code&gt;EndOfLineStringProperty&lt;/code&gt;
+is set appropriately, and when the document is written back out, the
+&lt;code&gt;EndOfLineStringProperty&lt;/code&gt; is used.  But while the document
+is in memory, the "\n" character is used to define a
+newline, regardless of how the newline is defined when
+the document is on disk.  Therefore, for searching purposes,
+"\n" should always be used.  When a new document is created,
+and the &lt;code&gt;EndOfLineStringProperty&lt;/code&gt; has not been defined,
+it will use the System property when writing out the
+document.
+&lt;p&gt;Note that &lt;code&gt;EndOfLineStringProperty&lt;/code&gt; is set
+on the &lt;code&gt;Document&lt;/code&gt; using the &lt;code&gt;get/setProperty&lt;/code&gt;
+methods.  Subclasses may override this behavior.
+
+&lt;/dl&gt;
+
+@author  Timothy Prinzing
+@version 1.67 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DefaultEditorKit" refid="_9_5_f720368_1110473546784_732622_10441"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DefaultEditorKit" refid="_9_5_f720368_1110473546784_732622_10441"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

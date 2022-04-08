@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309621_408507_6239"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DateFormatSymbols" refid="_9_5_f720368_1110473546690_45774_8641"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;DateFormatSymbols&lt;/code&gt; is a public class for encapsulating
+localizable date-time formatting data, such as the names of the
+months, the names of the days of the week, and the time zone data.
+&lt;code&gt;DateFormat&lt;/code&gt; and &lt;code&gt;SimpleDateFormat&lt;/code&gt; both use
+&lt;code&gt;DateFormatSymbols&lt;/code&gt; to encapsulate this information.
+
+&lt;p&gt;
+Typically you shouldn't use &lt;code&gt;DateFormatSymbols&lt;/code&gt; directly.
+Rather, you are encouraged to create a date-time formatter with the
+&lt;code&gt;DateFormat&lt;/code&gt; class's factory methods: &lt;code&gt;getTimeInstance&lt;/code&gt;,
+&lt;code&gt;getDateInstance&lt;/code&gt;, or &lt;code&gt;getDateTimeInstance&lt;/code&gt;.
+These methods automatically create a &lt;code&gt;DateFormatSymbols&lt;/code&gt; for
+the formatter so that you don't have to. After the
+formatter is created, you may modify its format pattern using the
+&lt;code&gt;setPattern&lt;/code&gt; method. For more information about
+creating formatters using &lt;code&gt;DateFormat&lt;/code&gt;'s factory methods,
+see {@link DateFormat}.
+
+&lt;p&gt;
+If you decide to create a date-time formatter with a specific
+format pattern for a specific locale, you can do so with:
+&lt;blockquote&gt;
+&lt;pre&gt;
+new SimpleDateFormat(aPattern, new DateFormatSymbols(aLocale)).
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+&lt;code&gt;DateFormatSymbols&lt;/code&gt; objects are cloneable. When you obtain
+a &lt;code&gt;DateFormatSymbols&lt;/code&gt; object, feel free to modify the
+date-time formatting data. For instance, you can replace the localized
+date-time format pattern characters with the ones that you feel easy
+to remember. Or you can change the representative cities
+to your favorite ones.
+
+&lt;p&gt;
+New &lt;code&gt;DateFormatSymbols&lt;/code&gt; subclasses may be added to support
+&lt;code&gt;SimpleDateFormat&lt;/code&gt; for date-time formatting for additional locales.
+@see          DateFormat
+@see          SimpleDateFormat
+@see          java.util.SimpleTimeZone
+@version      1.41 12/19/03
+@author       Chen-Lieh Huang
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DateFormatSymbols" refid="_9_5_f720368_1110473546690_45774_8641"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DateFormatSymbols" refid="_9_5_f720368_1110473546690_45774_8641"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309501_331884_6176"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PreparedStatement" refid="_9_5_f720368_1110473546690_710577_8575"/></annotatedElement><body humanName="Body" mode="s,e">An object that represents a precompiled SQL statement.
+&lt;P&gt;A SQL statement is precompiled and stored in a
+&lt;code&gt;PreparedStatement&lt;/code&gt; object. This object can then be used to
+efficiently execute this statement multiple times.
+
+&lt;P&gt;&lt;B&gt;Note:&lt;/B&gt; The setter methods (&lt;code&gt;setShort&lt;/code&gt;, &lt;code&gt;setString&lt;/code&gt;,
+and so on) for setting IN parameter values
+must specify types that are compatible with the defined SQL type of
+the input parameter. For instance, if the IN parameter has SQL type
+&lt;code&gt;INTEGER&lt;/code&gt;, then the method &lt;code&gt;setInt&lt;/code&gt; should be used.
+
+&lt;p&gt;If arbitrary parameter type conversions are required, the method
+&lt;code&gt;setObject&lt;/code&gt; should be used with a target SQL type.
+&lt;P&gt;
+In the following example of setting a parameter, &lt;code&gt;con&lt;/code&gt; represents
+an active connection:
+&lt;PRE&gt;
+PreparedStatement pstmt = con.prepareStatement("UPDATE EMPLOYEES
+SET SALARY = ? WHERE ID = ?");
+pstmt.setBigDecimal(1, 153833.00)
+pstmt.setInt(2, 110592)
+&lt;/PRE&gt;
+
+@see Connection#prepareStatement
+@see ResultSet
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="PreparedStatement" refid="_9_5_f720368_1110473546690_710577_8575"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PreparedStatement" refid="_9_5_f720368_1110473546690_710577_8575"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

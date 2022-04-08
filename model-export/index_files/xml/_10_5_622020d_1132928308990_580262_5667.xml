@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308990_580262_5667"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RMIClassLoader" refid="_9_5_f720368_1110473546674_658120_8183"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;RMIClassLoader&lt;/code&gt; comprises static methods to support
+dynamic class loading with RMI.  Included are methods for loading
+classes from a network location (one or more URLs) and obtaining
+the location from which an existing class should be loaded by
+remote parties.  These methods are used by the RMI runtime when
+marshalling and unmarshalling classes contained in the arguments
+and return values of remote method calls, and they also may be
+invoked directly by applications in order to mimic RMI's dynamic
+class loading behavior.
+
+&lt;p&gt;The implementation of the following static methods
+
+&lt;ul&gt;
+
+&lt;li&gt;{@link #loadClass(URL,String)}
+&lt;li&gt;{@link #loadClass(String,String)}
+&lt;li&gt;{@link #loadClass(String,String,ClassLoader)}
+&lt;li&gt;{@link #loadProxyClass(String,String[],ClassLoader)}
+&lt;li&gt;{@link #getClassLoader(String)}
+&lt;li&gt;{@link #getClassAnnotation(Class)}
+
+&lt;/ul&gt;
+
+is provided by an instance of {@link RMIClassLoaderSpi}, the
+service provider interface for those methods.  When one of the
+methods is invoked, its behavior is to delegate to a corresponding
+method on the service provider instance.  The details of how each
+method delegates to the provider instance is described in the
+documentation for each particular method.
+
+&lt;p&gt;The service provider instance is chosen as follows:
+
+&lt;ul&gt;
+
+&lt;li&gt;If the system property
+&lt;code&gt;java.rmi.server.RMIClassLoaderSpi&lt;/code&gt; is defined, then if
+its value equals the string &lt;code&gt;"default"&lt;/code&gt;, the provider
+instance will be the value returned by an invocation of the {@link
+#getDefaultProviderInstance()} method, and for any other value, if
+a class named with the value of the property can be loaded by the
+system class loader (see {@link ClassLoader#getSystemClassLoader})
+and that class is assignable to {@link RMIClassLoaderSpi} and has a
+public no-argument constructor, then that constructor will be
+invoked to create the provider instance.  If the property is
+defined but any other of those conditions are not true, then an
+unspecified &lt;code&gt;Error&lt;/code&gt; will be thrown to code that attempts
+to use &lt;code&gt;RMIClassLoader&lt;/code&gt;, indicating the failure to
+obtain a provider instance.
+
+&lt;li&gt;If a resource named
+&lt;code&gt;META-INF/services/java.rmi.server.RMIClassLoaderSpi&lt;/code&gt; is
+visible to the system class loader, then the contents of that
+resource are interpreted as a provider-configuration file, and the
+first class name specified in that file is used as the provider
+class name.  If a class with that name can be loaded by the system
+class loader and that class is assignable to {@link
+RMIClassLoaderSpi} and has a public no-argument constructor, then
+that constructor will be invoked to create the provider instance.
+If the resource is found but a provider cannot be instantiated as
+described, then an unspecified &lt;code&gt;Error&lt;/code&gt; will be thrown to
+code that attempts to use &lt;code&gt;RMIClassLoader&lt;/code&gt;, indicating
+the failure to obtain a provider instance.
+
+&lt;li&gt;Otherwise, the provider instance will be the value returned by
+an invocation of the {@link #getDefaultProviderInstance()} method.
+
+&lt;/ul&gt;
+
+@version	1.40, 04/05/18
+@author	Ann Wollrath
+@author	Peter Jones
+@author	Laird Dornin
+@see		RMIClassLoaderSpi
+@since	JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RMIClassLoader" refid="_9_5_f720368_1110473546674_658120_8183"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RMIClassLoader" refid="_9_5_f720368_1110473546674_658120_8183"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

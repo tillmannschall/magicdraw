@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318284_790915_12696"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UIManager" refid="_9_5_f720368_1110473546799_631278_10887"/></annotatedElement><body humanName="Body" mode="s,e">This class keeps track of the current look and feel and its
+defaults.
+The default look and feel class is chosen in the following manner:
+&lt;ol&gt;
+&lt;li&gt;If the system property &lt;code&gt;swing.defaultlaf&lt;/code&gt; is
+non-null, use it as the default look and feel class name.
+&lt;li&gt;If the {@link java.util.Properties} file &lt;code&gt;swing.properties&lt;/code&gt;
+exists and contains the key &lt;code&gt;swing.defaultlaf&lt;/code&gt;,
+use its value as default look and feel class name. The location of
+&lt;code&gt;swing.properties&lt;/code&gt; may vary depending upon the
+implementation of the Java platform. In Sun's implementation
+this will reside in
+&lt;code&gt;&amp;java.home&gt;/lib/swing.properties&lt;/code&gt;. Refer to
+the release notes of the implementation you are using for
+further details.
+&lt;li&gt;Otherwise use the Java look and feel.
+&lt;/ol&gt;
+&lt;p&gt;
+We manage three levels of defaults: user defaults, look
+and feel defaults, system defaults.  A call to &lt;code&gt;UIManager.get&lt;/code&gt;
+checks all three levels in order and returns the first non-&lt;code&gt;null&lt;/code&gt;
+value for a key, if any.  A call to &lt;code&gt;UIManager.put&lt;/code&gt; just
+affects the user defaults.  Note that a call to
+&lt;code&gt;setLookAndFeel&lt;/code&gt; doesn't affect the user defaults, it just
+replaces the middle defaults "level".
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see javax.swing.plaf.metal
+
+@version 1.115 12/19/03
+@author Thomas Ball
+@author Hans Muller
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="UIManager" refid="_9_5_f720368_1110473546799_631278_10887"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UIManager" refid="_9_5_f720368_1110473546799_631278_10887"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

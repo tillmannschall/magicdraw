@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928318344_101324_12731"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::xml::namespace::QName -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928324182_264488_18714"/></clientDependency><documentation humanName="Documentation" mode="standard">&lt;p&gt;&lt;code&gt;QName&lt;/code&gt; represents a &lt;strong&gt;qualified name&lt;/strong&gt;
+as defined in the XML specifications: &lt;a
+href="http://www.w3.org/TR/xmlschema-2/#QName"&gt;XML Schema Part2:
+Datatypes specification&lt;/a&gt;, &lt;a
+href="http://www.w3.org/TR/REC-xml-names/#ns-qualnames"&gt;Namespaces
+in XML&lt;/a&gt;, &lt;a
+href="http://www.w3.org/XML/xml-names-19990114-errata"&gt;Namespaces
+in XML Errata&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The value of a &lt;code&gt;QName&lt;/code&gt; contains a &lt;strong&gt;Namespace
+URI&lt;/strong&gt;, &lt;strong&gt;local part&lt;/strong&gt; and
+&lt;strong&gt;prefix&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The prefix is included in &lt;code&gt;QName&lt;/code&gt; to retain lexical
+information &lt;strong&gt;&lt;em&gt;when present&lt;/em&gt;&lt;/strong&gt; in an {@link
+javax.xml.transform.Source XML input source}. The prefix is
+&lt;strong&gt;&lt;em&gt;NOT&lt;/em&gt;&lt;/strong&gt; used in {@link #equals(Object)
+QName.equals(Object)} or to compute the {@link #hashCode()
+QName.hashCode()}.  Equality and the hash code are defined using
+&lt;strong&gt;&lt;em&gt;only&lt;/em&gt;&lt;/strong&gt; the Namespace URI and local part.&lt;/p&gt;
+
+&lt;p&gt;If not specified, the Namespace URI is set to {@link
+javax.xml.XMLConstants#NULL_NS_URI XMLConstants.NULL_NS_URI}.
+If not specified, the prefix is set to {@link
+javax.xml.XMLConstants#DEFAULT_NS_PREFIX
+XMLConstants.DEFAULT_NS_PREFIX}.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;QName&lt;/code&gt; is immutable.&lt;/p&gt;
+
+@author &lt;a href="mailto:Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+@version $Revision: 1.10 $, $Date: 2004/02/09 23:41:21 $
+@see &lt;a href="http://www.w3.org/TR/xmlschema-2/#QName"&gt;XML Schema Part2: Datatypes specification&lt;/a&gt;
+@see &lt;a href="http://www.w3.org/TR/REC-xml-names/#ns-qualnames"&gt;Namespaces in XML&lt;/a&gt;
+@see &lt;a href="http://www.w3.org/XML/xml-names-19990114-errata"&gt;Namespaces in XML Errata&lt;/a&gt;
+@since 1.5
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::xml::namespace::QName -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928324182_264488_18714"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">QName</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="namespace" refid="_10_5_622020d_1132928318344_434765_12727"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318344_381171_12733"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318344_381171_12733"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::xml::namespace::QName -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928324182_264488_18714"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="namespace" refid="_10_5_622020d_1132928318344_434765_12727"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="namespace" refid="_10_5_622020d_1132928318344_434765_12727"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="namespace" refid="_10_5_622020d_1132928318344_434765_12727"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::xml::namespace::QName</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

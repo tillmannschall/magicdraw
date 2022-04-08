@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318394_628393_12836"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="XPathExpression" refid="_10_5_622020d_1132928318384_306720_12834"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;&lt;code&gt;XPathExpression&lt;/code&gt; provides access to compiled XPath expressions.&lt;/p&gt;
+
+&lt;table id="XPathExpression-evaluation" border="1" cellpadding="2"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th colspan="2"&gt;Evaluation of XPath Expressions.&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;context&lt;/td&gt;
+&lt;td&gt;
+If a request is made to evaluate the expression in the absence
+of a context item, an empty document node will be used for the context.
+For the purposes of evaluating XPath expressions, a DocumentFragment
+is treated like a Document node.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;variables&lt;/td&gt;
+&lt;td&gt;
+If the expression contains a variable reference, its value will be found through the {@link XPathVariableResolver}.
+An {@link XPathExpressionException} is raised if the variable resolver is undefined or
+the resolver returns &lt;code&gt;null&lt;/code&gt; for the variable.
+The value of a variable must be immutable through the course of any single evaluation.&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;functions&lt;/td&gt;
+&lt;td&gt;
+If the expression contains a function reference, the function will be found through the {@link XPathFunctionResolver}.
+An {@link XPathExpressionException} is raised if the function resolver is undefined or
+the function resolver returns &lt;code&gt;null&lt;/code&gt; for the function.&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QNames&lt;/td&gt;
+&lt;td&gt;
+QNames in the expression are resolved against the XPath namespace context.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;result&lt;/td&gt;
+&lt;td&gt;
+This result of evaluating an expression is converted to an instance of the desired return type.
+Valid return types are defined in {@link XPathConstants}.
+Conversion to the return type follows XPath conversion rules.&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+@author  &lt;a href="mailto:Norman.Walsh@Sun.com"&gt;Norman Walsh&lt;/a&gt;
+@author  &lt;a href="mailto:Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+@version $Revision: 1.10.16.1 $, $Date: 2004/07/01 17:49:23 $
+@see &lt;a href="http://www.w3.org/TR/xpath#section-Expressions"&gt;XML Path Language (XPath) Version 1.0, Expressions&lt;/a&gt;
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="XPathExpression" refid="_10_5_622020d_1132928318384_306720_12834"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="XPathExpression" refid="_10_5_622020d_1132928318384_306720_12834"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

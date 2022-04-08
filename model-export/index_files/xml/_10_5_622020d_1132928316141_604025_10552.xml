@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316141_604025_10552"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetaMessage" refid="_9_5_f720368_1110473546737_845017_9659"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;MetaMessage&lt;/code&gt; is a &lt;code&gt;{@link MidiMessage}&lt;/code&gt; that is not meaningful to synthesizers, but
+that can be stored in a MIDI file and interpreted by a sequencer program.
+(See the discussion in the &lt;code&gt;MidiMessage&lt;/code&gt;
+class description.)  The Standard MIDI Files specification defines
+various types of meta-events, such as sequence number, lyric, cue point,
+and set tempo.  There are also meta-events
+for such information as lyrics, copyrights, tempo indications, time and key
+signatures, markers, etc.  For more information, see the Standard MIDI Files 1.0
+specification, which is part of the Complete MIDI 1.0 Detailed Specification
+published by the MIDI Manufacturer's Association
+(&lt;a href = http://www.midi.org&gt;http://www.midi.org&lt;/a&gt;).
+
+&lt;p&gt;
+When data is being transported using MIDI wire protocol,
+a &lt;code&gt;{@link ShortMessage}&lt;/code&gt; with the status value &lt;code&gt;0xFF&lt;/code&gt; represents
+a system reset message.  In MIDI files, this same status value denotes a &lt;code&gt;MetaMessage&lt;/code&gt;.
+The types of meta-message are distinguished from each other by the first byte
+that follows the status byte &lt;code&gt;0xFF&lt;/code&gt;.  The subsequent bytes are data
+bytes.  As with system exclusive messages, there are an arbitrary number of
+data bytes, depending on the type of &lt;code&gt;MetaMessage&lt;/code&gt;.
+
+@see MetaEventListener
+
+@version 1.24, 03/12/19
+@author David Rivas
+@author Kara Kytle
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MetaMessage" refid="_9_5_f720368_1110473546737_845017_9659"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MetaMessage" refid="_9_5_f720368_1110473546737_845017_9659"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307398_159836_4688"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SequenceInputStream" refid="_9_5_f720368_1110473546612_779997_7479"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;SequenceInputStream&lt;/code&gt; represents
+the logical concatenation of other input
+streams. It starts out with an ordered
+collection of input streams and reads from
+the first one until end of file is reached,
+whereupon it reads from the second one,
+and so on, until end of file is reached
+on the last of the contained input streams.
+
+@author  Author van Hoff
+@version 1.28, 05/12/04
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SequenceInputStream" refid="_9_5_f720368_1110473546612_779997_7479"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SequenceInputStream" refid="_9_5_f720368_1110473546612_779997_7479"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307939_944228_4993"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/></annotatedElement><body humanName="Body" mode="s,e">A class implements the &lt;code&gt;Cloneable&lt;/code&gt; interface to
+indicate to the {@link java.lang.Object#clone()} method that it
+is legal for that method to make a
+field-for-field copy of instances of that class.
+&lt;p&gt;
+Invoking Object's clone method on an instance that does not implement the
+&lt;code&gt;Cloneable&lt;/code&gt; interface results in the exception
+&lt;code&gt;CloneNotSupportedException&lt;/code&gt; being thrown.
+&lt;p&gt;
+By convention, classes that implement this interface should override
+&lt;tt&gt;Object.clone&lt;/tt&gt; (which is protected) with a public method.
+See {@link java.lang.Object#clone()} for details on overriding this
+method.
+&lt;p&gt;
+Note that this interface does &lt;i&gt;not&lt;/i&gt; contain the &lt;tt&gt;clone&lt;/tt&gt; method.
+Therefore, it is not possible to clone an object merely by virtue of the
+fact that it implements this interface.  Even if the clone method is invoked
+reflectively, there is no guarantee that it will succeed.
+
+@author  unascribed
+@version 1.16, 01/17/04
+@see     java.lang.CloneNotSupportedException
+@see     java.lang.Object#clone()
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

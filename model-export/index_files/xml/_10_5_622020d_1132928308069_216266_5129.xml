@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308069_216266_5129"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Runnable" refid="_9_5_f720368_1110473546612_953158_7669"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Runnable&lt;/code&gt; interface should be implemented by any
+class whose instances are intended to be executed by a thread. The
+class must define a method of no arguments called &lt;code&gt;run&lt;/code&gt;.
+&lt;p&gt;
+This interface is designed to provide a common protocol for objects that
+wish to execute code while they are active. For example,
+&lt;code&gt;Runnable&lt;/code&gt; is implemented by class &lt;code&gt;Thread&lt;/code&gt;.
+Being active simply means that a thread has been started and has not
+yet been stopped.
+&lt;p&gt;
+In addition, &lt;code&gt;Runnable&lt;/code&gt; provides the means for a class to be
+active while not subclassing &lt;code&gt;Thread&lt;/code&gt;. A class that implements
+&lt;code&gt;Runnable&lt;/code&gt; can run without subclassing &lt;code&gt;Thread&lt;/code&gt;
+by instantiating a &lt;code&gt;Thread&lt;/code&gt; instance and passing itself in
+as the target.  In most cases, the &lt;code&gt;Runnable&lt;/code&gt; interface should
+be used if you are only planning to override the &lt;code&gt;run()&lt;/code&gt;
+method and no other &lt;code&gt;Thread&lt;/code&gt; methods.
+This is important because classes should not be subclassed
+unless the programmer intends on modifying or enhancing the fundamental
+behavior of the class.
+
+@author  Arthur van Hoff
+@version 1.24, 12/19/03
+@see     java.lang.Thread
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Runnable" refid="_9_5_f720368_1110473546612_953158_7669"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Runnable" refid="_9_5_f720368_1110473546612_953158_7669"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546565_368127_6507"><documentation humanName="Documentation" mode="standard">This class is the base class for
+&lt;code&gt;DragSourceDragEvent&lt;/code&gt; and
+&lt;code&gt;DragSourceDropEvent&lt;/code&gt;.
+&lt;p&gt;
+&lt;code&gt;DragSourceEvent&lt;/code&gt;s are generated whenever the drag enters, moves
+over, or exits a drop site, when the drop action changes, and when the drag
+ends. The location for the generated &lt;code&gt;DragSourceEvent&lt;/code&gt; specifies
+the mouse cursor location in screen coordinates at the moment this event
+occured.
+&lt;p&gt;
+In a multi-screen environment without a virtual device, the cursor location is
+specified in the coordinate system of the &lt;i&gt;initiator&lt;/i&gt;
+&lt;code&gt;GraphicsConfiguration&lt;/code&gt;. The &lt;i&gt;initiator&lt;/i&gt;
+&lt;code&gt;GraphicsConfiguration&lt;/code&gt; is the &lt;code&gt;GraphicsConfiguration&lt;/code&gt;
+of the &lt;code&gt;Component&lt;/code&gt; on which the drag gesture for the current drag
+operation was recognized. If the cursor location is outside the bounds of
+the initiator &lt;code&gt;GraphicsConfiguration&lt;/code&gt;, the reported coordinates are
+clipped to fit within the bounds of that &lt;code&gt;GraphicsConfiguration&lt;/code&gt;.
+&lt;p&gt;
+In a multi-screen environment with a virtual device, the location is specified
+in the corresponding virtual coordinate system. If the cursor location is
+outside the bounds of the virtual device the reported coordinates are
+clipped to fit within the bounds of the virtual device.
+
+@since 1.2
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928320557_967337_12904"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">DragSourceEvent</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dnd" refid="_9_5_f720368_1110473547284_448561_16376"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305655_63771_3657"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928320557_967337_12904"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305655_63771_3657"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="dnd" refid="_9_5_f720368_1110473547284_448561_16376"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dnd" refid="_9_5_f720368_1110473547284_448561_16376"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dnd" refid="_9_5_f720368_1110473547284_448561_16376"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::dnd::DragSourceEvent</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EventObject" refid="_9_5_f720368_1110473546706_451900_8865"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

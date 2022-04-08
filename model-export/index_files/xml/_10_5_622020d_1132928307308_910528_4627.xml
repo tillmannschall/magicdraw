@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307308_910528_4627"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ObjectInput" refid="_9_5_f720368_1110473546596_941710_7435"/></annotatedElement><body humanName="Body" mode="s,e">ObjectInput extends the DataInput interface to include the reading of
+objects. DataInput includes methods for the input of primitive types,
+ObjectInput extends that interface to include objects, arrays, and Strings.
+
+@author  unascribed
+@version 1.19, 12/19/03
+@see java.io.InputStream
+@see java.io.ObjectOutputStream
+@see java.io.ObjectInputStream
+@since   JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ObjectInput" refid="_9_5_f720368_1110473546596_941710_7435"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ObjectInput" refid="_9_5_f720368_1110473546596_941710_7435"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

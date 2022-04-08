@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314799_202556_9191"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IIORegistry" refid="_9_5_f720368_1110473546706_65391_9037"/></annotatedElement><body humanName="Body" mode="s,e">A registry for service provider instances.  Service provider
+classes may be detected at run time by means of meta-information in
+the JAR files containing them.  The intent is that it be relatively
+inexpensive to load and inspect all available service provider
+classes.  These classes may them be used to locate and instantiate
+more heavyweight classes that will perform actual work, in this
+case instances of &lt;code&gt;ImageReader&lt;/code&gt;,
+&lt;code&gt;ImageWriter&lt;/code&gt;, &lt;code&gt;ImageTranscoder&lt;/code&gt;,
+&lt;code&gt;ImageInputStream&lt;/code&gt;, and &lt;code&gt;ImageOutputStream&lt;/code&gt;.
+
+&lt;p&gt; Service providers found on the system classpath (&lt;i&gt;e.g.&lt;/i&gt;,
+the &lt;code&gt;jre/lib/ext&lt;/code&gt; directory in Sun's implementation of
+JDK) are automatically loaded as soon as this class is
+instantiated.
+
+&lt;p&gt; When the &lt;code&gt;registerApplicationClasspathSpis&lt;/code&gt; method
+is called, service provider instances declared in the
+meta-information section of JAR files on the application class path
+are loaded.  To declare a service provider, a &lt;code&gt;services&lt;/code&gt;
+subdirectory is placed within the &lt;code&gt;META-INF&lt;/code&gt; directory
+that is present in every JAR file.  This directory contains a file
+for each service provider interface that has one or more
+implementation classes present in the JAR file.  For example, if
+the JAR file contained a class named
+&lt;code&gt;com.mycompany.imageio.MyFormatReaderSpi&lt;/code&gt; which
+implements the &lt;code&gt;ImageReaderSpi&lt;/code&gt; interface, the JAR file
+would contain a file named:
+
+&lt;pre&gt;
+META-INF/services/javax.imageio.spi.ImageReaderSpi
+&lt;/pre&gt;
+
+containing the line:
+
+&lt;pre&gt;
+com.mycompany.imageio.MyFormatReaderSpi
+&lt;/pre&gt;
+
+&lt;p&gt; The service provider classes are intended to be lightweight
+and quick to load.  Implementations of these interfaces
+should avoid complex dependencies on other classes and on
+native code.
+
+&lt;p&gt; It is also possible to manually add service providers not found
+automatically, as well as to remove those that are using the
+interfaces of the &lt;code&gt;ServiceRegistry&lt;/code&gt; class.  Thus
+the application may customize the contents of the registry as it
+sees fit.
+
+&lt;p&gt; For more details on declaring service providers, and the JAR
+format in general, see the &lt;a
+href="{@docRoot}/../guide/jar/jar.html"&gt;
+JAR File Specification&lt;/a&gt;.
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="IIORegistry" refid="_9_5_f720368_1110473546706_65391_9037"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="IIORegistry" refid="_9_5_f720368_1110473546706_65391_9037"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

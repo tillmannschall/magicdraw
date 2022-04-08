@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318364_101977_12789"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Transformer" refid="_9_5_f720368_1110473546799_101544_10943"/></annotatedElement><body humanName="Body" mode="s,e">An instance of this abstract class can transform a
+source tree into a result tree.
+
+&lt;p&gt;An instance of this class can be obtained with the
+{@link TransformerFactory#newTransformer TransformerFactory.newTransformer}
+method. This instance may then be used to process XML from a
+variety of sources and write the transformation output to a
+variety of sinks.&lt;/p&gt;
+
+&lt;p&gt;An object of this class may not be used in multiple threads
+running concurrently.  Different Transformers may be used
+concurrently by different threads.&lt;/p&gt;
+
+&lt;p&gt;A &lt;code&gt;Transformer&lt;/code&gt; may be used multiple times.  Parameters and
+output properties are preserved across transformations.&lt;/p&gt;
+
+@author &lt;a href="Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+@version $Revision: 1.9.14.1.2.4 $, $Date: 2004/06/28 18:45:41 $
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Transformer" refid="_9_5_f720368_1110473546799_101544_10943"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Transformer" refid="_9_5_f720368_1110473546799_101544_10943"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

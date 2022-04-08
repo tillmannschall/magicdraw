@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313216_433103_7273"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HashSet" refid="_9_5_f720368_1110473546706_424366_8871"/></annotatedElement><body humanName="Body" mode="s,e">This class implements the &lt;tt&gt;Set&lt;/tt&gt; interface, backed by a hash table
+(actually a &lt;tt&gt;HashMap&lt;/tt&gt; instance).  It makes no guarantees as to the
+iteration order of the set; in particular, it does not guarantee that the
+order will remain constant over time.  This class permits the &lt;tt&gt;null&lt;/tt&gt;
+element.&lt;p&gt;
+
+This class offers constant time performance for the basic operations
+(&lt;tt&gt;add&lt;/tt&gt;, &lt;tt&gt;remove&lt;/tt&gt;, &lt;tt&gt;contains&lt;/tt&gt; and &lt;tt&gt;size&lt;/tt&gt;),
+assuming the hash function disperses the elements properly among the
+buckets.  Iterating over this set requires time proportional to the sum of
+the &lt;tt&gt;HashSet&lt;/tt&gt; instance's size (the number of elements) plus the
+"capacity" of the backing &lt;tt&gt;HashMap&lt;/tt&gt; instance (the number of
+buckets).  Thus, it's very important not to set the initial capacity too
+high (or the load factor too low) if iteration performance is important.&lt;p&gt;
+
+&lt;b&gt;Note that this implementation is not synchronized.&lt;/b&gt; If multiple
+threads access a set concurrently, and at least one of the threads modifies
+the set, it &lt;i&gt;must&lt;/i&gt; be synchronized externally.  This is typically
+accomplished by synchronizing on some object that naturally encapsulates
+the set.  If no such object exists, the set should be "wrapped" using the
+&lt;tt&gt;Collections.synchronizedSet&lt;/tt&gt; method.  This is best done at creation
+time, to prevent accidental unsynchronized access to the &lt;tt&gt;HashSet&lt;/tt&gt;
+instance:
+
+&lt;pre&gt;
+Set s = Collections.synchronizedSet(new HashSet(...));
+&lt;/pre&gt;&lt;p&gt;
+
+The iterators returned by this class's &lt;tt&gt;iterator&lt;/tt&gt; method are
+&lt;i&gt;fail-fast&lt;/i&gt;: if the set is modified at any time after the iterator is
+created, in any way except through the iterator's own &lt;tt&gt;remove&lt;/tt&gt;
+method, the Iterator throws a &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt;.
+Thus, in the face of concurrent modification, the iterator fails quickly
+and cleanly, rather than risking arbitrary, non-deterministic behavior at
+an undetermined time in the future.
+
+&lt;p&gt;Note that the fail-fast behavior of an iterator cannot be guaranteed
+as it is, generally speaking, impossible to make any hard guarantees in the
+presence of unsynchronized concurrent modification.  Fail-fast iterators
+throw &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt; on a best-effort basis.
+Therefore, it would be wrong to write a program that depended on this
+exception for its correctness: &lt;i&gt;the fail-fast behavior of iterators
+should be used only to detect bugs.&lt;/i&gt;&lt;p&gt;
+
+This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@author  Neal Gafter
+@version 1.33, 12/19/03
+@see	    Collection
+@see	    Set
+@see	    TreeSet
+@see	    Collections#synchronizedSet(Set)
+@see	    HashMap
+@since   1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="HashSet" refid="_9_5_f720368_1110473546706_424366_8871"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="HashSet" refid="_9_5_f720368_1110473546706_424366_8871"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

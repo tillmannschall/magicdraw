@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_834211_8739"><documentation humanName="Documentation" mode="standard">&lt;tt&gt;Handler&lt;/tt&gt; that buffers requests in a circular buffer in memory.
+&lt;p&gt;
+Normally this &lt;tt&gt;Handler&lt;/tt&gt; simply stores incoming &lt;tt&gt;LogRecords&lt;/tt&gt;
+into its memory buffer and discards earlier records.  This buffering
+is very cheap and avoids formatting costs.  On certain trigger
+conditions, the &lt;tt&gt;MemoryHandler&lt;/tt&gt; will push out its current buffer
+contents to a target &lt;tt&gt;Handler&lt;/tt&gt;, which will typically publish
+them to the outside world.
+&lt;p&gt;
+There are three main models for triggering a push of the buffer:
+&lt;ul&gt;
+&lt;li&gt;
+An incoming &lt;tt&gt;LogRecord&lt;/tt&gt; has a type that is greater than
+a pre-defined level, the &lt;tt&gt;pushLevel&lt;/tt&gt;.
+&lt;li&gt;
+An external class calls the &lt;tt&gt;push&lt;/tt&gt; method explicitly.
+&lt;li&gt;
+A subclass overrides the &lt;tt&gt;log&lt;/tt&gt; method and scans each incoming
+&lt;tt&gt;LogRecord&lt;/tt&gt; and calls &lt;tt&gt;push&lt;/tt&gt; if a record matches some
+desired criteria.
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;b&gt;Configuration:&lt;/b&gt;
+By default each &lt;tt&gt;MemoryHandler&lt;/tt&gt; is initialized using the following
+LogManager configuration properties.  If properties are not defined
+(or have invalid values) then the specified default values are used.
+If no default value is defined then a RuntimeException is thrown.
+&lt;ul&gt;
+&lt;li&gt;   java.util.logging.MemoryHandler.level
+specifies the level for the &lt;tt&gt;Handler&lt;/tt&gt;
+(defaults to &lt;tt&gt;Level.ALL&lt;/tt&gt;).
+&lt;li&gt;   java.util.logging.MemoryHandler.filter
+specifies the name of a &lt;tt&gt;Filter&lt;/tt&gt; class to use
+(defaults to no &lt;tt&gt;Filter&lt;/tt&gt;).
+&lt;li&gt;   java.util.logging.MemoryHandler.size
+defines the buffer size (defaults to 1000).
+&lt;li&gt;   java.util.logging.MemoryHandler.push
+defines the &lt;tt&gt;pushLevel&lt;/tt&gt; (defaults to &lt;tt&gt;level.SEVERE&lt;/tt&gt;).
+&lt;li&gt;   java.util.logging.MemoryHandler.target
+specifies the name of the target &lt;tt&gt;Handler &lt;/tt&gt; class.
+(no default).
+&lt;/ul&gt;
+
+@version 1.24, 12/19/03
+@since 1.4
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322370_928100_14574"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">MemoryHandler</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="logging" refid="_9_5_f720368_1110473547799_233532_19062"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310372_482820_6769"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322370_928100_14574"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310372_482820_6769"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="logging" refid="_9_5_f720368_1110473547799_233532_19062"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="logging" refid="_9_5_f720368_1110473547799_233532_19062"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="logging" refid="_9_5_f720368_1110473547799_233532_19062"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::logging::MemoryHandler</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Handler" refid="_9_5_f720368_1110473546690_550551_8727"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

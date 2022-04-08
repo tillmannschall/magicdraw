@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307919_293136_4979"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Class" refid="_9_5_f720368_1110473546612_428363_7573"/></annotatedElement><body humanName="Body" mode="s,e">Instances of the class &lt;code&gt;Class&lt;/code&gt; represent classes and
+interfaces in a running Java application.  An enum is a kind of
+class and an annotation is a kind of interface.  Every array also
+belongs to a class that is reflected as a &lt;code&gt;Class&lt;/code&gt; object
+that is shared by all arrays with the same element type and number
+of dimensions.  The primitive Java types (&lt;code&gt;boolean&lt;/code&gt;,
+&lt;code&gt;byte&lt;/code&gt;, &lt;code&gt;char&lt;/code&gt;, &lt;code&gt;short&lt;/code&gt;,
+&lt;code&gt;int&lt;/code&gt;, &lt;code&gt;long&lt;/code&gt;, &lt;code&gt;float&lt;/code&gt;, and
+&lt;code&gt;double&lt;/code&gt;), and the keyword &lt;code&gt;void&lt;/code&gt; are also
+represented as &lt;code&gt;Class&lt;/code&gt; objects.
+
+&lt;p&gt; &lt;code&gt;Class&lt;/code&gt; has no public constructor. Instead &lt;code&gt;Class&lt;/code&gt;
+objects are constructed automatically by the Java Virtual Machine as classes
+are loaded and by calls to the &lt;code&gt;defineClass&lt;/code&gt; method in the class
+loader.
+
+&lt;p&gt; The following example uses a &lt;code&gt;Class&lt;/code&gt; object to print the
+class name of an object:
+
+&lt;p&gt; &lt;blockquote&gt;&lt;pre&gt;
+void printClassName(Object obj) {
+System.out.println("The class of " + obj +
+" is " + obj.getClass().getName());
+}
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; It is also possible to get the &lt;code&gt;Class&lt;/code&gt; object for a named
+type (or for void) using a class literal
+(JLS Section &lt;A HREF="http://java.sun.com/docs/books/jls/second_edition/html/expressions.doc.html#251530"&gt;15.8.2&lt;/A&gt;).
+For example:
+
+&lt;p&gt; &lt;blockquote&gt;&lt;pre&gt;
+System.out.println("The name of class Foo is: "+Foo.class.getName());
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+@author  unascribed
+@version 1.135, 05/25/01
+@see     java.lang.ClassLoader#defineClass(byte[], int, int)
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Class" refid="_9_5_f720368_1110473546612_428363_7573"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Class" refid="_9_5_f720368_1110473546612_428363_7573"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

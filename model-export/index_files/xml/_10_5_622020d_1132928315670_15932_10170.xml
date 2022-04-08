@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315670_15932_10170"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MediaName" refid="_9_5_f720368_1110473546721_339073_9367"/></annotatedElement><body humanName="Body" mode="s,e">Class MediaName is a subclass of Media, a printing attribute class (an
+enumeration) that specifies the media for a print job as a name.
+&lt;P&gt;
+This attribute can be used instead of specifying MediaSize or MediaTray.
+&lt;p&gt;
+Class MediaName currently declares a few standard media names.
+Implementation- or site-defined names for a media name attribute may also
+be created by defining a subclass of class MediaName.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; MediaName is a representation class for
+values of the IPP "media" attribute which names media.
+&lt;P&gt;
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MediaName" refid="_9_5_f720368_1110473546721_339073_9367"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MediaName" refid="_9_5_f720368_1110473546721_339073_9367"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

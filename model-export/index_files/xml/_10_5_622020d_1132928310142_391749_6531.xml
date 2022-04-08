@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928310142_391749_6531"><documentation humanName="Documentation" mode="standard">A synchronization aid that allows one or more threads to wait until
+a set of operations being performed in other threads completes.
+
+&lt;p&gt;A &lt;tt&gt;CountDownLatch&lt;/tt&gt; is initialized with a given
+&lt;em&gt;count&lt;/em&gt;.  The {@link #await await} methods block until the current
+{@link #getCount count} reaches zero due to invocations of the
+{@link #countDown} method, after which all waiting threads are
+released and any subsequent invocations of {@link #await await} return
+immediately. This is a one-shot phenomenon -- the count cannot be
+reset.  If you need a version that resets the count, consider using
+a {@link CyclicBarrier}.
+
+&lt;p&gt;A &lt;tt&gt;CountDownLatch&lt;/tt&gt; is a versatile synchronization tool
+and can be used for a number of purposes.  A
+&lt;tt&gt;CountDownLatch&lt;/tt&gt; initialized with a count of one serves as a
+simple on/off latch, or gate: all threads invoking {@link #await await}
+wait at the gate until it is opened by a thread invoking {@link
+#countDown}.  A &lt;tt&gt;CountDownLatch&lt;/tt&gt; initialized to &lt;em&gt;N&lt;/em&gt;
+can be used to make one thread wait until &lt;em&gt;N&lt;/em&gt; threads have
+completed some action, or some action has been completed N times.
+&lt;p&gt;A useful property of a &lt;tt&gt;CountDownLatch&lt;/tt&gt; is that it
+doesn't require that threads calling &lt;tt&gt;countDown&lt;/tt&gt; wait for
+the count to reach zero before proceeding, it simply prevents any
+thread from proceeding past an {@link #await await} until all
+threads could pass.
+
+&lt;p&gt;&lt;b&gt;Sample usage:&lt;/b&gt; Here is a pair of classes in which a group
+of worker threads use two countdown latches:
+&lt;ul&gt;
+&lt;li&gt;The first is a start signal that prevents any worker from proceeding
+until the driver is ready for them to proceed;
+&lt;li&gt;The second is a completion signal that allows the driver to wait
+until all workers have completed.
+&lt;/ul&gt;
+
+&lt;pre&gt;
+class Driver { // ...
+void main() throws InterruptedException {
+CountDownLatch startSignal = new CountDownLatch(1);
+CountDownLatch doneSignal = new CountDownLatch(N);
+
+for (int i = 0; i &lt; N; ++i) // create and start threads
+new Thread(new Worker(startSignal, doneSignal)).start();
+
+doSomethingElse();            // don't let run yet
+startSignal.countDown();      // let all threads proceed
+doSomethingElse();
+doneSignal.await();           // wait for all to finish
+}
+}
+
+class Worker implements Runnable {
+private final CountDownLatch startSignal;
+private final CountDownLatch doneSignal;
+Worker(CountDownLatch startSignal, CountDownLatch doneSignal) {
+this.startSignal = startSignal;
+this.doneSignal = doneSignal;
+}
+public void run() {
+try {
+startSignal.await();
+doWork();
+doneSignal.countDown();
+} catch (InterruptedException ex) {} // return;
+}
+
+void doWork() { ... }
+}
+
+&lt;/pre&gt;
+
+&lt;p&gt;Another typical usage would be to divide a problem into N parts,
+describe each part with a Runnable that executes that portion and
+counts down on the latch, and queue all the Runnables to an
+Executor.  When all sub-parts are complete, the coordinating thread
+will be able to pass through await. (When threads must repeatedly
+count down in this way, instead use a {@link CyclicBarrier}.)
+
+&lt;pre&gt;
+class Driver2 { // ...
+void main() throws InterruptedException {
+CountDownLatch doneSignal = new CountDownLatch(N);
+Executor e = ...
+
+for (int i = 0; i &lt; N; ++i) // create and start threads
+e.execute(new WorkerRunnable(doneSignal, i));
+
+doneSignal.await();           // wait for all to finish
+}
+}
+
+class WorkerRunnable implements Runnable {
+private final CountDownLatch doneSignal;
+private final int i;
+WorkerRunnable(CountDownLatch doneSignal, int i) {
+this.doneSignal = doneSignal;
+this.i = i;
+}
+public void run() {
+try {
+doWork(i);
+doneSignal.countDown();
+} catch (InterruptedException ex) {} // return;
+}
+
+void doWork() { ... }
+}
+
+&lt;/pre&gt;
+
+@since 1.5
+@author Doug Lea
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Sync" refid="_10_5_622020d_1132928310142_302210_6532"/></member><name humanName="Name" mode="s,e">CountDownLatch</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Sync" refid="_10_5_622020d_1132928310142_302210_6532"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310142_395071_6535"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310142_395071_6535"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Sync" refid="_10_5_622020d_1132928310142_302210_6532"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Sync" refid="_10_5_622020d_1132928310142_302210_6532"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="concurrent" refid="_10_5_622020d_1132928309902_143280_6285"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::concurrent::CountDownLatch</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

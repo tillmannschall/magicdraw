@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308650_152207_5437"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SelectableChannel" refid="_9_5_f720368_1110473546659_881875_7923"/></annotatedElement><body humanName="Body" mode="s,e">A channel that can be multiplexed via a {@link Selector}.
+
+&lt;p&gt; In order to be used with a selector, an instance of this class must
+first be &lt;i&gt;registered&lt;/i&gt; via the {@link #register(Selector,int,Object)
+register} method.  This method returns a new {@link SelectionKey} object
+that represents the channel's registration with the selector.
+
+&lt;p&gt; Once registered with a selector, a channel remains registered until it
+is &lt;i&gt;deregistered&lt;/i&gt;.  This involves deallocating whatever resources were
+allocated to the channel by the selector.
+
+&lt;p&gt; A channel cannot be deregistered directly; instead, the key representing
+its registration must be &lt;i&gt;cancelled&lt;/i&gt;.  Cancelling a key requests that
+the channel be deregistered during the selector's next selection operation.
+A key may be cancelled explicitly by invoking its {@link
+SelectionKey#cancel() cancel} method.  All of a channel's keys are cancelled
+implicitly when the channel is closed, whether by invoking its {@link
+Channel#close close} method or by interrupting a thread blocked in an I/O
+operation upon the channel.
+
+&lt;p&gt; If the selector itself is closed then the channel will be deregistered,
+and the key representing its registration will be invalidated, without
+further delay.
+
+&lt;p&gt; A channel may be registered at most once with any particular selector.
+
+&lt;p&gt; Whether or not a channel is registered with one or more selectors may be
+determined by invoking the {@link #isRegistered isRegistered} method.
+
+&lt;p&gt; Selectable channels are safe for use by multiple concurrent
+threads. &lt;/p&gt;
+
+
+&lt;a name="bm"&gt;
+&lt;h4&gt;Blocking mode&lt;/h4&gt;
+
+A selectable channel is either in &lt;i&gt;blocking&lt;/i&gt; mode or in
+&lt;i&gt;non-blocking&lt;/i&gt; mode.  In blocking mode, every I/O operation invoked
+upon the channel will block until it completes.  In non-blocking mode an I/O
+operation will never block and may transfer fewer bytes than were requested
+or possibly no bytes at all.  The blocking mode of a selectable channel may
+be determined by invoking its {@link #isBlocking isBlocking} method.
+
+&lt;p&gt; Newly-created selectable channels are always in blocking mode.
+Non-blocking mode is most useful in conjunction with selector-based
+multiplexing.  A channel must be placed into non-blocking mode before being
+registered with a selector, and may not be returned to blocking mode until
+it has been deregistered.
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.34, 03/12/19
+@since 1.4
+
+@see SelectionKey
+@see Selector
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="SelectableChannel" refid="_9_5_f720368_1110473546659_881875_7923"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SelectableChannel" refid="_9_5_f720368_1110473546659_881875_7923"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

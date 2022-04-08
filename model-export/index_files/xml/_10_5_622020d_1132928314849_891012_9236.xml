@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314849_891012_9236"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ImageOutputStream" refid="_9_5_f720368_1110473546706_401406_9079"/></annotatedElement><body humanName="Body" mode="s,e">A seekable output stream interface for use by
+&lt;code&gt;ImageWriter&lt;/code&gt;s.  Various output destinations, such as
+&lt;code&gt;OutputStream&lt;/code&gt;s and &lt;code&gt;File&lt;/code&gt;s, as well as
+future fast I/O destinations may be "wrapped" by a suitable
+implementation of this interface for use by the Image I/O API.
+
+&lt;p&gt; Unlike a standard &lt;code&gt;OutputStream&lt;/code&gt;, ImageOutputStream
+extends its counterpart, &lt;code&gt;ImageInputStream&lt;/code&gt;.  Thus it is
+possible to read from the stream as it is being written.  The same
+seek and flush positions apply to both reading and writing, although
+the semantics for dealing with a non-zero bit offset before a byte-aligned
+write are necessarily different from the semantics for dealing with
+a non-zero bit offset before a byte-aligned read.  When reading bytes,
+any bit offset is set to 0 before the read; when writing bytes, a
+non-zero bit offset causes the remaining bits in the byte to be written
+as 0s.  The byte-aligned write then starts at the next byte position.
+
+@see ImageInputStream
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ImageOutputStream" refid="_9_5_f720368_1110473546706_401406_9079"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ImageOutputStream" refid="_9_5_f720368_1110473546706_401406_9079"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

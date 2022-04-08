@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_32664_7071"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::MediaTracker -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321398_811969_13286"/></clientDependency><documentation humanName="Documentation" mode="standard">The &lt;code&gt;MediaTracker&lt;/code&gt; class is a utility class to track
+the status of a number of media objects. Media objects could
+include audio clips as well as images, though currently only
+images are supported.
+&lt;p&gt;
+To use a media tracker, create an instance of
+&lt;code&gt;MediaTracker&lt;/code&gt; and call its &lt;code&gt;addImage&lt;/code&gt;
+method for each image to be tracked. In addition, each image can
+be assigned a unique identifier. This identifier controls the
+priority order in which the images are fetched. It can also be used
+to identify unique subsets of the images that can be waited on
+independently. Images with a lower ID are loaded in preference to
+those with a higher ID number.
+
+&lt;p&gt;
+
+Tracking an animated image
+might not always be useful
+due to the multi-part nature of animated image
+loading and painting,
+but it is supported.
+&lt;code&gt;MediaTracker&lt;/code&gt; treats an animated image
+as completely loaded
+when the first frame is completely loaded.
+At that point, the &lt;code&gt;MediaTracker&lt;/code&gt;
+signals any waiters
+that the image is completely loaded.
+If no &lt;code&gt;ImageObserver&lt;/code&gt;s are observing the image
+when the first frame has finished loading,
+the image might flush itself
+to conserve resources
+(see {@link Image#flush()}).
+
+&lt;p&gt;
+Here is an example of using &lt;code&gt;MediaTracker&lt;/code&gt;:
+&lt;p&gt;
+&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.Graphics;
+import java.awt.MediaTracker;
+
+public class ImageBlaster extends Applet implements Runnable {
+MediaTracker tracker;
+Image bg;
+Image anim[] = new Image[5];
+int index;
+Thread animator;
+
+Get the images for the background (id == 0)
+and the animation frames (id == 1)
+and add them to the MediaTracker
+public void init() {
+tracker = new MediaTracker(this);
+bg = getImage(getDocumentBase(),
+"images/background.gif");
+tracker.addImage(bg, 0);
+for (int i = 0; i &lt; 5; i++) {
+anim[i] = getImage(getDocumentBase(),
+"images/anim"+i+".gif");
+tracker.addImage(anim[i], 1);
+}
+}
+
+Start the animation thread.
+public void start() {
+animator = new Thread(this);
+animator.start();
+}
+
+Stop the animation thread.
+public void stop() {
+animator = null;
+}
+
+Run the animation thread.
+First wait for the background image to fully load
+and paint.  Then wait for all of the animation
+frames to finish loading. Finally, loop and
+increment the animation frame index.
+public void run() {
+try {
+tracker.waitForID(0);
+tracker.waitForID(1);
+} catch (InterruptedException e) {
+return;
+}
+Thread me = Thread.currentThread();
+while (animator == me) {
+try {
+Thread.sleep(100);
+} catch (InterruptedException e) {
+break;
+}
+synchronized (this) {
+index++;
+if (index &gt;= anim.length) {
+index = 0;
+}
+}
+repaint();
+}
+}
+
+The background image fills the frame so we
+don't need to clear the applet on repaints.
+Just call the paint method.
+public void update(Graphics g) {
+paint(g);
+}
+
+Paint a large red rectangle if there are any errors
+loading the images.  Otherwise always paint the
+background so that it appears incrementally as it
+is loading.  Finally, only paint the current animation
+frame if all of the frames (id == 1) are done loading,
+so that we don't get partial animations.
+public void paint(Graphics g) {
+if ((tracker.statusAll(false) &amp; MediaTracker.ERRORED) != 0) {
+g.setColor(Color.red);
+g.fillRect(0, 0, size().width, size().height);
+return;
+}
+g.drawImage(bg, 0, 0, this);
+if (tracker.statusID(1, false) == MediaTracker.COMPLETE) {
+g.drawImage(anim[index], 10, 10, this);
+}
+}
+}
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+
+@version 	1.42, 12/19/03
+@author 	Jim Graham
+@since       JDK1.0
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::MediaTracker -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321398_811969_13286"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">MediaTracker</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306677_713753_4268"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306677_713753_4268"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::MediaTracker -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321398_811969_13286"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::MediaTracker</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

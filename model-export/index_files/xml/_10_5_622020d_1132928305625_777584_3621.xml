@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305625_777584_3621"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StringSelection" refid="_9_5_f720368_1110473546549_461897_6471"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;Transferable&lt;/code&gt; which implements the capability required
+to transfer a &lt;code&gt;String&lt;/code&gt;.
+
+This &lt;code&gt;Transferable&lt;/code&gt; properly supports
+&lt;code&gt;DataFlavor.stringFlavor&lt;/code&gt;
+and all equivalent flavors. Support for
+&lt;code&gt;DataFlavor.plainTextFlavor&lt;/code&gt;
+and all equivalent flavors is &lt;b&gt;deprecated&lt;/b&gt;. No other
+&lt;code&gt;DataFlavor&lt;/code&gt;s are supported.
+
+@see java.awt.datatransfer.DataFlavor#stringFlavor
+@see java.awt.datatransfer.DataFlavor#plainTextFlavor
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="StringSelection" refid="_9_5_f720368_1110473546549_461897_6471"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="StringSelection" refid="_9_5_f720368_1110473546549_461897_6471"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

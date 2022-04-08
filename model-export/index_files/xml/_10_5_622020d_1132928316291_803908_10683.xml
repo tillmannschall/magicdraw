@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316291_803908_10683"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerialRef" refid="_10_5_622020d_1132928316291_820922_10681"/></annotatedElement><body humanName="Body" mode="s,e">A serialized mapping of a &lt;code&gt;Ref&lt;/code&gt; object, which is the mapping in the
+Java programming language of an SQL &lt;code&gt;REF&lt;/code&gt; value.
+&lt;p&gt;
+The &lt;code&gt;SerialRef&lt;/code&gt; class provides a constructor  for
+creating a &lt;code&gt;SerialRef&lt;/code&gt; instance from a &lt;code&gt;Ref&lt;/code&gt;
+object and provides methods for getting and setting the &lt;code&gt;Ref&lt;/code&gt; object.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SerialRef" refid="_10_5_622020d_1132928316291_820922_10681"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerialRef" refid="_10_5_622020d_1132928316291_820922_10681"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546690_664158_8585"><documentation humanName="Documentation" mode="standard">The interface used for the custom mapping of an SQL user-defined type (UDT) to
+a class in the Java programming language. The class object for a class
+implementing the &lt;code&gt;SQLData&lt;/code&gt; interface will be entered in the
+appropriate &lt;code&gt;Connection&lt;/code&gt; object's type map along with the SQL
+name of the UDT for which it is a custom mapping.
+&lt;P&gt;
+Typically, a &lt;code&gt;SQLData&lt;/code&gt; implementation
+will define a field for each attribute of an SQL structured type or a
+single field for an SQL &lt;code&gt;DISTINCT&lt;/code&gt; type. When the UDT is
+retrieved from a data source with the &lt;code&gt;ResultSet.getObject&lt;/code&gt;
+method, it will be mapped as an instance of this class.  A programmer
+can operate on this class instance just as on any other object in the
+Java programming language and then store any changes made to it by
+calling the &lt;code&gt;PreparedStatement.setObject&lt;/code&gt; method,
+which will map it back to the SQL type.
+&lt;p&gt;
+It is expected that the implementation of the class for a custom
+mapping will be done by a tool.  In a typical implementation, the
+programmer would simply supply the name of the SQL UDT, the name of
+the class to which it is being mapped, and the names of the fields to
+which each of the attributes of the UDT is to be mapped.  The tool will use
+this information to implement the &lt;code&gt;SQLData.readSQL&lt;/code&gt; and
+&lt;code&gt;SQLData.writeSQL&lt;/code&gt; methods.  The &lt;code&gt;readSQL&lt;/code&gt; method
+calls the appropriate &lt;code&gt;SQLInput&lt;/code&gt; methods to read
+each attribute from an &lt;code&gt;SQLInput&lt;/code&gt; object, and the
+&lt;code&gt;writeSQL&lt;/code&gt; method calls &lt;code&gt;SQLOutput&lt;/code&gt; methods
+to write each attribute back to the data source via an
+&lt;code&gt;SQLOutput&lt;/code&gt; object.
+&lt;P&gt;
+An application programmer will not normally call &lt;code&gt;SQLData&lt;/code&gt; methods
+directly, and the &lt;code&gt;SQLInput&lt;/code&gt; and &lt;code&gt;SQLOutput&lt;/code&gt; methods
+are called internally by &lt;code&gt;SQLData&lt;/code&gt; methods, not by application code.
+
+@since 1.2
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SQLData</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309531_804763_6186"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309531_804763_6186"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::sql::SQLData</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

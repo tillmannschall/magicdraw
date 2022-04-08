@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318284_859694_12686"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TransferHandler" refid="_9_5_f720368_1110473546799_717489_10883"/></annotatedElement><body humanName="Body" mode="s,e">This class is used to handle the transfer of a &lt;code&gt;Transferable&lt;/code&gt;
+to and from Swing components.  The &lt;code&gt;Transferable&lt;/code&gt; is used to
+represent data that is exchanged via a cut, copy, or paste
+to/from a clipboard.  It is also used in drag-and-drop operations
+to represent a drag from a component, and a drop to a component.
+Swing provides functionality that automatically supports cut, copy,
+and paste keyboard bindings that use the functionality provided by
+an implementation of this class.  Swing also provides functionality
+that automatically supports drag and drop that uses the functionality
+provided by an implementation of this class.  The Swing developer can
+concentrate on specifying the semantics of a transfer primarily by setting
+the &lt;code&gt;transferHandler&lt;/code&gt; property on a Swing component.
+&lt;p&gt;
+This class is implemented to provide a default behavior of transferring
+a component property simply by specifying the name of the property in
+the constructor.  For example, to transfer the foreground color from
+one component to another either via the clipboard or a drag and drop operation
+a &lt;code&gt;TransferHandler&lt;/code&gt; can be constructed with the string "foreground".  The
+built in support will use the color returned by &lt;code&gt;getForeground&lt;/code&gt; as the source
+of the transfer, and &lt;code&gt;setForeground&lt;/code&gt; for the target of a transfer.
+&lt;p&gt;
+Please see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/dnd.html"&gt;
+How to Use Drag and Drop and Data Transfer&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;, for more information.
+
+
+@author  Timothy Prinzing
+@version 1.29 06/02/04
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="TransferHandler" refid="_9_5_f720368_1110473546799_717489_10883"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TransferHandler" refid="_9_5_f720368_1110473546799_717489_10883"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546690_549555_8637"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::text::Collator -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928321939_755298_14283"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::text::Collator -&gt; JDK 5.0 Classes::java::text::Comparator&lt;Object&gt;]" refid="_10_5_622020d_1132928321929_418357_14282"/></clientDependency><documentation humanName="Documentation" mode="standard">The &lt;code&gt;Collator&lt;/code&gt; class performs locale-sensitive
+&lt;code&gt;String&lt;/code&gt; comparison. You use this class to build
+searching and sorting routines for natural language text.
+
+&lt;p&gt;
+&lt;code&gt;Collator&lt;/code&gt; is an abstract base class. Subclasses
+implement specific collation strategies. One subclass,
+&lt;code&gt;RuleBasedCollator&lt;/code&gt;, is currently provided with
+the Java 2 platform and is applicable to a wide set of languages. Other
+subclasses may be created to handle more specialized needs.
+
+&lt;p&gt;
+Like other locale-sensitive classes, you can use the static
+factory method, &lt;code&gt;getInstance&lt;/code&gt;, to obtain the appropriate
+&lt;code&gt;Collator&lt;/code&gt; object for a given locale. You will only need
+to look at the subclasses of &lt;code&gt;Collator&lt;/code&gt; if you need
+to understand the details of a particular collation strategy or
+if you need to modify that strategy.
+
+&lt;p&gt;
+The following example shows how to compare two strings using
+the &lt;code&gt;Collator&lt;/code&gt; for the default locale.
+&lt;blockquote&gt;
+&lt;pre&gt;
+Compare two strings in the default locale
+Collator myCollator = Collator.getInstance();
+if( myCollator.compare("abc", "ABC") &lt; 0 )
+System.out.println("abc is less than ABC");
+else
+System.out.println("abc is greater than or equal to ABC");
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+You can set a &lt;code&gt;Collator&lt;/code&gt;'s &lt;em&gt;strength&lt;/em&gt; property
+to determine the level of difference considered significant in
+comparisons. Four strengths are provided: &lt;code&gt;PRIMARY&lt;/code&gt;,
+&lt;code&gt;SECONDARY&lt;/code&gt;, &lt;code&gt;TERTIARY&lt;/code&gt;, and &lt;code&gt;IDENTICAL&lt;/code&gt;.
+The exact assignment of strengths to language features is
+locale dependant.  For example, in Czech, "e" and "f" are considered
+primary differences, while "e" and "\u00EA" are secondary differences,
+"e" and "E" are tertiary differences and "e" and "e" are identical.
+The following shows how both case and accents could be ignored for
+US English.
+&lt;blockquote&gt;
+&lt;pre&gt;
+Get the Collator for US English and set its strength to PRIMARY
+Collator usCollator = Collator.getInstance(Locale.US);
+usCollator.setStrength(Collator.PRIMARY);
+if( usCollator.compare("abc", "ABC") == 0 ) {
+System.out.println("Strings are equivalent");
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+For comparing &lt;code&gt;String&lt;/code&gt;s exactly once, the &lt;code&gt;compare&lt;/code&gt;
+method provides the best performance. When sorting a list of
+&lt;code&gt;String&lt;/code&gt;s however, it is generally necessary to compare each
+&lt;code&gt;String&lt;/code&gt; multiple times. In this case, &lt;code&gt;CollationKey&lt;/code&gt;s
+provide better performance. The &lt;code&gt;CollationKey&lt;/code&gt; class converts
+a &lt;code&gt;String&lt;/code&gt; to a series of bits that can be compared bitwise
+against other &lt;code&gt;CollationKey&lt;/code&gt;s. A &lt;code&gt;CollationKey&lt;/code&gt; is
+created by a &lt;code&gt;Collator&lt;/code&gt; object for a given &lt;code&gt;String&lt;/code&gt;.
+&lt;br&gt;
+&lt;strong&gt;Note:&lt;/strong&gt; &lt;code&gt;CollationKey&lt;/code&gt;s from different
+&lt;code&gt;Collator&lt;/code&gt;s can not be compared. See the class description
+for {@link CollationKey}
+for an example using &lt;code&gt;CollationKey&lt;/code&gt;s.
+
+@see         RuleBasedCollator
+@see         CollationKey
+@see         CollationElementIterator
+@see         Locale
+@version     1.39, 05/05/04
+@author      Helena Shih, Laura Werner, Richard Gillam
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::text::Collator -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928321939_755298_14283"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::text::Collator -&gt; JDK 5.0 Classes::java::text::Comparator&lt;Object&gt;]" refid="_10_5_622020d_1132928321929_418357_14282"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Collator</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309611_707163_6234"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309611_707163_6234"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::text::Collator -&gt; JDK 5.0 Classes::java::lang::Cloneable]" refid="_10_5_622020d_1132928321939_755298_14283"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::text::Collator -&gt; JDK 5.0 Classes::java::text::Comparator&lt;Object&gt;]" refid="_10_5_622020d_1132928321929_418357_14282"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::text::Collator</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Cloneable" refid="_9_5_f720368_1110473546612_888397_7587"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Comparator&lt;Object&gt;" refid="_10_5_622020d_1132928321929_11005_14279"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

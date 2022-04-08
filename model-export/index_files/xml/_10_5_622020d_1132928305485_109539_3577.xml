@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305485_109539_3577"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Applet" refid="_9_5_f720368_1110473546549_293040_6433"/></annotatedElement><body humanName="Body" mode="s,e">An applet is a small program that is intended not to be run on
+its own, but rather to be embedded inside another application.
+&lt;p&gt;
+The &lt;code&gt;Applet&lt;/code&gt; class must be the superclass of any
+applet that is to be embedded in a Web page or viewed by the Java
+Applet Viewer. The &lt;code&gt;Applet&lt;/code&gt; class provides a standard
+interface between applets and their environment.
+
+@author      Arthur van Hoff
+@author      Chris Warth
+@version     1.77, 06/22/04
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Applet" refid="_9_5_f720368_1110473546549_293040_6433"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Applet" refid="_9_5_f720368_1110473546549_293040_6433"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

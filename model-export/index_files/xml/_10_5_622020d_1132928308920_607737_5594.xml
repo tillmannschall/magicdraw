@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308920_607737_5594"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ActivationGroup" refid="_9_5_f720368_1110473546674_203596_8131"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;ActivationGroup&lt;/code&gt; is responsible for creating new
+instances of "activatable" objects in its group, informing its
+&lt;code&gt;ActivationMonitor&lt;/code&gt; when either: its object's become
+active or inactive, or the group as a whole becomes inactive. &lt;p&gt;
+
+An &lt;code&gt;ActivationGroup&lt;/code&gt; is &lt;i&gt;initially&lt;/i&gt; created in one
+of several ways: &lt;ul&gt;
+&lt;li&gt;as a side-effect of creating an &lt;code&gt;ActivationDesc&lt;/code&gt;
+without an explicit &lt;code&gt;ActivationGroupID&lt;/code&gt; for the
+first activatable object in the group, or
+&lt;li&gt;via the &lt;code&gt;ActivationGroup.createGroup&lt;/code&gt; method
+&lt;li&gt;as a side-effect of activating the first object in a group
+whose &lt;code&gt;ActivationGroupDesc&lt;/code&gt; was only registered.&lt;/ul&gt;&lt;p&gt;
+
+Only the activator can &lt;i&gt;recreate&lt;/i&gt; an
+&lt;code&gt;ActivationGroup&lt;/code&gt;.  The activator spawns, as needed, a
+separate VM (as a child process, for example) for each registered
+activation group and directs activation requests to the appropriate
+group. It is implementation specific how VMs are spawned. An
+activation group is created via the
+&lt;code&gt;ActivationGroup.createGroup&lt;/code&gt; static method. The
+&lt;code&gt;createGroup&lt;/code&gt; method has two requirements on the group
+to be created: 1) the group must be a concrete subclass of
+&lt;code&gt;ActivationGroup&lt;/code&gt;, and 2) the group must have a
+constructor that takes two arguments:
+
+&lt;ul&gt;
+&lt;li&gt; the group's &lt;code&gt;ActivationGroupID&lt;/code&gt;, and
+&lt;li&gt; the group's initialization data (in a
+&lt;code&gt;java.rmi.MarshalledObject&lt;/code&gt;)&lt;/ul&gt;&lt;p&gt;
+
+When created, the default implementation of
+&lt;code&gt;ActivationGroup&lt;/code&gt; will override the system properties
+with the properties requested when its
+&lt;code&gt;ActivationGroupDesc&lt;/code&gt; was created, and will set a
+&lt;code&gt;java.rmi.RMISecurityManager&lt;/code&gt; as the default system
+security manager.  If your application requires specific properties
+to be set when objects are activated in the group, the application
+should create a special &lt;code&gt;Properties&lt;/code&gt; object containing
+these properties, then create an &lt;code&gt;ActivationGroupDesc&lt;/code&gt;
+with the &lt;code&gt;Properties&lt;/code&gt; object, and use
+&lt;code&gt;ActivationGroup.createGroup&lt;/code&gt; before creating any
+&lt;code&gt;ActivationDesc&lt;/code&gt;s (before the default
+&lt;code&gt;ActivationGroupDesc&lt;/code&gt; is created).  If your application
+requires the use of a security manager other than
+&lt;code&gt;java.rmi.RMISecurityManager&lt;/code&gt;, in the
+ActivativationGroupDescriptor properties list you can set
+&lt;code&gt;java.security.manager&lt;/code&gt; property to the name of the security
+manager you would like to install.
+
+@author 	Ann Wollrath
+@version	1.44, 03/12/19
+@see 	ActivationInstantiator
+@see		ActivationGroupDesc
+@see		ActivationGroupID
+@since	1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="ActivationGroup" refid="_9_5_f720368_1110473546674_203596_8131"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ActivationGroup" refid="_9_5_f720368_1110473546674_203596_8131"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

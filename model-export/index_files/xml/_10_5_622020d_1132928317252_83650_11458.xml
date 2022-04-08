@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317252_83650_11458"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ColorType" refid="_10_5_622020d_1132928317242_291775_11456"/></annotatedElement><body humanName="Body" mode="s,e">A typesafe enumeration of colors that can be fetched from a style.
+&lt;p&gt;
+Each &lt;code&gt;SynthStyle&lt;/code&gt; has a set of &lt;code&gt;ColorType&lt;/code&gt;s that
+are accessed by way of the
+{@link SynthStyle#getColor(SynthContext, ColorType)} method.
+&lt;code&gt;SynthStyle&lt;/code&gt;'s &lt;code&gt;installDefaults&lt;/code&gt; will install
+the &lt;code&gt;FOREGROUND&lt;/code&gt; color
+as the foreground of
+the Component, and the &lt;code&gt;BACKGROUND&lt;/code&gt; color to the background of
+the component (assuming that you have not explicitly specified a
+foreground and background color). Some components
+support more color based properties, for
+example &lt;code&gt;JList&lt;/code&gt; has the property
+&lt;code&gt;selectionForeground&lt;/code&gt; which will be mapped to
+&lt;code&gt;FOREGROUND&lt;/code&gt; with a component state of
+&lt;code&gt;SynthConstants.SELECTED&lt;/code&gt;.
+&lt;p&gt;
+The following example shows a custom &lt;code&gt;SynthStyle&lt;/code&gt; that returns
+a red Color for the &lt;code&gt;DISABLED&lt;/code&gt; state, otherwise a black color.
+&lt;pre&gt;
+class MyStyle extends SynthStyle {
+private Color disabledColor = new ColorUIResource(Color.RED);
+private Color color = new ColorUIResource(Color.BLACK);
+protected Color getColorForState(SynthContext context, ColorType type){
+if (context.getComponentState() == SynthConstants.DISABLED) {
+return disabledColor;
+}
+return color;
+}
+}
+&lt;/pre&gt;
+
+@version 1.11, 12/19/03
+@since 1.5
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ColorType" refid="_10_5_622020d_1132928317242_291775_11456"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ColorType" refid="_10_5_622020d_1132928317242_291775_11456"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

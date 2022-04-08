@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308600_333880_5390"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Channels" refid="_9_5_f720368_1110473546643_644239_7879"/></annotatedElement><body humanName="Body" mode="s,e">Utility methods for channels and streams.
+
+&lt;p&gt; This class defines static methods that support the interoperation of the
+stream classes of the &lt;tt&gt;{@link java.io}&lt;/tt&gt; package with the channel
+classes of this package.  &lt;/p&gt;
+
+
+@author Mark Reinhold
+@author Mike McCloskey
+@author JSR-51 Expert Group
+@version 1.23, 03/12/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Channels" refid="_9_5_f720368_1110473546643_644239_7879"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Channels" refid="_9_5_f720368_1110473546643_644239_7879"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_89383_8745"><documentation humanName="Documentation" mode="standard">Stream based logging &lt;tt&gt;Handler&lt;/tt&gt;.
+&lt;p&gt;
+This is primarily intended as a base class or support class to
+be used in implementing other logging &lt;tt&gt;Handlers&lt;/tt&gt;.
+&lt;p&gt;
+&lt;tt&gt;LogRecords&lt;/tt&gt; are published to a given &lt;tt&gt;java.io.OutputStream&lt;/tt&gt;.
+&lt;p&gt;
+&lt;b&gt;Configuration:&lt;/b&gt;
+By default each &lt;tt&gt;StreamHandler&lt;/tt&gt; is initialized using the following
+&lt;tt&gt;LogManager&lt;/tt&gt; configuration properties.  If properties are not defined
+(or have invalid values) then the specified default values are used.
+&lt;ul&gt;
+&lt;li&gt;   java.util.logging.StreamHandler.level
+specifies the default level for the &lt;tt&gt;Handler&lt;/tt&gt;
+(defaults to &lt;tt&gt;Level.INFO&lt;/tt&gt;).
+&lt;li&gt;   java.util.logging.StreamHandler.filter
+specifies the name of a &lt;tt&gt;Filter&lt;/tt&gt; class to use
+(defaults to no &lt;tt&gt;Filter&lt;/tt&gt;).
+&lt;li&gt;   java.util.logging.StreamHandler.formatter
+specifies the name of a &lt;tt&gt;Formatter&lt;/tt&gt; class to use
+(defaults to &lt;tt&gt;java.util.logging.SimpleFormatter&lt;/tt&gt;).
+&lt;li&gt;   java.util.logging.StreamHandler.encoding
+the name of the character set encoding to use (defaults to
+the default platform encoding).
+&lt;/ul&gt;
+
+@version 1.18, 12/19/03
+@since 1.4
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322370_761673_14577"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">StreamHandler</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="logging" refid="_9_5_f720368_1110473547799_233532_19062"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310382_960037_6775"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322370_761673_14577"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310382_960037_6775"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="logging" refid="_9_5_f720368_1110473547799_233532_19062"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="logging" refid="_9_5_f720368_1110473547799_233532_19062"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="logging" refid="_9_5_f720368_1110473547799_233532_19062"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::logging::StreamHandler</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Handler" refid="_9_5_f720368_1110473546690_550551_8727"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

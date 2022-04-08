@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928316131_289667_10529"><documentation humanName="Documentation" mode="standard">Performs SASL authentication as a server.
+&lt;p&gt;
+A server such an LDAP server gets an instance of this
+class in order to perform authentication defined by a specific SASL
+mechanism. Invoking methods on the &lt;tt&gt;SaslServer&lt;/tt&gt; instance
+generates challenges according to the SASL
+mechanism implemented by the &lt;tt&gt;SaslServer&lt;/tt&gt;.
+As the authentication proceeds, the instance
+encapsulates the state of a SASL server's authentication exchange.
+&lt;p&gt;
+Here's an example of how an LDAP server might use a &lt;tt&gt;SaslServer&lt;/tt&gt;.
+It first gets an instance of a &lt;tt&gt;SaslServer&lt;/tt&gt; for the SASL mechanism
+requested by the client:
+&lt;blockquote&gt;&lt;pre&gt;
+SaslServer ss = Sasl.createSaslServer(mechanism,
+"ldap", myFQDN, props, callbackHandler);
+&lt;/pre&gt;&lt;/blockquote&gt;
+It can then proceed to use the server for authentication.
+For example, suppose the LDAP server received an LDAP BIND request
+containing the name of the SASL mechanism and an (optional) initial
+response. It then might use the server as follows:
+&lt;blockquote&gt;&lt;pre&gt;
+while (!ss.isComplete()) {
+try {
+byte[] challenge = ss.evaluateResponse(response);
+if (ss.isComplete()) {
+status = ldap.sendBindResponse(mechanism, challenge, SUCCESS);
+} else {
+status = ldap.sendBindResponse(mechanism, challenge,
+SASL_BIND_IN_PROGRESS);
+response = ldap.readBindRequest();
+}
+} catch (SaslException e) {
+status = ldap.sendErrorResponse(e);
+break;
+}
+}
+if (ss.isComplete() &amp;&amp; status == SUCCESS) {
+String qop = (String) sc.getNegotiatedProperty(Sasl.QOP);
+if (qop != null
+&amp;&amp; (qop.equalsIgnoreCase("auth-int")
+|| qop.equalsIgnoreCase("auth-conf"))) {
+
+Use SaslServer.wrap() and SaslServer.unwrap() for future
+communication with client
+ldap.in = new SecureInputStream(ss, ldap.in);
+ldap.out = new SecureOutputStream(ss, ldap.out);
+}
+}
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+@since 1.5
+
+@see Sasl
+@see SaslServerFactory
+
+@author Rosanna Lee
+@author Rob Weltman
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SaslServer</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sasl" refid="_10_5_622020d_1132928316121_664184_10504"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316141_8864_10531"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316141_8864_10531"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sasl" refid="_10_5_622020d_1132928316121_664184_10504"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sasl" refid="_10_5_622020d_1132928316121_664184_10504"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sasl" refid="_10_5_622020d_1132928316121_664184_10504"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::security::sasl::SaslServer</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

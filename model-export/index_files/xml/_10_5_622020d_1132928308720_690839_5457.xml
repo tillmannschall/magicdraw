@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308720_690839_5457"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Charset" refid="_9_5_f720368_1110473546659_687911_7943"/></annotatedElement><body humanName="Body" mode="s,e">A named mapping between sequences of sixteen-bit Unicode &lt;a
+href="../../lang/Character.java#unicode"&gt;code units&lt;/a&gt; and sequences of
+bytes.  This class defines methods for creating decoders and encoders and
+for retrieving the various names associated with a charset.  Instances of
+this class are immutable.
+
+&lt;p&gt; This class also defines static methods for testing whether a particular
+charset is supported, for locating charset instances by name, and for
+constructing a map that contains every charset for which support is
+available in the current Java virtual machine.  Support for new charsets can
+be added via the service-provider interface defined in the {@link
+java.nio.charset.spi.CharsetProvider} class.
+
+&lt;p&gt; All of the methods defined in this class are safe for use by multiple
+concurrent threads.
+
+
+&lt;a name="names"&gt;&lt;a name="charenc"&gt;
+&lt;h4&gt;Charset names&lt;/h4&gt;
+
+&lt;p&gt; Charsets are named by strings composed of the following characters:
+
+&lt;ul&gt;
+
+&lt;li&gt; The uppercase letters &lt;tt&gt;'A'&lt;/tt&gt; through &lt;tt&gt;'Z'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u0041'&lt;/tt&gt;&amp;nbsp;through&amp;nbsp;&lt;tt&gt;'&amp;#92;u005a'&lt;/tt&gt;),
+
+&lt;li&gt; The lowercase letters &lt;tt&gt;'a'&lt;/tt&gt; through &lt;tt&gt;'z'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u0061'&lt;/tt&gt;&amp;nbsp;through&amp;nbsp;&lt;tt&gt;'&amp;#92;u007a'&lt;/tt&gt;),
+
+&lt;li&gt; The digits &lt;tt&gt;'0'&lt;/tt&gt; through &lt;tt&gt;'9'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u0030'&lt;/tt&gt;&amp;nbsp;through&amp;nbsp;&lt;tt&gt;'&amp;#92;u0039'&lt;/tt&gt;),
+
+&lt;li&gt; The dash character &lt;tt&gt;'-'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u002d'&lt;/tt&gt;,&amp;nbsp;&lt;small&gt;HYPHEN-MINUS&lt;/small&gt;),
+
+&lt;li&gt; The period character &lt;tt&gt;'.'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u002e'&lt;/tt&gt;,&amp;nbsp;&lt;small&gt;FULL STOP&lt;/small&gt;),
+
+&lt;li&gt; The colon character &lt;tt&gt;':'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u003a'&lt;/tt&gt;,&amp;nbsp;&lt;small&gt;COLON&lt;/small&gt;), and
+
+&lt;li&gt; The underscore character &lt;tt&gt;'_'&lt;/tt&gt;
+(&lt;tt&gt;'&amp;#92;u005f'&lt;/tt&gt;,&amp;nbsp;&lt;small&gt;LOW&amp;nbsp;LINE&lt;/small&gt;).
+
+&lt;/ul&gt;
+
+A charset name must begin with either a letter or a digit.  The empty string
+is not a legal charset name.  Charset names are not case-sensitive; that is,
+case is always ignored when comparing charset names.  Charset names
+generally follow the conventions documented in &lt;a
+href="http://ietf.org/rfc/rfc2278.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2278:&amp;nbsp;IANA Charset
+Registration Procedures&lt;/i&gt;&lt;/a&gt;.
+
+&lt;p&gt; Every charset has a &lt;i&gt;canonical name&lt;/i&gt; and may also have one or more
+&lt;i&gt;aliases&lt;/i&gt;.  The canonical name is returned by the {@link #name name} method
+of this class.  Canonical names are, by convention, usually in upper case.
+The aliases of a charset are returned by the {@link #aliases aliases}
+method.
+
+&lt;a name="hn"&gt;
+
+&lt;p&gt; Some charsets have an &lt;i&gt;historical name&lt;/i&gt; that is defined for
+compatibility with previous versions of the Java platform.  A charset's
+historical name is either its canonical name or one of its aliases.  The
+historical name is returned by the &lt;tt&gt;getEncoding()&lt;/tt&gt; methods of the
+{@link java.io.InputStreamReader#getEncoding InputStreamReader} and {@link
+java.io.OutputStreamWriter#getEncoding OutputStreamWriter} classes.
+
+&lt;a name="iana"&gt;
+
+&lt;p&gt; If a charset listed in the &lt;a
+href="http://www.iana.org/assignments/character-sets"&gt;&lt;i&gt;IANA Charset
+Registry&lt;/i&gt;&lt;/a&gt; is supported by an implementation of the Java platform then
+its canonical name must be the name listed in the registry.  Many charsets
+are given more than one name in the registry, in which case the registry
+identifies one of the names as &lt;i&gt;MIME-preferred&lt;/i&gt;.  If a charset has more
+than one registry name then its canonical name must be the MIME-preferred
+name and the other names in the registry must be valid aliases.  If a
+supported charset is not listed in the IANA registry then its canonical name
+must begin with one of the strings &lt;tt&gt;"X-"&lt;/tt&gt; or &lt;tt&gt;"x-"&lt;/tt&gt;.
+
+&lt;p&gt; The IANA charset registry does change over time, and so the canonical
+name and the aliases of a particular charset may also change over time.  To
+ensure compatibility it is recommended that no alias ever be removed from a
+charset, and that if the canonical name of a charset is changed then its
+previous canonical name be made into an alias.
+
+
+&lt;h4&gt;Standard charsets&lt;/h4&gt;
+
+&lt;p&gt; Every implementation of the Java platform is required to support the
+following standard charsets.  Consult the release documentation for your
+implementation to see if any other charsets are supported.  The behavior
+of such optional charsets may differ between implementations.
+
+&lt;blockquote&gt;&lt;table width="80%" summary="Description of standard charsets"&gt;
+&lt;tr&gt;&lt;th&gt;&lt;p align="left"&gt;Charset&lt;/p&gt;&lt;/th&gt;&lt;th&gt;&lt;p align="left"&gt;Description&lt;/p&gt;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign=top&gt;&lt;tt&gt;US-ASCII&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;Seven-bit ASCII, a.k.a. &lt;tt&gt;ISO646-US&lt;/tt&gt;,
+a.k.a. the Basic Latin block of the Unicode character set&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign=top&gt;&lt;tt&gt;ISO-8859-1&amp;nbsp;&amp;nbsp;&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;ISO Latin Alphabet No. 1, a.k.a. &lt;tt&gt;ISO-LATIN-1&lt;/tt&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign=top&gt;&lt;tt&gt;UTF-8&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;Eight-bit UCS Transformation Format&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign=top&gt;&lt;tt&gt;UTF-16BE&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;Sixteen-bit UCS Transformation Format,
+big-endian byte&amp;nbsp;order&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign=top&gt;&lt;tt&gt;UTF-16LE&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;Sixteen-bit UCS Transformation Format,
+little-endian byte&amp;nbsp;order&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td valign=top&gt;&lt;tt&gt;UTF-16&lt;/tt&gt;&lt;/td&gt;
+&lt;td&gt;Sixteen-bit UCS Transformation Format,
+byte&amp;nbsp;order identified by an optional byte-order mark&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; The &lt;tt&gt;UTF-8&lt;/tt&gt; charset is specified by &lt;a
+href="http://ietf.org/rfc/rfc2279.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2279&lt;/i&gt;&lt;/a&gt;; the
+transformation format upon which it is based is specified in
+Amendment&amp;nbsp;2 of ISO&amp;nbsp;10646-1 and is also described in the &lt;a
+href="http://www.unicode.org/unicode/standard/standard.html"&gt;&lt;i&gt;Unicode
+Standard&lt;/i&gt;&lt;/a&gt;.
+
+&lt;p&gt; The &lt;tt&gt;UTF-16&lt;/tt&gt; charsets are specified by &lt;a
+href="http://ietf.org/rfc/rfc2781.txt"&gt;&lt;i&gt;RFC&amp;nbsp;2781&lt;/i&gt;&lt;/a&gt;; the
+transformation formats upon which they are based are specified in
+Amendment&amp;nbsp;1 of ISO&amp;nbsp;10646-1 and are also described in the &lt;a
+href="http://www.unicode.org/unicode/standard/standard.html"&gt;&lt;i&gt;Unicode
+Standard&lt;/i&gt;&lt;/a&gt;.
+
+&lt;p&gt; The &lt;tt&gt;UTF-16&lt;/tt&gt; charsets use sixteen-bit quantities and are
+therefore sensitive to byte order.  In these encodings the byte order of a
+stream may be indicated by an initial &lt;i&gt;byte-order mark&lt;/i&gt; represented by
+the Unicode character &lt;tt&gt;'&amp;#92;uFEFF'&lt;/tt&gt;.  Byte-order marks are handled
+as follows:
+
+&lt;ul&gt;
+
+&lt;li&gt;&lt;p&gt; When decoding, the &lt;tt&gt;UTF-16BE&lt;/tt&gt; and &lt;tt&gt;UTF-16LE&lt;/tt&gt;
+charsets ignore byte-order marks; when encoding, they do not write
+byte-order marks. &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; When decoding, the &lt;tt&gt;UTF-16&lt;/tt&gt; charset interprets a byte-order
+mark to indicate the byte order of the stream but defaults to big-endian
+if there is no byte-order mark; when encoding, it uses big-endian byte
+order and writes a big-endian byte-order mark. &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ul&gt;
+
+In any case, when a byte-order mark is read at the beginning of a decoding
+operation it is omitted from the resulting sequence of characters.  Byte
+order marks occuring after the first element of an input sequence are not
+omitted since the same code is used to represent &lt;small&gt;ZERO-WIDTH
+NON-BREAKING SPACE&lt;/small&gt;.
+
+&lt;p&gt; Every instance of the Java virtual machine has a default charset, which
+may or may not be one of the standard charsets.  The default charset is
+determined during virtual-machine startup and typically depends upon the
+locale and charset being used by the underlying operating system. &lt;/p&gt;
+
+
+&lt;h4&gt;Terminology&lt;/h4&gt;
+
+&lt;p&gt; The name of this class is taken from the terms used in &lt;a
+href="http://ietf.org/rfc/rfc2278.txt""&gt;&lt;i&gt;RFC&amp;nbsp;2278&lt;/i&gt;&lt;/a&gt;.  In that
+document a &lt;i&gt;charset&lt;/i&gt; is defined as the combination of a coded character
+set and a character-encoding scheme.
+
+&lt;p&gt; A &lt;i&gt;coded character set&lt;/i&gt; is a mapping between a set of abstract
+characters and a set of integers.  US-ASCII, ISO&amp;nbsp;8859-1,
+JIS&amp;nbsp;X&amp;nbsp;0201, and full Unicode, which is the same as
+ISO&amp;nbsp;10646-1, are examples of coded character sets.
+
+&lt;p&gt; A &lt;i&gt;character-encoding scheme&lt;/i&gt; is a mapping between a coded
+character set and a set of octet (eight-bit byte) sequences.  UTF-8, UCS-2,
+UTF-16, ISO&amp;nbsp;2022, and EUC are examples of character-encoding schemes.
+Encoding schemes are often associated with a particular coded character set;
+UTF-8, for example, is used only to encode Unicode.  Some schemes, however,
+are associated with multiple character sets; EUC, for example, can be used
+to encode characters in a variety of Asian character sets.
+
+&lt;p&gt; When a coded character set is used exclusively with a single
+character-encoding scheme then the corresponding charset is usually named
+for the character set; otherwise a charset is usually named for the encoding
+scheme and, possibly, the locale of the character sets that it supports.
+Hence &lt;tt&gt;US-ASCII&lt;/tt&gt; is the name of the charset for US-ASCII while
+&lt;tt&gt;EUC-JP&lt;/tt&gt; is the name of the charset that encodes the
+JIS&amp;nbsp;X&amp;nbsp;0201, JIS&amp;nbsp;X&amp;nbsp;0208, and JIS&amp;nbsp;X&amp;nbsp;0212
+character sets.
+
+&lt;p&gt; The native character encoding of the Java programming language is
+UTF-16.  A charset in the Java platform therefore defines a mapping between
+sequences of sixteen-bit UTF-16 code units and sequences of bytes. &lt;/p&gt;
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.46, 04/07/16
+@since 1.4
+
+@see CharsetDecoder
+@see CharsetEncoder
+@see java.nio.charset.spi.CharsetProvider
+@see java.lang.Character
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Charset" refid="_9_5_f720368_1110473546659_687911_7943"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Charset" refid="_9_5_f720368_1110473546659_687911_7943"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

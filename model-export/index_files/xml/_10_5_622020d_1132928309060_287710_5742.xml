@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309060_287710_5742"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ServerException" refid="_9_5_f720368_1110473546674_11662_8243"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;ServerException&lt;/code&gt; is thrown as a result of a remote method
+invocation when a &lt;code&gt;RemoteException&lt;/code&gt; is thrown while processing
+the invocation on the server, either while unmarshalling the arguments or
+executing the remote method itself.
+
+A &lt;code&gt;ServerException&lt;/code&gt; instance contains the original
+&lt;code&gt;RemoteException&lt;/code&gt; that occurred as its cause.
+
+@version 1.15, 12/19/03
+@author  Ann Wollrath
+@since   JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ServerException" refid="_9_5_f720368_1110473546674_11662_8243"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ServerException" refid="_9_5_f720368_1110473546674_11662_8243"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546612_321766_7611"><documentation humanName="Documentation" mode="standard">An IllegalAccessException is thrown when an application tries
+to reflectively create an instance (other than an array),
+set or get a field, or invoke a method, but the currently
+executing method does not have access to the definition of
+the specified class, field, method or constructor.
+
+@author  unascribed
+@version 1.14, 12/19/03
+@see     Class#newInstance()
+@see     java.lang.reflect.Field#set(Object, Object)
+@see     java.lang.reflect.Field#setBoolean(Object, boolean)
+@see     java.lang.reflect.Field#setByte(Object, byte)
+@see     java.lang.reflect.Field#setShort(Object, short)
+@see     java.lang.reflect.Field#setChar(Object, char)
+@see     java.lang.reflect.Field#setInt(Object, int)
+@see     java.lang.reflect.Field#setLong(Object, long)
+@see     java.lang.reflect.Field#setFloat(Object, float)
+@see     java.lang.reflect.Field#setDouble(Object, double)
+@see     java.lang.reflect.Field#get(Object)
+@see     java.lang.reflect.Field#getBoolean(Object)
+@see     java.lang.reflect.Field#getByte(Object)
+@see     java.lang.reflect.Field#getShort(Object)
+@see     java.lang.reflect.Field#getChar(Object)
+@see     java.lang.reflect.Field#getInt(Object)
+@see     java.lang.reflect.Field#getLong(Object)
+@see     java.lang.reflect.Field#getFloat(Object)
+@see     java.lang.reflect.Field#getDouble(Object)
+@see     java.lang.reflect.Method#invoke(Object, Object[])
+@see     java.lang.reflect.Constructor#newInstance(Object[])
+@since   JDK1.0
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321658_104638_13662"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">IllegalAccessException</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307959_861792_5037"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321658_104638_13662"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307959_861792_5037"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="lang" refid="_9_5_f720368_1110473547503_52464_17780"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::IllegalAccessException</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Exception" refid="_9_5_f720368_1110473546612_465691_7599"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317823_431777_12303"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BoundedRangeModel" refid="_9_5_f720368_1110473546784_123022_10631"/></annotatedElement><body humanName="Body" mode="s,e">Defines the data model used by components like &lt;code&gt;Slider&lt;/code&gt;s
+and &lt;code&gt;ProgressBar&lt;/code&gt;s.
+Defines four interrelated integer properties: minimum, maximum, extent
+and value.  These four integers define two nested ranges like this:
+&lt;pre&gt;
+minimum &lt;= value &lt;= value+extent &lt;= maximum
+&lt;/pre&gt;
+The outer range is &lt;code&gt;minimum,maximum&lt;/code&gt; and the inner
+range is &lt;code&gt;value,value+extent&lt;/code&gt;.  The inner range
+must lie within the outer one, i.e. &lt;code&gt;value&lt;/code&gt; must be
+less than or equal to &lt;code&gt;maximum&lt;/code&gt; and &lt;code&gt;value+extent&lt;/code&gt;
+must greater than or equal to &lt;code&gt;minimum&lt;/code&gt;, and &lt;code&gt;maximum&lt;/code&gt;
+must be greater than or equal to &lt;code&gt;minimum&lt;/code&gt;.
+There are a few features of this model that one might find a little
+surprising.  These quirks exist for the convenience of the
+Swing BoundedRangeModel clients, such as &lt;code&gt;Slider&lt;/code&gt; and
+&lt;code&gt;ScrollBar&lt;/code&gt;.
+&lt;ul&gt;
+&lt;li&gt;
+The minimum and maximum set methods "correct" the other
+three properties to accommodate their new value argument.  For
+example setting the model's minimum may change its maximum, value,
+and extent properties (in that order), to maintain the constraints
+specified above.
+
+&lt;li&gt;
+The value and extent set methods "correct" their argument to
+fit within the limits defined by the other three properties.
+For example if &lt;code&gt;value == maximum&lt;/code&gt;, &lt;code&gt;setExtent(10)&lt;/code&gt;
+would change the extent (back) to zero.
+
+&lt;li&gt;
+The four BoundedRangeModel values are defined as Java Beans properties
+however Swing ChangeEvents are used to notify clients of changes rather
+than PropertyChangeEvents. This was done to keep the overhead of monitoring
+a BoundedRangeModel low. Changes are often reported at MouseDragged rates.
+&lt;/ul&gt;
+
+&lt;p&gt;
+
+For an example of specifying custom bounded range models used by sliders,
+see &lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/overview/anatomy.html"&gt;The Anatomy of a Swing-Based Program&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+
+@version 1.28 12/19/03
+@author Hans Muller
+@see DefaultBoundedRangeModel
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="BoundedRangeModel" refid="_9_5_f720368_1110473546784_123022_10631"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BoundedRangeModel" refid="_9_5_f720368_1110473546784_123022_10631"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

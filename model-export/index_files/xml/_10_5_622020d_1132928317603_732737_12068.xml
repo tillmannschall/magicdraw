@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317603_732737_12068"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GapContent" refid="_9_5_f720368_1110473546784_480833_10467"/></annotatedElement><body humanName="Body" mode="s,e">An implementation of the AbstractDocument.Content interface
+implemented using a gapped buffer similar to that used by emacs.
+The underlying storage is a array of unicode characters with
+a gap somewhere.  The gap is moved to the location of changes
+to take advantage of common behavior where most changes are
+in the same location.  Changes that occur at a gap boundary are
+generally cheap and moving the gap is generally cheaper than
+moving the array contents directly to accomodate the change.
+&lt;p&gt;
+The positions tracking change are also generally cheap to
+maintain.  The Position implementations (marks) store the array
+index and can easily calculate the sequential position from
+the current gap location.  Changes only require update to the
+the marks between the old and new gap boundaries when the gap
+is moved, so generally updating the marks is pretty cheap.
+The marks are stored sorted so they can be located quickly
+with a binary search.  This increases the cost of adding a
+mark, and decreases the cost of keeping the mark updated.
+
+@author  Timothy Prinzing
+@version 1.21 12/03/01
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="GapContent" refid="_9_5_f720368_1110473546784_480833_10467"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="GapContent" refid="_9_5_f720368_1110473546784_480833_10467"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

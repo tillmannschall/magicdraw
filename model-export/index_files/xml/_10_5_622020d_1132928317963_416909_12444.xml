@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317963_416909_12444"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JLabel" refid="_9_5_f720368_1110473546799_684315_10735"/></annotatedElement><body humanName="Body" mode="s,e">A display area for a short text string or an image,
+or both.
+A label does not react to input events.
+As a result, it cannot get the keyboard focus.
+A label can, however, display a keyboard alternative
+as a convenience for a nearby component
+that has a keyboard alternative but can't display it.
+&lt;p&gt;
+A &lt;code&gt;JLabel&lt;/code&gt; object can display
+either text, an image, or both.
+You can specify where in the label's display area
+the label's contents are aligned
+by setting the vertical and horizontal alignment.
+By default, labels are vertically centered
+in their display area.
+Text-only labels are leading edge aligned, by default;
+image-only labels are horizontally centered, by default.
+&lt;p&gt;
+You can also specify the position of the text
+relative to the image.
+By default, text is on the trailing edge of the image,
+with the text and image vertically aligned.
+&lt;p&gt;
+A label's leading and trailing edge are determined from the value of its
+{@link java.awt.ComponentOrientation} property.  At present, the default
+ComponentOrientation setting maps the leading edge to left and the trailing
+edge to right.
+
+&lt;p&gt;
+Finally, you can use the &lt;code&gt;setIconTextGap&lt;/code&gt; method
+to specify how many pixels
+should appear between the text and the image.
+The default is 4 pixels.
+&lt;p&gt;
+See &lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/label.html"&gt;How to Use Labels&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt;
+for further documentation.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@beaninfo
+attribute: isContainer false
+description: A component that displays a short string and an icon.
+
+@version 1.116 04/02/04
+@author Hans Muller
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JLabel" refid="_9_5_f720368_1110473546799_684315_10735"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JLabel" refid="_9_5_f720368_1110473546799_684315_10735"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_10_5_622020d_1132928317312_392026_11622"><documentation humanName="Documentation" mode="standard">Factory used for obtaining &lt;code&gt;SynthStyle&lt;/code&gt;s.  Each of the
+Synth &lt;code&gt;ComponentUI&lt;/code&gt;s will call into the current
+&lt;code&gt;SynthStyleFactory&lt;/code&gt; to obtain a &lt;code&gt;SynthStyle&lt;/code&gt;
+for each of the distinct regions they have.
+&lt;p&gt;
+The following example creates a custom &lt;code&gt;SynthStyleFactory&lt;/code&gt;
+that returns a different style based on the &lt;code&gt;Region&lt;/code&gt;:
+&lt;pre&gt;
+class MyStyleFactory extends SynthStyleFactory {
+public SynthStyle getStyle(JComponent c, Region id) {
+if (id == Region.BUTTON) {
+return buttonStyle;
+}
+else if (id == Region.TREE) {
+return treeStyle;
+}
+return defaultStyle;
+}
+}
+SynthLookAndFeel laf = new SynthLookAndFeel();
+UIManager.setLookAndFeel(laf);
+SynthLookAndFeel.setStyleFactory(new MyStyleFactory());
+&lt;/pre&gt;
+
+@see SynthStyleFactory
+@see SynthStyle
+
+@version 1.8, 12/19/03
+@since 1.5
+@author Scott Violet
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SynthStyleFactory</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="synth" refid="_10_5_622020d_1132928317242_121531_11455"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317312_414265_11624"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317312_414265_11624"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="synth" refid="_10_5_622020d_1132928317242_121531_11455"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="synth" refid="_10_5_622020d_1132928317242_121531_11455"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="synth" refid="_10_5_622020d_1132928317242_121531_11455"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::plaf::synth::SynthStyleFactory</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

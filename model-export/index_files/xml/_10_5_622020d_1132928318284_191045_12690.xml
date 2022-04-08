@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318284_191045_12690"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LazyInputMap" refid="_9_5_f720368_1110473548487_45872_24530"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;LazyInputMap&lt;/code&gt; will create a &lt;code&gt;InputMap&lt;/code&gt;
+in its &lt;code&gt;createValue&lt;/code&gt;
+method. The bindings are passed in in the constructor.
+The bindings are an array with
+the even number entries being string &lt;code&gt;KeyStrokes&lt;/code&gt;
+(eg "alt SPACE") and
+the odd number entries being the value to use in the
+&lt;code&gt;InputMap&lt;/code&gt; (and the key in the &lt;code&gt;ActionMap&lt;/code&gt;).
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="LazyInputMap" refid="_9_5_f720368_1110473548487_45872_24530"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LazyInputMap" refid="_9_5_f720368_1110473548487_45872_24530"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

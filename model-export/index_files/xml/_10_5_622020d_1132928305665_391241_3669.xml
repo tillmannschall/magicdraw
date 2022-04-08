@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305665_391241_3669"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetContext" refid="_9_5_f720368_1110473546565_788945_6517"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;DropTargetContext&lt;/code&gt; is created
+whenever the logical cursor associated
+with a Drag and Drop operation coincides with the visible geometry of
+a &lt;code&gt;Component&lt;/code&gt; associated with a &lt;code&gt;DropTarget&lt;/code&gt;.
+The &lt;code&gt;DropTargetContext&lt;/code&gt; provides
+the mechanism for a potential receiver
+of a drop operation to both provide the end user with the appropriate
+drag under feedback, but also to effect the subsequent data transfer
+if appropriate.
+
+@version 	1.37, 05/05/04
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DropTargetContext" refid="_9_5_f720368_1110473546565_788945_6517"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DropTargetContext" refid="_9_5_f720368_1110473546565_788945_6517"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

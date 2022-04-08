@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314668_437589_9000"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ProcessingInstruction" refid="_9_5_f720368_1110473546940_879463_13248"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;ProcessingInstruction&lt;/code&gt; interface represents a "processing
+instruction", used in XML as a way to keep processor-specific information
+in the text of the document.
+&lt;p&gt; No lexical check is done on the content of a processing instruction and
+it is therefore possible to have the character sequence
+&lt;code&gt;"?&gt;"&lt;/code&gt; in the content, which is illegal a processing
+instruction per section 2.6 of [&lt;a href='http://www.w3.org/TR/2004/REC-xml-20040204'&gt;XML 1.0&lt;/a&gt;]. The
+presence of this character sequence must generate a fatal error during
+serialization.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'&gt;Document Object Model (DOM) Level 3 Core Specification&lt;/a&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ProcessingInstruction" refid="_9_5_f720368_1110473546940_879463_13248"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ProcessingInstruction" refid="_9_5_f720368_1110473546940_879463_13248"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

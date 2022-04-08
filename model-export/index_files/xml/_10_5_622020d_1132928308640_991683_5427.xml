@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308640_991683_5427"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OverlappingFileLockException" refid="_9_5_f720368_1110473546659_684038_7915"/></annotatedElement><body humanName="Body" mode="s,e">Unchecked exception thrown when an attempt is made to acquire a lock on a
+region of a file that overlaps a region already locked by the same Java
+virtual machine, or when another thread is already waiting to lock an
+overlapping region of the same file.
+
+@version 1.9, 01/11/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="OverlappingFileLockException" refid="_9_5_f720368_1110473546659_684038_7915"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OverlappingFileLockException" refid="_9_5_f720368_1110473546659_684038_7915"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

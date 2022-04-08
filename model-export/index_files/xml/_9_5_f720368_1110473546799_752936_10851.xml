@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546799_752936_10851"><documentation humanName="Documentation" mode="standard">A &lt;code&gt;SizeSequence&lt;/code&gt; object
+efficiently maintains an ordered list
+of sizes and corresponding positions.
+One situation for which &lt;code&gt;SizeSequence&lt;/code&gt;
+might be appropriate is in a component
+that displays multiple rows of unequal size.
+In this case, a single &lt;code&gt;SizeSequence&lt;/code&gt;
+object could be used to track the heights
+and Y positions of all rows.
+&lt;p&gt;
+Another example would be a multi-column component,
+such as a &lt;code&gt;JTable&lt;/code&gt;,
+in which the column sizes are not all equal.
+The &lt;code&gt;JTable&lt;/code&gt; might use a single
+&lt;code&gt;SizeSequence&lt;/code&gt; object
+to store the widths and X positions of all the columns.
+The &lt;code&gt;JTable&lt;/code&gt; could then use the
+&lt;code&gt;SizeSequence&lt;/code&gt; object
+to find the column corresponding to a certain position.
+The &lt;code&gt;JTable&lt;/code&gt; could update the
+&lt;code&gt;SizeSequence&lt;/code&gt; object
+whenever one or more column sizes changed.
+
+&lt;p&gt;
+The following figure shows the relationship between size and position data
+for a multi-column component.
+&lt;p&gt;
+&lt;center&gt;
+&lt;img src="doc-files/SizeSequence-1.gif" width=384 height = 100
+alt="The first item begins at position 0, the second at the position equal
+to the size of the previous item, and so on."&gt;
+&lt;/center&gt;
+&lt;p&gt;
+In the figure, the first index (0) corresponds to the first column,
+the second index (1) to the second column, and so on.
+The first column's position starts at 0,
+and the column occupies &lt;em&gt;size&lt;sub&gt;0&lt;/sub&gt;&lt;/em&gt; pixels,
+where &lt;em&gt;size&lt;sub&gt;0&lt;/sub&gt;&lt;/em&gt; is the value returned by
+&lt;code&gt;getSize(0)&lt;/code&gt;.
+Thus, the first column ends at &lt;em&gt;size&lt;sub&gt;0&lt;/sub&gt;&lt;/em&gt; - 1.
+The second column then begins at
+the position &lt;em&gt;size&lt;sub&gt;0&lt;/sub&gt;&lt;/em&gt;
+and occupies &lt;em&gt;size&lt;sub&gt;1&lt;/sub&gt;&lt;/em&gt; (&lt;code&gt;getSize(1)&lt;/code&gt;) pixels.
+&lt;p&gt;
+Note that a &lt;code&gt;SizeSequence&lt;/code&gt; object simply represents intervals
+along an axis.
+In our examples, the intervals represent height or width in pixels.
+However, any other unit of measure (for example, time in days)
+could be just as valid.
+
+&lt;p&gt;
+
+&lt;h4&gt;Implementation Notes&lt;/h4&gt;
+
+Normally when storing the size and position of entries,
+one would choose between
+storing the sizes or storing their positions
+instead. The two common operations that are needed during
+rendering are: &lt;code&gt;getIndex(position)&lt;/code&gt;
+and &lt;code&gt;setSize(index, size)&lt;/code&gt;.
+Whichever choice of internal format is made one of these
+operations is costly when the number of entries becomes large.
+If sizes are stored, finding the index of the entry
+that encloses a particular position is linear in the
+number of entries. If positions are stored instead, setting
+the size of an entry at a particular index requires updating
+the positions of the affected entries, which is also a linear
+calculation.
+&lt;p&gt;
+Like the above techniques this class holds an array of N integers
+internally but uses a hybrid encoding, which is halfway
+between the size-based and positional-based approaches.
+The result is a data structure that takes the same space to store
+the information but can perform most operations in Log(N) time
+instead of O(N), where N is the number of entries in the list.
+&lt;p&gt;
+Two operations that remain O(N) in the number of entries are
+the &lt;code&gt;insertEntries&lt;/code&gt;
+and &lt;code&gt;removeEntries&lt;/code&gt; methods, both
+of which are implemented by converting the internal array to
+a set of integer sizes, copying it into the new array, and then
+reforming the hybrid representation in place.
+
+@version 1.14 12/19/03
+@author Philip Milne
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SizeSequence</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318214_424662_12638"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318214_424662_12638"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::SizeSequence</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314668_21009_9011"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Attributes2" refid="_10_5_622020d_1132928314668_22422_9009"/></annotatedElement><body humanName="Body" mode="s,e">SAX2 extension to augment the per-attribute information
+provided though {@link Attributes}.
+If an implementation supports this extension, the attributes
+provided in {@link org.xml.sax.ContentHandler#startElement
+ContentHandler.startElement() } will implement this interface,
+and the &lt;em&gt;http://xml.org/sax/features/use-attributes2&lt;/em&gt;
+feature flag will have the value &lt;em&gt;true&lt;/em&gt;.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt; XMLReader implementations are not required to support this
+information, and it is not part of core-only SAX2 distributions.&lt;/p&gt;
+
+&lt;p&gt;Note that if an attribute was defaulted (&lt;em&gt;!isSpecified()&lt;/em&gt;)
+it will of necessity also have been declared (&lt;em&gt;isDeclared()&lt;/em&gt;)
+in the DTD.
+Similarly if an attribute's type is anything except CDATA, then it
+must have been declared.
+&lt;/p&gt;
+
+@since SAX 2.0 (extensions 1.1 alpha)
+@author David Brownell
+@version TBS
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Attributes2" refid="_10_5_622020d_1132928314668_22422_9009"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Attributes2" refid="_10_5_622020d_1132928314668_22422_9009"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306387_421506_4149"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Component" refid="_9_5_f720368_1110473546581_653823_6965"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;em&gt;component&lt;/em&gt; is an object having a graphical representation
+that can be displayed on the screen and that can interact with the
+user. Examples of components are the buttons, checkboxes, and scrollbars
+of a typical graphical user interface. &lt;p&gt;
+The &lt;code&gt;Component&lt;/code&gt; class is the abstract superclass of
+the nonmenu-related Abstract Window Toolkit components. Class
+&lt;code&gt;Component&lt;/code&gt; can also be extended directly to create a
+lightweight component. A lightweight component is a component that is
+not associated with a native opaque window.
+&lt;p&gt;
+&lt;h3&gt;Serialization&lt;/h3&gt;
+It is important to note that only AWT listeners which conform
+to the &lt;code&gt;Serializable&lt;/code&gt; protocol will be saved when
+the object is stored.  If an AWT object has listeners that
+aren't marked serializable, they will be dropped at
+&lt;code&gt;writeObject&lt;/code&gt; time.  Developers will need, as always,
+to consider the implications of making an object serializable.
+One situation to watch out for is this:
+&lt;pre&gt;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.Serializable;
+
+class MyApp implements ActionListener, Serializable
+{
+BigObjectThatShouldNotBeSerializedWithAButton bigOne;
+Button aButton = new Button();
+
+MyApp()
+{
+Oops, now aButton has a listener with a reference
+to bigOne!
+aButton.addActionListener(this);
+}
+
+public void actionPerformed(ActionEvent e)
+{
+System.out.println("Hello There");
+}
+}
+&lt;/pre&gt;
+In this example, serializing &lt;code&gt;aButton&lt;/code&gt; by itself
+will cause &lt;code&gt;MyApp&lt;/code&gt; and everything it refers to
+to be serialized as well.  The problem is that the listener
+is serializable by coincidence, not by design.  To separate
+the decisions about &lt;code&gt;MyApp&lt;/code&gt; and the
+&lt;code&gt;ActionListener&lt;/code&gt; being serializable one can use a
+nested class, as in the following example:
+&lt;pre&gt;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.Serializable;
+
+class MyApp java.io.Serializable
+{
+BigObjectThatShouldNotBeSerializedWithAButton bigOne;
+Button aButton = new Button();
+
+class MyActionListener implements ActionListener
+{
+public void actionPerformed(ActionEvent e)
+{
+System.out.println("Hello There");
+}
+}
+
+MyApp()
+{
+aButton.addActionListener(new MyActionListener());
+}
+}
+&lt;/pre&gt;
+&lt;p&gt;
+&lt;b&gt;Note&lt;/b&gt;: For more information on the paint mechanisms utilitized
+by AWT and Swing, including information on how to write the most
+efficient painting code, see
+&lt;a href="http://java.sun.com/products/jfc/tsc/articles/painting/index.html"&gt;Painting in AWT and Swing&lt;/a&gt;.
+&lt;p&gt;
+For details on the focus subsystem, see
+&lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/misc/focus.html"&gt;
+How to Use the Focus Subsystem&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;, and the
+&lt;a href="../../java/awt/doc-files/FocusSpec.html"&gt;Focus Specification&lt;/a&gt;
+for more information.
+
+@version     1.387, 06/18/04
+@author      Arthur van Hoff
+@author      Sami Shaio
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Component" refid="_9_5_f720368_1110473546581_653823_6965"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Component" refid="_9_5_f720368_1110473546581_653823_6965"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

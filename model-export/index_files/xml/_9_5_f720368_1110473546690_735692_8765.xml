@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546690_735692_8765"><documentation humanName="Documentation" mode="standard">A node in a hierarchical collection of preference data.  This class
+allows applications to store and retrieve user and system
+preference and configuration data.  This data is stored
+persistently in an implementation-dependent backing store.  Typical
+implementations include flat files, OS-specific registries,
+directory servers and SQL databases.  The user of this class needn't
+be concerned with details of the backing store.
+
+&lt;p&gt;There are two separate trees of preference nodes, one for user
+preferences and one for system preferences.  Each user has a separate user
+preference tree, and all users in a given system share the same system
+preference tree.  The precise description of "user" and "system" will vary
+from implementation to implementation.  Typical information stored in the
+user preference tree might include font choice, color choice, or preferred
+window location and size for a particular application.  Typical information
+stored in the system preference tree might include installation
+configuration data for an application.
+
+&lt;p&gt;Nodes in a preference tree are named in a similar fashion to
+directories in a hierarchical file system.   Every node in a preference
+tree has a &lt;i&gt;node name&lt;/i&gt; (which is not necessarily unique),
+a unique &lt;i&gt;absolute path name&lt;/i&gt;, and a path name &lt;i&gt;relative&lt;/i&gt; to each
+ancestor including itself.
+
+&lt;p&gt;The root node has a node name of the empty string ("").  Every other
+node has an arbitrary node name, specified at the time it is created.  The
+only restrictions on this name are that it cannot be the empty string, and
+it cannot contain the slash character ('/').
+
+&lt;p&gt;The root node has an absolute path name of &lt;tt&gt;"/"&lt;/tt&gt;.  Children of
+the root node have absolute path names of &lt;tt&gt;"/" + &lt;/tt&gt;&lt;i&gt;&lt;node
+name&gt;&lt;/i&gt;.  All other nodes have absolute path names of &lt;i&gt;&lt;parent's
+absolute path name&gt;&lt;/i&gt;&lt;tt&gt; + "/" + &lt;/tt&gt;&lt;i&gt;&lt;node name&gt;&lt;/i&gt;.
+Note that all absolute path names begin with the slash character.
+
+&lt;p&gt;A node &lt;i&gt;n&lt;/i&gt;'s path name relative to its ancestor &lt;i&gt;a&lt;/i&gt;
+is simply the string that must be appended to &lt;i&gt;a&lt;/i&gt;'s absolute path name
+in order to form &lt;i&gt;n&lt;/i&gt;'s absolute path name, with the initial slash
+character (if present) removed.  Note that:
+&lt;ul&gt;
+&lt;li&gt;No relative path names begin with the slash character.
+&lt;li&gt;Every node's path name relative to itself is the empty string.
+&lt;li&gt;Every node's path name relative to its parent is its node name (except
+for the root node, which does not have a parent).
+&lt;li&gt;Every node's path name relative to the root is its absolute path name
+with the initial slash character removed.
+&lt;/ul&gt;
+
+&lt;p&gt;Note finally that:
+&lt;ul&gt;
+&lt;li&gt;No path name contains multiple consecutive slash characters.
+&lt;li&gt;No path name with the exception of the root's absolute path name
+ends in the slash character.
+&lt;li&gt;Any string that conforms to these two rules is a valid path name.
+&lt;/ul&gt;
+
+&lt;p&gt;All of the methods that modify preferences data are permitted to operate
+asynchronously; they may return immediately, and changes will eventually
+propagate to the persistent backing store with an implementation-dependent
+delay.  The &lt;tt&gt;flush&lt;/tt&gt; method may be used to synchronously force
+updates to the backing store.  Normal termination of the Java Virtual
+Machine will &lt;i&gt;not&lt;/i&gt; result in the loss of pending updates -- an explicit
+&lt;tt&gt;flush&lt;/tt&gt; invocation is &lt;i&gt;not&lt;/i&gt; required upon termination to ensure
+that pending updates are made persistent.
+
+&lt;p&gt;All of the methods that read preferences from a &lt;tt&gt;Preferences&lt;/tt&gt;
+object require the invoker to provide a default value.  The default value is
+returned if no value has been previously set &lt;i&gt;or if the backing store is
+unavailable&lt;/i&gt;.  The intent is to allow applications to operate, albeit
+with slightly degraded functionality, even if the backing store becomes
+unavailable.  Several methods, like &lt;tt&gt;flush&lt;/tt&gt;, have semantics that
+prevent them from operating if the backing store is unavailable.  Ordinary
+applications should have no need to invoke any of these methods, which can
+be identified by the fact that they are declared to throw {@link
+BackingStoreException}.
+
+&lt;p&gt;The methods in this class may be invoked concurrently by multiple threads
+in a single JVM without the need for external synchronization, and the
+results will be equivalent to some serial execution.  If this class is used
+concurrently &lt;i&gt;by multiple JVMs&lt;/i&gt; that store their preference data in
+the same backing store, the data store will not be corrupted, but no
+other guarantees are made concerning the consistency of the preference
+data.
+
+&lt;p&gt;This class contains an export/import facility, allowing preferences
+to be "exported" to an XML document, and XML documents representing
+preferences to be "imported" back into the system.  This facility
+may be used to back up all or part of a preference tree, and
+subsequently restore from the backup.
+
+&lt;p&gt;The XML document has the following DOCTYPE declaration:
+&lt;pre&gt;
+&lt;!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd"&gt;
+&lt;/pre&gt;
+Note that the system URI (http://java.sun.com/dtd/preferences.dtd) is
+&lt;i&gt;not&lt;/i&gt; accessed when exporting or importing preferences; it merely
+serves as a string to uniquely identify the DTD, which is:
+&lt;pre&gt;
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;!-- DTD for a Preferences tree. --&gt;
+
+&lt;!-- The preferences element is at the root of an XML document
+representing a Preferences tree. --&gt;
+&lt;!ELEMENT preferences (root)&gt;
+
+&lt;!-- The preferences element contains an optional version attribute,
+which specifies version of DTD. --&gt;
+&lt;!ATTLIST preferences EXTERNAL_XML_VERSION CDATA "0.0" &amp;gt
+
+&lt;!-- The root element has a map representing the root's preferences
+(if any), and one node for each child of the root (if any). --&gt;
+&lt;!ELEMENT root (map, node*) &gt;
+
+&lt;!-- Additionally, the root contains a type attribute, which
+specifies whether it's the system or user root. --&gt;
+&lt;!ATTLIST root
+type (system|user) #REQUIRED &gt;
+
+&lt;!-- Each node has a map representing its preferences (if any),
+and one node for each child (if any). --&gt;
+&lt;!ELEMENT node (map, node*) &gt;
+
+&lt;!-- Additionally, each node has a name attribute --&gt;
+&lt;!ATTLIST node
+name CDATA #REQUIRED &gt;
+
+&lt;!-- A map represents the preferences stored at a node (if any). --&gt;
+&lt;!ELEMENT map (entry*) &gt;
+
+&lt;!-- An entry represents a single preference, which is simply
+a key-value pair. --&gt;
+&lt;!ELEMENT entry EMPTY &gt;
+&lt;!ATTLIST entry
+key   CDATA #REQUIRED
+value CDATA #REQUIRED &gt;
+&lt;/pre&gt;
+
+Every &lt;tt&gt;Preferences&lt;/tt&gt; implementation must have an associated {@link
+PreferencesFactory} implementation.  Every J2SE implementation must provide
+some means of specifying which &lt;tt&gt;PreferencesFactory&lt;/tt&gt; implementation
+is used to generate the root preferences nodes.  This allows the
+administrator to replace the default preferences implementation with an
+alternative implementation.
+
+&lt;p&gt;Implementation note: In Sun's JRE, the &lt;tt&gt;PreferencesFactory&lt;/tt&gt;
+implementation is located as follows:
+
+&lt;ol&gt;
+
+&lt;li&gt;&lt;p&gt;If the system property
+&lt;tt&gt;java.util.prefs.PreferencesFactory&lt;/tt&gt; is defined, then it is
+taken to be the fully-qualified name of a class implementing the
+&lt;tt&gt;PreferencesFactory&lt;/tt&gt; interface.  The class is loaded and
+instantiated; if this process fails then an unspecified error is
+thrown.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; If a &lt;tt&gt;PreferencesFactory&lt;/tt&gt; implementation class file
+has been installed in a jar file that is visible to the
+{@link java.lang.ClassLoader#getSystemClassLoader system class loader},
+and that jar file contains a provider-configuration file named
+&lt;tt&gt;java.util.prefs.PreferencesFactory&lt;/tt&gt; in the resource
+directory &lt;tt&gt;META-INF/services&lt;/tt&gt;, then the first class name
+specified in that file is taken.  If more than one such jar file is
+provided, the first one found will be used.  The class is loaded
+and instantiated; if this process fails then an unspecified error
+is thrown.  &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Finally, if neither the above-mentioned system property nor
+an extension jar file is provided, then the system-wide default
+&lt;tt&gt;PreferencesFactory&lt;/tt&gt; implementation for the underlying
+platform is loaded and instantiated.&lt;/p&gt;&lt;/li&gt;
+
+&lt;/ol&gt;
+
+@author  Josh Bloch
+@version 1.25, 06/21/04
+@since   1.4
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Preferences</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="prefs" refid="_9_5_f720368_1110473547815_981880_19100"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310432_91170_6797"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310432_91170_6797"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="prefs" refid="_9_5_f720368_1110473547815_981880_19100"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="prefs" refid="_9_5_f720368_1110473547815_981880_19100"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="prefs" refid="_9_5_f720368_1110473547815_981880_19100"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::prefs::Preferences</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

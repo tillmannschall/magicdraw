@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928314879_382739_9282"><documentation humanName="Documentation" mode="standard">This class represents the contents of the &lt;CODE&gt;MLET&lt;/CODE&gt; tag.
+&lt;p&gt;
+The &lt;CODE&gt;MLET&lt;/CODE&gt; tag has the following syntax:
+&lt;p&gt;
+&lt;&lt;CODE&gt;MLET&lt;/CODE&gt;&lt;BR&gt;
+&lt;CODE&gt;CODE = &lt;/CODE&gt;&lt;VAR&gt;class&lt;/VAR&gt;&lt;CODE&gt; | OBJECT = &lt;/CODE&gt;&lt;VAR&gt;serfile&lt;/VAR&gt;&lt;BR&gt;
+&lt;CODE&gt;ARCHIVE = "&lt;/CODE&gt;&lt;VAR&gt;archiveList&lt;/VAR&gt;&lt;CODE&gt;"&lt;/CODE&gt;&lt;BR&gt;
+&lt;CODE&gt;[CODEBASE = &lt;/CODE&gt;&lt;VAR&gt;codebaseURL&lt;/VAR&gt;&lt;CODE&gt;]&lt;/CODE&gt;&lt;BR&gt;
+&lt;CODE&gt;[NAME = &lt;/CODE&gt;&lt;VAR&gt;mbeanname&lt;/VAR&gt;&lt;CODE&gt;]&lt;/CODE&gt;&lt;BR&gt;
+&lt;CODE&gt;[VERSION = &lt;/CODE&gt;&lt;VAR&gt;version&lt;/VAR&gt;&lt;CODE&gt;]&lt;/CODE&gt;&lt;BR&gt;
+&gt;&lt;BR&gt;
+&lt;CODE&gt;[&lt;/CODE&gt;&lt;VAR&gt;arglist&lt;/VAR&gt;&lt;CODE&gt;]&lt;/CODE&gt;&lt;BR&gt;
+&lt;&lt;CODE&gt;/MLET&lt;/CODE&gt;&gt;
+&lt;p&gt;
+where:
+&lt;DL&gt;
+&lt;DT&gt;&lt;CODE&gt;CODE = &lt;/CODE&gt;&lt;VAR&gt;class&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This attribute specifies the full Java class name, including package name, of the MBean to be obtained.
+The compiled &lt;CODE&gt;.class&lt;/CODE&gt; file of the MBean must be contained in one of the &lt;CODE&gt;.jar&lt;/CODE&gt; files specified by the &lt;CODE&gt;ARCHIVE&lt;/CODE&gt;
+attribute. Either &lt;CODE&gt;CODE&lt;/CODE&gt; or &lt;CODE&gt;OBJECT&lt;/CODE&gt; must be present.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;CODE&gt;OBJECT = &lt;/CODE&gt;&lt;VAR&gt;serfile&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This attribute specifies the &lt;CODE&gt;.ser&lt;/CODE&gt; file that contains a serialized representation of the MBean to be obtained.
+This file must be contained in one of the &lt;CODE&gt;.jar&lt;/CODE&gt; files specified by the &lt;CODE&gt;ARCHIVE&lt;/CODE&gt; attribute. If the &lt;CODE&gt;.jar&lt;/CODE&gt; file contains a directory hierarchy, specify the path of the file within this hierarchy. Otherwise  a match will not be found. Either &lt;CODE&gt;CODE&lt;/CODE&gt; or &lt;CODE&gt;OBJECT&lt;/CODE&gt; must be present.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;CODE&gt;ARCHIVE = "&lt;/CODE&gt;&lt;VAR&gt;archiveList&lt;/VAR&gt;&lt;CODE&gt;"&lt;/CODE&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This mandatory attribute specifies one or more &lt;CODE&gt;.jar&lt;/CODE&gt; files
+containing MBeans or other resources used by
+the MBean to be obtained. One of the &lt;CODE&gt;.jar&lt;/CODE&gt; files must contain the file specified by the &lt;CODE&gt;CODE&lt;/CODE&gt; or &lt;CODE&gt;OBJECT&lt;/CODE&gt; attribute.
+If archivelist contains more than one file:
+&lt;UL&gt;
+&lt;LI&gt;Each file must be separated from the one that follows it by a comma (,).
+&lt;LI&gt;&lt;VAR&gt;archivelist&lt;/VAR&gt; must be enclosed in double quote marks.
+&lt;/UL&gt;
+All &lt;CODE&gt;.jar&lt;/CODE&gt; files in &lt;VAR&gt;archivelist&lt;/VAR&gt; must be stored in the directory specified by the code base URL.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;CODE&gt;CODEBASE = &lt;/CODE&gt;&lt;VAR&gt;codebaseURL&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This optional attribute specifies the code base URL of the MBean to be obtained. It identifies the directory that contains
+the &lt;CODE&gt;.jar&lt;/CODE&gt; files specified by the &lt;CODE&gt;ARCHIVE&lt;/CODE&gt; attribute. Specify this attribute only if the &lt;CODE&gt;.jar&lt;/CODE&gt; files are not in the same
+directory as the MLet text file. If this attribute is not specified, the base URL of the MLet text file is used.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;CODE&gt;NAME = &lt;/CODE&gt;&lt;VAR&gt;mbeanname&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This optional attribute specifies the object name to be assigned to the
+MBean instance when the MLet service registers it. If
+&lt;VAR&gt;mbeanname&lt;/VAR&gt; starts with the colon character (:), the domain
+part of the object name is the domain of the agent. The MLet service
+invokes the &lt;CODE&gt;getDomain()&lt;/CODE&gt; method of the Framework class to
+obtain this information.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;CODE&gt;PERSISTENT = &lt;/CODE&gt;&lt;VAR&gt;true | false&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This optional attribute specifies the persistency or not persistency of the
+MBean instance when the MLet service registers it.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;CODE&gt;VERSION = &lt;/CODE&gt;&lt;VAR&gt;version&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This optional attribute specifies the version number of the MBean and
+associated &lt;CODE&gt;.jar&lt;/CODE&gt; files to be obtained. This version number can
+be used to specify that the &lt;CODE&gt;.jar&lt;/CODE&gt; files are loaded from the
+server to update those stored locally in the cache the next time the MLet
+text file is loaded. &lt;VAR&gt;version&lt;/VAR&gt; must be a series of non-negative
+decimal integers each separated by a period from the one that precedes it.
+&lt;/DD&gt;
+&lt;DT&gt;&lt;VAR&gt;paramlist&lt;/VAR&gt;&lt;/DT&gt;
+&lt;DD&gt;
+This optional attribute specifies a list of one or more parameters for the
+MBean to be instantiated. Each parameter in &lt;VAR&gt;paramlist&lt;/VAR&gt; corresponds to a modification in the
+modification list. Use the following syntax to specify each item in
+&lt;VAR&gt;paramlist&lt;/VAR&gt;:&lt;/DD&gt;
+&lt;DL&gt;
+&lt;P&gt;
+&lt;DT&gt;&lt;&lt;CODE&gt;PARAM NAME=&lt;/CODE&gt;&lt;VAR&gt;propertyName&lt;/VAR&gt; &lt;CODE&gt;VALUE=&lt;/CODE&gt;&lt;VAR&gt;value&lt;/VAR&gt;&gt;&lt;/DT&gt;
+&lt;P&gt;
+&lt;DD&gt;where:&lt;/DD&gt;
+&lt;UL&gt;
+&lt;LI&gt;&lt;VAR&gt;propertyName&lt;/VAR&gt; is the name of the property in the modification
+&lt;LI&gt;&lt;VAR&gt;value&lt;/VAR&gt; is the value in the modification&lt;/UL&gt;
+&lt;/DL&gt;
+&lt;P&gt;The MLet service passes all the values in the modification list as
+&lt;CODE&gt;String&lt;/CODE&gt; objects.
+&lt;/DL&gt;
+
+&lt;p&gt;&lt;STRONG&gt;Note - &lt;/STRONG&gt;Multiple &lt;CODE&gt;MLET&lt;/CODE&gt; tags with the same
+code base URL share the same instance of the &lt;CODE&gt;MLetClassLoader&lt;/CODE&gt;
+class.
+
+@version     3.3     02/08/99
+@author      Sun Microsystems, Inc
+
+@since 1.5
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">MLetContent</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="loading" refid="_10_5_622020d_1132928314869_286972_9269"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314889_790401_9284"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314889_790401_9284"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="loading" refid="_10_5_622020d_1132928314869_286972_9269"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="loading" refid="_10_5_622020d_1132928314869_286972_9269"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="loading" refid="_10_5_622020d_1132928314869_286972_9269"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::management::loading::MLetContent</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

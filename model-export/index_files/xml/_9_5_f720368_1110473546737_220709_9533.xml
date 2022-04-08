@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546737_220709_9533"><documentation humanName="Documentation" mode="standard">Implementations of this class provide lookup services for
+print services (typically equivalent to printers) of a particular type.
+&lt;p&gt;
+Multiple implementations may be installed concurrently.
+All implementations must be able to describe the located printers
+as instances of a PrintService.
+Typically implementations of this service class are located
+automatically in JAR files (see the SPI JAR file specification).
+These classes must be instantiable using a default constructor.
+Alternatively applications may explicitly register instances
+at runtime.
+&lt;p&gt;
+Applications use only the static methods of this abstract class.
+The instance methods are implemented by a service provider in a subclass
+and the unification of the results from all installed lookup classes
+are reported by the static methods of this class when called by
+the application.
+&lt;p&gt;
+A PrintServiceLookup implementor is recommended to check for the
+SecurityManager.checkPrintJobAccess() to deny access to untrusted code.
+Following this recommended policy means that untrusted code may not
+be able to locate any print services. Downloaded applets are the most
+common example of untrusted code.
+&lt;p&gt;
+This check is made on a per lookup service basis to allow flexibility in
+the policy to reflect the needs of different lookup services.
+&lt;p&gt;
+Services which are registered by registerService(PrintService)
+will not be included in lookup results if a security manager is
+installed and its checkPrintJobAccess() method denies access.
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Services" refid="_9_5_f720368_1110473548049_651392_20633"/></member><name humanName="Name" mode="s,e">PrintServiceLookup</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="print" refid="_9_5_f720368_1110473547987_687095_20189"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Services" refid="_9_5_f720368_1110473548049_651392_20633"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315980_45486_10362"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315980_45486_10362"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Services" refid="_9_5_f720368_1110473548049_651392_20633"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Services" refid="_9_5_f720368_1110473548049_651392_20633"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="print" refid="_9_5_f720368_1110473547987_687095_20189"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="print" refid="_9_5_f720368_1110473547987_687095_20189"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="print" refid="_9_5_f720368_1110473547987_687095_20189"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::print::PrintServiceLookup</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

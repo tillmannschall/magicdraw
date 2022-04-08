@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305976_16530_3904"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RenderContext" refid="_9_5_f720368_1110473546565_305243_6739"/></annotatedElement><body humanName="Body" mode="s,e">A RenderContext encapsulates the information needed to produce a
+specific rendering from a RenderableImage.  It contains the area to
+be rendered specified in rendering-independent terms, the
+resolution at which the rendering is to be performed, and hints
+used to control the rendering process.
+
+&lt;p&gt; Users create RenderContexts and pass them to the
+RenderableImage via the createRendering method.  Most of the methods of
+RenderContexts are not meant to be used directly by applications,
+but by the RenderableImage and operator classes to which it is
+passed.
+
+&lt;p&gt; The AffineTransform parameter passed into and out of this class
+are cloned.  The RenderingHints and Shape parameters are not
+necessarily cloneable and are therefore only reference copied.
+Altering RenderingHints or Shape instances that are in use by
+instances of RenderContext may have undesired side effects.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RenderContext" refid="_9_5_f720368_1110473546565_305243_6739"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RenderContext" refid="_9_5_f720368_1110473546565_305243_6739"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

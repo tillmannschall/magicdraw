@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928310022_572395_6388"><documentation humanName="Documentation" mode="standard">Basic thread blocking primitives for creating locks and other
+synchronization classes.
+
+&lt;p&gt;This class associates with each thread that uses it, a permit
+(in the sense of the {@link java.util.concurrent.Semaphore
+Semaphore} class). A call to &lt;tt&gt;park&lt;/tt&gt; will return immediately
+if the permit is available, consuming it in the process; otherwise
+it &lt;em&gt;may&lt;/em&gt; block.  A call to &lt;tt&gt;unpark&lt;/tt&gt; makes the permit
+available, if it was not already available. (Unlike with Semaphores
+though, permits do not accumulate. There is at most one.)
+
+&lt;p&gt;Methods &lt;tt&gt;park&lt;/tt&gt; and &lt;tt&gt;unpark&lt;/tt&gt; provide efficient
+means of blocking and unblocking threads that do not encounter the
+problems that cause the deprecated methods &lt;tt&gt;Thread.suspend&lt;/tt&gt;
+and &lt;tt&gt;Thread.resume&lt;/tt&gt; to be unusable for such purposes: Races
+between one thread invoking &lt;tt&gt;park&lt;/tt&gt; and another thread trying
+to &lt;tt&gt;unpark&lt;/tt&gt; it will preserve liveness, due to the
+permit. Additionally, &lt;tt&gt;park&lt;/tt&gt; will return if the caller's
+thread was interrupted, and timeout versions are supported. The
+&lt;tt&gt;park&lt;/tt&gt; method may also return at any other time, for "no
+reason", so in general must be invoked within a loop that rechecks
+conditions upon return. In this sense &lt;tt&gt;park&lt;/tt&gt; serves as an
+optimization of a "busy wait" that does not waste as much time
+spinning, but must be paired with an &lt;tt&gt;unpark&lt;/tt&gt; to be
+effective.
+
+&lt;p&gt;These methods are designed to be used as tools for creating
+higher-level synchronization utilities, and are not in themselves
+useful for most concurrency control applications.
+
+&lt;p&gt;&lt;b&gt;Sample Usage.&lt;/b&gt; Here is a sketch of a First-in-first-out
+non-reentrant lock class.
+&lt;pre&gt;
+class FIFOMutex {
+private AtomicBoolean locked = new AtomicBoolean(false);
+private Queue&lt;Thread&gt; waiters = new ConcurrentLinkedQueue&lt;Thread&gt;();
+
+public void lock() {
+boolean wasInterrupted = false;
+Thread current = Thread.currentThread();
+waiters.add(current);
+
+Block while not first in queue or cannot acquire lock
+while (waiters.peek() != current ||
+!locked.compareAndSet(false, true)) {
+LockSupport.park();
+if (Thread.interrupted()) // ignore interrupts while waiting
+wasInterrupted = true;
+}
+
+waiters.remove();
+if (wasInterrupted)          // reassert interrupt status on exit
+current.interrupt();
+}
+
+public void unlock() {
+locked.set(false);
+LockSupport.unpark(waiters.peek());
+}
+}
+&lt;/pre&gt;
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">LockSupport</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="locks" refid="_10_5_622020d_1132928309932_22311_6374"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310022_227397_6390"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928310022_227397_6390"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="locks" refid="_10_5_622020d_1132928309932_22311_6374"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="locks" refid="_10_5_622020d_1132928309932_22311_6374"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="locks" refid="_10_5_622020d_1132928309932_22311_6374"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::concurrent::locks::LockSupport</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

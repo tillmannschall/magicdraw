@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307418_592345_4711"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UTFDataFormatException" refid="_9_5_f720368_1110473546612_68087_7499"/></annotatedElement><body humanName="Body" mode="s,e">Signals that a malformed string in
+&lt;a href="DataInput.html#modified-utf-8"&gt;modified UTF-8&lt;/a&gt;
+format has been read in a data
+input stream or by any class that implements the data input
+interface.
+See the
+&lt;a href="DataInput.html#modified-utf-8"&gt;&lt;code&gt;DataInput&lt;/code&gt;&lt;/a&gt;
+class description for the format in
+which modified UTF-8 strings are read and written.
+
+@author  Frank Yellin
+@version 1.13, 05/13/04
+@see     java.io.DataInput
+@see     java.io.DataInputStream#readUTF(java.io.DataInput)
+@see     java.io.IOException
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="UTFDataFormatException" refid="_9_5_f720368_1110473546612_68087_7499"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UTFDataFormatException" refid="_9_5_f720368_1110473546612_68087_7499"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

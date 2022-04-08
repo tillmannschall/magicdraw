@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546956_849409_13298"><documentation humanName="Documentation" mode="standard">Basic interface for SAX (Simple API for XML) parsers.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This was the main event supplier interface for SAX1; it has
+been replaced in SAX2 by {@link org.xml.sax.XMLReader XMLReader},
+which includes Namespace support and sophisticated configurability
+and extensibility.&lt;/p&gt;
+
+&lt;p&gt;All SAX1 parsers must implement this basic interface: it allows
+applications to register handlers for different types of events
+and to initiate a parse from a URI, or a character stream.&lt;/p&gt;
+
+&lt;p&gt;All SAX1 parsers must also implement a zero-argument constructor
+(though other constructors are also allowed).&lt;/p&gt;
+
+&lt;p&gt;SAX1 parsers are reusable but not re-entrant: the application
+may reuse a parser object (possibly with a different input source)
+once the first parse has completed successfully, but it may not
+invoke the parse() methods recursively within a parse.&lt;/p&gt;
+
+@deprecated This interface has been replaced by the SAX2
+{@link org.xml.sax.XMLReader XMLReader}
+interface, which includes Namespace support.
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+@see org.xml.sax.EntityResolver
+@see org.xml.sax.DTDHandler
+@see org.xml.sax.DocumentHandler
+@see org.xml.sax.ErrorHandler
+@see org.xml.sax.HandlerBase
+@see org.xml.sax.InputSource
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Parser</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314739_775128_9077"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314739_775128_9077"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sax" refid="_9_5_f720368_1110473548862_629088_27642"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::xml::sax::Parser</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::org::xml::sax::helpers::XMLReaderAdapter -&gt; JDK 5.0 Classes::org::xml::sax::Parser]" refid="_10_5_622020d_1132928322900_266612_15746"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

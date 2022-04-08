@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546674_884528_8421"><documentation humanName="Documentation" mode="standard">This class is used as an opaque representation of cryptographic parameters.
+
+&lt;p&gt;An &lt;code&gt;AlgorithmParameters&lt;/code&gt; object for managing the parameters
+for a particular algorithm can be obtained by
+calling one of the &lt;code&gt;getInstance&lt;/code&gt; factory methods
+(static methods that return instances of a given class).
+
+&lt;p&gt;There are two ways to request such an implementation: by
+specifying either just an algorithm name, or both an algorithm name
+and a package provider.
+
+&lt;ul&gt;
+
+&lt;li&gt;If just an algorithm name is specified, the system will
+determine if there is an AlgorithmParameters
+implementation for the algorithm requested
+available in the environment, and if there is more than one, if
+there is a preferred one.
+
+&lt;li&gt;If both an algorithm name and a package provider are specified,
+the system will determine if there is an implementation
+in the package requested, and throw an exception if there
+is not.
+
+&lt;/ul&gt;
+
+&lt;p&gt;Once an &lt;code&gt;AlgorithmParameters&lt;/code&gt; object is returned, it must be
+initialized via a call to &lt;code&gt;init&lt;/code&gt;, using an appropriate parameter
+specification or parameter encoding.
+
+&lt;p&gt;A transparent parameter specification is obtained from an
+&lt;code&gt;AlgorithmParameters&lt;/code&gt; object via a call to
+&lt;code&gt;getParameterSpec&lt;/code&gt;, and a byte encoding of the parameters is
+obtained via a call to &lt;code&gt;getEncoded&lt;/code&gt;.
+
+@author Jan Luehe
+
+@version 1.24, 05/05/04
+
+@see java.security.spec.AlgorithmParameterSpec
+@see java.security.spec.DSAParameterSpec
+@see KeyPairGenerator
+
+@since 1.2
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">AlgorithmParameters</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309281_516871_5964"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309281_516871_5964"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::AlgorithmParameters</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

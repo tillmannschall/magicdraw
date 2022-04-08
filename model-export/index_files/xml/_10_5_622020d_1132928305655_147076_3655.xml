@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305655_147076_3655"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DragSourceDropEvent" refid="_9_5_f720368_1110473546549_730784_6505"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;DragSourceDropEvent&lt;/code&gt; is delivered
+from the &lt;code&gt;DragSourceContextPeer&lt;/code&gt;,
+via the &lt;code&gt;DragSourceContext&lt;/code&gt;, to the &lt;code&gt;dragDropEnd&lt;/code&gt;
+method of &lt;code&gt;DragSourceListener&lt;/code&gt;s registered with that
+&lt;code&gt;DragSourceContext&lt;/code&gt; and with its associated
+&lt;code&gt;DragSource&lt;/code&gt;.
+It contains sufficient information for the
+originator of the operation
+to provide appropriate feedback to the end user
+when the operation completes.
+&lt;P&gt;
+@version 	1.19, 12/19/03
+&lt;P&gt;
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DragSourceDropEvent" refid="_9_5_f720368_1110473546549_730784_6505"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DragSourceDropEvent" refid="_9_5_f720368_1110473546549_730784_6505"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

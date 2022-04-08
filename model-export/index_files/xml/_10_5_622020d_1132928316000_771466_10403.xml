@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316000_771466_10403"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PortableRemoteObject" refid="_9_5_f720368_1110473546737_935959_9565"/></annotatedElement><body humanName="Body" mode="s,e">Server implementation objects may either inherit from
+javax.rmi.PortableRemoteObject or they may implement a remote interface
+and then use the exportObject method to register themselves as a server object.
+The toStub method takes a server implementation and returns a stub that
+can be used to access that server object.
+The connect method makes a Remote object ready for remote communication.
+The unexportObject method is used to deregister a server object, allowing it to become
+available for garbage collection.
+The narrow method takes an object reference or abstract interface type and
+attempts to narrow it to conform to
+the given interface. If the operation is successful the result will be an
+object of the specified type, otherwise an exception will be thrown.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="PortableRemoteObject" refid="_9_5_f720368_1110473546737_935959_9565"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="PortableRemoteObject" refid="_9_5_f720368_1110473546737_935959_9565"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318364_297557_12803"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Schema" refid="_10_5_622020d_1132928318364_634741_12801"/></annotatedElement><body humanName="Body" mode="s,e">Immutable in-memory representation of grammar.
+
+&lt;p&gt;
+This object represents a set of constraints that can be checked
+enforced against an XML document.
+
+&lt;p&gt;
+A {@link Schema} object is thread safe and applications are
+encouraged to share it across many parsers in many threads.
+
+&lt;p&gt;
+A {@link Schema} object is immutable in the sense that it shouldn't
+change the set of constraints once it is created. In other words,
+if an application validates the same document twice against the same
+{@link Schema}, it must always produce the same result.
+
+&lt;p&gt;
+A {@link Schema} object is usually created from {@link SchemaFactory}.
+
+&lt;p&gt;
+Two kinds of validators can be created from a {@link Schema} object.
+One is {@link Validator}, which provides highly-level validation
+operations that cover typical use cases. The other is
+{@link ValidatorHandler}, which works on top of SAX for better
+modularity.
+
+&lt;p&gt;
+This specification does not refine
+the {@link java.lang.Object#equals(java.lang.Object)} method.
+In other words, if you parse the same schema twice, you may
+still get &lt;code&gt;!schemaA.equals(schemaB)&lt;/code&gt;.
+
+@author &lt;a href="mailto:Kohsuke.Kawaguchi@Sun.com"&gt;Kohsuke Kawaguchi&lt;/a&gt;
+@version $Revision: 1.4 $, $Date: 2003/12/06 00:21:36 $
+@see &lt;a href="http://www.w3.org/TR/xmlschema-1/"&gt;XML Schema Part 1: Structures&lt;/a&gt;
+@see &lt;a href="http://www.w3.org/TR/xml11/"&gt;Extensible Markup Language (XML) 1.1&lt;/a&gt;
+@see &lt;a href="http://www.w3.org/TR/REC-xml"&gt;Extensible Markup Language (XML) 1.0 (Second Edition)&lt;/a&gt;
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Schema" refid="_10_5_622020d_1132928318364_634741_12801"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Schema" refid="_10_5_622020d_1132928318364_634741_12801"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

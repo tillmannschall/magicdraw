@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546674_130610_8355"><documentation humanName="Documentation" mode="standard">Interface for an X.509 extension.
+
+&lt;p&gt;The extensions defined for X.509 v3
+{@link X509Certificate Certificates} and v2
+{@link X509CRL CRLs} (Certificate Revocation
+Lists) provide methods
+for associating additional attributes with users or public keys,
+for managing the certification hierarchy, and for managing CRL
+distribution. The X.509 extensions format also allows communities
+to define private extensions to carry information unique to those
+communities.
+
+&lt;p&gt;Each extension in a certificate/CRL may be designated as
+critical or non-critical.  A certificate/CRL-using system (an application
+validating a certificate/CRL) must reject the certificate/CRL if it
+encounters a critical extension it does not recognize.  A non-critical
+extension may be ignored if it is not recognized.
+&lt;p&gt;
+The ASN.1 definition for this is:
+&lt;pre&gt;
+Extensions  ::=  SEQUENCE SIZE (1..MAX) OF Extension
+
+Extension  ::=  SEQUENCE  {
+extnId        OBJECT IDENTIFIER,
+critical      BOOLEAN DEFAULT FALSE,
+extnValue     OCTET STRING
+-- contains a DER encoding of a value
+-- of the type registered for use with
+-- the extnId object identifier value
+}
+&lt;/pre&gt;
+Since not all extensions are known, the &lt;code&gt;getExtensionValue&lt;/code&gt;
+method returns the DER-encoded OCTET STRING of the
+extension value (i.e., the &lt;code&gt;extnValue&lt;/code&gt;). This can then
+be handled by a &lt;em&gt;Class&lt;/em&gt; that understands the extension.
+
+@author Hemma Prafullchandra
+@version 1.22 03/12/19
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">X509Extension</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309181_374622_5859"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309181_374622_5859"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::cert::X509Extension</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::X509Certificate -&gt; JDK 5.0 Classes::java::security::cert::X509Extension]" refid="_10_5_622020d_1132928321859_778667_14134"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::X509CRL -&gt; JDK 5.0 Classes::java::security::cert::X509Extension]" refid="_10_5_622020d_1132928321859_134317_14137"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::X509CRLEntry -&gt; JDK 5.0 Classes::java::security::cert::X509Extension]" refid="_10_5_622020d_1132928321859_262474_14139"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

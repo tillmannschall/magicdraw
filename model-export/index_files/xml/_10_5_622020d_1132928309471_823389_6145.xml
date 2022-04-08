@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309471_823389_6145"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UnresolvedPermission" refid="_9_5_f720368_1110473546690_982585_8543"/></annotatedElement><body humanName="Body" mode="s,e">The UnresolvedPermission class is used to hold Permissions that
+were "unresolved" when the Policy was initialized.
+An unresolved permission is one whose actual Permission class
+does not yet exist at the time the Policy is initialized (see below).
+
+&lt;p&gt;The policy for a Java runtime (specifying
+which permissions are available for code from various principals)
+is represented by a Policy object.
+Whenever a Policy is initialized or refreshed, Permission objects of
+appropriate classes are created for all permissions
+allowed by the Policy.
+
+&lt;p&gt;Many permission class types
+referenced by the policy configuration are ones that exist
+locally (i.e., ones that can be found on CLASSPATH).
+Objects for such permissions can be instantiated during
+Policy initialization. For example, it is always possible
+to instantiate a java.io.FilePermission, since the
+FilePermission class is found on the CLASSPATH.
+
+&lt;p&gt;Other permission classes may not yet exist during Policy
+initialization. For example, a referenced permission class may
+be in a JAR file that will later be loaded.
+For each such class, an UnresolvedPermission is instantiated.
+Thus, an UnresolvedPermission is essentially a "placeholder"
+containing information about the permission.
+
+&lt;p&gt;Later, when code calls AccessController.checkPermission
+on a permission of a type that was previously unresolved,
+but whose class has since been loaded, previously-unresolved
+permissions of that type are "resolved". That is,
+for each such UnresolvedPermission, a new object of
+the appropriate class type is instantiated, based on the
+information in the UnresolvedPermission.
+
+&lt;p&gt; To instantiate the new class, UnresolvedPermission assumes
+the class provides a zero, one, and/or two-argument constructor.
+The zero-argument constructor would be used to instantiate
+a permission without a name and without actions.
+A one-arg constructor is assumed to take a &lt;code&gt;String&lt;/code&gt;
+name as input, and a two-arg constructor is assumed to take a
+&lt;code&gt;String&lt;/code&gt; name and &lt;code&gt;String&lt;/code&gt; actions
+as input.  UnresolvedPermission may invoke a
+constructor with a &lt;code&gt;null&lt;/code&gt; name and/or actions.
+If an appropriate permission constructor is not available,
+the UnresolvedPermission is ignored and the relevant permission
+will not be granted to executing code.
+
+&lt;p&gt; The newly created permission object replaces the
+UnresolvedPermission, which is removed.
+
+&lt;p&gt; Note that the &lt;code&gt;getName&lt;/code&gt; method for an
+&lt;code&gt;UnresolvedPermission&lt;/code&gt; returns the
+&lt;code&gt;type&lt;/code&gt; (class name) for the underlying permission
+that has not been resolved.
+
+@see java.security.Permission
+@see java.security.Permissions
+@see java.security.PermissionCollection
+@see java.security.Policy
+
+@version 1.29 04/02/03
+
+@author Roland Schemers
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="UnresolvedPermission" refid="_9_5_f720368_1110473546690_982585_8543"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="UnresolvedPermission" refid="_9_5_f720368_1110473546690_982585_8543"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

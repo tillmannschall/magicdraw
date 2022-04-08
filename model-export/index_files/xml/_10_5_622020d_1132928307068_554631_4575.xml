@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307068_554631_4575"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FileInputStream" refid="_9_5_f720368_1110473546596_722046_7389"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;FileInputStream&lt;/code&gt; obtains input bytes
+from a file in a file system. What files
+are  available depends on the host environment.
+
+&lt;p&gt;&lt;code&gt;FileInputStream&lt;/code&gt; is meant for reading streams of raw bytes
+such as image data. For reading streams of characters, consider using
+&lt;code&gt;FileReader&lt;/code&gt;.
+
+@author  Arthur van Hoff
+@version 1.63, 12/19/03
+@see     java.io.File
+@see     java.io.FileDescriptor
+@see	    java.io.FileOutputStream
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FileInputStream" refid="_9_5_f720368_1110473546596_722046_7389"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FileInputStream" refid="_9_5_f720368_1110473546596_722046_7389"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

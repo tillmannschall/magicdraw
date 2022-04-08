@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307949_790679_5014"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Deprecated" refid="_10_5_622020d_1132928307939_514099_5008"/></annotatedElement><body humanName="Body" mode="s,e">A program element annotated &amp;#64;Deprecated is one that programmers
+are discouraged from using, typically because it is dangerous,
+or because a better alternative exists.  Compilers warn when a
+deprecated program element is used or overridden in non-deprecated code.
+
+@author  Neal Gafter
+@version 1.4, 06/10/04
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Deprecated" refid="_10_5_622020d_1132928307939_514099_5008"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Deprecated" refid="_10_5_622020d_1132928307939_514099_5008"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

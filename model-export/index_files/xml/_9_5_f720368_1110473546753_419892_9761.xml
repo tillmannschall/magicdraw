@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546753_419892_9761"><documentation humanName="Documentation" mode="standard">The interface that adds support to the JDBC API for the
+JavaBeans&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt; component model.
+A rowset, which can be used as a JavaBeans component in
+a visual Bean development environment, can be created and
+configured at design time and executed at run time.
+&lt;P&gt;
+The &lt;code&gt;RowSet&lt;/code&gt;
+interface provides a set of JavaBeans properties that allow a &lt;code&gt;RowSet&lt;/code&gt;
+instance to be configured to connect to a JDBC data source and read
+some data from the data source.  A group of setter methods (&lt;code&gt;setInt&lt;/code&gt;,
+&lt;code&gt;setBytes&lt;/code&gt;, &lt;code&gt;setString&lt;/code&gt;, and so on)
+provide a way to pass input parameters to a rowset's command property.
+This command is the SQL query the rowset uses when it gets its data from
+a relational database, which is generally the case.
+&lt;P&gt;
+The &lt;code&gt;RowSet&lt;/code&gt;
+interface supports JavaBeans events, allowing other components in an
+application to be notified when an event occurs on a rowset,
+such as a change in its value.
+
+&lt;P&gt;The &lt;code&gt;RowSet&lt;/code&gt; interface is unique in that it is intended to be
+implemented using the rest of the JDBC API.  In other words, a
+&lt;code&gt;RowSet&lt;/code&gt; implementation is a layer of software that executes "on top"
+of a JDBC driver.  Implementations of the &lt;code&gt;RowSet&lt;/code&gt; interface can
+be provided by anyone, including JDBC driver vendors who want to
+provide a &lt;code&gt;RowSet&lt;/code&gt; implementation as part of their JDBC products.
+&lt;P&gt;
+A &lt;code&gt;RowSet&lt;/code&gt; object may make a connection with a data source and
+maintain that connection throughout its life cycle, in which case it is
+called a &lt;i&gt;connected&lt;/i&gt; rowset.  A rowset may also make a connection with
+a data source, get data from it, and then close the connection. Such a rowset
+is called a &lt;i&gt;disconnected&lt;/i&gt; rowset.  A disconnected rowset may make
+changes to its data while it is disconnected and then send the changes back
+to the original source of the data, but it must reestablish a connection to do so.
+&lt;P&gt;
+A disconnected rowset may have a reader (a &lt;code&gt;RowSetReader&lt;/code&gt; object)
+and a writer (a &lt;code&gt;RowSetWriter&lt;/code&gt; object) associated with it.
+The reader may be implemented in many different ways to populate a rowset
+with data, including getting data from a non-relational data source. The
+writer can also be implemented in many different ways to propagate changes
+made to the rowset's data back to the underlying data source.
+&lt;P&gt;
+Rowsets are easy to use.  The &lt;code&gt;RowSet&lt;/code&gt; interface extends the standard
+&lt;code&gt;java.sql.ResultSet&lt;/code&gt; interface.  The &lt;code&gt;RowSetMetaData&lt;/code&gt;
+interface extends the &lt;code&gt;java.sql.ResultSetMetaData&lt;/code&gt; interface.
+Thus, developers familiar
+with the JDBC API will have to learn a minimal number of new APIs to
+use rowsets.  In addition, third-party software tools that work with
+JDBC &lt;code&gt;ResultSet&lt;/code&gt; objects will also easily be made to work with rowsets.
+
+@since 1.4
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ResultSet" refid="_9_5_f720368_1110473546690_728645_8579"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323381_461133_16661"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">RowSet</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473548112_91580_20929"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316972_768446_10763"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323381_461133_16661"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316972_768446_10763"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sql" refid="_9_5_f720368_1110473548112_91580_20929"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473548112_91580_20929"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473548112_91580_20929"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sql::RowSet</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309321_906272_6023"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyFactory" refid="_9_5_f720368_1110473546674_838290_8465"/></annotatedElement><body humanName="Body" mode="s,e">Key factories are used to convert &lt;I&gt;keys&lt;/I&gt; (opaque
+cryptographic keys of type &lt;code&gt;Key&lt;/code&gt;) into &lt;I&gt;key specifications&lt;/I&gt;
+(transparent representations of the underlying key material), and vice
+versa.
+
+&lt;P&gt; Key factories are bi-directional. That is, they allow you to build an
+opaque key object from a given key specification (key material), or to
+retrieve the underlying key material of a key object in a suitable format.
+
+&lt;P&gt; Multiple compatible key specifications may exist for the same key.
+For example, a DSA public key may be specified using
+&lt;code&gt;DSAPublicKeySpec&lt;/code&gt; or
+&lt;code&gt;X509EncodedKeySpec&lt;/code&gt;. A key factory can be used to translate
+between compatible key specifications.
+
+&lt;P&gt; The following is an example of how to use a key factory in order to
+instantiate a DSA public key from its encoding.
+Assume Alice has received a digital signature from Bob.
+Bob also sent her his public key (in encoded format) to verify
+his signature. Alice then performs the following actions:
+
+&lt;pre&gt;
+X509EncodedKeySpec bobPubKeySpec = new X509EncodedKeySpec(bobEncodedPubKey);
+KeyFactory keyFactory = KeyFactory.getInstance("DSA");
+PublicKey bobPubKey = keyFactory.generatePublic(bobPubKeySpec);
+Signature sig = Signature.getInstance("DSA");
+sig.initVerify(bobPubKey);
+sig.update(data);
+sig.verify(signature);
+&lt;/pre&gt;
+
+@author Jan Luehe
+
+@version 1.32, 05/05/04
+
+@see Key
+@see PublicKey
+@see PrivateKey
+@see java.security.spec.KeySpec
+@see java.security.spec.DSAPublicKeySpec
+@see java.security.spec.X509EncodedKeySpec
+
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="KeyFactory" refid="_9_5_f720368_1110473546674_838290_8465"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyFactory" refid="_9_5_f720368_1110473546674_838290_8465"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

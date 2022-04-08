@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314969_791199_9435"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SimpleType" refid="_10_5_622020d_1132928314969_970277_9433"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;SimpleType&lt;/code&gt; class is the &lt;i&gt;open type&lt;/i&gt; class whose instances describe
+all &lt;i&gt;open data&lt;/i&gt; values which are neither arrays,
+nor {@link CompositeData &lt;code&gt;CompositeData&lt;/code&gt;} values,
+nor {@link TabularData &lt;code&gt;TabularData&lt;/code&gt;} values.
+It predefines all its possible instances as static fields, and has no public constructor.
+&lt;p&gt;
+Given a &lt;code&gt;SimpleType&lt;/code&gt; instance describing values whose Java class name is &lt;i&gt;className&lt;/i&gt;,
+the internal fields corresponding to the name and description of this &lt;code&gt;SimpleType&lt;/code&gt; instance
+are also set to &lt;i&gt;className&lt;/i&gt;.
+In other words, its methods &lt;code&gt;getClassName&lt;/code&gt;, &lt;code&gt;getTypeName&lt;/code&gt; and &lt;code&gt;getDescription&lt;/code&gt;
+all return the same string value &lt;i&gt;className&lt;/i&gt;.
+
+@version     3.23  03/12/19
+@author      Sun Microsystems, Inc.
+
+@since 1.5
+@since.unbundled JMX 1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SimpleType" refid="_10_5_622020d_1132928314969_970277_9433"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SimpleType" refid="_10_5_622020d_1132928314969_970277_9433"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

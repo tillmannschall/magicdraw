@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309171_19346_5851"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="X509CertSelector" refid="_9_5_f720368_1110473546674_16507_8347"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;CertSelector&lt;/code&gt; that selects &lt;code&gt;X509Certificates&lt;/code&gt; that
+match all specified criteria. This class is particularly useful when
+selecting certificates from a &lt;code&gt;CertStore&lt;/code&gt; to build a
+PKIX-compliant certification path.
+&lt;p&gt;
+When first constructed, an &lt;code&gt;X509CertSelector&lt;/code&gt; has no criteria
+enabled and each of the &lt;code&gt;get&lt;/code&gt; methods return a default value
+(&lt;code&gt;null&lt;/code&gt;, or &lt;code&gt;-1&lt;/code&gt; for the {@link #getBasicConstraints
+getBasicConstraints} method). Therefore, the {@link #match match}
+method would return &lt;code&gt;true&lt;/code&gt; for any &lt;code&gt;X509Certificate&lt;/code&gt;.
+Typically, several criteria are enabled (by calling
+{@link #setIssuer setIssuer} or
+{@link #setKeyUsage setKeyUsage}, for instance) and then the
+&lt;code&gt;X509CertSelector&lt;/code&gt; is passed to
+{@link CertStore#getCertificates CertStore.getCertificates} or some similar
+method.
+&lt;p&gt;
+Several criteria can be enabled (by calling {@link #setIssuer setIssuer}
+and {@link #setSerialNumber setSerialNumber},
+for example) such that the &lt;code&gt;match&lt;/code&gt; method
+usually uniquely matches a single &lt;code&gt;X509Certificate&lt;/code&gt;. We say
+usually, since it is possible for two issuing CAs to have the same
+distinguished name and each issue a certificate with the same serial
+number. Other unique combinations include the issuer, subject,
+subjectKeyIdentifier and/or the subjectPublicKey criteria.
+&lt;p&gt;
+Please refer to RFC 2459 for definitions of the X.509 certificate
+extensions mentioned below.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Unless otherwise specified, the methods defined in this class are not
+thread-safe. Multiple threads that need to access a single
+object concurrently should synchronize amongst themselves and
+provide the necessary locking. Multiple threads each manipulating
+separate objects need not synchronize.
+
+@see CertSelector
+@see X509Certificate
+
+@version 	1.20, 06/08/04
+@since	1.4
+@author	Steve Hanna
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="X509CertSelector" refid="_9_5_f720368_1110473546674_16507_8347"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="X509CertSelector" refid="_9_5_f720368_1110473546674_16507_8347"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

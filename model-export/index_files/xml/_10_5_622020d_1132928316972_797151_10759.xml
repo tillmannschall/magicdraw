@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316972_797151_10759"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DataSource" refid="_9_5_f720368_1110473546753_133680_9757"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;A factory for connections to the physical data source that this
+&lt;code&gt;DataSource&lt;/code&gt; object represents.  An alternative to the
+&lt;code&gt;DriverManager&lt;/code&gt; facility, a &lt;code&gt;DataSource&lt;/code&gt; object
+is the preferred means of getting a connection. An object that implements
+the &lt;code&gt;DataSource&lt;/code&gt; interface will typically be
+registered with a naming service based on the
+Java&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt; Naming and Directory (JNDI) API.
+&lt;P&gt;
+The &lt;code&gt;DataSource&lt;/code&gt; interface is implemented by a driver vendor.
+There are three types of implementations:
+&lt;OL&gt;
+&lt;LI&gt;Basic implementation -- produces a standard &lt;code&gt;Connection&lt;/code&gt;
+object
+&lt;LI&gt;Connection pooling implementation -- produces a &lt;code&gt;Connection&lt;/code&gt;
+object that will automatically participate in connection pooling.  This
+implementation works with a middle-tier connection pooling manager.
+&lt;LI&gt;Distributed transaction implementation -- produces a
+&lt;code&gt;Connection&lt;/code&gt; object that may be used for distributed
+transactions and almost always participates in connection pooling.
+This implementation works with a middle-tier
+transaction manager and almost always with a connection
+pooling manager.
+&lt;/OL&gt;
+&lt;P&gt;
+A &lt;code&gt;DataSource&lt;/code&gt; object has properties that can be modified
+when necessary.  For example, if the data source is moved to a different
+server, the property for the server can be changed.  The benefit is that
+because the data source's properties can be changed, any code accessing
+that data source does not need to be changed.
+&lt;P&gt;
+A driver that is accessed via a &lt;code&gt;DataSource&lt;/code&gt; object does not
+register itself with the &lt;code&gt;DriverManager&lt;/code&gt;.  Rather, a
+&lt;code&gt;DataSource&lt;/code&gt; object is retrieved though a lookup operation
+and then used to create a &lt;code&gt;Connection&lt;/code&gt; object.  With a basic
+implementation, the connection obtained through a &lt;code&gt;DataSource&lt;/code&gt;
+object is identical to a connection obtained through the
+&lt;code&gt;DriverManager&lt;/code&gt; facility.
+
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DataSource" refid="_9_5_f720368_1110473546753_133680_9757"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DataSource" refid="_9_5_f720368_1110473546753_133680_9757"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

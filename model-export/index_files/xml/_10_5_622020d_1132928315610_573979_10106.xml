@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315610_573979_10106"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Chromaticity" refid="_9_5_f720368_1110473546721_502292_9303"/></annotatedElement><body humanName="Body" mode="s,e">Class Chromaticity is a printing attribute class, an enumeration, that
+specifies monochrome or color printing. This is used by a print client
+to specify how the print data should be generated or processed. It is not
+descriptive of the color capabilities of the device. Query the service's
+{@link ColorSupported ColorSupported} attribute to determine if the device
+can be verified to support color printing.
+&lt;P&gt;
+The table below shows the effects of specifying a Chromaticity attribute of
+{@link #MONOCHROME &lt;CODE&gt;MONOCHROME&lt;/CODE&gt;} or {@link #COLOR
+&lt;CODE&gt;COLOR&lt;/CODE&gt;} for a monochrome or color document.
+&lt;P&gt;
+&lt;TABLE BORDER=1 CELLPADDING=2 CELLSPACING=1 SUMMARY="Shows effects of specifying MONOCHROME or COLOR Chromaticity attributes"&gt;
+&lt;TR BGCOLOR="#E5E5E5"&gt;
+&lt;TH&gt;
+Chromaticity&lt;BR&gt;Attribute
+&lt;/TH&gt;
+&lt;TH&gt;
+Effect on&lt;BR&gt;Monochrome Document
+&lt;/TH&gt;
+&lt;TH&gt;
+Effect on&lt;BR&gt;Color Document
+&lt;/TH&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+{@link #MONOCHROME &lt;CODE&gt;MONOCHROME&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD&gt;
+Printed as is, in monochrome
+&lt;/TD&gt;
+&lt;TD&gt;
+Printed in monochrome, with colors converted to shades of gray
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+{@link #COLOR &lt;CODE&gt;COLOR&lt;/CODE&gt;}
+&lt;/TD&gt;
+&lt;TD&gt;
+Printed as is, in monochrome
+&lt;/TD&gt;
+&lt;TD&gt;
+Printed as is, in color
+&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;P&gt;
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; Chromaticity is not an IPP attribute at present.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Chromaticity" refid="_9_5_f720368_1110473546721_502292_9303"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Chromaticity" refid="_9_5_f720368_1110473546721_502292_9303"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315019_217372_9560"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RMIServer" refid="_10_5_622020d_1132928315019_77072_9558"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;RMI object used to establish connections to an RMI connector.
+There is one Remote object implementing this interface for each RMI
+connector.&lt;/p&gt;
+
+&lt;p&gt;User code does not usually refer to this interface.  It is
+specified as part of the public API so that different
+implementations of that API will interoperate.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="RMIServer" refid="_10_5_622020d_1132928315019_77072_9558"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RMIServer" refid="_10_5_622020d_1132928315019_77072_9558"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

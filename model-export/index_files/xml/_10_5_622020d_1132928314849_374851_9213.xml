@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314849_374851_9213"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ServiceRegistry" refid="_9_5_f720368_1110473546706_699100_9059"/></annotatedElement><body humanName="Body" mode="s,e">A registry for service provider instances.
+
+&lt;p&gt; A &lt;i&gt;service&lt;/i&gt; is a well-known set of interfaces and (usually
+abstract) classes.  A &lt;i&gt;service provider&lt;/i&gt; is a specific
+implementation of a service.  The classes in a provider typically
+implement the interface or subclass the class defined by the
+service itself.
+
+&lt;p&gt; Service providers are stored in one or more &lt;i&gt;categories&lt;/i&gt;,
+each of which is defined by a class of interface (described by a
+&lt;code&gt;Class&lt;/code&gt; object) that all of its members must implement.
+The set of categories may be changed dynamically.
+
+&lt;p&gt; Only a single instance of a given leaf class (that is, the
+actual class returned by &lt;code&gt;getClass()&lt;/code&gt;, as opposed to any
+inherited classes or interfaces) may be registered.  That is,
+suppose that the
+&lt;code&gt;com.mycompany.mypkg.GreenServiceProvider&lt;/code&gt; class
+implements the &lt;code&gt;com.mycompany.mypkg.MyService&lt;/code&gt;
+interface.  If a &lt;code&gt;GreenServiceProvider&lt;/code&gt; instance is
+registered, it will be stored in the category defined by the
+&lt;code&gt;MyService&lt;/code&gt; class.  If a new instance of
+&lt;code&gt;GreenServiceProvider&lt;/code&gt; is registered, it will replace
+the previous instance.  In practice, service provider objects are
+usually singletons so this behavior is appropriate.
+
+&lt;p&gt; To declare a service provider, a &lt;code&gt;services&lt;/code&gt;
+subdirectory is placed within the &lt;code&gt;META-INF&lt;/code&gt; directory
+that is present in every JAR file.  This directory contains a file
+for each service provider interface that has one or more
+implementation classes present in the JAR file.  For example, if
+the JAR file contained a class named
+&lt;code&gt;com.mycompany.mypkg.MyServiceImpl&lt;/code&gt; which implements the
+&lt;code&gt;javax.someapi.SomeService&lt;/code&gt; interface, the JAR file
+would contain a file named: &lt;pre&gt;
+META-INF/services/javax.someapi.SomeService &lt;/pre&gt;
+
+containing the line:
+
+&lt;pre&gt;
+com.mycompany.mypkg.MyService
+&lt;/pre&gt;
+
+&lt;p&gt; The service provider classes should be to be lightweight and
+quick to load.  Implementations of these interfaces should avoid
+complex dependencies on other classes and on native code. The usual
+pattern for more complex services is to register a lightweight
+proxy for the heavyweight service.
+
+&lt;p&gt; An application may customize the contents of a registry as it
+sees fit, so long as it has the appropriate runtime permission.
+
+&lt;p&gt; For more details on declaring service providers, and the JAR
+format in general, see the &lt;a
+href="http://java.sun.com/products/jdk/1.3/docs/guide/jar/jar.html"&gt;
+JAR File Specification&lt;/a&gt;.
+
+@see RegisterableService
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ServiceRegistry" refid="_9_5_f720368_1110473546706_699100_9059"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ServiceRegistry" refid="_9_5_f720368_1110473546706_699100_9059"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

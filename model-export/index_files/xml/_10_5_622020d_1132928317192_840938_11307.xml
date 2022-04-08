@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317192_840938_11307"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ImageCacher" refid="_9_5_f720368_1110473548237_350633_22311"/></annotatedElement><body humanName="Body" mode="s,e">Utility class for caching icon images.  This is necessary because
+we need a new image whenever we are rendering into a new
+GraphicsConfiguration, but we do not want to keep recreating icon
+images for GC's that we have already seen (for example,
+dragging a window back and forth between monitors on a multimon
+system, or drawing an icon to different Components that have different
+GC's).
+So now whenever we create a new icon image for a given GC, we
+cache that image with the GC for later retrieval.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ImageCacher" refid="_9_5_f720368_1110473548237_350633_22311"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ImageCacher" refid="_9_5_f720368_1110473548237_350633_22311"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

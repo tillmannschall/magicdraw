@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318194_109913_12586"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ListCellRenderer" refid="_9_5_f720368_1110473546799_692124_10809"/></annotatedElement><body humanName="Body" mode="s,e">Identifies components that can be used as "rubber stamps" to paint
+the cells in a JList.  For example, to use a JLabel as a
+ListCellRenderer, you would write something like this:
+&lt;pre&gt;
+class MyCellRenderer extends JLabel implements ListCellRenderer {
+public MyCellRenderer() {
+setOpaque(true);
+}
+public Component getListCellRendererComponent(
+JList list,
+Object value,
+int index,
+boolean isSelected,
+boolean cellHasFocus)
+{
+setText(value.toString());
+setBackground(isSelected ? Color.red : Color.white);
+setForeground(isSelected ? Color.white : Color.black);
+return this;
+}
+}
+&lt;/pre&gt;
+
+@see JList
+@see DefaultListCellRenderer
+
+@version 1.17 12/19/03
+@author Hans Muller
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ListCellRenderer" refid="_9_5_f720368_1110473546799_692124_10809"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ListCellRenderer" refid="_9_5_f720368_1110473546799_692124_10809"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

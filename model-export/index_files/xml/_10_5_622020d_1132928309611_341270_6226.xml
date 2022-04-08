@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309611_341270_6226"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ChoiceFormat" refid="_9_5_f720368_1110473546690_525822_8629"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;ChoiceFormat&lt;/code&gt; allows you to attach a format to a range of numbers.
+It is generally used in a &lt;code&gt;MessageFormat&lt;/code&gt; for handling plurals.
+The choice is specified with an ascending list of doubles, where each item
+specifies a half-open interval up to the next item:
+&lt;blockquote&gt;
+&lt;pre&gt;
+X matches j if and only if limit[j] &lt;= X &lt; limit[j+1]
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+If there is no match, then either the first or last index is used, depending
+on whether the number (X) is too low or too high.  If the limit array is not
+in ascending order, the results of formatting will be incorrect.  ChoiceFormat
+also accepts &lt;code&gt;&amp;#92;u221E&lt;/code&gt; as equivalent to infinity(INF).
+
+&lt;p&gt;
+&lt;strong&gt;Note:&lt;/strong&gt;
+&lt;code&gt;ChoiceFormat&lt;/code&gt; differs from the other &lt;code&gt;Format&lt;/code&gt;
+classes in that you create a &lt;code&gt;ChoiceFormat&lt;/code&gt; object with a
+constructor (not with a &lt;code&gt;getInstance&lt;/code&gt; style factory
+method). The factory methods aren't necessary because &lt;code&gt;ChoiceFormat&lt;/code&gt;
+doesn't require any complex setup for a given locale. In fact,
+&lt;code&gt;ChoiceFormat&lt;/code&gt; doesn't implement any locale specific behavior.
+
+&lt;p&gt;
+When creating a &lt;code&gt;ChoiceFormat&lt;/code&gt;, you must specify an array of formats
+and an array of limits. The length of these arrays must be the same.
+For example,
+&lt;ul&gt;
+&lt;li&gt;
+&lt;em&gt;limits&lt;/em&gt; = {1,2,3,4,5,6,7}&lt;br&gt;
+&lt;em&gt;formats&lt;/em&gt; = {"Sun","Mon","Tue","Wed","Thur","Fri","Sat"}
+&lt;li&gt;
+&lt;em&gt;limits&lt;/em&gt; = {0, 1, ChoiceFormat.nextDouble(1)}&lt;br&gt;
+&lt;em&gt;formats&lt;/em&gt; = {"no files", "one file", "many files"}&lt;br&gt;
+(&lt;code&gt;nextDouble&lt;/code&gt; can be used to get the next higher double, to
+make the half-open interval.)
+&lt;/ul&gt;
+
+&lt;p&gt;
+Here is a simple example that shows formatting and parsing:
+&lt;blockquote&gt;
+&lt;pre&gt;
+double[] limits = {1,2,3,4,5,6,7};
+String[] monthNames = {"Sun","Mon","Tue","Wed","Thur","Fri","Sat"};
+ChoiceFormat form = new ChoiceFormat(limits, monthNames);
+ParsePosition status = new ParsePosition(0);
+for (double i = 0.0; i &lt;= 8.0; ++i) {
+status.setIndex(0);
+System.out.println(i + " -&gt; " + form.format(i) + " -&gt; "
++ form.parse(form.format(i),status));
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+Here is a more complex example, with a pattern format:
+&lt;blockquote&gt;
+&lt;pre&gt;
+double[] filelimits = {0,1,2};
+String[] filepart = {"are no files","is one file","are {2} files"};
+ChoiceFormat fileform = new ChoiceFormat(filelimits, filepart);
+Format[] testFormats = {fileform, null, NumberFormat.getInstance()};
+MessageFormat pattform = new MessageFormat("There {0} on {1}");
+pattform.setFormats(testFormats);
+Object[] testArgs = {null, "ADisk", null};
+for (int i = 0; i &lt; 4; ++i) {
+testArgs[0] = new Integer(i);
+testArgs[2] = testArgs[0];
+System.out.println(pattform.format(testArgs));
+}
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+Specifying a pattern for ChoiceFormat objects is fairly straightforward.
+For example:
+&lt;blockquote&gt;
+&lt;pre&gt;
+ChoiceFormat fmt = new ChoiceFormat(
+"-1#is negative| 0#is zero or fraction | 1#is one |1.0&lt;is 1+ |2#is two |2&lt;is more than 2.");
+System.out.println("Formatter Pattern : " + fmt.toPattern());
+
+System.out.println("Format with -INF : " + fmt.format(Double.NEGATIVE_INFINITY));
+System.out.println("Format with -1.0 : " + fmt.format(-1.0));
+System.out.println("Format with 0 : " + fmt.format(0));
+System.out.println("Format with 0.9 : " + fmt.format(0.9));
+System.out.println("Format with 1.0 : " + fmt.format(1));
+System.out.println("Format with 1.5 : " + fmt.format(1.5));
+System.out.println("Format with 2 : " + fmt.format(2));
+System.out.println("Format with 2.1 : " + fmt.format(2.1));
+System.out.println("Format with NaN : " + fmt.format(Double.NaN));
+System.out.println("Format with +INF : " + fmt.format(Double.POSITIVE_INFINITY));
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+And the output result would be like the following:
+&lt;pre&gt;
+&lt;blockquote&gt;
+Format with -INF : is negative
+Format with -1.0 : is negative
+Format with 0 : is zero or fraction
+Format with 0.9 : is zero or fraction
+Format with 1.0 : is one
+Format with 1.5 : is 1+
+Format with 2 : is two
+Format with 2.1 : is more than 2.
+Format with NaN : is negative
+Format with +INF : is more than 2.
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;h4&gt;&lt;a name="synchronization"&gt;Synchronization&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;
+Choice formats are not synchronized.
+It is recommended to create separate format instances for each thread.
+If multiple threads access a format concurrently, it must be synchronized
+externally.
+
+
+@see          DecimalFormat
+@see          MessageFormat
+@version      1.22 09/21/98
+@author       Mark Davis
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ChoiceFormat" refid="_9_5_f720368_1110473546690_525822_8629"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ChoiceFormat" refid="_9_5_f720368_1110473546690_525822_8629"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314989_146872_9487"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RelationSupport" refid="_10_5_622020d_1132928314989_424261_9485"/></annotatedElement><body humanName="Body" mode="s,e">A RelationSupport object is used internally by the Relation Service to
+represent simple relations (only roles, no properties or methods), with an
+unlimited number of roles, of any relation type. As internal representation,
+it is not exposed to the user.
+&lt;P&gt;RelationSupport class conforms to the design patterns of standard MBean. So
+the user can decide to instantiate a RelationSupport object himself as
+a MBean (as it follows the MBean design patterns), to register it in the
+MBean Server, and then to add it in the Relation Service.
+&lt;P&gt;The user can also, when creating his own MBean relation class, have it
+extending RelationSupport, to retrieve the implementations of required
+interfaces (see below).
+&lt;P&gt;It is also possible to have in a user relation MBean class a member
+being a RelationSupport object, and to implement the required interfaces by
+delegating all to this member.
+&lt;P&gt; RelationSupport implements the Relation interface (to be handled by the
+Relation Service).
+&lt;P&gt;It implements also the MBeanRegistration interface to be able to retrieve
+the MBean Server where it is registered (if registered as a MBean) to access
+to its Relation Service.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RelationSupport" refid="_10_5_622020d_1132928314989_424261_9485"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RelationSupport" refid="_10_5_622020d_1132928314989_424261_9485"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

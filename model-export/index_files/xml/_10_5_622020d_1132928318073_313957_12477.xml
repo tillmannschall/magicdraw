@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318073_313957_12477"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JPopupMenu" refid="_9_5_f720368_1110473546799_993159_10753"/></annotatedElement><body humanName="Body" mode="s,e">An implementation of a popup menu -- a small window that pops up
+and displays a series of choices. A &lt;code&gt;JPopupMenu&lt;/code&gt; is used for the
+menu that appears when the user selects an item on the menu bar.
+It is also used for "pull-right" menu that appears when the
+selects a menu item that activates it. Finally, a &lt;code&gt;JPopupMenu&lt;/code&gt;
+can also be used anywhere else you want a menu to appear.  For
+example, when the user right-clicks in a specified area.
+&lt;p&gt;
+For information and examples of using popup menus, see
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/menu.html"&gt;How to Use Menus&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial.&lt;/em&gt;
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@beaninfo
+attribute: isContainer false
+description: A small window that pops up and displays a series of choices.
+
+@version 1.191 @(#)JPopupMenu.java	1.191
+@author Georges Saab
+@author David Karlton
+@author Arnaud Weber
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JPopupMenu" refid="_9_5_f720368_1110473546799_993159_10753"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JPopupMenu" refid="_9_5_f720368_1110473546799_993159_10753"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

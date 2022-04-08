@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546659_911691_7947"><documentation humanName="Documentation" mode="standard">An engine that can transform a sequence of sixteen-bit Unicode characters into a sequence of
+bytes in a specific charset.
+
+&lt;a name="steps"&gt;
+
+&lt;p&gt; The input character sequence is provided in a character buffer or a series
+of such buffers.  The output byte sequence is written to a byte buffer
+or a series of such buffers.  An encoder should always be used by making
+the following sequence of method invocations, hereinafter referred to as an
+&lt;i&gt;encoding operation&lt;/i&gt;:
+
+&lt;ol&gt;
+
+&lt;li&gt;&lt;p&gt; Reset the encoder via the {@link #reset reset} method, unless it
+has not been used before; &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Invoke the {@link #encode encode} method zero or more times, as
+long as additional input may be available, passing &lt;tt&gt;false&lt;/tt&gt; for the
+&lt;tt&gt;endOfInput&lt;/tt&gt; argument and filling the input buffer and flushing the
+output buffer between invocations; &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Invoke the {@link #encode encode} method one final time, passing
+&lt;tt&gt;true&lt;/tt&gt; for the &lt;tt&gt;endOfInput&lt;/tt&gt; argument; and then &lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt; Invoke the {@link #flush flush} method so that the encoder can
+flush any internal state to the output buffer. &lt;/p&gt;&lt;/li&gt;
+
+&lt;/ol&gt;
+
+Each invocation of the {@link #encode encode} method will encode as many
+characters as possible from the input buffer, writing the resulting bytes
+to the output buffer.  The {@link #encode encode} method returns when more
+input is required, when there is not enough room in the output buffer, or
+when an encoding error has occurred.  In each case a {@link CoderResult}
+object is returned to describe the reason for termination.  An invoker can
+examine this object and fill the input buffer, flush the output buffer, or
+attempt to recover from an encoding error, as appropriate, and try again.
+
+&lt;a name="ce"&gt;
+
+&lt;p&gt; There are two general types of encoding errors.  If the input character
+sequence is not a legal sixteen-bit Unicode sequence then the input is considered &lt;i&gt;malformed&lt;/i&gt;.  If
+the input character sequence is legal but cannot be mapped to a valid
+byte sequence in the given charset then an &lt;i&gt;unmappable character&lt;/i&gt; has been encountered.
+
+&lt;a name="cae"&gt;
+
+&lt;p&gt; How an encoding error is handled depends upon the action requested for
+that type of error, which is described by an instance of the {@link
+CodingErrorAction} class.  The possible error actions are to {@link
+CodingErrorAction#IGNORE &lt;/code&gt;ignore&lt;code&gt;} the erroneous input, {@link
+CodingErrorAction#REPORT &lt;/code&gt;report&lt;code&gt;} the error to the invoker via
+the returned {@link CoderResult} object, or {@link CodingErrorAction#REPLACE
+&lt;/code&gt;replace&lt;code&gt;} the erroneous input with the current value of the
+replacement byte array.  The replacement
+
+is initially set to the encoder's default replacement, which often
+(but not always) has the initial value&amp;nbsp;&lt;tt&gt;{&lt;/tt&gt;&amp;nbsp;&lt;tt&gt;(byte)'?'&lt;/tt&gt;&amp;nbsp;&lt;tt&gt;}&lt;/tt&gt;;
+
+its value may be changed via the {@link #replaceWith(byte[])
+replaceWith} method.
+
+&lt;p&gt; The default action for malformed-input and unmappable-character errors
+is to {@link CodingErrorAction#REPORT &lt;/code&gt;report&lt;code&gt;} them.  The
+malformed-input error action may be changed via the {@link
+#onMalformedInput(CodingErrorAction) onMalformedInput} method; the
+unmappable-character action may be changed via the {@link
+#onUnmappableCharacter(CodingErrorAction) onUnmappableCharacter} method.
+
+&lt;p&gt; This class is designed to handle many of the details of the encoding
+process, including the implementation of error actions.  An encoder for a
+specific charset, which is a concrete subclass of this class, need only
+implement the abstract {@link #encodeLoop encodeLoop} method, which
+encapsulates the basic encoding loop.  A subclass that maintains internal
+state should, additionally, override the {@link #flush flush} and {@link
+#reset reset} methods.
+
+&lt;p&gt; Instances of this class are not safe for use by multiple concurrent
+threads.  &lt;/p&gt;
+
+
+@version 1.40, 04/06/19
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@since 1.4
+
+@see ByteBuffer
+@see CharBuffer
+@see Charset
+@see CharsetDecoder
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">CharsetEncoder</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="charset" refid="_9_5_f720368_1110473547659_432841_18264"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308760_19772_5461"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308760_19772_5461"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="charset" refid="_9_5_f720368_1110473547659_432841_18264"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="charset" refid="_9_5_f720368_1110473547659_432841_18264"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="charset" refid="_9_5_f720368_1110473547659_432841_18264"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::nio::charset::CharsetEncoder</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

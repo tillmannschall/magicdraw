@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546737_269432_9731"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;Line&lt;/code&gt; interface represents a mono or multi-channel
+audio feed. A line is an element of the digital audio
+"pipeline," such as a mixer, an input or output port,
+or a data path into or out of a mixer.
+&lt;p&gt;
+A line can have controls, such as gain, pan, and reverb.
+The controls themselves are instances of classes that extend the
+base &lt;code&gt;{@link Control}&lt;/code&gt; class.
+The &lt;code&gt;Line&lt;/code&gt; interface provides two accessor methods for
+obtaining the line's controls: &lt;code&gt;{@link #getControls getControls}&lt;/code&gt; returns the
+entire set, and &lt;code&gt;{@link #getControl getControl}&lt;/code&gt; returns a single control of
+specified type.
+&lt;p&gt;
+Lines exist in various states at different times.  When a line opens, it reserves system
+resources for itself, and when it closes, these resources are freed for
+other objects or applications. The &lt;code&gt;{@link #isOpen()}&lt;/code&gt; method lets
+you discover whether a line is open or closed.
+An open line need not be processing data, however.  Such processing is
+typically initiated by subinterface methods such as
+&lt;code&gt;{@link SourceDataLine#write SourceDataLine.write}&lt;/code&gt; and
+&lt;code&gt;{@link TargetDataLine#read TargetDataLine.read}&lt;/code&gt;.
+&lt;p&gt;
+You can register an object to receive notifications whenever the line's
+state changes.  The object must implement the &lt;code&gt;{@link LineListener}&lt;/code&gt;
+interface, which consists of the single method
+&lt;code&gt;{@link LineListener#update update}&lt;/code&gt;.
+This method will be invoked when a line opens and closes (and, if it's a
+{@link DataLine}, when it starts and stops).
+&lt;p&gt;
+An object can be registered to listen to multiple lines.  The event it
+receives in its &lt;code&gt;update&lt;/code&gt; method will specify which line created
+the event, what type of event it was
+(&lt;code&gt;OPEN&lt;/code&gt;, &lt;code&gt;CLOSE&lt;/code&gt;, &lt;code&gt;START&lt;/code&gt;, or &lt;code&gt;STOP&lt;/code&gt;),
+and how many sample frames the line had processed at the time the event occurred.
+&lt;p&gt;
+Certain line operations, such as open and close, can generate security
+exceptions if invoked by unprivileged code when the line is a shared audio
+resource.
+
+@author Kara Kytle
+@version 1.29, 04/07/14
+
+@see LineEvent
+@since 1.3
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548096_228899_20885"/></member><name humanName="Name" mode="s,e">Line</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sampled" refid="_9_5_f720368_1110473548096_948655_20840"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548096_228899_20885"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316261_279227_10637"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316261_279227_10637"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548096_228899_20885"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548096_228899_20885"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sampled" refid="_9_5_f720368_1110473548096_948655_20840"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sampled" refid="_9_5_f720368_1110473548096_948655_20840"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sampled" refid="_9_5_f720368_1110473548096_948655_20840"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sound::sampled::Line</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

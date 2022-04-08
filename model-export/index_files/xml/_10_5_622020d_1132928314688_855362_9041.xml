@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314688_855362_9041"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NamespaceSupport" refid="_9_5_f720368_1110473546940_260432_13264"/></annotatedElement><body humanName="Body" mode="s,e">Encapsulate Namespace logic for use by applications using SAX,
+or internally by SAX drivers.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;This class encapsulates the logic of Namespace processing: it
+tracks the declarations currently in force for each context and
+automatically processes qualified XML names into their Namespace
+parts; it can also be used in reverse for generating XML qnames
+from Namespaces.&lt;/p&gt;
+
+&lt;p&gt;Namespace support objects are reusable, but the reset method
+must be invoked between each session.&lt;/p&gt;
+
+&lt;p&gt;Here is a simple session:&lt;/p&gt;
+
+&lt;pre&gt;
+String parts[] = new String[3];
+NamespaceSupport support = new NamespaceSupport();
+
+support.pushContext();
+support.declarePrefix("", "http://www.w3.org/1999/xhtml");
+support.declarePrefix("dc", "http://www.purl.org/dc#");
+
+parts = support.processName("p", parts, false);
+System.out.println("Namespace URI: " + parts[0]);
+System.out.println("Local name: " + parts[1]);
+System.out.println("Raw name: " + parts[2]);
+
+parts = support.processName("dc:title", parts, false);
+System.out.println("Namespace URI: " + parts[0]);
+System.out.println("Local name: " + parts[1]);
+System.out.println("Raw name: " + parts[2]);
+
+support.popContext();
+&lt;/pre&gt;
+
+&lt;p&gt;Note that this class is optimized for the use case where most
+elements do not contain Namespace declarations: if the same
+prefix/URI mapping is repeated for each context (for example), this
+class will be somewhat less efficient.&lt;/p&gt;
+
+&lt;p&gt;Although SAX drivers (parsers) may choose to use this class to
+implement namespace handling, they are not required to do so.
+Applications must track namespace information themselves if they
+want to use namespace information.
+
+@since SAX 2.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="NamespaceSupport" refid="_9_5_f720368_1110473546940_260432_13264"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NamespaceSupport" refid="_9_5_f720368_1110473546940_260432_13264"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

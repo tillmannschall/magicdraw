@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546940_909232_13270"><documentation humanName="Documentation" mode="standard">Java-specific class for dynamically loading SAX parsers.
+
+&lt;blockquote&gt;
+&lt;em&gt;This module, both source code and documentation, is in the
+Public Domain, and comes with &lt;strong&gt;NO WARRANTY&lt;/strong&gt;.&lt;/em&gt;
+See &lt;a href='http://www.saxproject.org'&gt;http://www.saxproject.org&lt;/a&gt;
+for further information.
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This class is designed to work with the now-deprecated
+SAX1 {@link org.xml.sax.Parser Parser} class.  SAX2 applications should use
+{@link org.xml.sax.helpers.XMLReaderFactory XMLReaderFactory} instead.&lt;/p&gt;
+
+&lt;p&gt;ParserFactory is not part of the platform-independent definition
+of SAX; it is an additional convenience class designed
+specifically for Java XML application writers.  SAX applications
+can use the static methods in this class to allocate a SAX parser
+dynamically at run-time based either on the value of the
+`org.xml.sax.parser' system property or on a string containing the class
+name.&lt;/p&gt;
+
+&lt;p&gt;Note that the application still requires an XML parser that
+implements SAX1.&lt;/p&gt;
+
+@deprecated This class works with the deprecated
+{@link org.xml.sax.Parser Parser}
+interface.
+@since SAX 1.0
+@author David Megginson
+@version 2.0.1 (sax2r2)
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ParserFactory</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314688_105224_9048"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314688_105224_9048"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="helpers" refid="_9_5_f720368_1110473548862_999803_27646"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::xml::sax::helpers::ParserFactory</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

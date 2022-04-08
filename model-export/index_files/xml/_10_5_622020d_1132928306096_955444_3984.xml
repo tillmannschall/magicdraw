@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306096_955444_3984"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Raster" refid="_9_5_f720368_1110473546581_322390_6819"/></annotatedElement><body humanName="Body" mode="s,e">A class representing a rectangular array of pixels.  A Raster
+encapsulates a DataBuffer that stores the sample values and a
+SampleModel that describes how to locate a given sample value in a
+DataBuffer.
+&lt;p&gt;
+A Raster defines values for pixels occupying a particular
+rectangular area of the plane, not necessarily including (0, 0).
+The rectangle, known as the Raster's bounding rectangle and
+available by means of the getBounds method, is defined by minX,
+minY, width, and height values.  The minX and minY values define
+the coordinate of the upper left corner of the Raster.  References
+to pixels outside of the bounding rectangle may result in an
+exception being thrown, or may result in references to unintended
+elements of the Raster's associated DataBuffer.  It is the user's
+responsibility to avoid accessing such pixels.
+&lt;p&gt;
+A SampleModel describes how samples of a Raster
+are stored in the primitive array elements of a DataBuffer.
+Samples may be stored one per data element, as in a
+PixelInterleavedSampleModel or BandedSampleModel, or packed several to
+an element, as in a SinglePixelPackedSampleModel or
+MultiPixelPackedSampleModel.  The SampleModel is also
+controls whether samples are sign extended, allowing unsigned
+data to be stored in signed Java data types such as byte, short, and
+int.
+&lt;p&gt;
+Although a Raster may live anywhere in the plane, a SampleModel
+makes use of a simple coordinate system that starts at (0, 0).  A
+Raster therefore contains a translation factor that allows pixel
+locations to be mapped between the Raster's coordinate system and
+that of the SampleModel.  The translation from the SampleModel
+coordinate system to that of the Raster may be obtained by the
+getSampleModelTranslateX and getSampleModelTranslateY methods.
+&lt;p&gt;
+A Raster may share a DataBuffer with another Raster either by
+explicit construction or by the use of the createChild and
+createTranslatedChild methods.  Rasters created by these methods
+can return a reference to the Raster they were created from by
+means of the getParent method.  For a Raster that was not
+constructed by means of a call to createTranslatedChild or
+createChild, getParent will return null.
+&lt;p&gt;
+The createTranslatedChild method returns a new Raster that
+shares all of the data of the current Raster, but occupies a
+bounding rectangle of the same width and height but with a
+different starting point.  For example, if the parent Raster
+occupied the region (10, 10) to (100, 100), and the translated
+Raster was defined to start at (50, 50), then pixel (20, 20) of the
+parent and pixel (60, 60) of the child occupy the same location in
+the DataBuffer shared by the two Rasters.  In the first case, (-10,
+-10) should be added to a pixel coordinate to obtain the
+corresponding SampleModel coordinate, and in the second case (-50,
+-50) should be added.
+&lt;p&gt;
+The translation between a parent and child Raster may be
+determined by subtracting the child's sampleModelTranslateX and
+sampleModelTranslateY values from those of the parent.
+&lt;p&gt;
+The createChild method may be used to create a new Raster
+occupying only a subset of its parent's bounding rectangle
+(with the same or a translated coordinate system) or
+with a subset of the bands of its parent.
+&lt;p&gt;
+All constructors are protected.  The correct way to create a
+Raster is to use one of the static create methods defined in this
+class.  These methods create instances of Raster that use the
+standard Interleaved, Banded, and Packed SampleModels and that may
+be processed more efficiently than a Raster created by combining
+an externally generated SampleModel and DataBuffer.
+@see java.awt.image.DataBuffer
+@see java.awt.image.SampleModel
+@see java.awt.image.PixelInterleavedSampleModel
+@see java.awt.image.BandedSampleModel
+@see java.awt.image.SinglePixelPackedSampleModel
+@see java.awt.image.MultiPixelPackedSampleModel
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Raster" refid="_9_5_f720368_1110473546581_322390_6819"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Raster" refid="_9_5_f720368_1110473546581_322390_6819"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

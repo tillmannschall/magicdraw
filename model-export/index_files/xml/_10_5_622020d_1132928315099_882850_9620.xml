@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315099_882850_9620"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Timer" refid="_10_5_622020d_1132928315099_789576_9618"/></annotatedElement><body humanName="Body" mode="s,e">Provides the implementation of the timer MBean.
+The timer MBean sends out an alarm at a specified time
+that wakes up all the listeners registered to receive timer notifications.
+&lt;P&gt;
+
+This class manages a list of dated timer notifications.
+A method allows users to add/remove as many notifications as required.
+When a timer notification is emitted by the timer and becomes obsolete,
+it is automatically removed from the list of timer notifications.
+&lt;BR&gt;Additional timer notifications can be added into regularly repeating notifications.
+&lt;P&gt;
+
+Note:
+&lt;OL&gt;
+&lt;LI&gt;All notifications before the time when the &lt;CODE&gt;addNotification&lt;/CODE&gt; method is called
+are ignored, irrespective of the &lt;CODE&gt;sendPastNotifications&lt;/CODE&gt; flag.
+&lt;LI&gt;When sending timer notifications, the timer updates the notification sequence number
+irrespective of the notification type.
+&lt;LI&gt;The timer service relies on the system date of the host where the &lt;CODE&gt;Timer&lt;/CODE&gt; class is loaded.
+Listeners may receive untimely notifications
+if their host has a different system date.
+To avoid such problems, synchronize the system date of all host machines where timing is needed.
+&lt;LI&gt;The default behavior for periodic notifications is &lt;i&gt;fixed-delay execution&lt;/i&gt;, as
+specified in {@link java.util.Timer}. In order to use &lt;i&gt;fixed-rate execution&lt;/i&gt;, use the
+overloaded {@link #addNotification(String, String, Object, Date, long, long, boolean)} method.
+&lt;LI&gt;Notification listeners are potentially all executed in the same
+thread.  Therefore, they should execute rapidly to avoid holding up
+other listeners or perturbing the regularity of fixed-delay
+executions.  See {@link NotificationBroadcasterSupport}.
+&lt;/OL&gt;
+
+@version     4.58     04/13/04
+@author      Sun Microsystems, Inc
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Timer" refid="_10_5_622020d_1132928315099_789576_9618"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Timer" refid="_10_5_622020d_1132928315099_789576_9618"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

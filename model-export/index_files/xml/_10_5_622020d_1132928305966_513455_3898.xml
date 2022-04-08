@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305966_513455_3898"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RenderableImage" refid="_9_5_f720368_1110473546565_424612_6733"/></annotatedElement><body humanName="Body" mode="s,e">A RenderableImage is a common interface for rendering-independent
+images (a notion which subsumes resolution independence).  That is,
+images which are described and have operations applied to them
+independent of any specific rendering of the image.  For example, a
+RenderableImage can be rotated and cropped in
+resolution-independent terms.  Then, it can be rendered for various
+specific contexts, such as a draft preview, a high-quality screen
+display, or a printer, each in an optimal fashion.
+
+&lt;p&gt; A RenderedImage is returned from a RenderableImage via the
+createRendering() method, which takes a RenderContext.  The
+RenderContext specifies how the RenderedImage should be
+constructed.  Note that it is not possible to extract pixels
+directly from a RenderableImage.
+
+&lt;p&gt; The createDefaultRendering() and createScaledRendering() methods are
+convenience methods that construct an appropriate RenderContext
+internally.  All of the rendering methods may return a reference to a
+previously produced rendering.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="RenderableImage" refid="_9_5_f720368_1110473546565_424612_6733"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RenderableImage" refid="_9_5_f720368_1110473546565_424612_6733"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

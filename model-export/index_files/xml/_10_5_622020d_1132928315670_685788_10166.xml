@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315670_685788_10166"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobStateReasons" refid="_9_5_f720368_1110473546721_856107_9363"/></annotatedElement><body humanName="Body" mode="s,e">Class JobStateReasons is a printing attribute class, a set of enumeration
+values, that provides additional information about the job's current state,
+i.e., information that augments the value of the job's {@link JobState
+JobState} attribute.
+&lt;P&gt;
+Instances of {@link JobStateReason JobStateReason} do not appear in a Print
+Job's attribute set directly. Rather, a JobStateReasons attribute appears in
+the Print Job's attribute set. The JobStateReasons attribute contains zero,
+one, or more than one {@link JobStateReason JobStateReason} objects which
+pertain to the Print Job's status. The printer adds a {@link JobStateReason
+JobStateReason} object to the Print Job's JobStateReasons attribute when the
+corresponding condition becomes true of the Print Job, and the printer
+removes the {@link JobStateReason JobStateReason} object again when the
+corresponding condition becomes false, regardless of whether the Print Job's
+overall {@link JobState JobState} also changed.
+&lt;P&gt;
+Class JobStateReasons inherits its implementation from class {@link
+java.util.HashSet java.util.HashSet}. Unlike most printing attributes which
+are immutable once constructed, class JobStateReasons is designed to be
+mutable; you can add {@link JobStateReason JobStateReason} objects to an
+existing JobStateReasons object and remove them again. However, like class
+{@link java.util.HashSet java.util.HashSet}, class JobStateReasons is not
+multiple thread safe. If a JobStateReasons object will be used by multiple
+threads, be sure to synchronize its operations (e.g., using a synchronized
+set view obtained from class {@link java.util.Collections
+java.util.Collections}).
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The string value returned by each individual {@link
+JobStateReason JobStateReason} object's &lt;CODE&gt;toString()&lt;/CODE&gt; method gives
+the IPP keyword value. The category name returned by &lt;CODE&gt;getName()&lt;/CODE&gt;
+gives the IPP attribute name.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JobStateReasons" refid="_9_5_f720368_1110473546721_856107_9363"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobStateReasons" refid="_9_5_f720368_1110473546721_856107_9363"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

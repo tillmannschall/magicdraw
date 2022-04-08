@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546768_839664_10305"><documentation humanName="Documentation" mode="standard">A content model state. This is basically a list of pointers to
+the BNF expression representing the model (the ContentModel).
+Each element in a DTD has a content model which describes the
+elements that may occur inside, and the order in which they can
+occur.
+&lt;p&gt;
+Each time a token is reduced a new state is created.
+&lt;p&gt;
+See Annex H on page 556 of the SGML handbook for more information.
+
+@see Parser
+@see DTD
+@see Element
+@see ContentModel
+@author Arthur van Hoff
+@version 	1.11 12/19/03
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ContentModelState</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="parser" refid="_9_5_f720368_1110473548284_548152_22833"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317422_778077_11771"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317422_778077_11771"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="parser" refid="_9_5_f720368_1110473548284_548152_22833"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="parser" refid="_9_5_f720368_1110473548284_548152_22833"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="parser" refid="_9_5_f720368_1110473548284_548152_22833"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::text::html::parser::ContentModelState</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305655_874701_3659"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DragSourceListener" refid="_9_5_f720368_1110473546565_10050_6509"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;DragSourceListener&lt;/code&gt; defines the
+event interface for originators of
+Drag and Drop operations to track the state of the user's gesture, and to
+provide appropriate "drag over"
+feedback to the user throughout the
+Drag and Drop operation.
+&lt;p&gt;
+The drop site is &lt;i&gt;associated with the previous &lt;code&gt;dragEnter()&lt;/code&gt;
+invocation&lt;/i&gt; if the latest invocation of &lt;code&gt;dragEnter()&lt;/code&gt; on this
+listener:
+&lt;ul&gt;
+&lt;li&gt;corresponds to that drop site and
+&lt;li&gt; is not followed by a &lt;code&gt;dragExit()&lt;/code&gt; invocation on this listener.
+&lt;/ul&gt;
+
+@version 	1.20, 12/19/03
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DragSourceListener" refid="_9_5_f720368_1110473546565_10050_6509"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DragSourceListener" refid="_9_5_f720368_1110473546565_10050_6509"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

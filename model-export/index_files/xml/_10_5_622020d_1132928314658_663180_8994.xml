@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314658_663180_8994"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Node" refid="_9_5_f720368_1110473546940_624353_13242"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Node&lt;/code&gt; interface is the primary datatype for the entire
+Document Object Model. It represents a single node in the document tree.
+While all objects implementing the &lt;code&gt;Node&lt;/code&gt; interface expose
+methods for dealing with children, not all objects implementing the
+&lt;code&gt;Node&lt;/code&gt; interface may have children. For example,
+&lt;code&gt;Text&lt;/code&gt; nodes may not have children, and adding children to
+such nodes results in a &lt;code&gt;DOMException&lt;/code&gt; being raised.
+&lt;p&gt;The attributes &lt;code&gt;nodeName&lt;/code&gt;, &lt;code&gt;nodeValue&lt;/code&gt; and
+&lt;code&gt;attributes&lt;/code&gt; are included as a mechanism to get at node
+information without casting down to the specific derived interface. In
+cases where there is no obvious mapping of these attributes for a
+specific &lt;code&gt;nodeType&lt;/code&gt; (e.g., &lt;code&gt;nodeValue&lt;/code&gt; for an
+&lt;code&gt;Element&lt;/code&gt; or &lt;code&gt;attributes&lt;/code&gt; for a &lt;code&gt;Comment&lt;/code&gt;
+), this returns &lt;code&gt;null&lt;/code&gt;. Note that the specialized interfaces
+may contain additional and more convenient mechanisms to get and set the
+relevant information.
+&lt;p&gt;The values of &lt;code&gt;nodeName&lt;/code&gt;,
+&lt;code&gt;nodeValue&lt;/code&gt;, and &lt;code&gt;attributes&lt;/code&gt; vary according to the
+node type as follows:
+&lt;table border='1' cellpadding='3'&gt;
+&lt;tr&gt;
+&lt;th&gt;Interface&lt;/th&gt;
+&lt;th&gt;nodeName&lt;/th&gt;
+&lt;th&gt;nodeValue&lt;/th&gt;
+&lt;th&gt;attributes&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;
+&lt;code&gt;Attr&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;same as &lt;code&gt;Attr.name&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;same as
+&lt;code&gt;Attr.value&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;CDATASection&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;
+&lt;code&gt;"#cdata-section"&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;same as &lt;code&gt;CharacterData.data&lt;/code&gt;, the
+content of the CDATA Section&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;Comment&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;
+&lt;code&gt;"#comment"&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;same as &lt;code&gt;CharacterData.data&lt;/code&gt;, the
+content of the comment&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;Document&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;
+&lt;code&gt;"#document"&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;
+&lt;code&gt;DocumentFragment&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;"#document-fragment"&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;
+&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;DocumentType&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;same as
+&lt;code&gt;DocumentType.name&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;
+&lt;code&gt;Element&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;same as &lt;code&gt;Element.tagName&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;
+&lt;code&gt;NamedNodeMap&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;Entity&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;entity name&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;
+&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;EntityReference&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;name of entity referenced&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;
+&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;Notation&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;notation name&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;
+&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;ProcessingInstruction&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;same
+as &lt;code&gt;ProcessingInstruction.target&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;same as
+&lt;code&gt;ProcessingInstruction.data&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;Text&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;
+&lt;code&gt;"#text"&lt;/code&gt;&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;same as &lt;code&gt;CharacterData.data&lt;/code&gt;, the content
+of the text node&lt;/td&gt;
+&lt;td valign='top' rowspan='1' colspan='1'&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'&gt;Document Object Model (DOM) Level 3 Core Specification&lt;/a&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Node" refid="_9_5_f720368_1110473546940_624353_13242"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Node" refid="_9_5_f720368_1110473546940_624353_13242"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

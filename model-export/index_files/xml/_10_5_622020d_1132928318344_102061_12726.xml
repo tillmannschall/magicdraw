@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318344_102061_12726"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="XMLGregorianCalendar" refid="_10_5_622020d_1132928318294_964974_12724"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Representation for W3C XML Schema 1.0 date/time datatypes.
+Specifically, these date/time datatypes are
+&lt;a href="#DATETIME"&gt;&lt;code&gt;dateTime&lt;/code&gt;&lt;/a&gt;,
+&lt;a href="#TIME"&gt;&lt;code&gt;time&lt;/code&gt;&lt;/a&gt;,
+&lt;a href="#DATE"&gt;&lt;code&gt;date&lt;/code&gt;&lt;/a&gt;,
+&lt;a href="#GYEARMONTH"&gt;&lt;code&gt;gYearMonth&lt;/code&gt;&lt;/a&gt;,
+&lt;a href="#GMONTHDAY"&gt;&lt;code&gt;gMonthDay&lt;/code&gt;&lt;/a&gt;,
+&lt;a href="#GYEAR"&gt;&lt;code&gt;gYear&lt;/code&gt;&lt;/a&gt;
+&lt;a href="#GMONTH"&gt;&lt;code&gt;gMonth&lt;/code&gt;&lt;/a&gt; and
+&lt;a href="#GDAY"&gt;&lt;code&gt;gDay&lt;/code&gt;&lt;/a&gt; defined in the XML Namespace
+&lt;code&gt;"http://www.w3.org/2001/XMLSchema"&lt;/code&gt;.
+These datatypes are normatively defined in
+&lt;a href="http://www.w3.org/TR/xmlschema-2/#dateTime"&gt;W3C XML Schema 1.0 Part 2, Section 3.2.7-14&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The table below defines the mapping between XML Schema 1.0
+date/time datatype fields and this class' fields. It also summarizes
+the value constraints for the date and time fields defined in
+&lt;a href="http://www.w3.org/TR/xmlschema-2/#isoformats"&gt;W3C XML Schema 1.0 Part 2, Appendix D,
+&lt;i&gt;ISO 8601 Date and Time Formats&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;a name="datetimefieldsmapping"/&gt;
+&lt;table border="2" rules="all" cellpadding="2"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="center" colspan="3"&gt;
+Date/Time Datatype Field Mapping Between XML Schema 1.0 and Java Representation
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th&gt;XML Schema 1.0&lt;br/&gt;
+datatype&lt;br/&gt;
+field&lt;/th&gt;
+&lt;th&gt;Related&lt;br/&gt;XMLGregorianCalendar&lt;br/&gt;Accessor(s)&lt;/th&gt;
+&lt;th&gt;Value Range&lt;/th&gt;
+&lt;/tr&gt;
+&lt;a name="datetimefield-year"/&gt;
+&lt;tr&gt;
+&lt;td&gt; year &lt;/td&gt;
+&lt;td&gt; {@link #getYear()} + {@link #getEon()} or&lt;br/&gt;
+{@link #getEonAndYear}
+&lt;/td&gt;
+&lt;td&gt; &lt;code&gt;getYear()&lt;/code&gt; is a value between -(10^9-1) to (10^9)-1
+or {@link DatatypeConstants#FIELD_UNDEFINED}.&lt;br/&gt;
+{@link #getEon()} is high order year value in billion of years.&lt;br/&gt;
+&lt;code&gt;getEon()&lt;/code&gt; has values greater than or equal to (10^9) or less than or equal to -(10^9).
+A value of null indicates field is undefined.&lt;/br&gt;
+Given that &lt;a href="http://www.w3.org/2001/05/xmlschema-errata#e2-63"&gt;XML Schema 1.0 errata&lt;/a&gt; states that the year zero
+will be a valid lexical value in a future version of XML Schema,
+this class allows the year field to be set to zero. Otherwise,
+the year field value is handled exactly as described
+in the errata and [ISO-8601-1988]. Note that W3C XML Schema 1.0
+validation does not allow for the year field to have a value of zero.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;a name="datetimefield-month"/&gt;
+&lt;tr&gt;
+&lt;td&gt; month &lt;/td&gt;
+&lt;td&gt; {@link #getMonth()} &lt;/td&gt;
+&lt;td&gt; 1 to 12 or {@link DatatypeConstants#FIELD_UNDEFINED} &lt;/td&gt;
+&lt;/tr&gt;
+&lt;a name="datetimefield-day"/&gt;
+&lt;tr&gt;
+&lt;td&gt; day &lt;/td&gt;
+&lt;td&gt; {@link #getDay()} &lt;/td&gt;
+&lt;td&gt; Independent of month, max range is 1 to 31 or {@link DatatypeConstants#FIELD_UNDEFINED}.&lt;br/&gt;
+The normative value constraint stated relative to month
+field's value is in &lt;a href="http://www.w3.org/TR/xmlschema-2/#isoformats"&gt;W3C XML Schema 1.0 Part 2, Appendix D&lt;/a&gt;.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr id="datetimefield-hour"&gt;
+&lt;td&gt;hour&lt;/td&gt;
+&lt;td&gt;{@link #getHour()}&lt;/td&gt;
+&lt;td&gt;
+0 to 24 or {@link DatatypeConstants#FIELD_UNDEFINED}.
+For a value of 24, the minute and second field must be zero per
+&lt;a href="http://www.w3.org/2001/05/xmlschema-errata#e2-45"&gt;XML Schema Errata&lt;/a&gt;.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;a name="datetimefield-minute"/&gt;
+&lt;tr&gt;
+&lt;td&gt; minute &lt;/td&gt;
+&lt;td&gt; {@link #getMinute()} &lt;/td&gt;
+&lt;td&gt; 0 to 59 or {@link DatatypeConstants#FIELD_UNDEFINED} &lt;/td&gt;
+&lt;/tr&gt;
+&lt;a name="datetimefield-second"/&gt;
+&lt;tr&gt;
+&lt;td&gt;second&lt;/td&gt;
+&lt;td&gt;
+{@link #getSecond()} + {@link #getMillisecond()}/1000 or&lt;br/&gt;
+{@link #getSecond()} + {@link #getFractionalSecond()}
+&lt;/td&gt;
+&lt;td&gt;
+{@link #getSecond()} from 0 to 60 or {@link DatatypeConstants#FIELD_UNDEFINED}.&lt;br/&gt;
+&lt;i&gt;(Note: 60 only allowable for leap second.)&lt;/i&gt;&lt;br/&gt;
+{@link #getFractionalSecond()} allows for infinite precision over the range from 0.0 to 1.0 when
+the {@link #getSecond()} is defined.&lt;br/&gt;
+&lt;code&gt;FractionalSecond&lt;/code&gt; is optional and has a value of &lt;code&gt;null&lt;/code&gt; when it is undefined.&lt;br /&gt;
+{@link #getMillisecond()} is the convenience
+millisecond precision of value of {@link #getFractionalSecond()}.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr id="datetimefield-timezone"&gt;
+&lt;td&gt; timezone &lt;/td&gt;
+&lt;td&gt; {@link #getTimezone()} &lt;/td&gt;
+&lt;td&gt; Number of minutes or {@link DatatypeConstants#FIELD_UNDEFINED}.
+Value range from -14 hours (-14 * 60 minutes) to 14 hours (14 * 60 minutes).
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;All maximum value space constraints listed for the fields in the table
+above are checked by factory methods, @{link DatatypeFactory},
+setter methods and parse methods of
+this class. &lt;code&gt;IllegalArgumentException&lt;/code&gt; is thrown when a
+parameter's value is outside the value constraint for the field or
+if the composite
+values constitute an invalid XMLGregorianCalendar instance (for example, if
+the 31st of June is specified).
+&lt;/p&gt;
+
+&lt;p&gt;The following operations are defined for this class:
+&lt;ul&gt;
+&lt;li&gt;accessors/mutators for independent date/time fields&lt;/li&gt;
+&lt;li&gt;conversion between this class and W3C XML Schema 1.0 lexical representation,
+{@link #toString()}, {@link DatatypeFactory#newXMLGregorianCalendar(String lexicalRepresentation)}&lt;/li&gt;
+&lt;li&gt;conversion between this class and {@link GregorianCalendar},
+{@link #toGregorianCalendar(java.util.TimeZone timezone, java.util.Locale aLocale, XMLGregorianCalendar defaults)},
+{@link DatatypeFactory}&lt;/li&gt;
+&lt;li&gt;partial order relation comparator method, {@link #compare(XMLGregorianCalendar xmlGregorianCalendar)}&lt;/li&gt;
+&lt;li&gt;{@link #equals(Object)} defined relative to {@link #compare(XMLGregorianCalendar xmlGregorianCalendar)}.&lt;/li&gt;
+&lt;li&gt;addition operation with {@link Duration}
+instance as defined in &lt;a href="http://www.w3.org/TR/xmlschema-2/#adding-durations-to-dateTimes"&gt;
+W3C XML Schema 1.0 Part 2, Appendix E, &lt;i&gt;Adding durations to dateTimes&lt;/i&gt;&lt;/a&gt;.
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+
+@author &lt;a href="mailto:Joseph.Fialli@Sun.com"&gt;Joseph Fialli&lt;/a&gt;
+@author &lt;a href="mailto:Kohsuke.Kawaguchi@Sun.com"&gt;Kohsuke Kawaguchi&lt;/a&gt;
+@author &lt;a href="mailto:Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+@version $Revision: 1.28.4.2.2.4.2.1.2.2.2.6 $, $Date: 2004/06/09 19:06:01 $
+@see Duration
+@see DatatypeFactory
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="XMLGregorianCalendar" refid="_10_5_622020d_1132928318294_964974_12724"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="XMLGregorianCalendar" refid="_10_5_622020d_1132928318294_964974_12724"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

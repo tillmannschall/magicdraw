@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308640_683796_5415"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="InterruptibleChannel" refid="_9_5_f720368_1110473546643_524469_7903"/></annotatedElement><body humanName="Body" mode="s,e">A channel that can be asynchronously closed and interrupted.
+
+&lt;p&gt; A channel that implements this interface is &lt;i&gt;asynchronously
+closeable:&lt;/i&gt; If a thread is blocked in an I/O operation on an
+interruptible channel then another thread may invoke the channel's {@link
+#close close} method.  This will cause the blocked thread to receive an
+{@link AsynchronousCloseException}.
+
+&lt;p&gt; A channel that implements this interface is also &lt;i&gt;interruptible:&lt;/i&gt;
+If a thread is blocked in an I/O operation on an interruptible channel then
+another thread may invoke the blocked thread's {@link Thread#interrupt()
+interrupt} method.  This will cause the channel to be closed, the blocked
+thread to receive a {@link ClosedByInterruptException}, and the blocked
+thread's interrupt status to be set.
+
+&lt;p&gt; If a thread's interrupt status is already set and it invokes a blocking
+I/O operation upon a channel then the channel will be closed and the thread
+will immediately receive a {@link ClosedByInterruptException}; its interrupt
+status will remain set.
+
+&lt;p&gt; A channel supports asynchronous closing and interruption if, and only
+if, it implements this interface.  This can be tested at runtime, if
+necessary, via the &lt;tt&gt;instanceof&lt;/tt&gt; operator.
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.5, 03/12/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="InterruptibleChannel" refid="_9_5_f720368_1110473546643_524469_7903"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="InterruptibleChannel" refid="_9_5_f720368_1110473546643_524469_7903"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

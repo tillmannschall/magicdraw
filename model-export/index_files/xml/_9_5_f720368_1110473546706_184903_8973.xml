@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546706_184903_8973"><documentation humanName="Documentation" mode="standard">The AccessibleKeyBinding interface should be supported by any object
+that has a keyboard bindings such as a keyboard mnemonic and/or keyboard
+shortcut which can be used to select the object.  This interface provides
+the standard mechanism for an assistive technology to determine the
+key bindings which exist for this object.
+Any object that has such key bindings should support this
+interface.  Applications can determine if an object supports the
+AccessibleKeyBinding interface by first obtaining its AccessibleContext
+(see @link Accessible} and then calling the
+{@link AccessibleContext#getAccessibleKeyBinding} method.  If the return
+value is not null, the object supports this interface.
+
+@see Accessible
+@see Accessible#getAccessibleContext
+@see AccessibleContext
+@see AccessibleContext#getAccessibleKeyBinding
+
+@version     1.4 12/19/03
+@author	Lynn Monsanto
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">AccessibleKeyBinding</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="accessibility" refid="_9_5_f720368_1110473547909_851843_19810"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314759_557641_9119"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314759_557641_9119"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="accessibility" refid="_9_5_f720368_1110473547909_851843_19810"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="accessibility" refid="_9_5_f720368_1110473547909_851843_19810"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="accessibility" refid="_9_5_f720368_1110473547909_851843_19810"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::accessibility::AccessibleKeyBinding</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::AbstractButton::AccessibleAbstractButton::ButtonKeyBinding -&gt; JDK 5.0 Classes::javax::accessibility::AccessibleKeyBinding]" refid="_10_5_622020d_1132928323912_916564_18207"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JLabel::AccessibleJLabel::LabelKeyBinding -&gt; JDK 5.0 Classes::javax::accessibility::AccessibleKeyBinding]" refid="_10_5_622020d_1132928324102_841391_18382"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317913_69087_12425"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JFileChooser" refid="_9_5_f720368_1110473546799_119295_10727"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;JFileChooser&lt;/code&gt; provides a simple mechanism for the user to
+choose a file.
+For information about using &lt;code&gt;JFileChooser&lt;/code&gt;, see
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/filechooser.html"&gt;How to Use File Choosers&lt;/a&gt;,
+a section in &lt;em&gt;The Java Tutorial&lt;/em&gt;.
+
+&lt;p&gt;
+
+The following code pops up a file chooser for the user's home directory that
+sees only .jpg and .gif images:
+&lt;pre&gt;
+JFileChooser chooser = new JFileChooser();
+Note: source for ExampleFileFilter can be found in FileChooserDemo,
+under the demo/jfc directory in the JDK.
+ExampleFileFilter filter = new ExampleFileFilter();
+filter.addExtension("jpg");
+filter.addExtension("gif");
+filter.setDescription("JPG &amp; GIF Images");
+chooser.setFileFilter(filter);
+int returnVal = chooser.showOpenDialog(parent);
+if(returnVal == JFileChooser.APPROVE_OPTION) {
+System.out.println("You chose to open this file: " +
+chooser.getSelectedFile().getName());
+}
+&lt;/pre&gt;
+
+@beaninfo
+attribute: isContainer false
+description: A component which allows for the interactive selection of a file.
+
+@version 1.106 06/28/04
+@author Jeff Dinkins
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JFileChooser" refid="_9_5_f720368_1110473546799_119295_10727"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JFileChooser" refid="_9_5_f720368_1110473546799_119295_10727"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

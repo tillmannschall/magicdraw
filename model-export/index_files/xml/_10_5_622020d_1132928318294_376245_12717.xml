@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318294_376245_12717"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Duration" refid="_10_5_622020d_1132928318294_771800_12715"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Immutable representation of a time span as defined in
+the W3C XML Schema 1.0 specification.&lt;/p&gt;
+
+&lt;p&gt;A Duration object represents a period of Gregorian time,
+which consists of six fields (years, months, days, hours,
+minutes, and seconds) plus a sign (+/-) field.&lt;/p&gt;
+
+&lt;p&gt;The first five fields have non-negative (&gt;=0) integers or null
+(which represents that the field is not set),
+and the seconds field has a non-negative decimal or null.
+A negative sign indicates a negative duration.&lt;/p&gt;
+
+&lt;p&gt;This class provides a number of methods that make it easy
+to use for the duration datatype of XML Schema 1.0 with
+the errata.&lt;/p&gt;
+
+&lt;h2&gt;Order relationship&lt;/h2&gt;
+&lt;p&gt;Duration objects only have partial order, where two values A and B
+maybe either:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A&lt;B (A is shorter than B)
+&lt;li&gt;A&gt;B (A is longer than B)
+&lt;li&gt;A==B   (A and B are of the same duration)
+&lt;li&gt;A&lt;&gt;B (Comparison between A and B is indeterminate)
+&lt;/ol&gt;
+&lt;p&gt;For example, 30 days cannot be meaningfully compared to one month.
+The {@link #compare(Duration duration)} method implements this
+relationship.&lt;/p&gt;
+
+&lt;p&gt;See the {@link #isLongerThan(Duration)} method for details about
+the order relationship among &lt;code&gt;Duration&lt;/code&gt; objects.&lt;/p&gt;
+
+&lt;h2&gt;Operations over Duration&lt;/h2&gt;
+&lt;p&gt;This class provides a set of basic arithmetic operations, such
+as addition, subtraction and multiplication.
+Because durations don't have total order, an operation could
+fail for some combinations of operations. For example, you cannot
+subtract 15 days from 1 month. See the javadoc of those methods
+for detailed conditions where this could happen.&lt;/p&gt;
+
+&lt;p&gt;Also, division of a duration by a number is not provided because
+the &lt;code&gt;Duration&lt;/code&gt; class can only deal with finite precision
+decimal numbers. For example, one cannot represent 1 sec divided by 3.&lt;/p&gt;
+
+&lt;p&gt;However, you could substitute a division by 3 with multiplying
+by numbers such as 0.3 or 0.333.&lt;/p&gt;
+
+&lt;h2&gt;Range of allowed values&lt;/h2&gt;
+&lt;p&gt;
+Because some operations of &lt;code&gt;Duration&lt;/code&gt; rely on {@link Calendar}
+even though {@link Duration} can hold very large or very small values,
+some of the methods may not work correctly on such &lt;code&gt;Duration&lt;/code&gt;s.
+The impacted methods document their dependency on {@link Calendar}.
+
+
+@author &lt;a href="mailto:Joseph.Fialli@Sun.COM"&gt;Joseph Fialli&lt;/a&gt;
+@author &lt;a href="mailto:Kohsuke.Kawaguchi@Sun.com"&gt;Kohsuke Kawaguchi&lt;/a&gt;
+@author &lt;a href="mailto:Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+@version $Revision: 1.36.8.1.4.3 $, $Date: 2004/06/07 06:33:50 $
+@see XMLGregorianCalendar#add(Duration)
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Duration" refid="_10_5_622020d_1132928318294_771800_12715"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Duration" refid="_10_5_622020d_1132928318294_771800_12715"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

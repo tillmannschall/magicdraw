@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_589454_8655"><documentation humanName="Documentation" mode="standard">&lt;code&gt;FieldPosition&lt;/code&gt; is a simple class used by &lt;code&gt;Format&lt;/code&gt;
+and its subclasses to identify fields in formatted output. Fields can
+be identified in two ways:
+&lt;ul&gt;
+&lt;li&gt;By an integer constant, whose names typically end with
+&lt;code&gt;_FIELD&lt;/code&gt;. The constants are defined in the various
+subclasses of &lt;code&gt;Format&lt;/code&gt;.
+&lt;li&gt;By a &lt;code&gt;Format.Field&lt;/code&gt; constant, see &lt;code&gt;ERA_FIELD&lt;/code&gt;
+and its friends in &lt;code&gt;DateFormat&lt;/code&gt; for an example.
+&lt;/ul&gt;
+&lt;p&gt;
+&lt;code&gt;FieldPosition&lt;/code&gt; keeps track of the position of the
+field within the formatted output with two indices: the index
+of the first character of the field and the index of the last
+character of the field.
+
+&lt;p&gt;
+One version of the &lt;code&gt;format&lt;/code&gt; method in the various
+&lt;code&gt;Format&lt;/code&gt; classes requires a &lt;code&gt;FieldPosition&lt;/code&gt;
+object as an argument. You use this &lt;code&gt;format&lt;/code&gt; method
+to perform partial formatting or to get information about the
+formatted output (such as the position of a field).
+
+&lt;p&gt;
+If you are interested in the positions of all attributes in the
+formatted string use the &lt;code&gt;Format&lt;/code&gt; method
+&lt;code&gt;formatToCharacterIterator&lt;/code&gt;.
+
+@version     1.21 12/19/03
+@author      Mark Davis
+@see         java.text.Format
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Delegate" refid="_9_5_f720368_1110473547784_533419_18944"/></member><name humanName="Name" mode="s,e">FieldPosition</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Delegate" refid="_9_5_f720368_1110473547784_533419_18944"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309711_658830_6254"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309711_658830_6254"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Delegate" refid="_9_5_f720368_1110473547784_533419_18944"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Delegate" refid="_9_5_f720368_1110473547784_533419_18944"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::text::FieldPosition</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

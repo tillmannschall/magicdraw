@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309421_571244_6115"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecureRandom" refid="_9_5_f720368_1110473546690_107246_8523"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;This class provides a cryptographically strong random number
+generator (RNG).  Many implementations are in the form of a pseudo-random
+number generator (PRNG), which means they use a deterministic algorithm
+to produce a pseudo-random sequence from a true random seed.
+Other implementations may produce true random numbers
+and yet others may use a combination of both techniques.
+
+&lt;p&gt;A cryptographically strong random number
+minimally complies with the statistical random number generator tests
+specified in &lt;a href="http://csrc.nist.gov/cryptval/140-2.htm"&gt;
+&lt;i&gt;FIPS 140-2, Security Requirements for Cryptographic Modules&lt;/i&gt;&lt;/a&gt;,
+section 4.9.1.
+Additionally, SecureRandom must produce non-deterministic
+output and therefore it is required that the seed material be unpredictable
+and that output of SecureRandom be cryptographically strong sequences as
+described in &lt;a href="http://www.ietf.org/rfc/rfc1750.txt"&gt;
+&lt;i&gt;RFC 1750: Randomness Recommendations for Security&lt;/i&gt;&lt;/a&gt;.
+
+&lt;p&gt;Like other algorithm-based classes in Java Security, SecureRandom
+provides implementation-independent algorithms, whereby a caller
+(application code) requests a particular RNG algorithm
+and is handed back a SecureRandom object for that algorithm. It is
+also possible, if desired, to request a particular algorithm from a
+particular provider. See the &lt;code&gt;getInstance&lt;/code&gt; methods.
+
+&lt;p&gt;Thus, there are two ways to request a SecureRandom object: by
+specifying either just an algorithm name, or both an algorithm name
+and a package provider.
+
+&lt;ul&gt;
+
+&lt;li&gt;If just an algorithm name is specified, as in:
+&lt;pre&gt;
+SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
+&lt;/pre&gt;
+the system will determine if there is an implementation of the algorithm
+requested available in the environment, and if there is more than one, if
+there is a preferred one.&lt;p&gt;
+
+&lt;li&gt;If both an algorithm name and a package provider are specified, as in:
+&lt;pre&gt;
+SecureRandom random = SecureRandom.getInstance("SHA1PRNG", "SUN");
+&lt;/pre&gt;
+the system will determine if there is an implementation of the
+algorithm in the package requested, and throw an exception if there
+is not.
+
+&lt;/ul&gt;
+
+&lt;p&gt;The SecureRandom implementation attempts to completely
+randomize the internal state of the generator itself unless
+the caller follows the call to a &lt;code&gt;getInstance&lt;/code&gt; method
+with a call to the &lt;code&gt;setSeed&lt;/code&gt; method:
+&lt;pre&gt;
+SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
+random.setSeed(seed);
+&lt;/pre&gt;
+
+&lt;p&gt;After the caller obtains the SecureRandom object from the
+&lt;code&gt;getInstance&lt;/code&gt; call, it can call &lt;code&gt;nextBytes&lt;/code&gt;
+to generate random bytes:
+&lt;pre&gt;
+byte bytes[] = new byte[20];
+random.nextBytes(bytes);
+&lt;/pre&gt;
+
+&lt;p&gt;The caller may also invoke the &lt;code&gt;generateSeed&lt;/code&gt; method
+to generate a given number of seed bytes (to seed other random number
+generators, for example):
+&lt;pre&gt;
+byte seed[] = random.generateSeed(20);
+&lt;/pre&gt;
+
+@see java.security.SecureRandomSpi
+@see java.util.Random
+
+@version 1.47, 12/19/03
+@author Benjamin Renaud
+@author Josh Bloch
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SecureRandom" refid="_9_5_f720368_1110473546690_107246_8523"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecureRandom" refid="_9_5_f720368_1110473546690_107246_8523"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

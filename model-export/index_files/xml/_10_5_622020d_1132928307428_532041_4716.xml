@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307428_532041_4716"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WriteAbortedException" refid="_9_5_f720368_1110473546612_801044_7505"/></annotatedElement><body humanName="Body" mode="s,e">Signals that one of the ObjectStreamExceptions was thrown during a
+write operation.  Thrown during a read operation when one of the
+ObjectStreamExceptions was thrown during a write operation.  The
+exception that terminated the write can be found in the detail
+field. The stream is reset to it's initial state and all references
+to objects already deserialized are discarded.
+
+&lt;p&gt;As of release 1.4, this exception has been retrofitted to conform to
+the general purpose exception-chaining mechanism.  The "exception causing
+the abort" that is provided at construction time and
+accessed via the public {@link #detail} field is now known as the
+&lt;i&gt;cause&lt;/i&gt;, and may be accessed via the {@link Throwable#getCause()}
+method, as well as the aforementioned "legacy field."
+
+@author  unascribed
+@version 1.18, 12/19/03
+@since   JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="WriteAbortedException" refid="_9_5_f720368_1110473546612_801044_7505"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="WriteAbortedException" refid="_9_5_f720368_1110473546612_801044_7505"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

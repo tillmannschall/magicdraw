@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315670_912596_10164"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobStateReason" refid="_9_5_f720368_1110473546721_151389_9361"/></annotatedElement><body humanName="Body" mode="s,e">Class JobStateReason is a printing attribute class, an enumeration, that
+provides additional information about the job's current state, i.e.,
+information that augments the value of the job's {@link JobState JobState}
+attribute. Class JobStateReason defines standard job state reason values. A
+Print Service implementation only needs to report those job state
+reasons which are appropriate for the particular implementation; it does not
+have to report every defined job state reason.
+&lt;P&gt;
+Instances of JobStateReason do not appear in a Print Job's attribute set
+directly. Rather, a {@link JobStateReasons JobStateReasons} attribute appears
+in the Print Job's attribute set. The {@link JobStateReasons JobStateReasons}
+attribute contains zero, one, or more than one JobStateReason objects which
+pertain to the Print Job's status. The printer adds a JobStateReason object
+to the Print Job's {@link JobStateReasons JobStateReasons} attribute when the
+corresponding condition becomes true of the Print Job, and the printer
+removes the JobStateReason object again when the corresponding condition
+becomes false, regardless of whether the Print Job's overall {@link JobState
+JobState} also changed.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; is the IPP attribute name.  The enumeration's
+integer value is the IPP enum value.  The &lt;code&gt;toString()&lt;/code&gt; method
+returns the IPP string representation of the attribute value.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JobStateReason" refid="_9_5_f720368_1110473546721_151389_9361"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobStateReason" refid="_9_5_f720368_1110473546721_151389_9361"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

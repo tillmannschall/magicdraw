@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310032_373774_6402"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReentrantLock" refid="_10_5_622020d_1132928310032_138822_6394"/></annotatedElement><body humanName="Body" mode="s,e">A reentrant mutual exclusion {@link Lock} with the same basic
+behavior and semantics as the implicit monitor lock accessed using
+&lt;tt&gt;synchronized&lt;/tt&gt; methods and statements, but with extended
+capabilities.
+
+&lt;p&gt; A &lt;tt&gt;ReentrantLock&lt;/tt&gt; is &lt;em&gt;owned&lt;/em&gt; by the thread last
+successfully locking, but not yet unlocking it. A thread invoking
+&lt;tt&gt;lock&lt;/tt&gt; will return, successfully acquiring the lock, when
+the lock is not owned by another thread. The method will return
+immediately if the current thread already owns the lock. This can
+be checked using methods {@link #isHeldByCurrentThread}, and {@link
+#getHoldCount}.
+
+&lt;p&gt; The constructor for this class accepts an optional
+&lt;em&gt;fairness&lt;/em&gt; parameter.  When set &lt;tt&gt;true&lt;/tt&gt;, under
+contention, locks favor granting access to the longest-waiting
+thread.  Otherwise this lock does not guarantee any particular
+access order.  Programs using fair locks accessed by many threads
+may display lower overall throughput (i.e., are slower; often much
+slower) than those using the default setting, but have smaller
+variances in times to obtain locks and guarantee lack of
+starvation. Note however, that fairness of locks does not guarantee
+fairness of thread scheduling. Thus, one of many threads using a
+fair lock may obtain it multiple times in succession while other
+active threads are not progressing and not currently holding the
+lock.
+Also note that the untimed {@link #tryLock() tryLock} method does not
+honor the fairness setting. It will succeed if the lock
+is available even if other threads are waiting.
+
+&lt;p&gt; It is recommended practice to &lt;em&gt;always&lt;/em&gt; immediately
+follow a call to &lt;tt&gt;lock&lt;/tt&gt; with a &lt;tt&gt;try&lt;/tt&gt; block, most
+typically in a before/after construction such as:
+
+&lt;pre&gt;
+class X {
+private final ReentrantLock lock = new ReentrantLock();
+...
+
+public void m() {
+lock.lock();  // block until condition holds
+try {
+... method body
+} finally {
+lock.unlock()
+}
+}
+}
+&lt;/pre&gt;
+
+&lt;p&gt;In addition to implementing the {@link Lock} interface, this
+class defines methods &lt;tt&gt;isLocked&lt;/tt&gt; and
+&lt;tt&gt;getLockQueueLength&lt;/tt&gt;, as well as some associated
+&lt;tt&gt;protected&lt;/tt&gt; access methods that may be useful for
+instrumentation and monitoring.
+
+&lt;p&gt; Serialization of this class behaves in the same way as built-in
+locks: a deserialized lock is in the unlocked state, regardless of
+its state when serialized.
+
+&lt;p&gt; This lock supports a maximum of 2147483648 recursive locks by
+the same thread.
+
+@since 1.5
+@author Doug Lea
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ReentrantLock" refid="_10_5_622020d_1132928310032_138822_6394"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ReentrantLock" refid="_10_5_622020d_1132928310032_138822_6394"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

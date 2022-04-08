@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546706_125803_8909"><documentation humanName="Documentation" mode="standard">&lt;code&gt;PropertyResourceBundle&lt;/code&gt; is a concrete subclass of
+&lt;code&gt;ResourceBundle&lt;/code&gt; that manages resources for a locale
+using a set of static strings from a property file. See
+{@link ResourceBundle ResourceBundle} for more information about resource
+bundles. See {@link Properties Properties} for more information
+about properties files, in particular the
+&lt;a href="Properties.html#encoding"&gt;information on character encodings&lt;/a&gt;.
+
+&lt;p&gt;
+Unlike other types of resource bundle, you don't subclass
+&lt;code&gt;PropertyResourceBundle&lt;/code&gt;.  Instead, you supply properties
+files containing the resource data.  &lt;code&gt;ResourceBundle.getBundle&lt;/code&gt;
+will automatically look for the appropriate properties file and create a
+&lt;code&gt;PropertyResourceBundle&lt;/code&gt; that refers to it. See
+{@link ResourceBundle#getBundle(java.lang.String, java.util.Locale, java.lang.ClassLoader) ResourceBundle.getBundle}
+for a complete description of the search and instantiation strategy.
+
+&lt;p&gt;
+The following &lt;a name="sample"&gt;example&lt;/a&gt; shows a member of a resource
+bundle family with the base name "MyResources".
+The text defines the bundle "MyResources_de",
+the German member of the bundle family.
+This member is based on &lt;code&gt;PropertyResourceBundle&lt;/code&gt;, and the text
+therefore is the content of the file "MyResources_de.properties"
+(a related &lt;a href="ListResourceBundle.html#sample"&gt;example&lt;/a&gt; shows
+how you can add bundles to this family that are implemented as subclasses
+of &lt;code&gt;ListResourceBundle&lt;/code&gt;).
+The keys in this example are of the form "s1" etc. The actual
+keys are entirely up to your choice, so long as they are the same as
+the keys you use in your program to retrieve the objects from the bundle.
+Keys are case-sensitive.
+&lt;blockquote&gt;
+&lt;pre&gt;
+# MessageFormat pattern
+s1=Die Platte \"{1}\" enth&amp;auml;lt {0}.
+
+# location of {0} in pattern
+s2=1
+
+# sample disk name
+s3=Meine Platte
+
+# first ChoiceFormat choice
+s4=keine Dateien
+
+# second ChoiceFormat choice
+s5=eine Datei
+
+# third ChoiceFormat choice
+s6={0,number} Dateien
+
+# sample date
+s7=3. M&amp;auml;rz 1996
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+@see ResourceBundle
+@see ListResourceBundle
+@see Properties
+@since JDK1.1
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322620_207671_15084"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LoaderReference" refid="_10_5_622020d_1132928313357_233904_7450"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ResourceCacheKey" refid="_9_5_f720368_1110473547878_819105_19567"/></inheritedMember><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LoaderReference" refid="_10_5_622020d_1132928313357_233904_7450"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ResourceCacheKey" refid="_9_5_f720368_1110473547878_819105_19567"/></member><name humanName="Name" mode="s,e">PropertyResourceBundle</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313347_278960_7428"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322620_207671_15084"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313347_278960_7428"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::PropertyResourceBundle</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="ResourceBundle" refid="_9_5_f720368_1110473546706_397401_8915"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307879_515947_4943"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Boolean" refid="_9_5_f720368_1110473546612_366010_7561"/></annotatedElement><body humanName="Body" mode="s,e">The Boolean class wraps a value of the primitive type
+&lt;code&gt;boolean&lt;/code&gt; in an object. An object of type
+&lt;code&gt;Boolean&lt;/code&gt; contains a single field whose type is
+&lt;code&gt;boolean&lt;/code&gt;.
+&lt;p&gt;
+In addition, this class provides many methods for
+converting a &lt;code&gt;boolean&lt;/code&gt; to a &lt;code&gt;String&lt;/code&gt; and a
+&lt;code&gt;String&lt;/code&gt; to a &lt;code&gt;boolean&lt;/code&gt;, as well as other
+constants and methods useful when dealing with a
+&lt;code&gt;boolean&lt;/code&gt;.
+
+@author  Arthur van Hoff
+@version 1.51, 05/11/04
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Boolean" refid="_9_5_f720368_1110473546612_366010_7561"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Boolean" refid="_9_5_f720368_1110473546612_366010_7561"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

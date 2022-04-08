@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314899_425218_9304"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DescriptorSupport" refid="_10_5_622020d_1132928314889_542063_9301"/></annotatedElement><body humanName="Body" mode="s,e">This class represents the metadata set for a ModelMBean element.  A
+descriptor is part of the ModelMBeanInfo,
+ModelMBeanNotificationInfo, ModelMBeanAttributeInfo,
+ModelMBeanConstructorInfo, and ModelMBeanParameterInfo.
+&lt;P&gt;
+A descriptor consists of a collection of fields.  Each field is in
+fieldname=fieldvalue format.  Field names are not case sensitive,
+case will be preserved on field values.
+&lt;P&gt;
+All field names and values are not predefined. New fields can be
+defined and added by any program.  Some fields have been predefined
+for consistency of implementation and support by the
+ModelMBeanInfo, ModelMBeanAttributeInfo, ModelMBeanConstructorInfo,
+ModelMBeanNotificationInfo, ModelMBeanOperationInfo and ModelMBean
+classes.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DescriptorSupport" refid="_10_5_622020d_1132928314889_542063_9301"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DescriptorSupport" refid="_10_5_622020d_1132928314889_542063_9301"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

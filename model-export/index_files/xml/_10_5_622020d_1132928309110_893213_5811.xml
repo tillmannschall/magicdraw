@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309110_893213_5811"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CertPathValidatorSpi" refid="_9_5_f720368_1110473546674_874911_8307"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;i&gt;Service Provider Interface&lt;/i&gt; (&lt;b&gt;SPI&lt;/b&gt;)
+for the {@link CertPathValidator CertPathValidator} class. All
+&lt;code&gt;CertPathValidator&lt;/code&gt; implementations must include a class (the
+SPI class) that extends this class (&lt;code&gt;CertPathValidatorSpi&lt;/code&gt;)
+and implements all of its methods. In general, instances of this class
+should only be accessed through the &lt;code&gt;CertPathValidator&lt;/code&gt; class.
+For details, see the Java Cryptography Architecture.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Instances of this class need not be protected against concurrent
+access from multiple threads. Threads that need to access a single
+&lt;code&gt;CertPathValidatorSpi&lt;/code&gt; instance concurrently should synchronize
+amongst themselves and provide the necessary locking before calling the
+wrapping &lt;code&gt;CertPathValidator&lt;/code&gt; object.
+&lt;p&gt;
+However, implementations of &lt;code&gt;CertPathValidatorSpi&lt;/code&gt; may still
+encounter concurrency issues, since multiple threads each
+manipulating a different &lt;code&gt;CertPathValidatorSpi&lt;/code&gt; instance need not
+synchronize.
+
+@version 	1.5 12/19/03
+@since	1.4
+@author	Yassir Elley
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="CertPathValidatorSpi" refid="_9_5_f720368_1110473546674_874911_8307"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="CertPathValidatorSpi" refid="_9_5_f720368_1110473546674_874911_8307"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

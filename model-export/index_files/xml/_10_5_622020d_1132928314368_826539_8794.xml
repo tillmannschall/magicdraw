@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314368_826539_8794"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="HTMLElement" refid="_9_5_f720368_1110473546940_128810_13110"/></annotatedElement><body humanName="Body" mode="s,e">All HTML element interfaces derive from this class. Elements that only
+expose the HTML core attributes are represented by the base
+&lt;code&gt;HTMLElement&lt;/code&gt; interface. These elements are as follows:  HEAD
+special: SUB, SUP, SPAN, BDO font: TT, I, B, U, S, STRIKE, BIG, SMALL
+phrase: EM, STRONG, DFN, CODE, SAMP, KBD, VAR, CITE, ACRONYM, ABBR list:
+DD, DT NOFRAMES, NOSCRIPT ADDRESS, CENTER The &lt;code&gt;style&lt;/code&gt; attribute
+of an HTML element is accessible through the
+&lt;code&gt;ElementCSSInlineStyle&lt;/code&gt; interface which is defined in the  .
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/CR-DOM-Level-2-20000510'&gt;Document Object Model (DOM) Level 2 Specification&lt;/a&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="HTMLElement" refid="_9_5_f720368_1110473546940_128810_13110"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="HTMLElement" refid="_9_5_f720368_1110473546940_128810_13110"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

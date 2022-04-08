@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308910_748058_5592"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ActivationException" refid="_9_5_f720368_1110473546674_118845_8129"/></annotatedElement><body humanName="Body" mode="s,e">General exception used by the activation interfaces.
+
+&lt;p&gt;As of release 1.4, this exception has been retrofitted to conform to
+the general purpose exception-chaining mechanism.  The "detail exception"
+that may be provided at construction time and accessed via the public
+{@link #detail} field is now known as the &lt;i&gt;cause&lt;/i&gt;, and may be
+accessed via the {@link Throwable#getCause()} method, as well as
+the aforementioned "legacy field."
+
+&lt;p&gt;Invoking the method {@link Throwable#initCause(Throwable)} on an
+instance of &lt;code&gt;ActivationException&lt;/code&gt; always throws {@link
+IllegalStateException}.
+
+@author 	Ann Wollrath
+@version	1.24, 12/19/03
+@since 	1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ActivationException" refid="_9_5_f720368_1110473546674_118845_8129"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ActivationException" refid="_9_5_f720368_1110473546674_118845_8129"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

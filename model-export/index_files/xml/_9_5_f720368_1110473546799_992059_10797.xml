@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546799_992059_10797"><documentation humanName="Documentation" mode="standard">The KeyboardManager class is used to help dispatch keyboard actions for the
+WHEN_IN_FOCUSED_WINDOW style actions.  Actions with other conditions are handled
+directly in JComponent.
+
+Here's a description of the symantics of how keyboard dispatching should work
+atleast as I understand it.
+
+KeyEvents are dispatched to the focused component.  The focus manager gets first
+crack at processing this event.  If the focus manager doesn't want it, then
+the JComponent calls super.processKeyEvent() this allows listeners a chance
+to process the event.
+
+If none of the listeners "consumes" the event then the keybindings get a shot.
+This is where things start to get interesting.  First, KeyStokes defined with the
+WHEN_FOCUSED condition get a chance.  If none of these want the event, then the component
+walks though it's parents looked for actions of type WHEN_ANCESTOR_OF_FOCUSED_COMPONENT.
+
+If no one has taken it yet, then it winds up here.  We then look for components registered
+for WHEN_IN_FOCUSED_WINDOW events and fire to them.  Note that if none of those are found
+then we pass the event to the menubars and let them have a crack at it.  They're handled differently.
+
+Lastly, we check if we're looking at an internal frame.  If we are and no one wanted the event
+then we move up to the InternalFrame's creator and see if anyone wants the event (and so on and so on).
+
+
+@see InputMap
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ComponentKeyStrokePair" refid="_9_5_f720368_1110473548471_826329_24392"/></member><name humanName="Name" mode="s,e">KeyboardManager</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ComponentKeyStrokePair" refid="_9_5_f720368_1110473548471_826329_24392"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318183_700993_12575"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928318183_700993_12575"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ComponentKeyStrokePair" refid="_9_5_f720368_1110473548471_826329_24392"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ComponentKeyStrokePair" refid="_9_5_f720368_1110473548471_826329_24392"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="swing" refid="_9_5_f720368_1110473548112_353725_20951"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::KeyboardManager</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">package</visibility></class></magicdraw>

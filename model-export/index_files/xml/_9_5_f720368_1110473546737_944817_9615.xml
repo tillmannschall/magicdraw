@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546737_944817_9615"><documentation humanName="Documentation" mode="standard">&lt;p&gt; The &lt;code&gt;LoginContext&lt;/code&gt; class describes the basic methods used
+to authenticate Subjects and provides a way to develop an
+application independent of the underlying authentication technology.
+A &lt;code&gt;Configuration&lt;/code&gt; specifies the authentication technology, or
+&lt;code&gt;LoginModule&lt;/code&gt;, to be used with a particular application.
+Different LoginModules can be plugged in under an application
+without requiring any modifications to the application itself.
+
+&lt;p&gt; In addition to supporting &lt;i&gt;pluggable&lt;/i&gt; authentication, this class
+also supports the notion of &lt;i&gt;stacked&lt;/i&gt; authentication.
+Applications may be configured to use more than one
+LoginModule.  For example, one could
+configure both a Kerberos LoginModule and a smart card
+LoginModule under an application.
+
+&lt;p&gt; A typical caller instantiates a LoginContext with
+a &lt;i&gt;name&lt;/i&gt; and a &lt;code&gt;CallbackHandler&lt;/code&gt;.
+LoginContext uses the &lt;i&gt;name&lt;/i&gt; as the index into a
+Configuration to determine which LoginModules should be used,
+and which ones must succeed in order for the overall authentication to
+succeed.  The &lt;code&gt;CallbackHandler&lt;/code&gt; is passed to the underlying
+LoginModules so they may communicate and interact with users
+(prompting for a username and password via a graphical user interface,
+for example).
+
+&lt;p&gt; Once the caller has instantiated a LoginContext,
+it invokes the &lt;code&gt;login&lt;/code&gt; method to authenticate
+a &lt;code&gt;Subject&lt;/code&gt;.  The &lt;code&gt;login&lt;/code&gt; method invokes
+the configured modules to perform their respective types of authentication
+(username/password, smart card pin verification, etc.).
+Note that the LoginModules will not attempt authentication retries nor
+introduce delays if the authentication fails.
+Such tasks belong to the LoginContext caller.
+
+&lt;p&gt; If the &lt;code&gt;login&lt;/code&gt; method returns without
+throwing an exception, then the overall authentication succeeded.
+The caller can then retrieve
+the newly authenticated Subject by invoking the
+&lt;code&gt;getSubject&lt;/code&gt; method.  Principals and Credentials associated
+with the Subject may be retrieved by invoking the Subject's
+respective &lt;code&gt;getPrincipals&lt;/code&gt;, &lt;code&gt;getPublicCredentials&lt;/code&gt;,
+and &lt;code&gt;getPrivateCredentials&lt;/code&gt; methods.
+
+&lt;p&gt; To logout the Subject, the caller calls
+the &lt;code&gt;logout&lt;/code&gt; method.  As with the &lt;code&gt;login&lt;/code&gt;
+method, this &lt;code&gt;logout&lt;/code&gt; method invokes the &lt;code&gt;logout&lt;/code&gt;
+method for the configured modules.
+
+&lt;p&gt; A LoginContext should not be used to authenticate
+more than one Subject.  A separate LoginContext
+should be used to authenticate each different Subject.
+
+&lt;p&gt; The following documentation applies to all LoginContext constructors:
+&lt;ol&gt;
+
+&lt;li&gt; &lt;code&gt;Subject&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt; If the constructor has a Subject
+input parameter, the LoginContext uses the caller-specified
+Subject object.
+&lt;p&gt;
+&lt;li&gt; If the caller specifies a &lt;code&gt;null&lt;/code&gt; Subject
+and a &lt;code&gt;null&lt;/code&gt; value is permitted,
+the LoginContext instantiates a new Subject.
+&lt;p&gt;
+&lt;li&gt; If the constructor does &lt;b&gt;not&lt;/b&gt; have a Subject
+input parameter, the LoginContext instantiates a new Subject.
+&lt;p&gt;
+&lt;/ul&gt;
+
+&lt;li&gt; &lt;code&gt;Configuration&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt; If the constructor has a Configuration
+input parameter and the caller specifies a non-null Configuration,
+the LoginContext uses the caller-specified Configuration.
+&lt;p&gt;
+If the constructor does &lt;b&gt;not&lt;/b&gt; have a Configuration
+input parameter, or if the caller specifies a &lt;code&gt;null&lt;/code&gt;
+Configuration object, the constructor uses the following call to
+get the installed Configuration:
+&lt;pre&gt;
+config = Configuration.getConfiguration();
+&lt;/pre&gt;
+For both cases,
+the &lt;i&gt;name&lt;/i&gt; argument given to the constructor is passed to the
+&lt;code&gt;Configuration.getAppConfigurationEntry&lt;/code&gt; method.
+If the Configuration has no entries for the specified &lt;i&gt;name&lt;/i&gt;,
+then the &lt;code&gt;LoginContext&lt;/code&gt; calls
+&lt;code&gt;getAppConfigurationEntry&lt;/code&gt; with the name, "&lt;i&gt;other&lt;/i&gt;"
+(the default entry name).  If there is no entry for "&lt;i&gt;other&lt;/i&gt;",
+then a &lt;code&gt;LoginException&lt;/code&gt; is thrown.
+&lt;p&gt;
+&lt;li&gt; When LoginContext uses the installed Configuration, the caller
+requires the createLoginContext.&lt;em&gt;name&lt;/em&gt; and possibly
+createLoginContext.other AuthPermissions. Furthermore, the
+LoginContext will invoke configured modules from within an
+&lt;code&gt;AccessController.doPrivileged&lt;/code&gt; call so that modules that
+perform security-sensitive tasks (such as connecting to remote hosts,
+and updating the Subject) will require the respective permissions, but
+the callers of the LoginContext will not require those permissions.
+&lt;p&gt;
+&lt;li&gt; When LoginContext uses a caller-specified Configuration, the caller
+does not require any createLoginContext AuthPermission.  The LoginContext
+saves the &lt;code&gt;AccessControlContext&lt;/code&gt; for the caller,
+and invokes the configured modules from within an
+&lt;tt&gt;AccessController.doPrivileged&lt;/tt&gt; call constrained by that context.
+This means the caller context (stored when the LoginContext was created)
+must have sufficient permissions to perform any security-sensitive tasks
+that the modules may perform.
+&lt;p&gt;
+&lt;/ul&gt;
+
+&lt;li&gt; &lt;code&gt;CallbackHandler&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt; If the constructor has a CallbackHandler
+input parameter, the LoginContext uses the caller-specified
+CallbackHandler object.
+&lt;p&gt;
+&lt;li&gt; If the constructor does &lt;b&gt;not&lt;/b&gt; have a CallbackHandler
+input parameter, or if the caller specifies a &lt;code&gt;null&lt;/code&gt;
+CallbackHandler object (and a &lt;code&gt;null&lt;/code&gt; value is permitted),
+the LoginContext queries the
+&lt;i&gt;auth.login.defaultCallbackHandler&lt;/i&gt; security property
+for the fully qualified class name of a default handler implementation.
+If the security property is not set,
+then the underlying modules will not have a
+CallbackHandler for use in communicating
+with users.  The caller thus assumes that the configured
+modules have alternative means for authenticating the user.
+
+&lt;p&gt;
+&lt;li&gt; When the LoginContext uses the installed Configuration (instead of
+a caller-specified Configuration, see above),
+then this LoginContext must wrap any
+caller-specified or default CallbackHandler implementation
+in a new CallbackHandler implementation
+whose &lt;code&gt;handle&lt;/code&gt; method implementation invokes the
+specified CallbackHandler's &lt;code&gt;handle&lt;/code&gt; method in a
+&lt;code&gt;java.security.AccessController.doPrivileged&lt;/code&gt; call
+constrained by the caller's current &lt;code&gt;AccessControlContext&lt;/code&gt;.
+&lt;/ul&gt;
+&lt;/ol&gt;
+
+&lt;p&gt; Note that Security Properties
+(such as &lt;code&gt;auth.login.defaultCallbackHandler&lt;/code&gt;)
+can be set programmatically via the
+&lt;code&gt;java.security.Security&lt;/code&gt; class,
+or statically in the Java security properties file located in the
+file named &lt;JAVA_HOME&gt;/lib/security/java.security,
+where &lt;JAVA_HOME&gt; refers to the directory where the JDK
+was installed.
+
+@version 1.98, 06/28/04
+@see java.security.Security
+@see javax.security.auth.AuthPermission
+@see javax.security.auth.Subject
+@see javax.security.auth.callback.CallbackHandler
+@see javax.security.auth.login.Configuration
+@see javax.security.auth.spi.LoginModule
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ModuleInfo" refid="_9_5_f720368_1110473548081_640239_20748"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecureCallbackHandler" refid="_9_5_f720368_1110473548081_292582_20745"/></member><name humanName="Name" mode="s,e">LoginContext</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="login" refid="_9_5_f720368_1110473548065_99096_20735"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ModuleInfo" refid="_9_5_f720368_1110473548081_640239_20748"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecureCallbackHandler" refid="_9_5_f720368_1110473548081_292582_20745"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316070_704954_10468"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316070_704954_10468"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ModuleInfo" refid="_9_5_f720368_1110473548081_640239_20748"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecureCallbackHandler" refid="_9_5_f720368_1110473548081_292582_20745"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ModuleInfo" refid="_9_5_f720368_1110473548081_640239_20748"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecureCallbackHandler" refid="_9_5_f720368_1110473548081_292582_20745"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="login" refid="_9_5_f720368_1110473548065_99096_20735"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="login" refid="_9_5_f720368_1110473548065_99096_20735"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="login" refid="_9_5_f720368_1110473548065_99096_20735"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::security::auth::login::LoginContext</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316972_699187_10761"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PooledConnection" refid="_9_5_f720368_1110473546753_1680_9759"/></annotatedElement><body humanName="Body" mode="s,e">An object that provides hooks for connection pool management.
+A &lt;code&gt;PooledConnection&lt;/code&gt; object
+represents a physical connection to a data source.  The connection
+can be recycled rather than being closed when an application is
+finished with it, thus reducing the number of connections that
+need to be made.
+&lt;P&gt;
+An application programmer does not use the &lt;code&gt;PooledConnection&lt;/code&gt;
+interface directly; rather, it is used by a middle tier infrastructure
+that manages the pooling of connections.
+&lt;P&gt;
+When an application calls the method &lt;code&gt;DataSource.getConnection&lt;/code&gt;,
+it gets back a &lt;code&gt;Connection&lt;/code&gt; object.  If connection pooling is
+being done, that &lt;code&gt;Connection&lt;/code&gt; object is actually a handle to
+a &lt;code&gt;PooledConnection&lt;/code&gt; object, which is a physical connection.
+&lt;P&gt;
+The connection pool manager, typically the application server, maintains
+a pool of &lt;code&gt;PooledConnection&lt;/code&gt; objects.  If there is a
+&lt;code&gt;PooledConnection&lt;/code&gt; object available in the pool, the
+connection pool manager returns a &lt;code&gt;Connection&lt;/code&gt; object that
+is a handle to that physical connection.
+If no &lt;code&gt;PooledConnection&lt;/code&gt; object is available, the
+connection pool manager calls the &lt;code&gt;PooledConnection&lt;/code&gt;
+method &lt;code&gt;getConnection&lt;/code&gt; to create a new physical connection and
+returns a handle to it.
+&lt;P&gt;
+When an application closes a connection, it calls the &lt;code&gt;Connection&lt;/code&gt;
+method &lt;code&gt;close&lt;/code&gt;. When connection pooling is being done,
+the connection pool manager is notified because it has registered itself as
+a &lt;code&gt;ConnectionEventListener&lt;/code&gt; object using the
+&lt;code&gt;ConnectionPool&lt;/code&gt; method &lt;code&gt;addConnectionEventListener&lt;/code&gt;.
+The connection pool manager deactivates the handle to
+the &lt;code&gt;PooledConnection&lt;/code&gt; object and  returns the
+&lt;code&gt;PooledConnection&lt;/code&gt; object to the pool of connections so that
+it can be used again.  Thus, when an application closes its connection,
+the underlying physical connection is recycled rather than being closed.
+&lt;P&gt;
+The physical connection is not closed until the connection pool manager
+calls the &lt;code&gt;PooledConnection&lt;/code&gt; method &lt;code&gt;close&lt;/code&gt;.
+This method is generally called to have an orderly shutdown of the server or
+if a fatal error has made the connection unusable.
+
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="PooledConnection" refid="_9_5_f720368_1110473546753_1680_9759"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PooledConnection" refid="_9_5_f720368_1110473546753_1680_9759"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

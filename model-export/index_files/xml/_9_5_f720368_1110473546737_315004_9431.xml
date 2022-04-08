@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546737_315004_9431"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::ReferenceUriSchemesSupported -&gt; JDK 5.0 Classes::javax::print::attribute::Attribute]" refid="_10_5_622020d_1132928323301_296636_16397"/></clientDependency><documentation humanName="Documentation" mode="standard">Class ReferenceUriSchemesSupported is a printing attribute class
+an enumeration, that indicates a "URI scheme," such as "http:" or "ftp:",
+that a printer can use to retrieve print data stored at a URI location.
+If a printer supports doc flavors with a print data representation class of
+&lt;CODE&gt;"java.net.URL"&lt;/CODE&gt;, the printer uses instances of class
+ReferenceUriSchemesSupported to advertise the URI schemes it can accept.
+The acceptable URI schemes are included as service attributes in the
+lookup service; this lets clients search the
+for printers that can get print data using a certain URI scheme. The
+acceptable URI schemes can also be queried using the capability methods in
+interface &lt;code&gt;PrintService&lt;/code&gt;. However,
+ReferenceUriSchemesSupported attributes are used solely for determining
+acceptable URI schemes, they are never included in a doc's,
+print request's, print job's, or print service's attribute set.
+&lt;P&gt;
+The Internet Assigned Numbers Authority maintains the
+&lt;A HREF="http://www.isi.edu/in-notes/iana/assignments/url-schemes"&gt;official
+list of URI schemes&lt;/A&gt;.
+&lt;p&gt;
+Class ReferenceUriSchemesSupported defines enumeration values for widely
+used URI schemes. A printer that supports additional URI schemes
+can define them in a subclass of class ReferenceUriSchemesSupported.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt;  The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; is the IPP attribute name.  The enumeration's
+integer value is the IPP enum value.  The &lt;code&gt;toString()&lt;/code&gt; method
+returns the IPP string representation of the attribute value.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323301_597210_16398"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::ReferenceUriSchemesSupported -&gt; JDK 5.0 Classes::javax::print::attribute::Attribute]" refid="_10_5_622020d_1132928323301_296636_16397"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">ReferenceUriSchemesSupported</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315750_710772_10239"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323301_597210_16398"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315750_710772_10239"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::print::attribute::standard::ReferenceUriSchemesSupported -&gt; JDK 5.0 Classes::javax::print::attribute::Attribute]" refid="_10_5_622020d_1132928323301_296636_16397"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="standard" refid="_9_5_f720368_1110473547987_545986_20191"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::print::attribute::standard::ReferenceUriSchemesSupported</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Attribute" refid="_9_5_f720368_1110473546737_324874_9441"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="EnumSyntax" refid="_9_5_f720368_1110473546737_604249_9453"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

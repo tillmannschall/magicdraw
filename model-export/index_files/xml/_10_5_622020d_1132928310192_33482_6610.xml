@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310192_33482_6610"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Future" refid="_10_5_622020d_1132928310192_573192_6605"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;tt&gt;Future&lt;/tt&gt; represents the result of an asynchronous
+computation.  Methods are provided to check if the computation is
+complete, to wait for its completion, and to retrieve the result of
+the computation.  The result can only be retrieved using method
+&lt;tt&gt;get&lt;/tt&gt; when the computation has completed, blocking if
+necessary until it is ready.  Cancellation is performed by the
+&lt;tt&gt;cancel&lt;/tt&gt; method.  Additional methods are provided to
+determine if the task completed normally or was cancelled. Once a
+computation has completed, the computation cannot be cancelled.
+If you would like to use a &lt;tt&gt;Future&lt;/tt&gt; for the sake
+of cancellability but not provide a usable result, you can
+declare types of the form &lt;tt&gt;Future&lt;?&gt;&lt;/tt&gt; and
+return &lt;tt&gt;null&lt;/tt&gt; as a result of the underlying task.
+
+&lt;p&gt;
+&lt;b&gt;Sample Usage&lt;/b&gt; (Note that the following classes are all
+made-up.) &lt;p&gt;
+&lt;pre&gt;
+interface ArchiveSearcher { String search(String target); }
+class App {
+ExecutorService executor = ...
+ArchiveSearcher searcher = ...
+void showSearch(final String target) throws InterruptedException {
+Future&lt;String&gt; future = executor.submit(new Callable&lt;String&gt;() {
+public String call() { return searcher.search(target); }
+});
+displayOtherThings(); // do other things while searching
+try {
+displayText(future.get()); // use future
+} catch (ExecutionException ex) { cleanup(); return; }
+}
+}
+&lt;/pre&gt;
+
+The {@link FutureTask} class is an implementation of &lt;tt&gt;Future&lt;/tt&gt; that
+implements &lt;tt&gt;Runnable&lt;/tt&gt;, and so may be executed by an &lt;tt&gt;Executor&lt;/tt&gt;.
+For example, the above construction with &lt;tt&gt;submit&lt;/tt&gt; could be replaced by:
+&lt;pre&gt;
+FutureTask&lt;String&gt; future =
+new FutureTask&lt;String&gt;(new Callable&lt;String&gt;() {
+public String call() {
+return searcher.search(target);
+}});
+executor.execute(future);
+&lt;/pre&gt;
+@see FutureTask
+@see Executor
+@since 1.5
+@author Doug Lea
+@param &lt;V&gt; The result type returned by this Future's &lt;tt&gt;get&lt;/tt&gt; method
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Future" refid="_10_5_622020d_1132928310192_573192_6605"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Future" refid="_10_5_622020d_1132928310192_573192_6605"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

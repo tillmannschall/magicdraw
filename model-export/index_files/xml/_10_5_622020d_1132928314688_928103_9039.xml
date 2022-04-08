@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314688_928103_9039"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Context" refid="_9_5_f720368_1110473548862_459457_27652"/></annotatedElement><body humanName="Body" mode="s,e">Internal class for a single Namespace context.
+
+&lt;p&gt;This module caches and reuses Namespace contexts,
+so the number allocated
+will be equal to the element depth of the document, not to the total
+number of elements (i.e. 5-10 rather than tens of thousands).
+Also, data structures used to represent contexts are shared when
+possible (child contexts without declarations) to further reduce
+the amount of memory that's consumed.
+&lt;/p&gt;
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Context" refid="_9_5_f720368_1110473548862_459457_27652"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Context" refid="_9_5_f720368_1110473548862_459457_27652"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

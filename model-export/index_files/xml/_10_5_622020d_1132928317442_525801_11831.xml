@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317442_525801_11831"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MouseEventListener" refid="_9_5_f720368_1110473548299_95012_22944"/></annotatedElement><body humanName="Body" mode="s,e">MouseEventListener class to handle form submissions when
+an input with type equal to image is clicked on.
+A MouseListener is necessary since along with the image
+data the coordinates associated with the mouse click
+need to be submitted.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MouseEventListener" refid="_9_5_f720368_1110473548299_95012_22944"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MouseEventListener" refid="_9_5_f720368_1110473548299_95012_22944"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

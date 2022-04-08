@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316191_287367_10578"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ShortMessage" refid="_9_5_f720368_1110473546737_927188_9683"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;ShortMessage&lt;/code&gt; contains a MIDI message that has at most
+two data bytes following its status byte.  The types of MIDI message
+that satisfy this criterion are channel voice, channel mode, system common,
+and system real-time--in other words, everything except system exclusive
+and meta-events.  The &lt;code&gt;ShortMessage&lt;/code&gt; class provides methods
+for getting and setting the contents of the MIDI message.
+&lt;p&gt;
+A number of &lt;code&gt;ShortMessage&lt;/code&gt; methods have integer parameters by which
+you specify a MIDI status or data byte.  If you know the numeric value, you
+can express it directly.  For system common and system real-time messages,
+you can often use the corresponding fields of &lt;code&gt;ShortMessage&lt;/code&gt;, such as
+{@link #SYSTEM_RESET SYSTEM_RESET}.  For channel messages,
+the upper four bits of the status byte are specified by a command value and
+the lower four bits are specified by a MIDI channel number. To
+convert incoming MIDI data bytes that are in the form of Java's signed bytes,
+you can use the &lt;A HREF="MidiMessage.html#integersVsBytes"&gt;conversion code&lt;/A&gt;
+given in the &lt;code&gt;{@link MidiMessage}&lt;/code&gt; class description.
+
+@see SysexMessage
+@see MetaMessage
+
+@version 1.24, 03/12/19
+@author David Rivas
+@author Kara Kytle
+@author Florian Bomers
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ShortMessage" refid="_9_5_f720368_1110473546737_927188_9683"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ShortMessage" refid="_9_5_f720368_1110473546737_927188_9683"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

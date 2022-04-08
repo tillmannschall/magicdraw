@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307478_647292_4778"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ClassFileTransformer" refid="_10_5_622020d_1132928307478_775935_4776"/></annotatedElement><body humanName="Body" mode="s,e">An agent provides an implementation of this interface in order
+to transform class files.
+The transformation occurs before the class is defined by the JVM.
+&lt;P&gt;
+Note the term &lt;i&gt;class file&lt;/i&gt; is used as defined in the chapter
+&lt;a href="http://java.sun.com/docs/books/vmspec/2nd-edition/html/ClassFile.doc.html#80959"&gt;The class File Format&lt;/a&gt;
+of &lt;i&gt;The Java Virtual Machine Specification&lt;/i&gt;, to mean a sequence
+of bytes in class file format, whether or not they reside in a file.
+
+@see     java.lang.instrument.Instrumentation
+@see     java.lang.instrument.Instrumentation#addTransformer
+@see     java.lang.instrument.Instrumentation#removeTransformer
+@since   JDK1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ClassFileTransformer" refid="_10_5_622020d_1132928307478_775935_4776"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ClassFileTransformer" refid="_10_5_622020d_1132928307478_775935_4776"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

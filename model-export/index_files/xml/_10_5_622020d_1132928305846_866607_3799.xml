@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305846_866607_3799"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TextAttribute" refid="_9_5_f720368_1110473546565_112756_6649"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;TextAttribute&lt;/code&gt; class defines attribute keys and
+attribute values used for text rendering.
+&lt;p&gt;
+&lt;code&gt;TextAttribute&lt;/code&gt; instances are used as attribute keys to
+identify attributes in
+{@link java.text.AttributedCharacterIterator AttributedCharacterIterator},
+{@link java.awt.Font Font}, and other classes handling text
+attributes. Other constants defined in this class are used
+as attribute values.
+&lt;p&gt;
+For each text attribute, the documentation describes:
+&lt;UL&gt;
+&lt;LI&gt;the type of their values,
+&lt;LI&gt;the valid values if there are limitations
+&lt;LI&gt;relevant constants
+&lt;LI&gt;the default effect if the attribute is absent (or has a
+&lt;code&gt;null&lt;/code&gt; value).
+&lt;LI&gt;a description of the effect.
+&lt;LI&gt;the fallback behavior if the exact attribute requested is not
+available.
+&lt;/UL&gt;
+&lt;p&gt;
+&lt;H4&gt;Types of Values&lt;/H4&gt;
+&lt;UL&gt;
+&lt;LI&gt;The values of attributes must always be immutable.
+&lt;LI&gt;Where a list of limitations is given, any value outside of that
+set is reserved for future use, and ignored at present.
+&lt;LI&gt;If the value is &lt;code&gt;null&lt;/code&gt; or not of the proper type
+then it has the default effect. The effect of a particular value
+can be interpolated, especially in the case of multiple master
+fonts. This interpolation is done based on the nearest defined
+constants above and below the request:&lt;BR&gt;
+&lt;BLOCKQUOTE&gt;&lt;TT&gt;
+interpolation = (request - below)/(above - below);
+&lt;/TT&gt;&lt;/BLOCKQUOTE&gt;
+&lt;/UL&gt;
+&lt;p&gt;
+&lt;H4&gt;Interpolation&lt;/H4&gt;
+&lt;UL&gt;
+&lt;LI&gt;Fonts should interpolate values in certain circumstances. For example,
+when the WEIGHT value is 2.13. If the nearest surrounding values
+in the font are WEIGHT_BOLD = 2.0 and WEIGHT_HEAVY = 2.25 then font would
+then interpret the WEIGHT request as being 52% of the way between what
+it considers BOLD and what it considers HEAVY. If the nearest surrounding
+values are WEIGHT_SEMIBOLD = 1.25 and WEIGHT_ULTRABOLD = 2.75 then the
+WEIGHT request is interpreted as being 58.67% of the way between SEMIBOLD
+and ULTRABOLD.
+&lt;LI&gt;Where a font does not have enough capability to handle a given
+request, such as superscript, then it should simulate it to the best of
+its ability.  To determine if simulation is being performed, the client
+should query the font to see what actual attributes were used.
+&lt;/UL&gt;
+
+@see java.text.AttributedCharacterIterator
+@see java.awt.Font
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="TextAttribute" refid="_9_5_f720368_1110473546565_112756_6649"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TextAttribute" refid="_9_5_f720368_1110473546565_112756_6649"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

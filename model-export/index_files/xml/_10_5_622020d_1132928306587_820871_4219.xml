@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306587_820871_4219"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GraphicsConfiguration" refid="_9_5_f720368_1110473546581_229568_7029"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;GraphicsConfiguration&lt;/code&gt; class describes the
+characteristics of a graphics destination such as a printer or monitor.
+There can be many &lt;code&gt;GraphicsConfiguration&lt;/code&gt; objects associated
+with a single graphics device, representing different drawing modes or
+capabilities.  The corresponding native structure will vary from platform
+to platform.  For example, on X11 windowing systems,
+each visual is a different &lt;code&gt;GraphicsConfiguration&lt;/code&gt;.
+On Microsoft Windows, &lt;code&gt;GraphicsConfiguration&lt;/code&gt;s represent
+PixelFormats available in the current resolution and color depth.
+&lt;p&gt;
+In a virtual device multi-screen environment in which the desktop
+area could span multiple physical screen devices, the bounds of the
+&lt;code&gt;GraphicsConfiguration&lt;/code&gt; objects are relative to the
+virtual coordinate system.  When setting the location of a
+component, use {@link #getBounds() getBounds} to get the bounds of
+the desired &lt;code&gt;GraphicsConfiguration&lt;/code&gt; and offset the location
+with the coordinates of the &lt;code&gt;GraphicsConfiguration&lt;/code&gt;,
+as the following code sample illustrates:
+&lt;/p&gt;
+
+&lt;pre&gt;
+Frame f = new Frame(gc);  // where gc is a GraphicsConfiguration
+Rectangle bounds = gc.getBounds();
+f.setLocation(10 + bounds.x, 10 + bounds.y); &lt;/pre&gt;
+
+&lt;p&gt;
+To determine if your environment is a virtual device
+environment, call &lt;code&gt;getBounds&lt;/code&gt; on all of the
+&lt;code&gt;GraphicsConfiguration&lt;/code&gt; objects in your system.  If
+any of the origins of the returned bounds is not (0,&amp;nbsp;0),
+your environment is a virtual device environment.
+
+&lt;p&gt;
+You can also use &lt;code&gt;getBounds&lt;/code&gt; to determine the bounds
+of the virtual device.  To do this, first call &lt;code&gt;getBounds&lt;/code&gt; on all
+of the &lt;code&gt;GraphicsConfiguration&lt;/code&gt; objects in your
+system.  Then calculate the union of all of the bounds returned
+from the calls to &lt;code&gt;getBounds&lt;/code&gt;.  The union is the
+bounds of the virtual device.  The following code sample
+calculates the bounds of the virtual device.
+
+&lt;pre&gt;
+Rectangle virtualBounds = new Rectangle();
+GraphicsEnvironment ge = GraphicsEnvironment.
+getLocalGraphicsEnvironment();
+GraphicsDevice[] gs =
+ge.getScreenDevices();
+for (int j = 0; j &lt; gs.length; j++) {
+GraphicsDevice gd = gs[j];
+GraphicsConfiguration[] gc =
+gd.getConfigurations();
+for (int i=0; i &lt; gc.length; i++) {
+virtualBounds =
+virtualBounds.union(gc[i].getBounds());
+}
+} &lt;/pre&gt;
+
+@see Window
+@see Frame
+@see GraphicsEnvironment
+@see GraphicsDevice
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="GraphicsConfiguration" refid="_9_5_f720368_1110473546581_229568_7029"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="GraphicsConfiguration" refid="_9_5_f720368_1110473546581_229568_7029"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

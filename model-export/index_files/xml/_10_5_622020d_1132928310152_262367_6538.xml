@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310152_262367_6538"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CyclicBarrier" refid="_10_5_622020d_1132928310142_946196_6536"/></annotatedElement><body humanName="Body" mode="s,e">A synchronization aid that allows a set of threads to all wait for
+each other to reach a common barrier point.  CyclicBarriers are
+useful in programs involving a fixed sized party of threads that
+must occasionally wait for each other. The barrier is called
+&lt;em&gt;cyclic&lt;/em&gt; because it can be re-used after the waiting threads
+are released.
+
+&lt;p&gt;A &lt;tt&gt;CyclicBarrier&lt;/tt&gt; supports an optional {@link Runnable} command
+that is run once per barrier point, after the last thread in the party
+arrives, but before any threads are released.
+This &lt;em&gt;barrier action&lt;/em&gt; is useful
+for updating shared-state before any of the parties continue.
+
+&lt;p&gt;&lt;b&gt;Sample usage:&lt;/b&gt; Here is an example of
+using a barrier in a parallel decomposition design:
+&lt;pre&gt;
+class Solver {
+final int N;
+final float[][] data;
+final CyclicBarrier barrier;
+
+class Worker implements Runnable {
+int myRow;
+Worker(int row) { myRow = row; }
+public void run() {
+while (!done()) {
+processRow(myRow);
+
+try {
+barrier.await();
+} catch (InterruptedException ex) {
+return;
+} catch (BrokenBarrierException ex) {
+return;
+}
+}
+}
+}
+
+public Solver(float[][] matrix) {
+data = matrix;
+N = matrix.length;
+barrier = new CyclicBarrier(N,
+new Runnable() {
+public void run() {
+mergeRows(...);
+}
+});
+for (int i = 0; i &lt; N; ++i)
+new Thread(new Worker(i)).start();
+
+waitUntilDone();
+}
+}
+&lt;/pre&gt;
+Here, each worker thread processes a row of the matrix then waits at the
+barrier until all rows have been processed. When all rows are processed
+the supplied {@link Runnable} barrier action is executed and merges the
+rows. If the merger
+determines that a solution has been found then &lt;tt&gt;done()&lt;/tt&gt; will return
+&lt;tt&gt;true&lt;/tt&gt; and each worker will terminate.
+
+&lt;p&gt;If the barrier action does not rely on the parties being suspended when
+it is executed, then any of the threads in the party could execute that
+action when it is released. To facilitate this, each invocation of
+{@link #await} returns the arrival index of that thread at the barrier.
+You can then choose which thread should execute the barrier action, for
+example:
+&lt;pre&gt;  if (barrier.await() == 0) {
+log the completion of this iteration
+}&lt;/pre&gt;
+
+&lt;p&gt;The &lt;tt&gt;CyclicBarrier&lt;/tt&gt; uses a fast-fail all-or-none breakage
+model for failed synchronization attempts: If a thread leaves a
+barrier point prematurely because of interruption, failure, or
+timeout, all other threads, even those that have not yet resumed
+from a previous {@link #await}, will also leave abnormally via
+{@link BrokenBarrierException} (or &lt;tt&gt;InterruptedException&lt;/tt&gt; if
+they too were interrupted at about the same time).
+
+@since 1.5
+@see CountDownLatch
+
+@author Doug Lea
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CyclicBarrier" refid="_10_5_622020d_1132928310142_946196_6536"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CyclicBarrier" refid="_10_5_622020d_1132928310142_946196_6536"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

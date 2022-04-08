@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546706_591756_8925"><documentation humanName="Documentation" mode="standard">A set that further guarantees that its iterator will traverse the set in
+ascending element order, sorted according to the &lt;i&gt;natural ordering&lt;/i&gt; of
+its elements (see Comparable), or by a Comparator provided at sorted set
+creation time.  Several additional operations are provided to take
+advantage of the ordering.  (This interface is the set analogue of
+SortedMap.)&lt;p&gt;
+
+All elements inserted into an sorted set must implement the Comparable
+interface (or be accepted by the specified Comparator).  Furthermore, all
+such elements must be &lt;i&gt;mutually comparable&lt;/i&gt;: &lt;tt&gt;e1.compareTo(e2)&lt;/tt&gt;
+(or &lt;tt&gt;comparator.compare(e1, e2)&lt;/tt&gt;) must not throw a
+&lt;tt&gt;ClassCastException&lt;/tt&gt; for any elements &lt;tt&gt;e1&lt;/tt&gt; and &lt;tt&gt;e2&lt;/tt&gt; in
+the sorted set.  Attempts to violate this restriction will cause the
+offending method or constructor invocation to throw a
+&lt;tt&gt;ClassCastException&lt;/tt&gt;.&lt;p&gt;
+
+Note that the ordering maintained by a sorted set (whether or not an
+explicit comparator is provided) must be &lt;i&gt;consistent with equals&lt;/i&gt; if
+the sorted set is to correctly implement the &lt;tt&gt;Set&lt;/tt&gt; interface.  (See
+the &lt;tt&gt;Comparable&lt;/tt&gt; interface or &lt;tt&gt;Comparator&lt;/tt&gt; interface for a
+precise definition of &lt;i&gt;consistent with equals&lt;/i&gt;.)  This is so because
+the &lt;tt&gt;Set&lt;/tt&gt; interface is defined in terms of the &lt;tt&gt;equals&lt;/tt&gt;
+operation, but a sorted set performs all element comparisons using its
+&lt;tt&gt;compareTo&lt;/tt&gt; (or &lt;tt&gt;compare&lt;/tt&gt;) method, so two elements that are
+deemed equal by this method are, from the standpoint of the sorted set,
+equal.  The behavior of a sorted set &lt;i&gt;is&lt;/i&gt; well-defined even if its
+ordering is inconsistent with equals; it just fails to obey the general
+contract of the &lt;tt&gt;Set&lt;/tt&gt; interface.&lt;p&gt;
+
+All general-purpose sorted set implementation classes should provide four
+"standard" constructors: 1) A void (no arguments) constructor, which
+creates an empty sorted set sorted according to the &lt;i&gt;natural order&lt;/i&gt; of
+its elements.  2) A constructor with a single argument of type
+&lt;tt&gt;Comparator&lt;/tt&gt;, which creates an empty sorted set sorted according to
+the specified comparator.  3) A constructor with a single argument of type
+&lt;tt&gt;Collection&lt;/tt&gt;, which creates a new sorted set with the same elements
+as its argument, sorted according to the elements' natural ordering.  4) A
+constructor with a single argument of type &lt;tt&gt;SortedSet&lt;/tt&gt;, which
+creates a new sorted set with the same elements and the same ordering as
+the input sorted set.  There is no way to enforce this recommendation (as
+interfaces cannot contain constructors) but the JDK implementation (the
+&lt;tt&gt;TreeSet&lt;/tt&gt; class) complies.&lt;p&gt;
+
+This interface is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@version 1.24, 06/28/04
+@see Set
+@see TreeSet
+@see SortedMap
+@see Collection
+@see Comparable
+@see Comparator
+@see java.lang.ClassCastException
+@since 1.2
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Set&lt;E&gt;" refid="_10_5_622020d_1132928322470_406203_14723"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322630_794632_15102"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">SortedSet</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313477_882010_7477"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313477_114444_7473"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322630_794632_15102"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313477_882010_7477"/></ownedElement><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313477_114444_7473"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::SortedSet</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305635_436203_3633"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DropTargetPeer" refid="_9_5_f720368_1110473546549_215265_6483"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;
+The DropTargetPeer class is the interface to the platform dependent
+DnD facilities. Since the DnD system is based on the native platform's
+facilities, a DropTargetPeer will be associated with a ComponentPeer
+of the nearsest enclosing native Container (in the case of lightweights)
+&lt;/p&gt;
+
+@version 	1.10, 12/19/03
+@since 1.2
+
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="DropTargetPeer" refid="_9_5_f720368_1110473546549_215265_6483"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="DropTargetPeer" refid="_9_5_f720368_1110473546549_215265_6483"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

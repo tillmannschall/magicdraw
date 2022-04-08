@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315099_314807_9610"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NotificationResult" refid="_10_5_622020d_1132928315089_154934_9608"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Result of a query for buffered notifications.  Notifications in
+a notification buffer have positive, monotonically increasing
+sequence numbers.  The result of a notification query contains the
+following elements:&lt;/p&gt;
+
+&lt;ul&gt;
+
+&lt;li&gt;The sequence number of the earliest notification still in
+the buffer.
+
+&lt;li&gt;The sequence number of the next notification available for
+querying.  This will be the starting sequence number for the next
+notification query.
+
+&lt;li&gt;An array of (Notification,listenerID) pairs corresponding to
+the returned notifications and the listeners they correspond to.
+
+&lt;/ul&gt;
+
+&lt;p&gt;It is possible for the &lt;code&gt;nextSequenceNumber&lt;/code&gt; to be less
+than the &lt;code&gt;earliestSequenceNumber&lt;/code&gt;.  This signifies that
+notifications between the two might have been lost.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="NotificationResult" refid="_10_5_622020d_1132928315089_154934_9608"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="NotificationResult" refid="_10_5_622020d_1132928315089_154934_9608"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

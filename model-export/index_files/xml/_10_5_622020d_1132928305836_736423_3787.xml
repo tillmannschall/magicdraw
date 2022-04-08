@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305836_736423_3787"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="LineMetrics" refid="_9_5_f720368_1110473546565_467529_6637"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;LineMetrics&lt;/code&gt; class allows access to the
+metrics needed to layout characters along a line
+and to layout of a set of lines.  A &lt;code&gt;LineMetrics&lt;/code&gt;
+object encapsulates the measurement information associated
+with a run of text.
+&lt;p&gt;
+Fonts can have different metrics for different ranges of
+characters.  The &lt;code&gt;getLineMetrics&lt;/code&gt; methods of
+{@link java.awt.Font Font} take some text as an argument
+and return a &lt;code&gt;LineMetrics&lt;/code&gt; object describing the
+metrics of the initial number of characters in that text, as
+returned by {@link #getNumChars}.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="LineMetrics" refid="_9_5_f720368_1110473546565_467529_6637"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="LineMetrics" refid="_9_5_f720368_1110473546565_467529_6637"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

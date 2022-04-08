@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306667_984157_4249"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobAttributes" refid="_9_5_f720368_1110473546581_134066_7055"/></annotatedElement><body humanName="Body" mode="s,e">A set of attributes which control a print job.
+&lt;p&gt;
+Instances of this class control the number of copies, default selection,
+destination, print dialog, file and printer names, page ranges, multiple
+document handling (including collation), and multi-page imposition (such
+as duplex) of every print job which uses the instance. Attribute names are
+compliant with the Internet Printing Protocol (IPP) 1.1 where possible.
+Attribute values are partially compliant where possible.
+&lt;p&gt;
+To use a method which takes an inner class type, pass a reference to
+one of the constant fields of the inner class. Client code cannot create
+new instances of the inner class types because none of those classes
+has a public constructor. For example, to set the print dialog type to
+the cross-platform, pure Java print dialog, use the following code:
+&lt;pre&gt;
+import java.awt.JobAttributes;
+
+public class PureJavaPrintDialogExample {
+public void setPureJavaPrintDialog(JobAttributes jobAttributes) {
+jobAttributes.setDialog(JobAttributes.DialogType.COMMON);
+}
+}
+&lt;/pre&gt;
+&lt;p&gt;
+Every IPP attribute which supports an &lt;i&gt;attributeName&lt;/i&gt;-default value
+has a corresponding &lt;code&gt;set&lt;i&gt;attributeName&lt;/i&gt;ToDefault&lt;/code&gt; method.
+Default value fields are not provided.
+
+@version	1.9, 12/19/03
+@author	David Mendenhall
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JobAttributes" refid="_9_5_f720368_1110473546581_134066_7055"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobAttributes" refid="_9_5_f720368_1110473546581_134066_7055"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

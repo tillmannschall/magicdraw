@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307068_121238_4581"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FileOutputStream" refid="_9_5_f720368_1110473546596_678938_7395"/></annotatedElement><body humanName="Body" mode="s,e">A file output stream is an output stream for writing data to a
+&lt;code&gt;File&lt;/code&gt; or to a &lt;code&gt;FileDescriptor&lt;/code&gt;. Whether or not
+a file is available or may be created depends upon the underlying
+platform.  Some platforms, in particular, allow a file to be opened
+for writing by only one &lt;tt&gt;FileOutputStream&lt;/tt&gt; (or other
+file-writing object) at a time.  In such situations the constructors in
+this class will fail if the file involved is already open.
+
+&lt;p&gt;&lt;code&gt;FileOutputStream&lt;/code&gt; is meant for writing streams of raw bytes
+such as image data. For writing streams of characters, consider using
+&lt;code&gt;FileWriter&lt;/code&gt;.
+
+@author  Arthur van Hoff
+@version 1.57, 12/19/03
+@see     java.io.File
+@see     java.io.FileDescriptor
+@see     java.io.FileInputStream
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FileOutputStream" refid="_9_5_f720368_1110473546596_678938_7395"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FileOutputStream" refid="_9_5_f720368_1110473546596_678938_7395"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

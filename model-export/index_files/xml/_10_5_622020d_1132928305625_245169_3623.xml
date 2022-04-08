@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305625_245169_3623"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SystemFlavorMap" refid="_9_5_f720368_1110473546549_519280_6473"/></annotatedElement><body humanName="Body" mode="s,e">The SystemFlavorMap is a configurable map between "natives" (Strings), which
+correspond to platform-specific data formats, and "flavors" (DataFlavors),
+which correspond to platform-independent MIME types. This mapping is used
+by the data transfer subsystem to transfer data between Java and native
+applications, and between Java applications in separate VMs.
+&lt;p&gt;
+In the Sun reference implementation, the default SystemFlavorMap is
+initialized by the file &lt;code&gt;jre/lib/flavormap.properties&lt;/code&gt; and the
+contents of the URL referenced by the AWT property
+&lt;code&gt;AWT.DnD.flavorMapFileURL&lt;/code&gt;. See &lt;code&gt;flavormap.properties&lt;/code&gt;
+for details.
+
+@version 1.36, 05/05/04
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SystemFlavorMap" refid="_9_5_f720368_1110473546549_519280_6473"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SystemFlavorMap" refid="_9_5_f720368_1110473546549_519280_6473"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

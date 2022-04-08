@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317523_611145_11906"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectView" refid="_9_5_f720368_1110473546768_347361_10381"/></annotatedElement><body humanName="Body" mode="s,e">Component decorator that implements the view interface
+for &lt;object&gt; elements.
+&lt;p&gt;
+This view will try to load the class specified by the
+&lt;code&gt;classid&lt;/code&gt; attribute.  If possible, the Classloader
+used to load the associated Document is used.
+This would typically be the same as the ClassLoader
+used to load the EditorKit.  If the document's
+ClassLoader is null, &lt;code&gt;Class.forName&lt;/code&gt; is used.
+&lt;p&gt;
+If the class can successfully be loaded, an attempt will
+be made to create an instance of it by calling
+&lt;code&gt;Class.newInstance&lt;/code&gt;.  An attempt will be made
+to narrow the instance to type &lt;code&gt;java.awt.Component&lt;/code&gt;
+to display the object.
+&lt;p&gt;
+This view can also manage a set of parameters with limitations.
+The parameters to the &lt;object&gt; element are expected to
+be present on the associated elements attribute set as simple
+strings.  Each bean property will be queried as a key on
+the AttributeSet, with the expectation that a non-null value
+(of type String) will be present if there was a parameter
+specification for the property.  Reflection is used to
+set the parameter.  Currently, this is limited to a very
+simple single parameter of type String.
+&lt;p&gt;
+A simple example HTML invocation is:
+&lt;pre&gt;
+&lt;object classid="javax.swing.JLabel"&gt;
+&lt;param name="text" value="sample text"&gt;
+&lt;/object&gt;
+&lt;/pre&gt;
+
+@author Timothy Prinzing
+@version 1.13 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ObjectView" refid="_9_5_f720368_1110473546768_347361_10381"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ObjectView" refid="_9_5_f720368_1110473546768_347361_10381"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

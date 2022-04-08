@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315800_566490_10271"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="EnumSyntax" refid="_9_5_f720368_1110473546737_604249_9453"/></annotatedElement><body humanName="Body" mode="s,e">Class EnumSyntax is an abstract base class providing the common
+implementation of all "type safe enumeration" objects. An enumeration class
+(which extends class EnumSyntax) provides a group of enumeration values
+(objects) that are singleton instances of the enumeration class; for example:
+&lt;PRE&gt;
+public class Bach extends EnumSyntax {
+public static final Bach JOHANN_SEBASTIAN     = new Bach(0);
+public static final Bach WILHELM_FRIEDEMANN   = new Bach(1);
+public static final Bach CARL_PHILIP_EMMANUEL = new Bach(2);
+public static final Bach JOHANN_CHRISTIAN     = new Bach(3);
+public static final Bach P_D_Q                = new Bach(4);
+
+private static final String[] stringTable = {
+"Johann Sebastian Bach",
+"Wilhelm Friedemann Bach",
+"Carl Philip Emmanuel Bach",
+"Johann Christian Bach",
+"P.D.Q. Bach"
+};
+
+protected String[] getStringTable() {
+return stringTable;
+}
+
+private static final Bach[] enumValueTable = {
+JOHANN_SEBASTIAN,
+WILHELM_FRIEDEMANN,
+CARL_PHILIP_EMMANUEL,
+JOHANN_CHRISTIAN,
+P_D_Q
+};
+
+protected EnumSyntax[] getEnumValueTable() {
+return enumValueTable;
+}
+}
+&lt;/PRE&gt;
+You can then write code that uses the &lt;CODE&gt;==&lt;/CODE&gt; and &lt;CODE&gt;!=&lt;/CODE&gt;
+operators to test enumeration values; for example:
+&lt;PRE&gt;
+Bach theComposer;
+. . .
+if (theComposer == Bach.JOHANN_SEBASTIAN) {
+System.out.println ("The greatest composer of all time!");
+}
+&lt;/PRE&gt;
+The &lt;CODE&gt;equals()&lt;/CODE&gt; method for an enumeration class just does a test
+for identical objects (&lt;CODE&gt;==&lt;/CODE&gt;).
+&lt;P&gt;
+You can convert an enumeration value to a string by calling {@link
+#toString() &lt;CODE&gt;toString()&lt;/CODE&gt;}. The string is obtained from a table
+supplied by the enumeration class.
+&lt;P&gt;
+Under the hood, an enumeration value is just an integer, a different integer
+for each enumeration value within an enumeration class. You can get an
+enumeration value's integer value by calling {@link #getValue()
+&lt;CODE&gt;getValue()&lt;/CODE&gt;}. An enumeration value's integer value is established
+when it is constructed (see {@link #EnumSyntax(int)
+&lt;CODE&gt;EnumSyntax(int)&lt;/CODE&gt;}). Since the constructor is protected, the only
+possible enumeration values are the singleton objects declared in the
+enumeration class; additional enumeration values cannot be created at run
+time.
+&lt;P&gt;
+You can define a subclass of an enumeration class that extends it with
+additional enumeration values. The subclass's enumeration values' integer
+values need not be distinct from the superclass's enumeration values' integer
+values; the &lt;CODE&gt;==&lt;/CODE&gt;, &lt;CODE&gt;!=&lt;/CODE&gt;, &lt;CODE&gt;equals()&lt;/CODE&gt;, and
+&lt;CODE&gt;toString()&lt;/CODE&gt; methods will still work properly even if the subclass
+uses some of the same integer values as the superclass. However, the
+application in which the enumeration class and subclass are used may need to
+have distinct integer values in the superclass and subclass.
+&lt;P&gt;
+
+@author  David Mendenhall
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="EnumSyntax" refid="_9_5_f720368_1110473546737_604249_9453"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="EnumSyntax" refid="_9_5_f720368_1110473546737_604249_9453"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

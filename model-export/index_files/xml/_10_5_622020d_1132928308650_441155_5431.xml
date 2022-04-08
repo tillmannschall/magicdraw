@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308650_441155_5431"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Pipe" refid="_9_5_f720368_1110473546659_24399_7917"/></annotatedElement><body humanName="Body" mode="s,e">A pair of channels that implements a unidirectional pipe.
+
+&lt;p&gt; A pipe consists of a pair of channels: A writable {@link
+Pipe.SinkChannel &lt;/code&gt;sink&lt;code&gt;} channel and a readable {@link
+Pipe.SourceChannel &lt;/code&gt;source&lt;code&gt;} channel.  Once some bytes are
+written to the sink channel they can be read from source channel in exactly
+the order in which they were written.
+
+&lt;p&gt; Whether or not a thread writing bytes to a pipe will block until another
+thread reads those bytes, or some previously-written bytes, from the pipe is
+system-dependent and therefore unspecified.  Many pipe implementations will
+buffer up to a certain number of bytes between the sink and source channels,
+but such buffering should not be assumed.  &lt;/p&gt;
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.20, 03/12/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Pipe" refid="_9_5_f720368_1110473546659_24399_7917"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Pipe" refid="_9_5_f720368_1110473546659_24399_7917"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

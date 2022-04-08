@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309311_88950_6006"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Identity" refid="_9_5_f720368_1110473546674_944917_8451"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;This class represents identities: real-world objects such as people,
+companies or organizations whose identities can be authenticated using
+their public keys. Identities may also be more abstract (or concrete)
+constructs, such as daemon threads or smart cards.
+
+&lt;p&gt;All Identity objects have a name and a public key. Names are
+immutable. Identities may also be scoped. That is, if an Identity is
+specified to have a particular scope, then the name and public
+key of the Identity are unique within that scope.
+
+&lt;p&gt;An Identity also has a set of certificates (all certifying its own
+public key). The Principal names specified in these certificates need
+not be the same, only the key.
+
+&lt;p&gt;An Identity can be subclassed, to include postal and email addresses,
+telephone numbers, images of faces and logos, and so on.
+
+@see IdentityScope
+@see Signer
+@see Principal
+
+@version 1.61
+@author Benjamin Renaud
+@deprecated This class is no longer used. Its functionality has been
+replaced by &lt;code&gt;java.security.KeyStore&lt;/code&gt;, the
+&lt;code&gt;java.security.cert&lt;/code&gt; package, and
+&lt;code&gt;java.security.Principal&lt;/code&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Identity" refid="_9_5_f720368_1110473546674_944917_8451"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Identity" refid="_9_5_f720368_1110473546674_944917_8451"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

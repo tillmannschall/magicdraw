@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306056_983284_3952"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DirectColorModel" refid="_9_5_f720368_1110473546565_617401_6787"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;DirectColorModel&lt;/code&gt; class is a &lt;code&gt;ColorModel&lt;/code&gt;
+class that works with pixel values that represent RGB
+color and alpha information as separate samples and that pack all
+samples for a single pixel into a single int, short, or byte quantity.
+This class can be used only with ColorSpaces of type ColorSpace.TYPE_RGB.
+In addition, for each component of the ColorSpace, the minimum
+normalized component value obtained via the &lt;code&gt;getMinValue()&lt;/code&gt;
+method of ColorSpace must be 0.0, and the maximum value obtained via
+the &lt;code&gt;getMaxValue()&lt;/code&gt; method must be 1.0 (these min/max
+values are typical for RGB spaces).
+There must be three color samples in the pixel values and there can
+be a single alpha sample.  For those methods that use a primitive array
+pixel representation of type &lt;code&gt;transferType&lt;/code&gt;, the array
+length is always one.  The transfer
+types supported are DataBuffer.TYPE_BYTE,
+DataBuffer.TYPE_USHORT, and DataBuffer.TYPE_INT.
+Color and alpha samples are stored in the single
+element of the array in bits indicated by bit masks.  Each bit mask
+must be contiguous and masks must not overlap.  The same masks apply to
+the single int pixel representation used by other methods.  The
+correspondence of masks and color/alpha samples is as follows:
+&lt;ul&gt;
+&lt;li&gt; Masks are identified by indices running from 0 through 2
+if no alpha is present, or 3 if an alpha is present.
+&lt;li&gt; The first three indices refer to color samples;
+index 0 corresponds to red, index 1 to green, and index 2 to blue.
+&lt;li&gt; Index 3 corresponds to the alpha sample, if present.
+&lt;/ul&gt;
+&lt;p&gt;
+The translation from pixel values to color/alpha components for
+display or processing purposes is a one-to-one correspondence of
+samples to components.  A &lt;code&gt;DirectColorModel&lt;/code&gt; is
+typically used with image data which uses masks to define packed
+samples.  For example, a &lt;code&gt;DirectColorModel&lt;/code&gt; can be used in
+conjunction with a &lt;code&gt;SinglePixelPackedSampleModel&lt;/code&gt; to
+construct a {@link BufferedImage}.  Normally the masks used by the
+{@link SampleModel} and the &lt;code&gt;ColorModel&lt;/code&gt; would be the
+same.  However, if they are different, the color interpretation
+of pixel data will be done according to the masks of the
+&lt;code&gt;ColorModel&lt;/code&gt;.
+&lt;p&gt;
+A single int pixel representation is valid for all objects of this
+class, since it is always possible to represent pixel values used with
+this class in a single int.  Therefore, methods which use this
+representation will not throw an &lt;code&gt;IllegalArgumentException&lt;/code&gt;
+due to an invalid pixel value.
+&lt;p&gt;
+This color model is similar to an X11 TrueColor visual.
+The default RGB ColorModel specified by the
+{@link ColorModel#getRGBdefault() getRGBdefault} method is a
+&lt;code&gt;DirectColorModel&lt;/code&gt; with the following parameters:
+&lt;pre&gt;
+Number of bits:        32
+Red mask:              0x00ff0000
+Green mask:            0x0000ff00
+Blue mask:             0x000000ff
+Alpha mask:            0xff000000
+Color space:           sRGB
+isAlphaPremultiplied:  False
+Transparency:          Transparency.TRANSLUCENT
+transferType:          DataBuffer.TYPE_INT
+&lt;/pre&gt;
+&lt;p&gt;
+Many of the methods in this class are final. This is because the
+underlying native graphics code makes assumptions about the layout
+and operation of this class and those assumptions are reflected in
+the implementations of the methods here that are marked final.  You
+can subclass this class for other reasons, but you cannot override
+or modify the behavior of those methods.
+
+@see ColorModel
+@see ColorSpace
+@see SinglePixelPackedSampleModel
+@see BufferedImage
+@see ColorModel#getRGBdefault
+
+@version 10 Feb 1997
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DirectColorModel" refid="_9_5_f720368_1110473546565_617401_6787"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DirectColorModel" refid="_9_5_f720368_1110473546565_617401_6787"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

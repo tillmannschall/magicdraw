@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546706_688082_8969"><documentation humanName="Documentation" mode="standard">&lt;P&gt;The AccessibleHypertext class is the base class for all
+classes that present hypertext information on the display.  This class
+provides the standard mechanism for an assistive technology to access
+that text via its content, attributes, and spatial location.
+It also provides standard mechanisms for manipulating hyperlinks.
+Applications can determine if an object supports the AccessibleHypertext
+interface by first obtaining its AccessibleContext (see {@link Accessible})
+and then calling the {@link AccessibleContext#getAccessibleText}
+method of AccessibleContext.  If the return value is a class which extends
+AccessibleHypertext, then that object supports AccessibleHypertext.
+
+@see Accessible
+@see Accessible#getAccessibleContext
+@see AccessibleContext
+@see AccessibleText
+@see AccessibleContext#getAccessibleText
+
+@version
+@author	Peter Korn
+</documentation><general humanName="General"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AccessibleText" refid="_9_5_f720368_1110473546706_466273_8993"/></general><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322910_109302_15762"/></generalization><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">AccessibleHypertext</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="accessibility" refid="_9_5_f720368_1110473547909_851843_19810"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314759_770472_9115"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322910_109302_15762"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314759_770472_9115"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="accessibility" refid="_9_5_f720368_1110473547909_851843_19810"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="accessibility" refid="_9_5_f720368_1110473547909_851843_19810"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="accessibility" refid="_9_5_f720368_1110473547909_851843_19810"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::accessibility::AccessibleHypertext</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::swing::JEditorPane::JEditorPaneAccessibleHypertextSupport -&gt; JDK 5.0 Classes::javax::accessibility::AccessibleHypertext]" refid="_10_5_622020d_1132928324092_496707_18341"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

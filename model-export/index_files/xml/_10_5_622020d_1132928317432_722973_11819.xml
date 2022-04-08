@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317432_722973_11819"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CSS" refid="_9_5_f720368_1110473546768_216415_10337"/></annotatedElement><body humanName="Body" mode="s,e">Defines a set of
+&lt;a href="http://www.w3.org/TR/REC-CSS1"&gt;CSS attributes&lt;/a&gt;
+as a typesafe enumeration.  The HTML View implementations use
+CSS attributes to determine how they will render. This also defines
+methods to map between CSS/HTML/StyleConstants. Any shorthand
+properties, such as font, are mapped to the intrinsic properties.
+&lt;p&gt;The following describes the CSS properties that are suppored by the
+rendering engine:
+&lt;ul&gt;&lt;li&gt;font-family
+&lt;li&gt;font-style
+&lt;li&gt;font-size (supports relative units)
+&lt;li&gt;font-weight
+&lt;li&gt;font
+&lt;li&gt;color
+&lt;li&gt;background-color (with the exception of transparent)
+&lt;li&gt;background-image
+&lt;li&gt;background-repeat
+&lt;li&gt;background-position
+&lt;li&gt;background
+&lt;li&gt;background-repeat
+&lt;li&gt;text-decoration (with the exception of blink and overline)
+&lt;li&gt;vertical-align (only sup and super)
+&lt;li&gt;text-align (justify is treated as center)
+&lt;li&gt;margin-top
+&lt;li&gt;margin-right
+&lt;li&gt;margin-bottom
+&lt;li&gt;margin-left
+&lt;li&gt;margin
+&lt;li&gt;padding-top
+&lt;li&gt;padding-right
+&lt;li&gt;padding-bottom
+&lt;li&gt;padding-left
+&lt;li&gt;border-style (only supports inset, outset and none)
+&lt;li&gt;list-style-type
+&lt;li&gt;list-style-position
+&lt;/ul&gt;
+The following are modeled, but currently not rendered.
+&lt;ul&gt;&lt;li&gt;font-variant
+&lt;li&gt;background-attachment (background always treated as scroll)
+&lt;li&gt;word-spacing
+&lt;li&gt;letter-spacing
+&lt;li&gt;text-indent
+&lt;li&gt;text-transform
+&lt;li&gt;line-height
+&lt;li&gt;border-top-width (this is used to indicate if a border should be used)
+&lt;li&gt;border-right-width
+&lt;li&gt;border-bottom-width
+&lt;li&gt;border-left-width
+&lt;li&gt;border-width
+&lt;li&gt;border-top
+&lt;li&gt;border-right
+&lt;li&gt;border-bottom
+&lt;li&gt;border-left
+&lt;li&gt;border
+&lt;li&gt;width
+&lt;li&gt;height
+&lt;li&gt;float
+&lt;li&gt;clear
+&lt;li&gt;display
+&lt;li&gt;white-space
+&lt;li&gt;list-style
+&lt;/ul&gt;
+&lt;p&gt;&lt;b&gt;Note: for the time being we do not fully support relative units,
+unless noted, so that
+p { margin-top: 10% } will be treated as if no margin-top was specified.
+
+@author  Timothy Prinzing
+@author  Scott Violet
+@version 1.54 07/24/04
+@see StyleSheet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CSS" refid="_9_5_f720368_1110473546768_216415_10337"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CSS" refid="_9_5_f720368_1110473546768_216415_10337"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

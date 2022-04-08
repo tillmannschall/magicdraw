@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316982_100542_10773"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RowSetReader" refid="_9_5_f720368_1110473546753_489232_9771"/></annotatedElement><body humanName="Body" mode="s,e">The facility that a disconnected &lt;code&gt;RowSet&lt;/code&gt; object calls on
+to populate itself with rows of data. A reader (an object implementing the
+&lt;code&gt;RowSetReader&lt;/code&gt; interface) may be registered with
+a &lt;code&gt;RowSet&lt;/code&gt; object that supports the reader/writer paradigm.
+When the &lt;code&gt;RowSet&lt;/code&gt; object's &lt;code&gt;execute&lt;/code&gt; method is
+called, it in turn calls the reader's &lt;code&gt;readData&lt;/code&gt; method.
+
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="RowSetReader" refid="_9_5_f720368_1110473546753_489232_9771"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RowSetReader" refid="_9_5_f720368_1110473546753_489232_9771"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

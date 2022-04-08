@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310933_529492_7181"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Dictionary" refid="_9_5_f720368_1110473546706_144898_8855"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Dictionary&lt;/code&gt; class is the abstract parent of any
+class, such as &lt;code&gt;Hashtable&lt;/code&gt;, which maps keys to values.
+Every key and every value is an object. In any one &lt;tt&gt;Dictionary&lt;/tt&gt;
+object, every key is associated with at most one value. Given a
+&lt;tt&gt;Dictionary&lt;/tt&gt; and a key, the associated element can be looked up.
+Any non-&lt;code&gt;null&lt;/code&gt; object can be used as a key and as a value.
+&lt;p&gt;
+As a rule, the &lt;code&gt;equals&lt;/code&gt; method should be used by
+implementations of this class to decide if two keys are the same.
+&lt;p&gt;
+&lt;strong&gt;NOTE: This class is obsolete.  New implementations should
+implement the Map interface, rather than extending this class.&lt;/strong&gt;
+
+@author  unascribed
+@version 1.23, 01/12/04
+@see	    java.util.Map
+@see     java.lang.Object#equals(java.lang.Object)
+@see     java.lang.Object#hashCode()
+@see     java.util.Hashtable
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="Dictionary" refid="_9_5_f720368_1110473546706_144898_8855"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Dictionary" refid="_9_5_f720368_1110473546706_144898_8855"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

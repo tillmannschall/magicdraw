@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318113_968161_12521"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JSplitPane" refid="_9_5_f720368_1110473546799_243295_10773"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;JSplitPane&lt;/code&gt; is used to divide two (and only two)
+&lt;code&gt;Component&lt;/code&gt;s. The two &lt;code&gt;Component&lt;/code&gt;s
+are graphically divided based on the look and feel
+implementation, and the two &lt;code&gt;Component&lt;/code&gt;s can then be
+interactively resized by the user.
+Information on using &lt;code&gt;JSplitPane&lt;/code&gt; is in
+&lt;a
+href="http://java.sun.com/docs/books/tutorial/uiswing/components/splitpane.html"&gt;How to Use Split Panes&lt;/a&gt; in
+&lt;em&gt;The Java Tutorial&lt;/em&gt;.
+&lt;p&gt;
+The two &lt;code&gt;Component&lt;/code&gt;s in a split pane can be aligned
+left to right using
+&lt;code&gt;JSplitPane.HORIZONTAL_SPLIT&lt;/code&gt;, or top to bottom using
+&lt;code&gt;JSplitPane.VERTICAL_SPLIT&lt;/code&gt;.
+The preferred way to change the size of the &lt;code&gt;Component&lt;/code&gt;s
+is to invoke
+&lt;code&gt;setDividerLocation&lt;/code&gt; where &lt;code&gt;location&lt;/code&gt; is either
+the new x or y position, depending on the orientation of the
+&lt;code&gt;JSplitPane&lt;/code&gt;.
+&lt;p&gt;
+To resize the &lt;code&gt;Component&lt;/code&gt;s to their preferred sizes invoke
+&lt;code&gt;resetToPreferredSizes&lt;/code&gt;.
+&lt;p&gt;
+When the user is resizing the &lt;code&gt;Component&lt;/code&gt;s the minimum
+size of the &lt;code&gt;Components&lt;/code&gt; is used to determine the
+maximum/minimum position the &lt;code&gt;Component&lt;/code&gt;s
+can be set to. If the minimum size of the two
+components is greater than the size of the split pane the divider
+will not allow you to resize it. To alter the minimum size of a
+&lt;code&gt;JComponent&lt;/code&gt;, see {@link JComponent#setMinimumSize}.
+&lt;p&gt;
+When the user resizes the split pane the new space is distributed between
+the two components based on the &lt;code&gt;resizeWeight&lt;/code&gt; property.
+A value of 0,
+the default, indicates the right/bottom component gets all the space,
+where as a value of 1 indicates the left/top component gets all the space.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see #setDividerLocation
+@see #resetToPreferredSizes
+
+@version 1.76 12/19/03
+@author Scott Violet
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JSplitPane" refid="_9_5_f720368_1110473546799_243295_10773"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JSplitPane" refid="_9_5_f720368_1110473546799_243295_10773"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

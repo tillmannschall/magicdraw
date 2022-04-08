@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317142_658055_11129"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FocusHandler" refid="_9_5_f720368_1110473548159_369712_21491"/></annotatedElement><body humanName="Body" mode="s,e">Focus-change listener.
+&lt;p&gt;
+This class should be treated as a "protected" inner class.
+Instantiate it only within subclasses of &lt;Foo&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FocusHandler" refid="_9_5_f720368_1110473548159_369712_21491"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FocusHandler" refid="_9_5_f720368_1110473548159_369712_21491"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

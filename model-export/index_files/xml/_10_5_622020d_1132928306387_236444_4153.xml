@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306387_236444_4153"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Composite" refid="_9_5_f720368_1110473546581_157749_6969"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Composite&lt;/code&gt; interface, along with
+{@link CompositeContext}, defines the methods to compose a draw
+primitive with the underlying graphics area.
+After the &lt;code&gt;Composite&lt;/code&gt; is set in the
+{@link Graphics2D} context, it combines a shape, text, or an image
+being rendered with the colors that have already been rendered
+according to pre-defined rules. The classes
+implementing this interface provide the rules and a method to create
+the context for a particular operation.
+&lt;code&gt;CompositeContext&lt;/code&gt; is an environment used by the
+compositing operation, which is created by the &lt;code&gt;Graphics2D&lt;/code&gt;
+prior to the start of the operation.  &lt;code&gt;CompositeContext&lt;/code&gt;
+contains private information and resources needed for a compositing
+operation.  When the &lt;code&gt;CompositeContext&lt;/code&gt; is no longer needed,
+the &lt;code&gt;Graphics2D&lt;/code&gt; object disposes of it in order to reclaim
+resources allocated for the operation.
+&lt;p&gt;
+Instances of classes implementing &lt;code&gt;Composite&lt;/code&gt; must be
+immutable because the &lt;code&gt;Graphics2D&lt;/code&gt; does not clone
+these objects when they are set as an attribute with the
+&lt;code&gt;setComposite&lt;/code&gt; method or when the &lt;code&gt;Graphics2D&lt;/code&gt;
+object is cloned.  This is to avoid undefined rendering behavior of
+&lt;code&gt;Graphics2D&lt;/code&gt;, resulting from the modification of
+the &lt;code&gt;Composite&lt;/code&gt; object after it has been set in the
+&lt;code&gt;Graphics2D&lt;/code&gt; context.
+&lt;p&gt;
+Since this interface must expose the contents of pixels on the
+target device or image to potentially arbitrary code, the use of
+custom objects which implement this interface when rendering directly
+to a screen device is governed by the &lt;code&gt;readDisplayPixels&lt;/code&gt;
+{@link AWTPermission}.  The permission check will occur when such
+a custom object is passed to the &lt;code&gt;setComposite&lt;/code&gt; method
+of a &lt;code&gt;Graphics2D&lt;/code&gt; retrieved from a {@link Component}.
+@see AlphaComposite
+@see CompositeContext
+@see Graphics2D#setComposite
+@version 10 Feb 1997
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Composite" refid="_9_5_f720368_1110473546581_157749_6969"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Composite" refid="_9_5_f720368_1110473546581_157749_6969"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

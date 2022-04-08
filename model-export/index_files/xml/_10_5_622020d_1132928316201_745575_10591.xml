@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316201_745575_10591"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Transmitter" refid="_9_5_f720368_1110473546737_611447_9695"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;Transmitter&lt;/code&gt; sends &lt;code&gt;{@link MidiEvent}&lt;/code&gt; objects to one or more
+&lt;code&gt;{@link Receiver Receivers}&lt;/code&gt;. Common MIDI transmitters include sequencers
+and MIDI input ports.
+
+@see Receiver
+
+@version 1.22, 03/12/19
+@author Kara Kytle
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Transmitter" refid="_9_5_f720368_1110473546737_611447_9695"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Transmitter" refid="_9_5_f720368_1110473546737_611447_9695"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

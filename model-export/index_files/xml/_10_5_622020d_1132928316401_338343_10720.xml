@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316401_338343_10720"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="XmlWriter" refid="_10_5_622020d_1132928316401_674496_10718"/></annotatedElement><body humanName="Body" mode="s,e">A specialized interface that facilitates an extension of the
+&lt;code&gt;SyncProvider&lt;/code&gt; abstract class for XML orientated
+synchronization providers.
+&lt;p&gt;
+&lt;code&gt;SyncProvider&lt;/code&gt;  implementations that supply XML data writer
+capabilities such as output XML stream capabilities can implement this
+interface to provider standard &lt;code&gt;XmlWriter&lt;/code&gt; objects to
+&lt;code&gt;WebRowSet&lt;/code&gt; implementations.
+&lt;P&gt;
+Writing a &lt;code&gt;WebRowSet&lt;/code&gt; object includes printing the
+rowset's data, metadata, and properties, all with the
+appropriate XML tags.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="XmlWriter" refid="_10_5_622020d_1132928316401_674496_10718"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="XmlWriter" refid="_10_5_622020d_1132928316401_674496_10718"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

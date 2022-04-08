@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" id="_9_5_f720368_1110473546690_144720_8491"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::Permission -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321899_977028_14220"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::Permission -&gt; JDK 5.0 Classes::java::security::Guard]" refid="_10_5_622020d_1132928321899_760110_14219"/></clientDependency><documentation humanName="Documentation" mode="standard">Abstract class for representing access to a system resource.
+All permissions have a name (whose interpretation depends on the subclass),
+as well as abstract functions for defining the semantics of the
+particular Permission subclass.
+
+&lt;p&gt;Most Permission objects also include an "actions" list that tells the actions
+that are permitted for the object.  For example,
+for a &lt;code&gt;java.io.FilePermission&lt;/code&gt; object, the permission name is
+the pathname of a file (or directory), and the actions list
+(such as "read, write") specifies which actions are granted for the
+specified file (or for files in the specified directory).
+The actions list is optional for Permission objects, such as
+&lt;code&gt;java.lang.RuntimePermission&lt;/code&gt;,
+that don't need such a list; you either have the named permission (such
+as "system.exit") or you don't.
+
+&lt;p&gt;An important method that must be implemented by each subclass is
+the &lt;code&gt;implies&lt;/code&gt; method to compare Permissions. Basically,
+"permission p1 implies permission p2" means that
+if one is granted permission p1, one is naturally granted permission p2.
+Thus, this is not an equality test, but rather more of a
+subset test.
+
+&lt;P&gt; Permission objects are similar to String objects in that they
+are immutable once they have been created. Subclasses should not
+provide methods that can change the state of a permission
+once it has been created.
+
+@see Permissions
+@see PermissionCollection
+
+@version 1.39 03/12/19
+
+@author Marianne Mueller
+@author Roland Schemers
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::Permission -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321899_977028_14220"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::Permission -&gt; JDK 5.0 Classes::java::security::Guard]" refid="_10_5_622020d_1132928321899_760110_14219"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">true</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Permission</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309391_857745_6075"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309391_857745_6075"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::Permission -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321899_977028_14220"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::Permission -&gt; JDK 5.0 Classes::java::security::Guard]" refid="_10_5_622020d_1132928321899_760110_14219"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="security" refid="_9_5_f720368_1110473547706_6534_18577"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::Permission</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Guard" refid="_9_5_f720368_1110473546674_598634_8447"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317422_851067_11783"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Parser" refid="_9_5_f720368_1110473546768_349080_10317"/></annotatedElement><body humanName="Body" mode="s,e">A simple DTD-driven HTML parser. The parser reads an
+HTML file from an InputStream and calls various methods
+(which should be overridden in a subclass) when tags and
+data are encountered.
+&lt;p&gt;
+Unfortunately there are many badly implemented HTML parsers
+out there, and as a result there are many badly formatted
+HTML files. This parser attempts to parse most HTML files.
+This means that the implementation sometimes deviates from
+the SGML specification in favor of HTML.
+&lt;p&gt;
+The parser treats \r and \r\n as \n. Newlines after starttags
+and before end tags are ignored just as specified in the SGML/HTML
+specification.
+&lt;p&gt;
+The html spec does not specify how spaces are to be coalesced very well.
+Specifically, the following scenarios are not discussed (note that a
+space should be used here, but I am using &amp;nbsp to force the space to
+be displayed):
+&lt;p&gt;
+'&lt;b&gt;blah&amp;nbsp;&lt;i&gt;&amp;nbsp;&lt;strike&gt;&amp;nbsp;foo' which can be treated as:
+'&lt;b&gt;blah&amp;nbsp;&lt;i&gt;&lt;strike&gt;foo'
+&lt;p&gt;as well as:
+'&lt;p&gt;&lt;a href="xx"&gt;&amp;nbsp;&lt;em&gt;Using&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;'
+which appears to be treated as:
+'&lt;p&gt;&lt;a href="xx"&gt;&lt;em&gt;Using&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;'
+&lt;p&gt;
+If &lt;code&gt;strict&lt;/code&gt; is false, when a tag that breaks flow,
+(&lt;code&gt;TagElement.breaksFlows&lt;/code&gt;) or trailing whitespace is
+encountered, all whitespace will be ignored until a non whitespace
+character is encountered. This appears to give behavior closer to
+the popular browsers.
+
+@see DTD
+@see TagElement
+@see SimpleAttributeSet
+@version 1.38, 12/19/03
+@author Arthur van Hoff
+@author Sunita Mani
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Parser" refid="_9_5_f720368_1110473546768_349080_10317"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Parser" refid="_9_5_f720368_1110473546768_349080_10317"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

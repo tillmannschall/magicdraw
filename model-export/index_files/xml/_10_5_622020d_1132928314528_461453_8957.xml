@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_10_5_622020d_1132928314528_461453_8957"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;DOMConfiguration&lt;/code&gt; interface represents the configuration
+of a document and maintains a table of recognized parameters. Using the
+configuration, it is possible to change
+&lt;code&gt;Document.normalizeDocument()&lt;/code&gt; behavior, such as replacing the
+&lt;code&gt;CDATASection&lt;/code&gt; nodes with &lt;code&gt;Text&lt;/code&gt; nodes or
+specifying the type of the schema that must be used when the validation
+of the &lt;code&gt;Document&lt;/code&gt; is requested. &lt;code&gt;DOMConfiguration&lt;/code&gt;
+objects are also used in [&lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-LS-20040407'&gt;DOM Level 3 Load and Save&lt;/a&gt;]
+in the &lt;code&gt;DOMParser&lt;/code&gt; and &lt;code&gt;DOMSerializer&lt;/code&gt; interfaces.
+&lt;p&gt; The parameter names used by the &lt;code&gt;DOMConfiguration&lt;/code&gt; object
+are defined throughout the DOM Level 3 specifications. Names are
+case-insensitive. To avoid possible conflicts, as a convention, names
+referring to parameters defined outside the DOM specification should be
+made unique. Because parameters are exposed as properties in the , names
+are recommended to follow the section 5.16 Identifiers of [Unicode] with the addition of the character '-' (HYPHEN-MINUS) but it is not
+enforced by the DOM implementation. DOM Level 3 Core Implementations are
+required to recognize all parameters defined in this specification. Some
+parameter values may also be required to be supported by the
+implementation. Refer to the definition of the parameter to know if a
+value must be supported or not.
+&lt;p &gt;&lt;b&gt;Note:&lt;/b&gt;  Parameters are similar to features and properties used in
+SAX2 [&lt;a href='http://www.saxproject.org/'&gt;SAX&lt;/a&gt;].
+&lt;p&gt; The following list of parameters defined in the DOM:
+&lt;dl&gt;
+&lt;dt&gt;
+&lt;code&gt;"canonical-form"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;optional&lt;/em&gt;] Canonicalize the document according to the rules specified in [&lt;a href='http://www.w3.org/TR/2001/REC-xml-c14n-20010315'&gt;Canonical XML&lt;/a&gt;],
+such as removing the &lt;code&gt;DocumentType&lt;/code&gt; node (if any) from the
+tree, or removing superfluous namespace declarations from each element.
+Note that this is limited to what can be represented in the DOM; in
+particular, there is no way to specify the order of the attributes in the
+DOM. In addition,  Setting this parameter to &lt;code&gt;true&lt;/code&gt; will also
+set the state of the parameters listed below. Later changes to the state
+of one of those parameters will revert "canonical-form" back to
+&lt;code&gt;false&lt;/code&gt;. Parameters set to &lt;code&gt;false&lt;/code&gt;: "entities", "
+normalize-characters", "cdata-sections". Parameters set to
+&lt;code&gt;true&lt;/code&gt;: "namespaces", "namespace-declarations", "well-formed",
+"element-content-whitespace". Other parameters are not changed unless
+explicitly specified in the description of the parameters.&lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;)Do not canonicalize the document.&lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;"cdata-sections"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;
+&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;)Keep &lt;code&gt;CDATASection&lt;/code&gt; nodes in the document.&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;]Transform &lt;code&gt;CDATASection&lt;/code&gt; nodes in the document into
+&lt;code&gt;Text&lt;/code&gt; nodes. The new &lt;code&gt;Text&lt;/code&gt; node is then combined
+with any adjacent &lt;code&gt;Text&lt;/code&gt; node.&lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;"check-character-normalization"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;optional&lt;/em&gt;] Check if the characters in the document are &lt;a href='http://www.w3.org/TR/2004/REC-xml11-20040204/#dt-fullnorm'&gt;fully
+normalized&lt;/a&gt;, as defined in appendix B of [&lt;a href='http://www.w3.org/TR/2004/REC-xml11-20040204/'&gt;XML 1.1&lt;/a&gt;]. When a
+sequence of characters is encountered that fails normalization checking,
+an error with the &lt;code&gt;DOMError.type&lt;/code&gt; equals to
+"check-character-normalization-failure" is issued. &lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;)Do not check if characters are normalized.&lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;"comments"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;
+&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;)Keep &lt;code&gt;Comment&lt;/code&gt; nodes in the document.&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;]Discard &lt;code&gt;Comment&lt;/code&gt; nodes in the document.&lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;"datatype-normalization"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;optional&lt;/em&gt;] Expose schema normalized values in the tree, such as &lt;a href='http://www.w3.org/TR/2001/REC-xmlschema-1-20010502/#key-nv'&gt;XML
+Schema normalized values&lt;/a&gt; in the case of XML Schema. Since this parameter requires to have schema
+information, the "validate" parameter will also be set to
+&lt;code&gt;true&lt;/code&gt;. Having this parameter activated when "validate" is
+&lt;code&gt;false&lt;/code&gt; has no effect and no schema-normalization will happen.
+&lt;p &gt;&lt;b&gt;Note:&lt;/b&gt;  Since the document contains the result of the XML 1.0
+processing, this parameter does not apply to attribute value
+normalization as defined in section 3.3.3 of [&lt;a href='http://www.w3.org/TR/2004/REC-xml-20040204'&gt;XML 1.0&lt;/a&gt;] and is only
+meant for schema languages other than Document Type Definition (DTD). &lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;) Do not perform schema normalization on the tree. &lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;"element-content-whitespace"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;)Keep all whitespaces in the document.&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;optional&lt;/em&gt;] Discard all &lt;code&gt;Text&lt;/code&gt; nodes that contain whitespaces in element
+content, as described in &lt;a href='http://www.w3.org/TR/2004/REC-xml-infoset-20040204#infoitem.character'&gt;
+[element content whitespace]&lt;/a&gt;. The implementation is expected to use the attribute
+&lt;code&gt;Text.isElementContentWhitespace&lt;/code&gt; to determine if a
+&lt;code&gt;Text&lt;/code&gt; node should be discarded or not.&lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;"entities"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;
+&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;)Keep &lt;code&gt;EntityReference&lt;/code&gt; nodes in the document.&lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] Remove all &lt;code&gt;EntityReference&lt;/code&gt; nodes from the document,
+putting the entity expansions directly in their place. &lt;code&gt;Text&lt;/code&gt;
+nodes are normalized, as defined in &lt;code&gt;Node.normalize&lt;/code&gt;. Only &lt;a href='http://www.w3.org/TR/2004/REC-xml-infoset-20040204/#infoitem.rse'&gt;
+unexpanded entity references&lt;/a&gt; are kept in the document. &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p &gt;&lt;b&gt;Note:&lt;/b&gt;  This parameter does not affect &lt;code&gt;Entity&lt;/code&gt; nodes. &lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;"error-handler"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] Contains a &lt;code&gt;DOMErrorHandler&lt;/code&gt; object. If an error is
+encountered in the document, the implementation will call back the
+&lt;code&gt;DOMErrorHandler&lt;/code&gt; registered using this parameter. The
+implementation may provide a default &lt;code&gt;DOMErrorHandler&lt;/code&gt; object.
+When called, &lt;code&gt;DOMError.relatedData&lt;/code&gt; will contain the closest
+node to where the error occurred. If the implementation is unable to
+determine the node where the error occurs,
+&lt;code&gt;DOMError.relatedData&lt;/code&gt; will contain the &lt;code&gt;Document&lt;/code&gt;
+node. Mutations to the document from within an error handler will result
+in implementation dependent behavior. &lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;"infoset"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;
+&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;]Keep in the document the information defined in the XML Information Set [&lt;a href='http://www.w3.org/TR/2004/REC-xml-infoset-20040204/'&gt;XML Information Set&lt;/a&gt;]
+.This forces the following parameters to &lt;code&gt;false&lt;/code&gt;: "
+validate-if-schema", "entities", "datatype-normalization", "cdata-sections
+".This forces the following parameters to &lt;code&gt;true&lt;/code&gt;: "
+namespace-declarations", "well-formed", "element-content-whitespace", "
+comments", "namespaces".Other parameters are not changed unless
+explicitly specified in the description of the parameters. Note that
+querying this parameter with &lt;code&gt;getParameter&lt;/code&gt; returns
+&lt;code&gt;true&lt;/code&gt; only if the individual parameters specified above are
+appropriately set.&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;Setting &lt;code&gt;infoset&lt;/code&gt; to
+&lt;code&gt;false&lt;/code&gt; has no effect.&lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;"namespaces"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;
+&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;) Perform the namespace processing as defined in . &lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;optional&lt;/em&gt;] Do not perform the namespace processing. &lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;"namespace-declarations"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt; This parameter has no effect if the
+parameter "namespaces" is set to &lt;code&gt;false&lt;/code&gt;.
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;) Include namespace declaration attributes, specified or defaulted from
+the schema, in the document. See also the sections "Declaring Namespaces"
+in [&lt;a href='http://www.w3.org/TR/1999/REC-xml-names-19990114/'&gt;XML Namespaces&lt;/a&gt;]
+and [&lt;a href='http://www.w3.org/TR/2004/REC-xml-names11-20040204/'&gt;XML Namespaces 1.1&lt;/a&gt;]
+.&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;]Discard all namespace declaration attributes. The namespace prefixes (
+&lt;code&gt;Node.prefix&lt;/code&gt;) are retained even if this parameter is set to
+&lt;code&gt;false&lt;/code&gt;.&lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;"normalize-characters"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;optional&lt;/em&gt;] &lt;a href='http://www.w3.org/TR/2004/REC-xml11-20040204/#dt-fullnorm'&gt;Fully
+normalized&lt;/a&gt; the characters in the document as defined in appendix B of [&lt;a href='http://www.w3.org/TR/2004/REC-xml11-20040204/'&gt;XML 1.1&lt;/a&gt;]. &lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;)Do not perform character normalization.&lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;"schema-location"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;optional&lt;/em&gt;] Represent a &lt;code&gt;DOMString&lt;/code&gt; object containing a list of URIs,
+separated by whitespaces (characters matching the &lt;a href='http://www.w3.org/TR/2004/REC-xml-20040204#NT-S'&gt;nonterminal
+production S&lt;/a&gt; defined in section 2.3 [&lt;a href='http://www.w3.org/TR/2004/REC-xml-20040204'&gt;XML 1.0&lt;/a&gt;]), that
+represents the schemas against which validation should occur, i.e. the
+current schema. The types of schemas referenced in this list must match
+the type specified with &lt;code&gt;schema-type&lt;/code&gt;, otherwise the behavior
+of an implementation is undefined.  The schemas specified using this
+property take precedence to the schema information specified in the
+document itself. For namespace aware schema, if a schema specified using
+this property and a schema specified in the document instance (i.e. using
+the &lt;code&gt;schemaLocation&lt;/code&gt; attribute) in a schema document (i.e.
+using schema &lt;code&gt;import&lt;/code&gt; mechanisms) share the same
+&lt;code&gt;targetNamespace&lt;/code&gt;, the schema specified by the user using this
+property will be used. If two schemas specified using this property share
+the same &lt;code&gt;targetNamespace&lt;/code&gt; or have no namespace, the behavior
+is implementation dependent.  If no location has been provided, this
+parameter is &lt;code&gt;null&lt;/code&gt;.
+&lt;p &gt;&lt;b&gt;Note:&lt;/b&gt;  The &lt;code&gt;"schema-location"&lt;/code&gt; parameter is ignored
+unless the "schema-type" parameter value is set. It is strongly
+recommended that &lt;code&gt;Document.documentURI&lt;/code&gt; will be set so that an
+implementation can successfully resolve any external entities referenced. &lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;"schema-type"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;optional&lt;/em&gt;] Represent a &lt;code&gt;DOMString&lt;/code&gt; object containing an absolute URI
+and representing the type of the schema language used to validate a
+document against. Note that no lexical checking is done on the absolute
+URI.  If this parameter is not set, a default value may be provided by
+the implementation, based on the schema languages supported and on the
+schema language used at load time. If no value is provided, this
+parameter is &lt;code&gt;null&lt;/code&gt;.
+&lt;p &gt;&lt;b&gt;Note:&lt;/b&gt;  For XML Schema [&lt;a href='http://www.w3.org/TR/2001/REC-xmlschema-1-20010502/'&gt;XML Schema Part 1&lt;/a&gt;]
+, applications must use the value
+&lt;code&gt;"http://www.w3.org/2001/XMLSchema"&lt;/code&gt;. For XML DTD [&lt;a href='http://www.w3.org/TR/2004/REC-xml-20040204'&gt;XML 1.0&lt;/a&gt;],
+applications must use the value
+&lt;code&gt;"http://www.w3.org/TR/REC-xml"&lt;/code&gt;. Other schema languages are
+outside the scope of the W3C and therefore should recommend an absolute
+URI in order to use this method. &lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;"split-cdata-sections"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;
+&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;)Split CDATA sections containing the CDATA section termination marker
+']]&gt;'. When a CDATA section is split a warning is issued with a
+&lt;code&gt;DOMError.type&lt;/code&gt; equals to
+&lt;code&gt;"cdata-sections-splitted"&lt;/code&gt; and
+&lt;code&gt;DOMError.relatedData&lt;/code&gt; equals to the first
+&lt;code&gt;CDATASection&lt;/code&gt; node in document order resulting from the split.&lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;]Signal an error if a &lt;code&gt;CDATASection&lt;/code&gt; contains an
+unrepresentable character.&lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;"validate"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;optional&lt;/em&gt;] Require the validation against a schema (i.e. XML schema, DTD, any
+other type or representation of schema) of the document as it is being
+normalized as defined by [&lt;a href='http://www.w3.org/TR/2004/REC-xml-20040204'&gt;XML 1.0&lt;/a&gt;]. If
+validation errors are found, or no schema was found, the error handler is
+notified. Schema-normalized values will not be exposed according to the
+schema in used unless the parameter "datatype-normalization" is
+&lt;code&gt;true&lt;/code&gt;.  This parameter will reevaluate:
+&lt;ul&gt;
+&lt;li&gt; Attribute nodes with
+&lt;code&gt;Attr.specified&lt;/code&gt; equals to &lt;code&gt;false&lt;/code&gt;, as specified in
+the description of the &lt;code&gt;Attr&lt;/code&gt; interface;
+&lt;/li&gt;
+&lt;li&gt; The value of the
+attribute &lt;code&gt;Text.isElementContentWhitespace&lt;/code&gt; for all
+&lt;code&gt;Text&lt;/code&gt; nodes;
+&lt;/li&gt;
+&lt;li&gt; The value of the attribute
+&lt;code&gt;Attr.isId&lt;/code&gt; for all &lt;code&gt;Attr&lt;/code&gt; nodes;
+&lt;/li&gt;
+&lt;li&gt; The attributes
+&lt;code&gt;Element.schemaTypeInfo&lt;/code&gt; and &lt;code&gt;Attr.schemaTypeInfo&lt;/code&gt;.
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p &gt;&lt;b&gt;Note:&lt;/b&gt;  "validate-if-schema" and "validate" are mutually
+exclusive, setting one of them to &lt;code&gt;true&lt;/code&gt; will set the other
+one to &lt;code&gt;false&lt;/code&gt;. Applications should also consider setting the
+parameter "well-formed" to &lt;code&gt;true&lt;/code&gt;, which is the default for
+that option, when validating the document. &lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;) Do not accomplish schema processing, including the internal subset
+processing. Default attribute values information are kept. Note that
+validation might still happen if "validate-if-schema" is &lt;code&gt;true&lt;/code&gt;
+. &lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;"validate-if-schema"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;optional&lt;/em&gt;]Enable validation only if a declaration for the document element can be
+found in a schema (independently of where it is found, i.e. XML schema,
+DTD, or any other type or representation of schema). If validation is
+enabled, this parameter has the same behavior as the parameter "validate"
+set to &lt;code&gt;true&lt;/code&gt;.
+&lt;p &gt;&lt;b&gt;Note:&lt;/b&gt;  "validate-if-schema" and "validate" are mutually
+exclusive, setting one of them to &lt;code&gt;true&lt;/code&gt; will set the other
+one to &lt;code&gt;false&lt;/code&gt;. &lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;) No schema processing should be performed if the document has a schema,
+including internal subset processing. Default attribute values
+information are kept. Note that validation must still happen if "validate
+" is &lt;code&gt;true&lt;/code&gt;. &lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;"well-formed"&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;true&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;required&lt;/em&gt;] (&lt;em&gt;default&lt;/em&gt;) Check if all nodes are XML well formed according to the XML version in
+use in &lt;code&gt;Document.xmlVersion&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt; check if the attribute
+&lt;code&gt;Node.nodeName&lt;/code&gt; contains invalid characters according to its
+node type and generate a &lt;code&gt;DOMError&lt;/code&gt; of type
+&lt;code&gt;"wf-invalid-character-in-node-name"&lt;/code&gt;, with a
+&lt;code&gt;DOMError.SEVERITY_ERROR&lt;/code&gt; severity, if necessary;
+&lt;/li&gt;
+&lt;li&gt; check if
+the text content inside &lt;code&gt;Attr&lt;/code&gt;, &lt;code&gt;Element&lt;/code&gt;,
+&lt;code&gt;Comment&lt;/code&gt;, &lt;code&gt;Text&lt;/code&gt;, &lt;code&gt;CDATASection&lt;/code&gt; nodes
+for invalid characters and generate a &lt;code&gt;DOMError&lt;/code&gt; of type
+&lt;code&gt;"wf-invalid-character"&lt;/code&gt;, with a
+&lt;code&gt;DOMError.SEVERITY_ERROR&lt;/code&gt; severity, if necessary;
+&lt;/li&gt;
+&lt;li&gt; check if
+the data inside &lt;code&gt;ProcessingInstruction&lt;/code&gt; nodes for invalid
+characters and generate a &lt;code&gt;DOMError&lt;/code&gt; of type
+&lt;code&gt;"wf-invalid-character"&lt;/code&gt;, with a
+&lt;code&gt;DOMError.SEVERITY_ERROR&lt;/code&gt; severity, if necessary;
+&lt;/li&gt;
+&lt;/ul&gt;&lt;/dd&gt;
+&lt;dt&gt;
+&lt;code&gt;false&lt;/code&gt;&lt;/dt&gt;
+&lt;dd&gt;[&lt;em&gt;optional&lt;/em&gt;] Do not check for XML well-formedness. &lt;/dd&gt;
+&lt;/dl&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt; The resolution of the system identifiers associated with entities is
+done using &lt;code&gt;Document.documentURI&lt;/code&gt;. However, when the feature
+"LS" defined in [&lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-LS-20040407'&gt;DOM Level 3 Load and Save&lt;/a&gt;]
+is supported by the DOM implementation, the parameter
+"resource-resolver" can also be used on &lt;code&gt;DOMConfiguration&lt;/code&gt;
+objects attached to &lt;code&gt;Document&lt;/code&gt; nodes. If this parameter is
+set, &lt;code&gt;Document.normalizeDocument()&lt;/code&gt; will invoke the resource
+resolver instead of using &lt;code&gt;Document.documentURI&lt;/code&gt;.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'&gt;Document Object Model (DOM) Level 3 Core Specification&lt;/a&gt;.
+@since DOM Level 3
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">DOMConfiguration</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dom" refid="_9_5_f720368_1110473548831_889953_27433"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314618_40289_8959"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314618_40289_8959"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="dom" refid="_9_5_f720368_1110473548831_889953_27433"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dom" refid="_9_5_f720368_1110473548831_889953_27433"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="dom" refid="_9_5_f720368_1110473548831_889953_27433"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::w3c::dom::DOMConfiguration</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

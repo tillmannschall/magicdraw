@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_19230_8607"><documentation humanName="Documentation" mode="standard">An Annotation object is used as a wrapper for a text attribute value if
+the attribute has annotation characteristics. These characteristics are:
+&lt;ul&gt;
+&lt;li&gt;The text range that the attribute is applied to is critical to the
+semantics of the range. That means, the attribute cannot be applied to subranges
+of the text range that it applies to, and, if two adjacent text ranges have
+the same value for this attribute, the attribute still cannot be applied to
+the combined range as a whole with this value.
+&lt;li&gt;The attribute or its value usually do no longer apply if the underlying text is
+changed.
+&lt;/ul&gt;
+
+An example is grammatical information attached to a sentence:
+For the previous sentence, you can say that "an example"
+is the subject, but you cannot say the same about "an", "example", or "exam".
+When the text is changed, the grammatical information typically becomes invalid.
+Another example is Japanese reading information (yomi).
+
+&lt;p&gt;
+Wrapping the attribute value into an Annotation object guarantees that
+adjacent text runs don't get merged even if the attribute values are equal,
+and indicates to text containers that the attribute should be discarded if
+the underlying text is modified.
+
+@see AttributedCharacterIterator
+@since 1.2
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Annotation</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309541_717926_6208"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309541_717926_6208"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::text::Annotation</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

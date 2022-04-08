@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307298_318971_4619"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LineNumberInputStream" refid="_9_5_f720368_1110473546596_823672_7427"/></annotatedElement><body humanName="Body" mode="s,e">This class is an input stream filter that provides the added
+functionality of keeping track of the current line number.
+&lt;p&gt;
+A line is a sequence of bytes ending with a carriage return
+character (&lt;code&gt;'&amp;#92;r'&lt;/code&gt;), a newline character
+(&lt;code&gt;'&amp;#92;n'&lt;/code&gt;), or a carriage return character followed
+immediately by a linefeed character. In all three cases, the line
+terminating character(s) are returned as a single newline character.
+&lt;p&gt;
+The line number begins at &lt;code&gt;0&lt;/code&gt;, and is incremented by
+&lt;code&gt;1&lt;/code&gt; when a &lt;code&gt;read&lt;/code&gt; returns a newline character.
+
+@author     Arthur van Hoff
+@version    1.27, 05/18/04
+@see        java.io.LineNumberReader
+@since      JDK1.0
+@deprecated This class incorrectly assumes that bytes adequately represent
+characters.  As of JDK&amp;nbsp;1.1, the preferred way to operate on
+character streams is via the new character-stream classes, which
+include a class for counting line numbers.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="LineNumberInputStream" refid="_9_5_f720368_1110473546596_823672_7427"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LineNumberInputStream" refid="_9_5_f720368_1110473546596_823672_7427"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

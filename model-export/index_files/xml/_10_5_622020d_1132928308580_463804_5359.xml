@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308580_463804_5359"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="URLConnection" refid="_9_5_f720368_1110473546643_672268_7847"/></annotatedElement><body humanName="Body" mode="s,e">The abstract class &lt;code&gt;URLConnection&lt;/code&gt; is the superclass
+of all classes that represent a communications link between the
+application and a URL. Instances of this class can be used both to
+read from and to write to the resource referenced by the URL. In
+general, creating a connection to a URL is a multistep process:
+&lt;p&gt;
+&lt;center&gt;&lt;table border=2 summary="Describes the process of creating a connection to a URL: openConnection() and connect() over time."&gt;
+&lt;tr&gt;&lt;th&gt;&lt;code&gt;openConnection()&lt;/code&gt;&lt;/th&gt;
+&lt;th&gt;&lt;code&gt;connect()&lt;/code&gt;&lt;/th&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;Manipulate parameters that affect the connection to the remote
+resource.&lt;/td&gt;
+&lt;td&gt;Interact with the resource; query header fields and
+contents.&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+----------------------------&gt;
+&lt;br&gt;time&lt;/center&gt;
+
+&lt;ol&gt;
+&lt;li&gt;The connection object is created by invoking the
+&lt;code&gt;openConnection&lt;/code&gt; method on a URL.
+&lt;li&gt;The setup parameters and general request properties are manipulated.
+&lt;li&gt;The actual connection to the remote object is made, using the
+&lt;code&gt;connect&lt;/code&gt; method.
+&lt;li&gt;The remote object becomes available. The header fields and the contents
+of the remote object can be accessed.
+&lt;/ol&gt;
+&lt;p&gt;
+The setup parameters are modified using the following methods:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;setAllowUserInteraction&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;setDoInput&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;setDoOutput&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;setIfModifiedSince&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;setUseCaches&lt;/code&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+and the general request properties are modified using the method:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;setRequestProperty&lt;/code&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+Default values for the &lt;code&gt;AllowUserInteraction&lt;/code&gt; and
+&lt;code&gt;UseCaches&lt;/code&gt; parameters can be set using the methods
+&lt;code&gt;setDefaultAllowUserInteraction&lt;/code&gt; and
+&lt;code&gt;setDefaultUseCaches&lt;/code&gt;.
+&lt;p&gt;
+Each of the above &lt;code&gt;set&lt;/code&gt; methods has a corresponding
+&lt;code&gt;get&lt;/code&gt; method to retrieve the value of the parameter or
+general request property. The specific parameters and general
+request properties that are applicable are protocol specific.
+&lt;p&gt;
+The following methods are used to access the header fields and
+the contents after the connection is made to the remote object:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getContent&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;getHeaderField&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;getInputStream&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;getOutputStream&lt;/code&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+Certain header fields are accessed frequently. The methods:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getContentEncoding&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;getContentLength&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;getContentType&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;getDate&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;getExpiration&lt;/code&gt;
+&lt;li&gt;&lt;code&gt;getLastModifed&lt;/code&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+provide convenient access to these fields. The
+&lt;code&gt;getContentType&lt;/code&gt; method is used by the
+&lt;code&gt;getContent&lt;/code&gt; method to determine the type of the remote
+object; subclasses may find it convenient to override the
+&lt;code&gt;getContentType&lt;/code&gt; method.
+&lt;p&gt;
+In the common case, all of the pre-connection parameters and
+general request properties can be ignored: the pre-connection
+parameters and request properties default to sensible values. For
+most clients of this interface, there are only two interesting
+methods: &lt;code&gt;getInputStream&lt;/code&gt; and &lt;code&gt;getContent&lt;/code&gt;,
+which are mirrored in the &lt;code&gt;URL&lt;/code&gt; class by convenience methods.
+&lt;p&gt;
+More information on the request properties and header fields of
+an &lt;code&gt;http&lt;/code&gt; connection can be found at:
+&lt;blockquote&gt;&lt;pre&gt;
+&lt;a href="http://www.ietf.org/rfc/rfc2068.txt"&gt;http://www.ietf.org/rfc/rfc2068.txt&lt;/a&gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+Note about &lt;code&gt;fileNameMap&lt;/code&gt;: In versions prior to JDK 1.1.6,
+field &lt;code&gt;fileNameMap&lt;/code&gt; of &lt;code&gt;URLConnection&lt;/code&gt; was public.
+In JDK 1.1.6 and later, &lt;code&gt;fileNameMap&lt;/code&gt; is private; accessor
+and mutator methods {@link #getFileNameMap() getFileNameMap} and
+{@link #setFileNameMap(java.net.FileNameMap) setFileNameMap} are added
+to access it.  This change is also described on the &lt;a href=
+"http://java.sun.com/products/jdk/1.2/compatibility.html#incompatibilities1.2"&gt;
+Compatibility&lt;/a&gt; page.
+
+Invoking the &lt;tt&gt;close()&lt;/tt&gt; methods on the &lt;tt&gt;InputStream&lt;/tt&gt; or &lt;tt&gt;OutputStream&lt;/tt&gt; of an
+&lt;tt&gt;URLConnection&lt;/tt&gt; after a request may free network resources associated with this
+instance, unless particular protocol specifications specify different behaviours
+for it.
+
+@author  James Gosling
+@version 1.102, 05/18/04
+@see     java.net.URL#openConnection()
+@see     java.net.URLConnection#connect()
+@see     java.net.URLConnection#getContent()
+@see     java.net.URLConnection#getContentEncoding()
+@see     java.net.URLConnection#getContentLength()
+@see     java.net.URLConnection#getContentType()
+@see     java.net.URLConnection#getDate()
+@see     java.net.URLConnection#getExpiration()
+@see     java.net.URLConnection#getHeaderField(int)
+@see     java.net.URLConnection#getHeaderField(java.lang.String)
+@see     java.net.URLConnection#getInputStream()
+@see     java.net.URLConnection#getLastModified()
+@see     java.net.URLConnection#getOutputStream()
+@see     java.net.URLConnection#setAllowUserInteraction(boolean)
+@see     java.net.URLConnection#setDefaultUseCaches(boolean)
+@see     java.net.URLConnection#setDoInput(boolean)
+@see     java.net.URLConnection#setDoOutput(boolean)
+@see     java.net.URLConnection#setIfModifiedSince(long)
+@see     java.net.URLConnection#setRequestProperty(java.lang.String, java.lang.String)
+@see     java.net.URLConnection#setUseCaches(boolean)
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="URLConnection" refid="_9_5_f720368_1110473546643_672268_7847"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="URLConnection" refid="_9_5_f720368_1110473546643_672268_7847"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

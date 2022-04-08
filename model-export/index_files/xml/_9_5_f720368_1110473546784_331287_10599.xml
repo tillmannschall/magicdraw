@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546784_331287_10599"><documentation humanName="Documentation" mode="standard">&lt;P&gt;StateEdit is a general edit for objects that change state.
+Objects being edited must conform to the StateEditable interface.&lt;/P&gt;
+
+&lt;P&gt;This edit class works by asking an object to store it's state in
+Hashtables before and after editing occurs.  Upon undo or redo the
+object is told to restore it's state from these Hashtables.&lt;/P&gt;
+
+A state edit is used as follows:
+&lt;PRE&gt;
+Create the edit during the "before" state of the object
+StateEdit newEdit = new StateEdit(myObject);
+Modify the object
+myObject.someStateModifyingMethod();
+"end" the edit when you are done modifying the object
+newEdit.end();
+&lt;/PRE&gt;
+
+&lt;P&gt;&lt;EM&gt;Note that when a StateEdit ends, it removes redundant state from
+the Hashtables - A state Hashtable is not guaranteed to contain all
+keys/values placed into it when the state is stored!&lt;/EM&gt;&lt;/P&gt;
+
+@see StateEditable
+
+@version 1.14 05/05/04
+@author Ray Ryan
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323902_436078_18183"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">StateEdit</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="undo" refid="_9_5_f720368_1110473548409_937650_24008"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317803_397658_12266"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323902_436078_18183"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928317803_397658_12266"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="undo" refid="_9_5_f720368_1110473548409_937650_24008"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="undo" refid="_9_5_f720368_1110473548409_937650_24008"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="undo" refid="_9_5_f720368_1110473548409_937650_24008"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::swing::undo::StateEdit</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AbstractUndoableEdit" refid="_9_5_f720368_1110473546784_200616_10591"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

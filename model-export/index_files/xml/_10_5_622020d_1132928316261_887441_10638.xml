@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316261_887441_10638"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Type" refid="_9_5_f720368_1110473548096_496652_20889"/></annotatedElement><body humanName="Body" mode="s,e">The LineEvent.Type inner class identifies what kind of event occurred on a line.
+Static instances are provided for the common types (OPEN, CLOSE, START, and STOP).
+
+@see LineEvent#getType()
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Type" refid="_9_5_f720368_1110473548096_496652_20889"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Type" refid="_9_5_f720368_1110473548096_496652_20889"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

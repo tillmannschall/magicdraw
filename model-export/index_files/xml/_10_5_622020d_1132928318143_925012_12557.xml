@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318143_925012_12557"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JToolTip" refid="_9_5_f720368_1110473546799_954327_10789"/></annotatedElement><body humanName="Body" mode="s,e">Used to display a "Tip" for a Component. Typically components provide api
+to automate the process of using &lt;code&gt;ToolTip&lt;/code&gt;s.
+For example, any Swing component can use the &lt;code&gt;JComponent&lt;/code&gt;
+&lt;code&gt;setToolTipText&lt;/code&gt; method to specify the text
+for a standard tooltip. A component that wants to create a custom
+&lt;code&gt;ToolTip&lt;/code&gt;
+display can override &lt;code&gt;JComponent&lt;/code&gt;'s &lt;code&gt;createToolTip&lt;/code&gt;
+method and use a subclass of this class.
+&lt;p&gt;
+See &lt;a href="http://java.sun.com/docs/books/tutorial/uiswing/components/tooltip.html"&gt;How to Use Tool Tips&lt;/a&gt;
+in &lt;em&gt;The Java Tutorial&lt;/em&gt;
+for further documentation.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see JComponent#setToolTipText
+@see JComponent#createToolTip
+@version 1.47 12/19/03
+@author Dave Moore
+@author Rich Shiavi
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JToolTip" refid="_9_5_f720368_1110473546799_954327_10789"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JToolTip" refid="_9_5_f720368_1110473546799_954327_10789"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

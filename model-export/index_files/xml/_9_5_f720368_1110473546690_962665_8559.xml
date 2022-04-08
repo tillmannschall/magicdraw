@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546690_962665_8559"><documentation humanName="Documentation" mode="standard">Comprehensive information about the database as a whole.
+&lt;P&gt;
+This interface is implemented by driver vendors to let users know the capabilities
+of a Database Management System (DBMS) in combination with
+the driver based on JDBC&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt; technology
+("JDBC driver") that is used with it.  Different relational DBMSs often support
+different features, implement features in different ways, and use different
+data types.  In addition, a driver may implement a feature on top of what the
+DBMS offers.  Information returned by methods in this interface applies
+to the capabilities of a particular driver and a particular DBMS working
+together. Note that as used in this documentation, the term "database" is
+used generically to refer to both the driver and DBMS.
+&lt;P&gt;
+A user for this interface is commonly a tool that needs to discover how to
+deal with the underlying DBMS.  This is especially true for applications
+that are intended to be used with more than one DBMS. For example, a tool might use the method
+&lt;code&gt;getTypeInfo&lt;/code&gt; to find out what data types can be used in a
+&lt;code&gt;CREATE TABLE&lt;/code&gt; statement.  Or a user might call the method
+&lt;code&gt;supportsCorrelatedSubqueries&lt;/code&gt; to see if it is possible to use
+a correlated subquery or &lt;code&gt;supportsBatchUpdates&lt;/code&gt; to see if it is
+possible to use batch updates.
+&lt;P&gt;
+Some &lt;code&gt;DatabaseMetaData&lt;/code&gt; methods return lists of information
+in the form of &lt;code&gt;ResultSet&lt;/code&gt; objects.
+Regular &lt;code&gt;ResultSet&lt;/code&gt; methods, such as
+&lt;code&gt;getString&lt;/code&gt; and &lt;code&gt;getInt&lt;/code&gt;, can be used
+to retrieve the data from these &lt;code&gt;ResultSet&lt;/code&gt; objects.  If
+a given form of metadata is not available, the &lt;code&gt;ResultSet&lt;/code&gt;
+getter methods throw an &lt;code&gt;SQLException&lt;/code&gt;.
+&lt;P&gt;
+Some &lt;code&gt;DatabaseMetaData&lt;/code&gt; methods take arguments that are
+String patterns.  These arguments all have names such as fooPattern.
+Within a pattern String, "%" means match any substring of 0 or more
+characters, and "_" means match any one character. Only metadata
+entries matching the search pattern are returned. If a search pattern
+argument is set to &lt;code&gt;null&lt;/code&gt;, that argument's criterion will
+be dropped from the search.
+&lt;P&gt;
+A method that gets information about a feature that the driver does not
+support will throw an &lt;code&gt;SQLException&lt;/code&gt;.
+In the case of methods that return a &lt;code&gt;ResultSet&lt;/code&gt;
+object, either a &lt;code&gt;ResultSet&lt;/code&gt; object (which may be empty) is
+returned or an &lt;code&gt;SQLException&lt;/code&gt; is thrown.
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">DatabaseMetaData</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309481_243274_6161"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309481_243274_6161"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::sql::DatabaseMetaData</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

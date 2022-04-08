@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306216_727833_4092"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ActiveEvent" refid="_9_5_f720368_1110473546581_362482_6921"/></annotatedElement><body humanName="Body" mode="s,e">An interface for events that know how to dispatch themselves.
+By implementing this interface an event can be placed upon the event
+queue and its &lt;code&gt;dispatch()&lt;/code&gt; method will be called when the event
+is dispatched, using the &lt;code&gt;EventDispatchThread&lt;/code&gt;.
+&lt;p&gt;
+This is a very useful mechanism for avoiding deadlocks. If
+a thread is executing in a critical section (i.e., it has entered
+one or more monitors), calling other synchronized code may
+cause deadlocks. To avoid the potential deadlocks, an
+&lt;code&gt;ActiveEvent&lt;/code&gt; can be created to run the second section of
+code at later time. If there is contention on the monitor,
+the second thread will simply block until the first thread
+has finished its work and exited its monitors.
+&lt;p&gt;
+For security reasons, it is often desirable to use an &lt;code&gt;ActiveEvent&lt;/code&gt;
+to avoid calling untrusted code from a critical thread. For
+instance, peer implementations can use this facility to avoid
+making calls into user code from a system thread. Doing so avoids
+potential deadlocks and denial-of-service attacks.
+
+@author  Timothy Prinzing
+@version 1.13 12/19/03
+@since   1.2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ActiveEvent" refid="_9_5_f720368_1110473546581_362482_6921"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ActiveEvent" refid="_9_5_f720368_1110473546581_362482_6921"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314769_261938_9151"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="IIOReadProgressListener" refid="_9_5_f720368_1110473546706_375873_8997"/></annotatedElement><body humanName="Body" mode="s,e">An interface used by &lt;code&gt;ImageReader&lt;/code&gt; implementations to
+notify callers of their image and thumbnail reading methods of
+progress.
+
+&lt;p&gt; This interface receives general indications of decoding
+progress (via the &lt;code&gt;imageProgress&lt;/code&gt; and
+&lt;code&gt;thumbnailProgress&lt;/code&gt; methods), and events indicating when
+an entire image has been updated (via the
+&lt;code&gt;imageStarted&lt;/code&gt;, &lt;code&gt;imageComplete&lt;/code&gt;,
+&lt;code&gt;thumbnailStarted&lt;/code&gt; and &lt;code&gt;thumbnailComplete&lt;/code&gt;
+methods).  Applications that wish to be informed of pixel updates
+as they happen (for example, during progressive decoding), should
+provide an &lt;code&gt;IIOReadUpdateListener&lt;/code&gt;.
+
+@see IIOReadUpdateListener
+@see javax.imageio.ImageReader#addIIOReadProgressListener
+@see javax.imageio.ImageReader#removeIIOReadProgressListener
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="IIOReadProgressListener" refid="_9_5_f720368_1110473546706_375873_8997"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="IIOReadProgressListener" refid="_9_5_f720368_1110473546706_375873_8997"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

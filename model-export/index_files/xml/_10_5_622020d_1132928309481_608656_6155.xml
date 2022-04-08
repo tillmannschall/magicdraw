@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309481_608656_6155"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CallableStatement" refid="_9_5_f720368_1110473546690_726631_8553"/></annotatedElement><body humanName="Body" mode="s,e">The interface used to execute SQL stored procedures.  The JDBC API
+provides a stored procedure SQL escape syntax that allows stored procedures
+to be called in a standard way for all RDBMSs. This escape syntax has one
+form that includes a result parameter and one that does not. If used, the result
+parameter must be registered as an OUT parameter. The other parameters
+can be used for input, output or both. Parameters are referred to
+sequentially, by number, with the first parameter being 1.
+&lt;PRE&gt;
+{?= call &lt;procedure-name&gt;[&lt;arg1&gt;,&lt;arg2&gt;, ...]}
+{call &lt;procedure-name&gt;[&lt;arg1&gt;,&lt;arg2&gt;, ...]}
+&lt;/PRE&gt;
+&lt;P&gt;
+IN parameter values are set using the &lt;code&gt;set&lt;/code&gt; methods inherited from
+{@link PreparedStatement}.  The type of all OUT parameters must be
+registered prior to executing the stored procedure; their values
+are retrieved after execution via the &lt;code&gt;get&lt;/code&gt; methods provided here.
+&lt;P&gt;
+A &lt;code&gt;CallableStatement&lt;/code&gt; can return one {@link ResultSet} object or
+multiple &lt;code&gt;ResultSet&lt;/code&gt; objects.  Multiple
+&lt;code&gt;ResultSet&lt;/code&gt; objects are handled using operations
+inherited from {@link Statement}.
+&lt;P&gt;
+For maximum portability, a call's &lt;code&gt;ResultSet&lt;/code&gt; objects and
+update counts should be processed prior to getting the values of output
+parameters.
+&lt;P&gt;
+
+@see Connection#prepareCall
+@see ResultSet
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="CallableStatement" refid="_9_5_f720368_1110473546690_726631_8553"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CallableStatement" refid="_9_5_f720368_1110473546690_726631_8553"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

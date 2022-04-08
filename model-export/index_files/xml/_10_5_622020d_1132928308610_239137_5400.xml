@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308610_239137_5400"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DatagramChannel" refid="_9_5_f720368_1110473546643_672938_7889"/></annotatedElement><body humanName="Body" mode="s,e">A selectable channel for datagram-oriented sockets.
+
+
+&lt;p&gt; Datagram channels are not a complete abstraction of network datagram
+sockets.  Binding and the manipulation of socket options must be done
+through an associated {@link java.net.DatagramSocket} object obtained by
+invoking the {@link #socket() socket} method.  It is not possible to create
+a channel for an arbitrary, pre-existing datagram socket, nor is it possible
+to specify the {@link java.net.DatagramSocketImpl} object to be used by a
+datagram socket associated with a datagram channel.
+
+&lt;p&gt; A datagram channel is created by invoking the {@link #open open} method
+of this class.  A newly-created datagram channel is open but not connected.
+A datagram channel need not be connected in order for the {@link #send send}
+and {@link #receive receive} methods to be used.  A datagram channel may be
+connected, by invoking its {@link #connect connect} method, in order to
+avoid the overhead of the security checks are otherwise performed as part of
+every send and receive operation.  A datagram channel must be connected in
+order to use the {@link #read(java.nio.ByteBuffer) read} and {@link
+#write(java.nio.ByteBuffer) write} methods, since those methods do not
+accept or return socket addresses.
+
+&lt;p&gt; Once connected, a datagram channel remains connected until it is
+disconnected or closed.  Whether or not a datagram channel is connected may
+be determined by invoking its {@link #isConnected isConnected} method.
+
+&lt;p&gt; Datagram channels are safe for use by multiple concurrent threads.  They
+support concurrent reading and writing, though at most one thread may be
+reading and at most one thread may be writing at any given time.  &lt;/p&gt;
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.32, 03/12/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="DatagramChannel" refid="_9_5_f720368_1110473546643_672938_7889"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="DatagramChannel" refid="_9_5_f720368_1110473546643_672938_7889"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

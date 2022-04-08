@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310372_35248_6767"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LogRecord" refid="_9_5_f720368_1110473546690_940692_8737"/></annotatedElement><body humanName="Body" mode="s,e">LogRecord objects are used to pass logging requests between
+the logging framework and individual log Handlers.
+&lt;p&gt;
+When a LogRecord is passed into the logging framework it
+logically belongs to the framework and should no longer be
+used or updated by the client application.
+&lt;p&gt;
+Note that if the client application has not specified an
+explicit source method name and source class name, then the
+LogRecord class will infer them automatically when they are
+first accessed (due to a call on getSourceMethodName or
+getSourceClassName) by analyzing the call stack.  Therefore,
+if a logging Handler wants to pass off a LogRecord to another
+thread, or to transmit it over RMI, and if it wishes to subsequently
+obtain method name or class name information it should call
+one of getSourceClassName or getSourceMethodName to force
+the values to be filled in.
+&lt;p&gt;
+&lt;b&gt; Serialization notes:&lt;/b&gt;
+&lt;ul&gt;
+&lt;li&gt;The LogRecord class is serializable.
+
+&lt;li&gt; Because objects in the parameters array may not be serializable,
+during serialization all objects in the parameters array are
+written as the corresponding Strings (using Object.toString).
+
+&lt;li&gt; The ResourceBundle is not transmitted as part of the serialized
+form, but the resource bundle name is, and the recipient object's
+readObject method will attempt to locate a suitable resource bundle.
+
+&lt;/ul&gt;
+
+@version 1.23, 01/12/04
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="LogRecord" refid="_9_5_f720368_1110473546690_940692_8737"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="LogRecord" refid="_9_5_f720368_1110473546690_940692_8737"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

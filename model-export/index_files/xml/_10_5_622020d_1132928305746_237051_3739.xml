@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305746_237051_3739"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="KeyListener" refid="_9_5_f720368_1110473546565_361131_6587"/></annotatedElement><body humanName="Body" mode="s,e">The listener interface for receiving keyboard events (keystrokes).
+The class that is interested in processing a keyboard event
+either implements this interface (and all the methods it
+contains) or extends the abstract &lt;code&gt;KeyAdapter&lt;/code&gt; class
+(overriding only the methods of interest).
+&lt;P&gt;
+The listener object created from that class is then registered with a
+component using the component's &lt;code&gt;addKeyListener&lt;/code&gt;
+method. A keyboard event is generated when a key is pressed, released,
+or typed. The relevant method in the listener
+object is then invoked, and the &lt;code&gt;KeyEvent&lt;/code&gt; is passed to it.
+
+@author Carl Quinn
+@version 1.18 12/19/03
+
+@see KeyAdapter
+@see KeyEvent
+@see &lt;a href="http://java.sun.com/docs/books/tutorial/post1.0/ui/keylistener.html"&gt;Tutorial: Writing a Key Listener&lt;/a&gt;
+@see &lt;a href="http://www.awl.com/cp/javaseries/jcl1_2.html"&gt;Reference: The Java Class Libraries (update file)&lt;/a&gt;
+
+@since 1.1
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="KeyListener" refid="_9_5_f720368_1110473546565_361131_6587"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="KeyListener" refid="_9_5_f720368_1110473546565_361131_6587"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

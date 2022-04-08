@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316842_205905_10748"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RowSetWarning" refid="_10_5_622020d_1132928316842_387521_10746"/></annotatedElement><body humanName="Body" mode="s,e">An extension of &lt;code&gt;SQLException&lt;/code&gt; that provides information
+about database warnings set on &lt;code&gt;RowSet&lt;/code&gt; objects.
+Warnings are silently chained to the object whose method call
+caused it to be reported.
+This class complements the &lt;code&gt;SQLWarning&lt;/code&gt; class.
+&lt;P&gt;
+Rowset warnings may be retrieved from &lt;code&gt;JdbcRowSet&lt;/code&gt;,
+&lt;code&gt;CachedRowSet&lt;/code&gt;&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt;,
+&lt;code&gt;WebRowSet&lt;/code&gt;, &lt;code&gt;FilteredRowSet&lt;/code&gt;, or &lt;code&gt;JoinRowSet&lt;/code&gt;
+implementations. To retrieve the first warning reported on any
+&lt;code&gt;RowSet&lt;/code&gt;
+implementation,  use the method &lt;code&gt;getRowSetWarnings&lt;/code&gt; defined
+in the &lt;code&gt;JdbcRowSet&lt;/code&gt; interface or the &lt;code&gt;CachedRowSet&lt;/code&gt;
+interface. To retrieve a warning chained to the first warning, use the
+&lt;code&gt;RowSetWarning&lt;/code&gt; method
+&lt;code&gt;getNextWarning&lt;/code&gt;. To retrieve subsequent warnings, call
+&lt;code&gt;getNextWarning&lt;/code&gt; on each &lt;code&gt;RowSetWarning&lt;/code&gt; object that is
+returned.
+&lt;P&gt;
+The inherited methods &lt;code&gt;getMessage&lt;/code&gt;, &lt;code&gt;getSQLState&lt;/code&gt;,
+and &lt;code&gt;getErrorCode&lt;/code&gt; retrieve information contained in a
+&lt;code&gt;RowSetWarning&lt;/code&gt; object.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RowSetWarning" refid="_10_5_622020d_1132928316842_387521_10746"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RowSetWarning" refid="_10_5_622020d_1132928316842_387521_10746"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

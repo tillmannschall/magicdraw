@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314799_327285_9189"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DigraphNode" refid="_9_5_f720368_1110473546706_133563_9035"/></annotatedElement><body humanName="Body" mode="s,e">A node in a directed graph.  In addition to an arbitrary
+&lt;code&gt;Object&lt;/code&gt; containing user data associated with the node,
+each node maintains a &lt;code&gt;Set&lt;/code&gt;s of nodes which are pointed
+to by the current node (available from &lt;code&gt;getOutNodes&lt;/code&gt;).
+The in-degree of the node (that is, number of nodes that point to
+the current node) may be queried.
+
+@version 0.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DigraphNode" refid="_9_5_f720368_1110473546706_133563_9035"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DigraphNode" refid="_9_5_f720368_1110473546706_133563_9035"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

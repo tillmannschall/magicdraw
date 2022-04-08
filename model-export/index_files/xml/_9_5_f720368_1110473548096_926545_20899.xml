@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473548096_926545_20899"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;Port.Info&lt;/code&gt; class extends &lt;code&gt;{@link Line.Info}&lt;/code&gt;
+with additional information specific to ports, including the port's name
+and whether it is a source or a target for its mixer.
+By definition, a port acts as either a source or a target to its mixer,
+but not both.  (Audio input ports are sources; audio output ports are targets.)
+&lt;p&gt;
+To learn what ports are available, you can retrieve port info objects through the
+&lt;code&gt;{@link Mixer#getSourceLineInfo getSourceLineInfo}&lt;/code&gt; and
+&lt;code&gt;{@link Mixer#getTargetLineInfo getTargetLineInfo}&lt;/code&gt;
+methods of the &lt;code&gt;Mixer&lt;/code&gt; interface.  Instances of the
+&lt;code&gt;Port.Info&lt;/code&gt; class may also be constructed and used to obtain
+lines matching the parameters specified in the &lt;code&gt;Port.Info&lt;/code&gt; object.
+
+@author Kara Kytle
+@version 1.26, 04/05/05
+@since 1.3
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323361_968668_16612"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Info</name><namespace classType="Interface" humanName="Namespace" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Port" refid="_9_5_f720368_1110473546737_630476_9741"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316271_704445_10648"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323361_968668_16612"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928316271_704445_10648"/></ownedElement><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Port" refid="_9_5_f720368_1110473546737_630476_9741"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::sound::sampled::Port::Info</qualifiedName><redefinitionContext humanName="Redefinition Context"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Port" refid="_9_5_f720368_1110473546737_630476_9741"/></redefinitionContext><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Info" refid="_9_5_f720368_1110473548096_228899_20885"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

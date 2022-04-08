@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307979_106946_5056"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InstantiationError" refid="_9_5_f720368_1110473546612_710110_7627"/></annotatedElement><body humanName="Body" mode="s,e">Thrown when an application tries to use the Java &lt;code&gt;new&lt;/code&gt;
+construct to instantiate an abstract class or an interface.
+&lt;p&gt;
+Normally, this error is caught by the compiler; this error can
+only occur at run time if the definition of a class has
+incompatibly changed.
+
+@author  unascribed
+@version 1.12, 12/19/03
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InstantiationError" refid="_9_5_f720368_1110473546612_710110_7627"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InstantiationError" refid="_9_5_f720368_1110473546612_710110_7627"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

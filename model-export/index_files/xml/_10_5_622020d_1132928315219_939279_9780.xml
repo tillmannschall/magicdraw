@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315219_939279_9780"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MBeanServerFactory" refid="_10_5_622020d_1132928315219_310324_9778"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Provides MBean server references.  There are no instances of
+this class.&lt;/p&gt;
+
+&lt;p&gt;Since JMX 1.2 this class makes it possible to replace the default
+MBeanServer implementation. This is done using the
+{@link javax.management.MBeanServerBuilder} class.
+The class of the initial MBeanServerBuilder to be
+instantiated can be specified through the
+&lt;b&gt;javax.management.builder.initial&lt;/b&gt; system property.
+The specified class must be a public subclass of
+{@link javax.management.MBeanServerBuilder}, and must have a public
+empty constructor.
+&lt;p&gt;By default, if no value for that property is specified, an instance of
+{@link
+javax.management.MBeanServerBuilder javax.management.MBeanServerBuilder}
+is created. Otherwise, the MBeanServerFactory attempts to load the
+specified class using
+{@link java.lang.Thread#getContextClassLoader()
+Thread.currentThread().getContextClassLoader()}, or if that is null,
+{@link java.lang.Class#forName(java.lang.String) Class.forName()}. Then
+it creates an initial instance of that Class using
+{@link java.lang.Class#newInstance()}. If any checked exception
+is raised during this process (e.g.
+{@link java.lang.ClassNotFoundException},
+{@link java.lang.InstantiationException}) the MBeanServerFactory
+will propagate this exception from within a RuntimeException.&lt;/p&gt;
+
+&lt;p&gt;The &lt;b&gt;javax.management.builder.initial&lt;/b&gt; system property is
+consulted every time a new MBeanServer needs to be created, and the
+class pointed to by that property is loaded. If that class is different
+from that of the current MBeanServerBuilder, then a new MBeanServerBuilder
+is created. Otherwise, the MBeanServerFactory may create a new
+MBeanServerBuilder or reuse the current one.&lt;/p&gt;
+
+&lt;p&gt;If the class pointed to by the property cannot be
+loaded, or does not correspond to a valid subclass of MBeanServerBuilder
+then an exception is propagated, and no MBeanServer can be created until
+the &lt;b&gt;javax.management.builder.initial&lt;/b&gt; system property is reset to
+valid value.&lt;/p&gt;
+
+&lt;p&gt;The MBeanServerBuilder makes it possible to wrap the MBeanServers
+returned by the default MBeanServerBuilder implementation, for the purpose
+of e.g. adding an additional security layer.&lt;/p&gt;
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MBeanServerFactory" refid="_10_5_622020d_1132928315219_310324_9778"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MBeanServerFactory" refid="_10_5_622020d_1132928315219_310324_9778"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

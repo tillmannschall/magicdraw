@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318083_760938_12495"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ScrollBar" refid="_9_5_f720368_1110473548456_38825_24266"/></annotatedElement><body humanName="Body" mode="s,e">By default &lt;code&gt;JScrollPane&lt;/code&gt; creates scrollbars
+that are instances
+of this class.  &lt;code&gt;Scrollbar&lt;/code&gt; overrides the
+&lt;code&gt;getUnitIncrement&lt;/code&gt; and &lt;code&gt;getBlockIncrement&lt;/code&gt;
+methods so that, if the viewport's view is a &lt;code&gt;Scrollable&lt;/code&gt;,
+the view is asked to compute these values. Unless
+the unit/block increment have been explicitly set.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+
+@see Scrollable
+@see JScrollPane#createVerticalScrollBar
+@see JScrollPane#createHorizontalScrollBar
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ScrollBar" refid="_9_5_f720368_1110473548456_38825_24266"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ScrollBar" refid="_9_5_f720368_1110473548456_38825_24266"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

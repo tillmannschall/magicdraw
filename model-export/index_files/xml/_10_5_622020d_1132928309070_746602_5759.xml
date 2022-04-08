@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309070_746602_5759"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AclEntry" refid="_9_5_f720368_1110473546674_225281_8257"/></annotatedElement><body humanName="Body" mode="s,e">This is the interface used for representing one entry in an Access
+Control List (ACL).&lt;p&gt;
+
+An ACL can be thought of as a data structure with multiple ACL entry
+objects. Each ACL entry object contains a set of permissions associated
+with a particular principal. (A principal represents an entity such as
+an individual user or a group). Additionally, each ACL entry is specified
+as being either positive or negative. If positive, the permissions are
+to be granted to the associated principal. If negative, the permissions
+are to be denied. Each principal can have at most one positive ACL entry
+and one negative entry; that is, multiple positive or negative ACL
+entries are not allowed for any principal.
+
+Note: ACL entries are by default positive. An entry becomes a
+negative entry only if the
+{@link #setNegativePermissions() setNegativePermissions}
+method is called on it.
+
+@see java.security.acl.Acl
+
+@author 	Satish Dharmaraj
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="AclEntry" refid="_9_5_f720368_1110473546674_225281_8257"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="AclEntry" refid="_9_5_f720368_1110473546674_225281_8257"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

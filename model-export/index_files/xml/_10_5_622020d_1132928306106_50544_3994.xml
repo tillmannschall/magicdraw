@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306106_50544_3994"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RescaleOp" refid="_9_5_f720368_1110473546581_674842_6829"/></annotatedElement><body humanName="Body" mode="s,e">This class performs a pixel-by-pixel rescaling of the data in the
+source image by multiplying the sample values for each pixel by a scale
+factor and then adding an offset. The scaled sample values are clipped
+to the minimum/maximum representable in the destination image.
+&lt;p&gt;
+The pseudo code for the rescaling operation is as follows:
+&lt;pre&gt;
+for each pixel from Source object {
+for each band/component of the pixel {
+dstElement = (srcElement*scaleFactor) + offset
+}
+}
+&lt;/pre&gt;
+&lt;p&gt;
+For Rasters, rescaling operates on bands.  The number of
+sets of scaling constants may be one, in which case the same constants
+are applied to all bands, or it must equal the number of Source
+Raster bands.
+&lt;p&gt;
+For BufferedImages, rescaling operates on color and alpha components.
+The number of sets of scaling constants may be one, in which case the
+same constants are applied to all color (but not alpha) components.
+Otherwise, the  number of sets of scaling constants may
+equal the number of Source color components, in which case no
+rescaling of the alpha component (if present) is performed.
+If neither of these cases apply, the number of sets of scaling constants
+must equal the number of Source color components plus alpha components,
+in which case all color and alpha components are rescaled.
+&lt;p&gt;
+BufferedImage sources with premultiplied alpha data are treated in the same
+manner as non-premultiplied images for purposes of rescaling.  That is,
+the rescaling is done per band on the raw data of the BufferedImage source
+without regard to whether the data is premultiplied.  If a color conversion
+is required to the destination ColorModel, the premultiplied state of
+both source and destination will be taken into account for this step.
+&lt;p&gt;
+Images with an IndexColorModel cannot be rescaled.
+&lt;p&gt;
+If a RenderingHints object is specified in the constructor, the
+color rendering hint and the dithering hint may be used when color
+conversion is required.
+&lt;p&gt;
+Note that in-place operation is allowed (i.e. the source and destination can
+be the same object).
+@version 10 Feb 1997
+@see java.awt.RenderingHints#KEY_COLOR_RENDERING
+@see java.awt.RenderingHints#KEY_DITHERING
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RescaleOp" refid="_9_5_f720368_1110473546581_674842_6829"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RescaleOp" refid="_9_5_f720368_1110473546581_674842_6829"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

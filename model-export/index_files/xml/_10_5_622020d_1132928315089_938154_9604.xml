@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315089_938154_9604"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JMXServiceURL" refid="_10_5_622020d_1132928315089_94914_9602"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;The address of a JMX API connector server.  Instances of this class
+are immutable.&lt;/p&gt;
+
+&lt;p&gt;The address is an &lt;em&gt;Abstract Service URL&lt;/em&gt; for SLP, as
+defined in RFC 2609 and amended by RFC 3111.  It must look like
+this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&lt;code&gt;service:jmx:&lt;em&gt;protocol&lt;/em&gt;:&lt;em&gt;sap&lt;/em&gt;&lt;/code&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here, &lt;code&gt;&lt;em&gt;protocol&lt;/em&gt;&lt;/code&gt; is the transport
+protocol to be used to connect to the connector server.  It is
+a string of one or more ASCII characters, each of which is a
+letter, a digit, or one of the characters &lt;code&gt;+&lt;/code&gt; or
+&lt;code&gt;-&lt;/code&gt;.  The first character must be a letter.
+Uppercase letters are converted into lowercase ones.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&lt;em&gt;sap&lt;/em&gt;&lt;/code&gt; is the address at which the connector
+server is found.  This address uses a subset of the syntax defined
+by RFC 2609 for IP-based protocols.  It is a subset because the
+&lt;code&gt;user@host&lt;/code&gt; syntax is not supported.&lt;/p&gt;
+
+&lt;p&gt;The other syntaxes defined by RFC 2609 are not currently
+supported by this class.&lt;/p&gt;
+
+&lt;p&gt;The supported syntax is:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&lt;code&gt;//&lt;em&gt;[host[&lt;/em&gt;:&lt;em&gt;port]][url-path]&lt;/em&gt;&lt;/code&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;Square brackets &lt;code&gt;[]&lt;/code&gt; indicate optional parts of
+the address.  Not all protocols will recognize all optional
+parts.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;&lt;em&gt;host&lt;/em&gt;&lt;/code&gt; is a host name, an IPv4 numeric
+host address, or an IPv6 numeric address enclosed in square
+brackets.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;&lt;em&gt;port&lt;/em&gt;&lt;/code&gt; is a decimal port number.  0
+means a default or anonymous port, depending on the protocol.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;&lt;em&gt;host&lt;/em&gt;&lt;/code&gt; and &lt;code&gt;&lt;em&gt;port&lt;/em&gt;&lt;/code&gt;
+can be omitted.  The &lt;code&gt;&lt;em&gt;port&lt;/em&gt;&lt;/code&gt; cannot be supplied
+without a &lt;code&gt;&lt;em&gt;host&lt;/em&gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;&lt;em&gt;url-path&lt;/em&gt;&lt;/code&gt;, if any, begins with a slash
+(&lt;code&gt;/&lt;/code&gt;) or a semicolon (&lt;code&gt;;&lt;/code&gt;) and continues to
+the end of the address.  It can contain attributes using the
+semicolon syntax specified in RFC 2609.  Those attributes are not
+parsed by this class and incorrect attribute syntax is not
+detected.&lt;/p&gt;
+
+&lt;p&gt;Although it is legal according to RFC 2609 to have a
+&lt;code&gt;&lt;em&gt;url-path&lt;/em&gt;&lt;/code&gt; that begins with a semicolon, not
+all implementations of SLP allow it, so it is recommended to avoid
+that syntax.&lt;/p&gt;
+
+&lt;p&gt;Case is not significant in the initial
+&lt;code&gt;service:jmx:&lt;em&gt;protocol&lt;/em&gt;&lt;/code&gt; string or in the host
+part of the address.  Depending on the protocol, case can be
+significant in the &lt;code&gt;&lt;em&gt;url-path&lt;/em&gt;&lt;/code&gt;.&lt;/p&gt;
+
+@see &lt;a
+href="ftp://ftp.rfc-editor.org/in-notes/rfc2609.txt"&gt;RFC 2609,
+"Service Templates and &lt;code&gt;Service:&lt;/code&gt; Schemes"&lt;/a&gt;
+@see &lt;a
+href="ftp://ftp.rfc-editor.org/in-notes/rfc3111.txt"&gt;RFC 3111,
+"Service Location Protocol Modifications for IPv6"&lt;/a&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JMXServiceURL" refid="_10_5_622020d_1132928315089_94914_9602"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JMXServiceURL" refid="_10_5_622020d_1132928315089_94914_9602"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

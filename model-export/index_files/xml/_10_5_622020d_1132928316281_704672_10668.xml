@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316281_704672_10668"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerialBlob" refid="_10_5_622020d_1132928316281_388554_10666"/></annotatedElement><body humanName="Body" mode="s,e">A serialized mapping in the Java programming language of an SQL
+&lt;code&gt;BLOB&lt;/code&gt; value.
+&lt;P&gt;
+The &lt;code&gt;SerialBlob&lt;/code&gt; class provides a constructor for creating
+an instance from a &lt;code&gt;Blob&lt;/code&gt; object.  Note that the
+&lt;code&gt;Blob&lt;/code&gt;
+object should have brought the SQL &lt;code&gt;BLOB&lt;/code&gt; value's data over
+to the client before a &lt;code&gt;SerialBlob&lt;/code&gt; object
+is constructed from it.  The data of an SQL &lt;code&gt;BLOB&lt;/code&gt; value can
+be materialized on the client as an array of bytes (using the method
+&lt;code&gt;Blob.getBytes&lt;/code&gt;) or as a stream of uninterpreted bytes
+(using the method &lt;code&gt;Blob.getBinaryStream&lt;/code&gt;).
+&lt;P&gt;
+&lt;code&gt;SerialBlob&lt;/code&gt; methods make it possible to make a copy of a
+&lt;code&gt;SerialBlob&lt;/code&gt; object as an array of bytes or as a stream.
+They also make it possible to locate a given pattern of bytes or a
+&lt;code&gt;Blob&lt;/code&gt; object within a &lt;code&gt;SerialBlob&lt;/code&gt; object
+and to update or truncate a &lt;code&gt;Blob&lt;/code&gt; object.
+
+@author Jonathan Bruce
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SerialBlob" refid="_10_5_622020d_1132928316281_388554_10666"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SerialBlob" refid="_10_5_622020d_1132928316281_388554_10666"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

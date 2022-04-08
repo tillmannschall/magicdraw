@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315670_766650_10172"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MediaPrintableArea" refid="_9_5_f720368_1110473546721_189455_9369"/></annotatedElement><body humanName="Body" mode="s,e">Class MediaPrintableArea is a printing attribute used to distinguish
+the printable and non-printable areas of media.
+&lt;p&gt;
+The printable area is specified to be a rectangle, within the overall
+dimensions of a media.
+&lt;p&gt;
+Most printers cannot print on the entire surface of the media, due
+to printer hardware limitations. This class can be used to query
+the acceptable values for a supposed print job, and to request an area
+within the constraints of the printable area to be used in a print job.
+&lt;p&gt;
+To query for the printable area, a client must supply a suitable context.
+Without specifying at the very least the size of the media being used
+no meaningful value for printable area can be obtained.
+&lt;p&gt;
+The attribute is not described in terms of the distance from the edge
+of the paper, in part to emphasise that this attribute is not independent
+of a particular media, but must be described within the context of a
+choice of other attributes. Additionally it is usually more convenient
+for a client to use the printable area.
+&lt;p&gt;
+The hardware's minimum margins is not just a property of the printer,
+but may be a function of the media size, orientation, media type, and
+any specified finishings.
+&lt;code&gt;PrintService&lt;/code&gt; provides the method to query the supported
+values of an attribute in a suitable context :
+See  {@link javax.print.PrintService#getSupportedAttributeValues(Class,DocFlavor, AttributeSet) &lt;code&gt;PrintService.getSupportedAttributeValues()&lt;/code&gt;}
+&lt;p&gt;
+The rectangular printable area is defined thus:
+The (x,y) origin is positioned at the top-left of the paper in portrait
+mode regardless of the orientation specified in the requesting context.
+For example a printable area for A4 paper in portrait or landscape
+orientation will have height &gt; width.
+&lt;p&gt;
+A printable area attribute's values are stored
+internally as integers in units of micrometers (&amp;#181;m), where 1 micrometer
+= 10&lt;SUP&gt;-6&lt;/SUP&gt; meter = 1/1000 millimeter = 1/25400 inch. This permits
+dimensions to be represented exactly to a precision of 1/1000 mm (= 1
+&amp;#181;m) or 1/100 inch (= 254 &amp;#181;m). If fractional inches are expressed in
+negative powers of two, this permits dimensions to be represented exactly to
+a precision of 1/8 inch (= 3175 &amp;#181;m) but not 1/16 inch (because 1/16 inch
+does not equal an integral number of &amp;#181;m).
+&lt;p&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; MediaPrintableArea is not an IPP attribute.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="MediaPrintableArea" refid="_9_5_f720368_1110473546721_189455_9369"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="MediaPrintableArea" refid="_9_5_f720368_1110473546721_189455_9369"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

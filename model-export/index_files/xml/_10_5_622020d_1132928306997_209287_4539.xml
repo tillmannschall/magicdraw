@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306997_209287_4539"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BufferedReader" refid="_9_5_f720368_1110473546596_244745_7355"/></annotatedElement><body humanName="Body" mode="s,e">Read text from a character-input stream, buffering characters so as to
+provide for the efficient reading of characters, arrays, and lines.
+
+&lt;p&gt; The buffer size may be specified, or the default size may be used.  The
+default is large enough for most purposes.
+
+&lt;p&gt; In general, each read request made of a Reader causes a corresponding
+read request to be made of the underlying character or byte stream.  It is
+therefore advisable to wrap a BufferedReader around any Reader whose read()
+operations may be costly, such as FileReaders and InputStreamReaders.  For
+example,
+
+&lt;pre&gt;
+BufferedReader in
+= new BufferedReader(new FileReader("foo.in"));
+&lt;/pre&gt;
+
+will buffer the input from the specified file.  Without buffering, each
+invocation of read() or readLine() could cause bytes to be read from the
+file, converted into characters, and then returned, which can be very
+inefficient.
+
+&lt;p&gt; Programs that use DataInputStreams for textual input can be localized by
+replacing each DataInputStream with an appropriate BufferedReader.
+
+@see FileReader
+@see InputStreamReader
+
+@version 	1.33, 04/01/12
+@author	Mark Reinhold
+@since	JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BufferedReader" refid="_9_5_f720368_1110473546596_244745_7355"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BufferedReader" refid="_9_5_f720368_1110473546596_244745_7355"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

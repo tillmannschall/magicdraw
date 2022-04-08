@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546674_459455_8353"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::X509CRLSelector -&gt; JDK 5.0 Classes::java::security::cert::CRLSelector]" refid="_10_5_622020d_1132928321859_188452_14140"/></clientDependency><documentation humanName="Documentation" mode="standard">A &lt;code&gt;CRLSelector&lt;/code&gt; that selects &lt;code&gt;X509CRLs&lt;/code&gt; that
+match all specified criteria. This class is particularly useful when
+selecting CRLs from a &lt;code&gt;CertStore&lt;/code&gt; to check revocation status
+of a particular certificate.
+&lt;p&gt;
+When first constructed, an &lt;code&gt;X509CRLSelector&lt;/code&gt; has no criteria
+enabled and each of the &lt;code&gt;get&lt;/code&gt; methods return a default
+value (&lt;code&gt;null&lt;/code&gt;). Therefore, the {@link #match match} method
+would return &lt;code&gt;true&lt;/code&gt; for any &lt;code&gt;X509CRL&lt;/code&gt;. Typically,
+several criteria are enabled (by calling {@link #setIssuers setIssuers}
+or {@link #setDateAndTime setDateAndTime}, for instance) and then the
+&lt;code&gt;X509CRLSelector&lt;/code&gt; is passed to
+{@link CertStore#getCRLs CertStore.getCRLs} or some similar
+method.
+&lt;p&gt;
+Please refer to RFC 2459 for definitions of the X.509 CRL fields and
+extensions mentioned below.
+&lt;p&gt;
+&lt;b&gt;Concurrent Access&lt;/b&gt;
+&lt;p&gt;
+Unless otherwise specified, the methods defined in this class are not
+thread-safe. Multiple threads that need to access a single
+object concurrently should synchronize amongst themselves and
+provide the necessary locking. Multiple threads each manipulating
+separate objects need not synchronize.
+
+@see CRLSelector
+@see X509CRL
+
+@version 	1.16 07/16/04
+@since	1.4
+@author	Steve Hanna
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::X509CRLSelector -&gt; JDK 5.0 Classes::java::security::cert::CRLSelector]" refid="_10_5_622020d_1132928321859_188452_14140"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">X509CRLSelector</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309181_6368_5857"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309181_6368_5857"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::security::cert::X509CRLSelector -&gt; JDK 5.0 Classes::java::security::cert::CRLSelector]" refid="_10_5_622020d_1132928321859_188452_14140"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="cert" refid="_9_5_f720368_1110473547706_265619_18593"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::security::cert::X509CRLSelector</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="CRLSelector" refid="_9_5_f720368_1110473546674_871061_8325"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546596_439635_7369"><documentation humanName="Documentation" mode="standard">The &lt;code&gt;DataInput&lt;/code&gt; interface provides
+for reading bytes from a binary stream and
+reconstructing from them data in any of
+the Java primitive types. There is also
+a
+facility for reconstructing a &lt;code&gt;String&lt;/code&gt;
+from data in
+&lt;a href="#modified-utf-8"&gt;modified UTF-8&lt;/a&gt;
+format.
+&lt;p&gt;
+It is generally true of all the reading
+routines in this interface that if end of
+file is reached before the desired number
+of bytes has been read, an &lt;code&gt;EOFException&lt;/code&gt;
+(which is a kind of &lt;code&gt;IOException&lt;/code&gt;)
+is thrown. If any byte cannot be read for
+any reason other than end of file, an &lt;code&gt;IOException&lt;/code&gt;
+other than &lt;code&gt;EOFException&lt;/code&gt; is
+thrown. In particular, an &lt;code&gt;IOException&lt;/code&gt;
+may be thrown if the input stream has been
+closed.
+
+&lt;h4&gt;&lt;a name="modified-utf-8"&gt;Modified UTF-8&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;
+Implementations of the DataInput and DataOutput interfaces represent
+Unicode strings in a format that is a slight modification of UTF-8.
+(For information regarding the standard UTF-8 format, see section
+&lt;i&gt;3.9 Unicode Encoding Forms&lt;/i&gt; of &lt;i&gt;The Unicode Standard, Version
+4.0&lt;/i&gt;).
+Note that in the following tables, the most significant bit appears in the
+far left-hand column.
+&lt;p&gt;
+All characters in the range &lt;code&gt;'&amp;#92;u0001'&lt;/code&gt; to
+&lt;code&gt;'&amp;#92;u007F'&lt;/code&gt; are represented by a single byte:
+
+&lt;blockquote&gt;
+&lt;table border="1" cellspacing="0" cellpadding="8" width="50%"
+summary="Bit values and bytes"&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;th id="bit"&gt;Bit Values&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="byte1"&gt;Byte 1&lt;/th&gt;
+&lt;td&gt;
+&lt;table border="1" cellspacing="0" width="100%"&gt;
+&lt;tr&gt;
+&lt;td width="12%"&gt;&lt;center&gt;0&lt;/center&gt;
+&lt;td colspan="7"&gt;&lt;center&gt;bits 6-0&lt;/center&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+The null character &lt;code&gt;'&amp;#92;u0000'&lt;/code&gt; and characters in the
+range &lt;code&gt;'&amp;#92;u0080'&lt;/code&gt; to &lt;code&gt;'&amp;#92;u07FF'&lt;/code&gt; are
+represented by a pair of bytes:
+
+&lt;blockquote&gt;
+&lt;table border="1" cellspacing="0" cellpadding="8" width="50%"
+summary="Bit values and bytes"&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;th id="bit"&gt;Bit Values&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="byte1"&gt;Byte 1&lt;/th&gt;
+&lt;td&gt;
+&lt;table border="1" cellspacing="0" width="100%"&gt;
+&lt;tr&gt;
+&lt;td width="12%"&gt;&lt;center&gt;1&lt;/center&gt;
+&lt;td width="13%"&gt;&lt;center&gt;1&lt;/center&gt;
+&lt;td width="12%"&gt;&lt;center&gt;0&lt;/center&gt;
+&lt;td colspan="5"&gt;&lt;center&gt;bits 10-6&lt;/center&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="byte2"&gt;Byte 2&lt;/th&gt;
+&lt;td&gt;
+&lt;table border="1" cellspacing="0" width="100%"&gt;
+&lt;tr&gt;
+&lt;td width="12%"&gt;&lt;center&gt;1&lt;/center&gt;
+&lt;td width="13%"&gt;&lt;center&gt;0&lt;/center&gt;
+&lt;td colspan="6"&gt;&lt;center&gt;bits 5-0&lt;/center&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;br&gt;
+&lt;code&gt;char&lt;/code&gt; values in the range &lt;code&gt;'&amp;#92;u0800'&lt;/code&gt; to
+&lt;code&gt;'&amp;#92;uFFFF'&lt;/code&gt; are represented by three bytes:
+
+&lt;blockquote&gt;
+&lt;table border="1" cellspacing="0" cellpadding="8" width="50%"
+summary="Bit values and bytes"&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;th id="bit"&gt;Bit Values&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="byte1"&gt;Byte 1&lt;/th&gt;
+&lt;td&gt;
+&lt;table border="1" cellspacing="0" width="100%"&gt;
+&lt;tr&gt;
+&lt;td width="12%"&gt;&lt;center&gt;1&lt;/center&gt;
+&lt;td width="13%"&gt;&lt;center&gt;1&lt;/center&gt;
+&lt;td width="12%"&gt;&lt;center&gt;1&lt;/center&gt;
+&lt;td width="13%"&gt;&lt;center&gt;0&lt;/center&gt;
+&lt;td colspan="4"&gt;&lt;center&gt;bits 15-12&lt;/center&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="byte2"&gt;Byte 2&lt;/th&gt;
+&lt;td&gt;
+&lt;table border="1" cellspacing="0" width="100%"&gt;
+&lt;tr&gt;
+&lt;td width="12%"&gt;&lt;center&gt;1&lt;/center&gt;
+&lt;td width="13%"&gt;&lt;center&gt;0&lt;/center&gt;
+&lt;td colspan="6"&gt;&lt;center&gt;bits 11-6&lt;/center&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th id="byte3"&gt;Byte 3&lt;/th&gt;
+&lt;td&gt;
+&lt;table border="1" cellspacing="0" width="100%"&gt;
+&lt;tr&gt;
+&lt;td width="12%"&gt;&lt;center&gt;1&lt;/center&gt;
+&lt;td width="13%"&gt;&lt;center&gt;0&lt;/center&gt;
+&lt;td colspan="6"&gt;&lt;center&gt;bits 5-0&lt;/center&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+The differences between this format and the
+standard UTF-8 format are the following:
+&lt;ul&gt;
+&lt;li&gt;The null byte &lt;code&gt;'&amp;#92;u0000'&lt;/code&gt; is encoded in 2-byte format
+rather than 1-byte, so that the encoded strings never have
+embedded nulls.
+&lt;li&gt;Only the 1-byte, 2-byte, and 3-byte formats are used.
+&lt;li&gt;&lt;a href="../lang/Character.html#unicode"&gt;Supplementary characters&lt;/a&gt;
+are represented in the form of surrogate pairs.
+&lt;/ul&gt;
+@author  Frank Yellin
+@version 1.23, 06/03/04
+@see     java.io.DataInputStream
+@see     java.io.DataOutput
+@since   JDK1.0
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">DataInput</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307047_432729_4556"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307047_432729_4556"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="io" refid="_9_5_f720368_1110473547471_831617_17570"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::io::DataInput</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::io::DataInputStream -&gt; JDK 5.0 Classes::java::io::DataInput]" refid="_10_5_622020d_1132928321558_835823_13481"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::io::ObjectInputStream::BlockDataInputStream -&gt; JDK 5.0 Classes::java::io::DataInput]" refid="_10_5_622020d_1132928321578_542214_13521"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::io::RandomAccessFile -&gt; JDK 5.0 Classes::java::io::DataInput]" refid="_10_5_622020d_1132928321598_125619_13551"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

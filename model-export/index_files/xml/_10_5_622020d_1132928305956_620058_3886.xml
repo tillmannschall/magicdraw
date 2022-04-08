@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305956_620058_3886"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InputContext" refid="_9_5_f720368_1110473546565_499033_6721"/></annotatedElement><body humanName="Body" mode="s,e">Provides methods to control text input facilities such as input
+methods and keyboard layouts.
+Two methods handle both input methods and keyboard layouts: selectInputMethod
+lets a client component select an input method or keyboard layout by locale,
+getLocale lets a client component obtain the locale of the current input method
+or keyboard layout.
+The other methods more specifically support interaction with input methods:
+They let client components control the behavior of input methods, and
+dispatch events from the client component to the input method.
+
+&lt;p&gt;
+By default, one InputContext instance is created per Window instance,
+and this input context is shared by all components within the window's
+container hierarchy. However, this means that only one text input
+operation is possible at any one time within a window, and that the
+text needs to be committed when moving the focus from one text component
+to another. If this is not desired, text components can create their
+own input context instances.
+
+&lt;p&gt;
+The Java 2 platform supports input methods that have been developed in the Java
+programming language, using the interfaces in the {@link java.awt.im.spi} package,
+and installed into a Java 2 runtime environment as extensions. Implementations
+may also support using the native input methods of the platforms they run on;
+however, not all platforms and locales provide input methods. Keyboard layouts
+are provided by the host platform.
+
+&lt;p&gt;
+Input methods are &lt;em&gt;unavailable&lt;/em&gt; if (a) no input method written
+in the Java programming language has been installed and (b) the Java 2 implementation
+or the underlying platform does not support native input methods. In this case,
+input contexts can still be created and used; their behavior is specified with
+the individual methods below.
+
+@see java.awt.Component#getInputContext
+@see java.awt.Component#enableInputMethods
+@version 	1.34, 12/19/03
+@author JavaSoft Asia/Pacific
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="InputContext" refid="_9_5_f720368_1110473546565_499033_6721"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="InputContext" refid="_9_5_f720368_1110473546565_499033_6721"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

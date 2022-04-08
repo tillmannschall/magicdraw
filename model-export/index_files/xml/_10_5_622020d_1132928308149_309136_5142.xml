@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308149_309136_5142"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Short" refid="_9_5_f720368_1110473546612_509786_7681"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Short&lt;/code&gt; class wraps a value of primitive type
+&lt;code&gt;short&lt;/code&gt; in an object.  An object of type
+&lt;code&gt;Short&lt;/code&gt; contains a single field whose type is
+&lt;code&gt;short&lt;/code&gt;.
+
+&lt;p&gt;
+
+In addition, this class provides several methods for converting a
+&lt;code&gt;short&lt;/code&gt; to a &lt;code&gt;String&lt;/code&gt; and a
+&lt;code&gt;String&lt;/code&gt; to a &lt;code&gt;short&lt;/code&gt;, as well as other
+constants and methods useful when dealing with a &lt;code&gt;short&lt;/code&gt;.
+
+@author  Nakul Saraiya
+@version 1.43, 05/11/04
+@see     java.lang.Number
+@since   JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Short" refid="_9_5_f720368_1110473546612_509786_7681"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Short" refid="_9_5_f720368_1110473546612_509786_7681"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

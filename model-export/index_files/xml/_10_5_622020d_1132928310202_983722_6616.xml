@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310202_983722_6616"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Sync" refid="_10_5_622020d_1132928310202_429795_6615"/></annotatedElement><body humanName="Body" mode="s,e">Synchronization control for FutureTask. Note that this must be
+a non-static inner class in order to invoke the protected
+&lt;tt&gt;done&lt;/tt&gt; method. For clarity, all inner class support
+methods are same as outer, prefixed with "inner".
+
+Uses AQS sync state to represent run status
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Sync" refid="_10_5_622020d_1132928310202_429795_6615"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Sync" refid="_10_5_622020d_1132928310202_429795_6615"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

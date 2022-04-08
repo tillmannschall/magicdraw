@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310983_350581_7236"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormattableFlags" refid="_10_5_622020d_1132928310973_44006_7234"/></annotatedElement><body humanName="Body" mode="s,e">FomattableFlags are passed to the {@link Formattable#formatTo
+Formattable.formatTo()} method and modify the output format for {@linkplain
+Formattable Formattables}.  Implementations of {@link Formattable} are
+responsible for interpreting and validating any flags.
+
+@version 	1.1, 04/21/04
+@since  1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FormattableFlags" refid="_10_5_622020d_1132928310973_44006_7234"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormattableFlags" refid="_10_5_622020d_1132928310973_44006_7234"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

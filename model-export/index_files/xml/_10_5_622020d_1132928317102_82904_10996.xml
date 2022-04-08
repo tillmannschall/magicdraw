@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317102_82904_10996"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicDropTargetListener" refid="_9_5_f720368_1110473546753_10232_9957"/></annotatedElement><body humanName="Body" mode="s,e">The Swing DropTarget implementation supports multicast notification
+to listeners, so this implementation is used as an additional
+listener that extends the primary drop target functionality
+(i.e. linkage to the TransferHandler) to include autoscroll and
+establish an insertion point for the drop.  This is used by the ComponentUI
+of components supporting a selection mechanism, which have a
+way of indicating a location within their model.
+&lt;p&gt;
+The autoscroll functionality is based upon the Swing scrolling mechanism
+of the Scrollable interface.  The unit scroll increment is used to as
+the scroll amount, and the scrolling is based upon JComponent.getVisibleRect
+and JComponent.scrollRectToVisible.  The band of area around the visible
+rectangle used to invoke autoscroll is based upon the unit scroll increment
+as that is assumed to represent the last possible item in the visible region.
+&lt;p&gt;
+The subclasses are expected to implement the following methods to manage the
+insertion location via the components selection mechanism.
+&lt;ul&gt;
+&lt;li&gt;saveComponentState
+&lt;li&gt;restoreComponentState
+&lt;li&gt;restoreComponentStateForDrop
+&lt;li&gt;updateInsertionLocation
+&lt;/ul&gt;
+
+@author  Timothy Prinzing
+@version 1.10 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="BasicDropTargetListener" refid="_9_5_f720368_1110473546753_10232_9957"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="BasicDropTargetListener" refid="_9_5_f720368_1110473546753_10232_9957"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

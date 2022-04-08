@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_10_5_622020d_1132928315029_740705_9569"><documentation humanName="Documentation" mode="standard">&lt;p&gt;Notification emitted when a client connection is opened or
+closed or when notifications are lost.  These notifications are
+sent by connector servers (instances of {@link JMXConnectorServer})
+and by connector clients (instances of {@link JMXConnector}).  For
+certain connectors, a session can consist of a sequence of
+connections.  Connection-opened and connection-closed notifications
+will be sent for each one.&lt;/p&gt;
+
+&lt;p&gt;The notification type is one of the following:&lt;/p&gt;
+
+&lt;table&gt;
+
+&lt;tr&gt;
+&lt;th align=left&gt;Type&lt;/th&gt;
+&lt;th align=left&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;jmx.remote.connection.opened&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A new client connection has been opened.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;jmx.remote.connection.closed&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A client connection has been closed.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;jmx.remote.connection.failed&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A client connection has failed unexpectedly.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;jmx.remote.connection.notifs.lost&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;A client connection has potentially lost notifications.  This
+notification only appears on the client side.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The &lt;code&gt;timeStamp&lt;/code&gt; of the notification is a time value
+(consistent with {@link System#currentTimeMillis()}) indicating
+when the notification was constructed.&lt;/p&gt;
+
+@since 1.5
+@since.unbundled 1.0
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323071_375978_15994"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">JMXConnectionNotification</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315029_162018_9571"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928323071_375978_15994"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928315029_162018_9571"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="remote" refid="_10_5_622020d_1132928315009_847083_9527"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::javax::management::remote::JMXConnectionNotification</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Notification" refid="_10_5_622020d_1132928315229_108856_9799"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

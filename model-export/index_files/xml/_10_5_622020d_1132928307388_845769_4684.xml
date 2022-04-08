@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307388_845769_4684"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RandomAccessFile" refid="_9_5_f720368_1110473546612_898214_7475"/></annotatedElement><body humanName="Body" mode="s,e">Instances of this class support both reading and writing to a
+random access file. A random access file behaves like a large
+array of bytes stored in the file system. There is a kind of cursor,
+or index into the implied array, called the &lt;em&gt;file pointer&lt;/em&gt;;
+input operations read bytes starting at the file pointer and advance
+the file pointer past the bytes read. If the random access file is
+created in read/write mode, then output operations are also available;
+output operations write bytes starting at the file pointer and advance
+the file pointer past the bytes written. Output operations that write
+past the current end of the implied array cause the array to be
+extended. The file pointer can be read by the
+&lt;code&gt;getFilePointer&lt;/code&gt; method and set by the &lt;code&gt;seek&lt;/code&gt;
+method.
+&lt;p&gt;
+It is generally true of all the reading routines in this class that
+if end-of-file is reached before the desired number of bytes has been
+read, an &lt;code&gt;EOFException&lt;/code&gt; (which is a kind of
+&lt;code&gt;IOException&lt;/code&gt;) is thrown. If any byte cannot be read for
+any reason other than end-of-file, an &lt;code&gt;IOException&lt;/code&gt; other
+than &lt;code&gt;EOFException&lt;/code&gt; is thrown. In particular, an
+&lt;code&gt;IOException&lt;/code&gt; may be thrown if the stream has been closed.
+
+@author  unascribed
+@version 1.78, 05/13/04
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="RandomAccessFile" refid="_9_5_f720368_1110473546612_898214_7475"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RandomAccessFile" refid="_9_5_f720368_1110473546612_898214_7475"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

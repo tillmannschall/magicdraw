@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546690_911776_8551"><documentation humanName="Documentation" mode="standard">The representation (mapping) in
+the Java&lt;sup&gt;&lt;font size=-2&gt;TM&lt;/font&gt;&lt;/sup&gt; programming
+language of an SQL
+&lt;code&gt;BLOB&lt;/code&gt; value.  An SQL &lt;code&gt;BLOB&lt;/code&gt; is a built-in type
+that stores a Binary Large Object as a column value in a row of
+a database table. By default drivers implement &lt;code&gt;Blob&lt;/code&gt; using
+an SQL &lt;code&gt;locator(BLOB)&lt;/code&gt;, which means that a
+&lt;code&gt;Blob&lt;/code&gt; object contains a logical pointer to the
+SQL &lt;code&gt;BLOB&lt;/code&gt; data rather than the data itself.
+A &lt;code&gt;Blob&lt;/code&gt; object is valid for the duration of the
+transaction in which is was created.
+
+&lt;P&gt;Methods in the interfaces {@link ResultSet},
+{@link CallableStatement}, and {@link PreparedStatement}, such as
+&lt;code&gt;getBlob&lt;/code&gt; and &lt;code&gt;setBlob&lt;/code&gt; allow a programmer to
+access an SQL &lt;code&gt;BLOB&lt;/code&gt; value.
+The &lt;code&gt;Blob&lt;/code&gt; interface provides methods for getting the
+length of an SQL &lt;code&gt;BLOB&lt;/code&gt; (Binary Large Object) value,
+for materializing a &lt;code&gt;BLOB&lt;/code&gt; value on the client, and for
+determining the position of a pattern of bytes within a
+&lt;code&gt;BLOB&lt;/code&gt; value. In addition, this interface has methods for updating
+a &lt;code&gt;BLOB&lt;/code&gt; value.
+
+@since 1.2
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Blob</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309481_186624_6153"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309481_186624_6153"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::sql::Blob</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::sql::rowset::serial::SerialBlob -&gt; JDK 5.0 Classes::java::sql::Blob]" refid="_10_5_622020d_1132928323361_750871_16620"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306367_561262_4129"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Checkbox" refid="_9_5_f720368_1110473546581_649837_6953"/></annotatedElement><body humanName="Body" mode="s,e">A check box is a graphical component that can be in either an
+"on" (&lt;code&gt;true&lt;/code&gt;) or "off" (&lt;code&gt;false&lt;/code&gt;) state.
+Clicking on a check box changes its state from
+"on" to "off," or from "off" to "on."
+&lt;p&gt;
+The following code example creates a set of check boxes in
+a grid layout:
+&lt;p&gt;
+&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+setLayout(new GridLayout(3, 1));
+add(new Checkbox("one", null, true));
+add(new Checkbox("two"));
+add(new Checkbox("three"));
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+This image depicts the check boxes and grid layout
+created by this code example:
+&lt;p&gt;
+&lt;img src="doc-files/Checkbox-1.gif" alt="The following context describes the graphic."
+ALIGN=center HSPACE=10 VSPACE=7&gt;
+&lt;p&gt;
+The button labeled &lt;code&gt;one&lt;/code&gt; is in the "on" state, and the
+other two are in the "off" state. In this example, which uses the
+&lt;code&gt;GridLayout&lt;/code&gt; class, the states of the three check
+boxes are set independently.
+&lt;p&gt;
+Alternatively, several check boxes can be grouped together under
+the control of a single object, using the
+&lt;code&gt;CheckboxGroup&lt;/code&gt; class.
+In a check box group, at most one button can be in the "on"
+state at any given time. Clicking on a check box to turn it on
+forces any other check box in the same group that is on
+into the "off" state.
+
+@version	1.84 05/05/04
+@author 	Sami Shaio
+@see         java.awt.GridLayout
+@see         java.awt.CheckboxGroup
+@since       JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Checkbox" refid="_9_5_f720368_1110473546581_649837_6953"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Checkbox" refid="_9_5_f720368_1110473546581_649837_6953"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

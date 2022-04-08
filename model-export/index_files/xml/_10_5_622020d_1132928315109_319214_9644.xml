@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315109_319214_9644"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AttributeChangeNotification" refid="_10_5_622020d_1132928315109_135236_9642"/></annotatedElement><body humanName="Body" mode="s,e">Provides definitions of the attribute change notifications sent by MBeans.
+&lt;P&gt;
+It's up to the MBean owning the attribute of interest to create and send
+attribute change notifications when the attribute change occurs.
+So the &lt;CODE&gt;NotificationBroadcaster&lt;/CODE&gt; interface has to be implemented
+by any MBean for which an attribute change is of interest.
+&lt;P&gt;
+Example:
+If an MBean called &lt;CODE&gt;myMbean&lt;/CODE&gt; needs to notify registered listeners
+when its attribute:
+&lt;BLOCKQUOTE&gt;&lt;CODE&gt;
+String myString
+&lt;/CODE&gt;&lt;/BLOCKQUOTE&gt;
+is modified, &lt;CODE&gt;myMbean&lt;/CODE&gt; creates and emits the following notification:
+&lt;BLOCKQUOTE&gt;&lt;CODE&gt;
+new AttributeChangeNotification(myMbean, sequenceNumber, timeStamp, msg,
+"myString", "String", oldValue, newValue);
+&lt;/CODE&gt;&lt;/BLOCKQUOTE&gt;
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AttributeChangeNotification" refid="_10_5_622020d_1132928315109_135236_9642"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AttributeChangeNotification" refid="_10_5_622020d_1132928315109_135236_9642"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

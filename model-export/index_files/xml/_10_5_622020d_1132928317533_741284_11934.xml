@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317533_741284_11934"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TextAreaDocument" refid="_9_5_f720368_1110473546784_900362_10397"/></annotatedElement><body humanName="Body" mode="s,e">TextAreaDocument extends the capabilities of the PlainDocument
+to store the data that is initially set in the Document.
+This is stored in order to enable an accurate reset of the
+state when a reset is requested.
+
+@author Sunita Mani
+@version 1.8 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="TextAreaDocument" refid="_9_5_f720368_1110473546784_900362_10397"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="TextAreaDocument" refid="_9_5_f720368_1110473546784_900362_10397"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

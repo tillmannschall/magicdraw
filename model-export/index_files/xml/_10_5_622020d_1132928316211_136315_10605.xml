@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316211_136315_10605"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Encoding" refid="_9_5_f720368_1110473548096_166818_20851"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Encoding&lt;/code&gt; class  names the  specific type of data representation
+used for an audio stream.   The encoding includes aspects of the
+sound format other than the number of channels, sample rate, sample size,
+frame rate, frame size, and byte order.
+&lt;p&gt;
+One ubiquitous type of audio encoding is pulse-code modulation (PCM),
+which is simply a linear (proportional) representation of the sound
+waveform.  With PCM, the number stored in each sample is proportional
+to the instantaneous amplitude of the sound pressure at that point in
+time.  The numbers are frequently signed or unsigned integers.
+Besides PCM, other encodings include mu-law and a-law, which are nonlinear
+mappings of the sound amplitude that are often used for recording speech.
+&lt;p&gt;
+You can use a predefined encoding by referring to one of the static
+objects created by this class, such as PCM_SIGNED or
+PCM_UNSIGNED.  Service providers can create new encodings, such as
+compressed audio formats or floating-point PCM samples, and make
+these available through the &lt;code&gt;{@link AudioSystem}&lt;/code&gt; class.
+&lt;p&gt;
+The &lt;code&gt;Encoding&lt;/code&gt; class is static, so that all
+&lt;code&gt;AudioFormat&lt;/code&gt; objects that have the same encoding will refer
+to the same object (rather than different instances of the same class).
+This allows matches to be made by checking that two format's encodings
+are equal.
+
+@see AudioFormat
+@see javax.sound.sampled.spi.FormatConversionProvider
+
+@author Kara Kytle
+@version 1.35 04/03/15
+@since 1.3
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Encoding" refid="_9_5_f720368_1110473548096_166818_20851"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Encoding" refid="_9_5_f720368_1110473548096_166818_20851"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

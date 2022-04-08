@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307989_724189_5076"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Long" refid="_9_5_f720368_1110473546612_800239_7639"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;Long&lt;/code&gt; class wraps a value of the primitive type
+&lt;code&gt;long&lt;/code&gt; in an object. An object of type &lt;code&gt;Long&lt;/code&gt;
+contains a single field whose type is &lt;code&gt;long&lt;/code&gt;.
+
+&lt;p&gt;
+
+In addition, this class provides several methods for converting a
+&lt;code&gt;long&lt;/code&gt; to a &lt;code&gt;String&lt;/code&gt; and a
+&lt;code&gt;String&lt;/code&gt; to a &lt;code&gt;long&lt;/code&gt;, as well as other
+constants and methods useful when dealing with a &lt;code&gt;long&lt;/code&gt;.
+
+&lt;p&gt;Implementation note: The implementations of the "bit twiddling"
+methods (such as {@link #highestOneBit(long) highestOneBit} and
+{@link #numberOfTrailingZeros(long) numberOfTrailingZeros}) are
+based on material from Henry S. Warren, Jr.'s &lt;i&gt;Hacker's
+Delight&lt;/i&gt;, (Addison Wesley, 2002).
+
+@author  Lee Boynton
+@author  Arthur van Hoff
+@author  Josh Bloch
+@version 1.79, 05/11/04
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Long" refid="_9_5_f720368_1110473546612_800239_7639"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Long" refid="_9_5_f720368_1110473546612_800239_7639"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318284_829097_12687"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="LazyValue" refid="_9_5_f720368_1110473547143_528360_15205"/></annotatedElement><body humanName="Body" mode="s,e">This class enables one to store an entry in the defaults
+table that isn't constructed until the first time it's
+looked up with one of the &lt;code&gt;getXXX(key)&lt;/code&gt; methods.
+Lazy values are useful for defaults that are expensive
+to construct or are seldom retrieved.  The first time
+a &lt;code&gt;LazyValue&lt;/code&gt; is retrieved its "real value" is computed
+by calling &lt;code&gt;LazyValue.createValue()&lt;/code&gt; and the real
+value is used to replace the &lt;code&gt;LazyValue&lt;/code&gt; in the
+&lt;code&gt;UIDefaults&lt;/code&gt;
+table.  Subsequent lookups for the same key return
+the real value.  Here's an example of a &lt;code&gt;LazyValue&lt;/code&gt;
+that constructs a &lt;code&gt;Border&lt;/code&gt;:
+&lt;pre&gt;
+Object borderLazyValue = new UIDefaults.LazyValue() {
+public Object createValue(UIDefaults table) {
+return new BorderFactory.createLoweredBevelBorder();
+}
+};
+
+uiDefaultsTable.put("MyBorder", borderLazyValue);
+&lt;/pre&gt;
+
+@see UIDefaults#get
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="LazyValue" refid="_9_5_f720368_1110473547143_528360_15205"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="LazyValue" refid="_9_5_f720368_1110473547143_528360_15205"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

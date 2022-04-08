@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928305645_389330_3647"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DragSource" refid="_9_5_f720368_1110473546549_185937_6497"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;DragSource&lt;/code&gt; is the entity responsible
+for the initiation of the Drag
+and Drop operation, and may be used in a number of scenarios:
+&lt;UL&gt;
+&lt;LI&gt;1 default instance per JVM for the lifetime of that JVM.
+&lt;LI&gt;1 instance per class of potential Drag Initiator object (e.g
+TextField). [implementation dependent]
+&lt;LI&gt;1 per instance of a particular
+&lt;code&gt;Component&lt;/code&gt;, or application specific
+object associated with a &lt;code&gt;Component&lt;/code&gt;
+instance in the GUI. [implementation dependent]
+&lt;LI&gt;Some other arbitrary association. [implementation dependent]
+&lt;/UL&gt;
+
+Once the &lt;code&gt;DragSource&lt;/code&gt; is
+obtained, a &lt;code&gt;DragGestureRecognizer&lt;/code&gt; should
+also be obtained to associate the &lt;code&gt;DragSource&lt;/code&gt;
+with a particular
+&lt;code&gt;Component&lt;/code&gt;.
+&lt;P&gt;
+The initial interpretation of the user's gesture,
+and the subsequent starting of the drag operation
+are the responsibility of the implementing
+&lt;code&gt;Component&lt;/code&gt;, which is usually
+implemented by a &lt;code&gt;DragGestureRecognizer&lt;/code&gt;.
+&lt;P&gt;
+When a drag gesture occurs, the
+&lt;code&gt;DragSource&lt;/code&gt;'s
+startDrag() method shall be
+invoked in order to cause processing
+of the user's navigational
+gestures and delivery of Drag and Drop
+protocol notifications. A
+&lt;code&gt;DragSource&lt;/code&gt; shall only
+permit a single Drag and Drop operation to be
+current at any one time, and shall
+reject any further startDrag() requests
+by throwing an &lt;code&gt;IllegalDnDOperationException&lt;/code&gt;
+until such time as the extant operation is complete.
+&lt;P&gt;
+The startDrag() method invokes the
+createDragSourceContext() method to
+instantiate an appropriate
+&lt;code&gt;DragSourceContext&lt;/code&gt;
+and associate the &lt;code&gt;DragSourceContextPeer&lt;/code&gt;
+with that.
+&lt;P&gt;
+If the Drag and Drop System is
+unable to initiate a drag operation for
+some reason, the startDrag() method throws
+a &lt;code&gt;java.awt.dnd.InvalidDnDOperationException&lt;/code&gt;
+to signal such a condition. Typically this
+exception is thrown when the underlying platform
+system is either not in a state to
+initiate a drag, or the parameters specified are invalid.
+&lt;P&gt;
+Note that during the drag, the
+set of operations exposed by the source
+at the start of the drag operation may not change
+until the operation is complete.
+The operation(s) are constant for the
+duration of the operation with respect to the
+&lt;code&gt;DragSource&lt;/code&gt;.
+
+@version 	1.45, 05/05/04
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="DragSource" refid="_9_5_f720368_1110473546549_185937_6497"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="DragSource" refid="_9_5_f720368_1110473546549_185937_6497"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

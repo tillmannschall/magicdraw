@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546690_398392_8663"><documentation humanName="Documentation" mode="standard">&lt;code&gt;MessageFormat&lt;/code&gt; provides a means to produce concatenated
+messages in language-neutral way. Use this to construct messages
+displayed for end users.
+
+&lt;p&gt;
+&lt;code&gt;MessageFormat&lt;/code&gt; takes a set of objects, formats them, then
+inserts the formatted strings into the pattern at the appropriate places.
+
+&lt;p&gt;
+&lt;strong&gt;Note:&lt;/strong&gt;
+&lt;code&gt;MessageFormat&lt;/code&gt; differs from the other &lt;code&gt;Format&lt;/code&gt;
+classes in that you create a &lt;code&gt;MessageFormat&lt;/code&gt; object with one
+of its constructors (not with a &lt;code&gt;getInstance&lt;/code&gt; style factory
+method). The factory methods aren't necessary because &lt;code&gt;MessageFormat&lt;/code&gt;
+itself doesn't implement locale specific behavior. Any locale specific
+behavior is defined by the pattern that you provide as well as the
+subformats used for inserted arguments.
+
+&lt;h4&gt;&lt;a name="patterns"&gt;Patterns and Their Interpretation&lt;/a&gt;&lt;/h4&gt;
+
+&lt;code&gt;MessageFormat&lt;/code&gt; uses patterns of the following form:
+&lt;blockquote&gt;&lt;pre&gt;
+&lt;i&gt;MessageFormatPattern:&lt;/i&gt;
+&lt;i&gt;String&lt;/i&gt;
+&lt;i&gt;MessageFormatPattern&lt;/i&gt; &lt;i&gt;FormatElement&lt;/i&gt; &lt;i&gt;String&lt;/i&gt;
+
+&lt;i&gt;FormatElement:&lt;/i&gt;
+{ &lt;i&gt;ArgumentIndex&lt;/i&gt; }
+{ &lt;i&gt;ArgumentIndex&lt;/i&gt; , &lt;i&gt;FormatType&lt;/i&gt; }
+{ &lt;i&gt;ArgumentIndex&lt;/i&gt; , &lt;i&gt;FormatType&lt;/i&gt; , &lt;i&gt;FormatStyle&lt;/i&gt; }
+
+&lt;i&gt;FormatType: one of &lt;/i&gt;
+number date time choice
+
+&lt;i&gt;FormatStyle:&lt;/i&gt;
+short
+medium
+long
+full
+integer
+currency
+percent
+&lt;i&gt;SubformatPattern&lt;/i&gt;
+
+&lt;i&gt;String:&lt;/i&gt;
+&lt;i&gt;StringPart&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt;
+&lt;i&gt;String&lt;/i&gt; &lt;i&gt;StringPart&lt;/i&gt;
+
+&lt;i&gt;StringPart:&lt;/i&gt;
+''
+' &lt;i&gt;QuotedString&lt;/i&gt; '
+&lt;i&gt;UnquotedString&lt;/i&gt;
+
+&lt;i&gt;SubformatPattern:&lt;/i&gt;
+&lt;i&gt;SubformatPatternPart&lt;sub&gt;opt&lt;/sub&gt;&lt;/i&gt;
+&lt;i&gt;SubformatPattern&lt;/i&gt; &lt;i&gt;SubformatPatternPart&lt;/i&gt;
+
+&lt;i&gt;SubFormatPatternPart:&lt;/i&gt;
+' &lt;i&gt;QuotedPattern&lt;/i&gt; '
+&lt;i&gt;UnquotedPattern&lt;/i&gt;
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;
+Within a &lt;i&gt;String&lt;/i&gt;, &lt;code&gt;"''"&lt;/code&gt; represents a single
+quote. A &lt;i&gt;QuotedString&lt;/i&gt; can contain arbitrary characters
+except single quotes; the surrounding single quotes are removed.
+An &lt;i&gt;UnquotedString&lt;/i&gt; can contain arbitrary characters
+except single quotes and left curly brackets. Thus, a string that
+should result in the formatted message "'{0}'" can be written as
+&lt;code&gt;"'''{'0}''"&lt;/code&gt; or &lt;code&gt;"'''{0}'''"&lt;/code&gt;.
+&lt;p&gt;
+Within a &lt;i&gt;SubformatPattern&lt;/i&gt;, different rules apply.
+A &lt;i&gt;QuotedPattern&lt;/i&gt; can contain arbitrary characters
+except single quotes; but the surrounding single quotes are
+&lt;strong&gt;not&lt;/strong&gt; removed, so they may be interpreted by the
+subformat. For example, &lt;code&gt;"{1,number,$'#',##}"&lt;/code&gt; will
+produce a number format with the pound-sign quoted, with a result
+such as: "$#31,45".
+An &lt;i&gt;UnquotedPattern&lt;/i&gt; can contain arbitrary characters
+except single quotes, but curly braces within it must be balanced.
+For example, &lt;code&gt;"ab {0} de"&lt;/code&gt; and &lt;code&gt;"ab '}' de"&lt;/code&gt;
+are valid subformat patterns, but &lt;code&gt;"ab {0'}' de"&lt;/code&gt; and
+&lt;code&gt;"ab } de"&lt;/code&gt; are not.
+&lt;p&gt;
+&lt;dl&gt;&lt;dt&gt;&lt;b&gt;Warning:&lt;/b&gt;&lt;dd&gt;The rules for using quotes within message
+format patterns unfortunately have shown to be somewhat confusing.
+In particular, it isn't always obvious to localizers whether single
+quotes need to be doubled or not. Make sure to inform localizers about
+the rules, and tell them (for example, by using comments in resource
+bundle source files) which strings will be processed by MessageFormat.
+Note that localizers may need to use single quotes in translated
+strings where the original version doesn't have them.
+&lt;/dl&gt;
+&lt;p&gt;
+The &lt;i&gt;ArgumentIndex&lt;/i&gt; value is a non-negative integer written
+using the digits '0' through '9', and represents an index into the
+&lt;code&gt;arguments&lt;/code&gt; array passed to the &lt;code&gt;format&lt;/code&gt; methods
+or the result array returned by the &lt;code&gt;parse&lt;/code&gt; methods.
+&lt;p&gt;
+The &lt;i&gt;FormatType&lt;/i&gt; and &lt;i&gt;FormatStyle&lt;/i&gt; values are used to create
+a &lt;code&gt;Format&lt;/code&gt; instance for the format element. The following
+table shows how the values map to Format instances. Combinations not
+shown in the table are illegal. A &lt;i&gt;SubformatPattern&lt;/i&gt; must
+be a valid pattern string for the Format subclass used.
+&lt;p&gt;
+&lt;table border=1 summary="Shows how FormatType and FormatStyle values map to Format instances"&gt;
+&lt;tr&gt;
+&lt;th id="ft"&gt;Format Type
+&lt;th id="fs"&gt;Format Style
+&lt;th id="sc"&gt;Subformat Created
+&lt;tr&gt;
+&lt;td headers="ft"&gt;&lt;i&gt;(none)&lt;/i&gt;
+&lt;td headers="fs"&gt;&lt;i&gt;(none)&lt;/i&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;null&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="ft" rowspan=5&gt;&lt;code&gt;number&lt;/code&gt;
+&lt;td headers="fs"&gt;&lt;i&gt;(none)&lt;/i&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;NumberFormat.getInstance(getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;code&gt;integer&lt;/code&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;NumberFormat.getIntegerInstance(getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;code&gt;currency&lt;/code&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;NumberFormat.getCurrencyInstance(getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;code&gt;percent&lt;/code&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;NumberFormat.getPercentInstance(getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;i&gt;SubformatPattern&lt;/i&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;new DecimalFormat(subformatPattern, new DecimalFormatSymbols(getLocale()))&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="ft" rowspan=6&gt;&lt;code&gt;date&lt;/code&gt;
+&lt;td headers="fs"&gt;&lt;i&gt;(none)&lt;/i&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;DateFormat.getDateInstance(DateFormat.DEFAULT, getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;code&gt;short&lt;/code&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;DateFormat.getDateInstance(DateFormat.SHORT, getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;code&gt;medium&lt;/code&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;DateFormat.getDateInstance(DateFormat.DEFAULT, getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;code&gt;long&lt;/code&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;DateFormat.getDateInstance(DateFormat.LONG, getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;code&gt;full&lt;/code&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;DateFormat.getDateInstance(DateFormat.FULL, getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;i&gt;SubformatPattern&lt;/i&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;new SimpleDateFormat(subformatPattern, getLocale())
+&lt;tr&gt;
+&lt;td headers="ft" rowspan=6&gt;&lt;code&gt;time&lt;/code&gt;
+&lt;td headers="fs"&gt;&lt;i&gt;(none)&lt;/i&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;DateFormat.getTimeInstance(DateFormat.DEFAULT, getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;code&gt;short&lt;/code&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;DateFormat.getTimeInstance(DateFormat.SHORT, getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;code&gt;medium&lt;/code&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;DateFormat.getTimeInstance(DateFormat.DEFAULT, getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;code&gt;long&lt;/code&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;DateFormat.getTimeInstance(DateFormat.LONG, getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;code&gt;full&lt;/code&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;DateFormat.getTimeInstance(DateFormat.FULL, getLocale())&lt;/code&gt;
+&lt;tr&gt;
+&lt;td headers="fs"&gt;&lt;i&gt;SubformatPattern&lt;/i&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;new SimpleDateFormat(subformatPattern, getLocale())
+&lt;tr&gt;
+&lt;td headers="ft"&gt;&lt;code&gt;choice&lt;/code&gt;
+&lt;td headers="fs"&gt;&lt;i&gt;SubformatPattern&lt;/i&gt;
+&lt;td headers="sc"&gt;&lt;code&gt;new ChoiceFormat(subformatPattern)&lt;/code&gt;
+&lt;/table&gt;
+&lt;p&gt;
+
+&lt;h4&gt;Usage Information&lt;/h4&gt;
+
+&lt;p&gt;
+Here are some examples of usage.
+In real internationalized programs, the message format pattern and other
+static strings will, of course, be obtained from resource bundles.
+Other parameters will be dynamically determined at runtime.
+&lt;p&gt;
+The first example uses the static method &lt;code&gt;MessageFormat.format&lt;/code&gt;,
+which internally creates a &lt;code&gt;MessageFormat&lt;/code&gt; for one-time use:
+&lt;blockquote&gt;&lt;pre&gt;
+int planet = 7;
+String event = "a disturbance in the Force";
+
+String result = MessageFormat.format(
+"At {1,time} on {1,date}, there was {2} on planet {0,number,integer}.",
+planet, new Date(), event);
+&lt;/pre&gt;&lt;/blockquote&gt;
+The output is:
+&lt;blockquote&gt;&lt;pre&gt;
+At 12:30 PM on Jul 3, 2053, there was a disturbance in the Force on planet 7.
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;
+The following example creates a &lt;code&gt;MessageFormat&lt;/code&gt; instance that
+can be used repeatedly:
+&lt;blockquote&gt;&lt;pre&gt;
+int fileCount = 1273;
+String diskName = "MyDisk";
+Object[] testArgs = {new Long(fileCount), diskName};
+
+MessageFormat form = new MessageFormat(
+"The disk \"{1}\" contains {0} file(s).");
+
+System.out.println(form.format(testArgs));
+&lt;/pre&gt;&lt;/blockquote&gt;
+The output with different values for &lt;code&gt;fileCount&lt;/code&gt;:
+&lt;blockquote&gt;&lt;pre&gt;
+The disk "MyDisk" contains 0 file(s).
+The disk "MyDisk" contains 1 file(s).
+The disk "MyDisk" contains 1,273 file(s).
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;
+For more sophisticated patterns, you can use a &lt;code&gt;ChoiceFormat&lt;/code&gt;
+to produce correct forms for singular and plural:
+&lt;blockquote&gt;&lt;pre&gt;
+MessageFormat form = new MessageFormat("The disk \"{1}\" contains {0}.");
+double[] filelimits = {0,1,2};
+String[] filepart = {"no files","one file","{0,number} files"};
+ChoiceFormat fileform = new ChoiceFormat(filelimits, filepart);
+form.setFormatByArgumentIndex(0, fileform);
+
+int fileCount = 1273;
+String diskName = "MyDisk";
+Object[] testArgs = {new Long(fileCount), diskName};
+
+System.out.println(form.format(testArgs));
+&lt;/pre&gt;&lt;/blockquote&gt;
+The output with different values for &lt;code&gt;fileCount&lt;/code&gt;:
+&lt;blockquote&gt;&lt;pre&gt;
+The disk "MyDisk" contains no files.
+The disk "MyDisk" contains one file.
+The disk "MyDisk" contains 1,273 files.
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;
+You can create the &lt;code&gt;ChoiceFormat&lt;/code&gt; programmatically, as in the
+above example, or by using a pattern. See {@link ChoiceFormat}
+for more information.
+&lt;blockquote&gt;&lt;pre&gt;
+form.applyPattern(
+"There {0,choice,0#are no files|1#is one file|1&lt;are {0,number,integer} files}.");
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Note:&lt;/strong&gt; As we see above, the string produced
+by a &lt;code&gt;ChoiceFormat&lt;/code&gt; in &lt;code&gt;MessageFormat&lt;/code&gt; is treated specially;
+occurences of '{' are used to indicated subformats, and cause recursion.
+If you create both a &lt;code&gt;MessageFormat&lt;/code&gt; and &lt;code&gt;ChoiceFormat&lt;/code&gt;
+programmatically (instead of using the string patterns), then be careful not to
+produce a format that recurses on itself, which will cause an infinite loop.
+&lt;p&gt;
+When a single argument is parsed more than once in the string, the last match
+will be the final result of the parsing.  For example,
+&lt;blockquote&gt;&lt;pre&gt;
+MessageFormat mf = new MessageFormat("{0,number,#.##}, {0,number,#.#}");
+Object[] objs = {new Double(3.1415)};
+String result = mf.format( objs );
+result now equals "3.14, 3.1"
+objs = null;
+objs = mf.parse(result, new ParsePosition(0));
+objs now equals {new Double(3.1)}
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;
+Likewise, parsing with a MessageFormat object using patterns containing
+multiple occurences of the same argument would return the last match.  For
+example,
+&lt;blockquote&gt;&lt;pre&gt;
+MessageFormat mf = new MessageFormat("{0}, {0}, {0}");
+String forParsing = "x, y, z";
+Object[] objs = mf.parse(forParsing, new ParsePosition(0));
+result now equals {new String("z")}
+&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;h4&gt;&lt;a name="synchronization"&gt;Synchronization&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;
+Message formats are not synchronized.
+It is recommended to create separate format instances for each thread.
+If multiple threads access a format concurrently, it must be synchronized
+externally.
+
+@see          java.util.Locale
+@see          Format
+@see          NumberFormat
+@see          DecimalFormat
+@see          ChoiceFormat
+@version      1.56, 12/19/03
+@author       Mark Davis
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321959_225426_14298"/></generalization><inheritedMember humanName="Inherited Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_45961_18947"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FieldDelegate" refid="_9_5_f720368_1110473547784_970079_18950"/></inheritedMember><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_171579_18955"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_45961_18947"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="FieldDelegate" refid="_9_5_f720368_1110473547784_970079_18950"/></member><name humanName="Name" mode="s,e">MessageFormat</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_171579_18955"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309751_403945_6263"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321959_225426_14298"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309751_403945_6263"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_171579_18955"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Field" refid="_9_5_f720368_1110473547784_171579_18955"/></ownedMember><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="text" refid="_9_5_f720368_1110473547768_615400_18906"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::text::MessageFormat</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="Format" refid="_9_5_f720368_1110473546690_941980_8657"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

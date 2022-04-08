@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308149_431807_5139"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecurityManager" refid="_9_5_f720368_1110473546612_475087_7679"/></annotatedElement><body humanName="Body" mode="s,e">The security manager is a class that allows
+applications to implement a security policy. It allows an
+application to determine, before performing a possibly unsafe or
+sensitive operation, what the operation is and whether
+it is being attempted in a security context that allows the
+operation to be performed. The
+application can allow or disallow the operation.
+&lt;p&gt;
+The &lt;code&gt;SecurityManager&lt;/code&gt; class contains many methods with
+names that begin with the word &lt;code&gt;check&lt;/code&gt;. These methods
+are called by various methods in the Java libraries before those
+methods perform certain potentially sensitive operations. The
+invocation of such a &lt;code&gt;check&lt;/code&gt; method typically looks like this:
+&lt;p&gt;&lt;blockquote&gt;&lt;pre&gt;
+SecurityManager security = System.getSecurityManager();
+if (security != null) {
+security.check&lt;i&gt;XXX&lt;/i&gt;(argument, &amp;nbsp;.&amp;nbsp;.&amp;nbsp;.&amp;nbsp;);
+}
+&lt;/pre&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+The security manager is thereby given an opportunity to prevent
+completion of the operation by throwing an exception. A security
+manager routine simply returns if the operation is permitted, but
+throws a &lt;code&gt;SecurityException&lt;/code&gt; if the operation is not
+permitted. The only exception to this convention is
+&lt;code&gt;checkTopLevelWindow&lt;/code&gt;, which returns a
+&lt;code&gt;boolean&lt;/code&gt; value.
+&lt;p&gt;
+The current security manager is set by the
+&lt;code&gt;setSecurityManager&lt;/code&gt; method in class
+&lt;code&gt;System&lt;/code&gt;. The current security manager is obtained
+by the &lt;code&gt;getSecurityManager&lt;/code&gt; method.
+&lt;p&gt;
+The special method
+{@link SecurityManager#checkPermission(java.security.Permission)}
+determines whether an access request indicated by a specified
+permission should be granted or denied. The
+default implementation calls
+
+&lt;pre&gt;
+AccessController.checkPermission(perm);
+&lt;/pre&gt;
+
+&lt;p&gt;
+If a requested access is allowed,
+&lt;code&gt;checkPermission&lt;/code&gt; returns quietly. If denied, a
+&lt;code&gt;SecurityException&lt;/code&gt; is thrown.
+&lt;p&gt;
+As of Java 2 SDK v1.2, the default implementation of each of the other
+&lt;code&gt;check&lt;/code&gt; methods in &lt;code&gt;SecurityManager&lt;/code&gt; is to
+call the &lt;code&gt;SecurityManager checkPermission&lt;/code&gt; method
+to determine if the calling thread has permission to perform the requested
+operation.
+&lt;p&gt;
+Note that the &lt;code&gt;checkPermission&lt;/code&gt; method with
+just a single permission argument always performs security checks
+within the context of the currently executing thread.
+Sometimes a security check that should be made within a given context
+will actually need to be done from within a
+&lt;i&gt;different&lt;/i&gt; context (for example, from within a worker thread).
+The {@link SecurityManager#getSecurityContext getSecurityContext} method
+and the {@link SecurityManager#checkPermission(java.security.Permission,
+java.lang.Object) checkPermission}
+method that includes a context argument are provided
+for this situation. The
+&lt;code&gt;getSecurityContext&lt;/code&gt; method returns a "snapshot"
+of the current calling context. (The default implementation
+returns an AccessControlContext object.) A sample call is
+the following:
+
+&lt;pre&gt;
+Object context = null;
+SecurityManager sm = System.getSecurityManager();
+if (sm != null) context = sm.getSecurityContext();
+&lt;/pre&gt;
+
+&lt;p&gt;
+The &lt;code&gt;checkPermission&lt;/code&gt; method
+that takes a context object in addition to a permission
+makes access decisions based on that context,
+rather than on that of the current execution thread.
+Code within a different context can thus call that method,
+passing the permission and the
+previously-saved context object. A sample call, using the
+SecurityManager &lt;code&gt;sm&lt;/code&gt; obtained as in the previous example,
+is the following:
+
+&lt;pre&gt;
+if (sm != null) sm.checkPermission(permission, context);
+&lt;/pre&gt;
+
+&lt;p&gt;Permissions fall into these categories: File, Socket, Net,
+Security, Runtime, Property, AWT, Reflect, and Serializable.
+The classes managing these various
+permission categories are &lt;code&gt;java.io.FilePermission&lt;/code&gt;,
+&lt;code&gt;java.net.SocketPermission&lt;/code&gt;,
+&lt;code&gt;java.net.NetPermission&lt;/code&gt;,
+&lt;code&gt;java.security.SecurityPermission&lt;/code&gt;,
+&lt;code&gt;java.lang.RuntimePermission&lt;/code&gt;,
+&lt;code&gt;java.util.PropertyPermission&lt;/code&gt;,
+&lt;code&gt;java.awt.AWTPermission&lt;/code&gt;,
+&lt;code&gt;java.lang.reflect.ReflectPermission&lt;/code&gt;, and
+&lt;code&gt;java.io.SerializablePermission&lt;/code&gt;.
+
+&lt;p&gt;All but the first two (FilePermission and SocketPermission) are
+subclasses of &lt;code&gt;java.security.BasicPermission&lt;/code&gt;, which itself
+is an abstract subclass of the
+top-level class for permissions, which is
+&lt;code&gt;java.security.Permission&lt;/code&gt;. BasicPermission defines the
+functionality needed for all permissions that contain a name
+that follows the hierarchical property naming convention
+(for example, "exitVM", "setFactory", "queuePrintJob", etc).
+An asterisk
+may appear at the end of the name, following a ".", or by itself, to
+signify a wildcard match. For example: "a.*" or "*" is valid,
+"*a" or "a*b" is not valid.
+
+&lt;p&gt;FilePermission and SocketPermission are subclasses of the
+top-level class for permissions
+(&lt;code&gt;java.security.Permission&lt;/code&gt;). Classes like these
+that have a more complicated name syntax than that used by
+BasicPermission subclass directly from Permission rather than from
+BasicPermission. For example,
+for a &lt;code&gt;java.io.FilePermission&lt;/code&gt; object, the permission name is
+the path name of a file (or directory).
+
+&lt;p&gt;Some of the permission classes have an "actions" list that tells
+the actions that are permitted for the object.  For example,
+for a &lt;code&gt;java.io.FilePermission&lt;/code&gt; object, the actions list
+(such as "read, write") specifies which actions are granted for the
+specified file (or for files in the specified directory).
+
+&lt;p&gt;Other permission classes are for "named" permissions -
+ones that contain a name but no actions list; you either have the
+named permission or you don't.
+
+&lt;p&gt;Note: There is also a &lt;code&gt;java.security.AllPermission&lt;/code&gt;
+permission that implies all permissions. It exists to simplify the work
+of system administrators who might need to perform multiple
+tasks that require all (or numerous) permissions.
+&lt;p&gt;
+See &lt;a href ="../../../guide/security/permissions.html"&gt;
+Permissions in the JDK&lt;/a&gt; for permission-related information.
+This document includes, for example, a table listing the various SecurityManager
+&lt;code&gt;check&lt;/code&gt; methods and the permission(s) the default
+implementation of each such method requires.
+It also contains a table of all the version 1.2 methods
+that require permissions, and for each such method tells
+which permission it requires.
+&lt;p&gt;
+For more information about &lt;code&gt;SecurityManager&lt;/code&gt; changes made in
+the JDK and advice regarding porting of 1.1-style security managers,
+see the &lt;a href="../../../guide/security/index.html"&gt;security documentation&lt;/a&gt;.
+
+@author  Arthur van Hoff
+@author  Roland Schemers
+
+@version 1.136, 06/28/04
+@see     java.lang.ClassLoader
+@see     java.lang.SecurityException
+@see     java.lang.SecurityManager#checkTopLevelWindow(java.lang.Object)
+checkTopLevelWindow
+@see     java.lang.System#getSecurityManager() getSecurityManager
+@see     java.lang.System#setSecurityManager(java.lang.SecurityManager)
+setSecurityManager
+@see     java.security.AccessController AccessController
+@see     java.security.AccessControlContext AccessControlContext
+@see     java.security.AccessControlException AccessControlException
+@see     java.security.Permission
+@see     java.security.BasicPermission
+@see     java.io.FilePermission
+@see     java.net.SocketPermission
+@see     java.util.PropertyPermission
+@see     java.lang.RuntimePermission
+@see     java.awt.AWTPermission
+@see     java.security.Policy Policy
+@see     java.security.SecurityPermission SecurityPermission
+@see     java.security.ProtectionDomain
+
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SecurityManager" refid="_9_5_f720368_1110473546612_475087_7679"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SecurityManager" refid="_9_5_f720368_1110473546612_475087_7679"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

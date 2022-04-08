@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314628_249913_8989"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="NamedNodeMap" refid="_9_5_f720368_1110473546940_84630_13240"/></annotatedElement><body humanName="Body" mode="s,e">Objects implementing the &lt;code&gt;NamedNodeMap&lt;/code&gt; interface are used to
+represent collections of nodes that can be accessed by name. Note that
+&lt;code&gt;NamedNodeMap&lt;/code&gt; does not inherit from &lt;code&gt;NodeList&lt;/code&gt;;
+&lt;code&gt;NamedNodeMaps&lt;/code&gt; are not maintained in any particular order.
+Objects contained in an object implementing &lt;code&gt;NamedNodeMap&lt;/code&gt; may
+also be accessed by an ordinal index, but this is simply to allow
+convenient enumeration of the contents of a &lt;code&gt;NamedNodeMap&lt;/code&gt;,
+and does not imply that the DOM specifies an order to these Nodes.
+&lt;p&gt;&lt;code&gt;NamedNodeMap&lt;/code&gt; objects in the DOM are live.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'&gt;Document Object Model (DOM) Level 3 Core Specification&lt;/a&gt;.
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="NamedNodeMap" refid="_9_5_f720368_1110473546940_84630_13240"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="NamedNodeMap" refid="_9_5_f720368_1110473546940_84630_13240"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

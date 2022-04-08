@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309171_612086_5853"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="X509CRL" refid="_9_5_f720368_1110473546674_508810_8349"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;
+Abstract class for an X.509 Certificate Revocation List (CRL).
+A CRL is a time-stamped list identifying revoked certificates.
+It is signed by a Certificate Authority (CA) and made freely
+available in a public repository.
+
+&lt;p&gt;Each revoked certificate is
+identified in a CRL by its certificate serial number. When a
+certificate-using system uses a certificate (e.g., for verifying a
+remote user's digital signature), that system not only checks the
+certificate signature and validity but also acquires a suitably-
+recent CRL and checks that the certificate serial number is not on
+that CRL.  The meaning of "suitably-recent" may vary with local
+policy, but it usually means the most recently-issued CRL.  A CA
+issues a new CRL on a regular periodic basis (e.g., hourly, daily, or
+weekly).  Entries are added to CRLs as revocations occur, and an
+entry may be removed when the certificate expiration date is reached.
+&lt;p&gt;
+The X.509 v2 CRL format is described below in ASN.1:
+&lt;pre&gt;
+CertificateList  ::=  SEQUENCE  {
+tbsCertList          TBSCertList,
+signatureAlgorithm   AlgorithmIdentifier,
+signature            BIT STRING  }
+&lt;/pre&gt;
+&lt;p&gt;
+More information can be found in RFC 2459,
+"Internet X.509 Public Key Infrastructure Certificate and CRL
+Profile" at &lt;A HREF="http://www.ietf.org/rfc/rfc2459.txt"&gt;
+http://www.ietf.org/rfc/rfc2459.txt &lt;/A&gt;.
+&lt;p&gt;
+The ASN.1 definition of &lt;code&gt;tbsCertList&lt;/code&gt; is:
+&lt;pre&gt;
+TBSCertList  ::=  SEQUENCE  {
+version                 Version OPTIONAL,
+-- if present, must be v2
+signature               AlgorithmIdentifier,
+issuer                  Name,
+thisUpdate              ChoiceOfTime,
+nextUpdate              ChoiceOfTime OPTIONAL,
+revokedCertificates     SEQUENCE OF SEQUENCE  {
+userCertificate         CertificateSerialNumber,
+revocationDate          ChoiceOfTime,
+crlEntryExtensions      Extensions OPTIONAL
+-- if present, must be v2
+}  OPTIONAL,
+crlExtensions           [0]  EXPLICIT Extensions OPTIONAL
+-- if present, must be v2
+}
+&lt;/pre&gt;
+&lt;p&gt;
+CRLs are instantiated using a certificate factory. The following is an
+example of how to instantiate an X.509 CRL:
+&lt;pre&gt;&lt;code&gt;
+InputStream inStream = new FileInputStream("fileName-of-crl");
+CertificateFactory cf = CertificateFactory.getInstance("X.509");
+X509CRL crl = (X509CRL)cf.generateCRL(inStream);
+inStream.close();
+&lt;/code&gt;&lt;/pre&gt;
+
+@author Hemma Prafullchandra
+
+@version 1.29, 12/19/03
+
+@see CRL
+@see CertificateFactory
+@see X509Extension
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="X509CRL" refid="_9_5_f720368_1110473546674_508810_8349"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="X509CRL" refid="_9_5_f720368_1110473546674_508810_8349"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

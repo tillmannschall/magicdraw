@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306106_102891_3988"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RasterOp" refid="_9_5_f720368_1110473546581_850797_6823"/></annotatedElement><body humanName="Body" mode="s,e">This interface describes single-input/single-output
+operations performed on Raster objects.  It is implemented by such
+classes as AffineTransformOp, ConvolveOp, and LookupOp.  The Source
+and Destination objects must contain the appropriate number
+of bands for the particular classes implementing this interface.
+Otherwise, an exception is thrown.  This interface cannot be used to
+describe more sophisticated Ops such as ones that take multiple sources.
+Each class implementing this interface will specify whether or not it
+will allow an in-place filtering operation (i.e. source object equal
+to the destination object).  Note that the restriction to single-input
+operations means that the values of destination pixels prior to the
+operation are not used as input to the filter operation.
+@see AffineTransformOp
+@see BandCombineOp
+@see ColorConvertOp
+@see ConvolveOp
+@see LookupOp
+@see RescaleOp
+@version 10 Feb 1997
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="RasterOp" refid="_9_5_f720368_1110473546581_850797_6823"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RasterOp" refid="_9_5_f720368_1110473546581_850797_6823"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

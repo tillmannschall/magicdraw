@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318284_26275_12689"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ProxyLazyValue" refid="_9_5_f720368_1110473548487_158086_24527"/></annotatedElement><body humanName="Body" mode="s,e">This class provides an implementation of &lt;code&gt;LazyValue&lt;/code&gt;
+which can be
+used to delay loading of the Class for the instance to be created.
+It also avoids creation of an anonymous inner class for the
+&lt;code&gt;LazyValue&lt;/code&gt;
+subclass.  Both of these improve performance at the time that a
+a Look and Feel is loaded, at the cost of a slight performance
+reduction the first time &lt;code&gt;createValue&lt;/code&gt; is called
+(since Reflection APIs are used).
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ProxyLazyValue" refid="_9_5_f720368_1110473548487_158086_24527"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ProxyLazyValue" refid="_9_5_f720368_1110473548487_158086_24527"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

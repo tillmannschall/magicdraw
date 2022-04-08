@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315830_107485_10331"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Doc" refid="_9_5_f720368_1110473546737_544729_9513"/></annotatedElement><body humanName="Body" mode="s,e">Interface Doc specifies the interface for an object that supplies one piece
+of print data for a Print Job. "Doc" is a short, easy-to-pronounce term
+that means "a piece of print data." The client passes to the Print Job an
+object that implements interface Doc, and the Print Job calls methods on
+that object to obtain the print data. The Doc interface lets a Print Job:
+&lt;UL&gt;
+&lt;LI&gt;
+Determine the format, or "doc flavor" (class {@link DocFlavor DocFlavor}),
+in which the print data is available. A doc flavor designates the print
+data format (a MIME type) and the representation class of the object
+from which the print data comes.
+&lt;P&gt;
+&lt;LI&gt;
+Obtain the print data representation object, which is an instance of the
+doc flavor's representation class. The Print Job can then obtain the actual
+print data from the representation object.
+&lt;P&gt;
+&lt;LI&gt;
+Obtain the printing attributes that specify additional characteristics of
+the doc or that specify processing instructions to be applied to the doc.
+Printing attributes are defined in package {@link javax.print.attribute
+javax.print.attribute}. The doc returns its printing attributes stored in
+an {@link javax.print.attribute.DocAttributeSet javax.print.attribute.DocAttributeSet}.
+&lt;/UL&gt;
+&lt;P&gt;
+Each method in an implementation of interface Doc is permitted always to
+return the same object each time the method is called.
+This has implications
+for a Print Job or other caller of a doc object whose print data
+representation object "consumes" the print data as the caller obtains the
+print data, such as a print data representation object which is a stream.
+Once the Print Job has called {@link #getPrintData()
+&lt;CODE&gt;getPrintData()&lt;/CODE&gt;} and obtained the stream, any further calls to
+{@link #getPrintData() &lt;CODE&gt;getPrintData()&lt;/CODE&gt;} will return the same
+stream object upon which reading may already be in progress, &lt;I&gt;not&lt;/I&gt; a new
+stream object that will re-read the print data from the beginning. Specifying
+a doc object to behave this way simplifies the implementation of doc objects,
+and is justified on the grounds that a particular doc is intended to convey
+print data only to one Print Job, not to several different Print Jobs. (To
+convey the same print data to several different Print Jobs, you have to
+create several different doc objects on top of the same print data source.)
+&lt;P&gt;
+Interface Doc affords considerable implementation flexibility. The print data
+might already be in existence when the doc object is constructed. In this
+case the objects returned by the doc's methods can be supplied to the doc's
+constructor, be stored in the doc ahead of time, and simply be returned when
+called for. Alternatively, the print data might not exist yet when the doc
+object is constructed. In this case the doc object might provide a "lazy"
+implementation that generates the print data representation object (and/or
+the print data) only when the Print Job calls for it (when the Print Job
+calls the {@link #getPrintData() &lt;CODE&gt;getPrintData()&lt;/CODE&gt;} method).
+&lt;P&gt;
+There is no restriction on the number of client threads that may be
+simultaneously accessing the same doc. Therefore, all implementations of
+interface Doc must be designed to be multiple thread safe.
+&lt;p&gt;
+However there can only be one consumer of the print data obtained from a
+Doc.
+&lt;p&gt;
+If print data is obtained from the client as a stream, by calling Doc's
+&lt;code&gt;getReaderForText()&lt;/code&gt; or &lt;code&gt;getStreamForBytes()&lt;/code&gt;
+methods, or because the print data source is already an InputStream or
+Reader, then the print service should always close these streams for the
+client on all job completion conditions. With the following caveat.
+If the print data is itself a stream, the service will always close it.
+If the print data is otherwise something that can be requested as a stream,
+the service will only close the stream if it has obtained the stream before
+terminating. That is, just because a print service might request data as
+a stream does not mean that it will, with the implications that Doc
+implementors which rely on the service to close them should create such
+streams only in response to a request from the service.
+&lt;P&gt;
+&lt;HR&gt;
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Doc" refid="_9_5_f720368_1110473546737_544729_9513"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Doc" refid="_9_5_f720368_1110473546737_544729_9513"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307368_816418_4662"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OptionalDataException" refid="_9_5_f720368_1110473546612_181413_7453"/></annotatedElement><body humanName="Body" mode="s,e">Exception indicating the failure of an object read operation due to
+unread primitive data, or the end of data belonging to a serialized
+object in the stream.  This exception may be thrown in two cases:
+
+&lt;ul&gt;
+&lt;li&gt;An attempt was made to read an object when the next element in the
+stream is primitive data.  In this case, the OptionalDataException's
+length field is set to the number of bytes of primitive data
+immediately readable from the stream, and the eof field is set to
+false.
+
+&lt;li&gt;An attempt was made to read past the end of data consumable by a
+class-defined readObject or readExternal method.  In this case, the
+OptionalDataException's eof field is set to true, and the length field
+is set to 0.
+&lt;/ul&gt;
+
+@author  unascribed
+@version 1.18, 01/12/04
+@since   JDK1.1
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="OptionalDataException" refid="_9_5_f720368_1110473546612_181413_7453"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="OptionalDataException" refid="_9_5_f720368_1110473546612_181413_7453"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

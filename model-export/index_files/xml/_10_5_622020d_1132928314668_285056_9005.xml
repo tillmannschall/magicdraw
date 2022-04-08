@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314668_285056_9005"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TypeInfo" refid="_10_5_622020d_1132928314668_398382_9003"/></annotatedElement><body humanName="Body" mode="s,e">The &lt;code&gt;TypeInfo&lt;/code&gt; interface represents a type referenced from
+&lt;code&gt;Element&lt;/code&gt; or &lt;code&gt;Attr&lt;/code&gt; nodes, specified in the schemas
+associated with the document. The type is a pair of a namespace URI and
+name properties, and depends on the document's schema.
+&lt;p&gt; If the document's schema is an XML DTD [&lt;a href='http://www.w3.org/TR/2004/REC-xml-20040204'&gt;XML 1.0&lt;/a&gt;], the values
+are computed as follows:
+&lt;ul&gt;
+&lt;li&gt; If this type is referenced from an
+&lt;code&gt;Attr&lt;/code&gt; node, &lt;code&gt;typeNamespace&lt;/code&gt; is
+&lt;code&gt;"http://www.w3.org/TR/REC-xml"&lt;/code&gt; and &lt;code&gt;typeName&lt;/code&gt;
+represents the &lt;b&gt;[attribute type]&lt;/b&gt; property in the [&lt;a href='http://www.w3.org/TR/2004/REC-xml-infoset-20040204/'&gt;XML Information Set&lt;/a&gt;]
+. If there is no declaration for the attribute, &lt;code&gt;typeNamespace&lt;/code&gt;
+and &lt;code&gt;typeName&lt;/code&gt; are &lt;code&gt;null&lt;/code&gt;.
+&lt;/li&gt;
+&lt;li&gt; If this type is
+referenced from an &lt;code&gt;Element&lt;/code&gt; node, &lt;code&gt;typeNamespace&lt;/code&gt;
+and &lt;code&gt;typeName&lt;/code&gt; are &lt;code&gt;null&lt;/code&gt;.
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; If the document's schema is an XML Schema [&lt;a href='http://www.w3.org/TR/2001/REC-xmlschema-1-20010502/'&gt;XML Schema Part 1&lt;/a&gt;]
+, the values are computed as follows using the post-schema-validation
+infoset contributions (also called PSVI contributions):
+&lt;ul&gt;
+&lt;li&gt; If the &lt;b&gt;[validity]&lt;/b&gt; property exists AND is &lt;em&gt;"invalid"&lt;/em&gt; or &lt;em&gt;"notKnown"&lt;/em&gt;: the {target namespace} and {name} properties of the declared type if
+available, otherwise &lt;code&gt;null&lt;/code&gt;.
+&lt;p &gt;&lt;b&gt;Note:&lt;/b&gt;  At the time of writing, the XML Schema specification does
+not require exposing the declared type. Thus, DOM implementations might
+choose not to provide type information if validity is not valid.
+&lt;/li&gt;
+&lt;li&gt; If the &lt;b&gt;[validity]&lt;/b&gt; property exists and is &lt;em&gt;"valid"&lt;/em&gt;:
+&lt;ol&gt;
+&lt;li&gt; If &lt;b&gt;[member type definition]&lt;/b&gt; exists:
+&lt;ol&gt;
+&lt;li&gt;If {name} is not absent, then expose {name} and {target
+namespace} properties of the &lt;b&gt;[member type definition]&lt;/b&gt; property;
+&lt;/li&gt;
+&lt;li&gt;Otherwise, expose the namespace and local name of the
+corresponding anonymous type name.
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt; If the &lt;b&gt;[type definition]&lt;/b&gt; property exists:
+&lt;ol&gt;
+&lt;li&gt;If {name} is not absent, then expose {name} and {target
+namespace} properties of the &lt;b&gt;[type definition]&lt;/b&gt; property;
+&lt;/li&gt;
+&lt;li&gt;Otherwise, expose the namespace and local name of the
+corresponding anonymous type name.
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt; If the &lt;b&gt;[member type definition anonymous]&lt;/b&gt; exists:
+&lt;ol&gt;
+&lt;li&gt;If it is false, then expose &lt;b&gt;[member type definition name]&lt;/b&gt; and &lt;b&gt;[member type definition namespace]&lt;/b&gt; properties;
+&lt;/li&gt;
+&lt;li&gt;Otherwise, expose the namespace and local name of the
+corresponding anonymous type name.
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt; If the &lt;b&gt;[type definition anonymous]&lt;/b&gt; exists:
+&lt;ol&gt;
+&lt;li&gt;If it is false, then expose &lt;b&gt;[type definition name]&lt;/b&gt; and &lt;b&gt;[type definition namespace]&lt;/b&gt; properties;
+&lt;/li&gt;
+&lt;li&gt;Otherwise, expose the namespace and local name of the
+corresponding anonymous type name.
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p &gt;&lt;b&gt;Note:&lt;/b&gt;  Other schema languages are outside the scope of the W3C
+and therefore should define how to represent their type systems using
+&lt;code&gt;TypeInfo&lt;/code&gt;.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407'&gt;Document Object Model (DOM) Level 3 Core Specification&lt;/a&gt;.
+@since DOM Level 3
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="TypeInfo" refid="_10_5_622020d_1132928314668_398382_9003"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TypeInfo" refid="_10_5_622020d_1132928314668_398382_9003"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

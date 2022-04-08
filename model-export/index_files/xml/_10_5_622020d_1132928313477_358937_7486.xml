@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928313477_358937_7486"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Timer" refid="_9_5_f720368_1110473546706_358436_8931"/></annotatedElement><body humanName="Body" mode="s,e">A facility for threads to schedule tasks for future execution in a
+background thread.  Tasks may be scheduled for one-time execution, or for
+repeated execution at regular intervals.
+
+&lt;p&gt;Corresponding to each &lt;tt&gt;Timer&lt;/tt&gt; object is a single background
+thread that is used to execute all of the timer's tasks, sequentially.
+Timer tasks should complete quickly.  If a timer task takes excessive time
+to complete, it "hogs" the timer's task execution thread.  This can, in
+turn, delay the execution of subsequent tasks, which may "bunch up" and
+execute in rapid succession when (and if) the offending task finally
+completes.
+
+&lt;p&gt;After the last live reference to a &lt;tt&gt;Timer&lt;/tt&gt; object goes away
+&lt;i&gt;and&lt;/i&gt; all outstanding tasks have completed execution, the timer's task
+execution thread terminates gracefully (and becomes subject to garbage
+collection).  However, this can take arbitrarily long to occur.  By
+default, the task execution thread does not run as a &lt;i&gt;daemon thread&lt;/i&gt;,
+so it is capable of keeping an application from terminating.  If a caller
+wants to terminate a timer's task execution thread rapidly, the caller
+should invoke the timer's &lt;tt&gt;cancel&lt;/tt&gt; method.
+
+&lt;p&gt;If the timer's task execution thread terminates unexpectedly, for
+example, because its &lt;tt&gt;stop&lt;/tt&gt; method is invoked, any further
+attempt to schedule a task on the timer will result in an
+&lt;tt&gt;IllegalStateException&lt;/tt&gt;, as if the timer's &lt;tt&gt;cancel&lt;/tt&gt;
+method had been invoked.
+
+&lt;p&gt;This class is thread-safe: multiple threads can share a single
+&lt;tt&gt;Timer&lt;/tt&gt; object without the need for external synchronization.
+
+&lt;p&gt;This class does &lt;i&gt;not&lt;/i&gt; offer real-time guarantees: it schedules
+tasks using the &lt;tt&gt;Object.wait(long)&lt;/tt&gt; method.
+
+&lt;p&gt;Implementation note: This class scales to large numbers of concurrently
+scheduled tasks (thousands should present no problem).  Internally,
+it uses a binary heap to represent its task queue, so the cost to schedule
+a task is O(log n), where n is the number of concurrently scheduled tasks.
+
+&lt;p&gt;Implementation note: All constructors start a timer thread.
+
+@author  Josh Bloch
+@version 1.17, 04/12/04
+@see     TimerTask
+@see     Object#wait(long)
+@since   1.3
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Timer" refid="_9_5_f720368_1110473546706_358436_8931"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Timer" refid="_9_5_f720368_1110473546706_358436_8931"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

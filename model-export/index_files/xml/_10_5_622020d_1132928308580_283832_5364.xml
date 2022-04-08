@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308580_283832_5364"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="URLEncoder" refid="_9_5_f720368_1110473546643_648940_7853"/></annotatedElement><body humanName="Body" mode="s,e">Utility class for HTML form encoding. This class contains static methods
+for converting a String to the &lt;CODE&gt;application/x-www-form-urlencoded&lt;/CODE&gt; MIME
+format. For more information about HTML form encoding, consult the HTML
+&lt;A HREF="http://www.w3.org/TR/html4/"&gt;specification&lt;/A&gt;.
+
+&lt;p&gt;
+When encoding a String, the following rules apply:
+
+&lt;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The alphanumeric characters "&lt;code&gt;a&lt;/code&gt;" through
+"&lt;code&gt;z&lt;/code&gt;", "&lt;code&gt;A&lt;/code&gt;" through
+"&lt;code&gt;Z&lt;/code&gt;" and "&lt;code&gt;0&lt;/code&gt;"
+through "&lt;code&gt;9&lt;/code&gt;" remain the same.
+&lt;li&gt;The special characters "&lt;code&gt;.&lt;/code&gt;",
+"&lt;code&gt;-&lt;/code&gt;", "&lt;code&gt;*&lt;/code&gt;", and
+"&lt;code&gt;_&lt;/code&gt;" remain the same.
+&lt;li&gt;The space character "&lt;code&gt;&amp;nbsp;&lt;/code&gt;" is
+converted into a plus sign "&lt;code&gt;+&lt;/code&gt;".
+&lt;li&gt;All other characters are unsafe and are first converted into
+one or more bytes using some encoding scheme. Then each byte is
+represented by the 3-character string
+"&lt;code&gt;%&lt;i&gt;xy&lt;/i&gt;&lt;/code&gt;", where &lt;i&gt;xy&lt;/i&gt; is the
+two-digit hexadecimal representation of the byte.
+The recommended encoding scheme to use is UTF-8. However,
+for compatibility reasons, if an encoding is not specified,
+then the default encoding of the platform is used.
+&lt;/ul&gt;
+
+&lt;p&gt;
+For example using UTF-8 as the encoding scheme the string "The
+string &amp;#252;@foo-bar" would get converted to
+"The+string+%C3%BC%40foo-bar" because in UTF-8 the character
+&amp;#252; is encoded as two bytes C3 (hex) and BC (hex), and the
+character @ is encoded as one byte 40 (hex).
+
+@author  Herb Jellinek
+@version 1.30, 05/18/04
+@since   JDK1.0
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="URLEncoder" refid="_9_5_f720368_1110473546643_648940_7853"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="URLEncoder" refid="_9_5_f720368_1110473546643_648940_7853"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306316_786612_4107"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTKeyStroke" refid="_9_5_f720368_1110473546581_370402_6937"/></annotatedElement><body humanName="Body" mode="s,e">An &lt;code&gt;AWTKeyStroke&lt;/code&gt; represents a key action on the
+keyboard, or equivalent input device. &lt;code&gt;AWTKeyStroke&lt;/code&gt;s
+can correspond to only a press or release of a
+particular key, just as &lt;code&gt;KEY_PRESSED&lt;/code&gt; and
+&lt;code&gt;KEY_RELEASED&lt;/code&gt; &lt;code&gt;KeyEvent&lt;/code&gt;s do;
+alternately, they can correspond to typing a specific Java character, just
+as &lt;code&gt;KEY_TYPED&lt;/code&gt; &lt;code&gt;KeyEvent&lt;/code&gt;s do.
+In all cases, &lt;code&gt;AWTKeyStroke&lt;/code&gt;s can specify modifiers
+(alt, shift, control, meta, or a combination thereof) which must be present
+during the action for an exact match.
+&lt;p&gt;
+&lt;code&gt;AWTKeyStrokes&lt;/code&gt; are immutable, and are intended
+to be unique. Client code should never create an
+&lt;code&gt;AWTKeyStroke&lt;/code&gt; on its own, but should instead use
+a variant of &lt;code&gt;getAWTKeyStroke&lt;/code&gt;. Client use of these factory
+methods allows the &lt;code&gt;AWTKeyStroke&lt;/code&gt; implementation
+to cache and share instances efficiently.
+
+@see #getAWTKeyStroke
+
+@version 1.23, 05/05/04
+@author Arnaud Weber
+@author David Mendenhall
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AWTKeyStroke" refid="_9_5_f720368_1110473546581_370402_6937"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AWTKeyStroke" refid="_9_5_f720368_1110473546581_370402_6937"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

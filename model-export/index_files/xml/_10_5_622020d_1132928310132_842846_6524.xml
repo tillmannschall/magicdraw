@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310132_842846_6524"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CopyOnWriteArrayList" refid="_10_5_622020d_1132928310122_196599_6507"/></annotatedElement><body humanName="Body" mode="s,e">A thread-safe variant of {@link java.util.ArrayList} in which all mutative
+operations (add, set, and so on) are implemented by making a fresh
+copy of the underlying array.
+
+&lt;p&gt; This is ordinarily too costly, but may be &lt;em&gt;more&lt;/em&gt; efficient
+than alternatives when traversal operations vastly outnumber
+mutations, and is useful when you cannot or don't want to
+synchronize traversals, yet need to preclude interference among
+concurrent threads.  The "snapshot" style iterator method uses a
+reference to the state of the array at the point that the iterator
+was created. This array never changes during the lifetime of the
+iterator, so interference is impossible and the iterator is
+guaranteed not to throw &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt;.
+The iterator will not reflect additions, removals, or changes to
+the list since the iterator was created.  Element-changing
+operations on iterators themselves (remove, set, and add) are not
+supported. These methods throw
+&lt;tt&gt;UnsupportedOperationException&lt;/tt&gt;.
+
+&lt;p&gt;This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@since 1.5
+@author Doug Lea
+@param &lt;E&gt; the type of elements held in this collection
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CopyOnWriteArrayList" refid="_10_5_622020d_1132928310122_196599_6507"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CopyOnWriteArrayList" refid="_10_5_622020d_1132928310122_196599_6507"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

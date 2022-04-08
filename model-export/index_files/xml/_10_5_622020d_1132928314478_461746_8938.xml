@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314478_461746_8938"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TreeWalker" refid="_9_5_f720368_1110473546940_36555_13210"/></annotatedElement><body humanName="Body" mode="s,e">&lt;code&gt;TreeWalker&lt;/code&gt; objects are used to navigate a document tree or
+subtree using the view of the document defined by their
+&lt;code&gt;whatToShow&lt;/code&gt; flags and filter (if any). Any function which
+performs navigation using a &lt;code&gt;TreeWalker&lt;/code&gt; will automatically
+support any view defined by a &lt;code&gt;TreeWalker&lt;/code&gt;.
+&lt;p&gt;Omitting nodes from the logical view of a subtree can result in a
+structure that is substantially different from the same subtree in the
+complete, unfiltered document. Nodes that are siblings in the
+&lt;code&gt;TreeWalker&lt;/code&gt; view may be children of different, widely
+separated nodes in the original view. For instance, consider a
+&lt;code&gt;NodeFilter&lt;/code&gt; that skips all nodes except for Text nodes and
+the root node of a document. In the logical view that results, all text
+nodes will be siblings and appear as direct children of the root node, no
+matter how deeply nested the structure of the original document.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/REC-DOM-Level-2-Traversal-Range-20001113'&gt;Document Object Model (DOM) Level 2 Traversal and Range Specification&lt;/a&gt;.
+@since DOM Level 2
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="TreeWalker" refid="_9_5_f720368_1110473546940_36555_13210"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="TreeWalker" refid="_9_5_f720368_1110473546940_36555_13210"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

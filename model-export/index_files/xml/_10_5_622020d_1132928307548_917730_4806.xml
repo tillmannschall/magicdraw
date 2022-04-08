@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307548_917730_4806"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MemoryManagerMXBean" refid="_10_5_622020d_1132928307548_226527_4804"/></annotatedElement><body humanName="Body" mode="s,e">The management interface for a memory manager.
+A memory manager manages one or more memory pools of the
+Java virtual machine.
+
+&lt;p&gt; A Java virtual machine has one or more memory managers.
+An instance implementing this interface is
+an &lt;a href="ManagementFactory.html#MXBean"&gt;MXBean&lt;/a&gt;
+that can be obtained by calling
+the {@link ManagementFactory#getMemoryManagerMXBeans} method or
+from the {@link ManagementFactory#getPlatformMBeanServer
+platform &lt;tt&gt;MBeanServer&lt;/tt&gt;} method.
+
+&lt;p&gt;The &lt;tt&gt;ObjectName&lt;/tt&gt; for uniquely identifying the MXBean for
+a memory manager within an MBeanServer is:
+&lt;blockquote&gt;
+{@link ManagementFactory#MEMORY_MANAGER_MXBEAN_DOMAIN_TYPE
+&lt;tt&gt;java.lang:type=MemoryManager&lt;/tt&gt;}&lt;tt&gt;,name=&lt;/tt&gt;&lt;i&gt;manager's name&lt;/i&gt;
+&lt;/blockquote&gt;
+
+@see MemoryMXBean
+
+@see &lt;a href="../../../javax/management/package-summary.html"&gt;
+JMX Specification.&lt;/a&gt;
+@see &lt;a href="package-summary.html#examples"&gt;
+Ways to Access MXBeans&lt;/a&gt;
+
+@author  Mandy Chung
+@version 1.10, 04/20/04
+@since   1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="MemoryManagerMXBean" refid="_10_5_622020d_1132928307548_226527_4804"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="MemoryManagerMXBean" refid="_10_5_622020d_1132928307548_226527_4804"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

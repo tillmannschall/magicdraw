@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928306747_605053_4343"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SystemColor" refid="_9_5_f720368_1110473546596_922318_7129"/></annotatedElement><body humanName="Body" mode="s,e">A class to encapsulate symbolic colors representing the color of
+native GUI objects on a system.  For systems which support the dynamic
+update of the system colors (when the user changes the colors)
+the actual RGB values of these symbolic colors will also change
+dynamically.  In order to compare the "current" RGB value of a
+&lt;code&gt;SystemColor&lt;/code&gt; object with a non-symbolic Color object,
+&lt;code&gt;getRGB&lt;/code&gt; should be used rather than &lt;code&gt;equals&lt;/code&gt;.
+&lt;p&gt;
+Note that the way in which these system colors are applied to GUI objects
+may vary slightly from platform to platform since GUI objects may be
+rendered differently on each platform.
+&lt;p&gt;
+System color values may also be available through the &lt;code&gt;getDesktopProperty&lt;/code&gt;
+method on &lt;code&gt;java.awt.Toolkit&lt;/code&gt;.
+
+@see Toolkit#getDesktopProperty
+
+@version 	1.24, 12/19/03
+@author 	Carl Quinn
+@author      Amy Fowler
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="SystemColor" refid="_9_5_f720368_1110473546596_922318_7129"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="SystemColor" refid="_9_5_f720368_1110473546596_922318_7129"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307809_943261_4898"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Method" refid="_9_5_f720368_1110473546612_253886_7537"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;Method&lt;/code&gt; provides information about, and access to, a single method
+on a class or interface.  The reflected method may be a class method
+or an instance method (including an abstract method).
+
+&lt;p&gt;A &lt;code&gt;Method&lt;/code&gt; permits widening conversions to occur when matching the
+actual parameters to invoke with the underlying method's formal
+parameters, but it throws an &lt;code&gt;IllegalArgumentException&lt;/code&gt; if a
+narrowing conversion would occur.
+
+@see Member
+@see java.lang.Class
+@see java.lang.Class#getMethods()
+@see java.lang.Class#getMethod(String, Class[])
+@see java.lang.Class#getDeclaredMethods()
+@see java.lang.Class#getDeclaredMethod(String, Class[])
+
+@author Kenneth Russell
+@author Nakul Saraiya
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="Method" refid="_9_5_f720368_1110473546612_253886_7537"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Method" refid="_9_5_f720368_1110473546612_253886_7537"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

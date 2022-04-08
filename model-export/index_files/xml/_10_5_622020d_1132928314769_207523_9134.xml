@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314769_207523_9134"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleState" refid="_9_5_f720368_1110473546706_622971_8985"/></annotatedElement><body humanName="Body" mode="s,e">&lt;P&gt;Class AccessibleState describes a component's particular state.  The actual
+state of the component is defined as an AccessibleStateSet, which is a
+composed set of AccessibleStates.
+&lt;p&gt;The toDisplayString method allows you to obtain the localized string
+for a locale independent key from a predefined ResourceBundle for the
+keys defined in this class.
+&lt;p&gt;The constants in this class present a strongly typed enumeration
+of common object roles.  A public constructor for this class has been
+purposely omitted and applications should use one of the constants
+from this class.  If the constants in this class are not sufficient
+to describe the role of an object, a subclass should be generated
+from this class and it should provide constants in a similar manner.
+
+@version     1.38 04/15/04
+@author      Willie Walker
+@author	Peter Korn
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AccessibleState" refid="_9_5_f720368_1110473546706_622971_8985"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccessibleState" refid="_9_5_f720368_1110473546706_622971_8985"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

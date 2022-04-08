@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317412_142862_11767"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AttributeList" refid="_9_5_f720368_1110473546768_772627_10301"/></annotatedElement><body humanName="Body" mode="s,e">This class defines the attributes of an SGML element
+as described in a DTD using the ATTLIST construct.
+An AttributeList can be obtained from the Element
+class using the getAttributes() method.
+&lt;p&gt;
+It is actually an element in a linked list. Use the
+getNext() method repeatedly to enumerate all the attributes
+of an element.
+
+@see		Element
+@author      Arthur Van Hoff
+@version 	1.11 05/05/04
+
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AttributeList" refid="_9_5_f720368_1110473546768_772627_10301"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AttributeList" refid="_9_5_f720368_1110473546768_772627_10301"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

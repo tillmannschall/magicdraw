@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317683_707460_12133"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Position" refid="_9_5_f720368_1110473546784_86943_10509"/></annotatedElement><body humanName="Body" mode="s,e">Represents a location within a document.  It is intended to abstract away
+implementation details of the document and enable specification of
+positions within the document that are capable of tracking of change as
+the document is edited (i.e. offsets are fragile).
+
+@author  Timothy Prinzing
+@version 1.18 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Position" refid="_9_5_f720368_1110473546784_86943_10509"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Position" refid="_9_5_f720368_1110473546784_86943_10509"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

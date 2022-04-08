@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316040_696773_10443"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccountExpiredException" refid="_9_5_f720368_1110473546737_216511_9605"/></annotatedElement><body humanName="Body" mode="s,e">Signals that a user account has expired.
+
+&lt;p&gt; This exception is thrown by LoginModules when they determine
+that an account has expired.  For example, a &lt;code&gt;LoginModule&lt;/code&gt;,
+after successfully authenticating a user, may determine that the
+user's account has expired.  In this case the &lt;code&gt;LoginModule&lt;/code&gt;
+throws this exception to notify the application.  The application can
+then take the appropriate steps to notify the user.
+
+@version 1.18, 12/19/03
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="AccountExpiredException" refid="_9_5_f720368_1110473546737_216511_9605"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AccountExpiredException" refid="_9_5_f720368_1110473546737_216511_9605"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

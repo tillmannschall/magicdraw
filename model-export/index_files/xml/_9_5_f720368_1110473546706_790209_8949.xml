@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546706_790209_8949"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::WeakHashMap -&gt; JDK 5.0 Classes::java::util::concurrent::Map&lt;K, V&gt;]" refid="_10_5_622020d_1132928322660_659700_15152"/></clientDependency><documentation humanName="Documentation" mode="standard">A hashtable-based &lt;tt&gt;Map&lt;/tt&gt; implementation with &lt;em&gt;weak keys&lt;/em&gt;.
+An entry in a &lt;tt&gt;WeakHashMap&lt;/tt&gt; will automatically be removed when
+its key is no longer in ordinary use.  More precisely, the presence of a
+mapping for a given key will not prevent the key from being discarded by the
+garbage collector, that is, made finalizable, finalized, and then reclaimed.
+When a key has been discarded its entry is effectively removed from the map,
+so this class behaves somewhat differently than other &lt;tt&gt;Map&lt;/tt&gt;
+implementations.
+
+&lt;p&gt; Both null values and the null key are supported. This class has
+performance characteristics similar to those of the &lt;tt&gt;HashMap&lt;/tt&gt;
+class, and has the same efficiency parameters of &lt;em&gt;initial capacity&lt;/em&gt;
+and &lt;em&gt;load factor&lt;/em&gt;.
+
+&lt;p&gt; Like most collection classes, this class is not synchronized.  A
+synchronized &lt;tt&gt;WeakHashMap&lt;/tt&gt; may be constructed using the
+&lt;tt&gt;Collections.synchronizedMap&lt;/tt&gt; method.
+
+&lt;p&gt; This class is intended primarily for use with key objects whose
+&lt;tt&gt;equals&lt;/tt&gt; methods test for object identity using the
+&lt;tt&gt;==&lt;/tt&gt; operator.  Once such a key is discarded it can never be
+recreated, so it is impossible to do a lookup of that key in a
+&lt;tt&gt;WeakHashMap&lt;/tt&gt; at some later time and be surprised that its entry
+has been removed.  This class will work perfectly well with key objects
+whose &lt;tt&gt;equals&lt;/tt&gt; methods are not based upon object identity, such
+as &lt;tt&gt;String&lt;/tt&gt; instances.  With such recreatable key objects,
+however, the automatic removal of &lt;tt&gt;WeakHashMap&lt;/tt&gt; entries whose
+keys have been discarded may prove to be confusing.
+
+&lt;p&gt; The behavior of the &lt;tt&gt;WeakHashMap&lt;/tt&gt; class depends in part upon
+the actions of the garbage collector, so several familiar (though not
+required) &lt;tt&gt;Map&lt;/tt&gt; invariants do not hold for this class.  Because
+the garbage collector may discard keys at any time, a
+&lt;tt&gt;WeakHashMap&lt;/tt&gt; may behave as though an unknown thread is silently
+removing entries.  In particular, even if you synchronize on a
+&lt;tt&gt;WeakHashMap&lt;/tt&gt; instance and invoke none of its mutator methods, it
+is possible for the &lt;tt&gt;size&lt;/tt&gt; method to return smaller values over
+time, for the &lt;tt&gt;isEmpty&lt;/tt&gt; method to return &lt;tt&gt;false&lt;/tt&gt; and
+then &lt;tt&gt;true&lt;/tt&gt;, for the &lt;tt&gt;containsKey&lt;/tt&gt; method to return
+&lt;tt&gt;true&lt;/tt&gt; and later &lt;tt&gt;false&lt;/tt&gt; for a given key, for the
+&lt;tt&gt;get&lt;/tt&gt; method to return a value for a given key but later return
+&lt;tt&gt;null&lt;/tt&gt;, for the &lt;tt&gt;put&lt;/tt&gt; method to return
+&lt;tt&gt;null&lt;/tt&gt; and the &lt;tt&gt;remove&lt;/tt&gt; method to return
+&lt;tt&gt;false&lt;/tt&gt; for a key that previously appeared to be in the map, and
+for successive examinations of the key set, the value set, and the entry set
+to yield successively smaller numbers of elements.
+
+&lt;p&gt; Each key object in a &lt;tt&gt;WeakHashMap&lt;/tt&gt; is stored indirectly as
+the referent of a weak reference.  Therefore a key will automatically be
+removed only after the weak references to it, both inside and outside of the
+map, have been cleared by the garbage collector.
+
+&lt;p&gt; &lt;strong&gt;Implementation note:&lt;/strong&gt; The value objects in a
+&lt;tt&gt;WeakHashMap&lt;/tt&gt; are held by ordinary strong references.  Thus care
+should be taken to ensure that value objects do not strongly refer to their
+own keys, either directly or indirectly, since that will prevent the keys
+from being discarded.  Note that a value object may refer indirectly to its
+key via the &lt;tt&gt;WeakHashMap&lt;/tt&gt; itself; that is, a value object may
+strongly refer to some other key object whose associated value object, in
+turn, strongly refers to the key of the first value object.  One way
+to deal with this is to wrap values themselves within
+&lt;tt&gt;WeakReferences&lt;/tt&gt; before
+inserting, as in: &lt;tt&gt;m.put(key, new WeakReference(value))&lt;/tt&gt;,
+and then unwrapping upon each &lt;tt&gt;get&lt;/tt&gt;.
+
+&lt;p&gt;The iterators returned by all of this class's "collection view methods"
+are &lt;i&gt;fail-fast&lt;/i&gt;: if the map is structurally modified at any time after
+the iterator is created, in any way except through the iterator's own
+&lt;tt&gt;remove&lt;/tt&gt; or &lt;tt&gt;add&lt;/tt&gt; methods, the iterator will throw a
+&lt;tt&gt;ConcurrentModificationException&lt;/tt&gt;.  Thus, in the face of concurrent
+modification, the iterator fails quickly and cleanly, rather than risking
+arbitrary, non-deterministic behavior at an undetermined time in the
+future.
+
+&lt;p&gt;Note that the fail-fast behavior of an iterator cannot be guaranteed
+as it is, generally speaking, impossible to make any hard guarantees in the
+presence of unsynchronized concurrent modification.  Fail-fast iterators
+throw &lt;tt&gt;ConcurrentModificationException&lt;/tt&gt; on a best-effort basis.
+Therefore, it would be wrong to write a program that depended on this
+exception for its correctness:  &lt;i&gt;the fail-fast behavior of iterators
+should be used only to detect bugs.&lt;/i&gt;
+
+&lt;p&gt;This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@version	1.30, 02/19/04
+@author      Doug Lea
+@author      Josh Bloch
+@author	Mark Reinhold
+@since	1.2
+@see		java.util.HashMap
+@see		java.lang.ref.WeakReference
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322660_482853_15153"/></generalization><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::WeakHashMap -&gt; JDK 5.0 Classes::java::util::concurrent::Map&lt;K, V&gt;]" refid="_10_5_622020d_1132928322660_659700_15152"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><member humanName="Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Entry" refid="_9_5_f720368_1110473547893_12781_19597"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntryIterator" refid="_9_5_f720368_1110473547893_76828_19603"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntrySet" refid="_9_5_f720368_1110473547893_639815_19606"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="HashIterator" refid="_9_5_f720368_1110473547893_398565_19600"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyIterator" refid="_9_5_f720368_1110473547893_368826_19602"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeySet" refid="_9_5_f720368_1110473547893_380186_19604"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ValueIterator" refid="_9_5_f720368_1110473547893_669424_19601"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Values" refid="_9_5_f720368_1110473547893_646393_19605"/></member><name humanName="Name" mode="s,e">WeakHashMap</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><nestedClassifier humanName="Nested Classifier"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Entry" refid="_9_5_f720368_1110473547893_12781_19597"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntryIterator" refid="_9_5_f720368_1110473547893_76828_19603"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntrySet" refid="_9_5_f720368_1110473547893_639815_19606"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="HashIterator" refid="_9_5_f720368_1110473547893_398565_19600"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyIterator" refid="_9_5_f720368_1110473547893_368826_19602"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeySet" refid="_9_5_f720368_1110473547893_380186_19604"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ValueIterator" refid="_9_5_f720368_1110473547893_669424_19601"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Values" refid="_9_5_f720368_1110473547893_646393_19605"/></nestedClassifier><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313507_27651_7549"/></ownedComment><ownedElement humanName="Owned Element"><redefinabletemplatesignature classType="RedefinableTemplateSignature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313507_525030_7534"/><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928322660_482853_15153"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928313507_27651_7549"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Entry" refid="_9_5_f720368_1110473547893_12781_19597"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntryIterator" refid="_9_5_f720368_1110473547893_76828_19603"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntrySet" refid="_9_5_f720368_1110473547893_639815_19606"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="HashIterator" refid="_9_5_f720368_1110473547893_398565_19600"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::util::WeakHashMap -&gt; JDK 5.0 Classes::java::util::concurrent::Map&lt;K, V&gt;]" refid="_10_5_622020d_1132928322660_659700_15152"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyIterator" refid="_9_5_f720368_1110473547893_368826_19602"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeySet" refid="_9_5_f720368_1110473547893_380186_19604"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ValueIterator" refid="_9_5_f720368_1110473547893_669424_19601"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Values" refid="_9_5_f720368_1110473547893_646393_19605"/></ownedElement><ownedMember humanName="Owned Member"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Entry" refid="_9_5_f720368_1110473547893_12781_19597"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntryIterator" refid="_9_5_f720368_1110473547893_76828_19603"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="EntrySet" refid="_9_5_f720368_1110473547893_639815_19606"/><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="HashIterator" refid="_9_5_f720368_1110473547893_398565_19600"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeyIterator" refid="_9_5_f720368_1110473547893_368826_19602"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KeySet" refid="_9_5_f720368_1110473547893_380186_19604"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ValueIterator" refid="_9_5_f720368_1110473547893_669424_19601"/><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="Values" refid="_9_5_f720368_1110473547893_646393_19605"/></ownedMember><ownedTemplateSignature classType="RedefinableTemplateSignature" humanName="Owned Template Signature" humanType="Redefinable Template Signature" icon="index_files/icon_redefinabletemplatesignature_1318872564.jpg" name="" refid="_10_5_622020d_1132928313507_525030_7534"/><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="util" refid="_9_5_f720368_1110473547799_165814_19031"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::util::WeakHashMap</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Map&lt;K, V&gt;" refid="_10_5_622020d_1132928322259_617753_14428"/></realizedInterfaces><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="AbstractMap&lt;K, V&gt;" refid="_10_5_622020d_1132928322009_950717_14375"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

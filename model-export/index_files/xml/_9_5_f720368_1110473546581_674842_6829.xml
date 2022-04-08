@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_674842_6829"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::RescaleOp -&gt; JDK 5.0 Classes::java::awt::image::BufferedImageOp]" refid="_10_5_622020d_1132928321258_239172_13093"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::RescaleOp -&gt; JDK 5.0 Classes::java::awt::image::RasterOp]" refid="_10_5_622020d_1132928321258_949252_13094"/></clientDependency><documentation humanName="Documentation" mode="standard">This class performs a pixel-by-pixel rescaling of the data in the
+source image by multiplying the sample values for each pixel by a scale
+factor and then adding an offset. The scaled sample values are clipped
+to the minimum/maximum representable in the destination image.
+&lt;p&gt;
+The pseudo code for the rescaling operation is as follows:
+&lt;pre&gt;
+for each pixel from Source object {
+for each band/component of the pixel {
+dstElement = (srcElement*scaleFactor) + offset
+}
+}
+&lt;/pre&gt;
+&lt;p&gt;
+For Rasters, rescaling operates on bands.  The number of
+sets of scaling constants may be one, in which case the same constants
+are applied to all bands, or it must equal the number of Source
+Raster bands.
+&lt;p&gt;
+For BufferedImages, rescaling operates on color and alpha components.
+The number of sets of scaling constants may be one, in which case the
+same constants are applied to all color (but not alpha) components.
+Otherwise, the  number of sets of scaling constants may
+equal the number of Source color components, in which case no
+rescaling of the alpha component (if present) is performed.
+If neither of these cases apply, the number of sets of scaling constants
+must equal the number of Source color components plus alpha components,
+in which case all color and alpha components are rescaled.
+&lt;p&gt;
+BufferedImage sources with premultiplied alpha data are treated in the same
+manner as non-premultiplied images for purposes of rescaling.  That is,
+the rescaling is done per band on the raw data of the BufferedImage source
+without regard to whether the data is premultiplied.  If a color conversion
+is required to the destination ColorModel, the premultiplied state of
+both source and destination will be taken into account for this step.
+&lt;p&gt;
+Images with an IndexColorModel cannot be rescaled.
+&lt;p&gt;
+If a RenderingHints object is specified in the constructor, the
+color rendering hint and the dithering hint may be used when color
+conversion is required.
+&lt;p&gt;
+Note that in-place operation is allowed (i.e. the source and destination can
+be the same object).
+@version 10 Feb 1997
+@see java.awt.RenderingHints#KEY_COLOR_RENDERING
+@see java.awt.RenderingHints#KEY_DITHERING
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::RescaleOp -&gt; JDK 5.0 Classes::java::awt::image::BufferedImageOp]" refid="_10_5_622020d_1132928321258_239172_13093"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::RescaleOp -&gt; JDK 5.0 Classes::java::awt::image::RasterOp]" refid="_10_5_622020d_1132928321258_949252_13094"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">RescaleOp</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306106_50544_3994"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306106_50544_3994"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::RescaleOp -&gt; JDK 5.0 Classes::java::awt::image::BufferedImageOp]" refid="_10_5_622020d_1132928321258_239172_13093"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::image::RescaleOp -&gt; JDK 5.0 Classes::java::awt::image::RasterOp]" refid="_10_5_622020d_1132928321258_949252_13094"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="image" refid="_9_5_f720368_1110473547331_114238_16707"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::image::RescaleOp</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="BufferedImageOp" refid="_9_5_f720368_1110473546565_282435_6755"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="RasterOp" refid="_9_5_f720368_1110473546581_850797_6823"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

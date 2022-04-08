@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309611_131244_6230"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CollationKey" refid="_9_5_f720368_1110473546690_557076_8633"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;CollationKey&lt;/code&gt; represents a &lt;code&gt;String&lt;/code&gt; under the
+rules of a specific &lt;code&gt;Collator&lt;/code&gt; object. Comparing two
+&lt;code&gt;CollationKey&lt;/code&gt;s returns the relative order of the
+&lt;code&gt;String&lt;/code&gt;s they represent. Using &lt;code&gt;CollationKey&lt;/code&gt;s
+to compare &lt;code&gt;String&lt;/code&gt;s is generally faster than using
+&lt;code&gt;Collator.compare&lt;/code&gt;. Thus, when the &lt;code&gt;String&lt;/code&gt;s
+must be compared multiple times, for example when sorting a list
+of &lt;code&gt;String&lt;/code&gt;s. It's more efficient to use &lt;code&gt;CollationKey&lt;/code&gt;s.
+
+&lt;p&gt;
+You can not create &lt;code&gt;CollationKey&lt;/code&gt;s directly. Rather,
+generate them by calling &lt;code&gt;Collator.getCollationKey&lt;/code&gt;.
+You can only compare &lt;code&gt;CollationKey&lt;/code&gt;s generated from
+the same &lt;code&gt;Collator&lt;/code&gt; object.
+
+&lt;p&gt;
+Generating a &lt;code&gt;CollationKey&lt;/code&gt; for a &lt;code&gt;String&lt;/code&gt;
+involves examining the entire &lt;code&gt;String&lt;/code&gt;
+and converting it to series of bits that can be compared bitwise. This
+allows fast comparisons once the keys are generated. The cost of generating
+keys is recouped in faster comparisons when &lt;code&gt;String&lt;/code&gt;s need
+to be compared many times. On the other hand, the result of a comparison
+is often determined by the first couple of characters of each &lt;code&gt;String&lt;/code&gt;.
+&lt;code&gt;Collator.compare&lt;/code&gt; examines only as many characters as it needs which
+allows it to be faster when doing single comparisons.
+&lt;p&gt;
+The following example shows how &lt;code&gt;CollationKey&lt;/code&gt;s might be used
+to sort a list of &lt;code&gt;String&lt;/code&gt;s.
+&lt;blockquote&gt;
+&lt;pre&gt;
+Create an array of CollationKeys for the Strings to be sorted.
+Collator myCollator = Collator.getInstance();
+CollationKey[] keys = new CollationKey[3];
+keys[0] = myCollator.getCollationKey("Tom");
+keys[1] = myCollator.getCollationKey("Dick");
+keys[2] = myCollator.getCollationKey("Harry");
+sort( keys );
+&lt;br&gt;
+...
+&lt;br&gt;
+Inside body of sort routine, compare keys this way
+if( keys[i].compareTo( keys[j] ) &gt; 0 )
+swap keys[i] and keys[j]
+&lt;br&gt;
+...
+&lt;br&gt;
+Finally, when we've returned from sort.
+System.out.println( keys[0].getSourceString() );
+System.out.println( keys[1].getSourceString() );
+System.out.println( keys[2].getSourceString() );
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+@see          Collator
+@see          RuleBasedCollator
+@version      1.18, 05/05/04
+@author       Helena Shih
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CollationKey" refid="_9_5_f720368_1110473546690_557076_8633"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CollationKey" refid="_9_5_f720368_1110473546690_557076_8633"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

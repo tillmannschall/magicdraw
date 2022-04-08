@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317442_621096_11834"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormView" refid="_9_5_f720368_1110473546768_145830_10343"/></annotatedElement><body humanName="Body" mode="s,e">Component decorator that implements the view interface
+for form elements, &lt;input&gt;, &lt;textarea&gt;,
+and &lt;select&gt;.  The model for the component is stored
+as an attribute of the the element (using StyleConstants.ModelAttribute),
+and is used to build the component of the view.  The type
+of the model is assumed to of the type that would be set by
+&lt;code&gt;HTMLDocument.HTMLReader.FormAction&lt;/code&gt;.  If there are
+multiple views mapped over the document, they will share the
+embedded component models.
+&lt;p&gt;
+The following table shows what components get built
+by this view.
+&lt;table summary="shows what components get built by this view"&gt;
+&lt;tr&gt;
+&lt;th&gt;Element Type&lt;/th&gt;
+&lt;th&gt;Component built&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;input, type button&lt;/td&gt;
+&lt;td&gt;JButton&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;input, type checkbox&lt;/td&gt;
+&lt;td&gt;JCheckBox&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;input, type image&lt;/td&gt;
+&lt;td&gt;JButton&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;input, type password&lt;/td&gt;
+&lt;td&gt;JPasswordField&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;input, type radio&lt;/td&gt;
+&lt;td&gt;JRadioButton&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;input, type reset&lt;/td&gt;
+&lt;td&gt;JButton&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;input, type submit&lt;/td&gt;
+&lt;td&gt;JButton&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;input, type text&lt;/td&gt;
+&lt;td&gt;JTextField&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;select, size &gt; 1 or multiple attribute defined&lt;/td&gt;
+&lt;td&gt;JList in a JScrollPane&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;select, size unspecified or 1&lt;/td&gt;
+&lt;td&gt;JComboBox&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;textarea&lt;/td&gt;
+&lt;td&gt;JTextArea in a JScrollPane&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;input, type file&lt;/td&gt;
+&lt;td&gt;JTextField&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+@author Timothy Prinzing
+@author Sunita Mani
+@version 1.26 05/18/04
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="FormView" refid="_9_5_f720368_1110473546768_145830_10343"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="FormView" refid="_9_5_f720368_1110473546768_145830_10343"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928318344_602763_12745"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SAXParser" refid="_9_5_f720368_1110473546799_338315_10905"/></annotatedElement><body humanName="Body" mode="s,e">Defines the API that wraps an {@link org.xml.sax.XMLReader}
+implementation class. In JAXP 1.0, this class wrapped the
+{@link org.xml.sax.Parser} interface, however this interface was
+replaced by the {@link org.xml.sax.XMLReader}. For ease
+of transition, this class continues to support the same name
+and interface as well as supporting new methods.
+
+An instance of this class can be obtained from the
+{@link javax.xml.parsers.SAXParserFactory#newSAXParser()} method.
+Once an instance of this class is obtained, XML can be parsed from
+a variety of input sources. These input sources are InputStreams,
+Files, URLs, and SAX InputSources.&lt;p&gt;
+
+This static method creates a new factory instance based
+on a system property setting or uses the platform default
+if no property has been defined.&lt;p&gt;
+
+The system property that controls which Factory implementation
+to create is named &lt;code&gt;"javax.xml.parsers.SAXParserFactory"&lt;/code&gt;.
+This property names a class that is a concrete subclass of this
+abstract class. If no property is defined, a platform default
+will be used.&lt;/p&gt;
+
+As the content is parsed by the underlying parser, methods of the
+given {@link org.xml.sax.HandlerBase} or the
+{@link org.xml.sax.helpers.DefaultHandler} are called.&lt;p&gt;
+
+Implementors of this class which wrap an underlaying implementation
+can consider using the {@link org.xml.sax.helpers.ParserAdapter}
+class to initially adapt their SAX1 impelemntation to work under
+this revised class.
+
+@author &lt;a href="mailto:Jeff.Suttor@Sun.com"&gt;Jeff Suttor&lt;/a&gt;
+@version $Revision: 1.28.12.1.2.1 $, $Date: 2004/05/02 04:30:56 $
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="SAXParser" refid="_9_5_f720368_1110473546799_338315_10905"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="SAXParser" refid="_9_5_f720368_1110473546799_338315_10905"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

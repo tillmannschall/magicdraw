@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928314919_765467_9316"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ModelMBeanConstructorInfo" refid="_10_5_622020d_1132928314919_654467_9314"/></annotatedElement><body humanName="Body" mode="s,e">The ModelMBeanConstructorInfo object describes a constructor of the ModelMBean.
+It is a subclass of MBeanConstructorInfo with the addition of an associated Descriptor
+and an implementation of the DescriptorAccess interface.
+&lt;P&gt;
+&lt;PRE&gt;
+The fields in the descriptor are defined, but not limited to, the following: &lt;P&gt;
+name           : constructor name
+descriptorType : must be "operation"
+role           : must be "constructor"
+displayName    : human readable name of constructor
+visibility            : 1-4 where 1: always visible 4: rarely visible
+presentationString :  xml formatted string to describe how to present operation
+&lt;/PRE&gt;
+The persistPolicy and currencyTimeLimit fields are not valid for the constructor.
+The default descriptor will have the name, descriptorType, displayName and role fields.
+
+@since 1.5
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="ModelMBeanConstructorInfo" refid="_10_5_622020d_1132928314919_654467_9314"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="ModelMBeanConstructorInfo" refid="_10_5_622020d_1132928314919_654467_9314"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

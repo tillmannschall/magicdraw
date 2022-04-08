@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546690_362831_8577"><documentation humanName="Documentation" mode="standard">The mapping in the Java programming language of an SQL &lt;code&gt;REF&lt;/code&gt;
+value, which is a reference to an SQL structured type value in the database.
+&lt;P&gt;
+SQL &lt;code&gt;REF&lt;/code&gt; values are stored in a table that contains
+instances of a referenceable SQL structured type, and each &lt;code&gt;REF&lt;/code&gt;
+value is a unique identifier for one instance in that table.
+An SQL &lt;code&gt;REF&lt;/code&gt; value may be used in place of the
+SQL structured type it references, either as a column value in a
+table or an attribute value in a structured type.
+&lt;P&gt;
+Because an SQL &lt;code&gt;REF&lt;/code&gt; value is a logical pointer to an
+SQL structured type, a &lt;code&gt;Ref&lt;/code&gt; object is by default also a logical
+pointer. Thus, retrieving an SQL &lt;code&gt;REF&lt;/code&gt; value as
+a &lt;code&gt;Ref&lt;/code&gt; object does not materialize
+the attributes of the structured type on the client.
+&lt;P&gt;
+A &lt;code&gt;Ref&lt;/code&gt; object can be stored in the database using the
+&lt;code&gt;PreparedStatement.setRef&lt;/code&gt; method.
+
+@see Struct
+@since 1.2
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">Ref</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309501_201086_6178"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928309501_201086_6178"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="sql" refid="_9_5_f720368_1110473547753_914338_18866"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::sql::Ref</qualifiedName><supplierDependency humanName="Supplier Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::javax::sql::rowset::serial::SerialRef -&gt; JDK 5.0 Classes::java::sql::Ref]" refid="_10_5_622020d_1132928323371_845724_16631"/></supplierDependency><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

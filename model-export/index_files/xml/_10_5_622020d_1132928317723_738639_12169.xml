@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317723_738639_12169"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="StyledTextAction" refid="_9_5_f720368_1110473548315_920190_23205"/></annotatedElement><body humanName="Body" mode="s,e">An action that assumes it's being fired on a JEditorPane
+with a StyledEditorKit (or subclass) installed.  This has
+some convenience methods for causing character or paragraph
+level attribute changes.  The convenience methods will
+throw an IllegalArgumentException if the assumption of
+a StyledDocument, a JEditorPane, or a StyledEditorKit
+fail to be true.
+&lt;p&gt;
+The component that gets acted upon by the action
+will be the source of the ActionEvent if the source
+can be narrowed to a JEditorPane type.  If the source
+can't be narrowed, the most recently focused text
+component is changed.  If neither of these are the
+case, the action cannot be performed.
+&lt;p&gt;
+&lt;strong&gt;Warning:&lt;/strong&gt;
+Serialized objects of this class will not be compatible with
+future Swing releases. The current serialization support is
+appropriate for short term storage or RMI between applications running
+the same version of Swing.  As of 1.4, support for long term storage
+of all JavaBeans&lt;sup&gt;&lt;font size="-2"&gt;TM&lt;/font&gt;&lt;/sup&gt;
+has been added to the &lt;code&gt;java.beans&lt;/code&gt; package.
+Please see {@link java.beans.XMLEncoder}.
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="StyledTextAction" refid="_9_5_f720368_1110473548315_920190_23205"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="StyledTextAction" refid="_9_5_f720368_1110473548315_920190_23205"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

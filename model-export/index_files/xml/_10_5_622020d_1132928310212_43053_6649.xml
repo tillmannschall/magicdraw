@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310212_43053_6649"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ScheduledExecutorService" refid="_10_5_622020d_1132928310212_542420_6647"/></annotatedElement><body humanName="Body" mode="s,e">An {@link ExecutorService} that can schedule commands to run after a given
+delay, or to execute periodically.
+
+&lt;p&gt; The &lt;tt&gt;schedule&lt;/tt&gt; methods create tasks with various delays
+and return a task object that can be used to cancel or check
+execution. The &lt;tt&gt;scheduleAtFixedRate&lt;/tt&gt; and
+&lt;tt&gt;scheduleWithFixedDelay&lt;/tt&gt; methods create and execute tasks
+that run periodically until cancelled.
+
+&lt;p&gt; Commands submitted using the {@link Executor#execute} and
+{@link ExecutorService} &lt;tt&gt;submit&lt;/tt&gt; methods are scheduled with
+a requested delay of zero. Zero and negative delays (but not
+periods) are also allowed in &lt;tt&gt;schedule&lt;/tt&gt; methods, and are
+treated as requests for immediate execution.
+
+&lt;p&gt;All &lt;tt&gt;schedule&lt;/tt&gt; methods accept &lt;em&gt;relative&lt;/em&gt; delays and
+periods as arguments, not absolute times or dates. It is a simple
+matter to transform an absolute time represented as a {@link
+java.util.Date} to the required form. For example, to schedule at
+a certain future &lt;tt&gt;date&lt;/tt&gt;, you can use: &lt;tt&gt;schedule(task,
+date.getTime() - System.currentTimeMillis(),
+TimeUnit.MILLISECONDS)&lt;/tt&gt;. Beware however that expiration of a
+relative delay need not coincide with the current &lt;tt&gt;Date&lt;/tt&gt; at
+which the task is enabled due to network time synchronization
+protocols, clock drift, or other factors.
+
+The {@link Executors} class provides convenient factory methods for
+the ScheduledExecutorService implementations provided in this package.
+
+&lt;h3&gt;Usage Example&lt;/h3&gt;
+
+Here is a class with a method that sets up a ScheduledExecutorService
+to beep every ten seconds for an hour:
+
+&lt;pre&gt;
+import static java.util.concurrent.TimeUnit.*;
+class BeeperControl {
+private final ScheduledExecutorService scheduler =
+Executors.newScheduledThreadPool(1);
+
+public void beepForAnHour() {
+final Runnable beeper = new Runnable() {
+public void run() { System.out.println("beep"); }
+};
+final ScheduledFuture&lt;?&gt; beeperHandle =
+scheduler.scheduleAtFixedRate(beeper, 10, 10, SECONDS);
+scheduler.schedule(new Runnable() {
+public void run() { beeperHandle.cancel(true); }
+}, 60 * 60, SECONDS);
+}
+}
+&lt;/pre&gt;
+
+@since 1.5
+@author Doug Lea
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ScheduledExecutorService" refid="_10_5_622020d_1132928310212_542420_6647"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ScheduledExecutorService" refid="_10_5_622020d_1132928310212_542420_6647"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

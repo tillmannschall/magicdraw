@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316010_429971_10429"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KerberosKey" refid="_9_5_f720368_1110473546737_608770_9593"/></annotatedElement><body humanName="Body" mode="s,e">This class encapsulates a long term secret key for a Kerberos
+principal.&lt;p&gt;
+
+All Kerberos JAAS login modules that obtain a principal's password and
+generate the secret key from it should use this class. Where available,
+the login module might even read this secret key directly from a
+Kerberos "keytab". Sometimes, such as when authenticating a server in
+the absence of user-to-user authentication, the login module will store
+an instance of this class in the private credential set of a
+{@link javax.security.auth.Subject Subject} during the commit phase of the
+authentication process.&lt;p&gt;
+
+It might be necessary for the application to be granted a
+{@link javax.security.auth.PrivateCredentialPermission
+PrivateCredentialPermission} if it needs to access the KerberosKey
+instance from a Subject. This permission is not needed when the
+application depends on the default JGSS Kerberos mechanism to access the
+KerberosKey. In that case, however, the application will need an
+appropriate
+{@link javax.security.auth.kerberos.ServicePermission ServicePermission}.
+
+@author Mayank Upadhyay
+@version 1.17, 01/13/04
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="KerberosKey" refid="_9_5_f720368_1110473546737_608770_9593"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="KerberosKey" refid="_9_5_f720368_1110473546737_608770_9593"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

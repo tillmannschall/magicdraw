@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546612_886574_7547"><documentation humanName="Documentation" mode="standard">Thrown by a method invocation on a proxy instance if its invocation
+handler's {@link InvocationHandler#invoke invoke} method throws a
+checked exception (a &lt;code&gt;Throwable&lt;/code&gt; that is not assignable
+to &lt;code&gt;RuntimeException&lt;/code&gt; or &lt;code&gt;Error&lt;/code&gt;) that
+is not assignable to any of the exception types declared in the
+&lt;code&gt;throws&lt;/code&gt; clause of the method that was invoked on the
+proxy instance and dispatched to the invocation handler.
+
+&lt;p&gt;An &lt;code&gt;UndeclaredThrowableException&lt;/code&gt; instance contains
+the undeclared checked exception that was thrown by the invocation
+handler, and it can be retrieved with the
+&lt;code&gt;getUndeclaredThrowable()&lt;/code&gt; method.
+&lt;code&gt;UndeclaredThrowableException&lt;/code&gt; extends
+&lt;code&gt;RuntimeException&lt;/code&gt;, so it is an unchecked exception
+that wraps a checked exception.
+
+&lt;p&gt;As of release 1.4, this exception has been retrofitted to
+conform to the general purpose exception-chaining mechanism.  The
+"undeclared checked exception that was thrown by the invocation
+handler" that may be provided at construction time and accessed via
+the {@link #getUndeclaredThrowable()} method is now known as the
+&lt;i&gt;cause&lt;/i&gt;, and may be accessed via the {@link
+Throwable#getCause()} method, as well as the aforementioned "legacy
+method."
+
+@author	Peter Jones
+@version	1.13, 04/02/19
+@see		InvocationHandler
+@since	JDK1.3
+</documentation><generalization humanName="Generalization"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321618_967119_13606"/></generalization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">UndeclaredThrowableException</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="reflect" refid="_9_5_f720368_1110473547503_114953_17805"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307869_199495_4920"/></ownedComment><ownedElement humanName="Owned Element"><generalization classType="Generalization" humanType="Generalization" icon="index_files/icon_generalization_99042020.jpg" isRelationship="true" refid="_10_5_622020d_1132928321618_967119_13606"/><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928307869_199495_4920"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="reflect" refid="_9_5_f720368_1110473547503_114953_17805"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="reflect" refid="_9_5_f720368_1110473547503_114953_17805"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="reflect" refid="_9_5_f720368_1110473547503_114953_17805"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::lang::reflect::UndeclaredThrowableException</qualifiedName><superClass humanName="Super Class"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="RuntimeException" refid="_9_5_f720368_1110473546612_799782_7673"/></superClass><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315660_822603_10150"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobMessageFromOperator" refid="_9_5_f720368_1110473546721_673920_9347"/></annotatedElement><body humanName="Body" mode="s,e">Class JobMessageFromOperator is a printing attribute class, a text attribute,
+that provides a message from an operator, system administrator, or
+"intelligent" process to indicate to the end user the reasons for
+modification or other management action taken on a job.
+&lt;P&gt;
+A Print Job's attribute set includes zero instances or one instance of a
+JobMessageFromOperator attribute, not more than one instance. A new
+JobMessageFromOperator attribute replaces an existing JobMessageFromOperator
+attribute, if any. In other words, JobMessageFromOperator is not intended to
+be a history log. If it wishes, the client can detect changes to a Print
+Job's JobMessageFromOperator attribute and maintain the client's own history
+log of the JobMessageFromOperator attribute values.
+&lt;P&gt;
+&lt;B&gt;IPP Compatibility:&lt;/B&gt; The string value gives the IPP name value. The
+locale gives the IPP natural language. The category name returned by
+&lt;CODE&gt;getName()&lt;/CODE&gt; gives the IPP attribute name.
+&lt;P&gt;
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="JobMessageFromOperator" refid="_9_5_f720368_1110473546721_673920_9347"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="JobMessageFromOperator" refid="_9_5_f720368_1110473546721_673920_9347"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

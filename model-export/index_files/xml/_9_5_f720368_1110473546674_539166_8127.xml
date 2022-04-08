@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546674_539166_8127"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::rmi::activation::ActivationDesc -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321819_576569_14035"/></clientDependency><documentation humanName="Documentation" mode="standard">An activation descriptor contains the information necessary to
+activate an object: &lt;ul&gt;
+&lt;li&gt; the object's group identifier,
+&lt;li&gt; the object's fully-qualified class name,
+&lt;li&gt; the object's code location (the location of the class), a codebase URL
+path,
+&lt;li&gt; the object's restart "mode", and,
+&lt;li&gt; a "marshalled" object that can contain object specific
+initialization data. &lt;/ul&gt;
+
+&lt;p&gt;A descriptor registered with the activation system can be used to
+recreate/activate the object specified by the descriptor. The
+&lt;code&gt;MarshalledObject&lt;/code&gt; in the object's descriptor is passed
+as the second argument to the remote object's constructor for
+object to use during reinitialization/activation.
+
+@author 	Ann Wollrath
+@version	1.27, 12/19/03
+@since 	1.2
+@see         java.rmi.activation.Activatable
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::rmi::activation::ActivationDesc -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321819_576569_14035"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">true</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">true</isLeaf><name humanName="Name" mode="s,e">ActivationDesc</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="activation" refid="_9_5_f720368_1110473547690_148481_18432"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308910_605933_5590"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928308910_605933_5590"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::rmi::activation::ActivationDesc -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321819_576569_14035"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="activation" refid="_9_5_f720368_1110473547690_148481_18432"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="activation" refid="_9_5_f720368_1110473547690_148481_18432"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="activation" refid="_9_5_f720368_1110473547690_148481_18432"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::rmi::activation::ActivationDesc</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

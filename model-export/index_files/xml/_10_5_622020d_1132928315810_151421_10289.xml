@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928315810_151421_10289"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintRequestAttribute" refid="_9_5_f720368_1110473546737_975548_9471"/></annotatedElement><body humanName="Body" mode="s,e">Interface PrintRequestAttribute is a tagging interface which a printing
+attribute class implements to indicate the attribute denotes a
+requested setting for a print job.
+&lt;p&gt;
+Attributes which are tagged with PrintRequestAttribute and are also tagged
+as PrintJobAttribute, represent the subset of job attributes which
+can be part of the specification of a job request.
+&lt;p&gt;
+If an attribute implements {@link DocAttribute  DocAttribute}
+as well as PrintRequestAttribute, the client may include the
+attribute in a &lt;code&gt;Doc&lt;/code&gt;}'s attribute set to specify
+a job setting which pertains just to that doc.
+&lt;P&gt;
+
+@see DocAttributeSet
+@see PrintRequestAttributeSet
+
+@author  Alan Kaminsky
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="PrintRequestAttribute" refid="_9_5_f720368_1110473546737_975548_9471"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="PrintRequestAttribute" refid="_9_5_f720368_1110473546737_975548_9471"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

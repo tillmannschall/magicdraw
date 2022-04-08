@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928316191_913760_10580"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Soundbank" refid="_9_5_f720368_1110473546737_147853_9685"/></annotatedElement><body humanName="Body" mode="s,e">A &lt;code&gt;Soundbank&lt;/code&gt; contains a set of &lt;code&gt;Instruments&lt;/code&gt;
+that can be loaded into a &lt;code&gt;Synthesizer&lt;/code&gt;.
+Note that a Java Sound &lt;code&gt;Soundbank&lt;/code&gt; is different from a MIDI bank.
+MIDI permits up to 16383 banks, each containing up to 128 instruments
+(also sometimes called programs, patches, or timbres).
+However, a &lt;code&gt;Soundbank&lt;/code&gt; can contain 16383 times 128 instruments,
+because the instruments within a &lt;code&gt;Soundbank&lt;/code&gt; are indexed by both
+a MIDI program number and a MIDI bank number (via a &lt;code&gt;Patch&lt;/code&gt;
+object). Thus, a &lt;code&gt;Soundbank&lt;/code&gt; can be thought of as a collection
+of MIDI banks.
+&lt;p&gt;
+&lt;code&gt;Soundbank&lt;/code&gt; includes methods that return &lt;code&gt;String&lt;/code&gt;
+objects containing the sound bank's name, manufacturer, version number, and
+description.  The precise content and format of these strings is left
+to the implementor.
+&lt;p&gt;
+Different synthesizers use a variety of synthesis techniques.  A common
+one is wavetable synthesis, in which a segment of recorded sound is
+played back, often with looping and pitch change.  The Downloadable Sound
+(DLS) format uses segments of recorded sound, as does the Headspace Engine.
+&lt;code&gt;Soundbanks&lt;/code&gt; and &lt;code&gt;Instruments&lt;/code&gt; that are based on
+wavetable synthesis (or other uses of stored sound recordings) should
+typically implement the &lt;code&gt;getResources()&lt;/code&gt;
+method to provide access to these recorded segments.  This is optional,
+however; the method can return an zero-length array if the synthesis technique
+doesn't use sampled sound (FM synthesis and physical modeling are examples
+of such techniques), or if it does but the implementor chooses not to make the
+samples accessible.
+
+@see Synthesizer#getDefaultSoundbank
+@see Synthesizer#isSoundbankSupported
+@see Synthesizer#loadInstruments(Soundbank, Patch[])
+@see Patch
+@see Instrument
+@see SoundbankResource
+
+@version 1.24, 03/12/19
+@author David Rivas
+@author Kara Kytle
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="Soundbank" refid="_9_5_f720368_1110473546737_147853_9685"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Soundbank" refid="_9_5_f720368_1110473546737_147853_9685"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

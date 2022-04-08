@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_597938_6997"><documentation humanName="Documentation" mode="standard">&lt;code&gt;EventQueue&lt;/code&gt; is a platform-independent class
+that queues events, both from the underlying peer classes
+and from trusted application classes.
+&lt;p&gt;
+It encapsulates asynchronous event dispatch machinery which
+extracts events from the queue and dispatches them by calling
+{@link #dispatchEvent(AWTEvent) dispatchEvent(AWTEvent)} method
+on this &lt;code&gt;EventQueue&lt;/code&gt; with the event to be dispatched
+as an argument.  The particular behavior of this machinery is
+implementation-dependent.  The only requirements are that events
+which were actually enqueued to this queue (note that events
+being posted to the &lt;code&gt;EventQueue&lt;/code&gt; can be coalesced)
+are dispatched:
+&lt;dl&gt;
+&lt;dt&gt; Sequentially.
+&lt;dd&gt; That is, it is not permitted that several events from
+this queue are dispatched simultaneously.
+&lt;dt&gt; In the same order as they are enqueued.
+&lt;dd&gt; That is, if &lt;code&gt;AWTEvent&lt;/code&gt;&amp;nbsp;A is enqueued
+to the &lt;code&gt;EventQueue&lt;/code&gt; before
+&lt;code&gt;AWTEvent&lt;/code&gt;&amp;nbsp;B then event B will not be
+dispatched before event A.
+&lt;/dl&gt;
+&lt;p&gt;
+Some browsers partition applets in different code bases into
+separate contexts, and establish walls between these contexts.
+In such a scenario, there will be one &lt;code&gt;EventQueue&lt;/code&gt;
+per context. Other browsers place all applets into the same
+context, implying that there will be only a single, global
+&lt;code&gt;EventQueue&lt;/code&gt; for all applets. This behavior is
+implementation-dependent.  Consult your browser's documentation
+for more information.
+&lt;p&gt;
+For information on the threading issues of the event dispatch
+machinery, see &lt;a href="doc-files/AWTThreadIssues.html"&gt;AWT Threading
+Issues&lt;/a&gt;.
+
+@author Thomas Ball
+@author Fred Ecks
+@author David Mendenhall
+
+@version 	1.96, 06/28/04
+@since 	1.1
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">EventQueue</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306417_227221_4189"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306417_227221_4189"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::EventQueue</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

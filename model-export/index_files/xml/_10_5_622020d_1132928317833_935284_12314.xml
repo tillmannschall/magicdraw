@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928317833_935284_12314"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ButtonModel" refid="_9_5_f720368_1110473546784_383073_10639"/></annotatedElement><body humanName="Body" mode="s,e">State Model for buttons.
+This model is used for check boxes and radio buttons, which are
+special kinds of buttons, as well as for normal buttons.
+For check boxes and radio buttons, pressing the mouse selects
+the button. For normal buttons, pressing the mouse "arms" the
+button. Releasing the mouse over the button then initiates a
+&lt;i&gt;button&lt;/i&gt; press, firing its action event. Releasing the
+mouse elsewhere disarms the button.
+&lt;p&gt;
+In use, a UI will invoke {@link #setSelected} when a mouse
+click occurs over a check box or radio button. It will invoke
+{@link #setArmed} when the mouse is pressed over a regular
+button and invoke {@link #setPressed} when the mouse is released.
+If the mouse travels outside the button in the meantime,
+&lt;code&gt;setArmed(false)&lt;/code&gt; will tell the button not to fire
+when it sees &lt;code&gt;setPressed&lt;/code&gt;. (If the mouse travels
+back in, the button will be rearmed.)
+&lt;blockquote&gt;
+&lt;b&gt;Note: &lt;/b&gt;&lt;br&gt;
+A button is triggered when it is both "armed" and "pressed".
+&lt;/blockquote&gt;
+
+@version 1.26 12/19/03
+@author Jeff Dinkins
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="ButtonModel" refid="_9_5_f720368_1110473546784_383073_10639"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="ButtonModel" refid="_9_5_f720368_1110473546784_383073_10639"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

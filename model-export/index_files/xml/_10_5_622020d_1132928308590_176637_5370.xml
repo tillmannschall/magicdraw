@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928308590_176637_5370"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractInterruptibleChannel" refid="_9_5_f720368_1110473546643_136634_7859"/></annotatedElement><body humanName="Body" mode="s,e">Base implementation class for interruptible channels.
+
+&lt;p&gt; This class encapsulates the low-level machinery required to implement
+the asynchronous closing and interruption of channels.  A concrete channel
+class must invoke the {@link #begin begin} and {@link #end end} methods
+before and after, respectively, invoking an I/O operation that might block
+indefinitely.  In order to ensure that the {@link #end end} method is always
+invoked, these methods should be used within a
+&lt;tt&gt;try&lt;/tt&gt;&amp;nbsp;...&amp;nbsp;&lt;tt&gt;finally&lt;/tt&gt; block: &lt;a name="be"&gt;
+
+&lt;blockquote&gt;&lt;pre&gt;
+boolean completed = false;
+try {
+begin();
+completed = ...;    // Perform blocking I/O operation
+return ...;         // Return result
+} finally {
+end(completed);
+}&lt;/pre&gt;&lt;/blockquote&gt;
+
+&lt;p&gt; The &lt;tt&gt;completed&lt;/tt&gt; argument to the {@link #end end} method tells
+whether or not the I/O operation actually completed, that is, whether it had
+any effect that would be visible to the invoker.  In the case of an
+operation that reads bytes, for example, this argument should be
+&lt;tt&gt;true&lt;/tt&gt; if, and only if, some bytes were actually transferred into the
+invoker's target buffer.
+
+&lt;p&gt; A concrete channel class must also implement the {@link
+#implCloseChannel implCloseChannel} method in such a way that if it is
+invoked while another thread is blocked in a native I/O operation upon the
+channel then that operation will immediately return, either by throwing an
+exception or by returning normally.  If a thread is interrupted or the
+channel upon which it is blocked is asynchronously closed then the channel's
+{@link #end end} method will throw the appropriate exception.
+
+&lt;p&gt; This class performs the synchronization required to implement the {@link
+java.nio.channels.Channel} specification.  Implementations of the {@link
+#implCloseChannel implCloseChannel} method need not synchronize against
+other threads that might be attempting to close the channel.  &lt;/p&gt;
+
+
+@author Mark Reinhold
+@author JSR-51 Expert Group
+@version 1.15, 03/12/19
+@since 1.4
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AbstractInterruptibleChannel" refid="_9_5_f720368_1110473546643_136634_7859"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractInterruptibleChannel" refid="_9_5_f720368_1110473546643_136634_7859"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

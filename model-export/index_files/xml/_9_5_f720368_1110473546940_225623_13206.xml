@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" id="_9_5_f720368_1110473546940_225623_13206"><documentation humanName="Documentation" mode="standard">Filters are objects that know how to "filter out" nodes. If a
+&lt;code&gt;NodeIterator&lt;/code&gt; or &lt;code&gt;TreeWalker&lt;/code&gt; is given a
+&lt;code&gt;NodeFilter&lt;/code&gt;, it applies the filter before it returns the next
+node. If the filter says to accept the node, the traversal logic returns
+it; otherwise, traversal looks for the next node and pretends that the
+node that was rejected was not there.
+&lt;p&gt;The DOM does not provide any filters. &lt;code&gt;NodeFilter&lt;/code&gt; is just an
+interface that users can implement to provide their own filters.
+&lt;p&gt;&lt;code&gt;NodeFilters&lt;/code&gt; do not need to know how to traverse from node
+to node, nor do they need to know anything about the data structure that
+is being traversed. This makes it very easy to write filters, since the
+only thing they have to know how to do is evaluate a single node. One
+filter may be used with a number of different kinds of traversals,
+encouraging code reuse.
+&lt;p&gt;See also the &lt;a href='http://www.w3.org/TR/2000/REC-DOM-Level-2-Traversal-Range-20001113'&gt;Document Object Model (DOM) Level 2 Traversal and Range Specification&lt;/a&gt;.
+@since DOM Level 2
+</documentation><isAbstract humanName="Is Abstract">true</isAbstract><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">NodeFilter</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="traversal" refid="_9_5_f720368_1110473548846_582491_27601"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314478_823504_8934"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928314478_823504_8934"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="traversal" refid="_9_5_f720368_1110473548846_582491_27601"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="traversal" refid="_9_5_f720368_1110473548846_582491_27601"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="traversal" refid="_9_5_f720368_1110473548846_582491_27601"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::org::w3c::dom::traversal::NodeFilter</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility">public</visibility></interface></magicdraw>

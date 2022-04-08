@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928309181_688597_5855"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="X509CRLEntry" refid="_9_5_f720368_1110473546674_790243_8351"/></annotatedElement><body humanName="Body" mode="s,e">&lt;p&gt;Abstract class for a revoked certificate in a CRL (Certificate
+Revocation List).
+
+The ASN.1 definition for &lt;em&gt;revokedCertificates&lt;/em&gt; is:
+&lt;pre&gt;
+revokedCertificates    SEQUENCE OF SEQUENCE  {
+userCertificate    CertificateSerialNumber,
+revocationDate     ChoiceOfTime,
+crlEntryExtensions Extensions OPTIONAL
+-- if present, must be v2
+}  OPTIONAL
+&lt;p&gt;
+CertificateSerialNumber  ::=  INTEGER
+&lt;p&gt;
+Extensions  ::=  SEQUENCE SIZE (1..MAX) OF Extension
+&lt;p&gt;
+Extension  ::=  SEQUENCE  {
+extnId        OBJECT IDENTIFIER,
+critical      BOOLEAN DEFAULT FALSE,
+extnValue     OCTET STRING
+-- contains a DER encoding of a value
+-- of the type registered for use with
+-- the extnId object identifier value
+}
+&lt;/pre&gt;
+
+@see X509CRL
+@see X509Extension
+
+@author Hemma Prafullchandra
+@version 1.16 03/12/19
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="X509CRLEntry" refid="_9_5_f720368_1110473546674_790243_8351"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="X509CRLEntry" refid="_9_5_f720368_1110473546674_790243_8351"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

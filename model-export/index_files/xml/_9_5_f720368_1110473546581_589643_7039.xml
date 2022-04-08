@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546581_589643_7039"><clientDependency humanName="Client Dependency"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::GridBagLayout -&gt; JDK 5.0 Classes::java::awt::LayoutManager2]" refid="_10_5_622020d_1132928321368_452766_13256"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::GridBagLayout -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321368_880184_13257"/></clientDependency><documentation humanName="Documentation" mode="standard">The &lt;code&gt;GridBagLayout&lt;/code&gt; class is a flexible layout
+manager that aligns components vertically and horizontally,
+without requiring that the components be of the same size.
+Each &lt;code&gt;GridBagLayout&lt;/code&gt; object maintains a dynamic,
+rectangular grid of cells, with each component occupying
+one or more cells, called its &lt;em&gt;display area&lt;/em&gt;.
+&lt;p&gt;
+Each component managed by a &lt;code&gt;GridBagLayout&lt;/code&gt; is associated with
+an instance of {@link GridBagConstraints}.  The constraints object
+specifies where a component's display area should be located on the grid
+and how the component should be positioned within its display area.  In
+addition to its constraints object, the &lt;code&gt;GridBagLayout&lt;/code&gt; also
+considers each component's minimum and preferred sizes in order to
+determine a component's size.
+&lt;p&gt;
+The overall orientation of the grid depends on the container's
+{@link ComponentOrientation} property.  For horizontal left-to-right
+orientations, grid coordinate (0,0) is in the upper left corner of the
+container with x increasing to the right and y increasing downward.  For
+horizontal right-to-left orientations, grid coordinate (0,0) is in the upper
+right corner of the container with x increasing to the left and y
+increasing downward.
+&lt;p&gt;
+To use a grid bag layout effectively, you must customize one or more
+of the &lt;code&gt;GridBagConstraints&lt;/code&gt; objects that are associated
+with its components. You customize a &lt;code&gt;GridBagConstraints&lt;/code&gt;
+object by setting one or more of its instance variables:
+&lt;p&gt;
+&lt;dl&gt;
+&lt;dt&gt;{@link GridBagConstraints#gridx},
+{@link GridBagConstraints#gridy}
+&lt;dd&gt;Specifies the cell containing the leading corner of the component's
+display area, where the cell at the origin of the grid has address
+&lt;code&gt;gridx&amp;nbsp;=&amp;nbsp;0&lt;/code&gt;,
+&lt;code&gt;gridy&amp;nbsp;=&amp;nbsp;0&lt;/code&gt;.  For horizontal left-to-right layout,
+a component's leading corner is its upper left.  For horizontal
+right-to-left layout, a component's leading corner is its upper right.
+Use &lt;code&gt;GridBagConstraints.RELATIVE&lt;/code&gt; (the default value)
+to specify that the component be placed immediately following
+(along the x axis for &lt;code&gt;gridx&lt;/code&gt; or the y axis for
+&lt;code&gt;gridy&lt;/code&gt;) the component that was added to the container
+just before this component was added.
+&lt;dt&gt;{@link GridBagConstraints#gridwidth},
+{@link GridBagConstraints#gridheight}
+&lt;dd&gt;Specifies the number of cells in a row (for &lt;code&gt;gridwidth&lt;/code&gt;)
+or column (for &lt;code&gt;gridheight&lt;/code&gt;)
+in the component's display area.
+The default value is 1.
+Use &lt;code&gt;GridBagConstraints.REMAINDER&lt;/code&gt; to specify
+that the component's display area will be from &lt;code&gt;gridx&lt;/code&gt;
+to the last cell in the row (for &lt;code&gt;gridwidth&lt;/code&gt;)
+or from &lt;code&gt;gridy&lt;/code&gt; to the last cell in the column
+(for &lt;code&gt;gridheight&lt;/code&gt;).
+
+Use &lt;code&gt;GridBagConstraints.RELATIVE&lt;/code&gt; to specify
+that the component's display area will be from &lt;code&gt;gridx&lt;/code&gt;
+to the next to the last cell in its row (for &lt;code&gt;gridwidth&lt;/code&gt;
+or from &lt;code&gt;gridy&lt;/code&gt; to the next to the last cell in its
+column (for &lt;code&gt;gridheight&lt;/code&gt;).
+
+&lt;dt&gt;{@link GridBagConstraints#fill}
+&lt;dd&gt;Used when the component's display area
+is larger than the component's requested size
+to determine whether (and how) to resize the component.
+Possible values are
+&lt;code&gt;GridBagConstraints.NONE&lt;/code&gt; (the default),
+&lt;code&gt;GridBagConstraints.HORIZONTAL&lt;/code&gt;
+(make the component wide enough to fill its display area
+horizontally, but don't change its height),
+&lt;code&gt;GridBagConstraints.VERTICAL&lt;/code&gt;
+(make the component tall enough to fill its display area
+vertically, but don't change its width), and
+&lt;code&gt;GridBagConstraints.BOTH&lt;/code&gt;
+(make the component fill its display area entirely).
+&lt;dt&gt;{@link GridBagConstraints#ipadx},
+{@link GridBagConstraints#ipady}
+&lt;dd&gt;Specifies the component's internal padding within the layout,
+how much to add to the minimum size of the component.
+The width of the component will be at least its minimum width
+plus &lt;code&gt;ipadx&lt;/code&gt; pixels. Similarly, the height of
+the component will be at least the minimum height plus
+&lt;code&gt;ipady&lt;/code&gt; pixels.
+&lt;dt&gt;{@link GridBagConstraints#insets}
+&lt;dd&gt;Specifies the component's external padding, the minimum
+amount of space between the component and the edges of its display area.
+&lt;dt&gt;{@link GridBagConstraints#anchor}
+&lt;dd&gt;Used when the component is smaller than its display area
+to determine where (within the display area) to place the component.
+There are two kinds of possible values: relative and absolute.  Relative
+values are interpreted relative to the container's
+&lt;code&gt;ComponentOrientation&lt;/code&gt; property while absolute values
+are not.  Valid values are:&lt;/dd&gt;
+&lt;p&gt;
+&lt;center&gt;&lt;table BORDER=0 COLS=2 WIDTH=800 SUMMARY="absolute and relative values as described above"&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;P ALIGN="LEFT"&gt;Absolute Values&lt;/th&gt;
+&lt;th&gt;&lt;P ALIGN="LEFT"&gt;Relative Values&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.NORTH&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.SOUTH&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.WEST&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.EAST&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.NORTHWEST&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.NORTHEAST&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.SOUTHWEST&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.SOUTHEAST&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.CENTER&lt;/code&gt; (the default)&lt;/li&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.PAGE_START&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.PAGE_END&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.LINE_START&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.LINE_END&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.FIRST_LINE_START&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.FIRST_LINE_END&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.LAST_LINE_START&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GridBagConstraints.LAST_LINE_END&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;&lt;/center&gt;&lt;p&gt;
+&lt;dt&gt;{@link GridBagConstraints#weightx},
+{@link GridBagConstraints#weighty}
+&lt;dd&gt;Used to determine how to distribute space, which is
+important for specifying resizing behavior.
+Unless you specify a weight for at least one component
+in a row (&lt;code&gt;weightx&lt;/code&gt;) and column (&lt;code&gt;weighty&lt;/code&gt;),
+all the components clump together in the center of their container.
+This is because when the weight is zero (the default),
+the &lt;code&gt;GridBagLayout&lt;/code&gt; object puts any extra space
+between its grid of cells and the edges of the container.
+&lt;/dl&gt;
+&lt;p&gt;
+The following figures show ten components (all buttons)
+managed by a grid bag layout.  Figure 1 shows the layout for a horizontal,
+left-to-right container and Figure 2 shows the layout for a horizontal,
+right-to-left container.
+&lt;p&gt;
+&lt;center&gt;&lt;table COLS=2 WIDTH=600 summary="layout"&gt;
+&lt;tr ALIGN=CENTER&gt;
+&lt;td&gt;
+&lt;img src="doc-files/GridBagLayout-1.gif" alt="The preceeding text describes this graphic (Figure 1)." ALIGN=center HSPACE=10 VSPACE=7&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;img src="doc-files/GridBagLayout-2.gif" alt="The preceeding text describes this graphic (Figure 2)." ALIGN=center HSPACE=10 VSPACE=7&gt;
+&lt;/td&gt;
+&lt;tr ALIGN=CENTER&gt;
+&lt;td&gt;Figure 1: Horizontal, Left-to-Right&lt;/td&gt;
+&lt;td&gt;Figure 2: Horizontal, Right-to-Left&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;&lt;/center&gt;
+&lt;p&gt;
+Each of the ten components has the &lt;code&gt;fill&lt;/code&gt; field
+of its associated &lt;code&gt;GridBagConstraints&lt;/code&gt; object
+set to &lt;code&gt;GridBagConstraints.BOTH&lt;/code&gt;.
+In addition, the components have the following non-default constraints:
+&lt;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Button1, Button2, Button3: &lt;code&gt;weightx&amp;nbsp;=&amp;nbsp;1.0&lt;/code&gt;
+&lt;li&gt;Button4: &lt;code&gt;weightx&amp;nbsp;=&amp;nbsp;1.0&lt;/code&gt;,
+&lt;code&gt;gridwidth&amp;nbsp;=&amp;nbsp;GridBagConstraints.REMAINDER&lt;/code&gt;
+&lt;li&gt;Button5: &lt;code&gt;gridwidth&amp;nbsp;=&amp;nbsp;GridBagConstraints.REMAINDER&lt;/code&gt;
+&lt;li&gt;Button6: &lt;code&gt;gridwidth&amp;nbsp;=&amp;nbsp;GridBagConstraints.RELATIVE&lt;/code&gt;
+&lt;li&gt;Button7: &lt;code&gt;gridwidth&amp;nbsp;=&amp;nbsp;GridBagConstraints.REMAINDER&lt;/code&gt;
+&lt;li&gt;Button8: &lt;code&gt;gridheight&amp;nbsp;=&amp;nbsp;2&lt;/code&gt;,
+&lt;code&gt;weighty&amp;nbsp;=&amp;nbsp;1.0&lt;/code&gt;
+&lt;li&gt;Button9, Button 10:
+&lt;code&gt;gridwidth&amp;nbsp;=&amp;nbsp;GridBagConstraints.REMAINDER&lt;/code&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+Here is the code that implements the example shown above:
+&lt;p&gt;
+&lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;
+import java.awt.*;
+import java.util.*;
+import java.applet.Applet;
+
+public class GridBagEx1 extends Applet {
+
+protected void makebutton(String name,
+GridBagLayout gridbag,
+GridBagConstraints c) {
+Button button = new Button(name);
+gridbag.setConstraints(button, c);
+add(button);
+}
+
+public void init() {
+GridBagLayout gridbag = new GridBagLayout();
+GridBagConstraints c = new GridBagConstraints();
+
+setFont(new Font("SansSerif", Font.PLAIN, 14));
+setLayout(gridbag);
+
+c.fill = GridBagConstraints.BOTH;
+c.weightx = 1.0;
+makebutton("Button1", gridbag, c);
+makebutton("Button2", gridbag, c);
+makebutton("Button3", gridbag, c);
+
+c.gridwidth = GridBagConstraints.REMAINDER; //end row
+makebutton("Button4", gridbag, c);
+
+c.weightx = 0.0;		   //reset to the default
+makebutton("Button5", gridbag, c); //another row
+
+c.gridwidth = GridBagConstraints.RELATIVE; //next-to-last in row
+makebutton("Button6", gridbag, c);
+
+c.gridwidth = GridBagConstraints.REMAINDER; //end row
+makebutton("Button7", gridbag, c);
+
+c.gridwidth = 1;	   	   //reset to the default
+c.gridheight = 2;
+c.weighty = 1.0;
+makebutton("Button8", gridbag, c);
+
+c.weighty = 0.0;		   //reset to the default
+c.gridwidth = GridBagConstraints.REMAINDER; //end row
+c.gridheight = 1;		   //reset to the default
+makebutton("Button9", gridbag, c);
+makebutton("Button10", gridbag, c);
+
+setSize(300, 100);
+}
+
+public static void main(String args[]) {
+Frame f = new Frame("GridBag Layout Example");
+GridBagEx1 ex1 = new GridBagEx1();
+
+ex1.init();
+
+f.add("Center", ex1);
+f.pack();
+f.setSize(f.getPreferredSize());
+f.show();
+}
+}
+&lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;
+&lt;p&gt;
+@version 	1.64, 06/08/04
+@author Doug Stein
+@see       java.awt.GridBagConstraints
+@see       java.awt.ComponentOrientation
+@since JDK1.0
+</documentation><interfaceRealization humanName="Interface Realization"><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::GridBagLayout -&gt; JDK 5.0 Classes::java::awt::LayoutManager2]" refid="_10_5_622020d_1132928321368_452766_13256"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::GridBagLayout -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321368_880184_13257"/></interfaceRealization><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">GridBagLayout</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306637_734868_4228"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928306637_734868_4228"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::GridBagLayout -&gt; JDK 5.0 Classes::java::awt::LayoutManager2]" refid="_10_5_622020d_1132928321368_452766_13256"/><interfacerealization classType="InterfaceRealization" humanType="Interface Realization" icon="index_files/icon_interfacerealization_425275537.jpg" isRelationship="true" name="Interface Realization[JDK 5.0 Classes::java::awt::GridBagLayout -&gt; JDK 5.0 Classes::java::io::Serializable]" refid="_10_5_622020d_1132928321368_880184_13257"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="awt" refid="_9_5_f720368_1110473547268_701783_16331"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::GridBagLayout</qualifiedName><realizedInterfaces humanName="Realized Interface" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="LayoutManager2" refid="_9_5_f720368_1110473546581_384048_7067"/><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="Serializable" refid="_9_5_f720368_1110473546612_364919_7481"/></realizedInterfaces><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

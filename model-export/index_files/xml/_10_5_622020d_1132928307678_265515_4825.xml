@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928307678_265515_4825"><annotatedElement humanName="Annotated Element" mode="s,e"><interface classType="Interface" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="OperatingSystemMXBean" refid="_10_5_622020d_1132928307678_766185_4823"/></annotatedElement><body humanName="Body" mode="s,e">The management interface for the operating system on which
+the Java virtual machine is running.
+
+&lt;p&gt; A Java virtual machine has a single instance of the implementation
+class of this interface.  This instance implementing this interface is
+an &lt;a href="ManagementFactory.html#MXBean"&gt;MXBean&lt;/a&gt;
+that can be obtained by calling
+the {@link ManagementFactory#getOperatingSystemMXBean} method or
+from the {@link ManagementFactory#getPlatformMBeanServer
+platform &lt;tt&gt;MBeanServer&lt;/tt&gt;} method.
+
+&lt;p&gt;The &lt;tt&gt;ObjectName&lt;/tt&gt; for uniquely identifying the MXBean for
+the operating system within an MBeanServer is:
+&lt;blockquote&gt;
+{@link ManagementFactory#OPERATING_SYSTEM_MXBEAN_NAME
+&lt;tt&gt;java.lang:type=OperatingSystem&lt;/tt&gt;}
+&lt;/blockquote&gt;
+
+&lt;p&gt; This interface defines several convenient methods for accessing
+system properties about the operating system on which the Java
+virtual machine is running.
+
+@see &lt;a href="../../../javax/management/package-summary.html"&gt;
+JMX Specification.&lt;/a&gt;
+@see &lt;a href="package-summary.html#examples"&gt;
+Ways to Access MXBeans&lt;/a&gt;
+
+@author  Mandy Chung
+@version 1.9, 04/20/04
+@since   1.5
+</body><documentation humanName="Documentation"/><owner classType="Interface" humanName="Owner" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" mode="s,e" name="OperatingSystemMXBean" refid="_10_5_622020d_1132928307678_766185_4823"/><owningElement classType="Interface" humanName="Owning Element" humanType="Interface" icon="index_files/icon_interface_118881143.jpg" name="OperatingSystemMXBean" refid="_10_5_622020d_1132928307678_766185_4823"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

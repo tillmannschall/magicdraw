@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310793_495411_6941"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractList" refid="_9_5_f720368_1110473546706_235636_8821"/></annotatedElement><body humanName="Body" mode="s,e">This class provides a skeletal implementation of the &lt;tt&gt;List&lt;/tt&gt;
+interface to minimize the effort required to implement this interface
+backed by a "random access" data store (such as an array).  For sequential
+access data (such as a linked list), &lt;tt&gt;AbstractSequentialList&lt;/tt&gt; should
+be used in preference to this class.&lt;p&gt;
+
+To implement an unmodifiable list, the programmer needs only to extend this
+class and provide implementations for the &lt;tt&gt;get(int index)&lt;/tt&gt; and
+&lt;tt&gt;size()&lt;/tt&gt; methods.&lt;p&gt;
+
+To implement a modifiable list, the programmer must additionally override
+the &lt;tt&gt;set(int index, Object element)&lt;/tt&gt; method (which otherwise throws
+an &lt;tt&gt;UnsupportedOperationException&lt;/tt&gt;.  If the list is variable-size
+the programmer must additionally override the &lt;tt&gt;add(int index, Object
+element)&lt;/tt&gt; and &lt;tt&gt;remove(int index)&lt;/tt&gt; methods.&lt;p&gt;
+
+The programmer should generally provide a void (no argument) and collection
+constructor, as per the recommendation in the &lt;tt&gt;Collection&lt;/tt&gt; interface
+specification.&lt;p&gt;
+
+Unlike the other abstract collection implementations, the programmer does
+&lt;i&gt;not&lt;/i&gt; have to provide an iterator implementation; the iterator and
+list iterator are implemented by this class, on top the "random access"
+methods: &lt;tt&gt;get(int index)&lt;/tt&gt;, &lt;tt&gt;set(int index, Object element)&lt;/tt&gt;,
+&lt;tt&gt;set(int index, Object element)&lt;/tt&gt;, &lt;tt&gt;add(int index, Object
+element)&lt;/tt&gt; and &lt;tt&gt;remove(int index)&lt;/tt&gt;.&lt;p&gt;
+
+The documentation for each non-abstract methods in this class describes its
+implementation in detail.  Each of these methods may be overridden if the
+collection being implemented admits a more efficient implementation.&lt;p&gt;
+
+This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@author  Josh Bloch
+@author  Neal Gafter
+@version 1.37, 01/18/03
+@see Collection
+@see List
+@see AbstractSequentialList
+@see AbstractCollection
+@since 1.2
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_303957224.jpg" mode="s,e" name="AbstractList" refid="_9_5_f720368_1110473546706_235636_8821"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_303957224.jpg" name="AbstractList" refid="_9_5_f720368_1110473546706_235636_8821"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>

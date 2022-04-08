@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" id="_9_5_f720368_1110473546565_892056_6723"><documentation humanName="Documentation" mode="standard">An InputMethodHighlight is used to describe the highlight
+attributes of text being composed.
+The description can be at two levels:
+at the abstract level it specifies the conversion state and whether the
+text is selected; at the concrete level it specifies style attributes used
+to render the highlight.
+An InputMethodHighlight must provide the description at the
+abstract level; it may or may not provide the description at the concrete
+level.
+If no concrete style is provided, a renderer should use
+{@link java.awt.Toolkit#mapInputMethodHighlight} to map to a concrete style.
+&lt;p&gt;
+The abstract description consists of three fields: &lt;code&gt;selected&lt;/code&gt;,
+&lt;code&gt;state&lt;/code&gt;, and &lt;code&gt;variation&lt;/code&gt;.
+&lt;code&gt;selected&lt;/code&gt; indicates whether the text range is the one that the
+input method is currently working on, for example, the segment for which
+conversion candidates are currently shown in a menu.
+&lt;code&gt;state&lt;/code&gt; represents the conversion state. State values are defined
+by the input method framework and should be distinguished in all
+mappings from abstract to concrete styles. Currently defined state values
+are raw (unconverted) and converted.
+These state values are recommended for use before and after the
+main conversion step of text composition, say, before and after kana-&gt;kanji
+or pinyin-&gt;hanzi conversion.
+The &lt;code&gt;variation&lt;/code&gt; field allows input methods to express additional
+information about the conversion results.
+&lt;p&gt;
+
+InputMethodHighlight instances are typically used as attribute values
+returned from AttributedCharacterIterator for the INPUT_METHOD_HIGHLIGHT
+attribute. They may be wrapped into {@link java.text.Annotation Annotation}
+instances to indicate separate text segments.
+
+@version 	1.21, 05/05/04
+@see java.text.AttributedCharacterIterator
+@since 1.2
+</documentation><isAbstract humanName="Is Abstract" mode="s,e">false</isAbstract><isActive humanName="Is Active" mode="s,e">false</isActive><isFinalSpecialization humanName="Is Final Specialization" mode="e">false</isFinalSpecialization><isLeaf humanName="Is Leaf" mode="e">false</isLeaf><name humanName="Name" mode="s,e">InputMethodHighlight</name><namespace classType="Package" humanName="Namespace" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="im" refid="_9_5_f720368_1110473547331_32589_16695"/><ownedComment humanName="Owned Comment"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305956_251893_3888"/></ownedComment><ownedElement humanName="Owned Element"><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" refid="_10_5_622020d_1132928305956_251893_3888"/></ownedElement><owner classType="Package" humanName="Owner" humanType="Package" icon="index_files/icon_package_2000410491.jpg" mode="s,e" name="im" refid="_9_5_f720368_1110473547331_32589_16695"/><owningPackage classType="Package" humanName="Owning Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="im" refid="_9_5_f720368_1110473547331_32589_16695"/><package classType="Package" humanName="Package" humanType="Package" icon="index_files/icon_package_2000410491.jpg" name="im" refid="_9_5_f720368_1110473547331_32589_16695"/><qualifiedName humanName="Qualified Name" mode="e">JDK 5.0 Classes::java::awt::im::InputMethodHighlight</qualifiedName><TO_DO humanName="To Do" mode="s,e"/><visibility humanName="Visibility" mode="e">public</visibility></class></magicdraw>

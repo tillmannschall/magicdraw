@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><magicdraw><comment classType="Comment" humanType="Comment" icon="index_files/icon_comment_2051026490.jpg" id="_10_5_622020d_1132928310142_773535_6530"><annotatedElement humanName="Annotated Element" mode="s,e"><class classType="Class" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CopyOnWriteArraySet" refid="_10_5_622020d_1132928310132_883050_6525"/></annotatedElement><body humanName="Body" mode="s,e">A {@link java.util.Set} that uses {@link
+java.util.concurrent.CopyOnWriteArrayList} for all of its
+operations.  Thus, it shares the same basic properties:
+&lt;ul&gt;
+&lt;li&gt;It is best suited for applications in which set sizes generally
+stay small, read-only operations
+vastly outnumber mutative operations, and you need
+to prevent interference among threads during traversal.
+&lt;li&gt;It is thread-safe.
+&lt;li&gt;Mutative operations(add, set, remove, etc) are expensive
+since they usually entail copying the entire underlying array.
+&lt;li&gt;Iterators do not support the mutative remove operation.
+&lt;li&gt;Traversal via iterators is fast and cannot encounter
+interference from other threads. Iterators rely on
+unchanging snapshots of the array at the time the iterators were
+constructed.
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;b&gt;Sample Usage.&lt;/b&gt; The following code sketch uses a
+copy-on-write set to maintain a set of Handler objects that
+perform some action upon state updates.
+
+&lt;pre&gt;
+class Handler { void handle(); ... }
+
+class X {
+private final CopyOnWriteArraySet&lt;Handler&gt; handlers = new CopyOnWriteArraySet&lt;Handler&gt;();
+public void addHandler(Handler h) { handlers.add(h); }
+
+private long internalState;
+private synchronized void changeState() { internalState = ...; }
+
+public void update() {
+changeState();
+for (Handler handler : handlers)
+handler.handle();
+}
+}
+&lt;/pre&gt;
+
+&lt;p&gt;This class is a member of the
+&lt;a href="{@docRoot}/../guide/collections/index.html"&gt;
+Java Collections Framework&lt;/a&gt;.
+
+@see CopyOnWriteArrayList
+@since 1.5
+@author Doug Lea
+@param &lt;E&gt; the type of elements held in this collection
+</body><documentation humanName="Documentation"/><owner classType="Class" humanName="Owner" humanType="Class" icon="index_files/icon_class_1555793073.jpg" mode="s,e" name="CopyOnWriteArraySet" refid="_10_5_622020d_1132928310132_883050_6525"/><owningElement classType="Class" humanName="Owning Element" humanType="Class" icon="index_files/icon_class_1555793073.jpg" name="CopyOnWriteArraySet" refid="_10_5_622020d_1132928310132_883050_6525"/><TO_DO humanName="To Do" mode="s,e"/></comment></magicdraw>
